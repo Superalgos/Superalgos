@@ -1,10 +1,10 @@
-﻿exports.newIndicatorBot = function newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE) {
+﻿exports.newTradingBot = function newTradingBot(bot, logger, USER_BOT_COMMONS, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-    const MODULE_NAME = "Indicator Bot";
+    const MODULE_NAME = "Trading Bot";
 
     let thisObject = {
         initialize: initialize,
@@ -36,7 +36,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(multiPeriodDataFiles, timePeriod, outputPeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -54,13 +54,34 @@
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
             let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
-            if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
+            if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) {return} 
 
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
             if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return } 
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-            commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+            for (let j = 0; j < global.marketFilesPeriods.length; j++) {
+
+                let mapKey = marketFilesPeriods[j][1]
+                let dataFiles = multiPeriodDataFiles.get(mapKey)
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Building Dataset for timePeriod = " + mapKey); }
+
+                if (dataFiles !== undefined) {
+                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+                }
+            }
+
+            for (let j = 0; j < global.dailyFilePeriods.length; j++) {
+
+                let mapKey = global.dailyFilePeriods[j][1]
+                let dataFiles = multiPeriodDataFiles.get(mapKey)
+
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Building Dataset for timePeriod = " + mapKey); }
+
+                if (dataFiles !== undefined) {
+                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+                }
+            }
 
             /* During the third phase, we need to generate the data of the different products this process produces an output */
             for (let i = 0; i < outputDatasets.length; i++) {
@@ -101,7 +122,7 @@
             let totalFilesWritten = 0
             for (let i = 0; i < outputDatasets.length; i++) {
                 let outputDatasetNode = outputDatasets[i]
-                let outputData = products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName] 
+                let outputData = products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName]
                 let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
                 let contextSummary = {}
 
@@ -142,3 +163,4 @@
         }
     }
 };
+

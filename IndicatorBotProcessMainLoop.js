@@ -412,12 +412,12 @@
 
                                             switch (processConfig.framework.name) {
                                                 case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, UTILITIES, USER_BOT_MODULE, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE, FILE_STORAGE);
+                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, UTILITIES, USER_BOT_MODULE, FILE_STORAGE);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

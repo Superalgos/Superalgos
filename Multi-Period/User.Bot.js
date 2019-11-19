@@ -83,11 +83,11 @@
 
                         switch (i) {
                             case 0: {
-                                commons.buildPercentageBandwidthArray(dataFile, mapKey, callBackFunction);
+                                commons.buildBollingerBandsArray(dataFile, mapKey, callBackFunction);
                                 break;
                             }
                             case 1: {
-                                commons.buildBollingerBandsArray(dataFile, mapKey, callBackFunction);
+                                commons.buildPercentageBandwidthArray(dataFile, mapKey, callBackFunction);
                                 break;
                             }
                             case 2: {
@@ -121,11 +121,11 @@
 
                         switch (i) {
                             case 0: {
-                                commons.buildPercentageBandwidthArray(dataFile, mapKey, callBackFunction);
+                                commons.buildBollingerBandsArray(dataFile, mapKey, callBackFunction);
                                 break;
                             }
                             case 1: {
-                                commons.buildBollingerBandsArray(dataFile, mapKey, callBackFunction);
+                                commons.buildPercentageBandwidthArray(dataFile, mapKey, callBackFunction);
                                 break;
                             }
                             case 2: {

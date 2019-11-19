@@ -1,4 +1,4 @@
-﻿exports.newTradingBot = function newTradingBot(bot, logger, USER_BOT_COMMONS, UTILITIES, FILE_STORAGE) {
+﻿exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -8,6 +8,7 @@
 
     let thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -18,6 +19,13 @@
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
 
     return thisObject;
+
+    function finalize() {
+        thisObject = undefined
+        utilities = undefined
+        fileStorage = undefined
+        commons = undefined
+    }
 
     function initialize(callBackFunction) {
 
@@ -42,7 +50,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let products = {}
+            let chart = {}
             let mainDependency = {}
             let processingDailyFiles
 
@@ -62,24 +70,33 @@
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
             for (let j = 0; j < global.marketFilesPeriods.length; j++) {
 
-                let mapKey = marketFilesPeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(mapKey)
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Building Dataset for timePeriod = " + mapKey); }
+                let timePeriodLabel = marketFilesPeriods[j][1]
+                let dataFiles = multiPeriodDataFiles.get(timePeriodLabel)
+                let products = {}
+
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files for timePeriod = " + timePeriodLabel); }
 
                 if (dataFiles !== undefined) {
                     commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+
+                    let propertyName = 'at' + timePeriodLabel.replace('-', '');
+                    chart[propertyName] = products
                 }
             }
 
             for (let j = 0; j < global.dailyFilePeriods.length; j++) {
 
-                let mapKey = global.dailyFilePeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(mapKey)
+                let timePeriodLabel = global.dailyFilePeriods[j][1]
+                let dataFiles = multiPeriodDataFiles.get(timePeriodLabel)
+                let products = {}
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Building Dataset for timePeriod = " + mapKey); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files for timePeriod = " + timePeriodLabel); }
 
                 if (dataFiles !== undefined) {
                     commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+
+                    let propertyName = 'at' + timePeriodLabel.replace('-', '');
+                    chart[propertyName] = products
                 }
             }
 

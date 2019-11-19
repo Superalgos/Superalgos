@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, UTILITIES, USER_BOT_MODULE, FILE_STORAGE) {
+﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;

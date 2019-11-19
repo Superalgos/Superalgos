@@ -6,7 +6,7 @@
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
-    let COMMONS_MODULE;
+    let USER_BOT_COMMONS;
 
     const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
     const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
@@ -81,9 +81,9 @@
                         return;
                     }
 
-                    COMMONS_MODULE = {}
-                    //COMMONS_MODULE.newCommons = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
-                    COMMONS_MODULE.newCommons = eval(text); // Use this for production
+                    USER_BOT_COMMONS = {}
+                    //USER_BOT_COMMONS.newCommons = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Commons').newCommons // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
+                    USER_BOT_COMMONS.newCommons = eval(text); // Use this for production
 
                     session.initialize(onSessionInitialized) 
 
@@ -673,18 +673,8 @@
                                             }
 
                                             switch (processConfig.framework.name) {
-                                                case 'Multi-Period-Market': {
-                                                    processFramework = MULTI_PERIOD_MARKET.newMultiPeriodMarket(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
-                                                    intitializeProcessFramework();
-                                                    break;
-                                                }
-                                                case 'Multi-Period-Daily': {
-                                                    processFramework = MULTI_PERIOD_DAILY.newMultiPeriodDaily(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
-                                                    intitializeProcessFramework();
-                                                    break;
-                                                }
                                                 case 'Multi-Period': {
-                                                    processFramework = MULTI_PERIOD.newMultiPeriod(bot, logger, COMMONS_MODULE, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE);
+                                                    processFramework = MULTI_PERIOD.newMultiPeriod(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

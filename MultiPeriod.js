@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriod = function newMultiPeriod(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriod = function newMultiPeriod(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -20,7 +20,7 @@
     let dataFiles = [];
     let multiPeriodDataFiles = new Map();
 
-    let usertBot;
+    let botInstance;
 
     const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
@@ -60,8 +60,10 @@
 
             }
 
-            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
-            usertBot.initialize(callBackFunction, pAssistant);
+            let USER_BOT_MODULE = require("./TradingBot")
+
+            botInstance = USER_BOT_MODULE.newTradingBot(bot, logger, UTILITIES, FILE_STORAGE);
+            botInstance.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
@@ -75,8 +77,8 @@
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
         dataDependencies = undefined
-        usertBot.finalize() 
-        usertBot = undefined
+        botInstance.finalize() 
+        botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -839,7 +841,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriodsDailyFiles -> callTheBot -> Entering function."); }
                              
-                            usertBot.start(
+                            botInstance.start(
                                 multiPeriodDataFiles,
                                 currentTimePeriod,
                                 currentOutputPeriodName,

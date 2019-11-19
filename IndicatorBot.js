@@ -8,6 +8,7 @@
 
     let thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     };
 
@@ -18,6 +19,13 @@
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
 
     return thisObject;
+
+    function finalize() {
+        thisObject = undefined
+        utilities = undefined
+        fileStorage = undefined
+        commons = undefined
+    }
 
     function initialize(callBackFunction) {
 

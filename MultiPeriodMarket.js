@@ -15,7 +15,7 @@
     let statusDependencies;
     let dataDependencies;
     let datasets = [];
-    let dataFiles = [];
+    let dataFiles = new Map();
 
     let botInstance;
 
@@ -151,7 +151,7 @@
                             const outputPeriodLabel = global.marketFilesPeriods[n][1];
 
                             let dependencyIndex = 0;
-                            dataFiles = [];
+                            dataFiles = new Map;
 
                             dependencyLoopBody();
 
@@ -198,7 +198,7 @@
                                                     }
 
                                                     let dataFile = JSON.parse(text);
-                                                    dataFiles.push(dataFile);
+                                                    dataFiles.set(dependency.id, dataFile);
 
                                                     dependencyControlLoop();
 

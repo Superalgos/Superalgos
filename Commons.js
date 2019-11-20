@@ -24,21 +24,21 @@
     function validateDataDependencies(dataDependencies, callBackFunction) {
         for (let i = 0; i < dataDependencies.length; i++) {
 
-            let dataDependencyNode = dataDependencies[i].referenceParent
+            let dataDependencyNode = dataDependencies[i] 
 
             /* Basic validations to see if we have everything we need. */
-            if (dataDependencyNode.parentNode.code.singularVariableName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.parentNode));
+            if (dataDependencyNode.referenceParent.parentNode.code.singularVariableName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-            if (dataDependencyNode.parentNode.code.pluralVariableName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.parentNode));
+            if (dataDependencyNode.referenceParent.parentNode.code.pluralVariableName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Plural Variable Name defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-            if (dataDependencyNode.parentNode.record === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataDependencyNode.parentNode));
+            if (dataDependencyNode.referenceParent.parentNode.record === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Record Definition. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -71,9 +71,7 @@
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                return
+                logger.write(MODULE_NAME, "[WARN] start -> Product Definition without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
             }
             if (outputDatasetNode.referenceParent.code.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
@@ -128,25 +126,28 @@
         */
         for (let i = 0; i < dataDependencies.length; i++) {
 
-            let dataFile = dataFiles[i]
+            let dataFile 
             let jsonData        // Datafile converted into Json objects
             let inputData       // Includes calculated properties
             let singularVariableName    // name of the variable for this product
             let recordDefinition
 
-            let dataDependencyNode = dataDependencies[i].referenceParent
+            let dataDependencyNode = dataDependencies[i] 
+            dataFile = dataFiles.get(dataDependencyNode.id)
 
-            recordDefinition = dataDependencyNode.parentNode.record
-            singularVariableName = dataDependencyNode.parentNode.code.singularVariableName
+            if (dataFile === undefined) { continue } // When a datafile is not found it might be because we are processing market or daily and at the dependency array there are both types mixed up.
+
+            recordDefinition = dataDependencyNode.referenceParent.parentNode.record
+            singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
             /* Transform the raw data into JSON objects */
             jsonData = jsonifyDataFile(dataFile, recordDefinition)
             /* Add the calculated properties */
-            if (dataDependencyNode.parentNode.calculations !== undefined) {
-                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.parentNode.calculations, singularVariableName, timePeriod)
+            if (dataDependencyNode.referenceParent.parentNode.calculations !== undefined) {
+                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
             } else {
                 inputData = jsonData
             }
-            products[dataDependencyNode.parentNode.code.pluralVariableName] = inputData
+            products[dataDependencyNode.referenceParent.parentNode.code.pluralVariableName] = inputData
 
             /* The main dependency is defined as the first dependency processed. */
             if (mainDependency.records === undefined) {

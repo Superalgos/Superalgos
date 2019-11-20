@@ -258,7 +258,18 @@
         return results
     }
 
-    function dataBuildingProcedure(products, mainDependency, recordDefinition, dataBuildingProcedure, variableName, timePeriod, resultsWithIrregularPeriods) {
+    function dataBuildingProcedure(
+        products,
+        mainDependency,
+        recordDefinition,
+        dataBuildingProcedure,
+        variableName,
+        timePeriod,
+        resultsWithIrregularPeriods,
+        interExecutionMemory,
+        processingDailyFiles,
+        currentDay
+        ) {
 
         /* 
             This function has as an input the products object, with all the information
@@ -267,6 +278,8 @@
             a new set of information.
         */
 
+        let lastInstantOfTheDay 
+        let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timePeriod: timePeriod,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
@@ -287,9 +300,24 @@
             }
         }
 
+        if (processingDailyFiles) {
+            /* Initialization of Last Instance */
+            lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+
+            if (interExecutionMemory.variable === undefined) {
+                /* The first time the intialization variables goes to the Inter Execution Memory. */
+                interExecutionMemory.variable = JSON.parse(JSON.stringify(variable))
+            }
+            else {
+                /* We override the initialization, since the valid stuff is already at the Inter Execution Memory */
+                variable = JSON.parse(JSON.stringify(interExecutionMemory.variable)) 
+            }
+        }
+
         /* This is Initialization Code */
         if (dataBuildingProcedure.loop !== undefined) {
             if (dataBuildingProcedure.loop.code !== undefined) {
+                let lastRecord
                 for (let index = 0; index < mainDependency.records.length; index++) {
 
                     let record = {
@@ -297,9 +325,15 @@
                         current: mainDependency.records[index],
                         next: mainDependency.records[index + 1]
                     }
-
+                    lastRecord = record
                     let product = {}
                     product[variableName] = {}
+
+                    /* Here is how we know if we are processing Yesterday. */
+                    let positionedAtYesterday = false
+                    if (processingDailyFiles) {
+                        positionedAtYesterday = (record.current.end < currentDay.valueOf())
+                    }
 
                     /* This is Loop Code */
                     try {
@@ -336,6 +370,22 @@
                     if (resultsWithIrregularPeriods !== true) {
                         /* Adding the new element to the resulting array */
                         results.push(product[variableName]);
+                    }
+
+                    /* While we are positioned at Yesterday, we keey updating this data structure. */
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.variable = JSON.parse(JSON.stringify(variable))
+                        }
+                    }
+                }
+                /*
+                    Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
+                    To do that, the condition to be met is that this execution must include all candles of the current day.
+                */
+                if (processingDailyFiles) {
+                    if (lastRecord.current.end === lastInstantOfTheDay) {
+                        interExecutionMemory.variable = JSON.parse(JSON.stringify(yesterday.variable))
                     }
                 }
             }

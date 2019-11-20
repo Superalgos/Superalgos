@@ -94,7 +94,18 @@
                 }
 
                 /* Build the data */
-                jsonData = commons.dataBuildingProcedure(products, mainDependency, recordDefinition, outputDatasetNode.referenceParent.parentNode.dataBuilding, singularVariableName, timePeriod, resultsWithIrregularPeriods)
+                jsonData = commons.dataBuildingProcedure(
+                    products,
+                    mainDependency,
+                    recordDefinition,
+                    outputDatasetNode.referenceParent.parentNode.dataBuilding,
+                    singularVariableName,
+                    timePeriod,
+                    resultsWithIrregularPeriods,
+                    interExecutionMemory,
+                    processingDailyFiles,
+                    currentDay
+                )
 
                 /* Add the calculated properties */
                 if (outputDatasetNode.referenceParent.parentNode.calculations !== undefined) {

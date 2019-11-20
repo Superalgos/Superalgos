@@ -55,6 +55,9 @@
     <Compile Include="TradingBotProcessMainLoop.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TradingSimulation.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\logger.js">
       <SubType>Code</SubType>
     </Compile>

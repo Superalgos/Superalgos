@@ -18,6 +18,8 @@
     const COMMONS = require('./Commons.js');
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
 
+    let assistant;
+
     return thisObject;
 
     function finalize() {
@@ -27,7 +29,7 @@
         commons = undefined
     }
 
-    function initialize(callBackFunction) {
+    function initialize(pAssistant, callBackFunction) {
 
         try {
 
@@ -36,6 +38,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
+            assistant = pAssistant;
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
@@ -44,7 +47,7 @@
         }
     }
 
-    function start(multiPeriodDataFiles, timePeriod, outputPeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(multiPeriodDataFiles, timePeriod, timePeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -100,72 +103,90 @@
                 }
             }
 
-            /* During the third phase, we need to generate the data of the different products this process produces an output */
-            for (let i = 0; i < outputDatasets.length; i++) {
+            const TRADING_SIMULATION = require('./TradingSimulation.js');
+            let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);
 
-                let outputDatasetNode = outputDatasets[i]
-                let jsonData                        // Just build data as Json objects
-                let outputData                      // Data built as a result of applying user defined code and formulas at the Data Building Procedure
-                let singularVariableName            // Name of the variable for this product
-                let recordDefinition                // Record as defined by the user at the UI
-                let fileContent                     // Here we store the contents of the new data built just before writing it to a file.
-                let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
+            tradingSimulation.runSimulation(
+                chart,
+                dataDependencies,
+                timePeriod,
+                timePeriodLabel,
+                currentDay,
+                interExecutionMemory,
+                assistant,
+                onSimulationFinished,
+                callBackFunction)
 
-                /*
-                For each outputDatasetNode in our process output, we will build the information based on our input products.
-                */
 
-                recordDefinition = outputDatasetNode.referenceParent.parentNode.record
-                singularVariableName = outputDatasetNode.referenceParent.parentNode.code.singularVariableName
+            function onSimulationFinished() {
+                console.log("Finished")
 
-                /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
-                    resultsWithIrregularPeriods = true
+                /* During the third phase, we need to generate the data of the different products this process produces an output */
+                for (let i = 0; i < outputDatasets.length; i++) {
+
+                    let outputDatasetNode = outputDatasets[i]
+                    let jsonData                        // Just build data as Json objects
+                    let outputData                      // Data built as a result of applying user defined code and formulas at the Data Building Procedure
+                    let singularVariableName            // Name of the variable for this product
+                    let recordDefinition                // Record as defined by the user at the UI
+                    let fileContent                     // Here we store the contents of the new data built just before writing it to a file.
+                    let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
+
+                    /*
+                    For each outputDatasetNode in our process output, we will build the information based on our input products.
+                    */
+
+                    recordDefinition = outputDatasetNode.referenceParent.parentNode.record
+                    singularVariableName = outputDatasetNode.referenceParent.parentNode.code.singularVariableName
+
+                    /* Check Irregular Periods */
+                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                        resultsWithIrregularPeriods = true
+                    }
+
+                    /* Build the data */
+                    jsonData = commons.dataBuildingProcedure(products, mainDependency, recordDefinition, outputDatasetNode.referenceParent.parentNode.dataBuilding, singularVariableName, timePeriod, resultsWithIrregularPeriods)
+
+                    /* Add the calculated properties */
+                    if (outputDatasetNode.referenceParent.parentNode.calculations !== undefined) {
+                        outputData = commons.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
+                    } else {
+                        outputData = jsonData
+                    }
+                    products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName] = outputData
                 }
 
-                /* Build the data */
-                jsonData = commons.dataBuildingProcedure(products, mainDependency, recordDefinition, outputDatasetNode.referenceParent.parentNode.dataBuilding, singularVariableName, timePeriod, resultsWithIrregularPeriods)
+                /*At the fourth and last phase, we will save the new information generated into files corresponding to each output outputDatasetNode.*/
+                let totalFilesWritten = 0
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let outputData = products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName]
+                    let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
+                    let contextSummary = {}
 
-                /* Add the calculated properties */
-                if (outputDatasetNode.referenceParent.parentNode.calculations !== undefined) {
-                    outputData = commons.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
-                } else {
-                    outputData = jsonData
+                    /* Check Irregular Periods */
+                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                        resultsWithIrregularPeriods = true
+                    }
+
+                    /* Simplifying the access to basic info */
+
+                    contextSummary.dataset = outputDatasetNode.referenceParent.code.codeName
+                    contextSummary.product = outputDatasetNode.referenceParent.parentNode.code.codeName
+                    contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.code.codeName
+                    contextSummary.devTeam = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+
+                    /* This stuff is still hardcoded and unresolved. */
+                    contextSummary.botVersion = {
+                        "major": 1,
+                        "minor": 0
+                    }
+                    contextSummary.dataSetVersion = "dataSet.V1"
+
+                    let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, callBackFunction)
+                    commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, callBackFunction)
                 }
-                products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName] = outputData
             }
-
-            /*At the fourth and last phase, we will save the new information generated into files corresponding to each output outputDatasetNode.*/
-            let totalFilesWritten = 0
-            for (let i = 0; i < outputDatasets.length; i++) {
-                let outputDatasetNode = outputDatasets[i]
-                let outputData = products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName]
-                let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
-                let contextSummary = {}
-
-                /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
-                    resultsWithIrregularPeriods = true
-                }
-
-                /* Simplifying the access to basic info */
-
-                contextSummary.dataset = outputDatasetNode.referenceParent.code.codeName
-                contextSummary.product = outputDatasetNode.referenceParent.parentNode.code.codeName
-                contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.code.codeName
-                contextSummary.devTeam = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
-
-                /* This stuff is still hardcoded and unresolved. */
-                contextSummary.botVersion = {
-                    "major": 1,
-                    "minor": 0
-                }
-                contextSummary.dataSetVersion = "dataSet.V1"
-
-                let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, callBackFunction)
-                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, outputPeriodLabel, callBackFunction)
-            }
-
 
             function anotherFileWritten() {
                 totalFilesWritten++

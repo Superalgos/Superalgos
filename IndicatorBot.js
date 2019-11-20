@@ -44,7 +44,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, outputPeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(dataFiles, timePeriod, timePeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -133,7 +133,7 @@
                 contextSummary.dataSetVersion = "dataSet.V1"
 
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, callBackFunction)
-                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, outputPeriodLabel, callBackFunction)
+                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, callBackFunction)
             }
 
 

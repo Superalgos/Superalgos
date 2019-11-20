@@ -164,6 +164,7 @@
         */
 
         let jsonifiedArray = []
+        let previous;
 
         for (let i = 0; i < dataFile.length; i++) {
 
@@ -175,7 +176,9 @@
                 }
             }
 
+            record.previous = previous;
             jsonifiedArray.push(record);
+            previous = record;
         }
 
         return jsonifiedArray
@@ -405,7 +408,7 @@
         }
     }
 
-    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, outputPeriodLabel, callBackFunction) {
+    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, callBackFunction) {
 
         try {
 
@@ -420,7 +423,7 @@
             }
 
             let filePathRoot = contextSummary.devTeam + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + contextSummary.dataSetVersion;
-            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + outputPeriodLabel + dateForPath;
+            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timePeriodLabel + dateForPath;
             filePath += '/' + fileName
 
             fileStorage.createTextFile(contextSummary.devTeam, filePath, fileContent + '\n', onFileCreated);

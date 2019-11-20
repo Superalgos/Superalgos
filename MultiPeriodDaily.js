@@ -370,16 +370,16 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
                             const timePeriod = global.dailyFilePeriods[n][0];
-                            const outputPeriodLabel = global.dailyFilePeriods[n][1];
+                            const timePeriodLabel = global.dailyFilePeriods[n][1];
 
                             if (processConfig.framework.validPeriods !== undefined) {
                                 let validPeriod = false;
                                 for (let i = 0; i < processConfig.framework.validPeriods.length; i++) {
                                     let period = processConfig.framework.validPeriods[i];
-                                    if (period === outputPeriodLabel) { validPeriod = true }
+                                    if (period === timePeriodLabel) { validPeriod = true }
                                 }
                                 if (validPeriod === false) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for not being listed as a valid period. -> outputPeriodLabel = " + outputPeriodLabel); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for not being listed as a valid period. -> timePeriodLabel = " + timePeriodLabel); }
                                     periodsControlLoop();
                                     return;
                                 }
@@ -418,7 +418,7 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timePeriodLabel + "/" + dateForPath;
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
                                             }
@@ -488,7 +488,7 @@
                                             let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timePeriodLabel + "/" + dateForPath;
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
@@ -586,12 +586,12 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
                                     const timePeriod = global.dailyFilePeriods[n][0];
-                                    const outputPeriodLabel = global.dailyFilePeriods[n][1];
+                                    const timePeriodLabel = global.dailyFilePeriods[n][1];
 
                                     botInstance.start(
                                         dataFiles,
                                         timePeriod,
-                                        outputPeriodLabel,
+                                        timePeriodLabel,
                                         bot.multiPeriodDailyProcessDatetime,
                                         interExecutionMemoryArray[n],
                                         onBotFinished);

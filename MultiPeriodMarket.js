@@ -148,7 +148,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
                             const timePeriod = global.marketFilesPeriods[n][0];
-                            const outputPeriodLabel = global.marketFilesPeriods[n][1];
+                            const timePeriodLabel = global.marketFilesPeriods[n][1];
 
                             let dependencyIndex = 0;
                             dataFiles = new Map;
@@ -177,7 +177,7 @@
 
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Market") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel;
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timePeriodLabel;
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
@@ -253,12 +253,12 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
                                     const timePeriod = global.marketFilesPeriods[n][0];
-                                    const outputPeriodLabel = global.marketFilesPeriods[n][1];
+                                    const timePeriodLabel = global.marketFilesPeriods[n][1];
 
                                     botInstance.start(
                                         dataFiles,
                                         timePeriod,
-                                        outputPeriodLabel,
+                                        timePeriodLabel,
                                         undefined,
                                         undefined,
                                         onBotFinished);

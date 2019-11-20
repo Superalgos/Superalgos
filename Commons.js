@@ -386,11 +386,11 @@
                     let property = recordDefinition.properties[j]
                     if (property.code.isCalculated !== true) {
                         fileContent = fileContent + propertySeparator
-                        if (property.code.isNumeric !== true) {
+                        if (property.code.isString === true) {
                             fileContent = fileContent + '"'
                         }
                         fileContent = fileContent + record[property.code.codeName]
-                        if (property.code.isNumeric !== true) {
+                        if (property.code.isString === true) {
                             fileContent = fileContent + '"'
                         }
                         if (propertySeparator === "") { propertySeparator = ","; }

@@ -464,7 +464,7 @@
             let lastCandle = candles[candles.length - 1];
 
             /* Main Simulation Loop: We go thourgh all the candles at this time period. */
-            let i
+            let candlesIndex
 
             /* For Loop Level heartbeat */
             let loopingDay
@@ -482,11 +482,11 @@
                 let diff = targetEnd - firstEnd
                 let amount = diff / timePeriod
 
-                i = Math.trunc(amount)
-                if (i < 0) { i = 0 }
-                if (i > candles.length - 1) {
+                candlesIndex = Math.trunc(amount)
+                if (candlesIndex < 0) { candlesIndex = 0 }
+                if (candlesIndex > candles.length - 1) {
                     /* This will happen when the bot.VALUES_TO_USE.timeRange.initialDatetime is beyond the last candle available, meaning that the dataSet needs to be updated with more up-to-date data. */
-                    i = candles.length - 1
+                    candlesIndex = candles.length - 1
                 }
 
                 loop()
@@ -495,9 +495,9 @@
             function loop() {
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + i); }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + candlesIndex); }
 
-                let candle = candles[i];
+                let candle = candles[candlesIndex];
 
                 /* Not processing while out of user-defined time range */
 
@@ -569,8 +569,8 @@
 
                     let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + processingDate) }
-                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + i + " @ " + processingDate)
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + candlesIndex + " @ " + processingDate) }
+                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + candlesIndex + " @ " + processingDate)
 
                     bot.sessionHeartBeat(processingDate) // tell the world we are alive and doing well
                 }
@@ -600,9 +600,9 @@
                         yesterday.periods = periods
                     }
 
-                    /* We skip the candle at the head of the market because i has not closed yet. */
+                    /* We skip the candle at the head of the market because candlesIndex has not closed yet. */
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
-                    if (i === candles.length - 1) {
+                    if (candlesIndex === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet."); }
@@ -614,7 +614,7 @@
                     }
 
                 } else { // We are processing Market Files
-                    if (i === candles.length - 1) {
+                    if (candlesIndex === candles.length - 1) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet."); }
                         controlLoop();
                         return
@@ -1916,7 +1916,7 @@
                     }
 
                     /* Check if we need to execute. */
-                    if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
+                    if (candlesIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
                         if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
@@ -2180,7 +2180,7 @@
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
-                    if (i > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
+                    if (candlesIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
                         if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
@@ -2605,7 +2605,7 @@
 
                     if (
                         (currentStrategy.begin !== 0 && currentStrategy.end !== 0) ||
-                        (currentStrategy.begin !== 0 && i === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
+                        (currentStrategy.begin !== 0 && candlesIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
                     ) {
 
                         strategiesArray.push(currentStrategy);
@@ -2637,7 +2637,7 @@
 
                     if (
                         (currentTrade.begin !== 0 && currentTrade.end !== 0) ||
-                        (currentTrade.begin !== 0 && i === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
+                        (currentTrade.begin !== 0 && candlesIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
                     ) {
 
                         currentTrade.profit = lastTradeProfitLoss;
@@ -2756,8 +2756,8 @@
                     return
                 }
 
-                i++
-                if (i < candles.length) {
+                candlesIndex++
+                if (candlesIndex < candles.length) {
                     setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
                 } else {
                     afterLoop()

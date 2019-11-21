@@ -286,12 +286,19 @@ function newProductsPanel () {
       for (let n = 0; n < tradingBotInstances.length; n++) {
         let tradingBotInstance = tradingBotInstances[n]
         let code
-        try {
-          code = JSON.parse(tradingBotInstance.code)
-        } catch (err) {
-            // if we can not parse this, then we ignore this trading engine.
-        }
-        if (code !== undefined) {
+        let instanceBot
+        let instanceTeam
+
+        for (let m = 0; m < tradingBotInstance.processes.length; m++) {
+          let process = tradingBotInstance.processes[m]
+          try {
+            code = JSON.parse(process.payload.referenceParent.payload.parentNode.code)
+            instanceBot = code.codeName
+            code = JSON.parse(process.payload.referenceParent.payload.parentNode.payload.parentNode.code)
+            instanceTeam = code.codeName
+          } catch (err) {
+            continue
+          }
           for (let i = 0; i < ecosystem.devTeams.length; i++) {
             let devTeam = ecosystem.devTeams[i]
 
@@ -299,37 +306,34 @@ function newProductsPanel () {
               let bot = devTeam.bots[j]
               if (bot.type !== 'Trading Bot Instance') { continue }
 
-              if (devTeam.codeName === code.team && bot.codeName === code.bot) {
+              if (devTeam.codeName === instanceTeam && bot.codeName === instanceBot) {
                   /* We found an instance of the same Trading we are currently looking at.
                   Next thing to do is to see its layers to see if we can match it with the current product. */
 
-                for (let m = 0; m < tradingBotInstance.processes.length; m++) {
-                  let process = tradingBotInstance.processes[m]
-                  if (process.session !== undefined) {
-                    if (process.session.layerManager !== undefined) {
-                      let layerManager = process.session.layerManager
+                if (process.session !== undefined) {
+                  if (process.session.layerManager !== undefined) {
+                    let layerManager = process.session.layerManager
 
-                      if (bot.products !== undefined) {
-                        for (let k = 0; k < bot.products.length; k++) {
-                          let product = bot.products[k]
+                    if (bot.products !== undefined) {
+                      for (let k = 0; k < bot.products.length; k++) {
+                        let product = bot.products[k]
 
-                          for (let p = 0; p < layerManager.layers.length; p++) {
-                            let layer = layerManager.layers[p]
-                            let layerCode
-                            try {
-                              layerCode = JSON.parse(layer.code)
-                            } catch (err) {
+                        for (let p = 0; p < layerManager.layers.length; p++) {
+                          let layer = layerManager.layers[p]
+                          let layerCode
+                          try {
+                            layerCode = JSON.parse(layer.code)
+                          } catch (err) {
                               // if we can not parse this, then we ignore this trading engine.
-                            }
+                          }
 
-                            if (product.codeName === layerCode.product) {
+                          if (product.codeName === layerCode.product) {
                               /* We have a layer that is matching the current product */
-                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
-                              let cardFound = removeFromLocalProductCards(cardCode)
-                              if (cardFound !== true) {
-                                productCard = addProductCard(devTeam, bot, product, process.session)
-                                onProductCardStatusChanged(productCard)
-                              }
+                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+                            let cardFound = removeFromLocalProductCards(cardCode)
+                            if (cardFound !== true) {
+                              productCard = addProductCard(devTeam, bot, product, process.session)
+                              onProductCardStatusChanged(productCard)
                             }
                           }
                         }

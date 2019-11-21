@@ -2697,17 +2697,17 @@
                             if (periods > lastPeriodAnnounced) {
 
                                 /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
-                                let valueVariantion
+                                let valueVariation
                                 try {
                                     let code = JSON.parse(announcement.code)
-                                    valueVariantion = code.valueVariantion
+                                    valueVariation = code.valueVariation
                                 } catch (err) {
                                     announcement.error = err.message
                                 }
 
-                                if (newAnnouncementRecord.value !== undefined && valueVariantion !== undefined) {
-                                    let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariantion / 100
-                                    let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariantion / 100
+                                if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
+                                    let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
+                                    let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100
                                     if (value > lowerLimit && value < upperLimit) {
                                         /* There is not enough variation to announce this again. */
                                         return

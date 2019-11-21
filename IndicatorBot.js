@@ -143,8 +143,8 @@
                 }
                 contextSummary.dataSetVersion = "dataSet.V1"
 
-                let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, callBackFunction)
-                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, callBackFunction)
+                let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
+                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, currentDay, callBackFunction)
             }
 
 

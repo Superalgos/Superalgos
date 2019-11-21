@@ -393,7 +393,7 @@
         return results
     }
 
-    function generateFileContent(records, recordDefinition, resultsWithIrregularPeriods, processingDailyFiles, callBackFunction) {
+    function generateFileContent(records, recordDefinition, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction) {
 
         try {
 
@@ -458,7 +458,7 @@
         }
     }
 
-    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, callBackFunction) {
+    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, currentDay, callBackFunction) {
 
         try {
 

@@ -43,7 +43,11 @@
 
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                session.initialize(onSessionInitialized)
+
+                function onSessionInitialized(err) {
+                    callBackFunction(err);
+                }
                 return
             }
 

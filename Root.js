@@ -140,47 +140,12 @@
             let botConfig;
             let processInstance = global.TASK_NODE.bot.processes[processIndex]
 
-            /* Some very basic validations that we have all the information needed. */
-            if (processInstance.referenceParent === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Process Instance without Reference Parent. Process Instance = " + JSON.stringify(processInstance));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
-            if (processInstance.referenceParent.code.codeName === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(processInstance.referenceParent));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
-            if (processInstance.referenceParent.parentNode === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Process Definition not attached to a Bot Definition. Process Definition = " + JSON.stringify(processInstance.referenceParent));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
-            if (processInstance.referenceParent.parentNode.code.codeName === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Bot Definition witn no codeName defined. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
-            if (processInstance.referenceParent.parentNode.parentNode === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Bot Definition not attached to a Team. Bot Definition = " + JSON.stringify(processInstance.referenceParent.parentNode));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
-            if (processInstance.referenceParent.parentNode.parentNode.code.codeName === undefined) {
-                console.log(logDisplace + "Root : [INFO] start ->  Team witn no codeName defined. Team = " + JSON.stringify(processInstance.referenceParent.parentNode.parentNode));
-                global.EXIT_NODE_PROCESS()
-                return
-            }
-
             /* Here we will check if we need to load the configuration and code of the bot from a file or we will take that from the UI. */
             if (
                 processInstance.referenceParent.code.framework !== undefined &&
-                (processInstance.referenceParent.code.framework.name === 'Multi-Period-Market' || processInstance.referenceParent.code.framework.name === 'Multi-Period-Daily')
+                (   processInstance.referenceParent.code.framework.name === 'Multi-Period-Market' ||
+                    processInstance.referenceParent.code.framework.name === 'Multi-Period-Daily' ||
+                    processInstance.referenceParent.code.framework.name === 'Multi-Period')
                 ) {
                 botConfig = processInstance.referenceParent.parentNode.code
                 botConfig.definedByUI = true
@@ -199,16 +164,16 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.code.team + '/bots/' + global.TASK_NODE.bot.code.repo + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName + '/bots/' + global.TASK_NODE.bot.code.repo + '/this.bot.config.json';
 
-                    fileStorage.getTextFile(global.TASK_NODE.bot.code.team, filePath, onFileReceived);
+                    fileStorage.getTextFile(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> team = " + global.TASK_NODE.bot.code.team);
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> team = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName);
                             return;
                         }
 

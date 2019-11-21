@@ -75,13 +75,6 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
     for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
         let code = global.TASK_NODE.bot.processes[i].code
-
-        /* Delete the event handler for each process. */
-
-        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
-
-        global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
-
         let process = global.TASK_NODE.bot.processes[i]
 
         key = process.name + '-' + process.type + '-' + process.id
@@ -183,25 +176,35 @@ function bootLoader() {
 
         /* Validate that the minimun amount of parameters required are defined. */
 
-        if (global.TASK_NODE.bot.code.bot === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' at the Indicator | Sensor | Trading is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.bot.code.team === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' at the bot is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].code.process === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' at object Process is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
-        /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            continue
+        }
 
-        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
-        global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            continue
+        }
 
         startRoot(processIndex);
     }

@@ -491,9 +491,9 @@
                                     if (socialBot.type === code.botType && socialBot.id === code.botId) {
                                         if (socialBot.type === "Telegram Bot") {
                                             if (announcement.formulaValue !== undefined) {
-                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue)
+                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
                                             } else {
-                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text)
+                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
                                             }
                                         }
                                     }
@@ -523,7 +523,7 @@
                     const Telegram = require('telegraf/telegram')
                     let telegramAPI
                     telegramAPI = new Telegram(botToken)
-                    telegramAPI.sendMessage(chatId, bot.SESSION.type + " '" + bot.SESSION.name + "' was Started.")
+                    telegramAPI.sendMessage(chatId, bot.SESSION.type + " '" + bot.SESSION.name + "' was Started.").catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpTelegramBot -> Telegram API error -> err = " + err))
 
                     let botInstance = {
                         telegramBot: telegramBot,

@@ -107,6 +107,7 @@ function newFloatingSpace () {
     }
 
     thisObject.container.displace(displaceVector)
+    return displaceVector
   }
 
   function oneScreenDown () {
@@ -116,6 +117,7 @@ function newFloatingSpace () {
     }
 
     thisObject.container.displace(displaceVector)
+    return displaceVector
   }
 
   function oneScreenLeft () {
@@ -125,6 +127,7 @@ function newFloatingSpace () {
     }
 
     thisObject.container.displace(displaceVector)
+    return displaceVector
   }
 
   function oneScreenRight () {
@@ -134,6 +137,7 @@ function newFloatingSpace () {
     }
 
     thisObject.container.displace(displaceVector)
+    return displaceVector
   }
 
   function positionAtNode (node) {

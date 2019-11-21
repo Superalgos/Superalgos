@@ -47,6 +47,7 @@ function newCanvas () {
 
   let splashScreen
   let lastContainerMouseOver
+
   return thisObject
 
   function finalize () {
@@ -71,6 +72,9 @@ function newCanvas () {
       browserCanvas.removeEventListener('drop', onDragDrop, false)
 
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
+
+      splashScreen = undefined
+      lastContainerMouseOver = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -242,22 +246,34 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
-      canvas.floatingSpace.oneScreenLeft()
+      let displaceVector = canvas.floatingSpace.oneScreenLeft()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
-      canvas.floatingSpace.oneScreenRight()
+      let displaceVector = canvas.floatingSpace.oneScreenRight()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
-      canvas.floatingSpace.oneScreenUp()
+      let displaceVector = canvas.floatingSpace.oneScreenUp()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
-      canvas.floatingSpace.oneScreenDown()
+      let displaceVector = canvas.floatingSpace.oneScreenDown()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
@@ -557,6 +573,7 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
+      /* Processing the event */
       let point = {
         x: event.pageX,
         y: event.pageY - CURRENT_TOP_MARGIN
@@ -784,11 +801,6 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
-        let point = {
-          x: event.pageX,
-          y: event.pageY - CURRENT_TOP_MARGIN
-        }
-
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 

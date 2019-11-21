@@ -2222,19 +2222,6 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process Instance',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process Instance',
-            visible: true,
-            relatedUiObject: 'Process Instance',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Edit Sensor Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Sensor Bot Instance',
@@ -2244,10 +2231,23 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Sensor Bot Instance',
@@ -2289,19 +2289,6 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process Instance',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process Instance',
-            visible: true,
-            relatedUiObject: 'Process Instance',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Edit Indicator Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Indicator Bot Instance',
@@ -2311,10 +2298,23 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
           }
             )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+          )
         menuItemsInitialValues.push(
           {
             action: 'Delete Indicator Bot Instance',
@@ -2356,19 +2356,6 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process Instance',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process Instance',
-            visible: true,
-            relatedUiObject: 'Process Instance',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
             action: 'Edit Trading Bot Instance',
             actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Trading Bot Instance',
@@ -2378,8 +2365,21 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
           }
           )
         menuItemsInitialValues.push(

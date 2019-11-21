@@ -24,7 +24,7 @@
     let bollingerChannelsAt = {}
     let bollingerSubChannelsAt = {}
     let candlesAt = {}
-    let processingDailyFiles
+
 
     return thisObject;
 
@@ -49,7 +49,7 @@
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
-
+            let processingDailyFiles
             if (timePeriod > global.dailyFilePeriods[0][0]) {
                 processingDailyFiles = false
             } else {

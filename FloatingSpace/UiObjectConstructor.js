@@ -312,7 +312,7 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Bot',
+            action: 'Edit Team',
             actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Bot',
             visible: true,

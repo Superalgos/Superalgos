@@ -186,7 +186,7 @@ function newFloatingObject () {
   function frozenPhysics () {
     if (thisObject.frozenManually === false) {
       let parent = thisObject.payload.chainParent
-      if (parent !== undefined) {
+      if (parent !== undefined && parent.payload !== undefined) {
         thisObject.isFrozen = parent.payload.floatingObject.isFrozen
       }
     }

@@ -1332,25 +1332,41 @@
                     
                     function onSaved(err) {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
+                        try {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> onSaved -> Entering function."); }
 
-                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
-                            callBackFunction(err);
-                            return;
-                        }
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
+                                callBackFunction(err);
+                                return;
+                            }
 
-                        /*
-                        If we are at the same month of the begining of the market, we need to create the main status report file.
-                        We will re-create it even every time the month status report is created. When this month check finished, other months later
-                        will update it.
-                        */
+                            /*
+                            If we are at the same month of the begining of the market, we need to create the main status report file.
+                            We will re-create it even every time the month status report is created. When this month check finished, other months later
+                            will update it.
+                            */
 
-                        if (processDate.getUTCMonth() === datetimeLastFileHistoricTrade.getUTCMonth() && processDate.getUTCFullYear() === datetimeLastFileHistoricTrade.getUTCFullYear()) {
+                            if (processDate.getUTCMonth() === datetimeLastFileHistoricTrade.getUTCMonth() && processDate.getUTCFullYear() === datetimeLastFileHistoricTrade.getUTCFullYear()) {
 
-                            createMainStatusReport(lastTradeDatetime, lastTradeId, onMainReportCreated);
+                                createMainStatusReport(lastTradeDatetime, lastTradeId, onMainReportCreated);
 
-                            function onMainReportCreated() {
+                                function onMainReportCreated() {
+
+                                    if (monthChecked === true) {
+
+                                        let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                                        let statusReport = statusDependencies.statusReports.get(key);
+                                        statusReport.verifyMarketComplete(callBack);
+                                        return;
+
+                                    } else {
+                                        callBack(global.DEFAULT_OK_RESPONSE);
+                                        return;
+                                    }
+                                }
+
+                            } else {
 
                                 if (monthChecked === true) {
 
@@ -1364,20 +1380,10 @@
                                     return;
                                 }
                             }
-
-                        } else {
-
-                            if (monthChecked === true) {
-
-                                let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
-                                let statusReport = statusDependencies.statusReports.get(key);
-                                statusReport.verifyMarketComplete(callBack);
-                                return;
-
-                            } else {
-                                callBack(global.DEFAULT_OK_RESPONSE);
-                                return;
-                            }
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            return;
                         }
                     }
 

@@ -25,6 +25,10 @@
     <Compile Include="Assistant.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commons.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IndicatorBot.js" />
     <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="FileStorage.js" />
     <Compile Include="MultiPeriod.js">
@@ -36,10 +40,22 @@
     <Compile Include="MultiPeriodMarket.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ProcessExecutionEvents.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessOutput.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Session.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TradingEngineProcessMainLoop.js">
+    <Compile Include="TradingBot.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TradingBotProcessMainLoop.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TradingSimulation.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="utils\logger.js">

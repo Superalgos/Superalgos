@@ -19,7 +19,8 @@ exports.newFileStorage = function newFileStorage(logger) {
 
     let thisObject = {
         getTextFile: getTextFile,
-        createTextFile: createTextFile
+        createTextFile: createTextFile,
+        deleteTextFile: deleteTextFile
     }
 
   return thisObject
@@ -191,6 +192,60 @@ exports.newFileStorage = function newFileStorage(logger) {
             logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> Error writing file -> file = ' + fileLocation)
             logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> Error writing file -> err = ' + err.stack)
             retry()
+        }
+
+        function retry() {
+            if (currentRetryWriteTextFile < MAX_RETRY) {
+                currentRetryWriteTextFile++
+                logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
+                createTextFile(container, filePath, fileContent, callBackFunction)
+            } else {
+                currentRetryWriteTextFile = 0
+                logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')
+                logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> file = ' + fileLocation)
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            }
+        }
+    }
+
+    function deleteTextFile(container, filePath, callBackFunction) {
+
+        logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> Entering Function.')
+
+        container = container.toLowerCase()
+
+        /* Choose path for either logs or data */
+        let fileLocation
+        if (filePath.indexOf("/Logs/") > 0) {
+            fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
+        } else {
+            fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+        }
+
+        try {
+
+            logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> fileLocation: ' + fileLocation)
+
+            const fs = require('fs')
+            fs.unlink(fileLocation, onUnlinked)
+
+            function onUnlinked(err) {
+                if (err) {
+                    if (callBackFunction !== undefined) {
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                    }
+                } else {
+                    if (callBackFunction !== undefined) {
+                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                    }
+                }
+            }
+        } catch (err) {
+            logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> Error writing file -> file = ' + fileLocation)
+            logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> Error writing file -> err = ' + err.stack)
+            if (callBackFunction !== undefined) {
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+            }
         }
 
         function retry() {

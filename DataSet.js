@@ -1,6 +1,6 @@
 exports.newDataSet = function newDataSet(BOT, logger) {
 
-    const MODULE_NAME = "Data Set";
+    const MODULE_NAME = "Dataset";
 
     let bot = BOT;
 
@@ -10,7 +10,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
         createTextFile: createTextFile
     };
 
-    let dependencyConfig;
+    let dataDependencyNode;
 
     /* Storage account to be used here. */
 
@@ -19,16 +19,76 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
     return thisObject;
 
-    function initialize(pDependencyConfig, callBackFunction) {
+    function initialize(pDataDependencyNode, callBackFunction) {
 
         try {
 
-
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            logger.fileName = MODULE_NAME + "." + pDependencyConfig.bot + "." + pDependencyConfig.product + "." + pDependencyConfig.dataSet;
+            dataDependencyNode = pDataDependencyNode;
+            logger.fileName = MODULE_NAME + "." + dataDependencyNode.type + "." + dataDependencyNode.name + "." + dataDependencyNode.id;
 
-            dependencyConfig = pDependencyConfig;
+            /* Some very basic validations that we have all the information needed. */
+            if (dataDependencyNode.referenceParent === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent. Data Dependency = " + JSON.stringify(dataDependencyNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(dataDependencyNode.referenceParent));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset not attached to a Product Definition. Dataset = " + JSON.stringify(dataDependencyNode.referenceParent));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition not attached to a Bot. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Team. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Team witn no codeName defined. Team = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            /* Simplifying the access to basic info */
+            dataDependencyNode.dataSet = dataDependencyNode.referenceParent.code.codeName
+            dataDependencyNode.product = dataDependencyNode.referenceParent.parentNode.code.codeName
+            dataDependencyNode.bot = dataDependencyNode.referenceParent.parentNode.parentNode.code.codeName
+            dataDependencyNode.devTeam = dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+
+            /* This stuff is still hardcoded and unresolved. */
+            dataDependencyNode.botVersion = {
+                "major": 1,
+                "minor": 0
+            }
+            dataDependencyNode.dataSetVersion = "dataSet.V1"
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -44,11 +104,11 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePathRoot = dataDependencyNode.devTeam + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
-            fileStorage.getTextFile(dependencyConfig.devTeam, filePath, onFileReceived);
+            fileStorage.getTextFile(dataDependencyNode.devTeam, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -72,7 +132,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName); }
 
-            let ownerId = dependencyConfig.devTeam + "-" + dependencyConfig.bot + "-" + dependencyConfig.botVersion.major + "-" + dependencyConfig.botVersion.minor + "-" + dependencyConfig.dataSetVersion;
+            let ownerId = dataDependencyNode.devTeam + "-" + dataDependencyNode.bot + "-" + dataDependencyNode.botVersion.major + "-" + dataDependencyNode.botVersion.minor + "-" + dataDependencyNode.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
@@ -86,10 +146,10 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = dependencyConfig.devTeam + "/" + dependencyConfig.bot + "." + dependencyConfig.botVersion.major + "." + dependencyConfig.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dependencyConfig.dataSetVersion;
+            let filePathRoot = dataDependencyNode.devTeam + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
-            fileStorage.createTextFile(dependencyConfig.devTeam, filePath, pFileContent, onFileCreated);
+            fileStorage.createTextFile(dataDependencyNode.devTeam, filePath, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
 

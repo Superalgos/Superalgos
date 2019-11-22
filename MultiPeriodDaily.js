@@ -1,4 +1,4 @@
-﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, COMMONS, UTILITIES, USER_BOT_MODULE, COMMONS_MODULE) {
+﻿exports.newMultiPeriodDaily = function newMultiPeriodDaily(bot, logger, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -16,12 +16,11 @@
 
     let statusDependencies;
     let dataDependencies;
-    let storages = [];
-    let dataFiles = [];
+    let datasets = [];
+    let dataFiles = new Map;
 
-    let usertBot;
+    let botInstance;
 
-    const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let bootstrappingTheProcess = false 
@@ -30,7 +29,7 @@
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, pAssistant, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, callBackFunction) {
 
         try {
 
@@ -43,11 +42,11 @@
             dataDependencies = pDataDependencies;
             processConfig = pProcessConfig;
 
-            for (let i = 0; i < dataDependencies.config.length; i++) {
+            for (let i = 0; i < dataDependencies.nodeArray.length; i++) {
 
                 let key;
-                let storage;
-                let dependency = dataDependencies.config[i];
+                let dataset;
+                let dependency = dataDependencies.nodeArray[i];
 
                 key = dependency.devTeam + "-" +
                     dependency.bot + "-" +
@@ -55,14 +54,16 @@
                     dependency.dataSet + "-" +
                     dependency.dataSetVersion
 
-                storage = dataDependencies.dataSets.get(key);
+                dataset = dataDependencies.dataSets.get(key);
 
-                storages.push(storage);
+                datasets.push(dataset);
 
             }
 
-            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage);
-            usertBot.initialize(dataDependencies, callBackFunction, pAssistant);
+            let USER_BOT_MODULE = require("./IndicatorBot")
+
+            botInstance = USER_BOT_MODULE.newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE);
+            botInstance.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
@@ -71,11 +72,11 @@
     }
 
     function finalize() {
-        storages = undefined
+        datasets = undefined
         dataFiles = undefined
         statusDependencies = undefined
         dataDependencies = undefined
-        usertBot = undefined
+        botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -126,12 +127,7 @@
                             We look first for the bot who knows the begining of the marke in order to get when the market starts.
                         */
 
-                        let botWhoKnowsTheBeginingOfTheMarket = statusDependencies.config[processConfig.framework.startDate.takeItFromStatusDependency];
-
-                        reportKey = botWhoKnowsTheBeginingOfTheMarket.devTeam + "-" + botWhoKnowsTheBeginingOfTheMarket.bot + "-" + botWhoKnowsTheBeginingOfTheMarket.process + "-" + "dataSet.V1";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                        statusReport = statusDependencies.statusReports.get(reportKey);
+                        statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -145,7 +141,7 @@
                             return;
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file;
 
                         if (thisReport.lastFile === undefined) {
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -168,7 +164,7 @@
 
                         /* The ending date is fixed, we will end there. */
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined endDate. -> endDate = " + processConfig.framework.endDate.fixedDate); }
-                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
+                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate); 
 
                     } else {
 
@@ -176,12 +172,7 @@
                           Here we get the status report from the bot who knows which is the end of the market.
                         */
 
-                        let botWhoKnowsTheEndOfTheMarket = statusDependencies.config[processConfig.framework.endDate.takeItFromStatusDependency];
-
-                        reportKey = botWhoKnowsTheEndOfTheMarket.devTeam + "-" + botWhoKnowsTheEndOfTheMarket.bot + "-" + botWhoKnowsTheEndOfTheMarket.process + "-" + "dataSet.V1";
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                        statusReport = statusDependencies.statusReports.get(reportKey);
+                        statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -195,7 +186,7 @@
                             return;
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file;
 
                         if (thisReport.lastFile === undefined) {
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
@@ -214,10 +205,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -231,7 +219,7 @@
                         return;
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file;
 
                     if (thisReport.lastFile !== undefined) {
 
@@ -382,23 +370,23 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Entering function."); }
 
                             const timePeriod = global.dailyFilePeriods[n][0];
-                            const outputPeriodLabel = global.dailyFilePeriods[n][1];
+                            const timePeriodLabel = global.dailyFilePeriods[n][1];
 
                             if (processConfig.framework.validPeriods !== undefined) {
                                 let validPeriod = false;
                                 for (let i = 0; i < processConfig.framework.validPeriods.length; i++) {
                                     let period = processConfig.framework.validPeriods[i];
-                                    if (period === outputPeriodLabel) { validPeriod = true }
+                                    if (period === timePeriodLabel) { validPeriod = true }
                                 }
                                 if (validPeriod === false) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for not being listed as a valid period. -> outputPeriodLabel = " + outputPeriodLabel); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> Discarding period for not being listed as a valid period. -> timePeriodLabel = " + timePeriodLabel); }
                                     periodsControlLoop();
                                     return;
                                 }
                             }
 
                             let dependencyIndex = 0;
-                            dataFiles = [];
+                            dataFiles = new Map();
 
                             dependencyLoopBody();
 
@@ -408,8 +396,8 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
-                                    let dependency = dataDependencies.config[dependencyIndex];
-                                    let storage = storages[dependencyIndex];
+                                    let dependency = dataDependencies.nodeArray[dependencyIndex];
+                                    let dataset = datasets[dependencyIndex];
 
                                     let previousFile;
                                     let currentFile;
@@ -430,13 +418,13 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timePeriodLabel + "/" + dateForPath;
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
                                             }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -500,13 +488,13 @@
                                             let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + outputPeriodLabel + "/" + dateForPath;
+                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timePeriodLabel + "/" + dateForPath;
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
                                             let fileName = market.assetA + '_' + market.assetB + ".json";
 
-                                            storage.getTextFile(filePath, fileName, onFileReceived);
+                                            dataset.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -545,7 +533,7 @@
 
                                                     let dataFile = previousFile.concat(currentFile);
 
-                                                    dataFiles.push(dataFile);
+                                                    dataFiles.set(dependency.id, dataFile);
                                                     dependencyControlLoop();
 
                                                 }
@@ -575,7 +563,7 @@
 
                                     dependencyIndex++;
 
-                                    if (dependencyIndex < dataDependencies.config.length) {
+                                    if (dependencyIndex < dataDependencies.nodeArray.length) {
 
                                         dependencyLoopBody();
 
@@ -598,15 +586,13 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimePeriods -> periodsLoopBody -> callTheBot -> Entering function."); }
 
                                     const timePeriod = global.dailyFilePeriods[n][0];
-                                    const outputPeriodLabel = global.dailyFilePeriods[n][1];
+                                    const timePeriodLabel = global.dailyFilePeriods[n][1];
 
-                                    usertBot.start(
+                                    botInstance.start(
                                         dataFiles,
                                         timePeriod,
-                                        outputPeriodLabel,
+                                        timePeriodLabel,
                                         bot.multiPeriodDailyProcessDatetime,
-                                        contextVariables.dateBeginOfMarket,
-                                        contextVariables.dateEndOfMarket,
                                         interExecutionMemoryArray[n],
                                         onBotFinished);
 
@@ -701,21 +687,19 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
-                    let productIndex = 0;
-                    productLoopBody();
+                    let outputDatasetIndex = -1;
+                    controlLoop();
 
                     function productLoopBody() {
-
-                        let folderName = bot.products[productIndex].codeName;
-
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, folderName, controlLoop);
+                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodDailyProcessDatetime, productCodeName, controlLoop);
                     }
 
                     function controlLoop() {
 
-                        productIndex++;
+                        outputDatasetIndex++;
 
-                        if (productIndex < bot.products.length) {
+                        if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
                             productLoopBody();
                         } else {
                             callBack(global.DEFAULT_OK_RESPONSE);
@@ -729,7 +713,7 @@
 
             }
 
-            function writeDataRange(pBegin, pEnd, pProductFolder, callBack) {
+            function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
 
                 try {
 
@@ -743,7 +727,7 @@
                     let fileContent = JSON.stringify(dataRange);
 
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
-                    let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process + fileName;
+                    let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
 
                     fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
 

@@ -53,35 +53,37 @@ process.on('exit', function (code) {
     console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
-/*
+/* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
+process.on('message', message => {
+    if (message === 'Stop this Task') {
 
-We read the first string sent as an argument when the process was created by the Task Manager. Ther we will find the information of the identity
-of this Task and know exactly what to run within this server instance. 
+        global.STOP_TASK_GRACEFULLY = true;
 
-*/
-global.TASK_NODE = process.argv[2]
+        /*
+        There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
+        In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
+        */
+        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minute.')
+        setTimeout(global.EXIT_NODE_PROCESS, 60000);
+    } 
+});
 
-if (global.TASK_NODE !== undefined) {
+global.EXIT_NODE_PROCESS = function exitProcess() {
 
-    try {
-        global.TASK_NODE = JSON.parse(global.TASK_NODE)
-        console.log('[INFO] Task Server -> server -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
-    } catch (err) {
-        console.log('[ERROR] Task Server -> server -> global.TASK_NODE -> ' + err.stack)
+    /* Cleaning Before Exiting. */
+    clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
+
+    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
+        let code = global.TASK_NODE.bot.processes[i].code
+        let process = global.TASK_NODE.bot.processes[i]
+
+        key = process.name + '-' + process.type + '-' + process.id
+        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
-}
-else {  // I use this section to debug in standalone mode.
-    let argument = '{"type":"Task","name":"Runs Backtests","bot":{"type":"Trading Engine","code":{"team":"AAMasters","bot":"AAJason","repo":"AAJason-Trading-Engine-Bot"},"processes":[{"type":"Process","subType":"Trading Engine Process","name":"Multi Period","code":{"process":"Multi-Period"},"session":{"type":"Backtesting Session","name":"Backtest 01","code":{"folderName":"Backtest-01"},"parameters":{"type":"Parameters","name":"Parameters","baseAsset":{"type":"Base Asset","name":"Base Asset","code":{"name":"BTC","initialBalance":0.001,"minimumBalance":0.0001,"maximumBalance":1},"id":"666f6f10-2f17-4f5e-951c-b532bdb574d2"},"timeRange":{"type":"Time Range","name":"Time Range","code":{"initialDatetime":"2019-09-24T00:00:00.000Z","finalDatetime":"2019-09-27T00:00:00.000Z"},"id":"172958dd-b268-4444-8163-70979538ea6e"},"timePeriod":{"type":"Time Period","name":"Time Period","code":"10-min","id":"37ee839d-9a7c-410c-9251-c33b8f1b99f7"},"slippage":{"type":"Slippage","name":"Slippage","code":{"positionRate":0.1,"stopLoss":0.1,"takeProfit":0.1},"id":"86ebd973-6ad9-4070-aece-a87623f24c2e"},"feeStructure":{"type":"Fee Structure","name":"Fee Structure","code":{"maker":0.15,"taker":0.25},"id":"a0ec3f6f-6047-4740-87fe-393b1c714adb"},"key":{"type":"Exchange Account Key","name":"New Key","code":"Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.","id":"368f879d-e363-47c7-b55e-7b927d896b20"},"id":"09db5e1e-a7e8-468c-ad70-0d2ab1c8b8b8"},"layerManager":{"type":"Layer Manager","name":"New Layer Manager","layers":[{"type":"Layer","name":"Live","code":{"product":"Live-Trading-History"},"id":"0ec05e1c-230b-44a1-9f2c-fba0ea2ff9e2"},{"type":"Layer","name":"Trades","code":{"product":"Simulation-Trades"},"id":"6326e03a-96c0-4d21-b877-f2c6a0419fc5"},{"type":"Layer","name":"Strategies","code":{"product":"Simulation-Strategies"},"id":"bda1e06c-e569-4bd5-95fb-90154aafb003"},{"type":"Layer","name":"Simulation","code":{"product":"Trading-Simulation"},"id":"d58d8cd2-f125-4f0c-b241-08e2af8ac4be"},{"type":"Layer","name":"Formulas & Conditions","code":{"product":"Simulation-Conditions"},"id":"15dfeca0-acd9-40d3-afe0-4805654bf0d0"}],"id":"884c4dd7-4beb-43fb-bda5-d6097d58ae09"},"socialBots":{"type":"Social Bots","name":"New Social Bots","bots":[],"id":"281eb022-cf9f-4ac2-978b-c8358bee8fec"},"id":"121202ea-6735-4bf3-8a95-aaa55f00f6e7"},"id":"3f483482-d8a1-4755-ba50-7cac6296fa5f"}],"id":"25fe9099-b53d-4757-8a63-3f8a15875f33"},"id":"5b21d2d2-0f52-4408-83eb-ddaa844ec58c"}'
-    /* charly   argument = '{"type":"Task","name":"Brings Trades Records from the Exchange","bot":{"type":"Sensor","name":"Charly","processes":[{"type":"Process","name":"Live Trades","code":{"team":"AAMasters","bot":"AACharly","process":"Live-Trades"},"id":"5846ebc7-1979-4a80-9cc7-94bb4b8659dc"},{"type":"Process","name":"Hole Fixing","code":{"team":"AAMasters","bot":"AACharly","process":"Hole-Fixing"},"id":"31fc4f05-75d4-419a-9fb0-73e25e856f15"}]},"id":"5bfef4dc-54c1-44db-ace6-1ab27a86746e"}'
-    // olivia argument = '{"type":"Task","name":"Generates 1 min to 24 hs Candles & Volumes","bot":{"type":"Indicator","name":"Olivia","processes":[{"type":"Process","name":"Daily","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Daily"},"id":"68cc8e1b-e94a-477e-82d0-15ecc9f1b9e2"},{"type":"Process","name":"Market","code":{"team":"AAMasters","bot":"AAOlivia","process":"Multi-Period-Market"},"id":"e1ac5e3d-d491-4e90-baf4-d4e5b71a8b1a"}]},"id":"efe36e05-75ea-41b5-8d92-c6b27635c834"}'
-    // bruce argument = ' {"type":"Task","name":"Converts Trades into 1 min Candles & Volumes","bot":{"type":"Indicator","name":"Bruce","processes":[{"type":"Process","name":"New Process","code":{"team":"AAMasters","bot":"AABruce","process":"Single-Period-Daily"},"id":"e184744f-5de0-41c1-ad4c-36960f4ced90"}]},"id":"42758590-a7bd-4712-a5c9-80a3a820c5b3"}'
-    */
-    try {
-        global.TASK_NODE = JSON.parse(argument)
-    } catch (err) {
-        console.log(err.stack)
-    }
+    console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
+
+    setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
 }
 
 require('dotenv').config();
@@ -102,53 +104,53 @@ amount of instances started, we can safelly destroy the rest of the objects runn
 global.ENDED_PROCESSES_COUNTER = 0
 global.TOTAL_PROCESS_INSTANCES_CREATED = 0
 
-/* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
-process.on('message', message => {
-    if (message === 'Stop this Task') {
+/*
 
-        global.STOP_TASK_GRACEFULLY = true;
+We read the first string sent as an argument when the process was created by the Task Manager. There we will find the information of the identity
+of this Task and know exactly what to run within this server instance. 
 
-        /*
-        There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
-        In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
-        */
-        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minute.')
-        setTimeout(global.EXIT_NODE_PROCESS, 60000);
-    }
-});
-
-global.EXIT_NODE_PROCESS = function exitProcess() {
-
-    /* Cleaning Before Exiting. */
-    clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
-
-    for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
-        let code = global.TASK_NODE.bot.processes[i].code
-
-        /* Delete the event handler for each process. */
-
-        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
-
-        global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
-
-        let process = global.TASK_NODE.bot.processes[i]
-
-        key = process.name + '-' + process.type + '-' + process.id
-        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
-    }
-
-    console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
-
-    setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
-}
+*/
+let taskId = process.argv[2] // reading what comes as an argument of the nodejs process.
 
 /* Setting up the global Event Handler */
 
 const EVENT_HANDLER_MODULE = require('./SystemEventHandler.js');
 const IPC = require('node-ipc');
 global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler(IPC)
-global.SYSTEM_EVENT_HANDLER.initialize('Task Server', bootLoader)
+global.SYSTEM_EVENT_HANDLER.initialize('Task Server', preLoader)
 global.STOP_TASK_GRACEFULLY = false;
+
+function preLoader() {
+    if (taskId !== undefined) {
+        /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
+        try {
+            console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
+            function eventReceived(message) {
+                global.TASK_NODE = message
+                global.TASK_NODE = JSON.parse(message.event.definition)
+                bootLoader()
+            }
+        } catch (err) {
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+        }
+    }
+    else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
+        try { 
+            console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
+            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
+            function startDebugging(message) {
+                global.TASK_NODE = message
+                global.TASK_NODE = JSON.parse(message.event.definition) 
+                bootLoader()
+            }
+        } catch (err) {
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+        }
+    }
+}
 
 function bootLoader() {
 
@@ -174,28 +176,34 @@ function bootLoader() {
 
         /* Validate that the minimun amount of parameters required are defined. */
 
-        if (global.TASK_NODE.bot.code.bot === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'bot' at the Indicator | Sensor | Trading Engine is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.bot.code.team === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'team' at the bot is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].code.process === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Parameter 'process' at object Process is undefined. This process will not be executed. -> Process = " + global.TASK_NODE.bot.processes[processIndex].name);
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
-        /* Create the event handler for each process. This event handlers are where the status reports updated events are raised. */
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            continue
+        }
 
-        let key = global.TASK_NODE.bot.code.team + "-" + global.TASK_NODE.bot.code.bot + "-" + code.process
-        global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            continue
+        }
 
-        if (global.TASK_NODE.bot.code.repo === undefined) {
-            global.TASK_NODE.bot.code.repo = global.TASK_NODE.bot.code.bot + "-" + global.TASK_NODE.bot.type + "-Bot"
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
+            console.log("[INFO] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            continue
         }
 
         startRoot(processIndex);

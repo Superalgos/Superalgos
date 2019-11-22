@@ -13,6 +13,7 @@
     let bot = BOT;
 
     let thisObject = {
+        mainUtility: undefined,
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
         load: load,
@@ -21,7 +22,7 @@
         verifyMarketComplete: verifyMarketComplete
     };
 
-    let owner;                       // This is the bot owner of the Status Report. Only owners can save the report and override the existing content.
+    let statusDependencyNode;   
 
     /* Utilities needed. */
 
@@ -39,63 +40,103 @@
 
     return thisObject;
 
-    function initialize(pOwner, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencyNode, pMonth, pYear, callBackFunction) {
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process;
+            statusDependencyNode = pStatusDependencyNode;
+            logger.fileName = MODULE_NAME + "." + statusDependencyNode.type + "." + statusDependencyNode.name + "." + statusDependencyNode.id;
 
-            owner = pOwner;
             month = pMonth;
             year = pYear;
 
-            if (bot.SESSION !== undefined && pOwner.type === "Trading Engine") {
+            /* Some very basic validations that we have all the information needed. */
+            if (statusDependencyNode.referenceParent === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Dependency without Reference Parent. Status Dependency = " + JSON.stringify(statusDependencyNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Report not attached to a Process Definition. Status Report = " + JSON.stringify(statusDependencyNode.referenceParent));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition not attached to a Bot. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Team. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Team witn no codeName defined. Team = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+
+            /* Simplifying the access to basic info */
+            statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName
+            statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.code.codeName
+            statusDependencyNode.type = statusDependencyNode.referenceParent.parentNode.parentNode.type
+            statusDependencyNode.devTeam = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+
+            /* Let's see if the process is run monthly or not. */
+            if (statusDependencyNode.referenceParent.parentNode.code.startMode !== undefined) {
+                if (statusDependencyNode.referenceParent.parentNode.code.startMode.allMonths !== undefined) {
+                    if (statusDependencyNode.referenceParent.parentNode.code.startMode.oneMonth !== undefined) {
+                        if (statusDependencyNode.referenceParent.parentNode.code.startMode.allMonths.run === "true" || statusDependencyNode.referenceParent.parentNode.code.startMode.oneMonth.run === "true") {
+                            statusDependencyNode.processRunMonthly = true
+                        }
+                    }
+                }
+            }
+
+            /* We retrieve the report main utility */
+            if (statusDependencyNode.code !== undefined) {
+                if (statusDependencyNode.code.mainUtility !== undefined) {
+                    thisObject.mainUtility = statusDependencyNode.code.mainUtility
+                }
+            }
+
+            /* This stuff is still hardcoded and unresolved. */
+            statusDependencyNode.botVersion = {
+                "major": 1,
+                "minor": 0
+            }
+            statusDependencyNode.dataSetVersion = "dataSet.V1"
+
+
+
+            if (bot.SESSION !== undefined && statusDependencyNode.type === "Trading Bot Instance") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
 
-            if (owner.dataSetSection === "Month") {
-                logger.fileName = MODULE_NAME + "." + pOwner.bot + "." + pOwner.process + "." + year + "." + month;
+            if (statusDependencyNode.processRunMonthly === true && month !== undefined && year !== undefined) {
+                logger.fileName = MODULE_NAME + "." + statusDependencyNode.bot + "." + statusDependencyNode.process + "." + year + "." + month;
                 timePath = "/" + year + "/" + month;
             }
 
-            if (owner.waitUntilNextUpdate === true) {
-
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> waitUntilNextUpdate -> Entering Code Block."); }
-
-                /* This forces this process to wait until the process that this one depends on, updates its status report. */
-
-                let extraCallerId = ''
-                if (pMonth) { extraCallerId = extraCallerId + '-' + pMonth }
-                if (pYear) { extraCallerId = extraCallerId + '-' + pYear }
-
-                let key = owner.devTeam + "-" + owner.bot + "-" + owner.process
-                let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process + extraCallerId
-
-                let subscriptionIdStatusReport
-
-                global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Status Report Updated', undefined, callerId, responseCallBack, eventsCallBack)
-
-                function responseCallBack(message) {
-                    if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> responseCallBack -> message = " + JSON.stringify(message))
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    } else {
-                        subscriptionIdStatusReport = message.eventSubscriptionId
-                    }
-                }
-
-                function eventsCallBack() {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> eventsCallBack -> Entering function."); }
-
-                    /* We continue the normal flow after we learn the dependent process has updated its status report. */
-                    global.SYSTEM_EVENT_HANDLER.stopListening(key, 'Status Report Updated', subscriptionIdStatusReport)
-                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                }
-            } else {
-                /* In this case, the Status Report does not depends on a process which needs to wait for. */
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-            }
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
@@ -112,23 +153,23 @@
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath;
 
-            let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
+            let ownerId = statusDependencyNode.devTeam + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
-                let rootPath = owner.devTeam + "/" + owner.bot + "." + owner.botVersion.major + "." + owner.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + owner.dataSetVersion;
-                filePath = rootPath + "/Reports/" + sessionPath + owner.process + timePath;
+                let rootPath = statusDependencyNode.devTeam + "/" + statusDependencyNode.bot + "." + statusDependencyNode.botVersion.major + "." + statusDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + statusDependencyNode.dataSetVersion;
+                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + owner.process + timePath;
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
             }
 
-            if (owner.type === 'Trading') {
+            if (statusDependencyNode.type === 'Trading') {
                 fileName = bot.startMode + "." + fileName;
             }
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(owner.devTeam, filePath, onFileReceived);
+            fileStorage.getTextFile(statusDependencyNode.devTeam, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -196,10 +237,10 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> Entering function."); }
 
-            let ownerId = owner.devTeam + "-" + owner.bot + "-" + owner.botVersion.major + "-" + owner.botVersion.minor + "-" + owner.process + "-" + owner.dataSetVersion;
+            let ownerId = statusDependencyNode.devTeam + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
             let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
-            if (ownerId !== botId && owner.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
+            if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
                 let customErr = {
                     result: global.CUSTOM_FAIL_RESPONSE.result,
@@ -211,7 +252,7 @@
             }
 
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
-            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + owner.process + timePath;
+            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
 
             if (bot.type === 'Trading' ) {
                 fileName = bot.startMode + "." + fileName;
@@ -220,7 +261,7 @@
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(owner.devTeam, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(statusDependencyNode.devTeam, filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 
@@ -234,30 +275,6 @@
 
                 if (global.LOG_CONTROL[MODULE_NAME].logContent === true) {
                     logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
-                }
-
-                /* Here we raise the event stating that this status report was updated. */
-                let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Status Report Updated')
-
-                /* We will also reaise the events for the datasets impacted by the process that just finished. */
-                for (let j = 0; j < bot.processes.length; j++) {
-                    let process = bot.processes[j]
-                    if (process.name === bot.process) {
-                        let updatesDatasets = process.updatesDatasets
-                        if (updatesDatasets !== undefined) {
-                            for (let i = 0; i < updatesDatasets.length; i++) {
-                                let updatedDataSet = updatesDatasets[i]
-
-                                key = bot.devTeam + "-" + bot.codeName + "-" + updatedDataSet.product + "-" + updatedDataSet.dataSet
-                                let event = {
-                                    lastFile: thisObject.file.lastFile
-                                }
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
-
-                            }
-                        }
-                    }
                 }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);

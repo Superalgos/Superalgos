@@ -33,7 +33,7 @@
                 }
             } else {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have process dependencies, which means not status dependencies.");
-                callBackFunction(global.DEFAULT_OK_RESPONSE)
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                 return
             }
 
@@ -41,13 +41,39 @@
 
             let alreadyCalledBack = false;
             let loadCount = 0;
-
+            let dependenciesToProcess = []
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
+                let statusDependency = {
+                    dependency: thisObject.nodeArray[i],
+                    month: pMonth,
+                    year: pYear
+                }
+                    
+                dependenciesToProcess.push(statusDependency)
+
+                /*
+                For the special case that the statusDependency is a Self Reference AND this process is sliced in different
+                instances for each month, we will add the main self reference status report that is month/year independent.
+                */
+
+                if (statusDependency.dependency.code.mainUtility === "Self Reference" && pMonth !== undefined && pYear !== undefined) {
+                    let mainDependency = {
+                        dependency: thisObject.nodeArray[i],
+                        month: undefined,
+                        year: undefined
+                    }
+
+                    dependenciesToProcess.push(mainDependency)
+                }
+            }
+
+            for (let i = 0; i < dependenciesToProcess.length; i++) {
 
                 let statusReportModule = STATUS_REPORT.newStatusReport(BOT, logger, UTILITIES);
 
                 logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
-                statusReportModule.initialize(thisObject.nodeArray[i], pMonth, pYear, onInitilized);
+                let statusDependency = dependenciesToProcess[i]
+                statusReportModule.initialize(statusDependency.dependency, statusDependency.month, statusDependency.year, onInitilized);
 
                 function onInitilized(err) {
 
@@ -78,7 +104,7 @@
                         switch (err.message) {
                             case global.DEFAULT_OK_RESPONSE.message: {
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i])) }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> onLoad -> Execution finished well. -> Status Dependency = " + JSON.stringify(statusDependency.dependency)) }
 
                                 addReport();
                                 return;
@@ -86,7 +112,7 @@
                             case "Status Report was never created.": {
 
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i]))
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(statusDependency.dependency))
 
                                 addReport();
                                 return;
@@ -95,7 +121,7 @@
                             case "Status Report is corrupt.": {
 
                                 logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> err = " + err.stack);
-                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(thisObject.nodeArray[i]))
+                                logger.write(MODULE_NAME, "[WARN] initialize -> onLoad -> Report Not Found. -> Status Dependency = " + JSON.stringify(statusDependency.dependency))
 
                                 addReport();
                                 return;
@@ -128,10 +154,10 @@
 
                     let key;
 
-                    if (thisObject.nodeArray[i].processRunMonthly === true) {
-                        key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].process + "-" + thisObject.nodeArray[i].dataSetVersion + "-" + pYear + "-" + pMonth;
+                    if (statusDependency.dependency.processRunMonthly === true && statusDependency.month !== undefined && statusDependency.year !== undefined) {
+                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion + "-" + statusDependency.year + "-" + statusDependency.month;
                     } else {
-                        key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].process + "-" + thisObject.nodeArray[i].dataSetVersion;
+                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
                     }
 
                     thisObject.keys.push(key);
@@ -143,7 +169,7 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 
-                    if (loadCount === thisObject.nodeArray.length) {
+                    if (loadCount === dependenciesToProcess.length) {
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
                             callBackFunction(global.DEFAULT_OK_RESPONSE);

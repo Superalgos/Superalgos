@@ -78,7 +78,7 @@
 
                 /* This forces this process to wait until the process that this one depends on, emits its event signaling that the process execution has finished. */
 
-                let extraCallerId = ''
+                let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
                 if (month) { extraCallerId = extraCallerId + '-' + month }
                 if (year) { extraCallerId = extraCallerId + '-' + year }
 
@@ -86,6 +86,10 @@
                 let callerId = bot.devTeam + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
                 let subscriptionId
+
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> started listening to Process Execution Finished. "); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
 
                 global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
@@ -95,13 +99,17 @@
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     } else {
                         subscriptionId = message.eventSubscriptionId
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> subscriptionId = " + subscriptionId); }
                     }
                 }
 
                 function eventsCallBack(message) {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> eventsCallBack -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> message = " + JSON.stringify(message)); }
 
                     /* We continue the normal flow after we learn the dependent process has finished its execution. */
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. "); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId); }
                     global.SYSTEM_EVENT_HANDLER.stopListening(key, 'Process Execution Finished', subscriptionId)
 
                     if (message.event.err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -126,7 +134,7 @@
                 global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> " + currentProcessKey + " Process Execution Started " + datetimeForLogs); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started " + datetimeForLogs); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
             }

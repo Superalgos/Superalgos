@@ -265,6 +265,7 @@
         dataBuildingProcedure,
         variableName,
         timePeriod,
+        timePeriodLabel,
         resultsWithIrregularPeriods,
         interExecutionMemory,
         processingDailyFiles,
@@ -384,7 +385,7 @@
                     To do that, the condition to be met is that this execution must include all candles of the current day.
                 */
                 if (processingDailyFiles) {
-                    if (lastRecord.current.end === lastInstantOfTheDay) {
+                    if (lastRecord.current.end === lastInstantOfTheDay && yesterday.variable !== undefined) {
                         interExecutionMemory.variable = JSON.parse(JSON.stringify(yesterday.variable))
                     }
                 }

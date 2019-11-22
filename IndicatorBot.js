@@ -101,6 +101,7 @@
                     outputDatasetNode.referenceParent.parentNode.dataBuilding,
                     singularVariableName,
                     timePeriod,
+                    timePeriodLabel,
                     resultsWithIrregularPeriods,
                     interExecutionMemory,
                     processingDailyFiles,

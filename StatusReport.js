@@ -131,7 +131,7 @@
                 sessionPath = bot.SESSION.folderName + "/"
             }
 
-            if (statusDependencyNode.processRunMonthly === true) {
+            if (statusDependencyNode.processRunMonthly === true && month !== undefined && year !== undefined) {
                 logger.fileName = MODULE_NAME + "." + statusDependencyNode.bot + "." + statusDependencyNode.process + "." + year + "." + month;
                 timePath = "/" + year + "/" + month;
             }

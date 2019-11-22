@@ -4,6 +4,7 @@ function newSystemEventHandler () {
 
   const MODULE_NAME = 'System Event Handler'
   const ERROR_LOG = true
+  const INFO_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
@@ -12,6 +13,7 @@ function newSystemEventHandler () {
 
   let thisObject = {
     initialize: initialize,
+    physics: physics,
     createEventHandler: createEventHandler,
     deleteEventHandler: deleteEventHandler,
     listenToEvent: listenToEvent,
@@ -95,6 +97,17 @@ function newSystemEventHandler () {
     sendCommand(eventCommand, responseCallBack)
   }
 
+  function physics () {
+    if (WEB_SOCKETS_CONNECTION !== undefined) {
+      if (WEB_SOCKETS_CONNECTION.readyState === 3) { // Connection closed. May happen after computer goes to sleep.
+        setuptWebSockets(onOpen)
+        function onOpen () {
+          if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
+        }
+      }
+    }
+  }
+
   function setuptWebSockets (callBackFunction) {
     try {
       WEB_SOCKETS_CONNECTION = new WebSocket(WEB_SOCKETS_URL)
@@ -105,7 +118,9 @@ function newSystemEventHandler () {
         console.log('WebSocket error:' + JSON.stringify(error))
       }
       WEB_SOCKETS_CONNECTION.onopen = () => {
-        callBackFunction()
+        if (callBackFunction !== undefined) {
+          callBackFunction()
+        }
       }
       WEB_SOCKETS_CONNECTION.onmessage = e => {
         // console.log('Websoked Message Received: ' + e.data)

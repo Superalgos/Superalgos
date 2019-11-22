@@ -106,7 +106,7 @@ function newDashboard () {
   function setBrowserEvents () {
     window.onbeforeunload = onBrowserClosed
     function onBrowserClosed () {
-      canvas.strategySpace.workspace.stopAllRunningTasks()
+      canvas.designerSpace.workspace.stopAllRunningTasks()
     }
   }
 }

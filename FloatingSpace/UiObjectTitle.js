@@ -1,6 +1,6 @@
 
-function newStrategyPartTitle () {
-  const MODULE_NAME = 'Strategy Part Title'
+function newUiObjectTitle () {
+  const MODULE_NAME = 'UI Object Title'
   const ERROR_LOG = true
 
   const logger = newWebDebugLog()
@@ -52,48 +52,68 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Network': {
+      case 'Team': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Network Node': {
+      case 'Sensor Bot': {
+        thisObject.allwaysVisible = true
         break
       }
-      case 'Social Bots': {
+      case 'Indicator Bot': {
+        thisObject.allwaysVisible = true
         break
       }
-      case 'Telegram Bot': {
+      case 'Trading Bot': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Process Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Product Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Dataset Definition': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Record Property': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter Module': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Plotter Panel': {
+        thisObject.allwaysVisible = true
+        break
+      }
+      case 'Network': {
+        thisObject.allwaysVisible = true
         break
       }
       case 'Announcement': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Layer Manager': {
-        break
-      }
       case 'Layer': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Task Manager': {
-        break
-      }
-      case 'Task': {
-        break
-      }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading Engine': {
-        break
-      }
-      case 'Process': {
         break
       }
       case 'Backtesting Session': {
@@ -112,18 +132,6 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Personal Data': {
-        break
-      }
-      case 'Exchange Account': {
-        break
-      }
-      case 'Exchange Account Asset': {
-        break
-      }
-      case 'Exchange Account Key': {
-        break
-      }
       case 'Workspace': {
         thisObject.allwaysVisible = true
         break
@@ -132,90 +140,12 @@ function newStrategyPartTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Parameters': {
-        break
-      }
-      case 'Base Asset': {
-        break
-      }
-      case 'Time Range': {
-        break
-      }
-      case 'Time Period': {
-        break
-      }
-      case 'Slippage': {
-        break
-      }
-      case 'Fee Structure': {
-        break
-      }
       case 'Strategy': {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Trigger Stage': {
-        break
-      }
-      case 'Open Stage': {
-        break
-      }
-      case 'Manage Stage': {
-        break
-      }
-      case 'Close Stage': {
-        break
-      }
-      case 'Position Size': {
-        break
-      }
-      case 'Position Rate': {
-        break
-      }
-      case 'Trigger On Event': {
-        break
-      }
-      case 'Trigger Off Event': {
-        break
-      }
-      case 'Take Position Event': {
-        break
-      }
-      case 'Initial Definition': {
-        break
-      }
-      case 'Open Execution': {
-        break
-      }
-      case 'Close Execution': {
-        break
-      }
-      case 'Stop': {
-        break
-      }
-      case 'Take Profit': {
-        break
-      }
-      case 'Phase': {
-        break
-      }
-      case 'Formula': {
-        break
-      }
-      case 'Next Phase Event': {
-        break
-      }
-      case 'Situation': {
-        break
-      }
-      case 'Condition': {
-        break
-      }
-      case 'Code': {
-        break
-      }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
+        thisObject.allwaysVisible = false
       }
     }
 

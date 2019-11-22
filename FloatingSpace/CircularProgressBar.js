@@ -28,7 +28,8 @@ function newCircularProgressBar () {
   return thisObject
 
   function finalize () {
-    systemEventHandler.stopListening('Jason-Heartbeat-Period', eventSubscriptionHeartbeat)
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    systemEventHandler.stopListening(key, eventSubscriptionHeartbeat)
 
     thisObject.container = undefined
     thisObject.payload = undefined

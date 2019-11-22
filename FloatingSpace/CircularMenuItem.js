@@ -33,7 +33,7 @@ function newCircularMenuItem () {
     angle: undefined,
     container: undefined,
     payload: undefined,
-    relatedStrategyPart: undefined,
+    relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     internalClick: internalClick,
     physics: physics,
@@ -105,7 +105,7 @@ function newCircularMenuItem () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (thisObject.type === 'Icon & Text') {
-      thisObject.container.frame.width = 150
+      thisObject.container.frame.width = 185
     } else {
       thisObject.container.frame.width = 50
     }
@@ -167,15 +167,15 @@ function newCircularMenuItem () {
       temporaryStatus === STATUS_SECONDARY_WORK_FAILED
     ) && thisObject.secondaryAction !== undefined
       ) {
-      thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
-      thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
-      if (thisObject.relatedStrategyPart !== undefined) {
-        thisObject.iconOn = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
-        thisObject.iconOff = canvas.strategySpace.iconByPartType.get(thisObject.relatedStrategyPart)
+      if (thisObject.relatedUiObject !== undefined) {
+        thisObject.iconOn = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
+        thisObject.iconOff = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
       } else {
-        thisObject.iconOn = canvas.strategySpace.iconCollection.get(thisObject.iconPathOn)
-        thisObject.iconOff = canvas.strategySpace.iconCollection.get(thisObject.iconPathOff)
+        thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
+        thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
       }
     }
 
@@ -328,7 +328,8 @@ function newCircularMenuItem () {
           container: thisObject.container,
           borderColor: UI_COLOR.DARK,
           backgroundColor: backgroundColorToUse,
-          castShadow: false
+          castShadow: false,
+          xOffset: 40
         }
 
         if (isMouseOver === true) {
@@ -374,7 +375,7 @@ function newCircularMenuItem () {
 
         if (thisObject.currentRadius >= thisObject.targetRadius) {
           labelPoint = {
-            x: menuPosition.x + thisObject.currentRadius + 10,
+            x: menuPosition.x + thisObject.currentRadius + 20,
             y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
           }
 
@@ -386,3 +387,4 @@ function newCircularMenuItem () {
     }
   }
 }
+

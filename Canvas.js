@@ -37,7 +37,7 @@ function newCanvas () {
     panelsSpace: undefined,
     cockpitSpace: undefined,
     bottomSpace: undefined,
-    strategySpace: undefined,
+    designerSpace: undefined,
     animation: undefined,
     initialize: initialize,
     finalize: finalize
@@ -47,6 +47,7 @@ function newCanvas () {
 
   let splashScreen
   let lastContainerMouseOver
+
   return thisObject
 
   function finalize () {
@@ -71,6 +72,9 @@ function newCanvas () {
       browserCanvas.removeEventListener('drop', onDragDrop, false)
 
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
+
+      splashScreen = undefined
+      lastContainerMouseOver = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -90,8 +94,8 @@ function newCanvas () {
       thisObject.topSpace = newTopSpace()
       await thisObject.topSpace.initialize()
 
-      thisObject.strategySpace = newStrategySpace()
-      await thisObject.strategySpace.initialize()
+      thisObject.designerSpace = newDesignerSpace()
+      await thisObject.designerSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -118,13 +122,17 @@ function newCanvas () {
       animation.initialize()
 
       thisObject.animation = animation
+      /* Low Level Infraestructure First */
+      animation.addCallBackFunction('System Event Handler Physics', systemEventHandler.physics)
 
+      /* Spcaces Physics */
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.strategySpace.physics)
+      animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
+      /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
       animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
@@ -132,7 +140,7 @@ function newCanvas () {
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-      animation.addCallBackFunction('Strategy Space Draw', thisObject.strategySpace.draw)
+      animation.addCallBackFunction('Strategy Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {
@@ -186,17 +194,24 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
-    let nodeOnFocus = canvas.strategySpace.workspace.getNodeThatIsOnFocus()
+    let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
         if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
           return
         }
       }
-      if (nodeOnFocus.payload.uiObject.partTitle !== undefined) {
-        if (nodeOnFocus.payload.uiObject.partTitle.editMode === true) {
+      if (nodeOnFocus.payload.uiObject.uiObjectTitle !== undefined) {
+        if (nodeOnFocus.payload.uiObject.uiObjectTitle.editMode === true) {
           return
         }
+      }
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 123) { // Dev Tool when used with F12
+      if (nodeOnFocus !== undefined) {
+        console.log(nodeOnFocus)
+        return
       }
     }
 
@@ -231,22 +246,34 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
-      canvas.floatingSpace.oneScreenLeft()
+      let displaceVector = canvas.floatingSpace.oneScreenLeft()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
-      canvas.floatingSpace.oneScreenRight()
+      let displaceVector = canvas.floatingSpace.oneScreenRight()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
-      canvas.floatingSpace.oneScreenUp()
+      let displaceVector = canvas.floatingSpace.oneScreenUp()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
-      canvas.floatingSpace.oneScreenDown()
+      let displaceVector = canvas.floatingSpace.oneScreenDown()
+      dragVector.downX = dragVector.downX + displaceVector.x
+      dragVector.downY = dragVector.downY + displaceVector.y
+      checkDrag()
       return
     }
 
@@ -257,12 +284,12 @@ function newCanvas () {
       }
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true)) {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
       if (event.keyCode >= 65 && event.keyCode <= 90) {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
-        let nodeUsingThisKey = canvas.strategySpace.workspace.getNodeByShortcutKey(event.key)
+        let nodeUsingThisKey = canvas.designerSpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
@@ -284,15 +311,15 @@ function newCanvas () {
         /* If there is not node using this key and a node in focus, we assign this key to this node */
         if (nodeUsingThisKey === undefined && nodeOnFocus !== undefined) {
           nodeOnFocus.payload.uiObject.shortcutKey = event.key
-          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + event.key)
+          nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + event.key)
         }
         return
       }
     }
 
-    if (event.ctrlKey === true && nodeOnFocus !== undefined) {
+    if (event.ctrlKey === true && event.altKey === true && nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.shortcutKey !== undefined && nodeOnFocus.payload.uiObject.shortcutKey !== '') {
-        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + ' + nodeOnFocus.payload.uiObject.shortcutKey)
+        nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
       }
     }
   }
@@ -345,7 +372,7 @@ function newCanvas () {
             x: event.x,
             y: event.y
           }
-          thisObject.strategySpace.workspace.spawn(reader.result, mousePosition)
+          thisObject.designerSpace.workspace.spawn(reader.result, mousePosition)
         }
       }
     } catch (err) {
@@ -368,7 +395,7 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      container = thisObject.strategySpace.getContainer(point)
+      container = thisObject.designerSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
@@ -474,7 +501,7 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      container = thisObject.strategySpace.getContainer(point)
+      container = thisObject.designerSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -546,6 +573,7 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
+      /* Processing the event */
       let point = {
         x: event.pageX,
         y: event.pageY - CURRENT_TOP_MARGIN
@@ -603,8 +631,8 @@ function newCanvas () {
 
             /* We check if the mouse is over an element of the Strategy Space / */
 
-      if (thisObject.strategySpace !== undefined) {
-        container = thisObject.strategySpace.getContainer(point)
+      if (thisObject.designerSpace !== undefined) {
+        container = thisObject.designerSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -773,11 +801,6 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
-        let point = {
-          x: event.pageX,
-          y: event.pageY - CURRENT_TOP_MARGIN
-        }
-
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 

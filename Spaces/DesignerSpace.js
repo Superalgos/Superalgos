@@ -1,12 +1,12 @@
 
-function newStrategySpace () {
+function newDesignerSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
     strategizerGateway: undefined,
     container: undefined,
     iconCollection: undefined,
-    iconByPartType: undefined,
+    iconByUiObjectType: undefined,
     workspace: undefined,
     physics: physics,
     draw: draw,
@@ -23,13 +23,13 @@ function newStrategySpace () {
   container.isDraggeable = false
 
   thisObject.iconCollection = new Map()
-  thisObject.iconByPartType = new Map()
+  thisObject.iconByUiObjectType = new Map()
 
   return thisObject
 
   async function initialize () {
     loadIconCollection()
-    buildIconByPartTypeMap()
+    buildIconByUiObjectTypeMap()
 
     thisObject.strategizerGateway = newStrategizerGateway()
 
@@ -37,22 +37,22 @@ function newStrategySpace () {
     thisObject.workspace.initialize()
   }
 
-  function buildIconByPartTypeMap () {
+  function buildIconByUiObjectTypeMap () {
     const relationshipArray = [
       ['Definition', 'text'],
       ['Network', 'network'],
       ['Network Node', 'network-node'],
-      ['Social Bots', 'support'],
+      ['Social Bots', 'social-bot'],
       ['Telegram Bot', 'paper-plane'],
       ['Announcement', 'promotion'],
       ['Layer Manager', 'layer-manager'],
       ['Layer', 'attractive'],
       ['Task Manager', 'task'],
       ['Task', 'timeline'],
-      ['Sensor', 'bot-sensor'],
-      ['Indicator', 'bot-indicator'],
-      ['Trading Engine', 'trading-engine'],
-      ['Process', 'process'],
+      ['Sensor Bot Instance', 'bot-sensor'],
+      ['Indicator Bot Instance', 'bot-indicator'],
+      ['Trading Bot Instance', 'bot-trading'],
+      ['Process Instance', 'process'],
       ['Backtesting Session', 'session-backtesting'],
       ['Live Trading Session', 'session-live-trading'],
       ['Fordward Testing Session', 'session-forward-testing'],
@@ -89,13 +89,37 @@ function newStrategySpace () {
       ['Next Phase Event', 'pantone'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
-      ['Code', 'html']
+      ['Code', 'html'],
+      ['Team', 'team'],
+      ['Sensor Bot', 'bot-sensor'],
+      ['Indicator Bot', 'bot-indicator'],
+      ['Trading Bot', 'bot-trading'],
+      ['Process Definition', 'process-definition'],
+      ['Process Output', 'process-output'],
+      ['Process Dependencies', 'process-dependencies'],
+      ['Status Report', 'status-report'],
+      ['Execution Started Event', 'execution-started-event'],
+      ['Execution Finished Event', 'execution-finished-event'],
+      ['Calculations Procedure', 'calculations-procedure'],
+      ['Data Building Procedure', 'data-building-procedure'],
+      ['Procedure Initialization', 'procedure-initialization'],
+      ['Procedure Loop', 'procedure-loop'],
+      ['Output Dataset', 'output-dataset'],
+      ['Status Dependency', 'status-dependency'],
+      ['Data Dependency', 'data-dependency'],
+      ['Product Definition', 'product-definition'],
+      ['Record Definition', 'record-definition'],
+      ['Record Property', 'record-property'],
+      ['Dataset Definition', 'dataset-definition'],
+      ['Plotter', 'plotter'],
+      ['Plotter Module', 'plotter-module'],
+      ['Plotter Panel', 'plotter-panel']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {
       let record = relationshipArray[i]
       let icon = thisObject.iconCollection.get(record[1])
-      thisObject.iconByPartType.set(record[0], icon)
+      thisObject.iconByUiObjectType.set(record[0], icon)
     }
   }
 
@@ -178,12 +202,34 @@ function newStrategySpace () {
       'session-forward-testing',
       'network',
       'network-node',
-      'trading-engine',
+      'bot-trading',
       'layer-manager',
       'process',
       'bot-indicator',
       'bot-sensor',
-      'time-period'
+      'time-period',
+      'team',
+      'procedure-loop',
+      'calculations-procedure',
+      'data-building-procedure',
+      'procedure-initialization',
+      'process-definition',
+      'output-dataset',
+      'data-dependency',
+      'product-definition',
+      'plotter-module',
+      'status-dependency',
+      'record-property',
+      'record-definition',
+      'plotter',
+      'plotter-panel',
+      'dataset-definition',
+      'status-report',
+      'execution-finished-event',
+      'process-dependencies',
+      'process-output',
+      'social-bot',
+      'execution-started-event'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

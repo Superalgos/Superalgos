@@ -13,13 +13,15 @@ function newWorkspace () {
     nodeChildren: undefined,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
-    getAllTradingEngines: getAllTradingEngines,
+    getAllTradingBotInstances: getAllTradingBotInstances,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
     spawn: spawn,
-    detachNode: detachNode,
-    attachNode: attachNode,
+    chainDetachNode: chainDetachNode,
+    chainAttachNode: chainAttachNode,
+    referenceDetachNode: referenceDetachNode,
+    referenceAttachNode: referenceAttachNode,
     initialize: initialize,
     finalize: finalize
   }
@@ -44,9 +46,10 @@ function newWorkspace () {
   thisObject.workspaceNode = {}
   thisObject.workspaceNode.rootNodes = []
 
-  let functionLibraryAttachDetach = newAttachDetach()
+  let functionLibraryReferenceAttachDetach = newReferenceAttachDetach()
+  let functionLibraryChainAttachDetach = newChainAttachDetach()
   let functionLibraryNodeDeleter = newNodeDeleter()
-  let functionLibraryPartsFromNodes = newPartsFromNodes()
+  let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
@@ -78,16 +81,12 @@ function newWorkspace () {
       if (savedWorkspace === null || idAtStrategizer === null) {
         thisObject.workspaceNode.type = 'Workspace'
         thisObject.workspaceNode.name = 'My Workspace'
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
+        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
         spawnPosition.y = spawnPosition.y + 250
         initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
-        for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-          let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
-        }
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
         thisObject.enabled = true
       }
     } catch (err) {
@@ -96,22 +95,30 @@ function newWorkspace () {
   }
 
   async function initializeLoadingFromStrategizer () {
-    let result = await canvas.strategySpace.strategizerGateway.loadFromStrategyzer()
+    let result = await canvas.designerSpace.strategizerGateway.loadFromStrategyzer()
     if (result === true) {
-      thisObject.definition = canvas.strategySpace.strategizerGateway.strategizerData
+      thisObject.definition = canvas.designerSpace.strategizerGateway.strategizerData
       thisObject.workspaceNode.rootNodes.push(thisObject.definition)
-      functionLibraryPartsFromNodes.createPartFromNode(thisObject.definition, undefined, undefined)
+      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.definition, undefined, undefined)
 
       thisObject.enabled = true
     }
   }
 
-  function detachNode (node) {
-    functionLibraryAttachDetach.detachNode(node, thisObject.workspaceNode.rootNodes)
+  function chainDetachNode (node) {
+    functionLibraryChainAttachDetach.chainDetachNode(node, thisObject.workspaceNode.rootNodes)
   }
 
-  function attachNode (node, attachToNode) {
-    functionLibraryAttachDetach.attachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
+  function chainAttachNode (node, attachToNode) {
+    functionLibraryChainAttachDetach.chainAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
+  }
+
+  function referenceDetachNode (node) {
+    functionLibraryReferenceAttachDetach.referenceDetachNode(node)
+  }
+
+  function referenceAttachNode (node, attachToNode) {
+    functionLibraryReferenceAttachDetach.referenceAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
   }
 
   function physics () {
@@ -131,7 +138,7 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true)
+      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
       if (node) {
         stringifyReadyNodes.push(node)
       }
@@ -148,16 +155,13 @@ function newWorkspace () {
   function stopAllRunningTasks () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        if (definition.network !== undefined) {
-          if (definition.network.networkNodes !== undefined) {
-            for (let j = 0; j < definition.network.networkNodes.length; j++) {
-              let networkNode = definition.network.networkNodes[j]
-              for (let i = 0; i < networkNode.taskManagers.length; i++) {
-                let taskManager = networkNode.taskManagers[i]
-                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-              }
+      if (rootNode.type === 'Network') {
+        if (rootNode.networkNodes !== undefined) {
+          for (let j = 0; j < rootNode.networkNodes.length; j++) {
+            let networkNode = rootNode.networkNodes[j]
+            for (let i = 0; i < networkNode.taskManagers.length; i++) {
+              let taskManager = networkNode.taskManagers[i]
+              taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
             }
           }
         }
@@ -165,23 +169,20 @@ function newWorkspace () {
     }
   }
 
-  function getAllTradingEngines () {
-    let tradingEngines = []
+  function getAllTradingBotInstances () {
+    let tradingBotInstances = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        if (definition.network !== undefined) {
-          if (definition.network.networkNodes !== undefined) {
-            for (let j = 0; j < definition.network.networkNodes.length; j++) {
-              let networkNode = definition.network.networkNodes[j]
-              for (let i = 0; i < networkNode.taskManagers.length; i++) {
-                let taskManager = networkNode.taskManagers[i]
-                for (k = 0; k < taskManager.tasks.length; k++) {
-                  let task = taskManager.tasks[k]
-                  if (task.bot.type === 'Trading Engine') {
-                    tradingEngines.push(task.bot)
-                  }
+      if (rootNode.type === 'Network') {
+        if (rootNode.networkNodes !== undefined) {
+          for (let j = 0; j < rootNode.networkNodes.length; j++) {
+            let networkNode = rootNode.networkNodes[j]
+            for (let i = 0; i < networkNode.taskManagers.length; i++) {
+              let taskManager = networkNode.taskManagers[i]
+              for (k = 0; k < taskManager.tasks.length; k++) {
+                let task = taskManager.tasks[k]
+                if (task.bot.type === 'Trading Bot Instance') {
+                  tradingBotInstances.push(task.bot)
                 }
               }
             }
@@ -189,28 +190,24 @@ function newWorkspace () {
         }
       }
     }
-    return tradingEngines
+    return tradingBotInstances
   }
 
   function getNodeByShortcutKey (searchingKey) {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
-        if (node !== undefined) { return node }
-      }
+      let definition = rootNode
+      let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
+      if (node !== undefined) { return node }
     }
   }
 
   function getNodeThatIsOnFocus () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Definition') {
-        let definition = rootNode
-        let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
-        if (node !== undefined) { return node }
-      }
+      let definition = rootNode
+      let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
+      if (node !== undefined) { return node }
     }
   }
 
@@ -226,16 +223,40 @@ function newWorkspace () {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
         thisObject.workspaceNode = droppedNode
-        functionLibraryPartsFromNodes.createPartFromNode(thisObject.workspaceNode, undefined, undefined)
-        for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-          let rootNode = thisObject.workspaceNode.rootNodes[i]
-          functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
-        }
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+        return
       } else {
-        let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
-        thisObject.workspaceNode.rootNodes.push(rootNode)
-        functionLibraryPartsFromNodes.createPartFromNode(rootNode, undefined, undefined)
+        if (
+          droppedNode.type === 'Definition' ||
+          droppedNode.type === 'Network' ||
+          droppedNode.type === 'Team'
+        ) {
+          /* We will only respect the state of each object on these structures, if the structure does not yet exist inside the workspace */
+          let alreadyExists = false
+          for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+            let rootNode = thisObject.workspaceNode.rootNodes[i]
+            if (droppedNode.id === rootNode.id) {
+              alreadyExists = true
+            }
+          }
+          if (alreadyExists === false) {
+            /* It does not exist, so we recreeate it respecting the inner state of each object. */
+            let positionOffset = {
+              x: spawnPosition.x - droppedNode.savedPayload.targetPosition.x,
+              y: spawnPosition.y - droppedNode.savedPayload.targetPosition.y
+            }
+
+            thisObject.workspaceNode.rootNodes.push(droppedNode)
+            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
+            return
+          }
+        }
       }
+
+      /* This is the default behaviour, which consists of cleaning all nodes that are not supported and then creating the UIObjects that remains on the data structure. */
+      let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
+      thisObject.workspaceNode.rootNodes.push(rootNode)
+      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
     }
@@ -262,7 +283,17 @@ function newWorkspace () {
         break
       case 'Share':
         {
-          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
+          let text
+          if (
+            payload.node.type === 'Definition' ||
+            payload.node.type === 'Network' ||
+            payload.node.type === 'Team'
+          ) {
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
+          } else {
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
+          }
+
           let nodeName = payload.node.name
           if (nodeName === undefined) {
             nodeName = ''
@@ -276,7 +307,17 @@ function newWorkspace () {
         break
       case 'Backup':
         {
-          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
+          let text
+          if (
+            payload.node.type === 'Definition' ||
+            payload.node.type === 'Network' ||
+            payload.node.type === 'Team'
+          ) {
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
+          } else {
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
+          }
+
           let nodeName = payload.node.name
           if (nodeName === undefined) {
             nodeName = ''
@@ -320,194 +361,420 @@ function newWorkspace () {
         break
       case 'Add Definition':
         {
-          functionLibraryPartsFromNodes.addDefinition(payload.node)
+          functionLibraryUiObjectsFromNodes.addDefinition(payload.node)
+        }
+        break
+      case 'Add Team':
+        {
+          functionLibraryUiObjectsFromNodes.addTeam(payload.node)
+        }
+        break
+      case 'Add Sensor Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addSensorBot(payload.node)
+        }
+        break
+      case 'Add Indicator Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addIndicatorBot(payload.node)
+        }
+        break
+      case 'Add Trading Bot':
+        {
+          functionLibraryUiObjectsFromNodes.addTradingBot(payload.node)
+        }
+        break
+      case 'Add Process Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessDefinition(payload.node)
+        }
+        break
+      case 'Add Missing Process Definition Items':
+        {
+          functionLibraryUiObjectsFromNodes.addMissingProcessDefinitionItems(payload.node)
+        }
+        break
+      case 'Add Missing Product Definition Items':
+        {
+          functionLibraryUiObjectsFromNodes.addMissingProductDefinitionItems(payload.node)
+        }
+        break
+      case 'Add Process Output':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessOutput(payload.node)
+        }
+        break
+      case 'Add Process Dependencies':
+        {
+          functionLibraryUiObjectsFromNodes.addProcessDependencies(payload.node)
+        }
+        break
+      case 'Add Status Report':
+        {
+          functionLibraryUiObjectsFromNodes.addStatusReport(payload.node)
+        }
+        break
+      case 'Add Execution Started Event':
+        {
+          functionLibraryUiObjectsFromNodes.addExecutionStartedEvent(payload.node)
+        }
+        break
+      case 'Add Execution Finished Event':
+        {
+          functionLibraryUiObjectsFromNodes.addExecutionFinishedEvent(payload.node)
+        }
+        break
+      case 'Add Calculations Procedure':
+        {
+          functionLibraryUiObjectsFromNodes.addCalculationsProcedure(payload.node)
+        }
+        break
+      case 'Add Data Building Procedure':
+        {
+          functionLibraryUiObjectsFromNodes.addDataBuildingProcedure(payload.node)
+        }
+        break
+      case 'Add Procedure Initialization':
+        {
+          functionLibraryUiObjectsFromNodes.addProcedureInitialization(payload.node)
+        }
+        break
+      case 'Add Procedure Loop':
+        {
+          functionLibraryUiObjectsFromNodes.addProcedureLoop(payload.node)
+        }
+        break
+      case 'Add Output Dataset':
+        {
+          functionLibraryUiObjectsFromNodes.addOutputDataset(payload.node)
+        }
+        break
+      case 'Add Status Dependency':
+        {
+          functionLibraryUiObjectsFromNodes.addStatusDependency(payload.node)
+        }
+        break
+      case 'Add Data Dependency':
+        {
+          functionLibraryUiObjectsFromNodes.addDataDependency(payload.node)
+        }
+        break
+      case 'Add Product Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addProductDefinition(payload.node)
+        }
+        break
+      case 'Add Record Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addRecordDefinition(payload.node)
+        }
+        break
+      case 'Add Record Property':
+        {
+          functionLibraryUiObjectsFromNodes.addRecordProperty(payload.node)
+        }
+        break
+      case 'Add Dataset Definition':
+        {
+          functionLibraryUiObjectsFromNodes.addDatasetDefinition(payload.node)
+        }
+        break
+      case 'Add Plotter':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotter(payload.node)
+        }
+        break
+      case 'Add Plotter Module':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotterModule(payload.node)
+        }
+        break
+      case 'Add Plotter Panel':
+        {
+          functionLibraryUiObjectsFromNodes.addPlotterPanel(payload.node)
         }
         break
       case 'Add Network':
         {
-          functionLibraryPartsFromNodes.addNetwork(payload.node)
+          functionLibraryUiObjectsFromNodes.addNetwork(payload.node)
         }
         break
       case 'Add Network Node':
         {
-          functionLibraryPartsFromNodes.addNetworkNode(payload.node)
+          functionLibraryUiObjectsFromNodes.addNetworkNode(payload.node)
         }
         break
       case 'Add Social Bots':
         {
-          functionLibraryPartsFromNodes.addSocialBots(payload.node)
+          functionLibraryUiObjectsFromNodes.addSocialBots(payload.node)
         }
         break
       case 'Add Telegram Bot':
         {
-          functionLibraryPartsFromNodes.addTelegramBot(payload.node)
+          functionLibraryUiObjectsFromNodes.addTelegramBot(payload.node)
         }
         break
       case 'Add Announcement':
         {
-          functionLibraryPartsFromNodes.addAnnouncement(payload.node)
+          functionLibraryUiObjectsFromNodes.addAnnouncement(payload.node)
         }
         break
       case 'Add Layer Manager':
         {
-          functionLibraryPartsFromNodes.addLayerManager(payload.node)
+          functionLibraryUiObjectsFromNodes.addLayerManager(payload.node)
         }
         break
       case 'Add Layer':
         {
-          functionLibraryPartsFromNodes.addLayer(payload.node)
+          functionLibraryUiObjectsFromNodes.addLayer(payload.node)
         }
         break
       case 'Add Task Manager':
         {
-          functionLibraryPartsFromNodes.addTaskManager(payload.node)
+          functionLibraryUiObjectsFromNodes.addTaskManager(payload.node)
         }
         break
       case 'Add Task':
         {
-          functionLibraryPartsFromNodes.addTask(payload.node)
+          functionLibraryUiObjectsFromNodes.addTask(payload.node)
         }
         break
-      case 'Add Sensor':
+      case 'Add Sensor Bot Instance':
         {
-          functionLibraryPartsFromNodes.addSensor(payload.node)
+          functionLibraryUiObjectsFromNodes.addSensorBotInstance(payload.node)
         }
         break
-      case 'Add Indicator':
+      case 'Add Indicator Bot Instance':
         {
-          functionLibraryPartsFromNodes.addIndicator(payload.node)
+          functionLibraryUiObjectsFromNodes.addIndicatorBotInstance(payload.node)
         }
         break
-      case 'Add Trading Engine':
+      case 'Add Trading Bot Instance':
         {
-          functionLibraryPartsFromNodes.addTradingEngine(payload.node)
+          functionLibraryUiObjectsFromNodes.addTradingBotInstance(payload.node)
         }
         break
-      case 'Add Process':
+      case 'Add Process Instance':
         {
-          functionLibraryPartsFromNodes.addProcess(payload.node)
+          functionLibraryUiObjectsFromNodes.addProcessInstance(payload.node)
         }
         break
       case 'Add Backtesting Session':
         {
-          functionLibraryPartsFromNodes.addBacktestingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addBacktestingSession(payload.node)
         }
         break
       case 'Add Live Trading Session':
         {
-          functionLibraryPartsFromNodes.addLiveTradingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addLiveTradingSession(payload.node)
         }
         break
       case 'Add Fordward Testing Session':
         {
-          functionLibraryPartsFromNodes.addFordwardTestingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addFordwardTestingSession(payload.node)
         }
         break
       case 'Add Paper Trading Session':
         {
-          functionLibraryPartsFromNodes.addPaperTradingSession(payload.node)
+          functionLibraryUiObjectsFromNodes.addPaperTradingSession(payload.node)
         }
         break
       case 'Add Strategy':
         {
-          functionLibraryPartsFromNodes.addStrategy(payload.node)
+          functionLibraryUiObjectsFromNodes.addStrategy(payload.node)
         }
         break
       case 'Add Parameters':
         {
-          functionLibraryPartsFromNodes.addParameters(payload.node)
+          functionLibraryUiObjectsFromNodes.addParameters(payload.node)
         }
         break
       case 'Add Missing Parameters':
         {
-          functionLibraryPartsFromNodes.addMissingParameters(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingParameters(payload.node)
         }
         break
       case 'Add Missing Stages':
         {
-          functionLibraryPartsFromNodes.addMissingStages(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingStages(payload.node)
         }
         break
       case 'Add Missing Events':
         {
-          functionLibraryPartsFromNodes.addMissingEvents(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingEvents(payload.node)
         }
         break
       case 'Add Missing Items':
         {
-          functionLibraryPartsFromNodes.addMissingItems(payload.node)
+          functionLibraryUiObjectsFromNodes.addMissingItems(payload.node)
         }
         break
       case 'Add Initial Definition':
         {
-          functionLibraryPartsFromNodes.addInitialDefinition(payload.node)
+          functionLibraryUiObjectsFromNodes.addInitialDefinition(payload.node)
         }
         break
       case 'Add Open Execution':
         {
-          functionLibraryPartsFromNodes.addOpenExecution(payload.node)
+          functionLibraryUiObjectsFromNodes.addOpenExecution(payload.node)
         }
         break
       case 'Add Close Execution':
         {
-          functionLibraryPartsFromNodes.addCloseExecution(payload.node)
+          functionLibraryUiObjectsFromNodes.addCloseExecution(payload.node)
         }
         break
       case 'Add Phase':
         {
-          functionLibraryPartsFromNodes.addPhase(payload.node)
+          functionLibraryUiObjectsFromNodes.addPhase(payload.node)
         }
         break
       case 'Add Formula':
         {
-          functionLibraryPartsFromNodes.addFormula(payload.node)
+          functionLibraryUiObjectsFromNodes.addFormula(payload.node)
         }
         break
       case 'Add Next Phase Event':
         {
-          functionLibraryPartsFromNodes.addNextPhaseEvent(payload.node)
+          functionLibraryUiObjectsFromNodes.addNextPhaseEvent(payload.node)
         }
         break
       case 'Add Situation':
         {
-          functionLibraryPartsFromNodes.addSituation(payload.node)
+          functionLibraryUiObjectsFromNodes.addSituation(payload.node)
         }
         break
       case 'Add Condition':
         {
-          functionLibraryPartsFromNodes.addCondition(payload.node)
+          functionLibraryUiObjectsFromNodes.addCondition(payload.node)
         }
         break
       case 'Add Code':
         {
-          functionLibraryPartsFromNodes.addCode(payload.node)
+          functionLibraryUiObjectsFromNodes.addCode(payload.node)
         }
         break
       case 'Add Exchange Account':
         {
-          functionLibraryPartsFromNodes.addExchangeAccount(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccount(payload.node)
         }
         break
       case 'Add Exchange Account Asset':
         {
-          functionLibraryPartsFromNodes.addExchangeAccountAsset(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccountAsset(payload.node)
         }
         break
       case 'Add Exchange Account Key':
         {
-          functionLibraryPartsFromNodes.addExchangeAccountKey(payload.node)
+          functionLibraryUiObjectsFromNodes.addExchangeAccountKey(payload.node)
         }
         break
       case 'Add Trading System':
         {
-          functionLibraryPartsFromNodes.addTradingSystem(payload.node)
+          functionLibraryUiObjectsFromNodes.addTradingSystem(payload.node)
         }
         break
       case 'Add Personal Data':
         {
-          functionLibraryPartsFromNodes.addPersonalData(payload.node)
+          functionLibraryUiObjectsFromNodes.addPersonalData(payload.node)
         }
         break
+      case 'Delete Team': {
+        functionLibraryNodeDeleter.deleteTeam(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Sensor Bot': {
+        functionLibraryNodeDeleter.deleteSensorBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Indicator Bot': {
+        functionLibraryNodeDeleter.deleteIndicatorBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Trading Bot': {
+        functionLibraryNodeDeleter.deleteTradingBot(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Definition': {
+        functionLibraryNodeDeleter.deleteProcessDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Output': {
+        functionLibraryNodeDeleter.deleteProcessOutput(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Process Dependencies': {
+        functionLibraryNodeDeleter.deleteProcessDependencies(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Status Report': {
+        functionLibraryNodeDeleter.deleteStatusReport(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Execution Started Event': {
+        functionLibraryNodeDeleter.deleteExecutionStartedEvent(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Execution Finished Event': {
+        functionLibraryNodeDeleter.deleteExecutionFinishedEvent(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Calculations Procedure': {
+        functionLibraryNodeDeleter.deleteCalculationsProcedure(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Data Building Procedure': {
+        functionLibraryNodeDeleter.deleteDataBuildingProcedure(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Procedure Initialization': {
+        functionLibraryNodeDeleter.deleteProcedureInitialization(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Procedure Loop': {
+        functionLibraryNodeDeleter.deleteProcedureLoop(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Output Dataset': {
+        functionLibraryNodeDeleter.deleteOutputDataset(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Status Dependency': {
+        functionLibraryNodeDeleter.deleteStatusDependency(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Data Dependency': {
+        functionLibraryNodeDeleter.deleteDataDependency(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Product Definition': {
+        functionLibraryNodeDeleter.deleteProductDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Record Definition': {
+        functionLibraryNodeDeleter.deleteRecordDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Record Property': {
+        functionLibraryNodeDeleter.deleteRecordProperty(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Dataset Definition': {
+        functionLibraryNodeDeleter.deleteDatasetDefinition(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter': {
+        functionLibraryNodeDeleter.deletePlotter(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter Module': {
+        functionLibraryNodeDeleter.deletePlotterModule(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
+      case 'Delete Plotter Panel': {
+        functionLibraryNodeDeleter.deletePlotterPanel(payload.node, thisObject.workspaceNode.rootNodes)
+        break
+      }
       case 'Delete Network': {
         functionLibraryNodeDeleter.deleteNetwork(payload.node, thisObject.workspaceNode.rootNodes)
         break
@@ -544,20 +811,20 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deleteTask(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Sensor': {
-        functionLibraryNodeDeleter.deleteSensor(payload.node, thisObject.workspaceNode.rootNodes)
+      case 'Delete Sensor Bot Instance': {
+        functionLibraryNodeDeleter.deleteSensorBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Indicator': {
-        functionLibraryNodeDeleter.deleteIndicator(payload.node, thisObject.workspaceNode.rootNodes)
+      case 'Delete Indicator Bot Instance': {
+        functionLibraryNodeDeleter.deleteIndicatorBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Trading Engine': {
-        functionLibraryNodeDeleter.deleteTradingEngine(payload.node, thisObject.workspaceNode.rootNodes)
+      case 'Delete Trading Bot Instance': {
+        functionLibraryNodeDeleter.deleteTradingBotInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Process': {
-        functionLibraryNodeDeleter.deleteProcess(payload.node, thisObject.workspaceNode.rootNodes)
+      case 'Delete Process Instance': {
+        functionLibraryNodeDeleter.deleteProcessInstance(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Backtesting Session': {

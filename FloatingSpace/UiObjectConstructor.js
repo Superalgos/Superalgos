@@ -1,13 +1,13 @@
 
-function newStrategyPartConstructor () {
-  const MODULE_NAME = 'Strategy Part Constructor'
+function newUiObjectConstructor () {
+  const MODULE_NAME = 'UI Object Constructor'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    createStrategyPart: createStrategyPart,
-    destroyStrategyPart: destroyStrategyPart,
+    createUiObject: createUiObject,
+    destroyUiObject: destroyUiObject,
     initialize: initialize,
     finalize: finalize
   }
@@ -27,11 +27,11 @@ function newStrategyPartConstructor () {
     floatingLayer = pFloatingLayer
   }
 
-  function createStrategyPart (payload) {
+  function createUiObject (payload) {
     let floatingObject = newFloatingObject()
     floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
-    floatingObject.initialize('Strategy Part', payload)
+    floatingObject.initialize('UI Object', payload)
     payload.floatingObject = floatingObject
 
     if (payload.node.savedPayload !== undefined) {
@@ -59,13 +59,13 @@ function newStrategyPartConstructor () {
       }
     }
 
-    let strategyPart = newStrategyPart()
-    payload.uiObject = strategyPart
-    strategyPart.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-    strategyPart.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
-    let menuItemsInitialValues = getMenuItemsInitialValues(strategyPart, floatingObject, payload)
-    strategyPart.initialize(payload, menuItemsInitialValues)
-    strategyPart.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
+    let uiObject = newUiObject()
+    payload.uiObject = uiObject
+    uiObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+    uiObject.isVisibleFunction = canvas.floatingSpace.isThisPointVisible
+    let menuItemsInitialValues = getMenuItemsInitialValues(uiObject, floatingObject, payload)
+    uiObject.initialize(payload, menuItemsInitialValues)
+    uiObject.container.connectToParent(floatingObject.container, false, false, true, true, false, false, true, true, true, true, true)
 
     setFloatingObjectBasicProperties(floatingObject, payload)
 
@@ -162,7 +162,7 @@ function newStrategyPartConstructor () {
       )
   }
 
-  function getMenuItemsInitialValues (strategyPart, floatingObject, payload) {
+  function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
     let menuItemsInitialValues = []
     switch (payload.node.type) {
       case 'Workspace': {
@@ -200,11 +200,33 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Definition',
             visible: true,
-            relatedStrategyPart: 'Definition',
+            relatedUiObject: 'Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          },
+          {
+            action: 'Add Network',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Network',
+            visible: true,
+            relatedUiObject: 'Network',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: -10
+          },
+          {
+            action: 'Add Team',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Team',
+            visible: true,
+            relatedUiObject: 'Team',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
           },
           {
             action: 'Share Workspace',
@@ -216,7 +238,7 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 10
+            angle: 30
           }]
         break
       }
@@ -230,11 +252,11 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading System',
             visible: true,
-            relatedStrategyPart: 'Trading System',
+            relatedUiObject: 'Trading System',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -30
           }
           )
         menuItemsInitialValues.push(
@@ -243,7 +265,86 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Personal Data',
             visible: true,
-            relatedStrategyPart: 'Personal Data',
+            relatedUiObject: 'Personal Data',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Team': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Team',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -75,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Sensor Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Sensor Bot',
+            visible: true,
+            relatedUiObject: 'Sensor Bot',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Indicator Bot',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Indicator Bot',
+            visible: true,
+            relatedUiObject: 'Indicator Bot',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -252,24 +353,116 @@ function newStrategyPartConstructor () {
             )
         menuItemsInitialValues.push(
           {
-            action: 'Add Network',
+            action: 'Add Trading Bot',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Network',
+            label: 'Add Trading Bot',
             visible: true,
-            relatedStrategyPart: 'Network',
+            relatedUiObject: 'Trading Bot',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
             angle: 0
           }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter',
+            visible: true,
+            relatedUiObject: 'Plotter',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
                 )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Definition',
+            action: 'Delete Team',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Definition',
+            label: 'Delete Team',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 75
+          }
+        )
+        break
+      }
+      case 'Sensor Bot': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Bot',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Sensor Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Sensor Bot',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -290,7 +483,1187 @@ function newStrategyPartConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Indicator Bot': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Bot',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Indicator Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Indicator Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Trading Bot': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Bot',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Bot',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Process Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Definition',
+            visible: true,
+            relatedUiObject: 'Process Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Product Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Product Definition',
+            visible: true,
+            relatedUiObject: 'Product Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading Bot',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Trading Bot',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Process Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Process',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Process',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Missing Process Definition Items',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Items',
+            visible: true,
+            relatedUiObject: 'Calculations Procedure',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Process Output': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Output Dataset',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Output Dataset',
+            visible: true,
+            relatedUiObject: 'Output Dataset',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+                )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Output',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Output',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Process Dependencies': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Status Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Status Dependency',
+            visible: true,
+            relatedUiObject: 'Status Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60
+          }
+                    )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Data Dependency',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Data Dependency',
+            visible: true,
+            relatedUiObject: 'Data Dependency',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+                        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Process Dependencies',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Process Dependencies',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Status Report': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Status Report',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Status Report',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+        )
+        break
+      }
+      case 'Execution Started Event': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Execution Started Event',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Event',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+        )
+        break
+      }
+      case 'Execution Finished Event': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Execution Finished Event',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Event',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+        )
+        break
+      }
+      case 'Calculations Procedure': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Loop',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Loop',
+            visible: true,
+            relatedUiObject: 'Procedure Loop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Calculations Procedure',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Data Building Procedure': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Initialization',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Initialization',
+            visible: true,
+            relatedUiObject: 'Procedure Initialization',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Procedure Loop',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Procedure Loop',
+            visible: true,
+            relatedUiObject: 'Procedure Loop',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Data Building Procedure',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Procedure Initialization': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Procedure Initialization',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Initialization',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
             angle: 40
+          }
+        )
+        break
+      }
+      case 'Procedure Loop': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Procedure Loop',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Procedure Loop',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Output Dataset': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Output Dataset',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Output Dataset',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Status Dependency': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Status Dependency',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Status Dependency',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Status Dependency',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Status Dependency',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
+          }
+        )
+        break
+      }
+      case 'Data Dependency': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Data Dependency',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Data Dependency',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Product Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Product',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Product',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Record Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Record Definition',
+            visible: true,
+            relatedUiObject: 'Record Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Dataset Definition',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Dataset Definition',
+            visible: true,
+            relatedUiObject: 'Dataset Definition',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Missing Product Definition Items',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Missing Items',
+            visible: true,
+            relatedUiObject: 'Calculations Procedure',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Product Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Product Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
+      case 'Record Definition': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Record Property',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Record Property',
+            visible: true,
+            relatedUiObject: 'Record Property',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Record Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Record Definition',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Record Property': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Property',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Property',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -45,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Formula',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Formula',
+            visible: true,
+            relatedUiObject: 'Formula',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Record Property',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Record Property',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 15
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 45
+          }
+        )
+        break
+      }
+      case 'Dataset Definition': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Definition',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Definition',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Dataset Definition',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Dataset',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Plotter': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Module',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Module',
+            visible: true,
+            relatedUiObject: 'Plotter Module',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+        )
+        break
+      }
+      case 'Plotter Module': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Panel',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Panel',
+            visible: true,
+            relatedUiObject: 'Plotter Panel',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Module',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Module',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+        )
+        break
+      }
+      case 'Plotter Panel': {
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Panel',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Panel',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
           }
         )
         break
@@ -303,7 +1676,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Network Node',
             visible: true,
-            relatedStrategyPart: 'Network Node',
+            relatedUiObject: 'Network Node',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -350,7 +1723,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Task Manager',
             visible: true,
-            relatedStrategyPart: 'Task Manager',
+            relatedUiObject: 'Task Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -397,7 +1770,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Telegram Bot',
             visible: true,
-            relatedStrategyPart: 'Telegram Bot',
+            relatedUiObject: 'Telegram Bot',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -437,10 +1810,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Telegram Bot': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -448,7 +1821,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Announcement',
             visible: true,
-            relatedStrategyPart: 'Announcement',
+            relatedUiObject: 'Announcement',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -458,7 +1831,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Telegram Bot',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Telegram Bot',
             visible: true,
             iconPathOn: 'html',
@@ -503,10 +1876,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Announcement': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -514,7 +1887,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
-            relatedStrategyPart: 'Formula',
+            relatedUiObject: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -525,7 +1898,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Announcement',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Announcement',
             visible: true,
             iconPathOn: 'html',
@@ -577,7 +1950,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer',
             visible: true,
-            relatedStrategyPart: 'Layer',
+            relatedUiObject: 'Layer',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -617,15 +1990,15 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Layer': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Layer',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Layer',
             visible: true,
             iconPathOn: 'html',
@@ -705,7 +2078,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Task',
             visible: true,
-            relatedStrategyPart: 'Task Manager',
+            relatedUiObject: 'Task Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -771,11 +2144,11 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Sensor',
+            action: 'Add Sensor Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Sensor',
+            label: 'Add Sensor Bot Instance',
             visible: true,
-            relatedStrategyPart: 'Sensor',
+            relatedUiObject: 'Sensor Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -784,11 +2157,11 @@ function newStrategyPartConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Add Indicator',
+            action: 'Add Indicator Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Indicator',
+            label: 'Add Indicator Bot Instance',
             visible: true,
-            relatedStrategyPart: 'Indicator',
+            relatedUiObject: 'Indicator Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -797,11 +2170,11 @@ function newStrategyPartConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Add Trading Engine',
+            action: 'Add Trading Bot Instance',
             actionFunction: payload.onMenuItemClick,
-            label: 'Add Trading Engine',
+            label: 'Add Trading Bot Instance',
             visible: true,
-            relatedStrategyPart: 'Trading Engine',
+            relatedUiObject: 'Trading Bot Instance',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -840,48 +2213,48 @@ function newStrategyPartConstructor () {
                 )
         break
       }
-      case 'Sensor': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+      case 'Sensor Bot Instance': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
-            visible: true,
-            relatedStrategyPart: 'Process',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Edit Sensor',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Sensor',
+            action: 'Edit Sensor Bot Instance',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Sensor Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
           }
             )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Sensor',
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Sensor Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Sensor',
+            label: 'Delete Sensor Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -907,48 +2280,48 @@ function newStrategyPartConstructor () {
                     )
         break
       }
-      case 'Indicator': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+      case 'Indicator Bot Instance': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
-            visible: true,
-            relatedStrategyPart: 'Process',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Edit Indicator',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Indicator',
+            action: 'Edit Indicator Bot Instance',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Indicator Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
           }
             )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Indicator',
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Indicator Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Indicator',
+            label: 'Delete Indicator Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -974,48 +2347,48 @@ function newStrategyPartConstructor () {
             )
         break
       }
-      case 'Trading Engine': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+      case 'Trading Bot Instance': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Process',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Process',
-            visible: true,
-            relatedStrategyPart: 'Process',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -45
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Edit Trading Engine',
-            actionFunction: strategyPart.codeEditor.activate,
-            label: 'Edit Trading Engine',
+            action: 'Edit Trading Bot Instance',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Trading Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -15,
+            angle: -45,
             dontShowAtFullscreen: true
           }
           )
         menuItemsInitialValues.push(
           {
-            action: 'Delete Trading Engine',
+            action: 'Add Process Instance',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Process Instance',
+            visible: true,
+            relatedUiObject: 'Process Instance',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -15
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Trading Bot Instance',
             askConfirmation: true,
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
-            label: 'Delete Trading Engine',
+            label: 'Delete Trading Bot Instance',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -1041,23 +2414,23 @@ function newStrategyPartConstructor () {
           )
         break
       }
-      case 'Process': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+      case 'Process Instance': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
 
         switch (payload.node.subType) {
-          case 'Trading Engine Process': {
+          case 'Trading Process Instance': {
             menuItemsInitialValues.push(
               {
                 action: 'Add Backtesting Session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Backtesting',
                 visible: true,
-                relatedStrategyPart: 'Backtesting Session',
+                relatedUiObject: 'Backtesting Session',
                 rawRadius: 8,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -1070,7 +2443,7 @@ function newStrategyPartConstructor () {
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Live Trading',
                 visible: true,
-                relatedStrategyPart: 'Live Trading Session',
+                relatedUiObject: 'Live Trading Session',
                 rawRadius: 8,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -1083,7 +2456,7 @@ function newStrategyPartConstructor () {
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Fordward Testing',
                 visible: true,
-                relatedStrategyPart: 'Fordward Testing Session',
+                relatedUiObject: 'Fordward Testing Session',
                 rawRadius: 8,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -1096,7 +2469,7 @@ function newStrategyPartConstructor () {
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Paper Trading',
                 visible: true,
-                relatedStrategyPart: 'Paper Trading Session',
+                relatedUiObject: 'Paper Trading Session',
                 rawRadius: 8,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -1105,9 +2478,9 @@ function newStrategyPartConstructor () {
                     )
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process',
-                actionFunction: strategyPart.codeEditor.activate,
-                label: 'Edit Process',
+                action: 'Edit Process Instance',
+                actionFunction: uiObject.codeEditor.activate,
+                label: 'Edit Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -1120,11 +2493,11 @@ function newStrategyPartConstructor () {
             )
             menuItemsInitialValues.push(
               {
-                action: 'Delete Process',
+                action: 'Delete Process Instance',
                 askConfirmation: true,
                 confirmationLabel: 'Confirm to Delete',
                 actionFunction: payload.onMenuItemClick,
-                label: 'Delete Process',
+                label: 'Delete Process Instance',
                 visible: true,
                 iconPathOn: 'delete',
                 iconPathOff: 'delete',
@@ -1153,9 +2526,9 @@ function newStrategyPartConstructor () {
           default: {
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process',
-                actionFunction: strategyPart.codeEditor.activate,
-                label: 'Edit Process',
+                action: 'Edit Process Instance',
+                actionFunction: uiObject.codeEditor.activate,
+                label: 'Edit Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -1168,11 +2541,11 @@ function newStrategyPartConstructor () {
             )
             menuItemsInitialValues.push(
               {
-                action: 'Delete Process',
+                action: 'Delete Process Instance',
                 askConfirmation: true,
                 confirmationLabel: 'Confirm to Delete',
                 actionFunction: payload.onMenuItemClick,
-                label: 'Delete Process',
+                label: 'Delete Process Instance',
                 visible: true,
                 iconPathOn: 'delete',
                 iconPathOff: 'delete',
@@ -1202,10 +2575,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Backtesting Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1237,7 +2610,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
-            relatedStrategyPart: 'Layer Manager',
+            relatedUiObject: 'Layer Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1250,7 +2623,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1263,7 +2636,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
-            relatedStrategyPart: 'Social Bots',
+            relatedUiObject: 'Social Bots',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1273,7 +2646,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1318,10 +2691,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Live Trading Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1353,7 +2726,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
-            relatedStrategyPart: 'Layer Manager',
+            relatedUiObject: 'Layer Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1366,7 +2739,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1379,7 +2752,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
-            relatedStrategyPart: 'Social Bots',
+            relatedUiObject: 'Social Bots',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1389,7 +2762,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1434,10 +2807,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Fordward Testing Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1469,7 +2842,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
-            relatedStrategyPart: 'Layer Manager',
+            relatedUiObject: 'Layer Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1482,7 +2855,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1495,7 +2868,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
-            relatedStrategyPart: 'Social Bots',
+            relatedUiObject: 'Social Bots',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1505,7 +2878,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1550,10 +2923,10 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Paper Trading Session': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -1585,7 +2958,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
-            relatedStrategyPart: 'Layer Manager',
+            relatedUiObject: 'Layer Manager',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1598,7 +2971,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1611,7 +2984,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
-            relatedStrategyPart: 'Social Bots',
+            relatedUiObject: 'Social Bots',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1621,7 +2994,7 @@ function newStrategyPartConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Edit Session',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Session',
             visible: true,
             iconPathOn: 'html',
@@ -1673,7 +3046,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Exchange Account',
             visible: true,
-            relatedStrategyPart: 'Exchange Account',
+            relatedUiObject: 'Exchange Account',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1706,7 +3079,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Asset',
             visible: true,
-            relatedStrategyPart: 'Exchange Account Asset',
+            relatedUiObject: 'Exchange Account Asset',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1719,7 +3092,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Key',
             visible: true,
-            relatedStrategyPart: 'Exchange Account Key',
+            relatedUiObject: 'Exchange Account Key',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1765,16 +3138,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Exchange Account Key': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Key Value',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Key Value',
             visible: true,
             iconPathOn: 'html',
@@ -1812,7 +3185,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Strategy',
             visible: true,
-            relatedStrategyPart: 'Strategy',
+            relatedUiObject: 'Strategy',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1825,7 +3198,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1872,7 +3245,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Params',
             visible: true,
-            relatedStrategyPart: 'Parameters',
+            relatedUiObject: 'Parameters',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1912,16 +3285,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Base Asset': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Base Asset',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Base Asset',
             visible: true,
             iconPathOn: 'settings',
@@ -1965,16 +3338,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Time Range': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Time Range',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Time Range',
             visible: true,
             iconPathOn: 'settings',
@@ -2018,16 +3391,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Time Period': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Time Period',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Time Period',
             visible: true,
             iconPathOn: 'settings',
@@ -2071,16 +3444,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Slippage': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Slippage',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Slippage',
             visible: true,
             iconPathOn: 'settings',
@@ -2124,16 +3497,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Fee Structure': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Fee Structure',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Fee Structure',
             visible: true,
             iconPathOn: 'settings',
@@ -2184,7 +3557,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Stages',
             visible: true,
-            relatedStrategyPart: 'Strategy',
+            relatedUiObject: 'Strategy',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2231,7 +3604,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Events',
             visible: true,
-            relatedStrategyPart: 'Trigger Stage',
+            relatedUiObject: 'Trigger Stage',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2278,7 +3651,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Initial Definition',
             visible: true,
-            relatedStrategyPart: 'Initial Definition',
+            relatedUiObject: 'Initial Definition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2291,7 +3664,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Open Execution',
             visible: true,
-            relatedStrategyPart: 'Open Execution',
+            relatedUiObject: 'Open Execution',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2338,7 +3711,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Items',
             visible: true,
-            relatedStrategyPart: 'Manage Stage',
+            relatedUiObject: 'Manage Stage',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2385,7 +3758,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Close Execution',
             visible: true,
-            relatedStrategyPart: 'Close Execution',
+            relatedUiObject: 'Close Execution',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2432,7 +3805,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
-            relatedStrategyPart: 'Formula',
+            relatedUiObject: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2479,7 +3852,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
-            relatedStrategyPart: 'Formula',
+            relatedUiObject: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2526,7 +3899,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: true,
-            relatedStrategyPart: 'Situation',
+            relatedUiObject: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2573,7 +3946,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: true,
-            relatedStrategyPart: 'Situation',
+            relatedUiObject: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2620,7 +3993,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: true,
-            relatedStrategyPart: 'Situation',
+            relatedUiObject: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2667,7 +4040,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Missing Items',
             visible: true,
-            relatedStrategyPart: 'Initial Definition',
+            relatedUiObject: 'Initial Definition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2782,7 +4155,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: true,
-            relatedStrategyPart: 'Phase',
+            relatedUiObject: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2829,7 +4202,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Phase',
             visible: true,
-            relatedStrategyPart: 'Phase',
+            relatedUiObject: 'Phase',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2876,7 +4249,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
-            relatedStrategyPart: 'Formula',
+            relatedUiObject: 'Formula',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2889,7 +4262,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Next Phase Event',
             visible: true,
-            relatedStrategyPart: 'Next Phase Event',
+            relatedUiObject: 'Next Phase Event',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -2929,16 +4302,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Formula': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Formula',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Formula',
             visible: true,
             iconPathOn: 'html',
@@ -2990,7 +4363,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Situation',
             visible: true,
-            relatedStrategyPart: 'Situation',
+            relatedUiObject: 'Situation',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -3037,7 +4410,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Condition',
             visible: true,
-            relatedStrategyPart: 'Condition',
+            relatedUiObject: 'Condition',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -3084,7 +4457,7 @@ function newStrategyPartConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedStrategyPart: 'Code',
+            relatedUiObject: 'Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -3124,16 +4497,16 @@ function newStrategyPartConstructor () {
         break
       }
       case 'Code': {
-        strategyPart.codeEditor = newCodeEditor()
-        strategyPart.codeEditor.isVisibleFunction = strategyPart.isVisibleFunction
-        strategyPart.codeEditor.initialize()
-        strategyPart.codeEditor.container.connectToParent(strategyPart.container, false, false, true, true, false, false, false, false)
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Code',
-            actionFunction: strategyPart.codeEditor.activate,
+            actionFunction: uiObject.codeEditor.activate,
             label: 'Edit Code',
             visible: true,
             iconPathOn: 'html',
@@ -3178,7 +4551,7 @@ function newStrategyPartConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> Part Type not Recognized -> type = ' + payload.node.type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
       }
     }
 
@@ -3196,6 +4569,102 @@ function newStrategyPartConstructor () {
       }
       case 'Definition': {
         level_0()
+        break
+      }
+      case 'Team': {
+        level_0()
+        break
+      }
+      case 'Sensor Bot': {
+        level_1()
+        break
+      }
+      case 'Indicator Bot': {
+        level_1()
+        break
+      }
+      case 'Trading Bot': {
+        level_1()
+        break
+      }
+      case 'Process Definition': {
+        level_2()
+        break
+      }
+      case 'Process Output': {
+        level_3()
+        break
+      }
+      case 'Process Dependencies': {
+        level_3()
+        break
+      }
+      case 'Status Report': {
+        level_3()
+        break
+      }
+      case 'Execution Started Event': {
+        level_3()
+        break
+      }
+      case 'Execution Finished Event': {
+        level_3()
+        break
+      }
+      case 'Calculations Procedure': {
+        level_3()
+        break
+      }
+      case 'Data Building Procedure': {
+        level_3()
+        break
+      }
+      case 'Procedure Initialization': {
+        level_4()
+        break
+      }
+      case 'Procedure Loop': {
+        level_4()
+        break
+      }
+      case 'Output Dataset': {
+        level_3()
+        break
+      }
+      case 'Status Dependency': {
+        level_3()
+        break
+      }
+      case 'Data Dependency': {
+        level_3()
+        break
+      }
+      case 'Product Definition': {
+        level_2()
+        break
+      }
+      case 'Record Definition': {
+        level_3()
+        break
+      }
+      case 'Record Property': {
+        level_4()
+        break
+      }
+      case 'Dataset Definition': {
+        level_3()
+        break
+      }
+      case 'Plotter': {
+        level_1()
+        break
+      }
+      case 'Plotter Module': {
+        level_2()
+        break
+      }
+      case 'Plotter Panel': {
+        level_3()
         break
       }
       case 'Network': {
@@ -3234,19 +4703,19 @@ function newStrategyPartConstructor () {
         level_3()
         break
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         level_3()
         break
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         level_3()
         break
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         level_3()
         break
       }
-      case 'Process': {
+      case 'Process Instance': {
         level_2()
         break
       }
@@ -3395,7 +4864,7 @@ function newStrategyPartConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Part Type not Recognized -> type = ' + payload.node.type) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
         return
       }
     }
@@ -3502,7 +4971,7 @@ function newStrategyPartConstructor () {
     floatingObject.labelStrokeStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
   }
 
-  function destroyStrategyPart (payload) {
+  function destroyUiObject (payload) {
     floatingLayer.removeFloatingObject(payload.floatingObject.handle)
 
     payload.floatingObject.finalize()

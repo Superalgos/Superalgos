@@ -1,18 +1,212 @@
-function newAttachDetach () {
+function newChainAttachDetach () {
   thisObject = {
-    detachNode: detachNode,
-    attachNode: attachNode
+    chainDetachNode: chainDetachNode,
+    chainAttachNode: chainAttachNode
   }
 
   return thisObject
 
-  function detachNode (node, rootNodes) {
+  function chainDetachNode (node, rootNodes) {
     switch (node.type) {
       case 'Definition': {
         return
       }
       case 'Network': {
-        node.payload.parentNode.network = undefined
+        return
+      }
+      case 'Team': {
+        return
+      }
+      case 'Sensor Bot': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.sensorBots.length; i++) {
+          let sensorBot = payload.parentNode.sensorBots[i]
+          if (sensorBot.id === node.id) {
+            payload.parentNode.sensorBots.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Indicator Bot': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.indicatorBots.length; i++) {
+          let indicatorBot = payload.parentNode.indicatorBots[i]
+          if (indicatorBot.id === node.id) {
+            payload.parentNode.indicatorBots.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Trading Bot': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.tradingBots.length; i++) {
+          let tradingBot = payload.parentNode.tradingBots[i]
+          if (tradingBot.id === node.id) {
+            payload.parentNode.tradingBots.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Process Definition': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.processes.length; i++) {
+          let process = payload.parentNode.processes[i]
+          if (process.id === node.id) {
+            payload.parentNode.processes.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Process Output': {
+        node.payload.parentNode.processOutput = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Process Dependencies': {
+        node.payload.parentNode.processDependencies = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Status Report': {
+        node.payload.parentNode.statusReport = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Execution Started Event': {
+        node.payload.parentNode.executionStartedEvent = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Execution Finished Event': {
+        node.payload.parentNode.executionFinishedEvent = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Calculations Procedure': {
+        node.payload.parentNode.calculations = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Data Building Procedure': {
+        node.payload.parentNode.dataBuilding = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Procedure Initialization': {
+        node.payload.parentNode.initialization = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Procedure Loop': {
+        node.payload.parentNode.loop = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Output Dataset': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.outputDatasets.length; i++) {
+          let outputDataset = payload.parentNode.outputDatasets[i]
+          if (outputDataset.id === node.id) {
+            payload.parentNode.outputDatasets.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Status Dependency': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.statusDependencies.length; i++) {
+          let statusDependency = payload.parentNode.statusDependencies[i]
+          if (statusDependency.id === node.id) {
+            payload.parentNode.statusDependencies.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Data Dependency': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.dataDependencies.length; i++) {
+          let dataDependency = payload.parentNode.dataDependencies[i]
+          if (dataDependency.id === node.id) {
+            payload.parentNode.dataDependencies.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Product Definition': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.products.length; i++) {
+          let product = payload.parentNode.products[i]
+          if (product.id === node.id) {
+            payload.parentNode.products.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Record Definition': {
+        node.payload.parentNode.record = undefined
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Record Property': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.properties.length; i++) {
+          let property = payload.parentNode.properties[i]
+          if (property.id === node.id) {
+            payload.parentNode.properties.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Dataset Definition': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.datasets.length; i++) {
+          let dataset = payload.parentNode.datasets[i]
+          if (dataset.id === node.id) {
+            payload.parentNode.datasets.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Plotter': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.plotters.length; i++) {
+          let plotter = payload.parentNode.plotters[i]
+          if (plotter.id === node.id) {
+            payload.parentNode.plotters.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Plotter Module': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.modules.length; i++) {
+          let module = payload.parentNode.modules[i]
+          if (module.id === node.id) {
+            payload.parentNode.modules.splice(i, 1)
+          }
+        }
+        completeDetachment(node, rootNodes)
+        return
+      }
+      case 'Plotter Panel': {
+        let payload = node.payload
+        for (let i = 0; i < payload.parentNode.panels.length; i++) {
+          let panel = payload.parentNode.panels[i]
+          if (panel.id === node.id) {
+            payload.parentNode.panels.splice(i, 1)
+          }
+        }
         completeDetachment(node, rootNodes)
         return
       }
@@ -135,17 +329,17 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         node.payload.parentNode.bot = undefined
         completeDetachment(node, rootNodes)
         return
@@ -170,7 +364,7 @@ function newAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Process': {
+      case 'Process Instance': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.processes.length; i++) {
           let process = payload.parentNode.processes[i]
@@ -358,12 +552,166 @@ function newAttachDetach () {
     }
   }
 
-  function attachNode (node, attachToNode, rootNodes) {
+  function chainAttachNode (node, attachToNode, rootNodes) {
     switch (node.type) {
-      case 'Network': {
+      case 'Sensor Bot': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.network = node
+        node.payload.parentNode.sensorBots.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Indicator Bot': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.indicatorBots.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Trading Bot': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.tradingBots.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process Definition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processes.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process Output': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processOutput = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Process Dependencies': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.processDependencies = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Status Report': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.statusReport = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Execution Started Event': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.executionStartedEvent = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Execution Finished Event': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.executionFinishedEvent = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Calculations Procedure': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.calculations = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Data Building Procedure': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.dataBuilding = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Procedure Initialization': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.initialization = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Procedure Loop': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.loop = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Output Dataset': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.outputDatasets.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Status Dependency': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.statusDependencies.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Data Dependency': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.dataDependencies.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Product Definition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.products.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Record Definition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.record = node
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Record Property': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.properties.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Dataset Definition': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.datasets.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Plotter': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.plotters.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Plotter Module': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.modules.push(node)
+        completeAttachment(node, rootNodes)
+      }
+        break
+      case 'Plotter Panel': {
+        node.payload.parentNode = attachToNode
+        node.payload.chainParent = attachToNode
+        node.payload.parentNode.panels.push(node)
         completeAttachment(node, rootNodes)
       }
         break
@@ -423,28 +771,28 @@ function newAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Sensor': {
+      case 'Sensor Bot Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.bot = node
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Indicator': {
+      case 'Indicator Bot Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.bot = node
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Trading Engine': {
+      case 'Trading Bot Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.bot = node
         completeAttachment(node, rootNodes)
       }
         break
-      case 'Process': {
+      case 'Process Instance': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.processes.push(node)

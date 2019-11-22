@@ -10,7 +10,7 @@
 
     2. Notes:         Notes are a rectangular area where some text is posted. It has a subject and a body.
 
-    3. Strategy Parts: These are small balls that represent parts of an strategy.
+    3. UI Objects: These are small balls that represent parts of an strategy.
     */
 
 function newFloatingLayer () {
@@ -203,7 +203,7 @@ function newFloatingLayer () {
     for (let i = 0; i < invisibleFloatingObjects.length; i++) {
       let floatingObject = invisibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === false) {
+      if (floatingObject.isFrozen === false && floatingObject.isParentCollapsed === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -215,7 +215,7 @@ function newFloatingLayer () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
 
-      if (floatingObject.isFrozen === true) {
+      if (floatingObject.isFrozen === true || floatingObject.isParentCollapsed === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
         return                     // Only one at the time.
@@ -293,7 +293,7 @@ function newFloatingLayer () {
 
                 break
               }
-              case 'Strategy Part': {
+              case 'UI Object': {
                 payload.targetPosition = floatingObject.payload.targetPosition
                 payload.visible = floatingObject.payload.visible
                 break
@@ -563,7 +563,7 @@ function newFloatingLayer () {
             payload.targetPosition = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
             break
           }
-          case 'Strategy Part': {
+          case 'UI Object': {
             payload.targetPosition = floatingObject2.payload.targetPosition
             break
           }

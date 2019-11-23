@@ -57,13 +57,14 @@ function newSplashScreen () {
   function draw () {
     if (splashScreenNeeded === false) {
       stepsInitializationCounter = 100
+      canDrawLogo = false
 
       fadeOutCounter++
 
-      if (fadeOutCounter > 20) {
+      if (fadeOutCounter > 2) {
         return
       }
-      opacity = opacity - 0.1
+      opacity = opacity - 1
     }
 
     thisObject.container.frame.draw(false, false)
@@ -100,7 +101,7 @@ function newSplashScreen () {
         /* Second the % of Advance. */
 
     let label = '' + Math.trunc(stepsInitializationCounter) + ' %'
-    stepsInitializationCounter = stepsInitializationCounter + 2.0
+    stepsInitializationCounter = stepsInitializationCounter + 5.0
 
     if (stepsInitializationCounter > 99) {
       splashScreenNeeded = false

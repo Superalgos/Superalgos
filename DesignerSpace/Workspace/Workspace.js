@@ -69,26 +69,16 @@ function newWorkspace () {
 
   async function initialize () {
     try {
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-      if (user === null) {
-        return
-      }
-      user = JSON.parse(user)
+      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
 
-      let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
-      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
-
-      if (savedWorkspace === null || idAtStrategizer === null) {
+      if (savedWorkspace === null) {
         thisObject.workspaceNode.type = 'Workspace'
         thisObject.workspaceNode.name = 'My Workspace'
-        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
-        spawnPosition.y = spawnPosition.y + 250
-        initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-        thisObject.enabled = true
       }
+      functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+      thisObject.enabled = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -131,7 +121,7 @@ function newWorkspace () {
     user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
+    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
   }
 
   function stringifyWorkspace (removePersonalData) {

@@ -67,7 +67,7 @@ function newWorkspace () {
     thisObject.workspaceNode = undefined
   }
 
-  async function initialize () {
+  function initialize () {
     try {
       let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
 
@@ -81,17 +81,6 @@ function newWorkspace () {
       thisObject.enabled = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-    }
-  }
-
-  async function initializeLoadingFromStrategizer () {
-    let result = await canvas.designerSpace.strategizerGateway.loadFromStrategyzer()
-    if (result === true) {
-      thisObject.definition = canvas.designerSpace.strategizerGateway.strategizerData
-      thisObject.workspaceNode.rootNodes.push(thisObject.definition)
-      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.definition, undefined, undefined)
-
-      thisObject.enabled = true
     }
   }
 

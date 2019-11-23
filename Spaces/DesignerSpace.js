@@ -3,7 +3,6 @@ function newDesignerSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    strategizerGateway: undefined,
     container: undefined,
     iconCollection: undefined,
     iconByUiObjectType: undefined,
@@ -27,11 +26,9 @@ function newDesignerSpace () {
 
   return thisObject
 
-  async function initialize () {
+  function initialize () {
     loadIconCollection()
     buildIconByUiObjectTypeMap()
-
-    thisObject.strategizerGateway = newStrategizerGateway()
 
     thisObject.workspace = newWorkspace()
     thisObject.workspace.initialize()

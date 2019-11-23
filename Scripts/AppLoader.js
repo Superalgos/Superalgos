@@ -52,8 +52,6 @@ function newAppLoader() {
                 'ChartsSpace/TimeMachine.js',
                 'ChartsSpace/TimeLineCoordinateSystem.js',
 
-                'DesignerSpace/StrategizerGateway.js',
-
                 'DesignerSpace/Workspace/Workspace.js',
                 'DesignerSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
                 'DesignerSpace/Workspace/FunctionLibraries/ChainAttachDetach.js',

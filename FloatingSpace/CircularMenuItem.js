@@ -10,6 +10,8 @@ function newCircularMenuItem () {
     iconOn: undefined,
     iconOff: undefined,
     currentIcon: undefined,
+    disableIfPropertyIsDefined: undefined,
+    propertyToCheckFor: undefined,
     action: undefined,
     actionFunction: undefined,
     actionStatus: undefined,
@@ -35,6 +37,7 @@ function newCircularMenuItem () {
     payload: undefined,
     relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
+    isEnabled: true,
     internalClick: internalClick,
     physics: physics,
     drawBackground: drawBackground,
@@ -93,6 +96,8 @@ function newCircularMenuItem () {
     thisObject.payload = undefined
     thisObject.actionFunction = undefined
     thisObject.actionStatus = undefined
+    thisObject.disableIfPropertyIsDefined = undefined
+    thisObject.propertyToCheckFor = undefined
   }
 
   function initialize (pPayload) {
@@ -143,7 +148,6 @@ function newCircularMenuItem () {
     thisObject.container.frame.position.y = thisObject.container.frame.radius * 3 / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
     /* Temporary Status impacts on the label to use and the background of that label */
-
     if (temporaryStatusCounter > 0) {
       temporaryStatusCounter--
     }
@@ -155,6 +159,16 @@ function newCircularMenuItem () {
       thisObject.nextAction = thisObject.action
     }
 
+    /* Here we will check if we need to monitor a property that influences the status of the Menu Item. */
+    if (thisObject.disableIfPropertyIsDefined === true) {
+      if (thisObject.payload.node[thisObject.propertyToCheckFor] === undefined) {
+        /* This menu item is enabled. */
+        thisObject.isEnabled = true
+      } else {
+        /* This menu item is disabled. */
+        thisObject.isEnabled = false
+      }
+    }
     iconPhysics()
   }
 
@@ -211,6 +225,8 @@ function newCircularMenuItem () {
   }
 
   function onMouseClick () {
+    if (thisObject.isEnabled === false) { return }
+
     if (thisObject.label === undefined) {
   /* This is what we have in the case of menu items that are only Icons. In this situation there is no complex logic, just execute the specified action. */
       thisObject.actionFunction(thisObject.payload, thisObject.action)
@@ -322,12 +338,16 @@ function newCircularMenuItem () {
 
     if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
       if (thisObject.type === 'Icon & Text') {
+        let backgroundColor = backgroundColorToUse
+        if (thisObject.isEnabled === false) {
+          backgroundColor = UI_COLOR.GREY
+        }
         let params = {
           cornerRadius: 3,
           lineWidth: 0.1,
           container: thisObject.container,
           borderColor: UI_COLOR.DARK,
-          backgroundColor: backgroundColorToUse,
+          backgroundColor: backgroundColor,
           castShadow: false,
           xOffset: 40
         }
@@ -387,4 +407,3 @@ function newCircularMenuItem () {
     }
   }
 }
-

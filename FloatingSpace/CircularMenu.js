@@ -76,6 +76,8 @@ function newCircularMenu () {
       menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
       menuItem.askConfirmation = menuItemInitialValue.askConfirmation
       menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel
+      menuItem.disableIfPropertyIsDefined = menuItemInitialValue.disableIfPropertyIsDefined
+      menuItem.propertyToCheckFor = menuItemInitialValue.propertyToCheckFor
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'

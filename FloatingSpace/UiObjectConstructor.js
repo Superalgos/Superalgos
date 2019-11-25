@@ -61,15 +61,6 @@ function newUiObjectConstructor () {
 
     if (userAddingNew === true) {
       /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
-      if (payload.parentNode.payload.floatingObject.isPinned === true) {
-        floatingObject.pinToggle()
-      }
-      if (payload.parentNode.payload.floatingObject.isFrozen === true) {
-        floatingObject.freezeToggle()
-      }
-      if (payload.parentNode.payload.floatingObject.isCollapsed === true) {
-        floatingObject.collapseToggle()
-      }
       if (payload.parentNode.payload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }
@@ -265,6 +256,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Trading System',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'tradingSystem',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading System',
             visible: true,
@@ -278,6 +271,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Personal Data',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'personalData',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Personal Data',
             visible: true,
@@ -942,6 +937,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Initialization',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialization',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Initialization',
             visible: true,
@@ -955,6 +952,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Loop',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'loop',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Loop',
             visible: true,
@@ -1002,6 +1001,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Initialization',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialization',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Initialization',
             visible: true,
@@ -1015,6 +1016,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Loop',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'loop',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Loop',
             visible: true,
@@ -1062,6 +1065,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
@@ -1109,6 +1114,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
@@ -1296,6 +1303,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Record Definition',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'record',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Record Definition',
             visible: true,
@@ -1435,6 +1444,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -1582,6 +1593,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
@@ -1642,6 +1655,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
@@ -1900,6 +1915,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -2161,6 +2178,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Sensor Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Sensor Bot Instance',
             visible: true,
@@ -2174,6 +2193,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Indicator Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Indicator Bot Instance',
             visible: true,
@@ -2187,6 +2208,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Trading Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading Bot Instance',
             visible: true,
@@ -2443,6 +2466,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Backtesting Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Backtesting',
                 visible: true,
@@ -2456,6 +2481,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Live Trading Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Live Trading',
                 visible: true,
@@ -2469,6 +2496,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Fordward Testing Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Fordward Testing',
                 visible: true,
@@ -2482,6 +2511,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Paper Trading Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Paper Trading',
                 visible: true,
@@ -2623,6 +2654,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2636,6 +2669,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2649,6 +2684,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2739,6 +2776,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2752,6 +2791,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2765,6 +2806,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2855,6 +2898,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2868,6 +2913,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2881,6 +2928,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2971,6 +3020,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2984,6 +3035,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2997,6 +3050,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -3211,6 +3266,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -3664,6 +3721,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Initial Definition',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialDefinition',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Initial Definition',
             visible: true,
@@ -3677,6 +3736,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Open Execution',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'openExecution',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Open Execution',
             visible: true,
@@ -3771,6 +3832,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Close Execution',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'closeExecution',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Close Execution',
             visible: true,
@@ -3818,6 +3881,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -3865,6 +3930,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -4262,6 +4329,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -4275,6 +4344,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Next Phase Event',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'nextPhaseEvent',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Next Phase Event',
             visible: true,
@@ -4470,6 +4541,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,

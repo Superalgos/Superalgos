@@ -27,7 +27,7 @@ function newUiObjectConstructor () {
     floatingLayer = pFloatingLayer
   }
 
-  function createUiObject (payload) {
+  function createUiObject (userAddingNew, payload) {
     let floatingObject = newFloatingObject()
     floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
@@ -55,6 +55,22 @@ function newUiObjectConstructor () {
         floatingObject.collapseToggle()
       }
       if (payload.node.savedPayload.floatingObject.isTensed === true) {
+        floatingObject.tensionToggle()
+      }
+    }
+
+    if (userAddingNew === true) {
+      /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
+      if (payload.parentNode.payload.floatingObject.isPinned === true) {
+        floatingObject.pinToggle()
+      }
+      if (payload.parentNode.payload.floatingObject.isFrozen === true) {
+        floatingObject.freezeToggle()
+      }
+      if (payload.parentNode.payload.floatingObject.isCollapsed === true) {
+        floatingObject.collapseToggle()
+      }
+      if (payload.parentNode.payload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }
     }

@@ -1308,13 +1308,17 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Record Property',
       name: 'New Record Property',
-      code: '{}'
+      code: '{}',
+      formula: {
+        code: DEFAULT_FORMULA_TEXT
+      }
     }
     if (node.properties === undefined) {
       node.properties = []
     }
     node.properties.push(object)
     createUiObject(object.type, object.name, object, node, node)
+    createUiObject('Formula', '', object.formula, object, object)
 
     return object
   }

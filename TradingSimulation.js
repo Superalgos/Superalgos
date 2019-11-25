@@ -497,6 +497,7 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + currentCandleIndex); }
 
+                let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex];
 
                 /* Not processing while out of user-defined time range */
@@ -2668,6 +2669,8 @@
                             }
                         }
                     }
+
+                    makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
                 }
 
                 function checkAnnouncements(node, value) {
@@ -2714,18 +2717,11 @@
                                     }
                                 }
 
-                                /* Here we check if there is a formula attached to the annoucement, we evaluate it to get the annoucement text. */
-                                let formulaValue
-                                if (announcement.formula !== undefined) {
-                                    try {
-                                        formulaValue = eval(announcement.formula.code);
-                                    } catch (err) {
-                                        announcement.formula.error = err.message
-                                    }
-                                }
-                                announcement.formulaValue = formulaValue
-
-                                bot.SESSION.socialBots.announce(announcement)
+                                /*
+                                We store the announcement temporarily at an Array to differ its execution, becasue we need to evaulate its formula
+                                and at this point in time the potential variables used at the formula are still not set.
+                                */
+                                announcementsToBeMade.push(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                                 if (newAnnouncementRecord.periods !== undefined) {
@@ -2743,7 +2739,28 @@
                         }
                     }
                 }
+
+                function makeAnnoucements() {
+                    /* Here we go through all the annoucements that need to be done during this loop, and we just do them. */
+                    for (let i = 0; i < announcementsToBeMade.length; i++) {
+                        announcement = announcementsToBeMade[i]
+                        /* Here we check if there is a formula attached to the annoucement, we evaluate it to get the annoucement text. */
+                        let formulaValue
+                        if (announcement.formula !== undefined) {
+                            try {
+                                formulaValue = eval(announcement.formula.code);
+                            } catch (err) {
+                                announcement.formula.error = err.message
+                            }
+                        }
+                        announcement.formulaValue = formulaValue
+
+                        bot.SESSION.socialBots.announce(announcement)
+                    }
+                }
             }
+
+
 
             function controlLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }

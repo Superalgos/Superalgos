@@ -47,6 +47,7 @@ function newCanvas () {
 
   let splashScreen
   let lastContainerMouseOver
+  let lastShortcutKeyRejection
 
   return thisObject
 
@@ -285,7 +286,7 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
-      if (event.keyCode >= 65 && event.keyCode <= 90) {
+      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
@@ -304,8 +305,16 @@ function newCanvas () {
             nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
             return
           } else {
-            nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
-            return
+            if (lastShortcutKeyRejection !== event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name) {
+              /* The first time we show a warning that this key is in use. */
+              nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
+              lastShortcutKeyRejection = event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name
+              return
+            } else {
+              /* After the warning, we allow the key to be re-assigned */
+              nodeUsingThisKey.payload.uiObject.shortcutKey = ''
+              nodeUsingThisKey === undefined
+            }
           }
         }
         /* If there is not node using this key and a node in focus, we assign this key to this node */

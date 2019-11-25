@@ -100,6 +100,7 @@
                     recordDefinition,
                     outputDatasetNode.referenceParent.parentNode.dataBuilding,
                     singularVariableName,
+                    outputDatasetNode.referenceParent.parentNode.code.codeName,
                     timePeriod,
                     timePeriodLabel,
                     resultsWithIrregularPeriods,

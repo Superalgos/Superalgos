@@ -264,6 +264,7 @@
         recordDefinition,
         dataBuildingProcedure,
         variableName,
+        productName,
         timePeriod,
         timePeriodLabel,
         resultsWithIrregularPeriods,
@@ -305,13 +306,14 @@
             /* Initialization of Last Instance */
             lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
 
-            if (interExecutionMemory.variable === undefined) {
+            if (interExecutionMemory[productName] === undefined) {
                 /* The first time the intialization variables goes to the Inter Execution Memory. */
-                interExecutionMemory.variable = JSON.parse(JSON.stringify(variable))
+                interExecutionMemory[productName] = {}
+                interExecutionMemory[productName].variable = JSON.parse(JSON.stringify(variable))
             }
             else {
                 /* We override the initialization, since the valid stuff is already at the Inter Execution Memory */
-                variable = JSON.parse(JSON.stringify(interExecutionMemory.variable)) 
+                variable = JSON.parse(JSON.stringify(interExecutionMemory[productName].variable)) 
             }
         }
 
@@ -386,7 +388,8 @@
                 */
                 if (processingDailyFiles) {
                     if (lastRecord.current.end === lastInstantOfTheDay && yesterday.variable !== undefined) {
-                        interExecutionMemory.variable = JSON.parse(JSON.stringify(yesterday.variable))
+                        interExecutionMemory[productName] = {}
+                        interExecutionMemory[productName].variable = JSON.parse(JSON.stringify(yesterday.variable))
                     }
                 }
             }

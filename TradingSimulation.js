@@ -1225,7 +1225,7 @@
                                     currentStrategy.number = currentStrategyIndex
                                     currentStrategy.end = candle.end;
                                     currentStrategy.endRate = candle.min;
-                                    currentStrategy.status = 1;
+                                    currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
                                     strategyStage = 'No Stage';
                                     currentStrategyIndex = -1;
 
@@ -2454,7 +2454,7 @@
                         currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
+                        currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2602,13 +2602,18 @@
 
                     conditionsArray.push(conditionsArrayRecord);
 
+                    /* 
+                    Lets see if there will be an open strategy ...
+                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                    */
+                    if (currentStrategy.begin !== 0 && currentStrategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        currentStrategy.status = 2; // This means the strategy is open, i.e. that has a begin but no end.
+                        currentStrategy.end = candle.end
+                    }
+                    
                     /* Prepare the information for the Strategies File*/
-
-                    if (
-                        (currentStrategy.begin !== 0 && currentStrategy.end !== 0) ||
-                        (currentStrategy.begin !== 0 && currentCandleIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
-                    ) {
-
+                    if (currentStrategy.begin !== 0 && currentStrategy.end !== 0)            
+                     {
                         strategiesArray.push(currentStrategy);
 
                         currentStrategy = {
@@ -2634,12 +2639,25 @@
                         }
                     }
 
-                    /* Prepare the information for the Trades File */
+                    /* 
+                    Lets see if there will be an open trade ...
+                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                    */
+                    if (currentTrade.begin !== 0 && currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        currentTrade.status = 2; // This means the trade is open 
+                        currentTrade.end = candle.end
+                        currentTrade.endRate = candle.close
 
-                    if (
-                        (currentTrade.begin !== 0 && currentTrade.end !== 0) ||
-                        (currentTrade.begin !== 0 && currentCandleIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
-                    ) {
+                        /* Here we will calculate the ongoing ROI */
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                            currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
+                        } else {
+                            currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100
+                        }
+                    }
+
+                    /* Prepare the information for the Trades File */
+                    if (currentTrade.begin !== 0 && currentTrade.end !== 0) { 
 
                         currentTrade.profit = lastTradeProfitLoss;
 

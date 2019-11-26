@@ -210,7 +210,6 @@ function newFloatingLayer () {
         return                     // Only one at the time.
       }
     }
-    console.log('INVISIBLE', invisibleFloatingObjects.length)
   }
 
   function makeInvisible () {
@@ -224,7 +223,6 @@ function newFloatingLayer () {
         return                     // Only one at the time.
       }
     }
-    console.log('VISIBLE', visibleFloatingObjects.length)
   }
 
     /******************************************/

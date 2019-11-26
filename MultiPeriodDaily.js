@@ -124,13 +124,13 @@
                     } else {
 
                         /*
-                            We look first for the bot who knows the begining of the marke in order to get when the market starts.
+                            We look first for the bot who knows the begining of the market in order to get when the market starts.
                         */
 
                         statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Starting Point -> Status Report does not exist or Market Starting Point not defined. Retrying Later. ");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
@@ -175,7 +175,7 @@
                         statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Ending Point -> Status Report does not exist or Market Ending Point not defined. Retrying Later. ");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
@@ -208,7 +208,7 @@
                     statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined. Retrying Later. ");
                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }

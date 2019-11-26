@@ -515,23 +515,24 @@
                 let line1 = '';
                 let line2 = '';
 
-                switch (record.exitType) {
-                    case 1: {
-                        line1 = 'Exit: STOP';
-                        break;
+                if (record.status === 1) {
+                    switch (record.exitType) {
+                        case 1: {
+                            line1 = 'Exit: STOP';
+                            break;
+                        }
+                        case 2: {
+                            line1 = 'Exit: TP';
+                            break;
+                        }
                     }
-                    case 2: {
-                        line1 = 'Exit: TP';
-                        break;
-                    }
+                } else {
+                    line1 = 'Open Position';
                 }
 
                 if (record.lastTradeROI < 0) {
-
                     line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
-
                 } else {
-
                     line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
                 }
 

@@ -536,7 +536,7 @@
                 let imageSize = 20;
                 let imageToDraw = strategyImages[record.number];
 
-                if (record.status === 1) {
+                
                     /* Draw the line that represents the duration of closed strategy */
 
                     browserCanvasContext.beginPath();
@@ -549,9 +549,13 @@
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
                     browserCanvasContext.lineWidth = 1
 
-                    browserCanvasContext.setLineDash([0, 0])
+                    if (record.status === 1) {
+                        browserCanvasContext.setLineDash([0, 0])
+                    } else {
+                        browserCanvasContext.setLineDash([2, 4])
+                    }
                     browserCanvasContext.stroke()
-                }
+                 
 
 
                 drawStick(recordPoint1, recordPoint3);

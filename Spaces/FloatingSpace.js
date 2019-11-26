@@ -20,6 +20,7 @@ function newFloatingSpace () {
     positionAtNode: positionAtNode,
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
+    isItFar: isItFar,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -46,8 +47,10 @@ function newFloatingSpace () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
+  let warmingUpCounter = 0
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
+
   return thisObject
 
   function finalize () {
@@ -71,6 +74,54 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function isItFar (payload) {
+    /*
+    We need a warm up in order to allow all objects to stabilize into a consistant state.
+    After that we will start evaluating which ones are too far from the current user view.
+    */
+
+    if (warmingUpCounter < 10000) {
+      warmingUpCounter++
+      return false
+    }
+
+    let radarFactor = 4 // How big is the margin
+
+    /* Exceptions that are never considered far. */
+    if (
+      payload.node.type === 'Definition' ||
+      payload.node.type === 'Network' ||
+      payload.node.type === 'Team'
+  ) {
+      return false
+    }
+
+    /* Another exception are the ones who have reference parents */
+    if (payload.referenceParent !== undefined) { return false }
+
+    /* Here we will check the position of a floatingobject to see if it is outside the screen, with a margin of one screen around. */
+    let point = thisObject.container.frame.frameThisPoint(payload.position)
+
+    if (point.x > browserCanvas.width + browserCanvas.width * radarFactor) {
+      return true
+    }
+
+    if (point.x < 0 - browserCanvas.width * radarFactor) {
+      return true
+    }
+
+    let bottom = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT
+    let heightDiff = browserCanvas.height - bottom
+    if (point.y < bottom - heightDiff * radarFactor) {
+      return true
+    }
+
+    if (point.y > browserCanvas.height + heightDiff * radarFactor) {
+      return true
+    }
+    return false
   }
 
   function fitIntoVisibleArea (point) {

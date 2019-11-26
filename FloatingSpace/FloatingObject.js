@@ -176,10 +176,11 @@ function newFloatingObject () {
   }
 
   function physics () {
+    collapsePhysics()
+    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
     frozenPhysics()
-    collapsePhysics()
     tensionPhysics()
   }
 
@@ -339,16 +340,19 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
+    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
+    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
+    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
     thisObject.payload.uiObject.drawForeground()
   }

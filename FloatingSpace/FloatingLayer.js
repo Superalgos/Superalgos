@@ -206,9 +206,11 @@ function newFloatingLayer () {
       if (floatingObject.isFrozen === false && floatingObject.isParentCollapsed === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        makeVisible()
         return                     // Only one at the time.
       }
     }
+    console.log('INVISIBLE', invisibleFloatingObjects.length)
   }
 
   function makeInvisible () {
@@ -218,9 +220,11 @@ function newFloatingLayer () {
       if (floatingObject.isFrozen === true || floatingObject.isParentCollapsed === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        makeInvisible()
         return                     // Only one at the time.
       }
     }
+    console.log('VISIBLE', visibleFloatingObjects.length)
   }
 
     /******************************************/
@@ -260,6 +264,8 @@ function newFloatingLayer () {
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
+
+            if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
 
             if (floatingObject.positionLocked === false) {
               floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
@@ -747,4 +753,3 @@ function newFloatingLayer () {
     }
   }
 }
-

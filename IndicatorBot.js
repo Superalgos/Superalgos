@@ -89,8 +89,11 @@
                 singularVariableName = outputDatasetNode.referenceParent.parentNode.code.singularVariableName
 
                 /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
-                    resultsWithIrregularPeriods = true
+
+                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code !== undefined) {
+                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                        resultsWithIrregularPeriods = true
+                    }
                 }
 
                 /* Build the data */

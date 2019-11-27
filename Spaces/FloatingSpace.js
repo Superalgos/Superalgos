@@ -76,7 +76,7 @@ function newFloatingSpace () {
     thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
-  function isItFar (payload) {
+  function isItFar (payload, dontCheckParent) {
     /*
     We need a warm up in order to allow all objects to stabilize into a consistant state.
     After that we will start evaluating which ones are too far from the current user view.
@@ -87,7 +87,14 @@ function newFloatingSpace () {
       return false
     }
 
-    let radarFactor = 4 // How big is the margin
+    let radarFactor = 2 // How big is the margin
+
+    /* If the chain parent is not far, they we dont consither this far. */
+    if (dontCheckParent !== true) {
+      if (payload.chainParent !== undefined) {
+        if (isItFar(payload.chainParent.payload, true) === false) { return false }
+      }
+    }
 
     /* Exceptions that are never considered far. */
     if (

@@ -77,6 +77,9 @@ function newFloatingSpace () {
   }
 
   function isItFar (payload, dontCheckParent) {
+    /* If for any reason the paylaod is undefined we return false */
+    if (payload === undefined) { return false }
+
     /*
     We need a warm up in order to allow all objects to stabilize into a consistant state.
     After that we will start evaluating which ones are too far from the current user view.

@@ -1089,6 +1089,8 @@ function newUiObject () {
 
   function drawReferenceLine () {
     if (thisObject.payload.referenceParent === undefined) { return }
+    if (thisObject.payload.referenceParent.payload === undefined) { return }
+    if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
     if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true) { return }
 
     let targetPoint = {

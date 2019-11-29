@@ -185,21 +185,23 @@ function newFloatingObject () {
   }
 
   function frozenPhysics () {
-    if (thisObject.frozenManually === false) {
-      let parent = thisObject.payload.chainParent
-      if (parent !== undefined && parent.payload !== undefined) {
-        thisObject.isFrozen = parent.payload.floatingObject.isFrozen
-      }
+    if (thisObject.frozenManually !== false) { return }
+    if (thisObject.payload === undefined) { return }
+    let parent = thisObject.payload.chainParent
+    if (parent !== undefined && parent.payload !== undefined) {
+      thisObject.isFrozen = parent.payload.floatingObject.isFrozen
     }
   }
 
   function collapsePhysics () {
     let parent = thisObject.payload.chainParent
-    if (parent !== undefined) {
-      thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
-      if (thisObject.collapsedManually === false) {
-        thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
-      }
+    if (parent === undefined) { return }
+    if (parent.payload === undefined) { return }
+    if (parent.payload.floatingObject === undefined) { return }
+
+    thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
+    if (thisObject.collapsedManually === false) {
+      thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
     }
   }
 
@@ -207,48 +209,50 @@ function newFloatingObject () {
     /* Tension Effect */
     if (thisObject.isTensed === true) {
       let parent = thisObject.payload.chainParent
-      if (parent !== undefined) {
-        let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-        let parentChildren = canvas.designerSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
-        let axisCount = parentChildren.childrenCount
-        let axisIndex = parentChildren.childIndex
-        let baseAngle = 0
+      if (parent === undefined) { return }
+      if (parent.payload === undefined) { return }
+      if (parent.payload.position === undefined) { return }
 
-        if (axisIndex === undefined) {
-          axisCount = 1
-          axisIndex = axisCount
-        }
+      let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+      let parentChildren = canvas.designerSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+      let axisCount = parentChildren.childrenCount
+      let axisIndex = parentChildren.childIndex
+      let baseAngle = 0
 
-        if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
+      if (axisIndex === undefined) {
+        axisCount = 1
+        axisIndex = axisCount
+      }
+
+      if (parent.payload.chainParent !== undefined && parent.payload.angle !== undefined) {
+        axisCount++
+        axisIndex++
+        baseAngle = parent.payload.angle + 180
+        lastParentAngle = parent.payload.angle
+      } else {
+        if (lastParentAngle !== undefined) {
           axisCount++
           axisIndex++
-          baseAngle = parent.payload.angle + 180
-          lastParentAngle = parent.payload.angle
-        } else {
-          if (lastParentAngle !== undefined) {
-            axisCount++
-            axisIndex++
-            baseAngle = lastParentAngle + 180
-          }
+          baseAngle = lastParentAngle + 180
         }
+      }
 
-        let angleStep = 360 / axisCount
+      let angleStep = 360 / axisCount
 
-        thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
-        if (thisObject.payload.angle >= 360) {
-          thisObject.payload.angle = thisObject.payload.angle - 360
-        }
+      thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
+      if (thisObject.payload.angle >= 360) {
+        thisObject.payload.angle = thisObject.payload.angle - 360
+      }
 
-        newPosition = {
-          x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
-          y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
-        }
-        if (isNaN(newPosition.x) === false) {
-          thisObject.container.frame.position.x = newPosition.x
-        }
-        if (isNaN(newPosition.y) === false) {
-          thisObject.container.frame.position.y = newPosition.y
-        }
+      newPosition = {
+        x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
+        y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
+      }
+      if (isNaN(newPosition.x) === false) {
+        thisObject.container.frame.position.x = newPosition.x
+      }
+      if (isNaN(newPosition.y) === false) {
+        thisObject.container.frame.position.y = newPosition.y
       }
     }
   }

@@ -835,11 +835,12 @@ function newUiObject () {
     highlightCounter = 30
   }
 
-  function setErrorMessage (message) {
+  function setErrorMessage (message, duration) {
     if (message !== undefined) {
       errorMessage = message
       hasError = true
-      errorMessageCounter = 100
+      if (duration === undefined) { duration = 1 }
+      errorMessageCounter = 100 * duration
     }
   }
 

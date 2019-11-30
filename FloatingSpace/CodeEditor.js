@@ -71,6 +71,13 @@ function newCodeEditor () {
       let textArea = document.getElementById('textArea')
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
+      if (thisObject.payload.node.type !== 'Code' && thisObject.payload.node.type !== 'Formula') {
+        try {
+          let code = JSON.parse(thisObject.payload.node.code)
+        } catch (err) {
+          thisObject.payload.uiObject.setErrorMessage(err.message, 10)
+        }
+      }
     }
   }
 
@@ -80,6 +87,7 @@ function newCodeEditor () {
     thisObject.rawRadius = 8
     thisObject.targetRadius = thisObject.container.frame.radius
     thisObject.currentRadius = 0
+    thisObject.payload.uiObject.setErrorMessage('', 0)
 
     let textArea = document.getElementById('textArea')
     textArea.value = payload.node.code

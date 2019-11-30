@@ -161,7 +161,9 @@ function newWorkspace () {
               for (k = 0; k < taskManager.tasks.length; k++) {
                 let task = taskManager.tasks[k]
                 if (task.bot.type === 'Trading Bot Instance') {
-                  tradingBotInstances.push(task.bot)
+                  if (task.bot.payload.floatingObject.isCollapsed !== true) {
+                    tradingBotInstances.push(task.bot)
+                  }
                 }
               }
             }

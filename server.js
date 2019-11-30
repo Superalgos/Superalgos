@@ -177,32 +177,32 @@ function bootLoader() {
         /* Validate that the minimun amount of parameters required are defined. */
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Definition without parent Bot Definition. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.code.codeName === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
-            console.log("[INFO] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 

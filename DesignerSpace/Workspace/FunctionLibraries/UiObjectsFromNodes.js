@@ -1261,7 +1261,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Status Dependency',
       name: 'New Status Dependency',
-      code: '{"mainUtility": "Self Reference|Market Starting Point|Market Ending Point"}'
+      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point.\"\n}'
     }
     if (node.statusDependencies === undefined) {
       node.statusDependencies = []
@@ -1431,7 +1431,7 @@ function newUiObjectsFromNodes () {
   function addTelegramBot (node) {
     let bot = {
       name: 'New Telegram Bot',
-      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\n}',
+      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\"\n}',
       announcements: []
     }
     node.bots.push(bot)
@@ -1466,7 +1466,7 @@ function newUiObjectsFromNodes () {
   function addLayer (node) {
     let layer = {
       name: 'New Layer',
-      code: '{}'
+      code: '{ \n\"product\": \"Type here the codeName of the Product\"\n}'
     }
     node.layers.push(layer)
     createUiObject(true, 'Layer', layer.name, layer, node, node, 'Layer')
@@ -1564,7 +1564,7 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Backtesting Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}'
       }
       createUiObject(true, 'Backtesting Session', '', node.session, node, node)
     }
@@ -1588,7 +1588,7 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Fordward Testing Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\",\n\"balancePercentage\": \"Type here the the % of the balance to be used in this test.\"\n}'
       }
       createUiObject(true, 'Fordward Testing Session', '', node.session, node, node)
     }
@@ -1600,7 +1600,7 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Paper Trading Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}'
       }
       createUiObject(true, 'Paper Trading Session', '', node.session, node, node)
     }
@@ -1758,35 +1758,35 @@ function newUiObjectsFromNodes () {
     if (node.baseAsset === undefined) {
       node.baseAsset = {
         name: 'Base Asset',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"name\": \"BTC\",\n"initialBalance\": 0.001,\n\"minimumBalance\": 0.0001,\n\"maximumBalance\": 0.1\n}'
       }
       createUiObject(true, 'Base Asset', '', node.baseAsset, node, node)
     }
     if (node.timeRange === undefined) {
       node.timeRange = {
         name: 'Time Range',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\"\n}'
       }
       createUiObject(true, 'Time Range', '', node.timeRange, node, node)
     }
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
-        code: DEFAULT_CONFIG_TEXT
+        code: '01-hs'
       }
       createUiObject(true, 'Time Period', '', node.timePeriod, node, node)
     }
     if (node.slippage === undefined) {
       node.slippage = {
         name: 'Slippage',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"positionRate\": 0.1,\n"stopLoss\": 0.2,\n"takeProfit\": 0.3\n}'
       }
       createUiObject(true, 'Slippage', '', node.slippage, node, node)
     }
     if (node.feeStructure === undefined) {
       node.feeStructure = {
         name: 'Fee Structure',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"maker\": 0.15,\n"taker\": 0.25\n}'
       }
       createUiObject(true, 'Fee Structure', '', node.feeStructure, node, node)
     }

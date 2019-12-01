@@ -465,6 +465,8 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
@@ -793,6 +795,8 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
@@ -830,6 +834,8 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
@@ -865,6 +871,8 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
@@ -1002,6 +1010,8 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }

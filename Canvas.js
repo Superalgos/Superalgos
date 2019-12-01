@@ -216,22 +216,37 @@ function newCanvas () {
       }
     }
 
-    if (event.altKey === true && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && event.altKey === true && event.ctrlKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && event.altKey === true && event.ctrlKey && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowLeft') {
+    if (event.shiftKey === true && event.altKey === true && event.ctrlKey && event.code === 'ArrowLeft' || event.altKey === true && event.code === 'ArrowRight') {
+      thisObject.cockpitSpace.toMiddle()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowUp') {
+      thisObject.cockpitSpace.moveUp()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowDown') {
+      thisObject.cockpitSpace.moveDown()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowLeft') {
       canvas.chartSpace.oneScreenLeft()
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowRight') {
+    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowRight') {
       canvas.chartSpace.oneScreenRight()
       return
     }
@@ -246,7 +261,7 @@ function newCanvas () {
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowLeft') {
       let displaceVector = canvas.floatingSpace.oneScreenLeft()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
@@ -254,7 +269,7 @@ function newCanvas () {
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowRight') {
       let displaceVector = canvas.floatingSpace.oneScreenRight()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y

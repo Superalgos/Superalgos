@@ -9,6 +9,9 @@
      fullscreen: undefined,
      toTop: toTop,
      toBottom: toBottom,
+     toMiddle: toMiddle,
+     moveUp: moveUp,
+     moveDown: moveDown,
      draw: draw,
      physics: physics,
      getContainer: getContainer,
@@ -85,6 +88,24 @@
 
    function toBottom () {
      thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+   }
+
+   function toMiddle () {
+     thisObject.container.frame.position.y = browserCanvas.height / 2 - COCKPIT_SPACE_HEIGHT
+   }
+
+   function moveUp () {
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y - browserCanvas.height / 10
+     if (thisObject.container.frame.position.y < 0) {
+       thisObject.container.frame.position.y = 0
+     }
+   }
+
+   function moveDown () {
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y + browserCanvas.height / 10
+     if (thisObject.container.frame.position.y > browserCanvas.height - COCKPIT_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+     }
    }
 
    function physics () {

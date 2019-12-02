@@ -207,6 +207,7 @@ function newFloatingObject () {
 
   function tensionPhysics () {
     /* Tension Effect */
+
     if (thisObject.isTensed === true) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
@@ -243,6 +244,8 @@ function newFloatingObject () {
       if (thisObject.payload.angle >= 360) {
         thisObject.payload.angle = thisObject.payload.angle - 360
       }
+
+      if (distanceToChainParent > 1000) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
         x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),

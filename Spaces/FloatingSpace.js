@@ -21,6 +21,7 @@ function newFloatingSpace () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     isItFar: isItFar,
+    warmUp: warmUp,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -50,14 +51,24 @@ function newFloatingSpace () {
   let warmingUpCounter = 0
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
+  let eventSubscriptionId
 
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(eventSubscriptionId)
+
     thisObject.floatingLayer.finalize()
     thisObject.profileBalls.finalize()
     thisObject.uiObjectConstructor.finalize()
     thisObject.noteSets.finalize()
+    thisObject.container.finalize()
+
+    thisObject.floatingLayer = undefined
+    thisObject.profileBalls = undefined
+    thisObject.uiObjectConstructor = undefined
+    thisObject.noteSets = undefined
+    thisObject.container = undefined
   }
 
   function initialize (callBackFunction) {
@@ -73,7 +84,11 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor = newUiObjectConstructor()
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
-    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function warmUp () {
+    warmingUpCounter = 0
   }
 
   function isItFar (payload, dontCheckParent) {

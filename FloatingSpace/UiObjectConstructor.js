@@ -18,9 +18,6 @@ function newUiObjectConstructor () {
 
   function finalize () {
     floatingLayer = undefined
-
-    payload.uiObject.finalize()
-    payload.uiObject = undefined
   }
 
   function initialize (pFloatingLayer) {

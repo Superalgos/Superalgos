@@ -205,6 +205,7 @@ function newWorkspace () {
       if (droppedNode.type === 'Workspace') {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+        canvas.floatingSpace.warmUp()
         thisObject.workspaceNode = droppedNode
         functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
         return

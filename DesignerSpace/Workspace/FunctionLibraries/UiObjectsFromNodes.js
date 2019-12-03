@@ -965,6 +965,15 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Product Definition': {
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.record !== undefined) {
           createUiObjectFromNode(node.record, node, node, positionOffset)
@@ -978,6 +987,11 @@ function newUiObjectsFromNodes () {
         }
         if (node.dataBuilding !== undefined) {
           createUiObjectFromNode(node.dataBuilding, node, node, positionOffset)
+        }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
         }
         return
       }
@@ -1024,6 +1038,14 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Plotter Module': {
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
+          }
+        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.code !== undefined) {
           createUiObjectFromNode(node.code, node, node, positionOffset)
@@ -1031,6 +1053,13 @@ function newUiObjectsFromNodes () {
         for (let m = 0; m < node.panels.length; m++) {
           let panel = node.panels[m]
           createUiObjectFromNode(panel, node, node, positionOffset)
+        }
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        } else {
+          node.referenceChildren = []
         }
         return
       }

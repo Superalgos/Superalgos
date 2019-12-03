@@ -711,6 +711,10 @@ function newUiObject () {
         compatibleType = '->' + 'Process Definition' + '->'
         compatibleSubType = undefined
         break
+      case 'Product Definition':
+        compatibleType = '->' + 'Plotter Module' + '->'
+        compatibleSubType = undefined
+        break
       default:
         return
     }

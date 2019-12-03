@@ -1518,6 +1518,9 @@ function newProtocolNode () {
         if (includePayload) {
           object.savedPayload = getSavedPayload(node, includeReferences)
         }
+        if (followReferenceParent) {
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+        }
         return object
       }
       case 'Record Definition': {
@@ -1615,6 +1618,11 @@ function newProtocolNode () {
           name: node.name,
           code: getProtocolNode(node.code, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
           panels: []
+        }
+        if (includeParent) {
+          followAncestors = true
+          excludeChildren = true
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
         }
         if (node.panels !== undefined) {
           for (let m = 0; m < node.panels.length; m++) {

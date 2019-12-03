@@ -168,7 +168,13 @@ function newPlottersManager () {
             }
           }
                     /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-          let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+          let plotter
+
+          if (pProductCard.product.plotter.legacy === false) {
+            plotter = newPlotter()
+          } else {
+            plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+          }
 
           plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2

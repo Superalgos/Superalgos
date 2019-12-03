@@ -163,10 +163,14 @@ function newProductsPanel () {
             product.plotter = plotter
             product.plotter.devTeam = plotterTeam.codeName
             product.plotter.moduleName = plotterModule.codeName
+            product.plotter.legacy = false
+            product.plotter.module = { panels: [] }
             product.displayName = productNode.name
             product.dataSets = []
             team.displayName = teamNode.name
+            team.host = {'url': 'localhost'}
             bot.displayName = botNode.name
+            product.exchangeList = [{'name': 'Poloniex'}]
 
             for (let m = 0; m < productNode.datasets.length; m++) {
               let dataset = productNode.datasets[m]

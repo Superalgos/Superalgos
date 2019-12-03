@@ -1593,6 +1593,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           modules: []
         }
         if (node.modules !== undefined) {

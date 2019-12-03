@@ -1382,6 +1382,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Plotter',
       name: 'New Plotter',
+      code: '{}',
       modules: []
     }
     if (node.plotters === undefined) {
@@ -1397,6 +1398,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Plotter Module',
       name: 'New Plotter Module',
+      code: '{}',
       panels: []
     }
     if (node.modules === undefined) {

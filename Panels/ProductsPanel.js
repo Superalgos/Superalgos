@@ -66,6 +66,7 @@ function newProductsPanel () {
       ecosystem = getUserEcosystem()
     }
 
+    /* For legacy plotters, we will add product cards based on the old ecosystem file */
     for (let i = 0; i < ecosystem.devTeams.length; i++) {
       let devTeam = ecosystem.devTeams[i]
 
@@ -78,6 +79,92 @@ function newProductsPanel () {
             let product = bot.products[k]
 
             addProductCard(devTeam, bot, product)
+          }
+        }
+      }
+    }
+
+    /* For new plotters defined at the UI, we will add product cards based on what we find at the workspace */
+    let workspaceNode = canvas.designerSpace.workspace.workspaceNode
+    for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+      let rootNode = workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Team') {
+        let teamNode = rootNode
+
+        let team = {}
+        if (teamNode.code === undefined) { continue }
+        try {
+          let code = JSON.parse(teamNode.code)
+          team.codeName = code.codeName
+        } catch (err) {
+          continue
+        }
+        for (let j = 0; j < teamNode.indicatorBots.length; j++) {
+          let botNode = teamNode.indicatorBots[j]
+
+          let bot = {}
+          if (botNode.code === undefined) { continue }
+          try {
+            let code = JSON.parse(botNode.code)
+            bot.codeName = code.codeName
+          } catch (err) {
+            continue
+          }
+
+          for (let k = 0; k < botNode.products; k++) {
+            let productNode = botNode.products[k]
+
+            let product = {}
+            if (productNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(productNode.code)
+              product.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (productNode.referenceParent === undefined) { continue }
+            let plotterModuleNode = productNode.referenceParent
+
+            let plotterModule = {}
+            if (plotterModuleNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterModuleNode.code)
+              plotterModule.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (plotterModuleNode.payload.parentNode === undefined) { continue }
+            let plotterNode = plotterModuleNode.payload.parentNode
+
+            let plotter = {}
+            if (plotterNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterNode.code)
+              plotter.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (plotterNode.payload.parentNode === undefined) { continue }
+            let plotterTeamNode = plotterNode.payload.parentNode
+
+            let plotterTeam = {}
+            if (plotterTeamNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterTeamNode.code)
+              plotterTeam.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            /* Conversion to fit old format */
+            prduct.plotter = plotter
+            prduct.plotter.devTeam = plotterTeam.codeName
+            product.plotter.moduleName = plotterModule.codeName
+
+            addProductCard(team, bot, product)
           }
         }
       }

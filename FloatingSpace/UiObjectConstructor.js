@@ -1539,7 +1539,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Plotter': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Plotter',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Plotter',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Add Plotter Module',
@@ -1550,7 +1569,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
         menuItemsInitialValues.push(
@@ -1560,68 +1579,6 @@ function newUiObjectConstructor () {
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Plotter',
-            visible: true,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-              )
-        menuItemsInitialValues.push(
-          {
-            action: 'Share',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Share',
-            visible: true,
-            iconPathOn: 'menu-share',
-            iconPathOff: 'menu-share',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20
-          }
-        )
-        break
-      }
-      case 'Plotter Module': {
-        addLeftIcons(menuItemsInitialValues, floatingObject)
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Code',
-            disableIfPropertyIsDefined: true,
-            propertyToCheckFor: 'code',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Code',
-            visible: true,
-            relatedUiObject: 'Code',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -30
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Plotter Panel',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Plotter Panel',
-            visible: true,
-            relatedUiObject: 'Plotter Panel',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -10
-          }
-            )
-        menuItemsInitialValues.push(
-          {
-            action: 'Delete Plotter Module',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete Plotter Module',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -1643,6 +1600,87 @@ function newUiObjectConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 30
+          }
+        )
+        break
+      }
+      case 'Plotter Module': {
+        uiObject.codeEditor = newCodeEditor()
+        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.codeEditor.initialize()
+        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Edit Plotter Module',
+            actionFunction: uiObject.codeEditor.activate,
+            label: 'Edit Plotter Module',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -40,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Panel',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Panel',
+            visible: true,
+            relatedUiObject: 'Plotter Panel',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 0
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Module',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Module',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 20
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 40
           }
         )
         break

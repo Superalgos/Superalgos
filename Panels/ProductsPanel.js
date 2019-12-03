@@ -111,7 +111,7 @@ function newProductsPanel () {
             continue
           }
 
-          for (let k = 0; k < botNode.products; k++) {
+          for (let k = 0; k < botNode.products.length; k++) {
             let productNode = botNode.products[k]
 
             let product = {}
@@ -123,17 +123,17 @@ function newProductsPanel () {
               continue
             }
 
-            if (productNode.referenceParent === undefined) { continue }
-            let plotterModuleNode = productNode.referenceParent
+            if (productNode.payload.referenceParent === undefined) { continue }
+            let plotterModuleNode = productNode.payload.referenceParent
 
-            let plotterModule = {}
-            if (plotterModuleNode.code === undefined) { continue }
-            try {
-              let code = JSON.parse(plotterModuleNode.code)
-              plotterModule.codeName = code.codeName
-            } catch (err) {
-              continue
-            }
+            let plotterModule = {}// Provitional code until CODE desambiguation is done.
+            // if (plotterModuleNode.code === undefined) { continue }
+            // try {
+            //  let code = JSON.parse(plotterModuleNode.code)
+            plotterModule.codeName = plotterModuleNode.name // code.codeName
+            // } catch (err) {
+            //  continue
+            // }
 
             if (plotterModuleNode.payload.parentNode === undefined) { continue }
             let plotterNode = plotterModuleNode.payload.parentNode
@@ -160,9 +160,25 @@ function newProductsPanel () {
             }
 
             /* Conversion to fit old format */
-            prduct.plotter = plotter
-            prduct.plotter.devTeam = plotterTeam.codeName
+            product.plotter = plotter
+            product.plotter.devTeam = plotterTeam.codeName
             product.plotter.moduleName = plotterModule.codeName
+            product.displayName = productNode.name
+            product.dataSets = []
+            team.displayName = teamNode.name
+            bot.displayName = botNode.name
+
+            for (let m = 0; m < productNode.datasets.length; m++) {
+              let dataset = productNode.datasets[m]
+
+              if (dataset.code === undefined) { continue }
+              try {
+                let code = JSON.parse(dataset.code)
+                product.dataSets.push(code)
+              } catch (err) {
+                continue
+              }
+            }
 
             addProductCard(team, bot, product)
           }

@@ -396,35 +396,15 @@ function newPlotter () {
 
       records = []
 
-      for (let i = 0; i < marketFile.length; i++) {
-        let record = {
-          begin: undefined,
-          end: undefined,
-          direction: undefined,
-          period: 0,
-          firstMovingAverage: 0,
-          lastMovingAverage: 0,
-          firstDeviation: 0,
-          lastDeviation: 0
-        }
+      /* Transform the current file content into an array of JSON objects */
+      let jsonData = jsonifyDataFile(marketFile, productDefinition.record, leftDate, rightDate)
 
-        record.begin = marketFile[i][0]
-        record.end = marketFile[i][1]
-        record.direction = marketFile[i][2]
-        record.period = marketFile[i][3]
-        record.firstMovingAverage = marketFile[i][4]
-        record.lastMovingAverage = marketFile[i][5]
-        record.firstDeviation = marketFile[i][6]
-        record.lastDeviation = marketFile[i][7]
-
-        if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
-          records.push(record)
-
-          if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
-            thisObject.currentRecord = record
-            thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
-          }
-        }
+      /* Add the calculated properties */
+      if (productDefinition.calculations !== undefined) {
+        let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timePeriod)
+        records.push(...calculationsResult) // This adds records to the current array.
+      } else {
+        records.push(...jsonData)// This adds records to the current array.
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingMarketFiles -> err = ' + err) }

@@ -169,9 +169,14 @@ function newPlottersManager () {
           }
                     /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
           let plotter
+          let productDefinition
 
           if (pProductCard.product.plotter.legacy === false) {
             plotter = newPlotter()
+
+            /* We take a snapwhot of the current product definition to be used by the plotter. */
+            let functionLibraryProtocolNode = newProtocolNode()
+            productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, true)
           } else {
             plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
           }
@@ -180,7 +185,7 @@ function newPlottersManager () {
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, pProductCard.product.definition)
+          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, productDefinition)
 
           function onPlotterInizialized () {
             try {

@@ -170,15 +170,11 @@ function newProductsPanel () {
             product.plotter.module = { panels: [] }
             product.displayName = productNode.name
             product.dataSets = []
-
+            product.exchangeList = [{'name': 'Poloniex'}]
+            product.node = productNode
             team.displayName = teamNode.name
             team.host = {'url': 'localhost'}
             bot.displayName = botNode.name
-            product.exchangeList = [{'name': 'Poloniex'}]
-
-            /* We take a snapwhot of the current product definition to be used by the plotter. */
-            let functionLibraryProtocolNode = newProtocolNode()
-            product.definition = functionLibraryProtocolNode.getProtocolNode(productNode, false, true, true, false, false, true)
 
             for (let m = 0; m < productNode.datasets.length; m++) {
               let dataset = productNode.datasets[m]

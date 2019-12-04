@@ -443,7 +443,7 @@ function newPlotter () {
 
       /* Clean the pannel at places where there is no record. */
       let currentRecord = {
-        innerChannel: undefined
+        data: undefined
       }
       thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
 
@@ -475,7 +475,7 @@ function newPlotter () {
           atMousePosition = true
 
           let currentRecord = {
-            innerChannel: record
+            data: record
           }
           thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
         }

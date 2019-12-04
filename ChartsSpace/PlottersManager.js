@@ -201,6 +201,7 @@ function newPlottersManager () {
                             /* Lets load now this plotter panels. */
               productPlotter.panels = []
 
+              /* Here is where we instantiate the legacy panels */
               for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
                 let panelConfig = pProductCard.product.plotter.module.panels[i]
 
@@ -218,6 +219,27 @@ function newPlottersManager () {
                   productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised)
                 }
                 productPlotter.panels.push(plotterPanelHandle)
+              }
+
+              /* Here we instantiate the UI Defined Panels. */
+              if (productDefinition !== undefined) {
+                for (let i = 0; i < productDefinition.referenceParent.panels.length; i++) {
+                  let panel = productDefinition.referenceParent.panels[i]
+
+                  let parameters = {
+                    devTeam: pProductCard.product.plotter.devTeam,
+                    plotterCodeName: pProductCard.product.plotter.codeName,
+                    moduleCodeName: pProductCard.product.plotter.moduleName,
+                    panelCodeName: panel.id
+                  }
+                  let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session, panel)
+                  let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
+
+                  /* Connect Panel to the Plotter via an Event. */
+                  productPlotter.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
+                  productPlotter.panels.push(plotterPanelHandle)
+                }
               }
 
               productPlotters.push(productPlotter)

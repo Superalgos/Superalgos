@@ -180,7 +180,7 @@ function newPlottersManager () {
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized)
+          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, pProductCard.product.definition)
 
           function onPlotterInizialized () {
             try {

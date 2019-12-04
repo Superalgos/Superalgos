@@ -1,5 +1,5 @@
 function newPlotter () {
-  const MODULE_NAME = 'AAMasters Plotters Bollinger Channels'
+  const MODULE_NAME = 'Plotter'
   const ERROR_LOG = true
   const INTENSIVE_LOG = false
   const logger = newWebDebugLog()
@@ -24,29 +24,27 @@ function newPlotter () {
 
         // Secondary functions and properties.
 
-    currentChannel: undefined
+    currentRecord: undefined  // ---> Check Here
   }
 
-    /* this is part of the module template */
-
-  let container = newContainer()     // Do not touch this 3 lines, they are just needed.
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
 
-  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()       // Needed to be able to plot on the timeline, otherwise not.
+  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline, otherwise not.
 
-  let timePeriod                     // This will hold the current Time Period the user is at.
-  let datetime                       // This will hold the current Datetime the user is at.
+  let timePeriod                                                      // This will hold the current Time Period the user is at.
+  let datetime                                                        // This will hold the current Datetime the user is at.
 
-  let marketFile                     // This is the current Market File being plotted.
-  let fileCursor                     // This is the current File Cursor being used to retrieve Daily Files.
+  let marketFile                                                      // This is the current Market File being plotted.
+  let fileCursor                                                      // This is the current File Cursor being used to retrieve Daily Files.
 
-  let marketFiles                      // This object will provide the different Market Files at different Time Periods.
-  let dailyFiles                // This object will provide the different File Cursors at different Time Periods.
+  let marketFiles                                                     // This object will provide the different Market Files at different Time Periods.
+  let dailyFiles                                                      // This object will provide the different File Cursors at different Time Periods.
 
-    /* these are module specific variables: */
+  let productDefinition                                               // Here we store a snapshot of the product definition which references this plotter.
 
-  let channels = []
+  let records = []                                                    // We will have the information to be plotted here.
 
   let zoomChangedEventSubscriptionId
   let offsetChangedEventSubscriptionId
@@ -59,8 +57,7 @@ function newPlotter () {
 
   function finalize () {
     try {
-            /* Stop listening to the necesary events. */
-
+      /* Stop listening to the necesary events. */
       viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId)
       viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId)
       canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId)
@@ -68,8 +65,7 @@ function newPlotter () {
       marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId)
       dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId)
 
-            /* Destroyd References */
-
+      /* Clear References */
       marketFiles = undefined
       dailyFiles = undefined
 
@@ -83,39 +79,35 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+  function initialize (pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction, pProductDefinition) {
     try {
-            /* Store the information received. */
-
+      /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
       dailyFiles = pStorage.dailyFiles[0]
 
       datetime = pDatetime
       timePeriod = pTimePeriod
 
-            /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
+      productDefinition = pProductDefinition
 
+      /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
       marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS)  // This file is the one processed faster.
 
       recalculateScale()
 
-            /* Now we set the right files according to current Period. */
-
+      /* Now we set the right files according to current Period. */
       marketFile = marketFiles.getFile(pTimePeriod)
       fileCursor = dailyFiles.getFileCursor(pTimePeriod)
 
-            /* Listen to the necesary events. */
-
+      /* Listen to the necesary events. */
       zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
       offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
       dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent('Drag Finished', onDragFinished)
       marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
       dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
 
-            /* Get ready for plotting. */
-
+      /* Get ready for plotting. */
       recalculate()
-
       dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
         recalculateScale()
         recalculate()
@@ -155,14 +147,11 @@ function newPlotter () {
   function getContainer (point) {
     try {
       let container
-
-            /* First we check if this point is inside this space. */
-
+      /* First we check if this point is inside this space. */
       if (this.container.frame.isThisPointHere(point) === true) {
         return this.container
       } else {
-                /* This point does not belong to this space. */
-
+      /* This point does not belong to this space. */
         return undefined
       }
     } catch (err) {
@@ -203,8 +192,7 @@ function newPlotter () {
   function onDailyFileLoaded (event) {
     try {
       if (event.currentValue === event.totalValue) {
-                /* This happens only when all of the files in the cursor have been loaded. */
-
+        /* This happens only when all of the files in the cursor have been loaded. */
         recalculate()
       }
     } catch (err) {
@@ -215,7 +203,6 @@ function newPlotter () {
   function draw () {
     try {
       this.container.frame.draw()
-
       plotChart()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err) }
@@ -229,17 +216,119 @@ function newPlotter () {
       } else {
         recalculateUsingDailyFiles()
       }
-
-      thisObject.container.eventHandler.raiseEvent('CandleStairs Changed', channels)
+      thisObject.container.eventHandler.raiseEvent('CandleStairs Changed', records)  // --> Check This
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] recalculate -> err = ' + err) }
     }
   }
 
+  function jsonifyDataFile (dataFile, recordDefinition, farLeftDate, farRightDate) {
+      /*
+          This function has as an input the raw data on files and creates with it an array of JSON objects
+          with not calculated properties for later being consumed by Formulas
+      */
+
+    let jsonifiedArray = []
+    let previous
+
+    for (let i = 0; i < dataFile.length; i++) {
+      let record = {}
+      for (let j = 0; j < recordDefinition.properties.length; j++) {
+        let property = recordDefinition.properties[j]
+        if (property.code.isCalculated !== true) {
+          record[property.code.codeName] = dataFile[i][j]
+        }
+      }
+
+      if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+        record.previous = previous
+        jsonifiedArray.push(record)
+        previous = record
+
+        if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
+          thisObject.currentRecord = record
+          thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
+        }
+      }
+    }
+
+    return jsonifiedArray
+  }
+
+  function calculationsProcedure (jsonArray, recordDefinition, calculationsProcedure, timePeriod) {
+      /*
+          This function has as an input an array of JSON objects, and it adds calculated properties to
+          complete the set of properties that will be available.
+      */
+
+    let system = { // These are the available system variables to be used in User Code and Formulas
+      timePeriod: timePeriod,
+      ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+    }
+    let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
+    let results = []
+
+    /* This is Initialization Code */
+    if (calculationsProcedure.initialization !== undefined) {
+      if (calculationsProcedure.initialization.code !== undefined) {
+        try {
+          eval(calculationsProcedure.initialization.code.code)
+        } catch (err) {
+          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack)
+          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.code.code)
+          throw ('Error Executing User Code.')
+        }
+      }
+    }
+
+    /* This is Initialization Code */
+    if (calculationsProcedure.loop !== undefined) {
+      if (calculationsProcedure.loop.code !== undefined) {
+        for (let index = 0; index < jsonArray.length; index++) {
+          let product = jsonArray[index]
+
+          /* This is Loop Code */
+          try {
+            eval(calculationsProcedure.loop.code.code)
+          } catch (err) {
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack)
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = ' + JSON.stringify(product))
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.code.code)
+            throw ('Error Executing User Code.')
+          }
+
+          /* For each calculated property we apply its formula */
+          for (let j = 0; j < recordDefinition.properties.length; j++) {
+            let property = recordDefinition.properties[j]
+            if (property.code.isCalculated === true) {
+              if (property.formula !== undefined) {
+                if (property.formula.code !== undefined) {
+                  try {
+                    let newValue = eval(property.formula.code)
+                    let currentRecord = product
+                    currentRecord[property.code.codeName] = newValue
+                  } catch (err) {
+                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack)
+                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
+                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.formula.code)
+                    throw ('Error Executing User Code.')
+                  }
+                }
+              }
+            }
+          }
+
+          /* Adding the new element to the resulting array */
+          results.push(product)
+        }
+      }
+    }
+    return results
+  }
+
   function recalculateUsingDailyFiles () {
     try {
-      if (fileCursor === undefined) { return } // We need to wait
-
+      if (fileCursor === undefined) { return }    // We need to wait until there is a fileCursor
       if (fileCursor.files.size === 0) { return } // We need to wait until there are files in the cursor
 
       let daysOnSides = getSideDays(timePeriod)
@@ -254,7 +343,7 @@ function newPlotter () {
 
       let currentDate = new Date(farLeftDate.valueOf())
 
-      channels = []
+      records = []
 
       while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
         let stringDate = currentDate.getFullYear() + '-' + pad(currentDate.getMonth() + 1, 2) + '-' + pad(currentDate.getDate(), 2)
@@ -262,55 +351,28 @@ function newPlotter () {
         let dailyFile = fileCursor.files.get(stringDate)
 
         if (dailyFile !== undefined) {
-          for (let i = 0; i < dailyFile.length; i++) {
-            let channel = {
-              begin: undefined,
-              end: undefined,
-              direction: undefined,
-              period: 0,
-              firstMovingAverage: 0,
-              lastMovingAverage: 0,
-              firstDeviation: 0,
-              lastDeviation: 0
-            }
+          /* Transform the current file content into an array of JSON objects */
+          let jsonData = jsonifyDataFile(dailyFile, productDefinition.record, farLeftDate, farRightDate)
 
-            channel.begin = dailyFile[i][0]
-            channel.end = dailyFile[i][1]
-
-            channel.direction = dailyFile[i][2]
-
-            channel.period = dailyFile[i][3]
-
-            channel.firstMovingAverage = dailyFile[i][4]
-            channel.lastMovingAverage = dailyFile[i][5]
-
-            channel.firstDeviation = dailyFile[i][6]
-            channel.lastDeviation = dailyFile[i][7]
-
-            if (channel.begin >= farLeftDate.valueOf() && channel.end <= farRightDate.valueOf()) {
-              channels.push(channel)
-
-              if (datetime.valueOf() >= channel.begin && datetime.valueOf() <= channel.end) {
-                thisObject.currentChannel = channel
-                thisObject.container.eventHandler.raiseEvent('Current Channel Changed', thisObject.currentChannel)
-              }
-            }
+          /* Add the calculated properties */
+          if (productDefinition.calculations !== undefined) {
+            let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timePeriod)
+            records.push(...calculationsResult) // This adds records to the current array.
+          } else {
+            records.push(...jsonData)// This adds records to the current array.
           }
         }
 
         currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS)
       }
 
-            /* Lests check if all the visible screen is going to be covered by candle-channel. */
-
+      /* Lests check if all the visible screen is going to be covered by candle-record. */
       let lowerEnd = leftDate.valueOf()
       let upperEnd = rightDate.valueOf()
 
-      if (channels.length > 0) {
-        if (channels[0].begin > lowerEnd || channels[channels.length - 1].end < upperEnd) {
+      if (records.length > 0) {
+        if (records[0].begin > lowerEnd || records[records.length - 1].end < upperEnd) {
           setTimeout(recalculate, 2000)
-
-                    // console.log("File missing while calculating candle-channel, scheduling a recalculation in 2 seconds.");
         }
       }
     } catch (err) {
@@ -320,7 +382,7 @@ function newPlotter () {
 
   function recalculateUsingMarketFiles () {
     try {
-      if (marketFile === undefined) { return } // Initialization not complete yet.
+      if (marketFile === undefined) { return }    // Initialization not complete yet.
 
       let daysOnSides = getSideDays(timePeriod)
 
@@ -332,10 +394,10 @@ function newPlotter () {
       leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5)
       rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5)
 
-      channels = []
+      records = []
 
       for (let i = 0; i < marketFile.length; i++) {
-        let channel = {
+        let record = {
           begin: undefined,
           end: undefined,
           direction: undefined,
@@ -346,25 +408,21 @@ function newPlotter () {
           lastDeviation: 0
         }
 
-        channel.begin = marketFile[i][0]
-        channel.end = marketFile[i][1]
+        record.begin = marketFile[i][0]
+        record.end = marketFile[i][1]
+        record.direction = marketFile[i][2]
+        record.period = marketFile[i][3]
+        record.firstMovingAverage = marketFile[i][4]
+        record.lastMovingAverage = marketFile[i][5]
+        record.firstDeviation = marketFile[i][6]
+        record.lastDeviation = marketFile[i][7]
 
-        channel.direction = marketFile[i][2]
+        if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
+          records.push(record)
 
-        channel.period = marketFile[i][3]
-
-        channel.firstMovingAverage = marketFile[i][4]
-        channel.lastMovingAverage = marketFile[i][5]
-
-        channel.firstDeviation = marketFile[i][6]
-        channel.lastDeviation = marketFile[i][7]
-
-        if (channel.begin >= leftDate.valueOf() && channel.end <= rightDate.valueOf()) {
-          channels.push(channel)
-
-          if (datetime.valueOf() >= channel.begin && datetime.valueOf() <= channel.end) {
-            thisObject.currentChannel = channel
-            thisObject.container.eventHandler.raiseEvent('Current Channel Changed', thisObject.currentChannel)
+          if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
+            thisObject.currentRecord = record
+            thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
           }
         }
       }
@@ -403,22 +461,21 @@ function newPlotter () {
       let userPosition = getUserPosition()
       let userPositionDate = userPosition.point.x
 
-            /* Clean the pannel at places where there is no channel. */
-
-      let channel = {
+      /* Clean the pannel at places where there is no record. */
+      let record = {
         direction: '',
         period: ''
       }
 
-      let currentChannel = {
-        innerChannel: channel
+      let currentRecord = {
+        innerChannel: record
       }
 
-      thisObject.container.eventHandler.raiseEvent('Current Channel Changed', currentChannel)
+      thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
 
-      if (channels.length > 0) {
-        for (let i = 0; i < channels.length; i++) {
-          channel = channels[i]
+      if (records.length > 0) {
+        for (let i = 0; i < records.length; i++) {
+          record = records[i]
 
           let channelPoint1
           let channelPoint2
@@ -426,23 +483,23 @@ function newPlotter () {
           let channelPoint4
 
           channelPoint1 = {
-            x: channel.begin,
-            y: channel.firstMovingAverage - channel.firstDeviation
+            x: record.begin,
+            y: record.firstMovingAverage - record.firstDeviation
           }
 
           channelPoint2 = {
-            x: channel.end,
-            y: channel.lastMovingAverage - channel.lastDeviation
+            x: record.end,
+            y: record.lastMovingAverage - record.lastDeviation
           }
 
           channelPoint3 = {
-            x: channel.end,
-            y: channel.lastMovingAverage + channel.lastDeviation
+            x: record.end,
+            y: record.lastMovingAverage + record.lastDeviation
           }
 
           channelPoint4 = {
-            x: channel.begin,
-            y: channel.firstMovingAverage + channel.firstDeviation
+            x: record.begin,
+            y: record.firstMovingAverage + record.firstDeviation
           }
 
           channelPoint1 = timeLineCoordinateSystem.transformThisPoint(channelPoint1)
@@ -475,17 +532,17 @@ function newPlotter () {
 
           let opacity = '0.25'
 
-          if (channel.direction === 'Side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ')' }
-          if (channel.direction === 'Up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')' }
-          if (channel.direction === 'Down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')' }
+          if (record.direction === 'Side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ')' }
+          if (record.direction === 'Up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')' }
+          if (record.direction === 'Down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')' }
 
-          if (userPositionDate >= channel.begin && userPositionDate <= channel.end) {
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.1)' // Current channel accroding to time
+          if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.1)' // Current record accroding to time
 
-            let currentChannel = {
-              innerChannel: channel
+            let currentRecord = {
+              innerChannel: record
             }
-            thisObject.container.eventHandler.raiseEvent('Current Channel Changed', currentChannel)
+            thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
           }
 
           browserCanvasContext.fill()
@@ -499,9 +556,9 @@ function newPlotter () {
 
           browserCanvasContext.closePath()
 
-          if (channel.direction === 'Side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')' }
-          if (channel.direction === 'Up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')' }
-          if (channel.direction === 'Down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')' }
+          if (record.direction === 'Side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')' }
+          if (record.direction === 'Up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')' }
+          if (record.direction === 'Down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')' }
 
           browserCanvasContext.lineWidth = 1
           browserCanvasContext.setLineDash([0, 0])
@@ -545,4 +602,3 @@ function newPlotter () {
     }
   }
 }
-

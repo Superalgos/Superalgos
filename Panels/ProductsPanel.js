@@ -159,6 +159,9 @@ function newProductsPanel () {
               continue
             }
 
+            if (plotterModuleNode.code === undefined) { continue }
+            if (plotterModuleNode.code.code === undefined) { continue }
+
             /* Conversion to fit old format */
             product.plotter = plotter
             product.plotter.devTeam = plotterTeam.codeName
@@ -175,7 +178,7 @@ function newProductsPanel () {
 
             /* We take a snapwhot of the current product definition to be used by the plotter. */
             let functionLibraryProtocolNode = newProtocolNode()
-            product.definition = functionLibraryProtocolNode.getProtocolNode(productNode, false, true, true)
+            product.definition = functionLibraryProtocolNode.getProtocolNode(productNode, false, true, true, false, false, true)
 
             for (let m = 0; m < productNode.datasets.length; m++) {
               let dataset = productNode.datasets[m]

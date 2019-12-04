@@ -442,108 +442,45 @@ function newPlotter () {
       let userPositionDate = userPosition.point.x
 
       /* Clean the pannel at places where there is no record. */
-      let record = {
-        direction: '',
-        period: ''
-      }
-
       let currentRecord = {
-        innerChannel: record
+        innerChannel: undefined
       }
-
       thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
 
-      if (records.length > 0) {
-        for (let i = 0; i < records.length; i++) {
-          record = records[i]
+      for (let i = 0; i < records.length; i++) {
+        let record = records[i]
 
-          let channelPoint1
-          let channelPoint2
-          let channelPoint3
-          let channelPoint4
-
-          channelPoint1 = {
-            x: record.begin,
-            y: record.firstMovingAverage - record.firstDeviation
-          }
-
-          channelPoint2 = {
-            x: record.end,
-            y: record.lastMovingAverage - record.lastDeviation
-          }
-
-          channelPoint3 = {
-            x: record.end,
-            y: record.lastMovingAverage + record.lastDeviation
-          }
-
-          channelPoint4 = {
-            x: record.begin,
-            y: record.firstMovingAverage + record.firstDeviation
-          }
-
-          channelPoint1 = timeLineCoordinateSystem.transformThisPoint(channelPoint1)
-          channelPoint2 = timeLineCoordinateSystem.transformThisPoint(channelPoint2)
-          channelPoint3 = timeLineCoordinateSystem.transformThisPoint(channelPoint3)
-          channelPoint4 = timeLineCoordinateSystem.transformThisPoint(channelPoint4)
-
-          channelPoint1 = transformThisPoint(channelPoint1, thisObject.container)
-          channelPoint2 = transformThisPoint(channelPoint2, thisObject.container)
-          channelPoint3 = transformThisPoint(channelPoint3, thisObject.container)
-          channelPoint4 = transformThisPoint(channelPoint4, thisObject.container)
-
-          if (channelPoint2.x < viewPort.visibleArea.bottomLeft.x || channelPoint1.x > viewPort.visibleArea.bottomRight.x) {
-            continue
-          }
-
-          channelPoint1 = viewPort.fitIntoVisibleArea(channelPoint1)
-          channelPoint2 = viewPort.fitIntoVisibleArea(channelPoint2)
-          channelPoint3 = viewPort.fitIntoVisibleArea(channelPoint3)
-          channelPoint4 = viewPort.fitIntoVisibleArea(channelPoint4)
-
-          browserCanvasContext.beginPath()
-
-          browserCanvasContext.moveTo(channelPoint1.x, channelPoint1.y)
-          browserCanvasContext.lineTo(channelPoint2.x, channelPoint2.y)
-          browserCanvasContext.lineTo(channelPoint3.x, channelPoint3.y)
-          browserCanvasContext.lineTo(channelPoint4.x, channelPoint4.y)
-
-          browserCanvasContext.closePath()
-
-          let opacity = '0.25'
-
-          if (record.direction === 'Side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT + ', ' + opacity + ')' }
-          if (record.direction === 'Up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')' }
-          if (record.direction === 'Down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')' }
-
-          if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.1)' // Current record accroding to time
-
-            let currentRecord = {
-              innerChannel: record
-            }
-            thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
-          }
-
-          browserCanvasContext.fill()
-
-          browserCanvasContext.beginPath()
-
-          browserCanvasContext.moveTo(channelPoint1.x, channelPoint1.y)
-          browserCanvasContext.lineTo(channelPoint2.x, channelPoint2.y)
-          browserCanvasContext.moveTo(channelPoint3.x, channelPoint3.y)
-          browserCanvasContext.lineTo(channelPoint4.x, channelPoint4.y)
-
-          browserCanvasContext.closePath()
-
-          if (record.direction === 'Side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')' }
-          if (record.direction === 'Up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')' }
-          if (record.direction === 'Down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')' }
-
-          browserCanvasContext.lineWidth = 1
-          browserCanvasContext.setLineDash([0, 0])
-          browserCanvasContext.stroke()
+        let beginPoint = {
+          x: record.begin,
+          y: 0
         }
+
+        let endPoint = {
+          x: record.end,
+          y: 0
+        }
+
+        beginPoint = timeLineCoordinateSystem.transformThisPoint(beginPoint)
+        endPoint = timeLineCoordinateSystem.transformThisPoint(endPoint)
+
+        beginPoint = transformThisPoint(beginPoint, thisObject.container)
+        endPoint = transformThisPoint(endPoint, thisObject.container)
+
+        if (endPoint.x < viewPort.visibleArea.bottomLeft.x || beginPoint.x > viewPort.visibleArea.bottomRight.x) {
+          continue
+        }
+
+        let atMousePosition = false
+        if (userPositionDate >= record.begin && userPositionDate <= record.end) {
+          atMousePosition = true
+
+          let currentRecord = {
+            innerChannel: record
+          }
+          thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
+        }
+
+        eval(productDefinition.referenceParent.code.code)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err) }

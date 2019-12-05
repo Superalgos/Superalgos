@@ -23,10 +23,6 @@ function newTimelineChart () {
     finalize: finalize
   }
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-  thisObject.container.detectMouseOver = true
-
   thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
 
   let initializationReady = false
@@ -50,16 +46,25 @@ function newTimelineChart () {
   let productsPanelHandle
   let timePeriodScale
 
+  setupContainer()
   return thisObject
 
-  function finalize () {
-    try {
-      if (INFO_LOG === true) { logger.write('[INFO] finalize -> Entering function.') }
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.detectMouseOver = true
+  }
 
-      plotterManager.finalize()
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-    }
+  function finalize () {
+    plotterManager.finalize()
+    plotterManager = undefined
+    timePeriodScale.finalize()
+    timePeriodScale = undefined
+    canvas.panelsSpace.destroyPanel(productsPanelHandle)
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    setupContainer()
   }
 
   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {

@@ -81,7 +81,7 @@ function newCanvas () {
     }
   }
 
-  async function initialize () {
+  function initialize () {
     try {
       initializeBrowserCanvas()
 
@@ -93,10 +93,10 @@ function newCanvas () {
       thisObject.floatingSpace.initialize()
 
       thisObject.topSpace = newTopSpace()
-      await thisObject.topSpace.initialize()
+      thisObject.topSpace.initialize()
 
       thisObject.designerSpace = newDesignerSpace()
-      await thisObject.designerSpace.initialize()
+      thisObject.designerSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -105,17 +105,10 @@ function newCanvas () {
       thisObject.panelsSpace.initialize()
 
       thisObject.chartSpace = newChartSpace()
-      thisObject.chartSpace.initialize(onCharSpaceInitialized)
+      thisObject.chartSpace.initialize()
 
       thisObject.bottomSpace = thisObject.cockpitSpace
 
-      function onCharSpaceInitialized (err) {
-        try {
-          viewPort.raiseEvents() // These events will impacts on objects just initialized.
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err.stack) }
-        }
-      }
       splashScreen = newSplashScreen()
       splashScreen.initialize()
 

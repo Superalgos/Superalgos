@@ -208,6 +208,8 @@ function newWorkspace () {
         canvas.floatingSpace.warmUp()
         thisObject.workspaceNode = droppedNode
         functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+        canvas.chartSpace.finalize()
+        canvas.chartSpace.initialize()
         return
       } else {
         if (

@@ -21,40 +21,48 @@ function newPlottersManager () {
     finalize: finalize
   }
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-
   let initializationReady = false
 
   let productsPanel
   let exchange
   let market
 
+  setupContainer()
   return thisObject
 
-  function finalize (callBackFunction) {
-    try {
-      for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].profile !== undefined) {
-          canvas.floatingSpace.profileBalls.destroyProfileBall(productPlotters[i].profile)
-        }
-                    /* Destroyd the Note Set */
-        canvas.floatingSpace.noteSets.destroyNoteSet(productPlotters[i].noteSet)
-                    /* Then the panels. */
-        for (let j = 0; j < productPlotters[i].panels.length; j++) {
-          canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
-        }
-                    /* Finally the Storage Objects */
-        productPlotters[i].storage.finalize()
-        if (productPlotters[i].plotter.finalize !== undefined) {
-          productPlotters[i].plotter.finalize()
-        }
-        productPlotters.splice(i, 1) // Delete item from array.
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+  }
+
+  function finalize () {
+    for (let i = 0; i < productPlotters.length; i++) {
+      /* Then the panels. */
+      for (let j = 0; j < productPlotters[i].panels.length; j++) {
+        canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
+        productPlotters[i].panels[j] = undefined
       }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      productPlotters[i].panels = undefined
+
+      /* Finalize the plotters */
+      if (productPlotters[i].plotter.finalize !== undefined) {
+        productPlotters[i].plotter.finalize()
+      }
+      productPlotters[i].plotter = undefined
+
+      /* Finally the Storage Objects */
+      productPlotters[i].storage.finalize()
+      productPlotters[i].storage = undefined
+
+      productPlotters[i] = undefined
     }
+    productPlotters = []
+
+    productsPanel = undefined
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    setupContainer()
   }
 
   function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {

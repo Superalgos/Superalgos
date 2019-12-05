@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Ecosystem.js" />
-    <Compile Include="Plotter.js" />
+    <Compile Include="LegacyPlotter.js" />
     <Compile Include="PlotterPanel.js" />
     <Compile Include="Scripts\AppLoader.js">
       <SubType>Code</SubType>

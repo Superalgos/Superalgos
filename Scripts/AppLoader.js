@@ -70,7 +70,8 @@ function newAppLoader() {
                 'Panels/ProductsPanel.js',
                 'Panels/PanelTabButton.js',
                 'Panels/ProductCard.js',
-
+                'Panels/PlotterPanel.js',
+                
                 'ControlsToolBox/SidePanel.js',
                 'ControlsToolBox/SidePanelTab.js',
 
@@ -115,6 +116,7 @@ function newAppLoader() {
                 'SystemEventHandler.js',
 
                 'Plotter.js',
+                'LegacyPlotter.js',
                 'PlotterPanel.js',
 
                 'ProductStorage.js',

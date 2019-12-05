@@ -162,9 +162,9 @@ function onBrowserRequest (request, response) {
         break
       }
 
-    case 'Plotter.js':
+    case 'LegacyPlotter.js':
       {
-        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Plotter.js', response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'LegacyPlotter.js', response)
       }
       break
 

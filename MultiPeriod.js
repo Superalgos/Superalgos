@@ -333,7 +333,7 @@
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimePeriodsMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -987,7 +987,7 @@
 
                     let dataRange = {
                         begin: pBegin.valueOf(),
-                        end: pEnd.valueOf()
+                        end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                     };
 
                     let fileContent = JSON.stringify(dataRange);

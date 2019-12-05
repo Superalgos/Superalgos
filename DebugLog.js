@@ -90,8 +90,19 @@ exports.newDebugLog = function newDebugLog() {
             thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
-                thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0,1)
-                fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
+                /* Will delete this file only if it does not contains ERROR inside. */
+                let fileContent = fileStorage.getTextFile(thisObject.bot.devTeam, fileToDelete, onGetFile, true) 
+                function onGetFile(err, fileContent) {
+                    if (err.result === global.DEFAULT_OK_RESPONSE.result) {
+                        if (fileContent.indexOf("ERROR") < 0) {
+                            /* Logs will only be deleted when they contain no ERROR in them. */
+                            fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                        } 
+                    } else {
+                        fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                    }
+                }
             }
              
             function writeLog() {

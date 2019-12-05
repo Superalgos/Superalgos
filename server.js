@@ -82,7 +82,7 @@ function runTask(message) {
         tasks.delete(task.id)
     })
 
-    setTimeout(sendStartingEvent, 1000)
+    setTimeout(sendStartingEvent, 3000)
 
     function sendStartingEvent() {
         console.log('[INFO] Task Manager -> server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)

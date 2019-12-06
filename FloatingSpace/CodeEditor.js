@@ -71,7 +71,7 @@ function newCodeEditor () {
       let textArea = document.getElementById('textArea')
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
-      if (thisObject.payload.node.type !== 'Code' && thisObject.payload.node.type !== 'Formula') {
+      if (thisObject.payload.node.type !== 'Javascript Code' && thisObject.payload.node.type !== 'Formula') {
         try {
           let code = JSON.parse(thisObject.payload.node.code)
         } catch (err) {
@@ -220,4 +220,3 @@ function newCodeEditor () {
     }
   }
 }
-

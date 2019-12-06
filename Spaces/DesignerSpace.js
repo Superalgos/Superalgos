@@ -86,7 +86,7 @@ function newDesignerSpace () {
       ['Next Phase Event', 'pantone'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
-      ['Code', 'html'],
+      ['Javascript Code', 'html'],
       ['Team', 'team'],
       ['Sensor Bot', 'bot-sensor'],
       ['Indicator Bot', 'bot-indicator'],

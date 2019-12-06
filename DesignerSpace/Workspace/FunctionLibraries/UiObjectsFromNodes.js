@@ -110,9 +110,9 @@ function newUiObjectsFromNodes () {
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
     switch (node.type) {
-      case 'Code':
+      case 'Javascript Code':
         {
-          createUiObject(false, 'Code', node.name, node, parentNode, chainParent, 'Code', positionOffset)
+          createUiObject(false, 'Javascript Code', node.name, node, parentNode, chainParent, 'Javascript Code', positionOffset)
           return
         }
       case 'Condition':
@@ -2033,7 +2033,7 @@ function newUiObjectsFromNodes () {
       node.code = {
         code: DEFAULT_CODE_TEXT
       }
-      createUiObject(true, 'Code', '', node.code, node, node)
+      createUiObject(true, 'Javascript Code', '', node.code, node, node)
     }
 
     return node.code
@@ -2099,7 +2099,7 @@ function newUiObjectsFromNodes () {
     }
     situation.conditions.push(condition)
     createUiObject(true, 'Condition', condition.name, condition, situation, situation, 'Condition')
-    createUiObject(true, 'Code', '', condition.code, condition, condition, 'Code')
+    createUiObject(true, 'Javascript Code', '', condition.code, condition, condition, 'Javascript Code')
 
     return condition
   }

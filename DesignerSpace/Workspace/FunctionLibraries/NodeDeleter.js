@@ -372,7 +372,7 @@ function newNodeDeleter () {
             deleteCondition(rootNode, rootNodes)
             break
           }
-          case 'Code': {
+          case 'Javascript Code': {
             deleteCode(rootNode, rootNodes)
             break
           }

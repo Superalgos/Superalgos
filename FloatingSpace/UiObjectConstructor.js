@@ -1067,7 +1067,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1116,7 +1116,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1633,7 +1633,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1695,7 +1695,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -4601,7 +4601,7 @@ function newUiObjectConstructor () {
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -4640,7 +4640,7 @@ function newUiObjectConstructor () {
         )
         break
       }
-      case 'Code': {
+      case 'Javascript Code': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -5003,7 +5003,7 @@ function newUiObjectConstructor () {
         level_5()
         break
       }
-      case 'Code': {
+      case 'Javascript Code': {
         level_5()
         break
       }

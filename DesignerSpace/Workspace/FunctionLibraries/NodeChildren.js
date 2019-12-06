@@ -227,7 +227,7 @@ function newNodeChildren () {
       case 'Condition': {
         return countChildrenCondition(parentNode, childNode)
       }
-      case 'Code': {
+      case 'Javascript Code': {
         return countChildrenCode(parentNode, childNode)
       }
       default: {

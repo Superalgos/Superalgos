@@ -550,7 +550,7 @@ function newUiObject () {
         compatibleType = '->' + 'Situation' + '->'
         compatibleSubType = undefined
         break
-      case 'Code':
+      case 'Javascript Code':
         compatibleType = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
         compatibleSubType = undefined
         break
@@ -609,7 +609,7 @@ function newUiObject () {
         if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Javascript Code' && nearbyNode.code !== undefined) { continue }
         /* Here we check if the subtypes are compatible. */
         if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
           if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {

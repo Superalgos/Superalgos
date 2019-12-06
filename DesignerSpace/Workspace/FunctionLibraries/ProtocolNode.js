@@ -7,7 +7,7 @@ function newProtocolNode () {
   function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType) {
     if (node === undefined) { return }
     switch (node.type) {
-      case 'Code':
+      case 'Javascript Code':
         {
           let object = {
             type: node.type,

@@ -637,7 +637,7 @@ function newWorkspace () {
         break
       case 'Add Code':
         {
-          functionLibraryUiObjectsFromNodes.addCode(payload.node)
+          functionLibraryUiObjectsFromNodes.addJavascriptCode(payload.node)
         }
         break
       case 'Add Exchange Account':
@@ -922,7 +922,7 @@ function newWorkspace () {
         break
       }
       case 'Delete Code': {
-        functionLibraryNodeDeleter.deleteCode(payload.node, thisObject.workspaceNode.rootNodes)
+        functionLibraryNodeDeleter.deleteJavascriptCode(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Exchange Account': {

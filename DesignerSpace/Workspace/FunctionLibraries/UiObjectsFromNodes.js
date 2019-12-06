@@ -65,7 +65,7 @@ function newUiObjectsFromNodes () {
     addNextPhaseEvent: addNextPhaseEvent,
     addSituation: addSituation,
     addCondition: addCondition,
-    addCode: addCode
+    addJavascriptCode: addJavascriptCode
   }
 
   let mapOfReferenceParents
@@ -118,8 +118,9 @@ function newUiObjectsFromNodes () {
       case 'Condition':
         {
           createUiObject(false, 'Condition', node.name, node, parentNode, chainParent, 'Condition', positionOffset)
-          if (node.code !== undefined) {
-            createUiObjectFromNode(node.code, node, node, positionOffset)
+
+          if (node.javascriptCode !== undefined) {
+            createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
           }
           return
         }
@@ -898,15 +899,17 @@ function newUiObjectsFromNodes () {
       }
       case 'Procedure Initialization': {
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         return
       }
       case 'Procedure Loop': {
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         return
       }
@@ -1047,8 +1050,9 @@ function newUiObjectsFromNodes () {
           }
         }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         for (let m = 0; m < node.panels.length; m++) {
           let panel = node.panels[m]
@@ -1065,8 +1069,9 @@ function newUiObjectsFromNodes () {
       }
       case 'Plotter Panel': {
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         return
       }
@@ -2028,15 +2033,15 @@ function newUiObjectsFromNodes () {
     return node.nextPhaseEvent
   }
 
-  function addCode (node) {
-    if (node.code === undefined) {
-      node.code = {
+  function addJavascriptCode (node) {
+    if (node.javascriptCode === undefined) {
+      node.javascriptCode = {
         code: DEFAULT_CODE_TEXT
       }
       createUiObject(true, 'Javascript Code', '', node.code, node, node)
     }
 
-    return node.code
+    return node.javascriptCode
   }
 
   function addPhase (parentNode) {

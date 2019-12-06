@@ -502,7 +502,7 @@ function newChainAttachDetach () {
         return
       }
       case 'Javascript Code': {
-        node.payload.parentNode.code = undefined
+        node.payload.parentNode.javascriptCode = undefined
         completeDetachment(node, rootNodes)
         return
       }
@@ -1103,7 +1103,7 @@ function newChainAttachDetach () {
       case 'Javascript Code': {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
-        node.payload.parentNode.code = node
+        node.payload.parentNode.javascriptCode = node
         completeAttachment(node, rootNodes)
       }
         break

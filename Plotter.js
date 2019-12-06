@@ -270,12 +270,12 @@ function newPlotter () {
 
     /* This is Initialization Code */
     if (calculationsProcedure.initialization !== undefined) {
-      if (calculationsProcedure.initialization.code !== undefined) {
+      if (calculationsProcedure.initialization.javascriptCode !== undefined) {
         try {
-          eval(calculationsProcedure.initialization.code.code)
+          eval(calculationsProcedure.initialization.javascriptCode.code)
         } catch (err) {
           logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack)
-          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.code.code)
+          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.javascriptCode.code)
           throw ('Error Executing User Code.')
         }
       }
@@ -283,17 +283,17 @@ function newPlotter () {
 
     /* This is Initialization Code */
     if (calculationsProcedure.loop !== undefined) {
-      if (calculationsProcedure.loop.code !== undefined) {
+      if (calculationsProcedure.loop.javascriptCode !== undefined) {
         for (let index = 0; index < jsonArray.length; index++) {
           let product = jsonArray[index]
 
           /* This is Loop Code */
           try {
-            eval(calculationsProcedure.loop.code.code)
+            eval(calculationsProcedure.loop.javascriptCode.code)
           } catch (err) {
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack)
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = ' + JSON.stringify(product))
-            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.code.code)
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.javascriptCode.code)
             throw ('Error Executing User Code.')
           }
 
@@ -480,7 +480,7 @@ function newPlotter () {
           thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
         }
 
-        eval(productDefinition.referenceParent.code.code)
+        eval(productDefinition.referenceParent.javascriptCode.code)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err) }

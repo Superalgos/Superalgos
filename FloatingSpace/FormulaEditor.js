@@ -71,13 +71,6 @@ function newFormulaEditor () {
       let textArea = document.getElementById('textArea')
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
-      if (thisObject.payload.node.type !== 'Javascript Code' && thisObject.payload.node.type !== 'Formula') {
-        try {
-          let code = JSON.parse(thisObject.payload.node.code)
-        } catch (err) {
-          thisObject.payload.uiObject.setErrorMessage(err.message, 10)
-        }
-      }
     }
   }
 

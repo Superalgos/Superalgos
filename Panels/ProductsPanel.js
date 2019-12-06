@@ -159,8 +159,8 @@ function newProductsPanel () {
               continue
             }
 
-            if (plotterModuleNode.code === undefined) { continue }
-            if (plotterModuleNode.code.code === undefined) { continue }
+            if (plotterModuleNode.javascriptCode === undefined) { continue }
+            if (plotterModuleNode.javascriptCode.code === undefined) { continue }
 
             /* Conversion to fit old format */
             product.plotter = plotter

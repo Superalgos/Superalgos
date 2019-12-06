@@ -88,7 +88,7 @@ function newPlotterPanel () {
     if (currentRecord.data === undefined) { return }
 
     try {
-      eval(panelNode.code.code)
+      eval(panelNode.javascriptCode.code)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }

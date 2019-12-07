@@ -31,6 +31,7 @@ function newAppLoader() {
                 'Globals.js',
                 'Ecosystem.js',
                 'UserEcosystem.js',
+                'AppSchema.js',
                 'MQService',
 
                 'ChartsSpace/ChartUtilities.js',

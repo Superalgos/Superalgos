@@ -339,6 +339,28 @@ function onBrowserRequest (request, response) {
       }
       break
 
+    case 'AppSchema.js':
+        {
+            let fs = require('fs')
+
+            try {
+                let filePath = process.env.INTER_PROCESS_FILES_PATH + '/AppSchema.json'
+                fs.readFile(filePath, onFileRead)
+            } catch (e) {
+                console.log('[ERROR] Error reading the App Schema.', e)
+            }
+
+            function onFileRead(err, appSchema) {
+                if (err) {
+                    respondWithContent(undefined, response)
+                } else {
+                    let responseContent = 'function getAppSchema(){ return ' + appSchema + '}'
+                    respondWithContent(responseContent, response)
+                }
+            }
+        }
+        break
+
     case 'Storage':
       {
         respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)

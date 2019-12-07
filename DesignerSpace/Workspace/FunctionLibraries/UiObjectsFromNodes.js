@@ -2,6 +2,7 @@ function newUiObjectsFromNodes () {
   thisObject = {
     recreateWorkspace: recreateWorkspace,
     createUiObjectFromNode: createUiObjectFromNode,
+    addUIObject: addUIObject,
     addTeam: addTeam,
     addSensorBot: addSensorBot,
     addIndicatorBot: addIndicatorBot,
@@ -1076,6 +1077,34 @@ function newUiObjectsFromNodes () {
         return
       }
     }
+  }
+
+  function addUIObject (parent, type) {
+    let object = {
+      name: 'New ' + type,
+      type: type
+    }
+    createUiObject(true, object.type, object.name, object, parent, parent)
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
+    if (nodeDefinition !== undefined) {
+      for (i = 0; i < nodeDefinition.properties.length; i++) {
+        let property = nodeDefinition.properties[i]
+        if (property.childType === type) {
+          switch (property.type) {
+            case 'node': {
+              parent[property.name] = object
+            }
+              break
+            case 'array': {
+              parent[property.name].push(object)
+            }
+              break
+          }
+        }
+      }
+    }
+    return object
   }
 
   function addTeam (node) {

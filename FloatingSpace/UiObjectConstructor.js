@@ -1621,7 +1621,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -50,
+            angle: -60,
             dontShowAtFullscreen: true
           }
         )
@@ -1642,7 +1642,9 @@ function newUiObjectConstructor () {
           )
         menuItemsInitialValues.push(
           {
-            action: 'Add Shapes',
+            action: 'Add UI Object',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'shapes',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Shapes',
             visible: true,
@@ -1693,7 +1695,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 50
+            angle: 60
           }
         )
         break
@@ -4708,7 +4710,21 @@ function newUiObjectConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
+        let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+        if (nodeDefinition !== undefined) {
+          for (i = 0; i < nodeDefinition.menuItems.length; i++) {
+            let menutItemDefinition = nodeDefinition.menuItems[i]
+            let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+
+            /* We need to reference the real function based on its name */
+            if (menutItemDefinition.actionFunction !== undefined) {
+              newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
+            }
+            menuItemsInitialValues.push(newMenuItem)
+          }
+        } else {
+          if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
+        }
       }
     }
 
@@ -5021,6 +5037,35 @@ function newUiObjectConstructor () {
         break
       }
       default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+        if (nodeDefinition !== undefined) {
+          switch (nodeDefinition.level) {
+            case 0: {
+              level_0()
+              return
+            }
+            case 1: {
+              level_1()
+              return
+            }
+            case 2: {
+              level_2()
+              return
+            }
+            case 3: {
+              level_3()
+              return
+            }
+            case 4: {
+              level_4()
+              return
+            }
+            case 5: {
+              level_5()
+              return
+            }
+          }
+        }
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
         return
       }

@@ -248,8 +248,13 @@ function newWorkspace () {
     }
   }
 
-  async function onMenuItemClick (payload, action, callBackFunction) {
+  async function onMenuItemClick (payload, action, relatedUiObject, callBackFunction) {
     switch (action) {
+      case 'Add UI Object':
+        {
+          functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
+        }
+        break
       case 'Share Workspace':
         {
           let text = stringifyWorkspace(true)

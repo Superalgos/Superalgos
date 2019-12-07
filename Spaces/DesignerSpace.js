@@ -122,8 +122,11 @@ function newDesignerSpace () {
     /* Take types-icons relationships defined at the schema */
     for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
       let nodeDefinition = APP_SCHEMA_ARRAY[i]
-      let icon = thisObject.iconCollection.get(nodeDefinition.icon)
-      thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
+      let iconName = nodeDefinition.icon
+      if (iconName !== undefined) {
+        let icon = thisObject.iconCollection.get(iconName)
+        thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
+      }
     }
   }
 

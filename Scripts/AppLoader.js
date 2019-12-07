@@ -21,23 +21,10 @@ function newAppLoader() {
 
             let plotters
             let modulesArray = []
-
-            if (window.canvasApp.executingAt !== 'Local') {
-                let ecosystem = await loadEcosystem()
-                if (ecosystem) {
-                    window.localStorage.setItem('ecosystem', JSON.stringify(ecosystem))
-                    plotters = getPlotters(ecosystem)
-                } else {
-                    plotters = defaultPlotters()
-                    modulesArray = ['UserEcosystem.js']
-                }
-            } else {
-                plotters = defaultPlotters()
-                modulesArray = ['UserEcosystem.js']
-            }
-
-
-
+           
+            plotters = defaultPlotters()
+            modulesArray = ['UserEcosystem.js']
+       
             modulesArray = modulesArray.concat([
                 'ChartsSpace/ViewPort.js',
 
@@ -180,150 +167,6 @@ function newAppLoader() {
             }
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] loadModules -> err = ' + err.stack) }
-        }
-    }
-
-    async function loadEcosystem() {
-        if (INFO_LOG === true) { logger.write('[INFO] loadEcosystem -> Entering function.') }
-
-        let accessToken = window.localStorage.getItem('access_token')
-        if (accessToken !== null) {
-            let response = await axios({
-                url: window.canvasApp.graphQL.masterAppApiUrl,
-                method: 'post',
-                data: {
-                    query: `
-          query {
-            web_GetEcosystem {
-              id
-              devTeams {
-                codeName
-                displayName
-                host {
-                  url
-                  storage
-                  container
-                  accessKey
-                }
-                bots {
-                  codeName
-                  displayName
-                  type
-                  profilePicture
-                  repo
-                  configFile
-                  cloneId
-                  products{
-                    codeName
-                    displayName
-                    description
-                    dataSets{
-                      codeName
-                      type
-                      validPeriods
-                      filePath
-                      fileName
-                      dataRange{
-                        filePath
-                        fileName
-                      }
-                    }
-                    exchangeList{
-                      name
-                    }
-                    plotter{
-                      devTeam
-                      codeName
-                      moduleName
-                      repo
-                    }
-                  }
-                }
-                plotters {
-                  codeName
-                  displayName
-                  modules{
-                    codeName
-                    moduleName
-                    description
-                    profilePicture
-                    panels{
-                      codeName
-                      moduleName
-                      event
-                    }
-                  }
-                  repo
-                  configFile
-                }
-              }
-              hosts {
-                codeName
-                displayName
-                host {
-                  url
-                  storage
-                  container
-                  accessKey
-                }
-                competitions {
-                  codeName
-                  displayName
-                  description
-                  startDatetime
-                  finishDatetime
-                  formula
-                  plotter{
-                    devTeam
-                    codeName
-                    host{
-                      url
-                      storage
-                      container
-                      accessKey
-                    }
-                    moduleName
-                    repo
-                  }
-                  rules
-                  prizes
-                  participants
-                  repo
-                  configFile
-                }
-                plotters {
-                  codeName
-                  displayName
-                  modules{
-                    codeName
-                    moduleName
-                    description
-                    profilePicture
-                    panels{
-                      codeName
-                      moduleName
-                      event
-                    }
-                  }
-                  repo
-                  configFile
-                }
-              }
-            }
-          }
-          `
-                },
-                headers: {
-                    authorization: 'Bearer ' + accessToken
-                }
-            })
-
-            if (response.data.errors) {
-                if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + ' : ' + '[ERROR] AppPreLoader -> loadEcosystem -> response.text = ' + JSON.stringify(response.data.errors)) }
-                throw error
-            }
-
-            return response.data.data.web_GetEcosystem
         }
     }
 

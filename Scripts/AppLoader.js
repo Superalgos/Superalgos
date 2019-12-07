@@ -103,6 +103,9 @@ function newAppLoader() {
                 'FloatingSpace/CircularMenuItem.js',
                 'FloatingSpace/CircularProgressBar.js',
                 'FloatingSpace/CodeEditor.js',
+                'FloatingSpace/ConfigEditor.js',
+                'FloatingSpace/ConditionEditor.js',
+                'FloatingSpace/FormulaEditor.js',
 
                 'Scales/RateScale.js',
                 'Scales/TimeScale.js',

@@ -170,11 +170,6 @@ function newFloatingLayer () {
       let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
       floatingObject.drawForeground()
     }
-
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      floatingObject.drawOnFocus()
-    }
   }
 
   function drawVisibleObjects () {
@@ -191,6 +186,12 @@ function newFloatingLayer () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
       floatingObject.drawForeground()
+    }
+
+    /* Invisible objects on focus (freezed) should still have some priority */
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      floatingObject.drawOnFocus()
     }
 
     for (let i = 0; i < visibleFloatingObjects.length; i++) {

@@ -335,8 +335,6 @@ function newAppLoader() {
             'Plotters/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
             'Plotters/AAMasters/Plotters-Stairs-Patterns/CandleStairs.js',
             'Plotters/AAMasters/Plotters-Stairs-Patterns/VolumeStairs.js',
-            //'Plotters/AAMasters/Plotters-Trading/Details.js',
-            //'Plotters/AAMasters/Plotters-Trading/History.js',
             'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBands.js',
             'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
             'Plotters/AAMasters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
@@ -346,14 +344,7 @@ function newAppLoader() {
             'Plotters/AAMasters/Plotters-Trading-Simulation/Strategies.js',
             'Plotters/AAMasters/Plotters-Trading-Simulation/Trades.js',
             'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecution.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerChannels.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Channels/ChannelPanel.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Channels/BollingerSubChannels.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Channels/SubChannelPanel.js',
-            // 'Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve/LRC.js',
-            // 'Plotters/AAVikings/plotters/Plotters-Linear-Regression-Curve/ChannelPanel.js',
-            // 'Plotters/AAArena/Plotters-ROI/CombinedProfits.js'
+            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
         ]
     }
 

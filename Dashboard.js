@@ -3,6 +3,7 @@ let markets
 let ecosystem = newEcosystem()
 let systemEventHandler
 let viewPort
+let APP_SCHEMA = new Map()
 
 function newDashboard () {
   const MODULE_NAME = 'Dashboard'
@@ -29,7 +30,23 @@ function newDashboard () {
       viewPort = newViewPort()
 
       systemEventHandler = newSystemEventHandler()
-      systemEventHandler.initialize(startCanvas)
+      systemEventHandler.initialize(setUpAppSchema)
+
+      function setUpAppSchema () {
+        let schemaArray = getAppSchema()
+        for (let i = 0; i < schemaArray.length; i++) {
+          let nodeDefinition = schemaArray[i]
+          let key
+          if (nodeDefinition.subType !== undefined) {
+            key = nodeDefinition.type + '-' + nodeDefinition.subType
+          } else {
+            key = nodeDefinition.type
+          }
+          APP_SCHEMA.set(key, nodeDefinition)
+        }
+        console.log(APP_SCHEMA)
+        startCanvas()
+      }
 
       function startCanvas () {
         /* If this method is executed for a second time, it should finalize the current execution structure */

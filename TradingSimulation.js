@@ -658,8 +658,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -676,8 +676,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -694,8 +694,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -825,8 +825,8 @@
                                                 let condition = situation.conditions[m];
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code);
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode);
                                                 }
                                             }
                                         }
@@ -891,8 +891,8 @@
                                                 let condition = situation.conditions[m];
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code);
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode);
                                                 }
                                             }
                                         }
@@ -967,8 +967,8 @@
                                             let condition = situation.conditions[m];
                                             let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code);
+                                            if (condition.javascriptCode !== undefined) {
+                                                newCondition(key, condition.javascriptCode);
                                             }
                                         }
                                     }
@@ -1034,8 +1034,8 @@
                                             let condition = situation.conditions[m];
                                             let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code);
+                                            if (condition.javascriptCode !== undefined) {
+                                                newCondition(key, condition.javascriptCode);
                                             }
                                         }
                                     }

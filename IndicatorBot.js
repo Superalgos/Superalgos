@@ -90,8 +90,8 @@
 
                 /* Check Irregular Periods */
 
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code !== undefined) {
-                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode !== undefined) {
+                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode.code.indexOf('results.push') >= 0) {
                         resultsWithIrregularPeriods = true
                     }
                 }
@@ -130,7 +130,7 @@
                 let contextSummary = {}
 
                 /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode.code.indexOf('results.push') >= 0) {
                     resultsWithIrregularPeriods = true
                 }
 

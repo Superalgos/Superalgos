@@ -126,14 +126,14 @@ function newProductsPanel () {
             if (productNode.payload.referenceParent === undefined) { continue }
             let plotterModuleNode = productNode.payload.referenceParent
 
-            let plotterModule = {}// Provitional code until CODE desambiguation is done.
-            // if (plotterModuleNode.code === undefined) { continue }
-            // try {
-            //  let code = JSON.parse(plotterModuleNode.code)
-            plotterModule.codeName = plotterModuleNode.name // code.codeName
-            // } catch (err) {
-            //  continue
-            // }
+            let plotterModule = {}
+            if (plotterModuleNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterModuleNode.code)
+              plotterModule.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
 
             if (plotterModuleNode.payload.parentNode === undefined) { continue }
             let plotterNode = plotterModuleNode.payload.parentNode

@@ -1620,6 +1620,7 @@ function newProtocolNode () {
           type: node.type,
           subType: node.subType,
           name: node.name,
+          code: node.code,
           javascriptCode: getProtocolNode(node.javascriptCode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
           panels: []
         }

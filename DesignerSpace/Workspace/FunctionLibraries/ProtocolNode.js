@@ -1661,6 +1661,90 @@ function newProtocolNode () {
         return object
       }
 
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+          if (removePersonalData === true && nodeDefinition.isPersonalData === true) { return }
+          let object = {
+            type: node.type,
+            subType: node.subType,
+            name: node.name,
+            code: node.code
+          }
+
+          if (excludeChildren !== true) {
+          /* Children Nodes */
+            if (nodeDefinition.properties !== undefined) {
+              for (i = 0; i < nodeDefinition.properties.length; i++) {
+                let property = nodeDefinition.properties[i]
+
+                switch (property.type) {
+                  case 'node': {
+                    if (node[property.name] !== undefined) {
+                      if (excludeType !== property.childType) {
+                        object[property.name] = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+                      }
+                    }
+                    break
+                  }
+                  case 'array': {
+                    if (node[property.name] !== undefined) {
+                      if (excludeType !== property.childType) {
+                        let nodePropertyArray = node[property.name]
+                        object[property.name] = []
+                        for (let m = 0; m < nodePropertyArray.length; m++) {
+                          let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+                          if (protocolNode !== undefined) {
+                            object[property.name].push(protocolNode)
+                          }
+                        }
+                      }
+                    }
+                    break
+                  }
+                }
+              }
+            }
+          }
+
+          /* Ancestors Nodes */
+          if (includeParent) {
+            if (nodeDefinition.followAncestors !== undefined) {
+              followAncestors = nodeDefinition.followAncestors
+            }
+            if (nodeDefinition.excludeChildren !== undefined) {
+              excludeChildren = nodeDefinition.excludeChildren
+            }
+            if (nodeDefinition.excludeType !== undefined) {
+              excludeType = nodeDefinition.excludeType
+            }
+            object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+          }
+
+          /* Ancestors Nodes */
+          if (followAncestors) {
+            if (nodeDefinition.excludeChildren !== undefined) {
+              excludeChildren = nodeDefinition.excludeChildren
+            }
+            object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+          }
+
+          if (parseCode) {
+            object.code = JSON.parse(node.code)
+          }
+
+          if (includeIds) {
+            object.id = node.id
+          }
+          if (includePayload) {
+            object.savedPayload = getSavedPayload(node, includeReferences)
+          }
+          if (followReferenceParent) {
+            object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+          }
+          return object
+        }
+      }
     }
   }
 

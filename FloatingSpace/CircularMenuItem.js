@@ -382,6 +382,7 @@ function newCircularMenuItem () {
       iconSize = thisObject.currentRadius
     }
 
+    if (thisObject.icon === undefined) { return }
     if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
       browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 

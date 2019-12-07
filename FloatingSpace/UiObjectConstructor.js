@@ -1621,7 +1621,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40,
+            angle: -50,
             dontShowAtFullscreen: true
           }
         )
@@ -1637,9 +1637,22 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -30
           }
           )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Shapes',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Shapes',
+            visible: true,
+            relatedUiObject: 'Shapes',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+              )
         menuItemsInitialValues.push(
           {
             action: 'Add Plotter Panel',
@@ -1650,7 +1663,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 10
           }
             )
         menuItemsInitialValues.push(
@@ -1666,7 +1679,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 20
+            angle: 30
           }
               )
         menuItemsInitialValues.push(
@@ -1680,7 +1693,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 50
           }
         )
         break

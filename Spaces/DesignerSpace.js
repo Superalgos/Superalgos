@@ -118,6 +118,13 @@ function newDesignerSpace () {
       let icon = thisObject.iconCollection.get(record[1])
       thisObject.iconByUiObjectType.set(record[0], icon)
     }
+
+    /* Take types-icons relationships defined at the schema */
+    for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+      let nodeDefinition = APP_SCHEMA_ARRAY[i]
+      let icon = thisObject.iconCollection.get(nodeDefinition.icon)
+      thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
+    }
   }
 
   function loadIconCollection () {

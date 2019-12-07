@@ -3,7 +3,8 @@ let markets
 let ecosystem = newEcosystem()
 let systemEventHandler
 let viewPort
-let APP_SCHEMA = new Map()
+let APP_SCHEMA_MAP = new Map()
+let APP_SCHEMA_ARRAY = []
 
 function newDashboard () {
   const MODULE_NAME = 'Dashboard'
@@ -33,18 +34,18 @@ function newDashboard () {
       systemEventHandler.initialize(setUpAppSchema)
 
       function setUpAppSchema () {
-        let schemaArray = getAppSchema()
-        for (let i = 0; i < schemaArray.length; i++) {
-          let nodeDefinition = schemaArray[i]
+        APP_SCHEMA_ARRAY = getAppSchema()
+        for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+          let nodeDefinition = APP_SCHEMA_ARRAY[i]
           let key
           if (nodeDefinition.subType !== undefined) {
             key = nodeDefinition.type + '-' + nodeDefinition.subType
           } else {
             key = nodeDefinition.type
           }
-          APP_SCHEMA.set(key, nodeDefinition)
+          APP_SCHEMA_MAP.set(key, nodeDefinition)
         }
-        console.log(APP_SCHEMA)
+        console.log(APP_SCHEMA_MAP)
         startCanvas()
       }
 
@@ -127,4 +128,3 @@ function newDashboard () {
     }
   }
 }
-

@@ -1622,6 +1622,7 @@ function newProtocolNode () {
           name: node.name,
           code: node.code,
           javascriptCode: getProtocolNode(node.javascriptCode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
+          shapes: getProtocolNode(node.shapes, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
           panels: []
         }
         if (includeParent) {

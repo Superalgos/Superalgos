@@ -1055,6 +1055,11 @@ function newUiObjectsFromNodes () {
         if (node.javascriptCode !== undefined) {
           createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
+
+        if (node.shapes !== undefined) {
+          createUiObjectFromNode(node.shapes, node, node, positionOffset)
+        }
+
         for (let m = 0; m < node.panels.length; m++) {
           let panel = node.panels[m]
           createUiObjectFromNode(panel, node, node, positionOffset)
@@ -1076,6 +1081,35 @@ function newUiObjectsFromNodes () {
         }
         return
       }
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+          createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+          if (nodeDefinition.properties !== undefined) {
+            for (i = 0; i < nodeDefinition.properties.length; i++) {
+              let property = nodeDefinition.properties[i]
+              if (node[property.name] !== undefined) {
+                switch (property.type) {
+                  case 'node': {
+                    createUiObjectFromNode(node[property.name], node, node, positionOffset)
+                  }
+                    break
+                  case 'array': {
+                    let nodePropertyArray = node[property.name]
+                    for (let m = 0; m < nodePropertyArray.length; m++) {
+                      let arrayItem = nodePropertyArray[m]
+                      createUiObjectFromNode(arrayItem, node, node, positionOffset)
+                    }
+                  }
+                    break
+                }
+              }
+            }
+          }
+        }
+        return
+      }
     }
   }
 
@@ -1088,18 +1122,20 @@ function newUiObjectsFromNodes () {
 
     let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
     if (nodeDefinition !== undefined) {
-      for (i = 0; i < nodeDefinition.properties.length; i++) {
-        let property = nodeDefinition.properties[i]
-        if (property.childType === type) {
-          switch (property.type) {
-            case 'node': {
-              parent[property.name] = object
+      if (nodeDefinition.properties !== undefined) {
+        for (i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+          if (property.childType === type) {
+            switch (property.type) {
+              case 'node': {
+                parent[property.name] = object
+              }
+                break
+              case 'array': {
+                parent[property.name].push(object)
+              }
+                break
             }
-              break
-            case 'array': {
-              parent[property.name].push(object)
-            }
-              break
           }
         }
       }

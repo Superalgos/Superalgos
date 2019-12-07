@@ -1596,14 +1596,17 @@ function newProtocolNode () {
           code: node.code,
           modules: []
         }
-        if (node.modules !== undefined) {
-          for (let m = 0; m < node.modules.length; m++) {
-            let module = getProtocolNode(node.modules[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
-            if (module !== undefined) {
-              object.modules.push(module)
+        if (excludeChildren !== true) {
+          if (node.modules !== undefined) {
+            for (let m = 0; m < node.modules.length; m++) {
+              let module = getProtocolNode(node.modules[m], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+              if (module !== undefined) {
+                object.modules.push(module)
+              }
             }
           }
         }
+
         if (includeIds) {
           object.id = node.id
         }

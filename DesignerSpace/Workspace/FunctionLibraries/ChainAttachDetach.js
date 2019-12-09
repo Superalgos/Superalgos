@@ -549,6 +549,43 @@ function newChainAttachDetach () {
         }
         return
       }
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+        /* Detach from parent */
+          if (node.payload.parentNode !== undefined) {
+            let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+            if (parentNodeDefinition !== undefined) {
+              if (parentNodeDefinition.properties !== undefined) {
+                for (i = 0; i < parentNodeDefinition.properties.length; i++) {
+                  let property = parentNodeDefinition.properties[i]
+                  if (nodeDefinition.propertyNameAtParent === property.name) {
+                    switch (property.type) {
+                      case 'node': {
+                        node.payload.parentNode[property.name] = undefined
+                      }
+                        break
+                      case 'array': {
+                        let nodePropertyArray = node.payload.parentNode[property.name]
+                        if (nodePropertyArray !== undefined) {
+                          for (let j = 0; j < nodePropertyArray.length; j++) {
+                            let arrayItem = nodePropertyArray[j]
+                            if (arrayItem.id === node.id) {
+                              nodePropertyArray.splice(j, 1)
+                            }
+                          }
+                        }
+                      }
+                        break
+                    }
+                  }
+                }
+              }
+            }
+          }
+          completeDetachment(node, rootNodes)
+        }
+      }
     }
   }
 

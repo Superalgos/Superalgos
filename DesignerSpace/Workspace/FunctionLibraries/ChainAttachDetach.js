@@ -1144,6 +1144,40 @@ function newChainAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+          node.payload.parentNode = attachToNode
+          node.payload.chainParent = attachToNode
+          /* Attach to new parent */
+          if (node.payload.parentNode !== undefined) {
+            let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+            if (parentNodeDefinition !== undefined) {
+              if (parentNodeDefinition.properties !== undefined) {
+                for (i = 0; i < parentNodeDefinition.properties.length; i++) {
+                  let property = parentNodeDefinition.properties[i]
+                  if (nodeDefinition.propertyNameAtParent === property.name) {
+                    switch (property.type) {
+                      case 'node': {
+                        node.payload.parentNode[property.name] = node
+                      }
+                        break
+                      case 'array': {
+                        let nodePropertyArray = node.payload.parentNode[property.name]
+                        if (nodePropertyArray !== undefined) {
+                          nodePropertyArray.push(node)
+                        }
+                      }
+                        break
+                    }
+                  }
+                }
+              }
+            }
+          }
+          completeAttachment(node, rootNodes)
+        }
+      }
     }
   }
 

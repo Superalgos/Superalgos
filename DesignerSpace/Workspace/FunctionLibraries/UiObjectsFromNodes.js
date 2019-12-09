@@ -1132,6 +1132,9 @@ function newUiObjectsFromNodes () {
               }
                 break
               case 'array': {
+                if (parent[property.name] === undefined) {
+                  parent[property.name] = []
+                }
                 parent[property.name].push(object)
               }
                 break

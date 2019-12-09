@@ -1683,7 +1683,7 @@ function newProtocolNode () {
                   case 'node': {
                     if (node[property.name] !== undefined) {
                       if (excludeType !== property.childType) {
-                        object[property.name] = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+                        object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
                       }
                     }
                     break

@@ -249,7 +249,6 @@ function newNodeChildren () {
           if (parentNode[property.name] !== undefined) {
             switch (property.type) {
               case 'node': {
-                parent[property.name] = object
                 response.childrenCount++
                 if (parentNode[property.name].id === childNode.id) {
                   response.childIndex = response.childrenCount

@@ -401,7 +401,7 @@ function newNodeDeleter () {
           switch (property.type) {
             case 'node': {
               if (node[property.name] !== undefined) {
-                deleteTradingSystem(node[property.name], rootNodes)
+                deleteUIObject(node[property.name], rootNodes)
               }
             }
               break
@@ -409,7 +409,7 @@ function newNodeDeleter () {
               let nodePropertyArray = node[property.name]
               if (nodePropertyArray !== undefined) {
                 while (nodePropertyArray.length > 0) {
-                  deleteNetworkNode(nodePropertyArray[0], rootNodes)
+                  deleteUIObject(nodePropertyArray[0], rootNodes)
                 }
               }
             }

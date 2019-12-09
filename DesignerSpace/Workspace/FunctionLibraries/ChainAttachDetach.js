@@ -557,7 +557,7 @@ function newChainAttachDetach () {
             let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
             if (parentNodeDefinition !== undefined) {
               if (parentNodeDefinition.properties !== undefined) {
-                for (i = 0; i < parentNodeDefinition.properties.length; i++) {
+                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
                   let property = parentNodeDefinition.properties[i]
                   if (nodeDefinition.propertyNameAtParent === property.name) {
                     switch (property.type) {
@@ -1154,7 +1154,7 @@ function newChainAttachDetach () {
             let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
             if (parentNodeDefinition !== undefined) {
               if (parentNodeDefinition.properties !== undefined) {
-                for (i = 0; i < parentNodeDefinition.properties.length; i++) {
+                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
                   let property = parentNodeDefinition.properties[i]
                   if (nodeDefinition.propertyNameAtParent === property.name) {
                     switch (property.type) {

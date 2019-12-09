@@ -584,7 +584,7 @@ function newUiObject () {
           let parentNodeDefinition = APP_SCHEMA_MAP.get(nearbyNode.type)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
-              for (j = 0; j < parentNodeDefinition.properties.length; j++) {
+              for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
                 let property = parentNodeDefinition.properties[j]
                 if (nodeDefinition.propertyNameAtParent === property.name) {
                   switch (property.type) {

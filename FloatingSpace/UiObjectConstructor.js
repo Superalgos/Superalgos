@@ -4713,7 +4713,7 @@ function newUiObjectConstructor () {
         let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
         if (nodeDefinition !== undefined) {
           addLeftIcons(menuItemsInitialValues, floatingObject)
-          for (i = 0; i < nodeDefinition.menuItems.length; i++) {
+          for (let i = 0; i < nodeDefinition.menuItems.length; i++) {
             let menutItemDefinition = nodeDefinition.menuItems[i]
             let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
 

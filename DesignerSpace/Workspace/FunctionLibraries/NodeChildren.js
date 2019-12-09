@@ -244,7 +244,7 @@ function newNodeChildren () {
     let nodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.properties !== undefined) {
-        for (i = 0; i < nodeDefinition.properties.length; i++) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
           let property = nodeDefinition.properties[i]
           if (parentNode[property.name] !== undefined) {
             switch (property.type) {

@@ -1087,7 +1087,7 @@ function newUiObjectsFromNodes () {
           createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
           if (nodeDefinition.properties !== undefined) {
-            for (i = 0; i < nodeDefinition.properties.length; i++) {
+            for (let i = 0; i < nodeDefinition.properties.length; i++) {
               let property = nodeDefinition.properties[i]
               if (node[property.name] !== undefined) {
                 switch (property.type) {
@@ -1123,7 +1123,7 @@ function newUiObjectsFromNodes () {
     let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.properties !== undefined) {
-        for (i = 0; i < nodeDefinition.properties.length; i++) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
           let property = nodeDefinition.properties[i]
           if (property.childType === type) {
             switch (property.type) {

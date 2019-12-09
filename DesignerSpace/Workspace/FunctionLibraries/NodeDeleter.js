@@ -395,7 +395,7 @@ function newNodeDeleter () {
     if (nodeDefinition !== undefined) {
       /* Remove all of its own children nodes. */
       if (nodeDefinition.properties !== undefined) {
-        for (i = 0; i < nodeDefinition.properties.length; i++) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
           let property = nodeDefinition.properties[i]
 
           switch (property.type) {
@@ -423,7 +423,7 @@ function newNodeDeleter () {
         let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
         if (parentNodeDefinition !== undefined) {
           if (parentNodeDefinition.properties !== undefined) {
-            for (i = 0; i < parentNodeDefinition.properties.length; i++) {
+            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
               let property = parentNodeDefinition.properties[i]
               if (nodeDefinition.propertyNameAtParent === property.name) {
                 switch (property.type) {

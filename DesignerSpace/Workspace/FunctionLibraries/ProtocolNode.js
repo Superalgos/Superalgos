@@ -1676,7 +1676,7 @@ function newProtocolNode () {
           if (excludeChildren !== true) {
           /* Children Nodes */
             if (nodeDefinition.properties !== undefined) {
-              for (i = 0; i < nodeDefinition.properties.length; i++) {
+              for (let i = 0; i < nodeDefinition.properties.length; i++) {
                 let property = nodeDefinition.properties[i]
 
                 switch (property.type) {
@@ -1750,6 +1750,9 @@ function newProtocolNode () {
   }
 
   function getSavedPayload (node, includeReferences) {
+    if (node.payload === undefined) {
+      console.log('HERE')
+    }
     let savedPayload = {
       position: {
         x: node.payload.position.x,

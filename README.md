@@ -10,7 +10,7 @@ Visit the [Users Manual](https://github.com/Superalgos/Platform/wiki) for instru
 
 ## Code and Development Environment
 
-The Superalgos Desktop App draws code from several repositories within the Superalgos Github organization, as well as from organizations belonging to Teams.
+The Superalgos Platform draws code from several repositories within the Superalgos Github organization, as well as from organizations belonging to Teams.
 
 The concerned code is distributed with the app's release and constitutes a fully functional development environment right out of the package. The app runs uncompilled on the actual code.
 

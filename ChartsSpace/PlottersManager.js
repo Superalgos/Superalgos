@@ -21,40 +21,48 @@ function newPlottersManager () {
     finalize: finalize
   }
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-
   let initializationReady = false
 
   let productsPanel
   let exchange
   let market
 
+  setupContainer()
   return thisObject
 
-  function finalize (callBackFunction) {
-    try {
-      for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].profile !== undefined) {
-          canvas.floatingSpace.profileBalls.destroyProfileBall(productPlotters[i].profile)
-        }
-                    /* Destroyd the Note Set */
-        canvas.floatingSpace.noteSets.destroyNoteSet(productPlotters[i].noteSet)
-                    /* Then the panels. */
-        for (let j = 0; j < productPlotters[i].panels.length; j++) {
-          canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
-        }
-                    /* Finally the Storage Objects */
-        productPlotters[i].storage.finalize()
-        if (productPlotters[i].plotter.finalize !== undefined) {
-          productPlotters[i].plotter.finalize()
-        }
-        productPlotters.splice(i, 1) // Delete item from array.
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+  }
+
+  function finalize () {
+    for (let i = 0; i < productPlotters.length; i++) {
+      /* Then the panels. */
+      for (let j = 0; j < productPlotters[i].panels.length; j++) {
+        canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
+        productPlotters[i].panels[j] = undefined
       }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      productPlotters[i].panels = undefined
+
+      /* Finalize the plotters */
+      if (productPlotters[i].plotter.finalize !== undefined) {
+        productPlotters[i].plotter.finalize()
+      }
+      productPlotters[i].plotter = undefined
+
+      /* Finally the Storage Objects */
+      productPlotters[i].storage.finalize()
+      productPlotters[i].storage = undefined
+
+      productPlotters[i] = undefined
     }
+    productPlotters = []
+
+    productsPanel = undefined
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    setupContainer()
   }
 
   function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {
@@ -168,13 +176,24 @@ function newPlottersManager () {
             }
           }
                     /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-          let plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+          let plotter
+          let productDefinition
+
+          if (pProductCard.product.plotter.legacy === false) {
+            plotter = newPlotter()
+
+            /* We take a snapwhot of the current product definition to be used by the plotter. */
+            let functionLibraryProtocolNode = newProtocolNode()
+            productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, true)
+          } else {
+            plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+          }
 
           plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized)
+          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, productDefinition)
 
           function onPlotterInizialized () {
             try {
@@ -190,6 +209,7 @@ function newPlottersManager () {
                             /* Lets load now this plotter panels. */
               productPlotter.panels = []
 
+              /* Here is where we instantiate the legacy panels */
               for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
                 let panelConfig = pProductCard.product.plotter.module.panels[i]
 
@@ -207,6 +227,27 @@ function newPlottersManager () {
                   productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised)
                 }
                 productPlotter.panels.push(plotterPanelHandle)
+              }
+
+              /* Here we instantiate the UI Defined Panels. */
+              if (productDefinition !== undefined) {
+                for (let i = 0; i < productDefinition.referenceParent.panels.length; i++) {
+                  let panel = productDefinition.referenceParent.panels[i]
+
+                  let parameters = {
+                    devTeam: pProductCard.product.plotter.devTeam,
+                    plotterCodeName: pProductCard.product.plotter.codeName,
+                    moduleCodeName: pProductCard.product.plotter.moduleName,
+                    panelCodeName: panel.id
+                  }
+                  let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session, panel)
+                  let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
+
+                  /* Connect Panel to the Plotter via an Event. */
+                  productPlotter.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
+                  productPlotter.panels.push(plotterPanelHandle)
+                }
               }
 
               productPlotters.push(productPlotter)

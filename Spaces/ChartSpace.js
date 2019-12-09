@@ -30,16 +30,20 @@ function newChartSpace () {
     finalize: finalize
   }
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-
-  thisObject.container.isDraggeable = false
-  thisObject.container.isWheelable = false
-
   let canvasBrowserResizedEventSubscriptionId
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
+
+  setupContainer()
   return thisObject
+
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+
+    thisObject.container.isDraggeable = false
+    thisObject.container.isWheelable = false
+  }
 
   function finalize () {
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
@@ -51,9 +55,10 @@ function newChartSpace () {
 
     thisObject.container.finalize()
     thisObject.container = undefined
+    setupContainer()
   }
 
-  function initialize (callBackFunction) {
+  function initialize () {
     let initializedCounter = 0
     let toInitialize = 1
 
@@ -75,14 +80,14 @@ function newChartSpace () {
       initializedCounter++
 
       if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        callBackFunction(err)
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Initialization Failed. -> Err ' + err.message) }
         return
       }
 
       thisObject.timeMachines.push(timeMachine)
 
       if (initializedCounter === toInitialize) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        viewPort.raiseEvents() // These events will impacts on objects just initialized.
       }
     }
   }

@@ -2,6 +2,7 @@ function newUiObjectsFromNodes () {
   thisObject = {
     recreateWorkspace: recreateWorkspace,
     createUiObjectFromNode: createUiObjectFromNode,
+    addUIObject: addUIObject,
     addTeam: addTeam,
     addSensorBot: addSensorBot,
     addIndicatorBot: addIndicatorBot,
@@ -65,7 +66,7 @@ function newUiObjectsFromNodes () {
     addNextPhaseEvent: addNextPhaseEvent,
     addSituation: addSituation,
     addCondition: addCondition,
-    addCode: addCode
+    addJavascriptCode: addJavascriptCode
   }
 
   let mapOfReferenceParents
@@ -77,7 +78,7 @@ function newUiObjectsFromNodes () {
     mapOfReferenceParents = new Map()
     mapOfReferenceChildren = new Map()
     let workspace = node
-    createUiObject('Workspace', workspace.name, workspace, undefined, undefined, 'Workspace')
+    createUiObject(false, 'Workspace', workspace.name, workspace, undefined, undefined, 'Workspace')
     if (node.rootNodes !== undefined) {
       for (let i = 0; i < node.rootNodes.length; i++) {
         let rootNode = node.rootNodes[i]
@@ -110,22 +111,23 @@ function newUiObjectsFromNodes () {
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
     switch (node.type) {
-      case 'Code':
+      case 'Javascript Code':
         {
-          createUiObject('Code', node.name, node, parentNode, chainParent, 'Code', positionOffset)
+          createUiObject(false, 'Javascript Code', node.name, node, parentNode, chainParent, 'Javascript Code', positionOffset)
           return
         }
       case 'Condition':
         {
-          createUiObject('Condition', node.name, node, parentNode, chainParent, 'Condition', positionOffset)
-          if (node.code !== undefined) {
-            createUiObjectFromNode(node.code, node, node, positionOffset)
+          createUiObject(false, 'Condition', node.name, node, parentNode, chainParent, 'Condition', positionOffset)
+
+          if (node.javascriptCode !== undefined) {
+            createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
           }
           return
         }
       case 'Situation': {
         let situation = node
-        createUiObject('Situation', situation.name, situation, parentNode, chainParent, 'Situation', positionOffset)
+        createUiObject(false, 'Situation', situation.name, situation, parentNode, chainParent, 'Situation', positionOffset)
         for (let m = 0; m < node.conditions.length; m++) {
           let condition = node.conditions[m]
           createUiObjectFromNode(condition, situation, situation, positionOffset)
@@ -134,12 +136,12 @@ function newUiObjectsFromNodes () {
       }
       case 'Formula':
         {
-          createUiObject('Formula', node.name, node, parentNode, chainParent, 'Formula', positionOffset)
+          createUiObject(false, 'Formula', node.name, node, parentNode, chainParent, 'Formula', positionOffset)
           return
         }
       case 'Next Phase Event':
         {
-          createUiObject('Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event', positionOffset)
+          createUiObject(false, 'Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event', positionOffset)
           for (let m = 0; m < node.situations.length; m++) {
             let situation = node.situations[m]
             createUiObjectFromNode(situation, node, node, positionOffset)
@@ -155,7 +157,7 @@ function newUiObjectsFromNodes () {
         }
       case 'Phase': {
         let phase = node
-        createUiObject('Phase', phase.name, phase, parentNode, chainParent, phase.subType, positionOffset)
+        createUiObject(false, 'Phase', phase.name, phase, parentNode, chainParent, phase.subType, positionOffset)
 
         if (node.formula !== undefined) {
           createUiObjectFromNode(node.formula, phase, phase, positionOffset)
@@ -175,7 +177,7 @@ function newUiObjectsFromNodes () {
       case 'Stop': {
         let lastPhase
         let stop = node
-        createUiObject('Stop', stop.name, stop, parentNode, chainParent, 'Stop', positionOffset)
+        createUiObject(false, 'Stop', stop.name, stop, parentNode, chainParent, 'Stop', positionOffset)
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
@@ -192,7 +194,7 @@ function newUiObjectsFromNodes () {
       case 'Take Profit': {
         let lastPhase
         let takeProfit = node
-        createUiObject('Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit', positionOffset)
+        createUiObject(false, 'Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit', positionOffset)
         for (let m = 0; m < node.phases.length; m++) {
           let phase = node.phases[m]
           let thisChainParent
@@ -208,16 +210,16 @@ function newUiObjectsFromNodes () {
       }
       case 'Open Execution':
         {
-          createUiObject('Open Execution', node.name, node, parentNode, chainParent, 'Open Execution', positionOffset)
+          createUiObject(false, 'Open Execution', node.name, node, parentNode, chainParent, 'Open Execution', positionOffset)
           return
         }
       case 'Close Execution':
         {
-          createUiObject('Close Execution', node.name, node, parentNode, chainParent, 'Close Execution', positionOffset)
+          createUiObject(false, 'Close Execution', node.name, node, parentNode, chainParent, 'Close Execution', positionOffset)
           return
         }
       case 'Initial Definition': {
-        createUiObject('Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition', positionOffset)
+        createUiObject(false, 'Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition', positionOffset)
 
         if (node.stopLoss !== undefined) {
           createUiObjectFromNode(node.stopLoss, node, node, positionOffset)
@@ -235,7 +237,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Take Position Event': {
         let event = node
-        createUiObject('Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event', positionOffset)
+        createUiObject(false, 'Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event', positionOffset)
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
           createUiObjectFromNode(situation, event, event, positionOffset)
@@ -251,7 +253,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Trigger On Event': {
         let event = node
-        createUiObject('Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event', positionOffset)
+        createUiObject(false, 'Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event', positionOffset)
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
           createUiObjectFromNode(situation, event, event, positionOffset)
@@ -267,7 +269,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Trigger Off Event': {
         let event = node
-        createUiObject('Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event', positionOffset)
+        createUiObject(false, 'Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event', positionOffset)
         for (let m = 0; m < node.situations.length; m++) {
           let situation = node.situations[m]
           createUiObjectFromNode(situation, event, event, positionOffset)
@@ -282,14 +284,14 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Position Size': {
-        createUiObject('Position Size', node.name, node, parentNode, chainParent, 'Position Size', positionOffset)
+        createUiObject(false, 'Position Size', node.name, node, parentNode, chainParent, 'Position Size', positionOffset)
         if (node.formula !== undefined) {
           createUiObjectFromNode(node.formula, node, node, positionOffset)
         }
         return
       }
       case 'Position Rate': {
-        createUiObject('Position Rate', node.name, node, parentNode, chainParent, 'Position Rate', positionOffset)
+        createUiObject(false, 'Position Rate', node.name, node, parentNode, chainParent, 'Position Rate', positionOffset)
         if (node.formula !== undefined) {
           createUiObjectFromNode(node.formula, node, node, positionOffset)
         }
@@ -297,7 +299,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Trigger Stage': {
         let stage = node
-        createUiObject('Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage', positionOffset)
+        createUiObject(false, 'Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage', positionOffset)
 
         if (node.triggerOn !== undefined) {
           createUiObjectFromNode(node.triggerOn, stage, stage, positionOffset)
@@ -312,7 +314,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Open Stage': {
         let stage = node
-        createUiObject('Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage', positionOffset)
+        createUiObject(false, 'Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage', positionOffset)
 
         if (node.initialDefinition !== undefined) {
           createUiObjectFromNode(node.initialDefinition, stage, stage, positionOffset)
@@ -324,7 +326,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Manage Stage': {
         let stage = node
-        createUiObject('Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage', positionOffset)
+        createUiObject(false, 'Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage', positionOffset)
 
         if (node.stopLoss !== undefined) {
           createUiObjectFromNode(node.stopLoss, stage, stage, positionOffset)
@@ -336,7 +338,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Close Stage': {
         let stage = node
-        createUiObject('Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage', positionOffset)
+        createUiObject(false, 'Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage', positionOffset)
 
         if (node.closeExecution !== undefined) {
           createUiObjectFromNode(node.closeExecution, stage, stage, positionOffset)
@@ -345,7 +347,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Strategy': {
         let strategy = node
-        createUiObject('Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy', positionOffset)
+        createUiObject(false, 'Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy', positionOffset)
         if (node.triggerStage !== undefined) {
           createUiObjectFromNode(node.triggerStage, strategy, strategy, positionOffset)
         }
@@ -361,27 +363,27 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Base Asset': {
-        createUiObject('Base Asset', node.name, node, parentNode, chainParent, 'Base Asset', positionOffset)
+        createUiObject(false, 'Base Asset', node.name, node, parentNode, chainParent, 'Base Asset', positionOffset)
         return
       }
       case 'Time Range': {
-        createUiObject('Time Range', node.name, node, parentNode, chainParent, 'Time Range', positionOffset)
+        createUiObject(false, 'Time Range', node.name, node, parentNode, chainParent, 'Time Range', positionOffset)
         return
       }
       case 'Time Period': {
-        createUiObject('Time Period', node.name, node, parentNode, chainParent, 'Time Period', positionOffset)
+        createUiObject(false, 'Time Period', node.name, node, parentNode, chainParent, 'Time Period', positionOffset)
         return
       }
       case 'Slippage': {
-        createUiObject('Slippage', node.name, node, parentNode, chainParent, 'Slippage', positionOffset)
+        createUiObject(false, 'Slippage', node.name, node, parentNode, chainParent, 'Slippage', positionOffset)
         return
       }
       case 'Fee Structure': {
-        createUiObject('Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure', positionOffset)
+        createUiObject(false, 'Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure', positionOffset)
         return
       }
       case 'Parameters': {
-        createUiObject('Parameters', node.name, node, parentNode, chainParent, 'Parameters', positionOffset)
+        createUiObject(false, 'Parameters', node.name, node, parentNode, chainParent, 'Parameters', positionOffset)
         if (node.baseAsset !== undefined) {
           createUiObjectFromNode(node.baseAsset, node, node, positionOffset)
         }
@@ -404,7 +406,7 @@ function newUiObjectsFromNodes () {
       }
       case 'Trading System': {
         let tradingSystem = node
-        createUiObject('Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System', positionOffset)
+        createUiObject(false, 'Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System', positionOffset)
         for (let m = 0; m < node.strategies.length; m++) {
           let strategy = node.strategies[m]
           createUiObjectFromNode(strategy, tradingSystem, tradingSystem, positionOffset)
@@ -415,7 +417,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Personal Data': {
-        createUiObject('Personal Data', node.name, node, parentNode, chainParent, 'Personal Data', positionOffset)
+        createUiObject(false, 'Personal Data', node.name, node, parentNode, chainParent, 'Personal Data', positionOffset)
         for (let m = 0; m < node.exchangeAccounts.length; m++) {
           let exchangeAccount = node.exchangeAccounts[m]
           createUiObjectFromNode(exchangeAccount, node, node, positionOffset)
@@ -423,7 +425,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Exchange Account': {
-        createUiObject('Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account', positionOffset)
+        createUiObject(false, 'Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account', positionOffset)
         for (let m = 0; m < node.assets.length; m++) {
           let asset = node.assets[m]
           createUiObjectFromNode(asset, node, node, positionOffset)
@@ -435,11 +437,11 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Exchange Account Asset': {
-        createUiObject('Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset', positionOffset)
+        createUiObject(false, 'Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset', positionOffset)
         return
       }
       case 'Exchange Account Key': {
-        createUiObject('Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key', positionOffset)
+        createUiObject(false, 'Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key', positionOffset)
         return
       }
       case 'Definition': {
@@ -451,7 +453,7 @@ function newUiObjectsFromNodes () {
             referenceChildren = node.savedPayload.referenceChildren
           }
         }
-        createUiObject('Definition', node.name, node, parentNode, chainParent, 'Definition', positionOffset)
+        createUiObject(false, 'Definition', node.name, node, parentNode, chainParent, 'Definition', positionOffset)
         if (node.tradingSystem !== undefined) {
           createUiObjectFromNode(node.tradingSystem, node, node, positionOffset)
         }
@@ -465,11 +467,13 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
       case 'Network': {
-        createUiObject('Network', node.name, node, parentNode, chainParent, 'Network', positionOffset)
+        createUiObject(false, 'Network', node.name, node, parentNode, chainParent, 'Network', positionOffset)
         if (node.networkNodes !== undefined) {
           for (let m = 0; m < node.networkNodes.length; m++) {
             let networkNode = node.networkNodes[m]
@@ -479,7 +483,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Network Node': {
-        createUiObject('Network Node', node.name, node, parentNode, chainParent, 'Network Node', positionOffset)
+        createUiObject(false, 'Network Node', node.name, node, parentNode, chainParent, 'Network Node', positionOffset)
         if (node.taskManagers !== undefined) {
           for (let m = 0; m < node.taskManagers.length; m++) {
             let taskManager = node.taskManagers[m]
@@ -489,7 +493,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Social Bots': {
-        createUiObject('Social Bots', node.name, node, parentNode, chainParent, 'Social Bots', positionOffset)
+        createUiObject(false, 'Social Bots', node.name, node, parentNode, chainParent, 'Social Bots', positionOffset)
         for (let m = 0; m < node.bots.length; m++) {
           let bot = node.bots[m]
           createUiObjectFromNode(bot, node, node, positionOffset)
@@ -497,7 +501,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Telegram Bot': {
-        createUiObject('Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot', positionOffset)
+        createUiObject(false, 'Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot', positionOffset)
         for (let m = 0; m < node.announcements.length; m++) {
           let announcement = node.announcements[m]
           createUiObjectFromNode(announcement, node, node, positionOffset)
@@ -505,14 +509,14 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Announcement': {
-        createUiObject('Announcement', node.name, node, parentNode, chainParent, 'Announcement', positionOffset)
+        createUiObject(false, 'Announcement', node.name, node, parentNode, chainParent, 'Announcement', positionOffset)
         if (node.formula !== undefined) {
           createUiObjectFromNode(node.formula, node, node, positionOffset)
         }
         return
       }
       case 'Layer Manager': {
-        createUiObject('Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager', positionOffset)
+        createUiObject(false, 'Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager', positionOffset)
         for (let m = 0; m < node.layers.length; m++) {
           let layer = node.layers[m]
           createUiObjectFromNode(layer, node, node, positionOffset)
@@ -520,11 +524,11 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Layer': {
-        createUiObject('Layer', node.name, node, parentNode, chainParent, 'Layer', positionOffset)
+        createUiObject(false, 'Layer', node.name, node, parentNode, chainParent, 'Layer', positionOffset)
         return
       }
       case 'Task Manager': {
-        createUiObject('Task Manager', node.name, node, parentNode, chainParent, 'Task Manager', positionOffset)
+        createUiObject(false, 'Task Manager', node.name, node, parentNode, chainParent, 'Task Manager', positionOffset)
         for (let m = 0; m < node.tasks.length; m++) {
           let task = node.tasks[m]
           createUiObjectFromNode(task, node, node, positionOffset)
@@ -532,14 +536,14 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Task': {
-        createUiObject('Task', node.name, node, parentNode, chainParent, 'Task', positionOffset)
+        createUiObject(false, 'Task', node.name, node, parentNode, chainParent, 'Task', positionOffset)
         if (node.bot !== undefined) {
           createUiObjectFromNode(node.bot, node, node, positionOffset)
         }
         return
       }
       case 'Sensor Bot Instance': {
-        createUiObject('Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance', positionOffset)
+        createUiObject(false, 'Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance', positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -547,7 +551,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Indicator Bot Instance': {
-        createUiObject('Indicator Bot Instance', node.name, node, parentNode, chainParent, 'Indicator Bot Instance', positionOffset)
+        createUiObject(false, 'Indicator Bot Instance', node.name, node, parentNode, chainParent, 'Indicator Bot Instance', positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -555,7 +559,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Trading Bot Instance': {
-        createUiObject('Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance', positionOffset)
+        createUiObject(false, 'Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance', positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -588,7 +592,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Process Instance', node.name, node, parentNode, chainParent, 'Process Instance', positionOffset)
+        createUiObject(false, 'Process Instance', node.name, node, parentNode, chainParent, 'Process Instance', positionOffset)
         if (node.session !== undefined) {
           createUiObjectFromNode(node.session, node, node, positionOffset)
         }
@@ -609,7 +613,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session', positionOffset)
+        createUiObject(false, 'Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
         }
@@ -636,7 +640,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session', positionOffset)
+        createUiObject(false, 'Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
         }
@@ -663,7 +667,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session', positionOffset)
+        createUiObject(false, 'Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
         }
@@ -690,7 +694,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject('Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session', positionOffset)
+        createUiObject(false, 'Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
         }
@@ -709,7 +713,7 @@ function newUiObjectsFromNodes () {
       }
 
       case 'Team': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.sensorBots.length; m++) {
           let sensorBot = node.sensorBots[m]
           createUiObjectFromNode(sensorBot, node, node, positionOffset)
@@ -729,7 +733,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Sensor Bot': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -741,7 +745,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Indicator Bot': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -753,7 +757,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Trading Bot': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.processes.length; m++) {
           let process = node.processes[m]
           createUiObjectFromNode(process, node, node, positionOffset)
@@ -773,7 +777,7 @@ function newUiObjectsFromNodes () {
             referenceChildren = node.savedPayload.referenceChildren
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.processOutput !== undefined) {
           createUiObjectFromNode(node.processOutput, node, node, positionOffset)
         }
@@ -793,11 +797,13 @@ function newUiObjectsFromNodes () {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
       case 'Process Output': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.outputDatasets.length; m++) {
           let outputDataset = node.outputDatasets[m]
           createUiObjectFromNode(outputDataset, node, node, positionOffset)
@@ -805,7 +811,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Process Dependencies': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.statusDependencies.length; m++) {
           let statusDependency = node.statusDependencies[m]
           createUiObjectFromNode(statusDependency, node, node, positionOffset)
@@ -825,11 +831,13 @@ function newUiObjectsFromNodes () {
             referenceChildren = node.savedPayload.referenceChildren
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceChildren !== undefined) {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
@@ -843,7 +851,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceParent !== undefined) {
           node.savedPayload = {
             referenceParent: referenceParent
@@ -860,16 +868,18 @@ function newUiObjectsFromNodes () {
             referenceChildren = node.savedPayload.referenceChildren
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceChildren !== undefined) {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
       case 'Calculations Procedure': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.initialization !== undefined) {
           createUiObjectFromNode(node.initialization, node, node, positionOffset)
         }
@@ -879,7 +889,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Data Building Procedure': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.initialization !== undefined) {
           createUiObjectFromNode(node.initialization, node, node, positionOffset)
         }
@@ -889,16 +899,18 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Procedure Initialization': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         return
       }
       case 'Procedure Loop': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
         }
         return
       }
@@ -912,7 +924,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceParent !== undefined) {
           node.savedPayload = {
             referenceParent: referenceParent
@@ -930,7 +942,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceParent !== undefined) {
           node.savedPayload = {
             referenceParent: referenceParent
@@ -948,7 +960,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceParent !== undefined) {
           node.savedPayload = {
             referenceParent: referenceParent
@@ -957,7 +969,16 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Product Definition': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        let referenceParent
+        if (mapOfReferenceChildren !== undefined) {
+          if (node.savedPayload.referenceParent !== undefined) {
+            if (node.savedPayload.referenceParent.id !== undefined) {
+              mapOfReferenceChildren.set(node.id, node)
+              referenceParent = node.savedPayload.referenceParent
+            }
+          }
+        }
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.record !== undefined) {
           createUiObjectFromNode(node.record, node, node, positionOffset)
         }
@@ -971,10 +992,15 @@ function newUiObjectsFromNodes () {
         if (node.dataBuilding !== undefined) {
           createUiObjectFromNode(node.dataBuilding, node, node, positionOffset)
         }
+        if (referenceParent !== undefined) {
+          node.savedPayload = {
+            referenceParent: referenceParent
+          }
+        }
         return
       }
       case 'Record Definition': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.properties.length; m++) {
           let property = node.properties[m]
           createUiObjectFromNode(property, node, node, positionOffset)
@@ -982,7 +1008,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Record Property': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.formula !== undefined) {
           createUiObjectFromNode(node.formula, node, node, positionOffset)
         }
@@ -997,16 +1023,18 @@ function newUiObjectsFromNodes () {
             referenceChildren = node.savedPayload.referenceChildren
           }
         }
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (referenceChildren !== undefined) {
           node.savedPayload = {
             referenceChildren: referenceChildren
           }
+        } else {
+          node.referenceChildren = []
         }
         return
       }
       case 'Plotter': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         for (let m = 0; m < node.modules.length; m++) {
           let module = node.modules[m]
           createUiObjectFromNode(module, node, node, positionOffset)
@@ -1014,24 +1042,105 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Plotter Module': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+        let referenceChildren
+        if (mapOfReferenceParents !== undefined) {
+          if (node.savedPayload.referenceChildren !== undefined) {
+            referenceChildren = []
+            mapOfReferenceParents.set(node.id, node)
+            referenceChildren = node.savedPayload.referenceChildren
+          }
         }
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
+        }
+
+        if (node.shapes !== undefined) {
+          createUiObjectFromNode(node.shapes, node, node, positionOffset)
+        }
+
         for (let m = 0; m < node.panels.length; m++) {
           let panel = node.panels[m]
           createUiObjectFromNode(panel, node, node, positionOffset)
         }
+        if (referenceChildren !== undefined) {
+          node.savedPayload = {
+            referenceChildren: referenceChildren
+          }
+        } else {
+          node.referenceChildren = []
+        }
         return
       }
       case 'Plotter Panel': {
-        createUiObject(node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.code !== undefined) {
-          createUiObjectFromNode(node.code, node, node, positionOffset)
+        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+        if (node.javascriptCode !== undefined) {
+          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
+        }
+        return
+      }
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+          createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
+
+          if (nodeDefinition.properties !== undefined) {
+            for (i = 0; i < nodeDefinition.properties.length; i++) {
+              let property = nodeDefinition.properties[i]
+              if (node[property.name] !== undefined) {
+                switch (property.type) {
+                  case 'node': {
+                    createUiObjectFromNode(node[property.name], node, node, positionOffset)
+                  }
+                    break
+                  case 'array': {
+                    let nodePropertyArray = node[property.name]
+                    for (let m = 0; m < nodePropertyArray.length; m++) {
+                      let arrayItem = nodePropertyArray[m]
+                      createUiObjectFromNode(arrayItem, node, node, positionOffset)
+                    }
+                  }
+                    break
+                }
+              }
+            }
+          }
         }
         return
       }
     }
+  }
+
+  function addUIObject (parent, type) {
+    let object = {
+      name: 'New ' + type,
+      type: type
+    }
+    createUiObject(true, object.type, object.name, object, parent, parent)
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.properties !== undefined) {
+        for (i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+          if (property.childType === type) {
+            switch (property.type) {
+              case 'node': {
+                parent[property.name] = object
+              }
+                break
+              case 'array': {
+                parent[property.name].push(object)
+              }
+                break
+            }
+          }
+        }
+      }
+    }
+    return object
   }
 
   function addTeam (node) {
@@ -1045,7 +1154,7 @@ function newUiObjectsFromNodes () {
       plotters: []
     }
     node.rootNodes.push(team)
-    createUiObject(team.type, team.name, team, undefined, undefined)
+    createUiObject(true, team.type, team.name, team, undefined, undefined)
     return team
   }
 
@@ -1061,7 +1170,7 @@ function newUiObjectsFromNodes () {
       node.sensorBots = []
     }
     node.sensorBots.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1078,7 +1187,7 @@ function newUiObjectsFromNodes () {
       node.indicatorBots = []
     }
     node.indicatorBots.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1095,7 +1204,7 @@ function newUiObjectsFromNodes () {
       node.tradingBots = []
     }
     node.tradingBots.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1111,7 +1220,7 @@ function newUiObjectsFromNodes () {
       node.processes = []
     }
     node.processes.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1136,7 +1245,7 @@ function newUiObjectsFromNodes () {
         name: 'New Process Output',
         outputDatasets: []
       }
-      createUiObject(node.processOutput.type, node.processOutput.name, node.processOutput, node, node)
+      createUiObject(true, node.processOutput.type, node.processOutput.name, node.processOutput, node, node)
     }
     return node.processOutput
   }
@@ -1149,7 +1258,7 @@ function newUiObjectsFromNodes () {
         statusDependencies: [],
         dataDependencies: []
       }
-      createUiObject(node.processDependencies.type, node.processDependencies.name, node.processDependencies, node, node)
+      createUiObject(true, node.processDependencies.type, node.processDependencies.name, node.processDependencies, node, node)
     }
     return node.processDependencies
   }
@@ -1161,7 +1270,7 @@ function newUiObjectsFromNodes () {
         name: 'New Status Report',
         referenceChildren: []
       }
-      createUiObject(node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
+      createUiObject(true, node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
     }
     return node.statusReport
   }
@@ -1172,7 +1281,7 @@ function newUiObjectsFromNodes () {
         type: 'Execution Started Event',
         name: 'New Execution Started Event'
       }
-      createUiObject(node.executionStartedEvent.type, node.executionStartedEvent.name, node.executionStartedEvent, node, node)
+      createUiObject(true, node.executionStartedEvent.type, node.executionStartedEvent.name, node.executionStartedEvent, node, node)
     }
     return node.executionStartedEvent
   }
@@ -1184,7 +1293,7 @@ function newUiObjectsFromNodes () {
         name: 'New Execution Finished Event',
         referenceChildren: []
       }
-      createUiObject(node.executionFinishedEvent.type, node.executionFinishedEvent.name, node.executionFinishedEvent, node, node)
+      createUiObject(true, node.executionFinishedEvent.type, node.executionFinishedEvent.name, node.executionFinishedEvent, node, node)
     }
     return node.executionFinishedEvent
   }
@@ -1195,7 +1304,7 @@ function newUiObjectsFromNodes () {
         type: 'Calculations Procedure',
         name: 'New Calculations Procedure'
       }
-      createUiObject(node.calculations.type, node.calculations.name, node.calculations, node, node)
+      createUiObject(true, node.calculations.type, node.calculations.name, node.calculations, node, node)
     }
     return node.calculations
   }
@@ -1206,7 +1315,7 @@ function newUiObjectsFromNodes () {
         type: 'Data Building Procedure',
         name: 'New Data Building Procedure'
       }
-      createUiObject(node.dataBuilding.type, node.dataBuilding.name, node.dataBuilding, node, node)
+      createUiObject(true, node.dataBuilding.type, node.dataBuilding.name, node.dataBuilding, node, node)
     }
     return node.dataBuilding
   }
@@ -1217,7 +1326,7 @@ function newUiObjectsFromNodes () {
         type: 'Procedure Initialization',
         name: 'New Procedure Initialization'
       }
-      createUiObject(node.initialization.type, node.initialization.name, node.initialization, node, node)
+      createUiObject(true, node.initialization.type, node.initialization.name, node.initialization, node, node)
     }
     return node.initialization
   }
@@ -1228,7 +1337,7 @@ function newUiObjectsFromNodes () {
         type: 'Procedure Loop',
         name: 'New Procedure Loop'
       }
-      createUiObject(node.loop.type, node.loop.name, node.loop, node, node)
+      createUiObject(true, node.loop.type, node.loop.name, node.loop, node, node)
     }
     return node.loop
   }
@@ -1242,7 +1351,7 @@ function newUiObjectsFromNodes () {
       node.outputDatasets = []
     }
     node.outputDatasets.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1251,13 +1360,13 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Status Dependency',
       name: 'New Status Dependency',
-      code: '{"mainUtility": "Self Reference|Market Starting Point|Market Ending Point"}'
+      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point.\"\n}'
     }
     if (node.statusDependencies === undefined) {
       node.statusDependencies = []
     }
     node.statusDependencies.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1271,7 +1380,7 @@ function newUiObjectsFromNodes () {
       node.dataDependencies = []
     }
     node.dataDependencies.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1287,7 +1396,7 @@ function newUiObjectsFromNodes () {
       node.products = []
     }
     node.products.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1299,7 +1408,7 @@ function newUiObjectsFromNodes () {
         name: 'New Record Definition',
         properties: []
       }
-      createUiObject(node.record.type, node.record.name, node.record, node, node)
+      createUiObject(true, node.record.type, node.record.name, node.record, node, node)
     }
     return node.record
   }
@@ -1308,13 +1417,17 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Record Property',
       name: 'New Record Property',
-      code: '{}'
+      code: '{}',
+      formula: {
+        code: DEFAULT_FORMULA_TEXT
+      }
     }
     if (node.properties === undefined) {
       node.properties = []
     }
     node.properties.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
+    createUiObject(true, 'Formula', '', object.formula, object, object)
 
     return object
   }
@@ -1330,7 +1443,7 @@ function newUiObjectsFromNodes () {
       node.datasets = []
     }
     node.datasets.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1339,13 +1452,14 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Plotter',
       name: 'New Plotter',
+      code: '{}',
       modules: []
     }
     if (node.plotters === undefined) {
       node.plotters = []
     }
     node.plotters.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1354,13 +1468,14 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Plotter Module',
       name: 'New Plotter Module',
+      code: '{}',
       panels: []
     }
     if (node.modules === undefined) {
       node.modules = []
     }
     node.modules.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1374,7 +1489,7 @@ function newUiObjectsFromNodes () {
       node.panels = []
     }
     node.panels.push(object)
-    createUiObject(object.type, object.name, object, node, node)
+    createUiObject(true, object.type, object.name, object, node, node)
 
     return object
   }
@@ -1384,7 +1499,7 @@ function newUiObjectsFromNodes () {
       name: 'Superalgos'
     }
     node.rootNodes.push(network)
-    createUiObject('Network', network.name, network, node, undefined, 'Network')
+    createUiObject(true, 'Network', network.name, network, node, undefined, 'Network')
 
     return network
   }
@@ -1397,7 +1512,7 @@ function newUiObjectsFromNodes () {
       node.networkNodes = []
     }
     node.networkNodes.push(networkNode)
-    createUiObject('Network Node', networkNode.name, networkNode, node, node, 'Network Node')
+    createUiObject(true, 'Network Node', networkNode.name, networkNode, node, node, 'Network Node')
 
     return networkNode
   }
@@ -1408,7 +1523,7 @@ function newUiObjectsFromNodes () {
         name: 'New Social Bots',
         bots: []
       }
-      createUiObject('Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
+      createUiObject(true, 'Social Bots', node.socialBots.name, node.socialBots, node, node, 'Social Bots')
     }
 
     return node.socialBots
@@ -1417,11 +1532,11 @@ function newUiObjectsFromNodes () {
   function addTelegramBot (node) {
     let bot = {
       name: 'New Telegram Bot',
-      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\n}',
+      code: '{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\"\n}',
       announcements: []
     }
     node.bots.push(bot)
-    createUiObject('Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
+    createUiObject(true, 'Telegram Bot', bot.name, bot, node, node, 'Telegram Bot')
 
     return bot
   }
@@ -1432,7 +1547,7 @@ function newUiObjectsFromNodes () {
       code: '{ \n\"text\": \"Write here what you want to announce.\",\n\"botType\": \"' + node.type + '\",\n\"botId\": \"' + node.id + '\"\n}'
     }
     node.announcements.push(announcement)
-    createUiObject('Announcement', announcement.name, announcement, node, node, 'Announcement')
+    createUiObject(true, 'Announcement', announcement.name, announcement, node, node, 'Announcement')
 
     return announcement
   }
@@ -1443,7 +1558,7 @@ function newUiObjectsFromNodes () {
         name: 'New Layer Manager',
         layers: []
       }
-      createUiObject('Layer Manager', node.layerManager.name, node.layerManager, node, node, 'Layer Manager')
+      createUiObject(true, 'Layer Manager', node.layerManager.name, node.layerManager, node, node, 'Layer Manager')
     }
 
     return node.layerManager
@@ -1452,10 +1567,10 @@ function newUiObjectsFromNodes () {
   function addLayer (node) {
     let layer = {
       name: 'New Layer',
-      code: '{}'
+      code: '{ \n\"product\": \"Type here the codeName of the Product\"\n}'
     }
     node.layers.push(layer)
-    createUiObject('Layer', layer.name, layer, node, node, 'Layer')
+    createUiObject(true, 'Layer', layer.name, layer, node, node, 'Layer')
 
     return layer
   }
@@ -1469,7 +1584,7 @@ function newUiObjectsFromNodes () {
       node.taskManagers = []
     }
     node.taskManagers.push(taskManager)
-    createUiObject('Task Manager', taskManager.name, taskManager, node, node, 'Task Manager')
+    createUiObject(true, 'Task Manager', taskManager.name, taskManager, node, node, 'Task Manager')
 
     return taskManager
   }
@@ -1479,7 +1594,7 @@ function newUiObjectsFromNodes () {
       name: 'New Task'
     }
     node.tasks.push(task)
-    createUiObject('Task', task.name, task, node, node, 'Task')
+    createUiObject(true, 'Task', task.name, task, node, node, 'Task')
 
     return task
   }
@@ -1490,7 +1605,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createUiObject('Sensor Bot Instance', '', node.bot, node, node)
+      createUiObject(true, 'Sensor Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -1501,7 +1616,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createUiObject('Indicator Bot Instance', '', node.bot, node, node)
+      createUiObject(true, 'Indicator Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -1512,7 +1627,7 @@ function newUiObjectsFromNodes () {
         processes: [],
         code: '{}'
       }
-      createUiObject('Trading Bot Instance', '', node.bot, node, node)
+      createUiObject(true, 'Trading Bot Instance', '', node.bot, node, node)
     }
     return node.bot
   }
@@ -1541,7 +1656,7 @@ function newUiObjectsFromNodes () {
       }
     }
     node.processes.push(process)
-    createUiObject('Process Instance', process.name, process, node, node, 'Process Instance')
+    createUiObject(true, 'Process Instance', process.name, process, node, node, 'Process Instance')
 
     return process
   }
@@ -1550,9 +1665,9 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Backtesting Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}'
       }
-      createUiObject('Backtesting Session', '', node.session, node, node)
+      createUiObject(true, 'Backtesting Session', '', node.session, node, node)
     }
 
     return node.session
@@ -1564,7 +1679,7 @@ function newUiObjectsFromNodes () {
         name: 'New Live Trading Session',
         code: '{}'
       }
-      createUiObject('Live Trading Session', '', node.session, node, node)
+      createUiObject(true, 'Live Trading Session', '', node.session, node, node)
     }
 
     return node.session
@@ -1574,9 +1689,9 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Fordward Testing Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\",\n\"balancePercentage\": \"Type here the the % of the balance to be used in this test.\"\n}'
       }
-      createUiObject('Fordward Testing Session', '', node.session, node, node)
+      createUiObject(true, 'Fordward Testing Session', '', node.session, node, node)
     }
 
     return node.session
@@ -1586,9 +1701,9 @@ function newUiObjectsFromNodes () {
     if (node.session === undefined) {
       node.session = {
         name: 'New Paper Trading Session',
-        code: '{}'
+        code: '{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}'
       }
-      createUiObject('Paper Trading Session', '', node.session, node, node)
+      createUiObject(true, 'Paper Trading Session', '', node.session, node, node)
     }
 
     return node.session
@@ -1600,7 +1715,7 @@ function newUiObjectsFromNodes () {
       referenceChildren: []
     }
     node.rootNodes.push(definition)
-    createUiObject('Definition', definition.name, definition, node, undefined, 'Definition')
+    createUiObject(true, 'Definition', definition.name, definition, node, undefined, 'Definition')
 
     return definition
   }
@@ -1610,7 +1725,7 @@ function newUiObjectsFromNodes () {
       node.tradingSystem = {
         strategies: []
       }
-      createUiObject('Trading System', '', node.tradingSystem, node, node)
+      createUiObject(true, 'Trading System', '', node.tradingSystem, node, node)
     }
     return node.tradingSystem
   }
@@ -1620,7 +1735,7 @@ function newUiObjectsFromNodes () {
       node.personalData = {
         exchangeAccounts: []
       }
-      createUiObject('Personal Data', '', node.personalData, node, node)
+      createUiObject(true, 'Personal Data', '', node.personalData, node, node)
     }
 
     return node.personalData
@@ -1634,7 +1749,7 @@ function newUiObjectsFromNodes () {
       keys: []
     }
     personalData.exchangeAccounts.push(exchangeAccount)
-    createUiObject('Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
+    createUiObject(true, 'Exchange Account', exchangeAccount.name, exchangeAccount, personalData, personalData, 'Exchange Account')
 
     return exchangeAccount
   }
@@ -1645,7 +1760,7 @@ function newUiObjectsFromNodes () {
       name: 'New Asset'
     }
     exchangeAccount.assets.push(asset)
-    createUiObject('Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
+    createUiObject(true, 'Exchange Account Asset', asset.name, asset, exchangeAccount, exchangeAccount, 'Account Asset')
 
     return asset
   }
@@ -1657,7 +1772,7 @@ function newUiObjectsFromNodes () {
       code: 'Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
     }
     exchangeAccount.keys.push(key)
-    createUiObject('Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
+    createUiObject(true, 'Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
 
     return key
   }
@@ -1708,22 +1823,22 @@ function newUiObjectsFromNodes () {
     }
 
     strategyParent.strategies.push(strategy)
-    createUiObject('Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
-    createUiObject('Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
-    createUiObject('Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
-    createUiObject('Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
-    createUiObject('Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
-    createUiObject('Trigger On Event', '', strategy.triggerStage.triggerOn, strategy.triggerStage, strategy.triggerStage)
-    createUiObject('Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
-    createUiObject('Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
-    createUiObject('Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
-    createUiObject('Position Size', '', strategy.openStage.initialDefinition.positionSize, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createUiObject('Position Rate', '', strategy.openStage.initialDefinition.positionRate, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createUiObject('Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
-    createUiObject('Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
-    createUiObject('Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createUiObject('Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
-    createUiObject('Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
+    createUiObject(true, 'Strategy', strategy.name, strategy, strategyParent, strategyParent, 'Strategy')
+    createUiObject(true, 'Trigger Stage', '', strategy.triggerStage, strategy, strategy, 'Trigger Stage')
+    createUiObject(true, 'Open Stage', '', strategy.openStage, strategy, strategy, 'Open Stage')
+    createUiObject(true, 'Manage Stage', '', strategy.manageStage, strategy, strategy, 'Manage Stage')
+    createUiObject(true, 'Close Stage', '', strategy.closeStage, strategy, strategy, 'Close Stage')
+    createUiObject(true, 'Trigger On Event', '', strategy.triggerStage.triggerOn, strategy.triggerStage, strategy.triggerStage)
+    createUiObject(true, 'Trigger Off Event', '', strategy.triggerStage.triggerOff, strategy.triggerStage, strategy.triggerStage)
+    createUiObject(true, 'Take Position Event', '', strategy.triggerStage.takePosition, strategy.triggerStage, strategy.triggerStage)
+    createUiObject(true, 'Initial Definition', '', strategy.openStage.initialDefinition, strategy.openStage, strategy.openStage)
+    createUiObject(true, 'Position Size', '', strategy.openStage.initialDefinition.positionSize, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject(true, 'Position Rate', '', strategy.openStage.initialDefinition.positionRate, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject(true, 'Stop', '', strategy.manageStage.stopLoss, strategy.manageStage, strategy.manageStage)
+    createUiObject(true, 'Take Profit', '', strategy.manageStage.takeProfit, strategy.manageStage, strategy.manageStage)
+    createUiObject(true, 'Stop', 'Initial Stop', strategy.openStage.initialDefinition.stopLoss, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject(true, 'Take Profit', 'Initial Take Profit', strategy.openStage.initialDefinition.takeProfit, strategy.openStage.initialDefinition, strategy.openStage.initialDefinition)
+    createUiObject(true, 'Formula', '', strategy.triggerStage.positionSize.formula, strategy.triggerStage.positionSize, strategy.triggerStage.positionSize)
 
     return strategy
   }
@@ -1733,7 +1848,7 @@ function newUiObjectsFromNodes () {
       node.parameters = {
         name: 'Parameters'
       }
-      createUiObject('Parameters', '', node.parameters, node, node)
+      createUiObject(true, 'Parameters', '', node.parameters, node, node)
       addMissingParameters(node.parameters)
     }
 
@@ -1744,37 +1859,37 @@ function newUiObjectsFromNodes () {
     if (node.baseAsset === undefined) {
       node.baseAsset = {
         name: 'Base Asset',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"name\": \"BTC\",\n"initialBalance\": 0.001,\n\"minimumBalance\": 0.0001,\n\"maximumBalance\": 0.1\n}'
       }
-      createUiObject('Base Asset', '', node.baseAsset, node, node)
+      createUiObject(true, 'Base Asset', '', node.baseAsset, node, node)
     }
     if (node.timeRange === undefined) {
       node.timeRange = {
         name: 'Time Range',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\"\n}'
       }
-      createUiObject('Time Range', '', node.timeRange, node, node)
+      createUiObject(true, 'Time Range', '', node.timeRange, node, node)
     }
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
-        code: DEFAULT_CONFIG_TEXT
+        code: '01-hs'
       }
-      createUiObject('Time Period', '', node.timePeriod, node, node)
+      createUiObject(true, 'Time Period', '', node.timePeriod, node, node)
     }
     if (node.slippage === undefined) {
       node.slippage = {
         name: 'Slippage',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"positionRate\": 0.1,\n"stopLoss\": 0.2,\n"takeProfit\": 0.3\n}'
       }
-      createUiObject('Slippage', '', node.slippage, node, node)
+      createUiObject(true, 'Slippage', '', node.slippage, node, node)
     }
     if (node.feeStructure === undefined) {
       node.feeStructure = {
         name: 'Fee Structure',
-        code: DEFAULT_CONFIG_TEXT
+        code: '{ \n\"maker\": 0.15,\n"taker\": 0.25\n}'
       }
-      createUiObject('Fee Structure', '', node.feeStructure, node, node)
+      createUiObject(true, 'Fee Structure', '', node.feeStructure, node, node)
     }
   }
 
@@ -1796,11 +1911,11 @@ function newUiObjectsFromNodes () {
           }
         }
       }
-      createUiObject('Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
-      createUiObject('Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
-      createUiObject('Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
-      createUiObject('Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
-      createUiObject('Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
+      createUiObject(true, 'Trigger Stage', '', node.triggerStage, node, node, 'Trigger Stage')
+      createUiObject(true, 'Trigger On Event', '', node.triggerStage.triggerOn, node.triggerStage, node.triggerStage)
+      createUiObject(true, 'Trigger Off Event', '', node.triggerStage.triggerOff, node.triggerStage, node.triggerStage)
+      createUiObject(true, 'Take Position Event', '', node.triggerStage.takePosition, node.triggerStage, node.triggerStage)
+      createUiObject(true, 'Formula', '', node.triggerStage.positionSize.formula, node.triggerStage.positionSize, node.triggerStage.positionSize)
     }
     if (node.openStage === undefined) {
       node.openStage = {
@@ -1815,12 +1930,12 @@ function newUiObjectsFromNodes () {
           }
         }
       }
-      createUiObject('Open Stage', '', node.openStage, node, node, 'Open Stage')
-      createUiObject('Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
-      createUiObject('Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createUiObject('Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createUiObject('Position Size', 'Position Size', node.openStage.initialDefinition.positionSize, node.openStage.initialDefinition, node.openStage.initialDefinition)
-      createUiObject('Position Rate', 'Position Rate', node.openStage.initialDefinition.positionRate, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject(true, 'Open Stage', '', node.openStage, node, node, 'Open Stage')
+      createUiObject(true, 'Initial Definition', '', node.openStage.initialDefinition, node.openStage, node.openStage)
+      createUiObject(true, 'Stop', 'Initial Stop', node.openStage.initialDefinition.stopLoss, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject(true, 'Take Profit', 'Initial Take Profit', node.openStage.initialDefinition.takeProfit, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject(true, 'Position Size', 'Position Size', node.openStage.initialDefinition.positionSize, node.openStage.initialDefinition, node.openStage.initialDefinition)
+      createUiObject(true, 'Position Rate', 'Position Rate', node.openStage.initialDefinition.positionRate, node.openStage.initialDefinition, node.openStage.initialDefinition)
     }
     if (node.manageStage === undefined) {
       node.manageStage = {
@@ -1831,14 +1946,14 @@ function newUiObjectsFromNodes () {
           phases: []
         }
       }
-      createUiObject('Manage Stage', '', node.manageStage, node, node, 'Manage Stage')
-      createUiObject('Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
-      createUiObject('Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
+      createUiObject(true, 'Manage Stage', '', node.manageStage, node, node, 'Manage Stage')
+      createUiObject(true, 'Stop', '', node.manageStage.stopLoss, node.manageStage, node.manageStage)
+      createUiObject(true, 'Take Profit', '', node.manageStage.takeProfit, node.manageStage, node.manageStage)
     }
     if (node.closeStage === undefined) {
       node.closeStage = {
       }
-      createUiObject('Close Stage', '', node.closeStage, node, node, 'Close Stage')
+      createUiObject(true, 'Close Stage', '', node.closeStage, node, node, 'Close Stage')
     }
   }
 
@@ -1848,21 +1963,21 @@ function newUiObjectsFromNodes () {
         situations: [],
         announcements: []
       }
-      createUiObject('Trigger On Event', '', node.triggerOn, node, node)
+      createUiObject(true, 'Trigger On Event', '', node.triggerOn, node, node)
     }
     if (node.triggerOff === undefined) {
       node.triggerOff = {
         situations: [],
         announcements: []
       }
-      createUiObject('Trigger Off Event', '', node.triggerOff, node, node)
+      createUiObject(true, 'Trigger Off Event', '', node.triggerOff, node, node)
     }
     if (node.takePosition === undefined) {
       node.takePosition = {
         situations: [],
         announcements: []
       }
-      createUiObject('Take Position Event', '', node.takePosition, node, node)
+      createUiObject(true, 'Take Position Event', '', node.takePosition, node, node)
     }
   }
 
@@ -1873,14 +1988,14 @@ function newUiObjectsFromNodes () {
           phases: [],
           maxPhases: 1
         }
-        createUiObject('Stop', 'Initial Stop', node.stopLoss, node, node)
+        createUiObject(true, 'Stop', 'Initial Stop', node.stopLoss, node, node)
       }
       if (node.takeProfit === undefined) {
         node.takeProfit = {
           phases: [],
           maxPhases: 1
         }
-        createUiObject('Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
+        createUiObject(true, 'Take Profit', 'Initial Take Profit', node.takeProfit, node, node)
       }
       if (node.positionSize === undefined) {
         node.positionSize = {
@@ -1889,8 +2004,8 @@ function newUiObjectsFromNodes () {
             code: DEFAULT_FORMULA_TEXT
           }
         }
-        createUiObject('Position Size', '', node.positionSize, node, node)
-        createUiObject('Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
+        createUiObject(true, 'Position Size', '', node.positionSize, node, node)
+        createUiObject(true, 'Formula', '', node.positionSize.formula, node.positionSize, node.positionSize)
       }
       if (node.positionRate === undefined) {
         node.positionRate = {
@@ -1899,21 +2014,21 @@ function newUiObjectsFromNodes () {
             code: DEFAULT_FORMULA_TEXT
           }
         }
-        createUiObject('Position Rate', '', node.positionRate, node, node)
-        createUiObject('Formula', '', node.positionRate.formula, node.positionRate, node.positionRate)
+        createUiObject(true, 'Position Rate', '', node.positionRate, node, node)
+        createUiObject(true, 'Formula', '', node.positionRate.formula, node.positionRate, node.positionRate)
       }
     } else {
       if (node.stopLoss === undefined) {
         node.stopLoss = {
           phases: []
         }
-        createUiObject('Stop', '', node.stopLoss, node, node)
+        createUiObject(true, 'Stop', '', node.stopLoss, node, node)
       }
       if (node.takeProfit === undefined) {
         node.takeProfit = {
           phases: []
         }
-        createUiObject('Take Profit', '', node.takeProfit, node, node)
+        createUiObject(true, 'Take Profit', '', node.takeProfit, node, node)
       }
     }
   }
@@ -1930,13 +2045,13 @@ function newUiObjectsFromNodes () {
           maxPhases: 1
         }
       }
-      createUiObject('Initial Definition', '', node.initialDefinition, node, node)
-      createUiObject('Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
-      createUiObject('Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
-      createUiObject('Position Size', '', node.initialDefinition.positionSize, node.initialDefinition, node.initialDefinition)
-      createUiObject('Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
-      createUiObject('Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
-      createUiObject('Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
+      createUiObject(true, 'Initial Definition', '', node.initialDefinition, node, node)
+      createUiObject(true, 'Stop', 'Initial Stop', node.initialDefinition.stopLoss, node.initialDefinition, node.initialDefinition)
+      createUiObject(true, 'Take Profit', 'Initial Take Profit', node.initialDefinition.takeProfit, node.initialDefinition, node.initialDefinition)
+      createUiObject(true, 'Position Size', '', node.initialDefinition.positionSize, node.initialDefinition, node.initialDefinition)
+      createUiObject(true, 'Formula', '', node.initialDefinition.positionSize.formula, node.initialDefinition.positionSize, node.initialDefinition.positionSize)
+      createUiObject(true, 'Position Rate', '', node.initialDefinition.positionRate, node.initialDefinition, node.initialDefinition)
+      createUiObject(true, 'Formula', '', node.initialDefinition.positionRate.formula, node.initialDefinition.positionRate, node.initialDefinition.positionRate)
     }
 
     return node.initialDefinition
@@ -1945,7 +2060,7 @@ function newUiObjectsFromNodes () {
   function addOpenExecution (node) {
     if (node.openExecution === undefined) {
       node.openExecution = {}
-      createUiObject('Open Execution', '', node.openExecution, node, node)
+      createUiObject(true, 'Open Execution', '', node.openExecution, node, node)
     }
 
     return node.openExecution
@@ -1954,7 +2069,7 @@ function newUiObjectsFromNodes () {
   function addCloseExecution (node) {
     if (node.closeExecution === undefined) {
       node.closeExecution = {}
-      createUiObject('Close Execution', '', node.closeExecution, node, node)
+      createUiObject(true, 'Close Execution', '', node.closeExecution, node, node)
     }
 
     return node.closeExecution
@@ -1965,7 +2080,7 @@ function newUiObjectsFromNodes () {
       node.formula = {
         code: DEFAULT_FORMULA_TEXT
       }
-      createUiObject('Formula', '', node.formula, node, node)
+      createUiObject(true, 'Formula', '', node.formula, node, node)
     }
 
     return node.formula
@@ -1977,21 +2092,21 @@ function newUiObjectsFromNodes () {
         situations: [],
         announcements: []
       }
-      createUiObject('Next Phase Event', '', node.nextPhaseEvent, node, node)
+      createUiObject(true, 'Next Phase Event', '', node.nextPhaseEvent, node, node)
     }
 
     return node.nextPhaseEvent
   }
 
-  function addCode (node) {
-    if (node.code === undefined) {
-      node.code = {
+  function addJavascriptCode (node) {
+    if (node.javascriptCode === undefined) {
+      node.javascriptCode = {
         code: DEFAULT_CODE_TEXT
       }
-      createUiObject('Code', '', node.code, node, node)
+      createUiObject(true, 'Javascript Code', '', node.code, node, node)
     }
 
-    return node.code
+    return node.javascriptCode
   }
 
   function addPhase (parentNode) {
@@ -2024,9 +2139,9 @@ function newUiObjectsFromNodes () {
     } else {
       phaseChainParent = phaseParent
     }
-    createUiObject('Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
-    createUiObject('Formula', '', phase.formula, phase, phase, 'Formula')
-    createUiObject('Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
+    createUiObject(true, 'Phase', phase.name, phase, phaseParent, phaseChainParent, 'Phase')
+    createUiObject(true, 'Formula', '', phase.formula, phase, phase, 'Formula')
+    createUiObject(true, 'Next Phase Event', '', phase.nextPhaseEvent, phase, phase)
 
     return phase
   }
@@ -2038,7 +2153,7 @@ function newUiObjectsFromNodes () {
       conditions: []
     }
     parentNode.situations.push(situation)
-    createUiObject('Situation', situation.name, situation, parentNode, parentNode, 'Situation')
+    createUiObject(true, 'Situation', situation.name, situation, parentNode, parentNode, 'Situation')
 
     return situation
   }
@@ -2053,13 +2168,13 @@ function newUiObjectsFromNodes () {
       }
     }
     situation.conditions.push(condition)
-    createUiObject('Condition', condition.name, condition, situation, situation, 'Condition')
-    createUiObject('Code', '', condition.code, condition, condition, 'Code')
+    createUiObject(true, 'Condition', condition.name, condition, situation, situation, 'Condition')
+    createUiObject(true, 'Javascript Code', '', condition.code, condition, condition, 'Javascript Code')
 
     return condition
   }
 
-  function createUiObject (uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
+  function createUiObject (userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
     let payload = {}
 
     if (name === '' || name === undefined) { name = 'My ' + uiObjectType }
@@ -2119,6 +2234,6 @@ function newUiObjectsFromNodes () {
     }
     node.payload = payload
     node.type = uiObjectType
-    canvas.floatingSpace.uiObjectConstructor.createUiObject(payload)
+    canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
   }
 }

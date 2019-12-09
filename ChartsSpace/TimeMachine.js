@@ -28,17 +28,6 @@ function newTimeMachine () {
     finalize: finalize
   }
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-  thisObject.container.isDraggeable = false
-  thisObject.container.detectMouseOver = true
-
-  thisObject.container.frame.width = TIME_MACHINE_WIDTH
-  thisObject.container.frame.height = TIME_MACHINE_HEIGHT
-
-  thisObject.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
-  thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
-
   let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
                                    // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
@@ -52,7 +41,21 @@ function newTimeMachine () {
     }
   }
 
+  setupContainer()
   return thisObject
+
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.isDraggeable = false
+    thisObject.container.detectMouseOver = true
+
+    thisObject.container.frame.width = TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
+
+    thisObject.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
+    thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
+  }
 
   function finalize () {
     for (let i = 0; i < thisObject.charts.length; i++) {
@@ -60,13 +63,16 @@ function newTimeMachine () {
       chart.finalize()
     }
 
-    thisObject.container.finalize()
-    thisObject.container = undefined
+    thisObject.charts = []
     thisObject.timeScale.finalize()
     thisObject.timeScale = undefined
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
     thisObject.fitFunction = undefined
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    setupContainer()
   }
 
   function initialize (callBackFunction) {
@@ -235,8 +241,12 @@ function newTimeMachine () {
     } else {
       if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
         thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
-        thisObject.timeScale.visible = false
-        thisObject.rateScale.visible = false
+        if (thisObject.timeScale !== undefined) {
+          thisObject.timeScale.visible = false
+        }
+        if (thisObject.rateScale !== undefined) {
+          thisObject.rateScale.visible = false
+        }
       }
       return
     }
@@ -261,6 +271,9 @@ function newTimeMachine () {
   }
 
   function childrenPhysics () {
+    if (thisObject.timeScale === undefined) { return }
+    if (thisObject.rateScale === undefined) { return }
+
     thisObject.timeScale.physics()
     thisObject.rateScale.physics()
 

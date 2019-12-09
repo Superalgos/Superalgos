@@ -3,7 +3,6 @@ function newDesignerSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
-    strategizerGateway: undefined,
     container: undefined,
     iconCollection: undefined,
     iconByUiObjectType: undefined,
@@ -27,11 +26,9 @@ function newDesignerSpace () {
 
   return thisObject
 
-  async function initialize () {
+  function initialize () {
     loadIconCollection()
     buildIconByUiObjectTypeMap()
-
-    thisObject.strategizerGateway = newStrategizerGateway()
 
     thisObject.workspace = newWorkspace()
     thisObject.workspace.initialize()
@@ -89,7 +86,7 @@ function newDesignerSpace () {
       ['Next Phase Event', 'pantone'],
       ['Situation', 'pyramid'],
       ['Condition', 'testing'],
-      ['Code', 'html'],
+      ['Javascript Code', 'html'],
       ['Team', 'team'],
       ['Sensor Bot', 'bot-sensor'],
       ['Indicator Bot', 'bot-indicator'],
@@ -120,6 +117,16 @@ function newDesignerSpace () {
       let record = relationshipArray[i]
       let icon = thisObject.iconCollection.get(record[1])
       thisObject.iconByUiObjectType.set(record[0], icon)
+    }
+
+    /* Take types-icons relationships defined at the schema */
+    for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+      let nodeDefinition = APP_SCHEMA_ARRAY[i]
+      let iconName = nodeDefinition.icon
+      if (iconName !== undefined) {
+        let icon = thisObject.iconCollection.get(iconName)
+        thisObject.iconByUiObjectType.set(nodeDefinition.type, icon)
+      }
     }
   }
 

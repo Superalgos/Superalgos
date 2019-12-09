@@ -15,6 +15,9 @@ function newUiObject () {
     container: undefined,
     payload: undefined,
     codeEditor: undefined,
+    configEditor: undefined,
+    conditionEditor: undefined,
+    formulaEditor: undefined,
     uiObjectTitle: undefined,
     circularProgressBar: undefined,
     isExecuting: undefined,
@@ -115,6 +118,21 @@ function newUiObject () {
       thisObject.codeEditor = undefined
     }
 
+    if (thisObject.configEditor !== undefined) {
+      thisObject.configEditor.finalize()
+      thisObject.configEditor = undefined
+    }
+
+    if (thisObject.conditionEditor !== undefined) {
+      thisObject.conditionEditor.finalize()
+      thisObject.conditionEditor = undefined
+    }
+
+    if (thisObject.formulaEditor !== undefined) {
+      thisObject.formulaEditor.finalize()
+      thisObject.formulaEditor = undefined
+    }
+
     icon = undefined
     chainAttachToNode = undefined
     referenceAttachToNode = undefined
@@ -156,6 +174,21 @@ function newUiObject () {
         if (container !== undefined) { return container }
       }
 
+      if (thisObject.configEditor !== undefined) {
+        container = thisObject.configEditor.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (thisObject.conditionEditor !== undefined) {
+        container = thisObject.conditionEditor.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (thisObject.formulaEditor !== undefined) {
+        container = thisObject.formulaEditor.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
       container = thisObject.uiObjectTitle.getContainer(point)
       if (container !== undefined) { return container }
 
@@ -176,6 +209,18 @@ function newUiObject () {
 
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.physics()
+    }
+
+    if (thisObject.configEditor !== undefined) {
+      thisObject.configEditor.physics()
+    }
+
+    if (thisObject.conditionEditor !== undefined) {
+      thisObject.conditionEditor.physics()
+    }
+
+    if (thisObject.formulaEditor !== undefined) {
+      thisObject.formulaEditor.physics()
     }
 
     if (thisObject.payload.chainParent === undefined || thisObject.payload.chainParent.payload === undefined) {
@@ -505,7 +550,7 @@ function newUiObject () {
         compatibleType = '->' + 'Situation' + '->'
         compatibleSubType = undefined
         break
-      case 'Code':
+      case 'Javascript Code':
         compatibleType = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
         compatibleSubType = undefined
         break
@@ -564,7 +609,7 @@ function newUiObject () {
         if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
         if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Code' && nearbyNode.code !== undefined) { continue }
+        if (thisObject.payload.node.type === 'Javascript Code' && nearbyNode.javascriptCode !== undefined) { continue }
         /* Here we check if the subtypes are compatible. */
         if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
           if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
@@ -711,6 +756,10 @@ function newUiObject () {
         compatibleType = '->' + 'Process Definition' + '->'
         compatibleSubType = undefined
         break
+      case 'Product Definition':
+        compatibleType = '->' + 'Plotter Module' + '->'
+        compatibleSubType = undefined
+        break
       default:
         return
     }
@@ -835,11 +884,12 @@ function newUiObject () {
     highlightCounter = 30
   }
 
-  function setErrorMessage (message) {
+  function setErrorMessage (message, duration) {
     if (message !== undefined) {
       errorMessage = message
       hasError = true
-      errorMessageCounter = 100
+      if (duration === undefined) { duration = 1 }
+      errorMessageCounter = 100 * duration
     }
   }
 
@@ -923,6 +973,15 @@ function newUiObject () {
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.deactivate()
     }
+    if (thisObject.configEditor !== undefined) {
+      thisObject.configEditor.deactivate()
+    }
+    if (thisObject.conditionEditor !== undefined) {
+      thisObject.conditionEditor.deactivate()
+    }
+    if (thisObject.formulaEditor !== undefined) {
+      thisObject.formulaEditor.deactivate()
+    }
   }
 
   function onDisplace (event) {
@@ -933,6 +992,15 @@ function newUiObject () {
     thisObject.uiObjectTitle.exitEditMode()
     if (thisObject.codeEditor !== undefined) {
       thisObject.codeEditor.deactivate()
+    }
+    if (thisObject.configEditor !== undefined) {
+      thisObject.configEditor.deactivate()
+    }
+    if (thisObject.conditionEditor !== undefined) {
+      thisObject.conditionEditor.deactivate()
+    }
+    if (thisObject.formulaEditor !== undefined) {
+      thisObject.formulaEditor.deactivate()
     }
     isDragging = true
     if (event.button === 2) {
@@ -1004,16 +1072,43 @@ function newUiObject () {
         thisObject.codeEditor.drawBackground()
         thisObject.codeEditor.drawForeground()
       }
+      if (thisObject.configEditor !== undefined) {
+        thisObject.configEditor.drawBackground()
+        thisObject.configEditor.drawForeground()
+      }
+      if (thisObject.conditionEditor !== undefined) {
+        thisObject.conditionEditor.drawBackground()
+        thisObject.conditionEditor.drawForeground()
+      }
+      if (thisObject.formulaEditor !== undefined) {
+        thisObject.formulaEditor.drawBackground()
+        thisObject.formulaEditor.drawForeground()
+      }
+
+      let drawMenu = true
 
       if (thisObject.codeEditor !== undefined) {
-        if (thisObject.codeEditor.visible === false) {
-          drawBodyAndPicture()
-          if (isDragging === false) {
-            thisObject.menu.drawBackground()
-            thisObject.menu.drawForeground()
-          }
+        if (thisObject.codeEditor.visible === true) {
+          drawMenu = false
         }
-      } else {
+      }
+      if (thisObject.configEditor !== undefined) {
+        if (thisObject.configEditor.visible === true) {
+          drawMenu = false
+        }
+      }
+      if (thisObject.conditionEditor !== undefined) {
+        if (thisObject.conditionEditor.visible === true) {
+          drawMenu = false
+        }
+      }
+      if (thisObject.formulaEditor !== undefined) {
+        if (thisObject.formulaEditor.visible === true) {
+          drawMenu = false
+        }
+      }
+
+      if (drawMenu === true) {
         drawBodyAndPicture()
         if (isDragging === false) {
           thisObject.menu.drawBackground()
@@ -1089,6 +1184,8 @@ function newUiObject () {
 
   function drawReferenceLine () {
     if (thisObject.payload.referenceParent === undefined) { return }
+    if (thisObject.payload.referenceParent.payload === undefined) { return }
+    if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
     if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true) { return }
 
     let targetPoint = {

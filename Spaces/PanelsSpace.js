@@ -35,7 +35,7 @@ function newPanelsSpace () {
 
   }
 
-  function createNewPanel (pType, pParameters, pOwner, pSession) {
+  function createNewPanel (pType, pParameters, pOwner, pSession, pPanelCode) {
     let panel
 
     switch (pType) {
@@ -56,11 +56,20 @@ function newPanelsSpace () {
         }
       case 'Plotter Panel':
         {
-          panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
-          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
-          panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
-          panel.session = pSession
-          panel.initialize()
+          if (pPanelCode !== undefined) {
+            panel = newPlotterPanel()
+            panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+            panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+            panel.session = pSession
+            panel.initialize(pPanelCode)
+          } else {
+            panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
+            panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+            panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+            panel.session = pSession
+            panel.initialize()
+          }
+
           break
         }
     }

@@ -47,6 +47,7 @@ function newCanvas () {
 
   let splashScreen
   let lastContainerMouseOver
+  let lastShortcutKeyRejection
 
   return thisObject
 
@@ -80,7 +81,7 @@ function newCanvas () {
     }
   }
 
-  async function initialize () {
+  function initialize () {
     try {
       initializeBrowserCanvas()
 
@@ -92,10 +93,10 @@ function newCanvas () {
       thisObject.floatingSpace.initialize()
 
       thisObject.topSpace = newTopSpace()
-      await thisObject.topSpace.initialize()
+      thisObject.topSpace.initialize()
 
       thisObject.designerSpace = newDesignerSpace()
-      await thisObject.designerSpace.initialize()
+      thisObject.designerSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -104,17 +105,10 @@ function newCanvas () {
       thisObject.panelsSpace.initialize()
 
       thisObject.chartSpace = newChartSpace()
-      thisObject.chartSpace.initialize(onCharSpaceInitialized)
+      thisObject.chartSpace.initialize()
 
       thisObject.bottomSpace = thisObject.cockpitSpace
 
-      function onCharSpaceInitialized (err) {
-        try {
-          viewPort.raiseEvents() // These events will impacts on objects just initialized.
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onCharSpaceInitialized -> err = ' + err.stack) }
-        }
-      }
       splashScreen = newSplashScreen()
       splashScreen.initialize()
 
@@ -225,12 +219,27 @@ function newCanvas () {
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowLeft') {
+    if (event.altKey === true && event.code === 'ArrowLeft' || event.altKey === true && event.code === 'ArrowRight') {
+      thisObject.cockpitSpace.toMiddle()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowUp') {
+      thisObject.cockpitSpace.moveUp()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowDown') {
+      thisObject.cockpitSpace.moveDown()
+      return
+    }
+
+    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowLeft') {
       canvas.chartSpace.oneScreenLeft()
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowRight') {
+    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowRight') {
       canvas.chartSpace.oneScreenRight()
       return
     }
@@ -245,7 +254,7 @@ function newCanvas () {
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowLeft') {
       let displaceVector = canvas.floatingSpace.oneScreenLeft()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
@@ -253,7 +262,7 @@ function newCanvas () {
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowRight') {
       let displaceVector = canvas.floatingSpace.oneScreenRight()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
@@ -285,7 +294,7 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
-      if (event.keyCode >= 65 && event.keyCode <= 90) {
+      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
@@ -304,8 +313,16 @@ function newCanvas () {
             nodeOnFocus.payload.uiObject.setValue('Shortcut Key Removed ')
             return
           } else {
-            nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
-            return
+            if (lastShortcutKeyRejection !== event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name) {
+              /* The first time we show a warning that this key is in use. */
+              nodeOnFocus.payload.uiObject.setErrorMessage('Key already in use by ' + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name)
+              lastShortcutKeyRejection = event.key + nodeUsingThisKey.type + ' ' + nodeUsingThisKey.name
+              return
+            } else {
+              /* After the warning, we allow the key to be re-assigned */
+              nodeUsingThisKey.payload.uiObject.shortcutKey = ''
+              nodeUsingThisKey === undefined
+            }
           }
         }
         /* If there is not node using this key and a node in focus, we assign this key to this node */

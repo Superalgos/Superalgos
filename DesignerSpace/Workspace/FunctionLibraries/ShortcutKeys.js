@@ -7,7 +7,7 @@ function newShortcutKeys () {
   function getNodeByShortcutKey (node, searchingKey) {
     if (node === undefined) { return }
     switch (node.type) {
-      case 'Code':
+      case 'Javascript Code':
         {
           if (node.payload.uiObject.shortcutKey === searchingKey) {
             return node

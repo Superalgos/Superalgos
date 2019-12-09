@@ -67,41 +67,20 @@ function newWorkspace () {
     thisObject.workspaceNode = undefined
   }
 
-  async function initialize () {
+  function initialize () {
     try {
-      let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-      if (user === null) {
-        return
-      }
-      user = JSON.parse(user)
+      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
 
-      let idAtStrategizer = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Strategizer Gateway' + '.' + user.alias)
-      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias)
-
-      if (savedWorkspace === null || idAtStrategizer === null) {
+      if (savedWorkspace === null) {
         thisObject.workspaceNode.type = 'Workspace'
         thisObject.workspaceNode.name = 'My Workspace'
-        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.workspaceNode, undefined, undefined)
-        spawnPosition.y = spawnPosition.y + 250
-        initializeLoadingFromStrategizer()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-        thisObject.enabled = true
       }
+      functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+      thisObject.enabled = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-    }
-  }
-
-  async function initializeLoadingFromStrategizer () {
-    let result = await canvas.designerSpace.strategizerGateway.loadFromStrategyzer()
-    if (result === true) {
-      thisObject.definition = canvas.designerSpace.strategizerGateway.strategizerData
-      thisObject.workspaceNode.rootNodes.push(thisObject.definition)
-      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(thisObject.definition, undefined, undefined)
-
-      thisObject.enabled = true
     }
   }
 
@@ -131,7 +110,7 @@ function newWorkspace () {
     user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace' + '.' + user.alias, textToSave)
+    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
   }
 
   function stringifyWorkspace (removePersonalData) {
@@ -181,8 +160,12 @@ function newWorkspace () {
               let taskManager = networkNode.taskManagers[i]
               for (k = 0; k < taskManager.tasks.length; k++) {
                 let task = taskManager.tasks[k]
-                if (task.bot.type === 'Trading Bot Instance') {
-                  tradingBotInstances.push(task.bot)
+                if (task.bot !== undefined) {
+                  if (task.bot.type === 'Trading Bot Instance') {
+                    if (task.bot.payload.floatingObject.isCollapsed !== true) {
+                      tradingBotInstances.push(task.bot)
+                    }
+                  }
                 }
               }
             }
@@ -222,8 +205,11 @@ function newWorkspace () {
       if (droppedNode.type === 'Workspace') {
         stopAllRunningTasks()
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+        canvas.floatingSpace.warmUp()
         thisObject.workspaceNode = droppedNode
         functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+        canvas.chartSpace.finalize()
+        canvas.chartSpace.initialize()
         return
       } else {
         if (
@@ -262,8 +248,13 @@ function newWorkspace () {
     }
   }
 
-  async function onMenuItemClick (payload, action, callBackFunction) {
+  async function onMenuItemClick (payload, action, relatedUiObject, callBackFunction) {
     switch (action) {
+      case 'Add UI Object':
+        {
+          functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
+        }
+        break
       case 'Share Workspace':
         {
           let text = stringifyWorkspace(true)
@@ -651,7 +642,7 @@ function newWorkspace () {
         break
       case 'Add Code':
         {
-          functionLibraryUiObjectsFromNodes.addCode(payload.node)
+          functionLibraryUiObjectsFromNodes.addJavascriptCode(payload.node)
         }
         break
       case 'Add Exchange Account':
@@ -936,7 +927,7 @@ function newWorkspace () {
         break
       }
       case 'Delete Code': {
-        functionLibraryNodeDeleter.deleteCode(payload.node, thisObject.workspaceNode.rootNodes)
+        functionLibraryNodeDeleter.deleteJavascriptCode(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Exchange Account': {

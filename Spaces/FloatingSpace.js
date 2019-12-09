@@ -20,6 +20,8 @@ function newFloatingSpace () {
     positionAtNode: positionAtNode,
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
+    isItFar: isItFar,
+    warmUp: warmUp,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -46,15 +48,27 @@ function newFloatingSpace () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
+  let warmingUpCounter = 0
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
+  let eventSubscriptionId
+
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(eventSubscriptionId)
+
     thisObject.floatingLayer.finalize()
     thisObject.profileBalls.finalize()
     thisObject.uiObjectConstructor.finalize()
     thisObject.noteSets.finalize()
+    thisObject.container.finalize()
+
+    thisObject.floatingLayer = undefined
+    thisObject.profileBalls = undefined
+    thisObject.uiObjectConstructor = undefined
+    thisObject.noteSets = undefined
+    thisObject.container = undefined
   }
 
   function initialize (callBackFunction) {
@@ -70,7 +84,69 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor = newUiObjectConstructor()
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
-    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function warmUp () {
+    warmingUpCounter = 0
+  }
+
+  function isItFar (payload, dontCheckParent) {
+    /* If for any reason the paylaod is undefined we return false */
+    if (payload === undefined) { return false }
+
+    /*
+    We need a warm up in order to allow all objects to stabilize into a consistant state.
+    After that we will start evaluating which ones are too far from the current user view.
+    */
+
+    if (warmingUpCounter < 10000) {
+      warmingUpCounter++
+      return false
+    }
+
+    let radarFactor = 2 // How big is the margin
+
+    /* If the chain parent is not far, they we dont consither this far. */
+    if (dontCheckParent !== true) {
+      if (payload.chainParent !== undefined) {
+        if (isItFar(payload.chainParent.payload, true) === false) { return false }
+      }
+    }
+
+    /* Exceptions that are never considered far. */
+    if (
+      payload.node.type === 'Definition' ||
+      payload.node.type === 'Network' ||
+      payload.node.type === 'Team'
+  ) {
+      return false
+    }
+
+    /* Another exception are the ones who have reference parents */
+    if (payload.referenceParent !== undefined) { return false }
+
+    /* Here we will check the position of a floatingobject to see if it is outside the screen, with a margin of one screen around. */
+    let point = thisObject.container.frame.frameThisPoint(payload.position)
+
+    if (point.x > browserCanvas.width + browserCanvas.width * radarFactor) {
+      return true
+    }
+
+    if (point.x < 0 - browserCanvas.width * radarFactor) {
+      return true
+    }
+
+    let bottom = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT
+    let heightDiff = browserCanvas.height - bottom
+    if (point.y < bottom - heightDiff * radarFactor) {
+      return true
+    }
+
+    if (point.y > browserCanvas.height + heightDiff * radarFactor) {
+      return true
+    }
+    return false
   }
 
   function fitIntoVisibleArea (point) {

@@ -18,16 +18,13 @@ function newUiObjectConstructor () {
 
   function finalize () {
     floatingLayer = undefined
-
-    payload.uiObject.finalize()
-    payload.uiObject = undefined
   }
 
   function initialize (pFloatingLayer) {
     floatingLayer = pFloatingLayer
   }
 
-  function createUiObject (payload) {
+  function createUiObject (userAddingNew, payload) {
     let floatingObject = newFloatingObject()
     floatingObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
     floatingObject.container.connectToParent(canvas.floatingSpace.container, false, false, false, false, false, false, false, false)
@@ -55,6 +52,13 @@ function newUiObjectConstructor () {
         floatingObject.collapseToggle()
       }
       if (payload.node.savedPayload.floatingObject.isTensed === true) {
+        floatingObject.tensionToggle()
+      }
+    }
+
+    if (userAddingNew === true) {
+      /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
+      if (payload.parentNode.payload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }
     }
@@ -249,6 +253,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Trading System',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'tradingSystem',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading System',
             visible: true,
@@ -262,6 +268,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Personal Data',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'personalData',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Personal Data',
             visible: true,
@@ -305,16 +313,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Team': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Team',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Bot',
+            action: 'Configure Team',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configigure Team',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -410,16 +418,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Sensor Bot': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Bot',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Bot',
+            action: 'Configure Bot',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Bot',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -489,16 +497,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Indicator Bot': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Bot',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Bot',
+            action: 'Configure Bot',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Bot',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -568,16 +576,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Trading Bot': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Bot',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Bot',
+            action: 'Configure Bot',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Bot',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -647,16 +655,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Process Definition': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Process',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Process',
+            action: 'Configure Process',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Process',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -926,6 +934,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Initialization',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialization',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Initialization',
             visible: true,
@@ -939,6 +949,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Loop',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'loop',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Loop',
             visible: true,
@@ -986,6 +998,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Initialization',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialization',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Initialization',
             visible: true,
@@ -999,6 +1013,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Procedure Loop',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'loop',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Procedure Loop',
             visible: true,
@@ -1046,10 +1062,12 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1093,10 +1111,12 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1170,16 +1190,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Status Dependency': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Status Dependency',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Status Dependency',
+            action: 'Configure Status Dependency',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Status Dependency',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1257,16 +1277,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Product Definition': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Product',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Product',
+            action: 'Configure Product',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Product',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1280,6 +1300,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Record Definition',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'record',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Record Definition',
             visible: true,
@@ -1396,16 +1418,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Record Property': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Property',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Property',
+            action: 'Configure Property',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Property',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1419,6 +1441,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -1462,16 +1486,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Dataset Definition': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Definition',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Definition',
+            action: 'Configure Definition',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Definition',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1515,7 +1539,26 @@ function newUiObjectConstructor () {
         break
       }
       case 'Plotter': {
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Configure Plotter',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Plotter',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30,
+            dontShowAtFullscreen: true
+          }
+        )
         menuItemsInitialValues.push(
           {
             action: 'Add Plotter Module',
@@ -1526,7 +1569,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -20
+            angle: -10
           }
             )
         menuItemsInitialValues.push(
@@ -1536,66 +1579,6 @@ function newUiObjectConstructor () {
             confirmationLabel: 'Confirm to Delete',
             actionFunction: payload.onMenuItemClick,
             label: 'Delete Plotter',
-            visible: true,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-              )
-        menuItemsInitialValues.push(
-          {
-            action: 'Share',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Share',
-            visible: true,
-            iconPathOn: 'menu-share',
-            iconPathOff: 'menu-share',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 20
-          }
-        )
-        break
-      }
-      case 'Plotter Module': {
-        addLeftIcons(menuItemsInitialValues, floatingObject)
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Code',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Code',
-            visible: true,
-            relatedUiObject: 'Code',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -30
-          }
-          )
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Plotter Panel',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Plotter Panel',
-            visible: true,
-            relatedUiObject: 'Plotter Panel',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -10
-          }
-            )
-        menuItemsInitialValues.push(
-          {
-            action: 'Delete Plotter Module',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete Plotter Module',
             visible: true,
             iconPathOn: 'delete',
             iconPathOff: 'delete',
@@ -1621,15 +1604,113 @@ function newUiObjectConstructor () {
         )
         break
       }
+      case 'Plotter Module': {
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        addLeftIcons(menuItemsInitialValues, floatingObject)
+        menuItemsInitialValues.push(
+          {
+            action: 'Configure Plotter Module',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Plotter Module',
+            visible: true,
+            iconPathOn: 'html',
+            iconPathOff: 'html',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -60,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Javascript Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -30
+          }
+          )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add UI Object',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'shapes',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Shapes',
+            visible: true,
+            relatedUiObject: 'Shapes',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -10
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Plotter Panel',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Plotter Panel',
+            visible: true,
+            relatedUiObject: 'Plotter Panel',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 10
+          }
+            )
+        menuItemsInitialValues.push(
+          {
+            action: 'Delete Plotter Module',
+            askConfirmation: true,
+            confirmationLabel: 'Confirm to Delete',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Delete Plotter Module',
+            visible: true,
+            iconPathOn: 'delete',
+            iconPathOff: 'delete',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 30
+          }
+              )
+        menuItemsInitialValues.push(
+          {
+            action: 'Share',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Share',
+            visible: true,
+            iconPathOn: 'menu-share',
+            iconPathOff: 'menu-share',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: 60
+          }
+        )
+        break
+      }
       case 'Plotter Panel': {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Code',
             visible: true,
-            relatedUiObject: 'Code',
+            relatedUiObject: 'Javascript Code',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
@@ -1810,10 +1891,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Telegram Bot': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
@@ -1830,9 +1911,9 @@ function newUiObjectConstructor () {
         )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Telegram Bot',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Telegram Bot',
+            action: 'Configure Telegram Bot',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Telegram Bot',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1876,14 +1957,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Announcement': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -1897,9 +1980,9 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Announcement',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Announcement',
+            action: 'Configure Announcement',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Announcement',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -1990,16 +2073,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Layer': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Layer',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Layer',
+            action: 'Configure Layer',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Layer',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2145,6 +2228,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Sensor Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Sensor Bot Instance',
             visible: true,
@@ -2158,6 +2243,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Indicator Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Indicator Bot Instance',
             visible: true,
@@ -2171,6 +2258,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Trading Bot Instance',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'bot',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Trading Bot Instance',
             visible: true,
@@ -2214,17 +2303,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Sensor Bot Instance': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Sensor Bot Instance',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Sensor Bot Instance',
+            action: 'Configure Sensor Bot Instance',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Sensor Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2281,17 +2370,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Indicator Bot Instance': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Indicator Bot Instance',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Indicator Bot Instance',
+            action: 'Configure Indicator Bot Instance',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Indicator Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2348,17 +2437,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Trading Bot Instance': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Trading Bot Instance',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Trading Bot Instance',
+            action: 'Configure Trading Bot Instance',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Trading Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2415,10 +2504,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Process Instance': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
 
@@ -2427,6 +2516,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Backtesting Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Backtesting',
                 visible: true,
@@ -2440,6 +2531,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Live Trading Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Live Trading',
                 visible: true,
@@ -2453,6 +2546,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Fordward Testing Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Fordward Testing',
                 visible: true,
@@ -2466,6 +2561,8 @@ function newUiObjectConstructor () {
             menuItemsInitialValues.push(
               {
                 action: 'Add Paper Trading Session',
+                disableIfPropertyIsDefined: true,
+                propertyToCheckFor: 'session',
                 actionFunction: payload.onMenuItemClick,
                 label: 'Add Paper Trading',
                 visible: true,
@@ -2478,9 +2575,9 @@ function newUiObjectConstructor () {
                     )
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process Instance',
-                actionFunction: uiObject.codeEditor.activate,
-                label: 'Edit Process Instance',
+                action: 'Configure Process Instance',
+                actionFunction: uiObject.configEditor.activate,
+                label: 'Configure Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -2526,9 +2623,9 @@ function newUiObjectConstructor () {
           default: {
             menuItemsInitialValues.push(
               {
-                action: 'Edit Process Instance',
-                actionFunction: uiObject.codeEditor.activate,
-                label: 'Edit Process Instance',
+                action: 'Configure Process Instance',
+                actionFunction: uiObject.configEditor.activate,
+                label: 'Configure Process Instance',
                 visible: true,
                 iconPathOn: 'html',
                 iconPathOff: 'html',
@@ -2575,10 +2672,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Backtesting Session': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -2607,6 +2704,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2620,6 +2719,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2633,6 +2734,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2645,9 +2748,9 @@ function newUiObjectConstructor () {
               )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Session',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Session',
+            action: 'Configure Session',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Session',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2691,10 +2794,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Live Trading Session': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -2723,6 +2826,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2736,6 +2841,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2749,6 +2856,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2761,9 +2870,9 @@ function newUiObjectConstructor () {
                 )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Session',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Session',
+            action: 'Configure Session',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Session',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2807,10 +2916,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Fordward Testing Session': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -2839,6 +2948,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2852,6 +2963,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2865,6 +2978,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2877,9 +2992,9 @@ function newUiObjectConstructor () {
                 )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Session',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Session',
+            action: 'Configure Session',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Session',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2923,10 +3038,10 @@ function newUiObjectConstructor () {
         break
       }
       case 'Paper Trading Session': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
@@ -2955,6 +3070,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Layer Manager',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'layerManager',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Layer Manager',
             visible: true,
@@ -2968,6 +3085,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -2981,6 +3100,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Social Bots',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'socialBots',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Social Bots',
             visible: true,
@@ -2993,9 +3114,9 @@ function newUiObjectConstructor () {
                 )
         menuItemsInitialValues.push(
           {
-            action: 'Edit Session',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Session',
+            action: 'Configure Session',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Session',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -3138,17 +3259,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Exchange Account Key': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Key Value',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Key Value',
+            action: 'Configure Key Value',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Key Value',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -3195,6 +3316,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Parameters',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'parameters',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Parameters',
             visible: true,
@@ -3285,17 +3408,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Base Asset': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Base Asset',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Base Asset',
+            action: 'Configure Base Asset',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Base Asset',
             visible: true,
             iconPathOn: 'settings',
             iconPathOff: 'settings',
@@ -3338,17 +3461,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Time Range': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Time Range',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Time Range',
+            action: 'Configure Time Range',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Time Range',
             visible: true,
             iconPathOn: 'settings',
             iconPathOff: 'settings',
@@ -3391,17 +3514,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Time Period': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Time Period',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Time Period',
+            action: 'Configure Time Period',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Time Period',
             visible: true,
             iconPathOn: 'settings',
             iconPathOff: 'settings',
@@ -3444,17 +3567,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Slippage': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Slippage',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Slippage',
+            action: 'Configure Slippage',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Slippage',
             visible: true,
             iconPathOn: 'settings',
             iconPathOff: 'settings',
@@ -3497,17 +3620,17 @@ function newUiObjectConstructor () {
         break
       }
       case 'Fee Structure': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.configEditor = newConfigEditor()
+        uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.configEditor.initialize()
+        uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Edit Fee Structure',
-            actionFunction: uiObject.codeEditor.activate,
-            label: 'Edit Fee Structure',
+            action: 'Configure Fee Structure',
+            actionFunction: uiObject.configEditor.activate,
+            label: 'Configure Fee Structure',
             visible: true,
             iconPathOn: 'settings',
             iconPathOff: 'settings',
@@ -3648,6 +3771,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Initial Definition',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'initialDefinition',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Initial Definition',
             visible: true,
@@ -3661,6 +3786,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Open Execution',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'openExecution',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Open Execution',
             visible: true,
@@ -3755,6 +3882,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Close Execution',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'closeExecution',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Close Execution',
             visible: true,
@@ -3802,6 +3931,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -3849,6 +3980,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -4246,6 +4379,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Formula',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'formula',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Formula',
             visible: true,
@@ -4259,6 +4394,8 @@ function newUiObjectConstructor () {
         menuItemsInitialValues.push(
           {
             action: 'Add Next Phase Event',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'nextPhaseEvent',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Next Phase Event',
             visible: true,
@@ -4302,16 +4439,16 @@ function newUiObjectConstructor () {
         break
       }
       case 'Formula': {
-        uiObject.codeEditor = newCodeEditor()
-        uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-        uiObject.codeEditor.initialize()
-        uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+        uiObject.formulaEditor = newFormulaEditor()
+        uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.formulaEditor.initialize()
+        uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
 
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
             action: 'Edit Formula',
-            actionFunction: uiObject.codeEditor.activate,
+            actionFunction: uiObject.formulaEditor.activate,
             label: 'Edit Formula',
             visible: true,
             iconPathOn: 'html',
@@ -4450,18 +4587,40 @@ function newUiObjectConstructor () {
         break
       }
       case 'Condition': {
+        uiObject.conditionEditor = newConditionEditor()
+        uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
+        uiObject.conditionEditor.initialize()
+        uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Add Code',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Code',
+            action: 'Edit Condition',
+            actionFunction: uiObject.conditionEditor.activate,
+            label: 'Edit Condition',
             visible: true,
-            relatedUiObject: 'Code',
+            iconPathOn: 'html',
+            iconPathOff: 'html',
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: -40
+            angle: -60,
+            dontShowAtFullscreen: true
+          }
+        )
+        menuItemsInitialValues.push(
+          {
+            action: 'Add Code',
+            disableIfPropertyIsDefined: true,
+            propertyToCheckFor: 'code',
+            actionFunction: payload.onMenuItemClick,
+            label: 'Add Code',
+            visible: true,
+            relatedUiObject: 'Javascript Code',
+            rawRadius: 8,
+            targetRadius: 0,
+            currentRadius: 0,
+            angle: -20
           }
         )
         menuItemsInitialValues.push(
@@ -4477,7 +4636,7 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 0
+            angle: 20
           }
         )
         menuItemsInitialValues.push(
@@ -4491,12 +4650,12 @@ function newUiObjectConstructor () {
             rawRadius: 8,
             targetRadius: 0,
             currentRadius: 0,
-            angle: 40
+            angle: 60
           }
         )
         break
       }
-      case 'Code': {
+      case 'Javascript Code': {
         uiObject.codeEditor = newCodeEditor()
         uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
         uiObject.codeEditor.initialize()
@@ -4551,7 +4710,21 @@ function newUiObjectConstructor () {
         break
       }
       default: {
-        if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
+        let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+        if (nodeDefinition !== undefined) {
+          for (i = 0; i < nodeDefinition.menuItems.length; i++) {
+            let menutItemDefinition = nodeDefinition.menuItems[i]
+            let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+
+            /* We need to reference the real function based on its name */
+            if (menutItemDefinition.actionFunction !== undefined) {
+              newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
+            }
+            menuItemsInitialValues.push(newMenuItem)
+          }
+        } else {
+          if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }
+        }
       }
     }
 
@@ -4859,11 +5032,40 @@ function newUiObjectConstructor () {
         level_5()
         break
       }
-      case 'Code': {
+      case 'Javascript Code': {
         level_5()
         break
       }
       default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+        if (nodeDefinition !== undefined) {
+          switch (nodeDefinition.level) {
+            case 0: {
+              level_0()
+              return
+            }
+            case 1: {
+              level_1()
+              return
+            }
+            case 2: {
+              level_2()
+              return
+            }
+            case 3: {
+              level_3()
+              return
+            }
+            case 4: {
+              level_4()
+              return
+            }
+            case 5: {
+              level_5()
+              return
+            }
+          }
+        }
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
         return
       }

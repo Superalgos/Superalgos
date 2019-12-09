@@ -227,8 +227,8 @@ function newNodeChildren () {
       case 'Condition': {
         return countChildrenCondition(parentNode, childNode)
       }
-      case 'Code': {
-        return countChildrenCode(parentNode, childNode)
+      case 'Javascript Code': {
+        return countChildrenJavascriptCode(parentNode, childNode)
       }
       default: {
         console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
@@ -1483,7 +1483,7 @@ function newNodeChildren () {
     return response
   }
 
-  function countChildrenCode (parentNode, childNode) {
+  function countChildrenJavascriptCode (parentNode, childNode) {
     let response = {
       childrenCount: 0,
       childIndex: undefined

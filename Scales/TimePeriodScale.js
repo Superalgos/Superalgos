@@ -14,13 +14,6 @@ function newTimePeriodScale () {
   const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
-  thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
-
-  thisObject.container.isDraggeable = false
-  thisObject.container.isClickeable = false
-  thisObject.container.isWheelable = true
-
   let mouse = {
     position: {
       x: 0,
@@ -36,33 +29,57 @@ function newTimePeriodScale () {
   let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
   let timePeriodLabel = ''
 
+  let onMouseWheelEventSubscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+  let onZoomChangedEventSubscriptionId
+
+  setupContainer()
   return thisObject
 
+  function setupContainer () {
+    thisObject.container = newContainer()
+    thisObject.container.initialize(MODULE_NAME)
+
+    thisObject.container.isDraggeable = false
+    thisObject.container.isClickeable = false
+    thisObject.container.isWheelable = true
+  }
+
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
+
+    timeLineCoordinateSystem = undefined
+    objectStorage = undefined
+
     thisObject.container.finalize()
     thisObject.container = undefined
+    setupContainer()
   }
 
   function initialize (pTimeLineCoordinateSystem) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
     newTimePeriod()
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
       mouse.position.x = event.x
       mouse.position.y = event.y
 
       visible = true
     })
 
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
       visible = false
     })
 
-    viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+    onZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
   }
 
   function onZoomChanged (event) {

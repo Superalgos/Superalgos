@@ -44,6 +44,10 @@ function newReferenceAttachDetach () {
         completeDetachment(node)
         return
       }
+      case 'Product Definition': {
+        completeDetachment(node)
+        return
+      }
     }
   }
 
@@ -82,6 +86,10 @@ function newReferenceAttachDetach () {
       }
         break
       case 'Process Instance': {
+        completeAttachment(node, attachToNode)
+      }
+        break
+      case 'Product Definition': {
         completeAttachment(node, attachToNode)
       }
         break

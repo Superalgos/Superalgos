@@ -170,11 +170,6 @@ function newFloatingLayer () {
       let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
       floatingObject.drawForeground()
     }
-
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      floatingObject.drawOnFocus()
-    }
   }
 
   function drawVisibleObjects () {
@@ -193,6 +188,12 @@ function newFloatingLayer () {
       floatingObject.drawForeground()
     }
 
+    /* Invisible objects on focus (freezed) should still have some priority */
+    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+      let floatingObject = invisibleFloatingObjects[i]
+      floatingObject.drawOnFocus()
+    }
+
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
       floatingObject.drawOnFocus()
@@ -206,6 +207,7 @@ function newFloatingLayer () {
       if (floatingObject.isFrozen === false && floatingObject.isParentCollapsed === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        makeVisible()
         return                     // Only one at the time.
       }
     }
@@ -218,6 +220,7 @@ function newFloatingLayer () {
       if (floatingObject.isFrozen === true || floatingObject.isParentCollapsed === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+        makeInvisible()
         return                     // Only one at the time.
       }
     }
@@ -260,6 +263,8 @@ function newFloatingLayer () {
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
+
+            if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
 
             if (floatingObject.positionLocked === false) {
               floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
@@ -747,4 +752,3 @@ function newFloatingLayer () {
     }
   }
 }
-

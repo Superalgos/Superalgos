@@ -66,6 +66,7 @@ function newProductsPanel () {
       ecosystem = getUserEcosystem()
     }
 
+    /* For legacy plotters, we will add product cards based on the old ecosystem file */
     for (let i = 0; i < ecosystem.devTeams.length; i++) {
       let devTeam = ecosystem.devTeams[i]
 
@@ -78,6 +79,116 @@ function newProductsPanel () {
             let product = bot.products[k]
 
             addProductCard(devTeam, bot, product)
+          }
+        }
+      }
+    }
+
+    /* For new plotters defined at the UI, we will add product cards based on what we find at the workspace */
+    let workspaceNode = canvas.designerSpace.workspace.workspaceNode
+    for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
+      let rootNode = workspaceNode.rootNodes[i]
+      if (rootNode.type === 'Team') {
+        let teamNode = rootNode
+
+        let team = {}
+        if (teamNode.code === undefined) { continue }
+        try {
+          let code = JSON.parse(teamNode.code)
+          team.codeName = code.codeName
+        } catch (err) {
+          continue
+        }
+        for (let j = 0; j < teamNode.indicatorBots.length; j++) {
+          let botNode = teamNode.indicatorBots[j]
+
+          let bot = {}
+          if (botNode.code === undefined) { continue }
+          try {
+            let code = JSON.parse(botNode.code)
+            bot.codeName = code.codeName
+          } catch (err) {
+            continue
+          }
+
+          for (let k = 0; k < botNode.products.length; k++) {
+            let productNode = botNode.products[k]
+
+            let product = {}
+            if (productNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(productNode.code)
+              product.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (productNode.payload.referenceParent === undefined) { continue }
+            let plotterModuleNode = productNode.payload.referenceParent
+
+            let plotterModule = {}
+            if (plotterModuleNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterModuleNode.code)
+              plotterModule.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (plotterModuleNode.payload.parentNode === undefined) { continue }
+            let plotterNode = plotterModuleNode.payload.parentNode
+
+            let plotter = {}
+            if (plotterNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterNode.code)
+              plotter.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (plotterNode.payload.parentNode === undefined) { continue }
+            let plotterTeamNode = plotterNode.payload.parentNode
+
+            let plotterTeam = {}
+            if (plotterTeamNode.code === undefined) { continue }
+            try {
+              let code = JSON.parse(plotterTeamNode.code)
+              plotterTeam.codeName = code.codeName
+            } catch (err) {
+              continue
+            }
+
+            if (plotterModuleNode.javascriptCode === undefined) { continue }
+            if (plotterModuleNode.javascriptCode.code === undefined) { continue }
+
+            /* Conversion to fit old format */
+            product.plotter = plotter
+            product.plotter.devTeam = plotterTeam.codeName
+            product.plotter.moduleName = plotterModule.codeName
+            product.plotter.legacy = false
+            product.plotter.module = { panels: [] }
+            product.displayName = productNode.name
+            product.dataSets = []
+            product.exchangeList = [{'name': 'Poloniex'}]
+            product.node = productNode
+            team.displayName = teamNode.name
+            team.host = {'url': 'localhost'}
+            bot.displayName = botNode.name
+
+            for (let m = 0; m < productNode.datasets.length; m++) {
+              let dataset = productNode.datasets[m]
+
+              if (dataset.code === undefined) { continue }
+              try {
+                let code = JSON.parse(dataset.code)
+                product.dataSets.push(code)
+              } catch (err) {
+                continue
+              }
+            }
+
+            addProductCard(team, bot, product)
           }
         }
       }
@@ -313,27 +424,28 @@ function newProductsPanel () {
                 if (process.session !== undefined) {
                   if (process.session.layerManager !== undefined) {
                     let layerManager = process.session.layerManager
+                    if (layerManager.payload.floatingObject.isCollapsed !== true) {
+                      if (bot.products !== undefined) {
+                        for (let k = 0; k < bot.products.length; k++) {
+                          let product = bot.products[k]
 
-                    if (bot.products !== undefined) {
-                      for (let k = 0; k < bot.products.length; k++) {
-                        let product = bot.products[k]
-
-                        for (let p = 0; p < layerManager.layers.length; p++) {
-                          let layer = layerManager.layers[p]
-                          let layerCode
-                          try {
-                            layerCode = JSON.parse(layer.code)
-                          } catch (err) {
+                          for (let p = 0; p < layerManager.layers.length; p++) {
+                            let layer = layerManager.layers[p]
+                            let layerCode
+                            try {
+                              layerCode = JSON.parse(layer.code)
+                            } catch (err) {
                               // if we can not parse this, then we ignore this trading engine.
-                          }
+                            }
 
-                          if (product.codeName === layerCode.product) {
+                            if (product.codeName === layerCode.product) {
                               /* We have a layer that is matching the current product */
-                            let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
-                            let cardFound = removeFromLocalProductCards(cardCode)
-                            if (cardFound !== true) {
-                              productCard = addProductCard(devTeam, bot, product, process.session)
-                              onProductCardStatusChanged(productCard)
+                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+                              let cardFound = removeFromLocalProductCards(cardCode)
+                              if (cardFound !== true) {
+                                productCard = addProductCard(devTeam, bot, product, process.session)
+                                onProductCardStatusChanged(productCard)
+                              }
                             }
                           }
                         }

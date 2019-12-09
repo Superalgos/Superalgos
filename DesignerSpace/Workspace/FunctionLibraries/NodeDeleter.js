@@ -69,7 +69,7 @@ function newNodeDeleter () {
     deleteFormula: deleteFormula,
     deleteSituation: deleteSituation,
     deleteCondition: deleteCondition,
-    deleteCode: deleteCode
+    deleteJavascriptCode: deleteJavascriptCode
   }
 
   return thisObject
@@ -372,8 +372,8 @@ function newNodeDeleter () {
             deleteCondition(rootNode, rootNodes)
             break
           }
-          case 'Code': {
-            deleteCode(rootNode, rootNodes)
+          case 'Javascript Code': {
+            deleteJavascriptCode(rootNode, rootNodes)
             break
           }
 
@@ -733,8 +733,8 @@ function newNodeDeleter () {
       payload.parentNode.loop = undefined
     }
 
-    if (node.code !== undefined) {
-      deleteCode(node.code, rootNodes)
+    if (node.javascriptCode !== undefined) {
+      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -919,8 +919,8 @@ function newNodeDeleter () {
       }
     }
 
-    if (node.code !== undefined) {
-      deleteCode(node.code, rootNodes)
+    if (node.javascriptCode !== undefined) {
+      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
     if (node.panels !== undefined) {
@@ -946,8 +946,8 @@ function newNodeDeleter () {
       }
     }
 
-    if (node.code !== undefined) {
-      deleteCode(node.code, rootNodes)
+    if (node.javascriptCode !== undefined) {
+      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -1697,17 +1697,17 @@ function newNodeDeleter () {
     } else {
       completeDeletion(node, rootNodes)
     }
-    if (node.code !== undefined) {
-      deleteCode(node.code, rootNodes)
+    if (node.javascriptCode !== undefined) {
+      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
     destroyUiObject(node)
     cleanNode(node)
   }
 
-  function deleteCode (node, rootNodes) {
+  function deleteJavascriptCode (node, rootNodes) {
     let payload = node.payload
     if (payload.parentNode !== undefined) {
-      payload.parentNode.code = undefined
+      payload.parentNode.javascriptCode = undefined
     } else {
       completeDeletion(node, rootNodes)
     }

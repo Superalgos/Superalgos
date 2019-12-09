@@ -1,6 +1,6 @@
 
-function newCodeEditor () {
-  const MODULE_NAME = 'Code Editor'
+function newConfigEditor () {
+  const MODULE_NAME = 'Config Editor'
 
   let thisObject = {
     isVisibleFunction: undefined,
@@ -71,6 +71,12 @@ function newCodeEditor () {
       let textArea = document.getElementById('textArea')
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
+
+      try {
+        let code = JSON.parse(thisObject.payload.node.code)
+      } catch (err) {
+        thisObject.payload.uiObject.setErrorMessage(err.message, 10)
+      }
     }
   }
 
@@ -91,7 +97,7 @@ function newCodeEditor () {
                      'overflow:hidden;' +
                      'font-family: ' + UI_FONT.PRIMARY + ';' +
                      'font-size: 12px;' +
-                     'background-color: rgb(' + UI_COLOR.RUSTED_RED + ');' +
+                     'background-color: rgb(' + UI_COLOR.DARK_TURQUOISE + ');' +
                      'color:rgb(255, 255, 255);' +
                     'width: ' + thisObject.container.frame.width + 'px;' +
                      'height: ' + thisObject.container.frame.height + 'px'
@@ -174,7 +180,7 @@ function newCodeEditor () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + 1 + ')'
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + 1 + ')'
         browserCanvasContext.fill()
       }
     }

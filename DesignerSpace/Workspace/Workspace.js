@@ -255,6 +255,11 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
         }
         break
+      case 'Delete UI Object':
+        {
+          functionLibraryNodeDeleter.deleteUIObject(payload.node, thisObject.workspaceNode.rootNodes)
+        }
+        break
       case 'Share Workspace':
         {
           let text = stringifyWorkspace(true)

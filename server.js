@@ -54,7 +54,7 @@ function runTask(message) {
 
     let path = process.env.TASK_SERVER_PATH + '/server.js'
 
-    /* Workarround to avoid having the same debub port at the forked process which makes it crash. */
+    /* Workarround to avoid having the same debug port at the forked process which makes it crash. */
     for (let i = 0; i < process.execArgv.length; i++) {
         let argument = process.execArgv[i]
         if (argument.indexOf('--inspect') > -1) {
@@ -64,7 +64,7 @@ function runTask(message) {
 
     /* Forking this process. */
     let task = {
-        childProcess: fork(path , [message.event.definition], { stdio: 'inherit' }),
+        childProcess: fork(path, [message.event.taskId], { stdio: 'inherit' }),
         id: message.event.taskId,
         name: message.event.taskName
     }
@@ -81,6 +81,13 @@ function runTask(message) {
         console.log('[INFO] Task Manager -> server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
         tasks.delete(task.id)
     })
+
+    setTimeout(sendStartingEvent, 3000)
+
+    function sendStartingEvent() {
+        console.log('[INFO] Task Manager -> server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
+        global.SYSTEM_EVENT_HANDLER.raiseEvent('Task Server - ' + task.id, 'Run Task', message.event)
+    }
 }
 
 function stopTask(message) {

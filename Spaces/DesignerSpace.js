@@ -237,7 +237,16 @@ function newDesignerSpace () {
       'process-output',
       'social-bot',
       'execution-started-event',
-      'shapes'
+      'shapes',
+      'chart-point',
+      'style',
+      'chart-points',
+      'shapes-polygon-vertex',
+      'shapes-polygon-border',
+      'shapes-polygon-body',
+      'chart-point-formula',
+      'style-condition',
+      'shapes-polygon'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

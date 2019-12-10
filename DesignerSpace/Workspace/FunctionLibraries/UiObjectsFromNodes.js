@@ -1084,8 +1084,19 @@ function newUiObjectsFromNodes () {
       default: {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition !== undefined) {
+          /* Resolve Initial Values */
+          if (nodeDefinition.initialValues !== undefined) {
+            if (nodeDefinition.initialValues.code !== undefined) {
+              if (node.code === undefined) {
+                node.code = nodeDefinition.initialValues.code
+              }
+            }
+          }
+
+          /* Create Self */
           createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
+          /* Create Children */
           if (nodeDefinition.properties !== undefined) {
             for (let i = 0; i < nodeDefinition.properties.length; i++) {
               let property = nodeDefinition.properties[i]
@@ -1120,11 +1131,22 @@ function newUiObjectsFromNodes () {
     }
     createUiObject(true, object.type, object.name, object, parent, parent)
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
-    if (nodeDefinition !== undefined) {
-      if (nodeDefinition.properties !== undefined) {
-        for (let i = 0; i < nodeDefinition.properties.length; i++) {
-          let property = nodeDefinition.properties[i]
+    let parentNodeDefinition = APP_SCHEMA_MAP.get(parent.type)
+    if (parentNodeDefinition !== undefined) {
+      /* Resolve Initial Values */
+      let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+      if (nodeDefinition !== undefined) {
+        if (nodeDefinition.initialValues !== undefined) {
+          if (nodeDefinition.initialValues.code !== undefined) {
+            object.code = nodeDefinition.initialValues.code
+          }
+        }
+      }
+
+      /* Connect to Parent */
+      if (parentNodeDefinition.properties !== undefined) {
+        for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+          let property = parentNodeDefinition.properties[i]
           if (property.childType === type) {
             switch (property.type) {
               case 'node': {

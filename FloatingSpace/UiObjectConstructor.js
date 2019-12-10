@@ -4712,6 +4712,33 @@ function newUiObjectConstructor () {
       default: {
         let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
         if (nodeDefinition !== undefined) {
+          if (nodeDefinition.editors !== undefined) {
+            if (nodeDefinition.editors.config === true) {
+              uiObject.configEditor = newConfigEditor()
+              uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
+              uiObject.configEditor.initialize()
+              uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+            }
+            if (nodeDefinition.editors.code === true) {
+              uiObject.codeEditor = newCodeEditor()
+              uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
+              uiObject.codeEditor.initialize()
+              uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+            }
+            if (nodeDefinition.editors.formula === true) {
+              uiObject.formulaEditor = newFormulaEditor()
+              uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
+              uiObject.formulaEditor.initialize()
+              uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+            }
+            if (nodeDefinition.editors.condition === true) {
+              uiObject.conditionEditor = newConditionEditor()
+              uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
+              uiObject.conditionEditor.initialize()
+              uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+            }
+          }
+
           addLeftIcons(menuItemsInitialValues, floatingObject)
           for (let i = 0; i < nodeDefinition.menuItems.length; i++) {
             let menutItemDefinition = nodeDefinition.menuItems[i]

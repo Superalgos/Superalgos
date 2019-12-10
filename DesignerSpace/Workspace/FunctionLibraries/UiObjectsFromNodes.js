@@ -1082,8 +1082,34 @@ function newUiObjectsFromNodes () {
         return
       }
       default: {
+        /* Get node definition */
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition !== undefined) {
+          /* Open Check for reference Children. */
+          let referenceChildren
+          if (nodeDefinition.isReferenceParent === true) {
+            if (mapOfReferenceParents !== undefined) {
+              if (node.savedPayload.referenceChildren !== undefined) {
+                referenceChildren = []
+                mapOfReferenceParents.set(node.id, node)
+                referenceChildren = node.savedPayload.referenceChildren
+              }
+            }
+          }
+
+          /* Open Check Reference Parent */
+          let referenceParent
+          if (nodeDefinition.isReferenceChildren === true) {
+            if (mapOfReferenceChildren !== undefined) {
+              if (node.savedPayload.referenceParent !== undefined) {
+                if (node.savedPayload.referenceParent.id !== undefined) {
+                  mapOfReferenceChildren.set(node.id, node)
+                  referenceParent = node.savedPayload.referenceParent
+                }
+              }
+            }
+          }
+
           /* Resolve Initial Values */
           if (nodeDefinition.initialValues !== undefined) {
             if (nodeDefinition.initialValues.code !== undefined) {
@@ -1118,7 +1144,31 @@ function newUiObjectsFromNodes () {
               }
             }
           }
+
+          /* Close Reference Children Check. */
+          if (nodeDefinition.isReferenceParent === true) {
+            if (node.referenceChildren === undefined) {
+              node.referenceChildren = []
+            }
+            if (referenceChildren !== undefined) {
+              node.savedPayload = {
+                referenceChildren: referenceChildren
+              }
+            } else {
+              node.referenceChildren = []
+            }
+          }
+
+          /* Close Reference Parent Check */
+          if (nodeDefinition.isReferenceChildren === true) {
+            if (referenceParent !== undefined) {
+              node.savedPayload = {
+                referenceParent: referenceParent
+              }
+            }
+          }
         }
+
         return
       }
     }
@@ -1129,6 +1179,7 @@ function newUiObjectsFromNodes () {
       name: 'New ' + type,
       type: type
     }
+
     createUiObject(true, object.type, object.name, object, parent, parent)
 
     let parentNodeDefinition = APP_SCHEMA_MAP.get(parent.type)

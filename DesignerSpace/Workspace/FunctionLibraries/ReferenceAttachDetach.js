@@ -16,6 +16,9 @@ function newReferenceAttachDetach () {
 
   function completeAttachment (node, attachToNode) {
     node.payload.referenceParent = attachToNode
+    if (attachToNode.referenceChildren === undefined) {
+      attachToNode.referenceChildren = []
+    }
     attachToNode.referenceChildren.push(node)
   }
 

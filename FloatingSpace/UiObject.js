@@ -557,9 +557,9 @@ function newUiObject () {
       default:
         let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
         if (nodeDefinition !== undefined) {
-          if (nodeDefinition.attachesTo !== undefined) {
-            compatibleTypes = nodeDefinition.attachesTo.compatibleTypes
-            compatibleSubTypes = nodeDefinition.attachesTo.compatibleSubTypes
+          if (nodeDefinition.chainAttachesTo !== undefined) {
+            compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+            compatibleSubTypes = nodeDefinition.chainAttachesTo.compatibleSubTypes
           } else {
             return
           }
@@ -799,7 +799,17 @@ function newUiObject () {
         compatibleSubTypes = undefined
         break
       default:
-        return
+        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        if (nodeDefinition !== undefined) {
+          if (nodeDefinition.referenceAttachesTo !== undefined) {
+            compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+            compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
+          } else {
+            return
+          }
+        } else {
+          return
+        }
     }
     let foundCompatible = false
     referenceAttachToNode = undefined

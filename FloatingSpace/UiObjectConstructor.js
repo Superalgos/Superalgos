@@ -5043,32 +5043,30 @@ function newUiObjectConstructor () {
           switch (nodeDefinition.level) {
             case 0: {
               level_0()
-              return
+              break
             }
             case 1: {
               level_1()
-              return
+              break
             }
             case 2: {
               level_2()
-              return
+              break
             }
             case 3: {
               level_3()
-              return
+              break
             }
             case 4: {
               level_4()
-              return
+              break
             }
             case 5: {
               level_5()
-              return
+              break
             }
           }
         }
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> UI Object Type not Recognized -> type = ' + payload.node.type) }
-        return
       }
     }
 
@@ -5083,7 +5081,6 @@ function newUiObjectConstructor () {
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
     }
-
     function level_1 () {
       floatingObject.targetFriction = 0.94
       floatingObject.friction = INITIAL_FRICTION
@@ -5099,7 +5096,6 @@ function newUiObjectConstructor () {
         // floatingObject.tensionToggle()
       }
     }
-
     function level_2 () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
@@ -5115,7 +5111,6 @@ function newUiObjectConstructor () {
         // floatingObject.tensionToggle()
       }
     }
-
     function level_3 () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
@@ -5131,7 +5126,6 @@ function newUiObjectConstructor () {
         // floatingObject.tensionToggle()
       }
     }
-
     function level_4 () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION
@@ -5147,7 +5141,6 @@ function newUiObjectConstructor () {
         // floatingObject.tensionToggle()
       }
     }
-
     function level_5 () {
       floatingObject.targetFriction = FRICTION
       floatingObject.friction = INITIAL_FRICTION

@@ -236,7 +236,8 @@ function newDesignerSpace () {
       'process-dependencies',
       'process-output',
       'social-bot',
-      'execution-started-event'
+      'execution-started-event',
+      'shapes'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

@@ -7,93 +7,11 @@ function newReferenceAttachDetach () {
   return thisObject
 
   function referenceDetachNode (node) {
-    switch (node.type) {
-      case 'Backtesting Session': {
-        completeDetachment(node)
-        return
-      }
-      case 'Live Trading Session': {
-        completeDetachment(node)
-        return
-      }
-      case 'Fordward Testing Session': {
-        completeDetachment(node)
-        return
-      }
-      case 'Paper Trading Session': {
-        completeDetachment(node)
-        return
-      }
-      case 'Output Dataset': {
-        completeDetachment(node)
-        return
-      }
-      case 'Data Dependency': {
-        completeDetachment(node)
-        return
-      }
-      case 'Status Dependency': {
-        completeDetachment(node)
-        return
-      }
-      case 'Execution Started Event': {
-        completeDetachment(node)
-        return
-      }
-      case 'Process Instance': {
-        completeDetachment(node)
-        return
-      }
-      case 'Product Definition': {
-        completeDetachment(node)
-        return
-      }
-    }
+    completeDetachment(node)
   }
 
   function referenceAttachNode (node, attachToNode, rootNodes) {
-    switch (node.type) {
-      case 'Backtesting Session': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Live Trading Session': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Fordward Testing Session': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Paper Trading Session': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Output Dataset': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Data Dependency': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Status Dependency': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Execution Started Event': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Process Instance': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-      case 'Product Definition': {
-        completeAttachment(node, attachToNode)
-      }
-        break
-    }
+    completeAttachment(node, attachToNode)
   }
 
   function completeAttachment (node, attachToNode) {

@@ -16,7 +16,7 @@ function newOnFocus () {
       case 'Condition':
         {
           let child
-          child = getNodeThatIsOnFocus(node.code)
+          child = getNodeThatIsOnFocus(node.javascriptCode)
           if (child !== undefined) {
             return child
           }
@@ -937,7 +937,7 @@ function newOnFocus () {
       }
       case 'Procedure Initialization': {
         let child
-        child = getNodeThatIsOnFocus(node.code)
+        child = getNodeThatIsOnFocus(node.javascriptCode)
         if (child !== undefined) {
           return child
         }
@@ -949,7 +949,7 @@ function newOnFocus () {
       }
       case 'Procedure Loop': {
         let child
-        child = getNodeThatIsOnFocus(node.code)
+        child = getNodeThatIsOnFocus(node.javascriptCode)
         if (child !== undefined) {
           return child
         }
@@ -1055,7 +1055,7 @@ function newOnFocus () {
       }
       case 'Plotter Module': {
         let child
-        child = getNodeThatIsOnFocus(node.code)
+        child = getNodeThatIsOnFocus(node.javascriptCode)
         if (child !== undefined) {
           return child
         }
@@ -1077,7 +1077,7 @@ function newOnFocus () {
       }
       case 'Plotter Panel': {
         let child
-        child = getNodeThatIsOnFocus(node.code)
+        child = getNodeThatIsOnFocus(node.javascriptCode)
         if (child !== undefined) {
           return child
         }

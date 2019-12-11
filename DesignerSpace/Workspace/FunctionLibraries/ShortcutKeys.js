@@ -18,7 +18,7 @@ function newShortcutKeys () {
       case 'Condition':
         {
           let child
-          child = getNodeByShortcutKey(node.code, searchingKey)
+          child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
           if (child !== undefined) {
             return child
           }
@@ -916,7 +916,7 @@ function newShortcutKeys () {
       }
       case 'Procedure Initialization': {
         let child
-        child = getNodeByShortcutKey(node.code, searchingKey)
+        child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
         if (child !== undefined) {
           return child
         }
@@ -928,7 +928,7 @@ function newShortcutKeys () {
       }
       case 'Procedure Loop': {
         let child
-        child = getNodeByShortcutKey(node.code, searchingKey)
+        child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
         if (child !== undefined) {
           return child
         }
@@ -1034,7 +1034,7 @@ function newShortcutKeys () {
       }
       case 'Plotter Module': {
         let child
-        child = getNodeByShortcutKey(node.code, searchingKey)
+        child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
         if (child !== undefined) {
           return child
         }
@@ -1056,7 +1056,7 @@ function newShortcutKeys () {
       }
       case 'Plotter Panel': {
         let child
-        child = getNodeByShortcutKey(node.code, searchingKey)
+        child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
         if (child !== undefined) {
           return child
         }

@@ -450,6 +450,12 @@ function newPlotter () {
       for (let i = 0; i < records.length; i++) {
         let record = records[i]
 
+        if (i == 0) {
+          record.previous = record
+        } else {
+          record.previous = records[i - 1]
+        }
+
         let beginPoint = {
           x: record.begin,
           y: 0
@@ -604,6 +610,10 @@ function newPlotter () {
           browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
           browserCanvasContext.stroke()
         }
+
+        /* Some cleaning */
+        record.previous = undefined
+        record = undefined
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }

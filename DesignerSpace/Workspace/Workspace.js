@@ -179,7 +179,6 @@ function newWorkspace () {
   function getNodeByShortcutKey (searchingKey) {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let definition = rootNode
       let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
       if (node !== undefined) { return node }
     }
@@ -188,7 +187,6 @@ function newWorkspace () {
   function getNodeThatIsOnFocus () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let definition = rootNode
       let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
       if (node !== undefined) { return node }
     }

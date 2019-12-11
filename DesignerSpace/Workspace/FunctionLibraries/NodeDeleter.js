@@ -998,6 +998,10 @@ function newNodeDeleter () {
       deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
+    if (node.shapes !== undefined) {
+      deleteUIObject(node.shapes, rootNodes)
+    }
+
     if (node.panels !== undefined) {
       while (node.panels.length > 0) {
         deletePlotterPanel(node.panels[0], rootNodes)

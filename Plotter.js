@@ -75,7 +75,7 @@ function newPlotter () {
       marketFile = undefined
       fileCursor = undefined
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack.stack) }
     }
   }
 
@@ -115,7 +115,7 @@ function newPlotter () {
 
       callBackFunction()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -128,7 +128,7 @@ function newPlotter () {
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMarketFilesUpdated -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMarketFilesUpdated -> err = ' + err.stack.stack) }
     }
   }
 
@@ -140,7 +140,7 @@ function newPlotter () {
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFilesUpdated -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFilesUpdated -> err = ' + err.stack.stack) }
     }
   }
 
@@ -155,7 +155,7 @@ function newPlotter () {
         return undefined
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getContainer -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] getContainer -> err = ' + err.stack) }
     }
   }
 
@@ -181,7 +181,7 @@ function newPlotter () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
     }
   }
 
@@ -196,7 +196,7 @@ function newPlotter () {
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFileLoaded -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFileLoaded -> err = ' + err.stack) }
     }
   }
 
@@ -205,7 +205,7 @@ function newPlotter () {
       this.container.frame.draw()
       plotChart()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }
     }
   }
 
@@ -218,7 +218,7 @@ function newPlotter () {
       }
       thisObject.container.eventHandler.raiseEvent('CandleStairs Changed', records)  // --> Check This
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculate -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculate -> err = ' + err.stack) }
     }
   }
 
@@ -274,7 +274,7 @@ function newPlotter () {
         try {
           eval(calculationsProcedure.initialization.javascriptCode.code)
         } catch (err) {
-          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack)
+          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack.stack)
           logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.javascriptCode.code)
           throw ('Error Executing User Code.')
         }
@@ -291,7 +291,7 @@ function newPlotter () {
           try {
             eval(calculationsProcedure.loop.javascriptCode.code)
           } catch (err) {
-            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack)
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack.stack)
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = ' + JSON.stringify(product))
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.javascriptCode.code)
             throw ('Error Executing User Code.')
@@ -308,7 +308,7 @@ function newPlotter () {
                     let currentRecord = product
                     currentRecord[property.code.codeName] = newValue
                   } catch (err) {
-                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack)
+                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack.stack)
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.formula.code)
                     throw ('Error Executing User Code.')
@@ -376,7 +376,7 @@ function newPlotter () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingDailyFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingDailyFiles -> err = ' + err.stack) }
     }
   }
 
@@ -407,7 +407,7 @@ function newPlotter () {
         records.push(...jsonData)// This adds records to the current array.
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingMarketFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingMarketFiles -> err = ' + err.stack) }
     }
   }
 
@@ -432,7 +432,7 @@ function newPlotter () {
                 thisObject.container.frame.height
             )
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
     }
   }
 
@@ -480,10 +480,133 @@ function newPlotter () {
           thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
         }
 
-        eval(productDefinition.referenceParent.javascriptCode.code)
+        /* If there is code we execute it now. */
+        if (productDefinition.referenceParent.javascriptCode !== undefined) {
+          eval(productDefinition.referenceParent.javascriptCode.code)
+        }
+
+        if (productDefinition.referenceParent.shapes === undefined) { continue }
+        if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
+
+        let dataPoints = new Map()
+
+        for (let j = 0; j < productDefinition.referenceParent.shapes.chartPoints.points.length; j++) {
+          let point = productDefinition.referenceParent.shapes.chartPoints.points[j]
+          if (point.pointFormula !== undefined) {
+            let x = 0
+            let y = 0
+            eval(point.pointFormula.code)
+            let dataPoint = {
+              x: x,
+              y: y
+            }
+
+            /*
+            The information we store in files is independent from the charing system and its coordinate systems.
+            That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+            */
+            dataPoint = timeLineCoordinateSystem.transformThisPoint(dataPoint)
+
+            /*
+            The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
+            need the points to be converted into the canvas coordinate system.
+            Next we transform again to the screen coordinate system.
+            */
+            dataPoint = transformThisPoint(dataPoint, thisObject.container)
+
+            /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
+            dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
+
+            /* Store the data point at the local map */
+            dataPoints.set(point.id, dataPoint)
+          }
+        }
+
+        for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
+          let polygon = productDefinition.referenceParent.shapes.polygons[j]
+
+          /* Finding out the fill style */
+          let fillStyle = { // default values
+            opacity: 1,
+            paletteColor: UI_COLOR.BLACK
+          }
+          if (polygon.polygonBody !== undefined) {
+            if (polygon.polygonBody.style !== undefined) {
+              let bodyStyle = polygon.polygonBody.style.code
+              if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+              if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+            }
+            for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
+              let condition = polygon.polygonBody.styleConditions[k]
+              let value = eval(condition.code)
+              if (value === true) {
+                if (condition.style !== undefined) {
+                  let bodyStyle = condition.style.code
+                  if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                  if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                }
+              }
+            }
+          }
+
+          /* Finding out the stroke style */
+          let strokeStyle = { // default values
+            opacity: 1,
+            paletteColor: UI_COLOR.BLACK,
+            lineWidth: 1,
+            lineDash: [0, 0]
+          }
+          if (polygon.polygonBorder !== undefined) {
+            if (polygon.polygonBorder.style !== undefined) {
+              let borderStyle = polygon.polygonBorder.style.code
+              if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+              if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+              if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+              if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+            }
+            for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
+              let condition = polygon.polygonBorder.styleConditions[k]
+              let value = eval(condition.code)
+              if (value === true) {
+                if (condition.style !== undefined) {
+                  let borderStyle = condition.style.code
+                  if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                  if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                  if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                  if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                }
+              }
+            }
+          }
+
+          /* Draw the Polygon */
+          browserCanvasContext.beginPath()
+          for (let k = 0; k < polygon.polygonVertexes.length; k++) {
+            let polygonVertex = polygon.polygonVertexes[k]
+            if (polygonVertex.referenceParent !== undefined) {
+              let dataPoint = dataPoints.get(polygonVertex.referenceParent.id)
+              if (k === 0) {
+                browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
+              } else {
+                browserCanvasContext.lineTo(dataPoint.x, dataPoint.y)
+              }
+            }
+          }
+          browserCanvasContext.closePath()
+
+        /* Apply the fill style to the canvas object */
+          browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
+          browserCanvasContext.fill()
+
+        /* Apply the stroke style to the canvas object */
+          browserCanvasContext.lineWidth = strokeStyle.lineWidth
+          browserCanvasContext.setLineDash(strokeStyle.lineDash)
+          browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
+          browserCanvasContext.stroke()
+        }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }
     }
   }
 
@@ -491,7 +614,7 @@ function newPlotter () {
     try {
       recalculate()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onZoomChanged -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onZoomChanged -> err = ' + err.stack) }
     }
   }
 
@@ -499,7 +622,7 @@ function newPlotter () {
     try {
       recalculate()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDragFinished -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragFinished -> err = ' + err.stack) }
     }
   }
 
@@ -515,7 +638,7 @@ function newPlotter () {
         recalculate()
       };
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onOffsetChanged -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onOffsetChanged -> err = ' + err.stack) }
     }
   }
 }

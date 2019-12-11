@@ -1,4 +1,9 @@
 function newProtocolNode () {
+  const MODULE_NAME = 'Protocol Node'
+  const ERROR_LOG = true
+  const logger = newWebDebugLog()
+  logger.fileName = MODULE_NAME
+
   thisObject = {
     getProtocolNode: getProtocolNode
   }
@@ -1730,8 +1735,18 @@ function newProtocolNode () {
             object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
           }
 
-          if (parseCode) {
-            object.code = JSON.parse(node.code)
+          if (parseCode && object.code !== undefined && nodeDefinition.editors !== undefined) {
+            if (nodeDefinition.editors.config === true) {
+              try {
+                object.code = JSON.parse(node.code)
+              } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> err = ' + err.stack) }
+                if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.type = ' + node.type) }
+                if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.name = ' + node.name) }
+                if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.code = ' + node.code) }
+                if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.id = ' + node.id) }
+              }
+            }
           }
 
           if (includeIds) {

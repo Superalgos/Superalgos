@@ -195,6 +195,21 @@ function newCanvas () {
           return
         }
       }
+      if (nodeOnFocus.payload.uiObject.configEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.configEditor.visible === true) {
+          return
+        }
+      }
+      if (nodeOnFocus.payload.uiObject.formulaEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.formulaEditor.visible === true) {
+          return
+        }
+      }
+      if (nodeOnFocus.payload.uiObject.conditionEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.conditionEditor.visible === true) {
+          return
+        }
+      }
       if (nodeOnFocus.payload.uiObject.uiObjectTitle !== undefined) {
         if (nodeOnFocus.payload.uiObject.uiObjectTitle.editMode === true) {
           return

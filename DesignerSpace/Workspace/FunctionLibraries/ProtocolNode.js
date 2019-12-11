@@ -1626,10 +1626,13 @@ function newProtocolNode () {
           subType: node.subType,
           name: node.name,
           code: node.code,
-          javascriptCode: getProtocolNode(node.javascriptCode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
-          shapes: getProtocolNode(node.shapes, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType),
           panels: []
         }
+        if (excludeChildren !== true) {
+          object.javascriptCode = getProtocolNode(node.javascriptCode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+          object.shapes = getProtocolNode(node.shapes, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+        }
+
         if (includeParent) {
           followAncestors = true
           excludeChildren = true

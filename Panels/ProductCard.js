@@ -151,7 +151,10 @@ function newProductCard () {
        /* Add information that will later be needed. */
 
       let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
-      let plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
+      let plotter
+      if (team !== undefined) {
+        plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
+      }
 
       if (plotter !== undefined) {
         let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)

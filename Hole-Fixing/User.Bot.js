@@ -149,7 +149,7 @@
             const MAX_HOLE_FIXING_RETRIES = 3;
             const FIRST_TRADE_RECORD_ID = -1;
             const UNKNOWN_TRADE_RECORD_ID = -2;
-            const MAX_EXCHANGE_CALLS_FOR_GETTING_TRADES = 25
+            const MAX_EXCHANGE_CALLS_FOR_GETTING_TRADES = 10
 
             let exchangeCallRetries = 0;
 
@@ -380,9 +380,6 @@
 
                             date = new Date(date.valueOf() + 60 * 1000);
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> date = " + date.toUTCString()); }
-
                             if (date.valueOf() > datetimeLastFileLiveTrade.valueOf()) {
 
                                 /* This mean we reached the forward end of the market */
@@ -462,8 +459,6 @@
                             function onNextFileReceived(err, text) {
 
                                 try {
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> onNextFileReceived -> Entering function."); }
 
                                     if (err.result === global.DEFAULT_FAIL_RESPONSE.result) {
                                         logger.write(MODULE_NAME, "[ERROR] start -> findNextHole -> readNextFile -> onNextFileReceived -> err = " + err.stack);

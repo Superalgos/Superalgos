@@ -1054,18 +1054,6 @@ function newShortcutKeys () {
           return
         }
       }
-      case 'Plotter Panel': {
-        let child
-        child = getNodeByShortcutKey(node.javascriptCode, searchingKey)
-        if (child !== undefined) {
-          return child
-        }
-        if (node.payload.uiObject.shortcutKey === searchingKey) {
-          return node
-        } else {
-          return
-        }
-      }
 
       default: {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)

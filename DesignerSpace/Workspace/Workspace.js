@@ -483,11 +483,6 @@ function newWorkspace () {
           functionLibraryUiObjectsFromNodes.addPlotterModule(payload.node)
         }
         break
-      case 'Add Plotter Panel':
-        {
-          functionLibraryUiObjectsFromNodes.addPlotterPanel(payload.node)
-        }
-        break
       case 'Add Network':
         {
           functionLibraryUiObjectsFromNodes.addNetwork(payload.node)
@@ -763,10 +758,6 @@ function newWorkspace () {
       }
       case 'Delete Plotter Module': {
         functionLibraryNodeDeleter.deletePlotterModule(payload.node, thisObject.workspaceNode.rootNodes)
-        break
-      }
-      case 'Delete Plotter Panel': {
-        functionLibraryNodeDeleter.deletePlotterPanel(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
       case 'Delete Network': {

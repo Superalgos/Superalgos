@@ -1075,18 +1075,6 @@ function newOnFocus () {
           return
         }
       }
-      case 'Plotter Panel': {
-        let child
-        child = getNodeThatIsOnFocus(node.javascriptCode)
-        if (child !== undefined) {
-          return child
-        }
-        if (node.payload.uiObject.isOnFocus === true) {
-          return node
-        } else {
-          return
-        }
-      }
       default: {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition !== undefined) {

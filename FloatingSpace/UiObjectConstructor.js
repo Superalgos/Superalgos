@@ -1657,7 +1657,7 @@ function newUiObjectConstructor () {
               )
         menuItemsInitialValues.push(
           {
-            action: 'Add Plotter Panel',
+            action: 'Add UI Object',
             actionFunction: payload.onMenuItemClick,
             label: 'Add Plotter Panel',
             visible: true,
@@ -1696,55 +1696,6 @@ function newUiObjectConstructor () {
             targetRadius: 0,
             currentRadius: 0,
             angle: 60
-          }
-        )
-        break
-      }
-      case 'Plotter Panel': {
-        addLeftIcons(menuItemsInitialValues, floatingObject)
-        menuItemsInitialValues.push(
-          {
-            action: 'Add Code',
-            disableIfPropertyIsDefined: true,
-            propertyToCheckFor: 'code',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Add Code',
-            visible: true,
-            relatedUiObject: 'Javascript Code',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: -30
-          }
-            )
-        menuItemsInitialValues.push(
-          {
-            action: 'Delete Plotter Panel',
-            askConfirmation: true,
-            confirmationLabel: 'Confirm to Delete',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Delete Plotter Panel',
-            visible: true,
-            iconPathOn: 'delete',
-            iconPathOff: 'delete',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 0
-          }
-              )
-        menuItemsInitialValues.push(
-          {
-            action: 'Share',
-            actionFunction: payload.onMenuItemClick,
-            label: 'Share',
-            visible: true,
-            iconPathOn: 'menu-share',
-            iconPathOff: 'menu-share',
-            rawRadius: 8,
-            targetRadius: 0,
-            currentRadius: 0,
-            angle: 30
           }
         )
         break
@@ -4862,10 +4813,6 @@ function newUiObjectConstructor () {
       }
       case 'Plotter Module': {
         level_2()
-        break
-      }
-      case 'Plotter Panel': {
-        level_3()
         break
       }
       case 'Network': {

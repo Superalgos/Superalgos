@@ -26,7 +26,6 @@ function newNodeDeleter () {
     deleteDatasetDefinition: deleteDatasetDefinition,
     deletePlotter: deletePlotter,
     deletePlotterModule: deletePlotterModule,
-    deletePlotterPanel: deletePlotterPanel,
     deleteSocialBots: deleteSocialBots,
     deleteSocialBot: deleteSocialBot,
     deleteAnnouncement: deleteAnnouncement,
@@ -187,10 +186,6 @@ function newNodeDeleter () {
           }
           case 'Plotter Module': {
             deletePlotterModule(rootNode, rootNodes)
-            break
-          }
-          case 'Plotter Panel': {
-            deletePlotterPanel(rootNode, rootNodes)
             break
           }
           case 'Social Bots': {
@@ -1004,29 +999,8 @@ function newNodeDeleter () {
 
     if (node.panels !== undefined) {
       while (node.panels.length > 0) {
-        deletePlotterPanel(node.panels[0], rootNodes)
+        deleteUIObject(node.panels[0], rootNodes)
       }
-    }
-
-    completeDeletion(node, rootNodes)
-    destroyUiObject(node)
-    cleanNode(node)
-  }
-
-  function deletePlotterPanel (node, rootNodes) {
-    let payload = node.payload
-
-    if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.panels.length; j++) {
-        let panel = payload.parentNode.panels[j]
-        if (panel.id === node.id) {
-          payload.parentNode.panels.splice(j, 1)
-        }
-      }
-    }
-
-    if (node.javascriptCode !== undefined) {
-      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
     completeDeletion(node, rootNodes)

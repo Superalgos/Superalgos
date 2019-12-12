@@ -28,7 +28,6 @@ function newUiObjectsFromNodes () {
     addDatasetDefinition: addDatasetDefinition,
     addPlotter: addPlotter,
     addPlotterModule: addPlotterModule,
-    addPlotterPanel: addPlotterPanel,
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
@@ -1073,14 +1072,7 @@ function newUiObjectsFromNodes () {
         }
         return
       }
-      case 'Plotter Panel': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
-        if (node.javascriptCode !== undefined) {
-          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-        }
-        return
-      }
       default: {
         /* Get node definition */
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
@@ -1551,20 +1543,6 @@ function newUiObjectsFromNodes () {
       node.modules = []
     }
     node.modules.push(object)
-    createUiObject(true, object.type, object.name, object, node, node)
-
-    return object
-  }
-
-  function addPlotterPanel (node) {
-    let object = {
-      type: 'Plotter Panel',
-      name: 'New Plotter Panel'
-    }
-    if (node.panels === undefined) {
-      node.panels = []
-    }
-    node.panels.push(object)
     createUiObject(true, object.type, object.name, object, node, node)
 
     return object

@@ -109,8 +109,7 @@ function newDesignerSpace () {
       ['Record Property', 'record-property'],
       ['Dataset Definition', 'dataset-definition'],
       ['Plotter', 'plotter'],
-      ['Plotter Module', 'plotter-module'],
-      ['Plotter Panel', 'plotter-panel']
+      ['Plotter Module', 'plotter-module']
     ]
 
     for (let i = 0; i < relationshipArray.length; i++) {

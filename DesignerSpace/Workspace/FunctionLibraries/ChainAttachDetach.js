@@ -199,17 +199,6 @@ function newChainAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Plotter Panel': {
-        let payload = node.payload
-        for (let i = 0; i < payload.parentNode.panels.length; i++) {
-          let panel = payload.parentNode.panels[i]
-          if (panel.id === node.id) {
-            payload.parentNode.panels.splice(i, 1)
-          }
-        }
-        completeDetachment(node, rootNodes)
-        return
-      }
       case 'Network Node': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
@@ -742,13 +731,6 @@ function newChainAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.modules.push(node)
-        completeAttachment(node, rootNodes)
-      }
-        break
-      case 'Plotter Panel': {
-        node.payload.parentNode = attachToNode
-        node.payload.chainParent = attachToNode
-        node.payload.parentNode.panels.push(node)
         completeAttachment(node, rootNodes)
       }
         break

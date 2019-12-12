@@ -345,10 +345,6 @@ function newUiObject () {
         compatibleTypes = '->' + 'Plotter' + '->'
         compatibleSubTypes = undefined
         break
-      case 'Plotter Panel':
-        compatibleTypes = '->' + 'Plotter Module' + '->'
-        compatibleSubTypes = undefined
-        break
       case 'Trading System':
         compatibleTypes = '->' + 'Definition' + '->'
         compatibleSubTypes = undefined

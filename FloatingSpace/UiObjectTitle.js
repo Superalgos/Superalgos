@@ -93,10 +93,6 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Plotter Panel': {
-        thisObject.allwaysVisible = true
-        break
-      }
       case 'Network': {
         thisObject.allwaysVisible = true
         break

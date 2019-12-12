@@ -83,9 +83,6 @@ function newNodeChildren () {
       case 'Plotter Module': {
         return countChildrenPlotterModule(parentNode, childNode)
       }
-      case 'Plotter Panel': {
-        return countChildrenPlotterPanel(parentNode, childNode)
-      }
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
@@ -749,20 +746,6 @@ function newNodeChildren () {
         if (child.id === childNode.id) {
           response.childIndex = response.childrenCount
         }
-      }
-    }
-    return response
-  }
-
-  function countChildrenPlotterPanel (parentNode, childNode) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    if (parentNode.javascriptCode !== undefined) {
-      response.childrenCount++
-      if (parentNode.javascriptCode.id === childNode.id) {
-        response.childIndex = response.childrenCount
       }
     }
     return response

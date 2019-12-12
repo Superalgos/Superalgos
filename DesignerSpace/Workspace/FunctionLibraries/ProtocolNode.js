@@ -1654,21 +1654,6 @@ function newProtocolNode () {
         }
         return object
       }
-      case 'Plotter Panel': {
-        let object = {
-          type: node.type,
-          subType: node.subType,
-          name: node.name,
-          javascriptCode: getProtocolNode(node.javascriptCode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
-        }
-        if (includeIds) {
-          object.id = node.id
-        }
-        if (includePayload) {
-          object.savedPayload = getSavedPayload(node, includeReferences)
-        }
-        return object
-      }
 
       default: {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)

@@ -245,7 +245,7 @@ function newFloatingObject () {
         thisObject.payload.angle = thisObject.payload.angle - 360
       }
 
-      if (distanceToChainParent > 1000) { return } // this is introduced to avoid edges cases when importing workspaces.
+      if (distanceToChainParent > 2000) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
         x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),

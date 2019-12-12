@@ -379,7 +379,7 @@ function newNodeDeleter () {
           }
 
           default: {
-            console.log('WARNING this node type is not listed at NodeDeleter: ' + rootNode.type)
+            deleteUIObject(rootNode, rootNodes)
           }
         }
       }

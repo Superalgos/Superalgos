@@ -31,7 +31,10 @@ function newPlotter () {
   container.initialize()
   thisObject.container = container
 
-  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline, otherwise not.
+  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline.
+  let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
+  let plotterModuleConfig
+  let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 5  // This is the amount of slots available
 
   let timePeriod                                                      // This will hold the current Time Period the user is at.
   let datetime                                                        // This will hold the current Datetime the user is at.
@@ -415,6 +418,7 @@ function newPlotter () {
     try {
       if (timeLineCoordinateSystem.maxValue > 0) { return } // Already calculated.
 
+      /* First we calculate the default scale */
       let minValue = {
         x: MIN_PLOTABLE_DATE.valueOf(),
         y: 0
@@ -430,6 +434,23 @@ function newPlotter () {
                 maxValue,
                 thisObject.container.frame.width,
                 thisObject.container.frame.height
+            )
+
+      /* In case the plotter is configured to a certain slot, we calculate the slot coordinate system too. */
+      if (productDefinition.referenceParent.code === undefined) { return }
+      plotterModuleConfig = JSON.parse(productDefinition.referenceParent.code)
+      if (plotterModuleConfig.slot === undefined) { return }
+
+      slotCoordinateSystem = newTimeLineCoordinateSystem()
+
+      minValue.y = plotterModuleConfig.slot.minValue
+      maxValue.y = plotterModuleConfig.slot.maxValue
+
+      slotCoordinateSystem.initialize(
+                minValue,
+                maxValue,
+                thisObject.container.frame.width,
+                slotHeight
             )
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
@@ -451,9 +472,9 @@ function newPlotter () {
         let record = records[i]
 
         if (i == 0) {
-          record.previous = record
+          record.previous = JSON.parse(JSON.stringify(record))
         } else {
-          record.previous = records[i - 1]
+          record.previous = JSON.parse(JSON.stringify(records[i - 1]))
         }
 
         let beginPoint = {
@@ -525,6 +546,13 @@ function newPlotter () {
 
             /* Store the data point at the local map */
             dataPoints.set(point.id, dataPoint)
+
+            if (plotterModuleConfig !== undefined) {
+              if (plotterModuleConfig.slot !== undefined) {
+                /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
+                dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight
+              }
+            }
           }
         }
 
@@ -542,14 +570,16 @@ function newPlotter () {
               if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
               if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
             }
-            for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
-              let condition = polygon.polygonBody.styleConditions[k]
-              let value = eval(condition.code)
-              if (value === true) {
-                if (condition.style !== undefined) {
-                  let bodyStyle = condition.style.code
-                  if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
-                  if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+            if (polygon.polygonBody.styleConditions !== undefined) {
+              for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
+                let condition = polygon.polygonBody.styleConditions[k]
+                let value = eval(condition.code)
+                if (value === true) {
+                  if (condition.style !== undefined) {
+                    let bodyStyle = condition.style.code
+                    if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                    if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                  }
                 }
               }
             }
@@ -570,16 +600,18 @@ function newPlotter () {
               if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
               if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
             }
-            for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
-              let condition = polygon.polygonBorder.styleConditions[k]
-              let value = eval(condition.code)
-              if (value === true) {
-                if (condition.style !== undefined) {
-                  let borderStyle = condition.style.code
-                  if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
-                  if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
-                  if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
-                  if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+            if (polygon.polygonBorder.styleConditions !== undefined) {
+              for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
+                let condition = polygon.polygonBorder.styleConditions[k]
+                let value = eval(condition.code)
+                if (value === true) {
+                  if (condition.style !== undefined) {
+                    let borderStyle = condition.style.code
+                    if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                    if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                    if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                    if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                  }
                 }
               }
             }
@@ -601,19 +633,19 @@ function newPlotter () {
           browserCanvasContext.closePath()
 
         /* Apply the fill style to the canvas object */
-          browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
-          browserCanvasContext.fill()
+          if (polygon.polygonBody !== undefined) {
+            browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
+            browserCanvasContext.fill()
+          }
 
         /* Apply the stroke style to the canvas object */
-          browserCanvasContext.lineWidth = strokeStyle.lineWidth
-          browserCanvasContext.setLineDash(strokeStyle.lineDash)
-          browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
-          browserCanvasContext.stroke()
+          if (polygon.polygonBorder !== undefined) {
+            browserCanvasContext.lineWidth = strokeStyle.lineWidth
+            browserCanvasContext.setLineDash(strokeStyle.lineDash)
+            browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
+            browserCanvasContext.stroke()
+          }
         }
-
-        /* Some cleaning */
-        record.previous = undefined
-        record = undefined
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }

@@ -64,10 +64,16 @@ function newTimeMachine () {
     }
 
     thisObject.charts = []
-    thisObject.timeScale.finalize()
-    thisObject.timeScale = undefined
-    thisObject.rateScale.finalize()
-    thisObject.rateScale = undefined
+
+    if (thisObject.timeScale !== undefined) {
+      thisObject.timeScale.finalize()
+      thisObject.timeScale = undefined
+    }
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.finalize()
+      thisObject.rateScale = undefined
+    }
+
     thisObject.fitFunction = undefined
 
     thisObject.container.finalize()

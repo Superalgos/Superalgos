@@ -86,11 +86,12 @@ function newPlotterPanel () {
 
     if (currentRecord === undefined) { return }
     if (currentRecord.data === undefined) { return }
-
-    try {
-      eval(panelNode.javascriptCode.code)
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+    if (panelNode.javascriptCode !== undefined) {
+      try {
+        eval(panelNode.javascriptCode.code)
+      } catch (err) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+      }
     }
 
     function printLabel (labelToPrint, x, y, opacity) {

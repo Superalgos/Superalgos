@@ -47,6 +47,7 @@ function newUiObjectTitle () {
   function initialize (payload) {
     thisObject.payload = payload
 
+    thisObject.allwaysVisible = false // Default value
     switch (payload.node.type) {
       case 'Definition': {
         thisObject.allwaysVisible = true
@@ -145,7 +146,12 @@ function newUiObjectTitle () {
         break
       }
       default: {
-        thisObject.allwaysVisible = false
+        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        if (nodeDefinition !== undefined) {
+          if (nodeDefinition.isTitleAllwaysVisible === true) {
+            thisObject.allwaysVisible = true
+          }
+        }
       }
     }
 

@@ -1202,8 +1202,8 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([3, 47])
-      browserCanvasContext.lineWidth = 4
+      browserCanvasContext.setLineDash([1, 9])
+      browserCanvasContext.lineWidth = 0.75
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
 
@@ -1211,8 +1211,8 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([1, 9])
-      browserCanvasContext.lineWidth = 2
+      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 0, 500])
+      browserCanvasContext.lineWidth = 4
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }

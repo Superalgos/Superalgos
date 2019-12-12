@@ -2179,7 +2179,7 @@ function newUiObjectsFromNodes () {
       node.javascriptCode = {
         code: DEFAULT_CODE_TEXT
       }
-      createUiObject(true, 'Javascript Code', '', node.code, node, node)
+      createUiObject(true, 'Javascript Code', '', node.javascriptCode, node, node)
     }
 
     return node.javascriptCode

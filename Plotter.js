@@ -532,40 +532,43 @@ function newPlotter () {
           dataPoints = record.dataPoints
         } else {
           /* Only calculate the datapoints for this record, if we have not calculate it before. */
-          for (let j = 0; j < productDefinition.referenceParent.shapes.chartPoints.points.length; j++) {
-            let point = productDefinition.referenceParent.shapes.chartPoints.points[j]
-            if (point.pointFormula !== undefined) {
-              let x = 0
-              let y = 0
-              eval(point.pointFormula.code)
-              let dataPoint = {
-                x: x,
-                y: y
-              }
+          for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
+            let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
+            for (let j = 0; j < chartPoints.points.length; j++) {
+              let point = chartPoints.points[j]
+              if (point.pointFormula !== undefined) {
+                let x = 0
+                let y = 0
+                eval(point.pointFormula.code)
+                let dataPoint = {
+                  x: x,
+                  y: y
+                }
 
-            /*
-            The information we store in files is independent from the charing system and its coordinate systems.
-            That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
-            */
-              dataPoint = timeLineCoordinateSystem.transformThisPoint(dataPoint)
+              /*
+              The information we store in files is independent from the charing system and its coordinate systems.
+              That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+              */
+                dataPoint = timeLineCoordinateSystem.transformThisPoint(dataPoint)
 
-            /*
-            The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
-            need the points to be converted into the canvas coordinate system.
-            Next we transform again to the screen coordinate system.
-            */
-              dataPoint = transformThisPoint(dataPoint, thisObject.container)
+              /*
+              The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
+              need the points to be converted into the canvas coordinate system.
+              Next we transform again to the screen coordinate system.
+              */
+                dataPoint = transformThisPoint(dataPoint, thisObject.container)
 
-            /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
-              dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
+              /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
+                dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
 
-            /* Store the data point at the local map */
-              dataPoints.set(point.id, dataPoint)
+              /* Store the data point at the local map */
+                dataPoints.set(point.id, dataPoint)
 
-              if (plotterModuleConfig !== undefined) {
-                if (plotterModuleConfig.slot !== undefined) {
-                /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                  dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight
+                if (plotterModuleConfig !== undefined) {
+                  if (plotterModuleConfig.slot !== undefined) {
+                  /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
+                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight
+                  }
                 }
               }
             }

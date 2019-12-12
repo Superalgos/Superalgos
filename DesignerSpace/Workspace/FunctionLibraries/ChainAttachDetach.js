@@ -1163,10 +1163,11 @@ function newChainAttachDetach () {
                       }
                         break
                       case 'array': {
-                        let nodePropertyArray = node.payload.parentNode[property.name]
-                        if (nodePropertyArray !== undefined) {
-                          nodePropertyArray.push(node)
+                        if (node.payload.parentNode[property.name] === undefined) {
+                          node.payload.parentNode[property.name] = []
                         }
+                        let nodePropertyArray = node.payload.parentNode[property.name]
+                        nodePropertyArray.push(node)
                       }
                         break
                     }

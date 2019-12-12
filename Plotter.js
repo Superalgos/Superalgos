@@ -36,6 +36,8 @@ function newPlotter () {
   let plotterModuleConfig
   let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 5  // This is the amount of slots available
   let mustRecalculateDataPoints = false
+  let atMousePositionFillStyles = new Map()
+  let atMousePositionStrokeStyles = new Map()
 
   let timePeriod                                                      // This will hold the current Time Period the user is at.
   let datetime                                                        // This will hold the current Datetime the user is at.
@@ -78,6 +80,14 @@ function newPlotter () {
 
       marketFile = undefined
       fileCursor = undefined
+
+      timeLineCoordinateSystem = undefined
+      slotCoordinateSystem = undefined
+      plotterModuleConfig = undefined
+      slotHeight = undefined
+      mustRecalculateDataPoints = undefined
+      atMousePositionFillStyles = undefined
+      atMousePositionStrokeStyles = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack.stack) }
     }
@@ -574,20 +584,26 @@ function newPlotter () {
             opacity: 1,
             paletteColor: UI_COLOR.BLACK
           }
-          if (record.fillStyle === undefined) {
-            record.fillStyle = new Map()
-          }
-          calculatedStyle = record.fillStyle.get(polygon.id)
-          if (calculatedStyle !== undefined) {
+          if (polygon.polygonBody !== undefined) {
+            if (record.fillStyle === undefined) {
+              record.fillStyle = new Map()
+            }
+            calculatedStyle = record.fillStyle.get(polygon.id)
+            if (calculatedStyle !== undefined) {
             /* We use the already calculated style */
-            fillStyle = calculatedStyle
-          } else {
-            if (polygon.polygonBody !== undefined) {
+              fillStyle = calculatedStyle
+            } else {
+              /* Get the default style if exists */
               if (polygon.polygonBody.style !== undefined) {
-                let bodyStyle = polygon.polygonBody.style.code
-                if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
-                if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                if (polygon.polygonBody.style.code !== undefined) {
+                  if (polygon.polygonBody.style.code.default !== undefined) {
+                    let bodyStyle = polygon.polygonBody.style.code.default
+                    if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                    if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                  }
+                }
               }
+              /* Apply conditional styles */
               if (polygon.polygonBody.styleConditions !== undefined) {
                 for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
                   let condition = polygon.polygonBody.styleConditions[k]
@@ -601,8 +617,19 @@ function newPlotter () {
                   }
                 }
               }
+              /* Get the atMousePosition style if exists */
+              if (polygon.polygonBody.style !== undefined) {
+                if (polygon.polygonBody.style.code.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBody.style.code.atMousePosition
+                  let atMousePositionStyle = {}
+                  if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                  if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                  atMousePositionFillStyles.set(polygon.id, atMousePositionStyle)
+                }
+              }
+
+              record.fillStyle.set(polygon.id, fillStyle)
             }
-            record.fillStyle.set(polygon.id, fillStyle)
           }
 
           /* Finding out the stroke style */
@@ -612,22 +639,28 @@ function newPlotter () {
             lineWidth: 1,
             lineDash: [0, 0]
           }
-          if (record.strokeStyle === undefined) {
-            record.strokeStyle = new Map()
-          }
-          calculatedStyle = record.strokeStyle.get(polygon.id)
-          if (calculatedStyle !== undefined) {
+          if (polygon.polygonBorder !== undefined) {
+            if (record.strokeStyle === undefined) {
+              record.strokeStyle = new Map()
+            }
+            calculatedStyle = record.strokeStyle.get(polygon.id)
+            if (calculatedStyle !== undefined) {
             /* We use the already calculated style */
-            strokeStyle = calculatedStyle
-          } else {
-            if (polygon.polygonBorder !== undefined) {
+              strokeStyle = calculatedStyle
+            } else {
+              /* Get the default style if exists */
               if (polygon.polygonBorder.style !== undefined) {
-                let borderStyle = polygon.polygonBorder.style.code
-                if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
-                if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
-                if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
-                if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                if (polygon.polygonBorder.style.code !== undefined) {
+                  if (polygon.polygonBorder.style.code.default !== undefined) {
+                    let borderStyle = polygon.polygonBorder.style.code.default
+                    if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                    if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                    if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                    if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                  }
+                }
               }
+              /* Apply conditional styles */
               if (polygon.polygonBorder.styleConditions !== undefined) {
                 for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
                   let condition = polygon.polygonBorder.styleConditions[k]
@@ -643,8 +676,21 @@ function newPlotter () {
                   }
                 }
               }
+              /* Get the atMousePosition style if exists */
+              if (polygon.polygonBorder.style !== undefined) {
+                if (polygon.polygonBorder.style.code.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBorder.style.code.atMousePosition
+                  let atMousePositionStyle = {}
+                  if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                  if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                  if (atMousePositionStyleDefinition.lineWidth !== undefined) { atMousePositionStyle.lineWidth = atMousePositionStyleDefinition.lineWidth }
+                  if (atMousePositionStyleDefinition.lineDash !== undefined) { atMousePositionStyle.lineDash = atMousePositionStyleDefinition.lineDash }
+                  atMousePositionStrokeStyles.set(polygon.id, atMousePositionStyle)
+                }
+              }
+
+              record.strokeStyle.set(polygon.id, strokeStyle)
             }
-            record.strokeStyle.set(polygon.id, strokeStyle)
           }
 
           /* Draw the Polygon */
@@ -664,12 +710,28 @@ function newPlotter () {
 
         /* Apply the fill style to the canvas object */
           if (polygon.polygonBody !== undefined) {
+            /* Replace the fill style if we are at mouse position */
+            if (atMousePosition === true) {
+              let atMousePositionFillStyle = atMousePositionFillStyles.get(polygon.id)
+              if (atMousePositionFillStyle !== undefined) {
+                fillStyle = atMousePositionFillStyle
+              }
+            }
+
             browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
             browserCanvasContext.fill()
           }
 
         /* Apply the stroke style to the canvas object */
           if (polygon.polygonBorder !== undefined) {
+            /* Replace the stroke style if we are at mouse position */
+            if (atMousePosition === true) {
+              let atMousePositionStrokeStyle = atMousePositionStrokeStyles.get(polygon.id)
+              if (atMousePositionStrokeStyle !== undefined) {
+                strokeStyle = atMousePositionStrokeStyle
+              }
+            }
+
             browserCanvasContext.lineWidth = strokeStyle.lineWidth
             browserCanvasContext.setLineDash(strokeStyle.lineDash)
             browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'

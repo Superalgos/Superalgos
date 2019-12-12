@@ -215,7 +215,6 @@ function newPlotter () {
 
   function recalculate () {
     try {
-      console.log('Recalculating...')
       if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
         recalculateUsingMarketFiles()
       } else {
@@ -474,9 +473,9 @@ function newPlotter () {
         let record = records[i]
 
         if (i == 0) {
-          record.previous = JSON.parse(JSON.stringify(record))
+          record.previous = record
         } else {
-          record.previous = JSON.parse(JSON.stringify(records[i - 1]))
+          record.previous = records[i - 1]
         }
 
         let beginPoint = {
@@ -522,7 +521,6 @@ function newPlotter () {
           /* We use the datapoints already calculated. */
           dataPoints = record.dataPoints
         } else {
-          console.log('Recalculating Data Points...')
           /* Only calculate the datapoints for this record, if we have not calculate it before. */
           for (let j = 0; j < productDefinition.referenceParent.shapes.chartPoints.points.length; j++) {
             let point = productDefinition.referenceParent.shapes.chartPoints.points[j]
@@ -569,31 +567,42 @@ function newPlotter () {
 
         for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
           let polygon = productDefinition.referenceParent.shapes.polygons[j]
+          let calculatedStyle
 
           /* Finding out the fill style */
           let fillStyle = { // default values
             opacity: 1,
             paletteColor: UI_COLOR.BLACK
           }
-          if (polygon.polygonBody !== undefined) {
-            if (polygon.polygonBody.style !== undefined) {
-              let bodyStyle = polygon.polygonBody.style.code
-              if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
-              if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
-            }
-            if (polygon.polygonBody.styleConditions !== undefined) {
-              for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
-                let condition = polygon.polygonBody.styleConditions[k]
-                let value = eval(condition.code)
-                if (value === true) {
-                  if (condition.style !== undefined) {
-                    let bodyStyle = condition.style.code
-                    if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
-                    if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+          if (record.fillStyle === undefined) {
+            record.fillStyle = new Map()
+          }
+          calculatedStyle = record.fillStyle.get(polygon.id)
+          if (calculatedStyle !== undefined) {
+            /* We use the already calculated style */
+            fillStyle = calculatedStyle
+          } else {
+            if (polygon.polygonBody !== undefined) {
+              if (polygon.polygonBody.style !== undefined) {
+                let bodyStyle = polygon.polygonBody.style.code
+                if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+              }
+              if (polygon.polygonBody.styleConditions !== undefined) {
+                for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
+                  let condition = polygon.polygonBody.styleConditions[k]
+                  let value = eval(condition.code)
+                  if (value === true) {
+                    if (condition.style !== undefined) {
+                      let bodyStyle = condition.style.code
+                      if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                      if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                    }
                   }
                 }
               }
             }
+            record.fillStyle.set(polygon.id, fillStyle)
           }
 
           /* Finding out the stroke style */
@@ -603,29 +612,39 @@ function newPlotter () {
             lineWidth: 1,
             lineDash: [0, 0]
           }
-          if (polygon.polygonBorder !== undefined) {
-            if (polygon.polygonBorder.style !== undefined) {
-              let borderStyle = polygon.polygonBorder.style.code
-              if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
-              if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
-              if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
-              if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
-            }
-            if (polygon.polygonBorder.styleConditions !== undefined) {
-              for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
-                let condition = polygon.polygonBorder.styleConditions[k]
-                let value = eval(condition.code)
-                if (value === true) {
-                  if (condition.style !== undefined) {
-                    let borderStyle = condition.style.code
-                    if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
-                    if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
-                    if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
-                    if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+          if (record.strokeStyle === undefined) {
+            record.strokeStyle = new Map()
+          }
+          calculatedStyle = record.strokeStyle.get(polygon.id)
+          if (calculatedStyle !== undefined) {
+            /* We use the already calculated style */
+            strokeStyle = calculatedStyle
+          } else {
+            if (polygon.polygonBorder !== undefined) {
+              if (polygon.polygonBorder.style !== undefined) {
+                let borderStyle = polygon.polygonBorder.style.code
+                if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+              }
+              if (polygon.polygonBorder.styleConditions !== undefined) {
+                for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
+                  let condition = polygon.polygonBorder.styleConditions[k]
+                  let value = eval(condition.code)
+                  if (value === true) {
+                    if (condition.style !== undefined) {
+                      let borderStyle = condition.style.code
+                      if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                      if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                      if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                      if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                    }
                   }
                 }
               }
             }
+            record.strokeStyle.set(polygon.id, strokeStyle)
           }
 
           /* Draw the Polygon */

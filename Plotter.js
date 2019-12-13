@@ -34,7 +34,7 @@ function newPlotter () {
   let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline.
   let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
-  let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 5  // This is the amount of slots available
+  let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 10  // This is the amount of slots available
   let mustRecalculateDataPoints = false
   let atMousePositionFillStyles = new Map()
   let atMousePositionStrokeStyles = new Map()

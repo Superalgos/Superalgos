@@ -94,11 +94,33 @@ function newPlotterPanel () {
       try {
         eval(panelNode.javascriptCode.code)
       } catch (err) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> javascriptCode.code = ' + panelNode.javascriptCode.code) }
       }
     }
 
-    /* Second we go through the panel labels. */
+    /* Second we go through the panel data. */
+    for (let i = 0; i < panelNode.panelData.length; i++) {
+      let panelData = panelNode.panelData[i]
+
+      let value = 'No value defined'
+
+      if (panelData.dataFormula !== undefined) {
+        try {
+          value = eval(panelData.dataFormula.code)
+        } catch (err) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> dataFormula.code = ' + panelNode.dataFormula.code) }
+        }
+      }
+
+      if (panelData.code.valueDecimals !== undefined) {
+        value = value.toFixed(panelData.code.valueDecimals)
+      }
+
+      printLabel(panelData.code.labelText, X_AXIS, PANEL_HEIGHT * panelData.code.labelPosition / 100, '1')
+      printLabel(value, X_AXIS, PANEL_HEIGHT * panelData.code.valuePosition / 100, '0.50')
+    }
 
     function printLabel (labelToPrint, x, y, opacity) {
       let labelPoint
@@ -126,4 +148,3 @@ function newPlotterPanel () {
     browserCanvasContext.fill()
   }
 }
-

@@ -70,11 +70,13 @@ function newUiObjectsFromNodes () {
   }
 
   let mapOfReferenceChildren = new Map()
-  let mapOfNodes = new Map()
+  let mapOfNodes
 
   return thisObject
 
   function recreateWorkspace (node) {
+    mapOfNodes = new Map()
+
    /* Create the workspace UI OBject and then continue with the root nodes. */
     createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
     if (node.rootNodes !== undefined) {
@@ -90,6 +92,7 @@ function newUiObjectsFromNodes () {
   function tryToConnectChildrenWithReferenceParents () {
     /* We reconstruct here the reference relationships. */
     for (const [key, node] of mapOfNodes) {
+      if (node.payload === undefined) { continue }
       if (node.payload.referenceParent !== undefined) {
         if (node.payload.referenceParent.cleaned === true) {
           node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
@@ -1943,6 +1946,15 @@ function newUiObjectsFromNodes () {
   function createUiObject (userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
     let payload = {}
 
+    if (node.id === undefined) {
+      node.id = newUniqueId()
+    } else {
+      let testNode = mapOfNodes.get(node.id)
+      if (testNode !== undefined && testNode.cleaned !== true) {
+        node.id = newUniqueId()
+      }
+    }
+
     if (name === '' || name === undefined) { name = 'My ' + uiObjectType }
     if (node.savedPayload !== undefined) {
       /* If there is a position offset, we apply it here. */
@@ -2004,9 +2016,6 @@ function newUiObjectsFromNodes () {
     payload.chainParent = chainParent
     payload.onMenuItemClick = canvas.designerSpace.workspace.onMenuItemClick
 
-    if (node.id === undefined) {
-      node.id = newUniqueId()
-    }
     node.payload = payload
     node.type = uiObjectType
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)

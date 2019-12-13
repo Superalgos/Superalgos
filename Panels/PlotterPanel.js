@@ -86,6 +86,10 @@ function newPlotterPanel () {
 
     if (currentRecord === undefined) { return }
     if (currentRecord.data === undefined) { return }
+
+    let record = currentRecord.data
+
+    /* First we execute code if provided. */
     if (panelNode.javascriptCode !== undefined) {
       try {
         eval(panelNode.javascriptCode.code)
@@ -93,6 +97,8 @@ function newPlotterPanel () {
         if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
       }
     }
+
+    /* Second we go through the panel labels. */
 
     function printLabel (labelToPrint, x, y, opacity) {
       let labelPoint

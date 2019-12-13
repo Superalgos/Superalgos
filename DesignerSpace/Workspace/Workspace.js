@@ -316,7 +316,7 @@ function newWorkspace () {
           if (nodeName === undefined) {
             nodeName = ''
           } else {
-            nodeName = '.' + nodeName
+            nodeName = ' ' + nodeName
           }
           let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
           download(fileName, text)

@@ -445,14 +445,6 @@ function newNodeDeleter () {
         }
       }
 
-      /* Remove from Reference Children. */
-      if (node.referenceChildren !== undefined) {
-        for (let i = 0; i < node.referenceChildren.length; i++) {
-          let child = node.referenceChildren[i]
-          child.payload.referenceParent = undefined
-        }
-      }
-
       completeDeletion(node, rootNodes)
       destroyUiObject(node)
       cleanNode(node)
@@ -467,10 +459,6 @@ function newNodeDeleter () {
     }
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
-    }
-    for (let i = 0; i < node.referenceChildren.length; i++) {
-      let child = node.referenceChildren[i]
-      child.payload.referenceParent = undefined
     }
     completeDeletion(node, rootNodes)
     destroyUiObject(node)
@@ -1215,15 +1203,6 @@ function newNodeDeleter () {
 
     if (node.socialBots !== undefined) {
       deleteSocialBots(node.socialBots, rootNodes)
-    }
-    if (node.payload.referenceParent !== undefined) {
-      for (let i = 0; i < node.payload.referenceParent.referenceChildren.length; i++) {
-        let child = node.payload.referenceParent.referenceChildren[i]
-        if (child.id === node.id) {
-          node.payload.referenceParent.referenceChildren.splice(i, 1)
-          return
-        }
-      }
     }
 
     completeDeletion(node, rootNodes)

@@ -78,7 +78,6 @@ function newUiObjectConstructor () {
         payload.uiObject.shortcutKey = payload.node.savedPayload.uiObject.shortcutKey
       }
     }
-    payload.node.savedPayload = undefined
 
     floatingLayer.addFloatingObject(floatingObject)
 
@@ -5149,5 +5148,10 @@ function newUiObjectConstructor () {
 
     payload.uiObject.finalize()
     payload.uiObject = undefined
+
+    payload.referenceParent = undefined
+    payload.parent = undefined
+    payload.chainParent = undefined
+    payload.node.savedPayload = undefined
   }
 }

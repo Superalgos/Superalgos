@@ -1076,6 +1076,7 @@ function newOnFocus () {
         }
       }
       default: {
+        if (node.payload === undefined) { return }
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition !== undefined) {
           /* First we ask the question to ourself */

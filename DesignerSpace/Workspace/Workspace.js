@@ -209,38 +209,17 @@ function newWorkspace () {
         canvas.chartSpace.finalize()
         canvas.chartSpace.initialize()
         return
-      } else {
-        if (
-          droppedNode.type === 'Definition' ||
-          droppedNode.type === 'Network' ||
-          droppedNode.type === 'Team'
-        ) {
-          /* We will only respect the state of each object on these structures, if the structure does not yet exist inside the workspace */
-          let alreadyExists = false
-          for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-            let rootNode = thisObject.workspaceNode.rootNodes[i]
-            if (droppedNode.id === rootNode.id) {
-              alreadyExists = true
-            }
-          }
-          if (alreadyExists === false) {
-            /* It does not exist, so we recreeate it respecting the inner state of each object. */
-            let positionOffset = {
-              x: spawnPosition.x - droppedNode.savedPayload.targetPosition.x,
-              y: spawnPosition.y - droppedNode.savedPayload.targetPosition.y
-            }
-
-            thisObject.workspaceNode.rootNodes.push(droppedNode)
-            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
-            return
-          }
-        }
       }
 
-      /* This is the default behaviour, which consists of cleaning all nodes that are not supported and then creating the UIObjects that remains on the data structure. */
-      let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
-      thisObject.workspaceNode.rootNodes.push(rootNode)
-      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
+      /* It does not exist, so we recreeate it respecting the inner state of each object. */
+      let positionOffset = {
+        x: spawnPosition.x - droppedNode.savedPayload.targetPosition.x,
+        y: spawnPosition.y - droppedNode.savedPayload.targetPosition.y
+      }
+
+      thisObject.workspaceNode.rootNodes.push(droppedNode)
+      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
+      functionLibraryUiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
     }
@@ -285,7 +264,7 @@ function newWorkspace () {
           ) {
             text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
           } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
           }
 
           let nodeName = payload.node.name
@@ -309,7 +288,7 @@ function newWorkspace () {
           ) {
             text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
           } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
+            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
           }
 
           let nodeName = payload.node.name

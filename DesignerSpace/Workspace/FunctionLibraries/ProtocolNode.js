@@ -1637,6 +1637,8 @@ function newProtocolNode () {
           followAncestors = true
           excludeChildren = true
           object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferences, followReferenceParent, includeParent, followAncestors, excludeChildren, excludeType)
+          followAncestors = false
+          includeParent = false
         }
         if (node.panels !== undefined) {
           for (let m = 0; m < node.panels.length; m++) {
@@ -1753,9 +1755,7 @@ function newProtocolNode () {
   }
 
   function getSavedPayload (node, includeReferences) {
-    if (node.payload === undefined) {
-      console.log('HERE')
-    }
+    if (node.payload === undefined) { return }
     let savedPayload = {
       position: {
         x: node.payload.position.x,
@@ -1778,24 +1778,6 @@ function newProtocolNode () {
     }
 
     if (includeReferences) {
-      /* For the ones that have reference children, we include them. */
-      if (node.referenceChildren !== undefined) {
-        let referenceChildren = []
-        for (let i = 0; i < node.referenceChildren.length; i++) {
-          let child = node.referenceChildren[i]
-          if (child !== undefined) {
-            let referencedChild = {
-              type: child.type,
-              subType: child.subType,
-              name: child.name,
-              id: child.id
-            }
-            referenceChildren.push(referencedChild)
-          }
-        }
-        savedPayload.referenceChildren = referenceChildren
-      }
-
       /* Next for the ones that have a reference parent, we include it */
       if (node.payload.referenceParent !== undefined) {
         savedPayload.referenceParent = {
@@ -1803,6 +1785,11 @@ function newProtocolNode () {
           subType: node.payload.referenceParent.subType,
           name: node.payload.referenceParent.name,
           id: node.payload.referenceParent.id
+        }
+      } else {
+        /* The referenceParent property can be inherited from the previous saved payload. */
+        if (node.savedPayload !== undefined) {
+          savedPayload.referenceParent = node.savedPayload.referenceParent
         }
       }
     }

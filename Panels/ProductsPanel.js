@@ -131,6 +131,7 @@ function newProductsPanel () {
             try {
               let code = JSON.parse(plotterModuleNode.code)
               plotterModule.codeName = code.codeName
+              plotterModule.banner = code.banner
             } catch (err) {
               continue
             }
@@ -163,6 +164,7 @@ function newProductsPanel () {
             product.plotter = plotter
             product.plotter.devTeam = plotterTeam.codeName
             product.plotter.moduleName = plotterModule.codeName
+            product.plotter.banner = plotterModule.banner
             product.plotter.legacy = false
             product.plotter.module = { panels: [] }
             product.displayName = productNode.name

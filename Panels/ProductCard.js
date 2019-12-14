@@ -229,7 +229,15 @@ function newProductCard () {
         legacyPlotterBannerLoaded = true
       }
 
-      legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
+      if (PLOTTER_PROFILE_PIC !== undefined) {
+        legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
+      } else {
+        if (thisObject.product.plotter.banner !== undefined) {
+          legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + thisObject.product.plotter.banner + '-Banner.PNG'
+        } else {
+          legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + 'Default-Banner.PNG'
+        }
+      }
 
       const TEAM = thisObject.devTeam.codeName.toLowerCase()
       const BOT = thisObject.bot.codeName.toLowerCase()
@@ -526,7 +534,7 @@ function newProductCard () {
       }
     }
        /* Third the Plotter's Profile Picture. */
-    if (thisObject.product.plotter.profilePicture !== undefined) {
+    if (thisObject.product.plotter.profilePicture !== undefined || thisObject.product.plotter.legacy === false) {
       let plotterImagePoint = {
         x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
         y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2

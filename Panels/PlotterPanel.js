@@ -104,7 +104,10 @@ function newPlotterPanel () {
     for (let i = 0; i < panelNode.panelData.length; i++) {
       let panelData = panelNode.panelData[i]
 
-      let value = 'No value defined'
+      let labelText = panelData.name
+      let labelPosition = i * 5 + 10
+      let valuePosition = i * 5 + 15
+      let value = 'No value defined.'
 
       if (panelData.dataFormula !== undefined) {
         try {
@@ -119,8 +122,20 @@ function newPlotterPanel () {
         value = value.toFixed(panelData.code.valueDecimals)
       }
 
-      printLabel(panelData.code.labelText, X_AXIS, PANEL_HEIGHT * panelData.code.labelPosition / 100, '1')
-      printLabel(value, X_AXIS, PANEL_HEIGHT * panelData.code.valuePosition / 100, '0.50')
+      if (panelData.code.labelText !== undefined) {
+        labelText = panelData.code.labelText
+      }
+
+      if (panelData.code.labelPosition !== undefined) {
+        labelPosition = panelData.code.labelPosition
+      }
+
+      if (panelData.code.valuePosition !== undefined) {
+        valuePosition = panelData.code.valuePosition
+      }
+
+      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100, '1')
+      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100, '0.50')
     }
 
     function printLabel (labelToPrint, x, y, opacity) {

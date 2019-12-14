@@ -100,6 +100,7 @@ function newPlotterPanel () {
     }
 
     /* Second we go through the panel data. */
+    if (panelNode.panelData === undefined) { return }
     for (let i = 0; i < panelNode.panelData.length; i++) {
       let panelData = panelNode.panelData[i]
 

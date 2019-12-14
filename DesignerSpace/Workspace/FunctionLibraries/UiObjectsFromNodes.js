@@ -1145,7 +1145,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Status Dependency',
       name: 'New Status Dependency',
-      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point.\"\n}'
+      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point\"\n}'
     }
     if (node.statusDependencies === undefined) {
       node.statusDependencies = []

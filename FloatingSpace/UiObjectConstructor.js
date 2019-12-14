@@ -2261,7 +2261,7 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Configure Sensor Bot Instance',
+            action: 'Configure Bot Instance',
             actionFunction: uiObject.configEditor.activate,
             label: 'Configure Sensor Bot Instance',
             visible: true,
@@ -2328,9 +2328,9 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Configure Indicator Bot Instance',
+            action: 'Configure Bot Instance',
             actionFunction: uiObject.configEditor.activate,
-            label: 'Configure Indicator Bot Instance',
+            label: 'Configure Bot Instance',
             visible: true,
             iconPathOn: 'html',
             iconPathOff: 'html',
@@ -2395,7 +2395,7 @@ function newUiObjectConstructor () {
         addLeftIcons(menuItemsInitialValues, floatingObject)
         menuItemsInitialValues.push(
           {
-            action: 'Configure Trading Bot Instance',
+            action: 'Configure Bot Instance',
             actionFunction: uiObject.configEditor.activate,
             label: 'Configure Trading Bot Instance',
             visible: true,

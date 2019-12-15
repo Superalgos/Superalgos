@@ -267,7 +267,7 @@ to be visible at the top of the viewPort. */
     let fontSize2 = 10
 
     const RED_LINE_HIGHT = 5
-    const OPACITY = 1
+    const OPACITY = 0.75
 
     let centerPoint = {
       x: mouse.position.x,
@@ -320,4 +320,3 @@ to be visible at the top of the viewPort. */
     browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
   }
 }
-

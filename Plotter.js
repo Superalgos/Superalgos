@@ -558,9 +558,6 @@ function newPlotter () {
               */
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
 
-              /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
-                dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
-
               /* Store the data point at the local map */
                 dataPoints.set(point.id, dataPoint)
 
@@ -701,7 +698,13 @@ function newPlotter () {
           for (let k = 0; k < polygon.polygonVertexes.length; k++) {
             let polygonVertex = polygon.polygonVertexes[k]
             if (polygonVertex.referenceParent !== undefined) {
-              let dataPoint = dataPoints.get(polygonVertex.referenceParent.id)
+              let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
+              let dataPoint = {
+                x: dataPointObject.x,
+                y: dataPointObject.y
+              }
+              /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
+              dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
               if (k === 0) {
                 browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
               } else {

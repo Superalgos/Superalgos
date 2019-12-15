@@ -32,8 +32,25 @@ global.CUSTOM_FAIL_RESPONSE = {
   message: 'Custom Message'
 }
 
+let port = process.env.WEB_SERVER_PORT  
+
+process.on('uncaughtException', function (err) {
+    if (err.message.indexOf("EADDRINUSE") > 0) {
+        console.log("Superalgos Web Server cannot be started. Reason: the port " + port + " is already in use by another application. The web server cannot be started until either you stop the other application or you change the port number at the WebServer/.env file for an unused one. (variable name WEB_SERVER_PORT)")
+        return
+    }
+    console.log('[ERROR] Web Server -> server -> uncaughtException -> err.message = ' + err.message)
+    console.log('[ERROR] Web Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+    process.exit(1)
+})
+
+process.on('unhandledRejection', (reason, p) => {
+    console.log('[ERROR] Web Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
+    console.log('[ERROR] Web Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    process.exit(1)
+})
+
 let http = require('http')
-let port = process.env.VIRTUAL_PORT || 1337
 let isHttpServerStarted = false
 let cloneExecutorChildProcess
 
@@ -49,8 +66,8 @@ function startHtttpServer () {
       open('http://localhost:' + port)
       console.log('Web Server Started.')
     }
-  } catch (err) {
-    console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
+  } catch (err) {     
+      console.log('[ERROR] server -> startHtttpServer -> Error = ' + err.stack)
   }
 }
 
@@ -426,7 +443,7 @@ function onBrowserRequest (request, response) {
           try {
             let fileContent = file.toString()
 
-            fileContent = fileContent.replace('VIRTUAL_PORT', process.env.VIRTUAL_PORT)
+            fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
             respondWithContent(fileContent, response)
           } catch (err) {
             console.log('[ERROR] server -> onBrowserRequest -> File Not Found: ' + fileName + ' or Error = ' + err.stack)

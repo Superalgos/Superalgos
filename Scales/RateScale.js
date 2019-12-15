@@ -70,7 +70,7 @@ function newRateScale () {
       if (thisObject.heightPercentage < STEP_SIZE) { thisObject.heightPercentage = STEP_SIZE }
     } else {
       thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE
-      if (thisObject.heightPercentage > 150) { thisObject.heightPercentage = 150 }
+      if (thisObject.heightPercentage > 150) { thisObject.heightPercentage = 200 }
     }
     event.heightPercentage = thisObject.heightPercentage
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
@@ -106,7 +106,7 @@ function newRateScale () {
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 30
     const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.heightPercentage
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 165 + DISTANCE_BETWEEN_ARROWS
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 215 + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0
 

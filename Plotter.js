@@ -59,6 +59,7 @@ function newPlotter () {
   let marketFilesUpdatedEventSubscriptionId
   let dailyFilesUpdatedEventSubscriptionId
 
+  let logged = false
   return thisObject
 
   function finalize () {
@@ -177,7 +178,7 @@ function newPlotter () {
     try {
       if (timePeriod !== pTimePeriod) {
         timePeriod = pTimePeriod
-
+        mustRecalculateDataPoints = true
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
           let newMarketFile = marketFiles.getFile(pTimePeriod)
 
@@ -408,6 +409,14 @@ function newPlotter () {
       leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5)
       rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5)
 
+      for (let i = 0; i < records.length; i++) {
+        let record = records[i]
+        record.fillStyle = undefined
+        record.strokeStyle = undefined
+        record.dataPoints = undefined
+        record.previous = undefined
+        records[i] = {}
+      }
       records = []
 
       /* Transform the current file content into an array of JSON objects */
@@ -428,7 +437,6 @@ function newPlotter () {
   function recalculateScale () {
     try {
       if (timeLineCoordinateSystem.maxValue > 0) { return } // Already calculated.
-
       /* First we calculate the default scale */
       let minValue = {
         x: MIN_PLOTABLE_DATE.valueOf(),
@@ -531,6 +539,9 @@ function newPlotter () {
           /* We use the datapoints already calculated. */
           dataPoints = record.dataPoints
         } else {
+          if (logged === false) {
+            logged = true
+          }
           /* Only calculate the datapoints for this record, if we have not calculate it before. */
           for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
             let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
@@ -747,6 +758,7 @@ function newPlotter () {
       }
 
       mustRecalculateDataPoints = false
+      logged = false
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }
     }
@@ -754,6 +766,7 @@ function newPlotter () {
 
   function onZoomChanged (event) {
     try {
+      mustRecalculateDataPoints = true
       recalculate()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onZoomChanged -> err = ' + err.stack) }

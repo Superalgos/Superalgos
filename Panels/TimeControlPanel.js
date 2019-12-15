@@ -58,7 +58,9 @@ function newTimeControlPanel () {
   }
 
   function onZoomChanged (event) {
-    timePeriod = recalculatePeriod(event.newLevel)
+    if (event !== undefined) { // it is undefined when the level is just being animated.
+      timePeriod = recalculatePeriod(event.newLevel)
+    }
   }
 
   function getContainer (point) {
@@ -115,7 +117,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -132,7 +134,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
@@ -151,7 +153,7 @@ function newTimeControlPanel () {
 
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY  
+    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }

@@ -290,6 +290,8 @@ function newViewPort () {
       x: 0,
       y: 0
     }
+
+    thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 
   function zoomFontSize (baseSize, level) {

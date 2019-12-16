@@ -140,6 +140,7 @@ function newPlotter () {
       let newMarketFile = marketFiles.getFile(timePeriod)
       if (newMarketFile !== undefined) {
         marketFile = newMarketFile
+        mustRecalculateDataPoints = true
         recalculate()
       }
     } catch (err) {
@@ -152,6 +153,7 @@ function newPlotter () {
       let newFileCursor = dailyFiles.getFileCursor(timePeriod)
       if (newFileCursor !== undefined) {
         fileCursor = newFileCursor
+        mustRecalculateDataPoints = true
         recalculate()
       }
     } catch (err) {

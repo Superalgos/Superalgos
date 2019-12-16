@@ -577,7 +577,7 @@ function newPlotter () {
                 if (plotterModuleConfig !== undefined) {
                   if (plotterModuleConfig.slot !== undefined) {
                   /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight
+                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + viewPort.visibleArea.topLeft.y
                   }
                 }
               }

@@ -224,6 +224,13 @@ function newCanvas () {
       }
     }
 
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Regenerates APP SCHEMA FILE
+      let text = JSON.stringify(APP_SCHEMA_ARRAY)
+      let fileName = 'AppSchema.json'
+      download(fileName, text)
+      return
+    }
+
     if (event.altKey === true && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return

@@ -141,6 +141,16 @@ function newUiObject () {
   function initialize (payload, menuItemsInitialValues) {
     thisObject.payload = payload
 
+    let schemaNode = APP_SCHEMA_MAP.get(payload.node.type)
+    if (schemaNode === undefined) {
+      schemaNode = {
+        type: payload.node.type,
+        menuItems: menuItemsInitialValues
+      }
+      APP_SCHEMA_MAP.set(payload.node.type, schemaNode)
+      APP_SCHEMA_ARRAY.push(schemaNode)
+    }
+
 /* Initialize the Menu */
 
     thisObject.menu = newCircularMenu()

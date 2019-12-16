@@ -105,8 +105,8 @@ function newPlotterPanel () {
       let panelData = panelNode.panelData[i]
 
       let labelText = panelData.name
-      let labelPosition = i * 5 + 10
-      let valuePosition = i * 5 + 15
+      let labelPosition = i * 10 + 10
+      let valuePosition = i * 10 + 15
       let value = 'No value defined.'
 
       if (panelData.dataFormula !== undefined) {

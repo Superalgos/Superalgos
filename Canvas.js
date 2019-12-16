@@ -225,6 +225,12 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Regenerates APP SCHEMA FILE
+      /*
+      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+        let schemaNode = APP_SCHEMA_ARRAY[i]
+        schemaNode.addLeftIcons = true
+      }
+      */
       let text = JSON.stringify(APP_SCHEMA_ARRAY)
       let fileName = 'AppSchema.json'
       download(fileName, text)

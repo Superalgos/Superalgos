@@ -105,6 +105,18 @@ function newUiObjectConstructor () {
           if (item.actionFunction === undefined) {
             // item.actionFunction = 'payload.onMenuItemClick'
           }
+          if (item.visible === true) {
+            item.visible = undefined
+          }
+          if (item.rawRadius === 8) {
+            item.rawRadius = undefined
+          }
+          if (item.targetRadius === 0) {
+            item.targetRadius = undefined
+          }
+          if (item.currentRadius === 0) {
+            item.currentRadius = undefined
+          }
         }
       }
     }
@@ -212,6 +224,19 @@ function newUiObjectConstructor () {
         currentRadius: 0
       }
         )
+    menuItemsInitialValues.push(
+      {
+        action: 'XXShare',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'menu-share',
+        iconPathOff: 'menu-share',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0
+      }
+            )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
@@ -263,6 +288,24 @@ function newUiObjectConstructor () {
         if (menutItemDefinition.actionFunction !== undefined) {
           newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
         }
+
+        /* Adding default values */
+        if (newMenuItem.visible === undefined) {
+          newMenuItem.visible = true
+        }
+
+        if (newMenuItem.rawRadius === undefined) {
+          newMenuItem.rawRadius = 8
+        }
+
+        if (newMenuItem.targetRadius === undefined) {
+          newMenuItem.targetRadius = 0
+        }
+
+        if (newMenuItem.currentRadius === undefined) {
+          newMenuItem.currentRadius = 0
+        }
+
         menuItemsInitialValues.push(newMenuItem)
       }
     } else {

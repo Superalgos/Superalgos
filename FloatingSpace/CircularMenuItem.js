@@ -144,8 +144,15 @@ function newCircularMenuItem () {
       }
     }
 
-    thisObject.container.frame.position.x = thisObject.container.frame.radius * 3 / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-    thisObject.container.frame.position.y = thisObject.container.frame.radius * 3 / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+    let radiousGrowthFactor
+    if (thisObject.type === 'Icon Only') {
+      radiousGrowthFactor = 5
+    } else {
+      radiousGrowthFactor = 4
+    }
+
+    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
+    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
     /* Temporary Status impacts on the label to use and the background of that label */
     if (temporaryStatusCounter > 0) {

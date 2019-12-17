@@ -21,6 +21,7 @@ function newPlotterPanel () {
 
   container.frame.containerName = 'Plotter Panel'
 
+  let heightFactor = 1
   let currentRecord
   let panelTabButton
   let panelNode
@@ -34,8 +35,8 @@ function newPlotterPanel () {
     thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
     thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL
 
-    thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 5
-    thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
+    thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width - thisObject.container.frame.width * Math.random() * 8
+    thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height - thisObject.container.frame.height * Math.random() * 1.5
 
     panelTabButton = newPanelTabButton()
     panelTabButton.parentContainer = thisObject.container
@@ -109,6 +110,11 @@ function newPlotterPanel () {
       let valuePosition = i * 10 + 15
       let value = 'No value defined.'
 
+      if (valuePosition > 100) {
+        heightFactor = 2
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * heightFactor
+      }
+
       if (panelData.dataFormula !== undefined) {
         try {
           value = eval(panelData.dataFormula.code)
@@ -134,8 +140,8 @@ function newPlotterPanel () {
         valuePosition = panelData.code.valuePosition
       }
 
-      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100, '1')
-      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100, '0.50')
+      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '1')
+      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '0.50')
     }
 
     function printLabel (labelToPrint, x, y, opacity) {

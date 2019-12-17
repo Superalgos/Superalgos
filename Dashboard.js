@@ -45,7 +45,7 @@ function newDashboard () {
           }
           APP_SCHEMA_MAP.set(key, nodeDefinition)
         }
-        console.log(APP_SCHEMA_MAP)
+
         startCanvas()
       }
 

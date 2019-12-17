@@ -247,7 +247,8 @@ function newDesignerSpace () {
       'style-condition',
       'shapes-polygon',
       'data-entry',
-      'data-formula'
+      'data-formula',
+      'clone'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

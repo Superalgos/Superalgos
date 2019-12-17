@@ -47,6 +47,9 @@ function newCircularMenu () {
   function initialize (menuItemsInitialValues, payload) {
 /* Create the array of Menu Items */
 
+    let iconAndTextArray = []
+    let iconOnlyArray = []
+
     for (let i = 0; i < menuItemsInitialValues.length; i++) {
       let menuItem = newCircularMenuItem()
       let menuItemInitialValue = menuItemsInitialValues[i]
@@ -81,8 +84,10 @@ function newCircularMenu () {
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'
+        iconOnlyArray.push(menuItem)
       } else {
         menuItem.type = 'Icon & Text'
+        iconAndTextArray.push(menuItem)
       }
 
       menuItem.initialize(payload)
@@ -90,6 +95,36 @@ function newCircularMenu () {
       menuItems.push(menuItem)
     }
 
+    /* Here we calculate the angles for each menu item, and then apply it if it was not previously defined. */
+    let amplitud = 100
+    let initialAngle = 230
+    let step = amplitud / (iconOnlyArray.length - 1)
+
+    for (let i = 0; i < iconOnlyArray.length; i++) {
+      let menuItem = iconOnlyArray[i]
+      let angle = initialAngle - step * i
+      if (menuItem.angle === undefined) {
+        menuItem.angle = angle
+      }
+    }
+
+    amplitud = 140
+    initialAngle = -70
+    step = amplitud / 7
+    let currentItem = (7 - iconAndTextArray.length) / 2 + 1
+    for (let i = 0; i < iconAndTextArray.length; i++) {
+      let menuItem = iconAndTextArray[i]
+      let angle = initialAngle + step * (currentItem - 0.5)
+      currentItem++
+      if (menuItem.angle === undefined) {
+        menuItem.angle = angle
+      }
+    }
+
+    iconOnlyArray = undefined
+    iconAndTextArray = undefined
+
+    /* Listen to events */
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
     selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
   }

@@ -75,6 +75,7 @@ function newUiObjectConstructor () {
         let menuItems = schemaNode.menuItems
         for (let j = 0; j < menuItems.length; j++) {
           let item = menuItems[j]
+          item.angle = undefined
           if (item.action.indexOf('Add ') >= 0) {
             // item.action = 'Add UI Object'
           }
@@ -137,8 +138,7 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-fix-unpinned',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0,
-        angle: -130
+        currentRadius: 0
       }
       )
     menuItemsInitialValues.push(
@@ -153,8 +153,7 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-tensor-free-angles',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0,
-        angle: -155
+        currentRadius: 0
       }
       )
     menuItemsInitialValues.push(
@@ -169,8 +168,7 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-mobility-freeze',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0,
-        angle: 180
+        currentRadius: 0
       }
       )
     menuItemsInitialValues.push(
@@ -185,8 +183,7 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-tree-minus',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0,
-        angle: 155
+        currentRadius: 0
       }
       )
     menuItemsInitialValues.push(
@@ -199,10 +196,22 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-backup',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0,
-        angle: 130
+        currentRadius: 0
       }
       )
+    menuItemsInitialValues.push(
+      {
+        action: 'Clone',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'clone',
+        iconPathOff: 'clone',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0
+      }
+        )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {

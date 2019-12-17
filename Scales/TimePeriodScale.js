@@ -269,7 +269,7 @@ to be visible at the top of the viewPort. */
     let fontSize2 = 10
 
     const RED_LINE_HIGHT = 5
-    const OPACITY = 0.75
+    const OPACITY = 1
 
     let centerPoint = {
       x: mouse.position.x,

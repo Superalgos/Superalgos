@@ -4,7 +4,7 @@ function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, contain
   let fontSize2 = 10
 
   const RED_LINE_HIGHT = 5
-  const OPACITY = 0.75
+  const OPACITY = 1
 
   let params = {
     cornerRadius: 3,

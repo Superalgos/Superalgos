@@ -70,7 +70,7 @@ function newCircularMenuItem () {
   let temporaryStatus = 0
   let temporaryStatusCounter = 0
 
-  const EXTRA_MOUSE_OVER_ICON_SIZE = 2
+  const EXTRA_MOUSE_OVER_ICON_SIZE = 6
 
   const STATUS_NO_ACTION_TAKEN_YET = 0
   const STATUS_PRIMARY_ACTION_WORKING = -1

@@ -81,8 +81,28 @@ function newUiObjectConstructor () {
           if (item.action.indexOf('Delete ') >= 0) {
             // item.action = 'Delete UI Object'
           }
+          if (item.action.indexOf('Configure ') >= 0) {
+            if (schemaNode.editors.config === true) {
+              // item.actionFunction = 'uiObject.configEditor.activate'
+            }
+          }
+          if (item.action.indexOf('Edit ') >= 0) {
+            if (schemaNode.editors.condition === true) {
+              // item.actionFunction = 'uiObject.conditionEditor.activate'
+            }
+          }
+          if (item.action.indexOf('Edit ') >= 0) {
+            if (schemaNode.editors.formula === true) {
+              // item.actionFunction = 'uiObject.formulaEditor.activate'
+            }
+          }
+          if (item.action.indexOf('Edit ') >= 0) {
+            if (schemaNode.editors.code === true) {
+              // item.actionFunction = 'uiObject.codeEditor.activate'
+            }
+          }
           if (item.actionFunction === undefined) {
-            item.actionFunction = 'payload.onMenuItemClick'
+            // item.actionFunction = 'payload.onMenuItemClick'
           }
         }
       }

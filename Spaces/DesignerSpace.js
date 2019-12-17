@@ -245,7 +245,9 @@ function newDesignerSpace () {
       'shapes-polygon-body',
       'chart-point-formula',
       'style-condition',
-      'shapes-polygon'
+      'shapes-polygon',
+      'data-entry',
+      'data-formula'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

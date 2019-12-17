@@ -4,7 +4,7 @@ The Canvas App provides a visual environment for the _Charting System_ and the _
 
 **Installation (for developers):** To install the Canvas App, you need to install AAWeb, following [this guide](https://github.com/Superalgos/AAWeb/blob/develop/README.md).
 
-> The workings of the Canvas App is documented in the [Superalgos Desktop App README](https://github.com/Superalgos/DesktopApp/blob/master/README.md).
+> The workings of the Canvas App is documented in the [Superalgos Platform README](https://github.com/Superalgos/DesktopApp/blob/master/README.md).
 
 # Maintainer
 

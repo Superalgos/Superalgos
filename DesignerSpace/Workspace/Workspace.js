@@ -256,16 +256,7 @@ function newWorkspace () {
         break
       case 'Share':
         {
-          let text
-          if (
-            payload.node.type === 'Definition' ||
-            payload.node.type === 'Network' ||
-            payload.node.type === 'Team'
-          ) {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
-          } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
-          }
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
 
           let nodeName = payload.node.name
           if (nodeName === undefined) {
@@ -280,16 +271,22 @@ function newWorkspace () {
         break
       case 'Backup':
         {
-          let text
-          if (
-            payload.node.type === 'Definition' ||
-            payload.node.type === 'Network' ||
-            payload.node.type === 'Team'
-          ) {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
+
+          let nodeName = payload.node.name
+          if (nodeName === undefined) {
+            nodeName = ''
           } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
+            nodeName = ' ' + nodeName
           }
+          let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
+          download(fileName, text)
+        }
+
+        break
+      case 'Clone':
+        {
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
 
           let nodeName = payload.node.name
           if (nodeName === undefined) {

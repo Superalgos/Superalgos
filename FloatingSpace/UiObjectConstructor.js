@@ -115,7 +115,7 @@ function newUiObjectConstructor () {
     return
   }
 
-  function addLeftIcons (menuItemsInitialValues, floatingObject) {
+  function addLeftIcons (menuItemsInitialValues, floatingObject, isPersonalData) {
     menuItemsInitialValues.push(
       {
         action: 'Pin / Unpin',
@@ -202,19 +202,21 @@ function newUiObjectConstructor () {
         currentRadius: 0
       }
         )
-    menuItemsInitialValues.push(
-      {
-        action: 'XXShare',
-        actionFunction: floatingObject.payload.onMenuItemClick,
-        label: undefined,
-        visible: true,
-        iconPathOn: 'menu-share',
-        iconPathOff: 'menu-share',
-        rawRadius: 8,
-        targetRadius: 0,
-        currentRadius: 0
-      }
-            )
+    if (isPersonalData !== true) {
+      menuItemsInitialValues.push(
+        {
+          action: 'Share',
+          actionFunction: floatingObject.payload.onMenuItemClick,
+          label: undefined,
+          visible: true,
+          iconPathOn: 'menu-share',
+          iconPathOff: 'menu-share',
+          rawRadius: 8,
+          targetRadius: 0,
+          currentRadius: 0
+        }
+                  )
+    }
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
@@ -249,7 +251,7 @@ function newUiObjectConstructor () {
         }
       }
       if (nodeDefinition.addLeftIcons === true) {
-        addLeftIcons(menuItemsInitialValues, floatingObject)
+        addLeftIcons(menuItemsInitialValues, floatingObject, nodeDefinition.isPersonalData)
       }
       if (nodeDefinition.isPinned === true) {
         floatingObject.isPinned = true

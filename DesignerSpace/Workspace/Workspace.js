@@ -51,6 +51,7 @@ function newWorkspace () {
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
+  let functionLibraryNodeCloning = newNodeCloning()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
   let functionLibraryShortcutKeys = newShortcutKeys()
@@ -286,7 +287,7 @@ function newWorkspace () {
         break
       case 'Clone':
         {
-          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
+          let text = JSON.stringify(functionLibraryNodeCloning.getNodeClone(payload.node))
 
           let nodeName = payload.node.name
           if (nodeName === undefined) {

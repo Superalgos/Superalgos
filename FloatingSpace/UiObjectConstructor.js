@@ -88,34 +88,12 @@ function newUiObjectConstructor () {
             }
           }
           if (item.action.indexOf('Edit ') >= 0) {
-            if (schemaNode.editors.condition === true) {
-              // item.actionFunction = 'uiObject.conditionEditor.activate'
-            }
-          }
-          if (item.action.indexOf('Edit ') >= 0) {
-            if (schemaNode.editors.formula === true) {
-              // item.actionFunction = 'uiObject.formulaEditor.activate'
-            }
-          }
-          if (item.action.indexOf('Edit ') >= 0) {
             if (schemaNode.editors.code === true) {
               // item.actionFunction = 'uiObject.codeEditor.activate'
             }
           }
           if (item.actionFunction === undefined) {
             // item.actionFunction = 'payload.onMenuItemClick'
-          }
-          if (item.visible === true) {
-            item.visible = undefined
-          }
-          if (item.rawRadius === 8) {
-            item.rawRadius = undefined
-          }
-          if (item.targetRadius === 0) {
-            item.targetRadius = undefined
-          }
-          if (item.currentRadius === 0) {
-            item.currentRadius = undefined
           }
         }
       }

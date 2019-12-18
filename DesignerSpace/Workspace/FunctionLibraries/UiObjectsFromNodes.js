@@ -110,6 +110,89 @@ function newUiObjectsFromNodes () {
   }
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
+    /*
+    Object.keys(node).forEach(function (key, index) {
+    // key: the name of the object key
+    // index: the ordinal position of the key within the object
+      if (key !== 'savedPayload') {
+        if (node.type === 'Indicator Bot') {
+          console.log('HERE')
+        }
+        if (Array.isArray(node[key]) === false) {
+          if ((typeof node[key] === 'object') && (node[key] !== null)) {
+       // this property is an object
+
+            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+              let schemaNode = APP_SCHEMA_ARRAY[i]
+              if (schemaNode.type === node.type) {
+                if (schemaNode.properties === undefined) {
+                  schemaNode.properties = []
+                }
+
+                let properties = schemaNode.properties
+                let found = false
+                for (let j = 0; j < properties.length; j++) {
+                  let property = properties[j]
+                  if (property.name === key && property.childType === node[key].type) {
+                    found = true
+                  }
+                }
+                if (found === false) {
+                  let newProperty = {
+                    name: key,
+                    type: 'node',
+                    childType: node[key].type
+                  }
+                  properties.push(newProperty)
+                }
+                setPropertyNameAtParent(node[key], key)
+              }
+            }
+          }
+        } else {
+          let childArray = node[key]
+          if (childArray.length > 0) {
+            let childType = childArray[0].type
+            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+              let schemaNode = APP_SCHEMA_ARRAY[i]
+              if (schemaNode.type === node.type) {
+                if (schemaNode.properties === undefined) {
+                  schemaNode.properties = []
+                }
+
+                let properties = schemaNode.properties
+                let found = false
+                for (let j = 0; j < properties.length; j++) {
+                  let property = properties[j]
+                  if (property.name === key && property.childType === childType) {
+                    found = true
+                  }
+                }
+                if (found === false) {
+                  let newProperty = {
+                    name: key,
+                    type: 'array',
+                    childType: childType
+                  }
+                  properties.push(newProperty)
+                }
+                setPropertyNameAtParent(childArray[0], key)
+              }
+            }
+          }
+        }
+      }
+    })
+
+    function setPropertyNameAtParent (node, propName) {
+      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+        let schemaNode = APP_SCHEMA_ARRAY[i]
+        if (schemaNode.type === node.type) {
+          schemaNode.propertyNameAtParent = propName
+        }
+      }
+    }
+*/
     switch (node.type) {
       case 'Javascript Code':
         {

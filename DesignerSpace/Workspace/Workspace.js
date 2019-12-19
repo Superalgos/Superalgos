@@ -295,7 +295,7 @@ function newWorkspace () {
           } else {
             nodeName = ' ' + nodeName
           }
-          let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
+          let fileName = 'Clone - ' + payload.node.type + ' - ' + nodeName + '.json'
           download(fileName, text)
         }
 

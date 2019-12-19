@@ -318,6 +318,7 @@ function newFloatingObject () {
   }
 
   function someoneAquiredFocus (container) {
+    if (container === undefined) { return }
     if (container.id !== thisObject.container.id) {
       removeFocus()
     }

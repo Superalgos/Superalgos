@@ -223,5 +223,8 @@ function newDesignerSpace () {
     if (thisObject.sidePanel !== undefined) {
       thisObject.sidePanel.draw()
     }
+    if (thisObject.workspace !== undefined) {
+      thisObject.workspace.draw()
+    }
   }
 }

@@ -133,8 +133,8 @@ function newCanvas () {
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
+      animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-      animation.addCallBackFunction('Strategy Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {

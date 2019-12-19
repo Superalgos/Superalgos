@@ -17,6 +17,7 @@ function newWorkspace () {
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
+    draw: draw,
     spawn: spawn,
     chainDetachNode: chainDetachNode,
     chainAttachNode: chainAttachNode,
@@ -59,6 +60,11 @@ function newWorkspace () {
 
   thisObject.nodeChildren = newNodeChildren()
 
+  let workingAtTask = 0
+  let circularProgressBar = newBusyProgressBar()
+  circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+  let droppedNode
+
   return thisObject
 
   function finalize () {
@@ -66,6 +72,8 @@ function newWorkspace () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.workspaceNode = undefined
+    circularProgressBar.finalize()
+    circularProgressBar = undefined
   }
 
   function initialize () {
@@ -112,6 +120,46 @@ function newWorkspace () {
 
     let textToSave = stringifyWorkspace()
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+
+    if (workingAtTask > 0) {
+      circularProgressBar.physics()
+
+      switch (workingAtTask) {
+        case 1:
+          stopAllRunningTasks()
+          workingAtTask++
+          break
+        case 2:
+          functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+          workingAtTask++
+          break
+        case 3:
+          thisObject.workspaceNode = droppedNode
+          droppedNode = undefined
+          workingAtTask++
+          break
+        case 4:
+          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+          workingAtTask++
+          break
+        case 5:
+          canvas.chartSpace.finalize()
+          workingAtTask++
+          break
+        case 6:
+          canvas.chartSpace.initialize()
+          workingAtTask = 0
+          circularProgressBar.visible = false
+          break
+
+      }
+    }
+  }
+
+  function draw () {
+    if (circularProgressBar !== undefined) {
+      circularProgressBar.draw()
+    }
   }
 
   function stringifyWorkspace (removePersonalData) {
@@ -193,29 +241,22 @@ function newWorkspace () {
     }
   }
 
-  function spawn (nodeText, point) {
+  function spawn (nodeText, mousePointer) {
     try {
+      let point = {
+        x: mousePointer.x,
+        y: mousePointer.y
+      }
       point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
       spawnPosition.x = point.x
       spawnPosition.y = point.y
 
-      let droppedNode = JSON.parse(nodeText)
+      droppedNode = JSON.parse(nodeText)
 
       if (droppedNode.type === 'Workspace') {
-        stopAllRunningTasks()
-        console.log(new Date())
-        functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
-        console.log(new Date())
-        canvas.floatingSpace.warmUp()
-        console.log(new Date())
-        thisObject.workspaceNode = droppedNode
-        console.log(new Date())
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-        console.log(new Date())
-        canvas.chartSpace.finalize()
-        console.log(new Date())
-        canvas.chartSpace.initialize()
-        console.log(new Date())
+        circularProgressBar.initialize(mousePointer)
+        circularProgressBar.visible = true
+        workingAtTask = 1
         return
       }
 
@@ -228,6 +269,8 @@ function newWorkspace () {
       thisObject.workspaceNode.rootNodes.push(droppedNode)
       functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
       functionLibraryUiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
+
+      droppedNode = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
     }

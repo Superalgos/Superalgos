@@ -203,12 +203,19 @@ function newWorkspace () {
 
       if (droppedNode.type === 'Workspace') {
         stopAllRunningTasks()
+        console.log(new Date())
         functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+        console.log(new Date())
         canvas.floatingSpace.warmUp()
+        console.log(new Date())
         thisObject.workspaceNode = droppedNode
+        console.log(new Date())
         functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+        console.log(new Date())
         canvas.chartSpace.finalize()
+        console.log(new Date())
         canvas.chartSpace.initialize()
+        console.log(new Date())
         return
       }
 

@@ -627,6 +627,9 @@ function newProtocolNode () {
           name: node.name,
           code: node.code
         }
+        if (parseCode) {
+          object.code = JSON.parse(node.code)
+        }
         if (includeIds) {
           object.id = node.id
         }

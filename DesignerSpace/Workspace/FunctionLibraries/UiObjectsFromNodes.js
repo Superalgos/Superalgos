@@ -1621,7 +1621,7 @@ function newUiObjectsFromNodes () {
     let exchangeAccount = parentNode
     let key = {
       name: 'New Key',
-      code: 'Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
+      code: '{ \n\"name\": \"Paste your exchange API here\",\n"secret\": \"Paste your exchange API secret key here. Exchange keys are filtered out and NOT exported when using the SHARE menu option on any node at your workspace. Exchange keys ARE downloaded when using the DOWNLOAD button or the CLONE button.\"\n}'
     }
     if (exchangeAccount.keys !== undefined) {
       exchangeAccount.keys.push(key)
@@ -1730,7 +1730,7 @@ function newUiObjectsFromNodes () {
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
-        code: '01-hs'
+        code: '{ \n\"codeName\": \"01-hs\"\n}'
       }
       createUiObject(true, 'Time Period', '', node.timePeriod, node, node)
     }

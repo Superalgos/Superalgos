@@ -199,17 +199,6 @@ function newChainAttachDetach () {
         completeDetachment(node, rootNodes)
         return
       }
-      case 'Plotter Panel': {
-        let payload = node.payload
-        for (let i = 0; i < payload.parentNode.panels.length; i++) {
-          let panel = payload.parentNode.panels[i]
-          if (panel.id === node.id) {
-            payload.parentNode.panels.splice(i, 1)
-          }
-        }
-        completeDetachment(node, rootNodes)
-        return
-      }
       case 'Network Node': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.networkNodes.length; i++) {
@@ -549,6 +538,43 @@ function newChainAttachDetach () {
         }
         return
       }
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+        /* Detach from parent */
+          if (node.payload.parentNode !== undefined) {
+            let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+            if (parentNodeDefinition !== undefined) {
+              if (parentNodeDefinition.properties !== undefined) {
+                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                  let property = parentNodeDefinition.properties[i]
+                  if (nodeDefinition.propertyNameAtParent === property.name) {
+                    switch (property.type) {
+                      case 'node': {
+                        node.payload.parentNode[property.name] = undefined
+                      }
+                        break
+                      case 'array': {
+                        let nodePropertyArray = node.payload.parentNode[property.name]
+                        if (nodePropertyArray !== undefined) {
+                          for (let j = 0; j < nodePropertyArray.length; j++) {
+                            let arrayItem = nodePropertyArray[j]
+                            if (arrayItem.id === node.id) {
+                              nodePropertyArray.splice(j, 1)
+                            }
+                          }
+                        }
+                      }
+                        break
+                    }
+                  }
+                }
+              }
+            }
+          }
+          completeDetachment(node, rootNodes)
+        }
+      }
     }
   }
 
@@ -705,13 +731,6 @@ function newChainAttachDetach () {
         node.payload.parentNode = attachToNode
         node.payload.chainParent = attachToNode
         node.payload.parentNode.modules.push(node)
-        completeAttachment(node, rootNodes)
-      }
-        break
-      case 'Plotter Panel': {
-        node.payload.parentNode = attachToNode
-        node.payload.chainParent = attachToNode
-        node.payload.parentNode.panels.push(node)
         completeAttachment(node, rootNodes)
       }
         break
@@ -1107,6 +1126,41 @@ function newChainAttachDetach () {
         completeAttachment(node, rootNodes)
       }
         break
+      default: {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        if (nodeDefinition !== undefined) {
+          node.payload.parentNode = attachToNode
+          node.payload.chainParent = attachToNode
+          /* Attach to new parent */
+          if (node.payload.parentNode !== undefined) {
+            let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+            if (parentNodeDefinition !== undefined) {
+              if (parentNodeDefinition.properties !== undefined) {
+                for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                  let property = parentNodeDefinition.properties[i]
+                  if (nodeDefinition.propertyNameAtParent === property.name) {
+                    switch (property.type) {
+                      case 'node': {
+                        node.payload.parentNode[property.name] = node
+                      }
+                        break
+                      case 'array': {
+                        if (node.payload.parentNode[property.name] === undefined) {
+                          node.payload.parentNode[property.name] = []
+                        }
+                        let nodePropertyArray = node.payload.parentNode[property.name]
+                        nodePropertyArray.push(node)
+                      }
+                        break
+                    }
+                  }
+                }
+              }
+            }
+          }
+          completeAttachment(node, rootNodes)
+        }
+      }
     }
   }
 

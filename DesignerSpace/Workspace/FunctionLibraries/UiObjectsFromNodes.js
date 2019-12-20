@@ -1,6 +1,7 @@
 function newUiObjectsFromNodes () {
   thisObject = {
     recreateWorkspace: recreateWorkspace,
+    tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
     createUiObjectFromNode: createUiObjectFromNode,
     addUIObject: addUIObject,
     addTeam: addTeam,
@@ -28,7 +29,6 @@ function newUiObjectsFromNodes () {
     addDatasetDefinition: addDatasetDefinition,
     addPlotter: addPlotter,
     addPlotterModule: addPlotterModule,
-    addPlotterPanel: addPlotterPanel,
     addDefinition: addDefinition,
     addNetwork: addNetwork,
     addNetworkNode: addNetworkNode,
@@ -69,47 +69,130 @@ function newUiObjectsFromNodes () {
     addJavascriptCode: addJavascriptCode
   }
 
-  let mapOfReferenceParents
-  let mapOfReferenceChildren
+  let mapOfReferenceChildren = new Map()
+  let mapOfNodes
 
   return thisObject
 
   function recreateWorkspace (node) {
-    mapOfReferenceParents = new Map()
-    mapOfReferenceChildren = new Map()
-    let workspace = node
-    createUiObject(false, 'Workspace', workspace.name, workspace, undefined, undefined, 'Workspace')
+    mapOfNodes = new Map()
+
+   /* Create the workspace UI OBject and then continue with the root nodes. */
+    createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
     if (node.rootNodes !== undefined) {
       for (let i = 0; i < node.rootNodes.length; i++) {
         let rootNode = node.rootNodes[i]
         createUiObjectFromNode(rootNode, undefined, undefined)
       }
     }
+
+    tryToConnectChildrenWithReferenceParents()
+  }
+
+  function tryToConnectChildrenWithReferenceParents () {
     /* We reconstruct here the reference relationships. */
-    for (const [key, childNode] of mapOfReferenceChildren) {
-      childNode.payload.referenceParent = mapOfReferenceParents.get(childNode.savedPayload.referenceParent.id)
-      childNode.savedPayload = undefined
-    }
-    for (const [key, parentNode] of mapOfReferenceParents) {
-      if (parentNode.referenceChildren === undefined) {
-        parentNode.referenceChildren = []
-      }
-      for (let i = 0; i < parentNode.savedPayload.referenceChildren.length; i++) {
-        let savedChild = parentNode.savedPayload.referenceChildren[i]
-        if (savedChild.id !== undefined) {
-          let referenceChild = mapOfReferenceChildren.get(savedChild.id)
-          parentNode.referenceChildren.push(referenceChild)
+    for (const [key, node] of mapOfNodes) {
+      if (node.payload === undefined) { continue }
+      if (node.payload.referenceParent !== undefined) {
+        if (node.payload.referenceParent.cleaned === true) {
+          node.payload.referenceParent = mapOfNodes.get(node.payload.referenceParent.id)
+          continue  // We were referencing a deleted node, so we replace it potentially with a newly created one.
+        } else {
+          continue  // In this case the reference is already good.
         }
       }
-      parentNode.savedPayload = undefined
+      if (node.savedPayload !== undefined) {
+        if (node.savedPayload.referenceParent !== undefined) { // these are children recreated
+          node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
+        }
+      }
     }
-    mapOfReferenceChildren = undefined
-    mapOfReferenceParents = undefined
-
-    return
   }
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
+    /*
+    Object.keys(node).forEach(function (key, index) {
+    // key: the name of the object key
+    // index: the ordinal position of the key within the object
+      if (key !== 'savedPayload') {
+        if (node.type === 'Indicator Bot') {
+          console.log('HERE')
+        }
+        if (Array.isArray(node[key]) === false) {
+          if ((typeof node[key] === 'object') && (node[key] !== null)) {
+       // this property is an object
+
+            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+              let schemaNode = APP_SCHEMA_ARRAY[i]
+              if (schemaNode.type === node.type) {
+                if (schemaNode.properties === undefined) {
+                  schemaNode.properties = []
+                }
+
+                let properties = schemaNode.properties
+                let found = false
+                for (let j = 0; j < properties.length; j++) {
+                  let property = properties[j]
+                  if (property.name === key && property.childType === node[key].type) {
+                    found = true
+                  }
+                }
+                if (found === false) {
+                  let newProperty = {
+                    name: key,
+                    type: 'node',
+                    childType: node[key].type
+                  }
+                  properties.push(newProperty)
+                }
+                setPropertyNameAtParent(node[key], key)
+              }
+            }
+          }
+        } else {
+          let childArray = node[key]
+          if (childArray.length > 0) {
+            let childType = childArray[0].type
+            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+              let schemaNode = APP_SCHEMA_ARRAY[i]
+              if (schemaNode.type === node.type) {
+                if (schemaNode.properties === undefined) {
+                  schemaNode.properties = []
+                }
+
+                let properties = schemaNode.properties
+                let found = false
+                for (let j = 0; j < properties.length; j++) {
+                  let property = properties[j]
+                  if (property.name === key && property.childType === childType) {
+                    found = true
+                  }
+                }
+                if (found === false) {
+                  let newProperty = {
+                    name: key,
+                    type: 'array',
+                    childType: childType
+                  }
+                  properties.push(newProperty)
+                }
+                setPropertyNameAtParent(childArray[0], key)
+              }
+            }
+          }
+        }
+      }
+    })
+
+    function setPropertyNameAtParent (node, propName) {
+      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+        let schemaNode = APP_SCHEMA_ARRAY[i]
+        if (schemaNode.type === node.type) {
+          schemaNode.propertyNameAtParent = propName
+        }
+      }
+    }
+*/
     switch (node.type) {
       case 'Javascript Code':
         {
@@ -445,30 +528,12 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Definition': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, 'Definition', node.name, node, parentNode, chainParent, 'Definition', positionOffset)
         if (node.tradingSystem !== undefined) {
           createUiObjectFromNode(node.tradingSystem, node, node, positionOffset)
         }
         if (node.personalData !== undefined) {
           createUiObjectFromNode(node.personalData, node, node, positionOffset)
-        }
-        if (node.referenceChildren === undefined) {
-          node.referenceChildren = []
-        }
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
         }
         return
       }
@@ -567,15 +632,6 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Process Instance': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         if (parentNode !== undefined) {
           switch (parentNode.type) {
             case 'Sensor Bot Instance': {
@@ -596,23 +652,9 @@ function newUiObjectsFromNodes () {
         if (node.session !== undefined) {
           createUiObjectFromNode(node.session, node, node, positionOffset)
         }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Backtesting Session': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, 'Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
@@ -623,23 +665,9 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node, positionOffset)
         }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Live Trading Session': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, 'Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
@@ -650,23 +678,9 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node, positionOffset)
         }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Fordward Testing Session': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, 'Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
@@ -677,23 +691,9 @@ function newUiObjectsFromNodes () {
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node, positionOffset)
         }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Paper Trading Session': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, 'Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session', positionOffset)
         if (node.parameters !== undefined) {
           createUiObjectFromNode(node.parameters, node, node, positionOffset)
@@ -703,11 +703,6 @@ function newUiObjectsFromNodes () {
         }
         if (node.socialBots !== undefined) {
           createUiObjectFromNode(node.socialBots, node, node, positionOffset)
-        }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
         }
         return
       }
@@ -769,14 +764,6 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Process Definition': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.processOutput !== undefined) {
           createUiObjectFromNode(node.processOutput, node, node, positionOffset)
@@ -792,13 +779,6 @@ function newUiObjectsFromNodes () {
         }
         if (node.executionFinishedEvent !== undefined) {
           createUiObjectFromNode(node.executionFinishedEvent, node, node, positionOffset)
-        }
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
         }
         return
       }
@@ -823,59 +803,15 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Status Report': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
-        }
         return
       }
       case 'Execution Started Event': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Execution Finished Event': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
-        }
         return
       }
       case 'Calculations Procedure': {
@@ -915,69 +851,18 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Output Dataset': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Status Dependency': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Data Dependency': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
-        }
         return
       }
       case 'Product Definition': {
-        let referenceParent
-        if (mapOfReferenceChildren !== undefined) {
-          if (node.savedPayload.referenceParent !== undefined) {
-            if (node.savedPayload.referenceParent.id !== undefined) {
-              mapOfReferenceChildren.set(node.id, node)
-              referenceParent = node.savedPayload.referenceParent
-            }
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
         if (node.record !== undefined) {
           createUiObjectFromNode(node.record, node, node, positionOffset)
@@ -991,11 +876,6 @@ function newUiObjectsFromNodes () {
         }
         if (node.dataBuilding !== undefined) {
           createUiObjectFromNode(node.dataBuilding, node, node, positionOffset)
-        }
-        if (referenceParent !== undefined) {
-          node.savedPayload = {
-            referenceParent: referenceParent
-          }
         }
         return
       }
@@ -1015,22 +895,7 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Dataset Definition': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
-        }
         return
       }
       case 'Plotter': {
@@ -1042,14 +907,6 @@ function newUiObjectsFromNodes () {
         return
       }
       case 'Plotter Module': {
-        let referenceChildren
-        if (mapOfReferenceParents !== undefined) {
-          if (node.savedPayload.referenceChildren !== undefined) {
-            referenceChildren = []
-            mapOfReferenceParents.set(node.id, node)
-            referenceChildren = node.savedPayload.referenceChildren
-          }
-        }
         createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
         if (node.javascriptCode !== undefined) {
@@ -1064,30 +921,28 @@ function newUiObjectsFromNodes () {
           let panel = node.panels[m]
           createUiObjectFromNode(panel, node, node, positionOffset)
         }
-        if (referenceChildren !== undefined) {
-          node.savedPayload = {
-            referenceChildren: referenceChildren
-          }
-        } else {
-          node.referenceChildren = []
-        }
         return
       }
-      case 'Plotter Panel': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
-        if (node.javascriptCode !== undefined) {
-          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-        }
-        return
-      }
       default: {
+        /* Get node definition */
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
         if (nodeDefinition !== undefined) {
+          /* Resolve Initial Values */
+          if (nodeDefinition.initialValues !== undefined) {
+            if (nodeDefinition.initialValues.code !== undefined) {
+              if (node.code === undefined) {
+                node.code = nodeDefinition.initialValues.code
+              }
+            }
+          }
+
+          /* Create Self */
           createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
+          /* Create Children */
           if (nodeDefinition.properties !== undefined) {
-            for (i = 0; i < nodeDefinition.properties.length; i++) {
+            for (let i = 0; i < nodeDefinition.properties.length; i++) {
               let property = nodeDefinition.properties[i]
               if (node[property.name] !== undefined) {
                 switch (property.type) {
@@ -1108,6 +963,7 @@ function newUiObjectsFromNodes () {
             }
           }
         }
+
         return
       }
     }
@@ -1118,13 +974,25 @@ function newUiObjectsFromNodes () {
       name: 'New ' + type,
       type: type
     }
+
     createUiObject(true, object.type, object.name, object, parent, parent)
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(parent.type)
-    if (nodeDefinition !== undefined) {
-      if (nodeDefinition.properties !== undefined) {
-        for (i = 0; i < nodeDefinition.properties.length; i++) {
-          let property = nodeDefinition.properties[i]
+    let parentNodeDefinition = APP_SCHEMA_MAP.get(parent.type)
+    if (parentNodeDefinition !== undefined) {
+      /* Resolve Initial Values */
+      let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+      if (nodeDefinition !== undefined) {
+        if (nodeDefinition.initialValues !== undefined) {
+          if (nodeDefinition.initialValues.code !== undefined) {
+            object.code = nodeDefinition.initialValues.code
+          }
+        }
+      }
+
+      /* Connect to Parent */
+      if (parentNodeDefinition.properties !== undefined) {
+        for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+          let property = parentNodeDefinition.properties[i]
           if (property.childType === type) {
             switch (property.type) {
               case 'node': {
@@ -1132,6 +1000,9 @@ function newUiObjectsFromNodes () {
               }
                 break
               case 'array': {
+                if (parent[property.name] === undefined) {
+                  parent[property.name] = []
+                }
                 parent[property.name].push(object)
               }
                 break
@@ -1213,8 +1084,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Process Definition',
       name: 'New Process Definition',
-      code: '{}',
-      referenceChildren: []
+      code: '{}'
     }
     if (node.processes === undefined) {
       node.processes = []
@@ -1267,8 +1137,7 @@ function newUiObjectsFromNodes () {
     if (node.statusReport === undefined) {
       node.statusReport = {
         type: 'Status Report',
-        name: 'New Status Report',
-        referenceChildren: []
+        name: 'New Status Report'
       }
       createUiObject(true, node.statusReport.type, node.statusReport.name, node.statusReport, node, node)
     }
@@ -1290,8 +1159,7 @@ function newUiObjectsFromNodes () {
     if (node.executionFinishedEvent === undefined) {
       node.executionFinishedEvent = {
         type: 'Execution Finished Event',
-        name: 'New Execution Finished Event',
-        referenceChildren: []
+        name: 'New Execution Finished Event'
       }
       createUiObject(true, node.executionFinishedEvent.type, node.executionFinishedEvent.name, node.executionFinishedEvent, node, node)
     }
@@ -1360,7 +1228,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Status Dependency',
       name: 'New Status Dependency',
-      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point.\"\n}'
+      code: '{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point\"\n}'
     }
     if (node.statusDependencies === undefined) {
       node.statusDependencies = []
@@ -1436,8 +1304,7 @@ function newUiObjectsFromNodes () {
     let object = {
       type: 'Dataset Definition',
       name: 'New Dataset Definition',
-      code: '{}',
-      referenceChildren: []
+      code: '{}'
     }
     if (node.datasets === undefined) {
       node.datasets = []
@@ -1475,20 +1342,6 @@ function newUiObjectsFromNodes () {
       node.modules = []
     }
     node.modules.push(object)
-    createUiObject(true, object.type, object.name, object, node, node)
-
-    return object
-  }
-
-  function addPlotterPanel (node) {
-    let object = {
-      type: 'Plotter Panel',
-      name: 'New Plotter Panel'
-    }
-    if (node.panels === undefined) {
-      node.panels = []
-    }
-    node.panels.push(object)
     createUiObject(true, object.type, object.name, object, node, node)
 
     return object
@@ -1711,8 +1564,7 @@ function newUiObjectsFromNodes () {
 
   function addDefinition (node) {
     let definition = {
-      name: 'New Definition',
-      referenceChildren: []
+      name: 'New Definition'
     }
     node.rootNodes.push(definition)
     createUiObject(true, 'Definition', definition.name, definition, node, undefined, 'Definition')
@@ -1769,9 +1621,14 @@ function newUiObjectsFromNodes () {
     let exchangeAccount = parentNode
     let key = {
       name: 'New Key',
-      code: 'Paste your exchange API secret key here and the put the key name as this key object title. Secret keys are filtered out and NOT exported when using the SHARE menu option on any object at your workspace. Secret keys ARE downloaded when using the download button.'
+      code: '{ \n\"name\": \"Paste your exchange API here\",\n"secret\": \"Paste your exchange API secret key here. Exchange keys are filtered out and NOT exported when using the SHARE menu option on any node at your workspace. Exchange keys ARE downloaded when using the DOWNLOAD button or the CLONE button.\"\n}'
     }
-    exchangeAccount.keys.push(key)
+    if (exchangeAccount.keys !== undefined) {
+      exchangeAccount.keys.push(key)
+    } else {
+      exchangeAccount.key = key
+    }
+
     createUiObject(true, 'Exchange Account Key', key.name, key, exchangeAccount, exchangeAccount, 'Account Key')
 
     return key
@@ -1873,7 +1730,7 @@ function newUiObjectsFromNodes () {
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
-        code: '01-hs'
+        code: '{ \n\"value\": \"01-hs\"\n}'
       }
       createUiObject(true, 'Time Period', '', node.timePeriod, node, node)
     }
@@ -2103,7 +1960,7 @@ function newUiObjectsFromNodes () {
       node.javascriptCode = {
         code: DEFAULT_CODE_TEXT
       }
-      createUiObject(true, 'Javascript Code', '', node.code, node, node)
+      createUiObject(true, 'Javascript Code', '', node.javascriptCode, node, node)
     }
 
     return node.javascriptCode
@@ -2177,6 +2034,15 @@ function newUiObjectsFromNodes () {
   function createUiObject (userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
     let payload = {}
 
+    if (node.id === undefined) {
+      node.id = newUniqueId()
+    } else {
+      let testNode = mapOfNodes.get(node.id)
+      if (testNode !== undefined && testNode.cleaned !== true) {
+        node.id = newUniqueId()
+      }
+    }
+
     if (name === '' || name === undefined) { name = 'My ' + uiObjectType }
     if (node.savedPayload !== undefined) {
       /* If there is a position offset, we apply it here. */
@@ -2196,6 +2062,15 @@ function newUiObjectsFromNodes () {
 
       if (payload.targetPosition.x === null) { payload.targetPosition.x = spawnPosition.x }
       if (payload.targetPosition.y === null) { payload.targetPosition.y = spawnPosition.y }
+
+      /* Reference children connection to parents */
+      if (node.savedPayload.referenceParent !== undefined) {
+        payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
+
+        if (payload.referenceParent !== undefined) {
+          mapOfReferenceChildren.set(node.id, node)
+        }
+      }
     } else {
       if (chainParent === undefined) {
         payload.targetPosition = {
@@ -2229,11 +2104,10 @@ function newUiObjectsFromNodes () {
     payload.chainParent = chainParent
     payload.onMenuItemClick = canvas.designerSpace.workspace.onMenuItemClick
 
-    if (node.id === undefined) {
-      node.id = newUniqueId()
-    }
     node.payload = payload
     node.type = uiObjectType
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
+
+    mapOfNodes.set(node.id, node)
   }
 }

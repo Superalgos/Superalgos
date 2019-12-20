@@ -133,8 +133,8 @@ function newCanvas () {
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
+      animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-      animation.addCallBackFunction('Strategy Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {
@@ -195,6 +195,21 @@ function newCanvas () {
           return
         }
       }
+      if (nodeOnFocus.payload.uiObject.configEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.configEditor.visible === true) {
+          return
+        }
+      }
+      if (nodeOnFocus.payload.uiObject.formulaEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.formulaEditor.visible === true) {
+          return
+        }
+      }
+      if (nodeOnFocus.payload.uiObject.conditionEditor !== undefined) {
+        if (nodeOnFocus.payload.uiObject.conditionEditor.visible === true) {
+          return
+        }
+      }
       if (nodeOnFocus.payload.uiObject.uiObjectTitle !== undefined) {
         if (nodeOnFocus.payload.uiObject.uiObjectTitle.editMode === true) {
           return
@@ -207,6 +222,19 @@ function newCanvas () {
         console.log(nodeOnFocus)
         return
       }
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Regenerates APP SCHEMA FILE
+      /*
+      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
+        let schemaNode = APP_SCHEMA_ARRAY[i]
+        schemaNode.addLeftIcons = true
+      }
+      */
+      let text = JSON.stringify(APP_SCHEMA_ARRAY)
+      let fileName = 'AppSchema.json'
+      download(fileName, text)
+      return
     }
 
     if (event.altKey === true && event.code === 'ArrowUp') {

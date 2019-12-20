@@ -1,5 +1,6 @@
 function newNodeDeleter () {
   thisObject = {
+    deleteUIObject: deleteUIObject,
     deleteDefinition: deleteDefinition,
     deleteNetwork: deleteNetwork,
     deleteNetworkNode: deleteNetworkNode,
@@ -25,7 +26,6 @@ function newNodeDeleter () {
     deleteDatasetDefinition: deleteDatasetDefinition,
     deletePlotter: deletePlotter,
     deletePlotterModule: deletePlotterModule,
-    deletePlotterPanel: deletePlotterPanel,
     deleteSocialBots: deleteSocialBots,
     deleteSocialBot: deleteSocialBot,
     deleteAnnouncement: deleteAnnouncement,
@@ -186,10 +186,6 @@ function newNodeDeleter () {
           }
           case 'Plotter Module': {
             deletePlotterModule(rootNode, rootNodes)
-            break
-          }
-          case 'Plotter Panel': {
-            deletePlotterPanel(rootNode, rootNodes)
             break
           }
           case 'Social Bots': {
@@ -378,7 +374,7 @@ function newNodeDeleter () {
           }
 
           default: {
-            console.log('WARNING this node type is not listed at NodeDeleter: ' + rootNode.type)
+            deleteUIObject(rootNode, rootNodes)
           }
         }
       }
@@ -389,6 +385,72 @@ function newNodeDeleter () {
     cleanNode(node)
   }
 
+  function deleteUIObject (node, rootNodes) {
+    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    if (nodeDefinition !== undefined) {
+      /* Remove all of its own children nodes. */
+      if (nodeDefinition.properties !== undefined) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+
+          switch (property.type) {
+            case 'node': {
+              if (node[property.name] !== undefined) {
+                deleteUIObject(node[property.name], rootNodes)
+              }
+            }
+              break
+            case 'array': {
+              let nodePropertyArray = node[property.name]
+              if (nodePropertyArray !== undefined) {
+                while (nodePropertyArray.length > 0) {
+                  deleteUIObject(nodePropertyArray[0], rootNodes)
+                }
+              }
+            }
+              break
+          }
+        }
+      }
+
+      /* Remove node from parent */
+      if (node.payload.parentNode !== undefined) {
+        let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+        if (parentNodeDefinition !== undefined) {
+          if (parentNodeDefinition.properties !== undefined) {
+            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+              let property = parentNodeDefinition.properties[i]
+              if (nodeDefinition.propertyNameAtParent === property.name) {
+                switch (property.type) {
+                  case 'node': {
+                    node.payload.parentNode[property.name] = undefined
+                  }
+                    break
+                  case 'array': {
+                    let nodePropertyArray = node.payload.parentNode[property.name]
+                    if (nodePropertyArray !== undefined) {
+                      for (let j = 0; j < nodePropertyArray.length; j++) {
+                        let arrayItem = nodePropertyArray[j]
+                        if (arrayItem.id === node.id) {
+                          nodePropertyArray.splice(j, 1)
+                        }
+                      }
+                    }
+                  }
+                    break
+                }
+              }
+            }
+          }
+        }
+      }
+
+      completeDeletion(node, rootNodes)
+      destroyUiObject(node)
+      cleanNode(node)
+    }
+  }
+
   function deleteDefinition (node, rootNodes) {
     let payload = node.payload
 
@@ -397,10 +459,6 @@ function newNodeDeleter () {
     }
     if (node.personalData !== undefined) {
       deletePersonalData(node.personalData, rootNodes)
-    }
-    for (let i = 0; i < node.referenceChildren.length; i++) {
-      let child = node.referenceChildren[i]
-      child.payload.referenceParent = undefined
     }
     completeDeletion(node, rootNodes)
     destroyUiObject(node)
@@ -923,31 +981,14 @@ function newNodeDeleter () {
       deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
+    if (node.shapes !== undefined) {
+      deleteUIObject(node.shapes, rootNodes)
+    }
+
     if (node.panels !== undefined) {
       while (node.panels.length > 0) {
-        deletePlotterPanel(node.panels[0], rootNodes)
+        deleteUIObject(node.panels[0], rootNodes)
       }
-    }
-
-    completeDeletion(node, rootNodes)
-    destroyUiObject(node)
-    cleanNode(node)
-  }
-
-  function deletePlotterPanel (node, rootNodes) {
-    let payload = node.payload
-
-    if (payload.parentNode !== undefined) {
-      for (let j = 0; j < payload.parentNode.panels.length; j++) {
-        let panel = payload.parentNode.panels[j]
-        if (panel.id === node.id) {
-          payload.parentNode.panels.splice(j, 1)
-        }
-      }
-    }
-
-    if (node.javascriptCode !== undefined) {
-      deleteJavascriptCode(node.javascriptCode, rootNodes)
     }
 
     completeDeletion(node, rootNodes)
@@ -1162,15 +1203,6 @@ function newNodeDeleter () {
 
     if (node.socialBots !== undefined) {
       deleteSocialBots(node.socialBots, rootNodes)
-    }
-    if (node.payload.referenceParent !== undefined) {
-      for (let i = 0; i < node.payload.referenceParent.referenceChildren.length; i++) {
-        let child = node.payload.referenceParent.referenceChildren[i]
-        if (child.id === node.id) {
-          node.payload.referenceParent.referenceChildren.splice(i, 1)
-          return
-        }
-      }
     }
 
     completeDeletion(node, rootNodes)

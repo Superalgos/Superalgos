@@ -94,6 +94,8 @@ function newCircularProgressBar () {
     for (let i = 0; i < 60; i++) {
       let OPACITY = opacityCounters[i] / 1000
 
+      if (OPACITY === 0) { continue }
+
       let initialAngle = Math.PI * 2 / 60 * i - Math.PI / 2
       let finalAngle = Math.PI * 2 / 60 * (i + 1) - Math.PI / 2
 

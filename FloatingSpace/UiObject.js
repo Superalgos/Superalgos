@@ -254,308 +254,314 @@ function newUiObject () {
     if (thisObject.payload.chainParent !== undefined) { return }
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
-    let compatibleType
-    let compatibleSubType
+    let compatibleTypes
+    let compatibleSubTypes
     switch (thisObject.payload.node.type) {
       case 'Sensor Bot':
-        compatibleType = '->' + 'Team' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Team' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Indicator Bot':
-        compatibleType = '->' + 'Team' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Team' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trading Bot':
-        compatibleType = '->' + 'Team' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Team' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Process Definition':
-        compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Process Output':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Process Dependencies':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Status Report':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Execution Started Event':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Execution Finished Event':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Calculations Procedure':
-        compatibleType = '->' + 'Product Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Product Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Data Building Procedure':
-        compatibleType = '->' + 'Product Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Product Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Procedure Initialization':
-        compatibleType = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Procedure Loop':
-        compatibleType = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Output Dataset':
-        compatibleType = '->' + 'Process Output' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Output' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Status Dependency':
-        compatibleType = '->' + 'Process Dependencies' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Dependencies' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Data Dependency':
-        compatibleType = '->' + 'Process Dependencies' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Dependencies' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Product Definition':
-        compatibleType = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Record Definition':
-        compatibleType = '->' + 'Product Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Product Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Record Property':
-        compatibleType = '->' + 'Record Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Record Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Dataset Definition':
-        compatibleType = '->' + 'Product Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Product Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Plotter':
-        compatibleType = '->' + 'Team' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Team' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Plotter Module':
-        compatibleType = '->' + 'Plotter' + '->'
-        compatibleSubType = undefined
-        break
-      case 'Plotter Panel':
-        compatibleType = '->' + 'Plotter Module' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Plotter' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trading System':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Personal Data':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Network Node':
-        compatibleType = '->' + 'Network' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Network' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Exchange Account':
-        compatibleType = '->' + 'Personal Data' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Personal Data' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Exchange Account Asset':
-        compatibleType = '->' + 'Exchange Account' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Exchange Account' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Exchange Account Key':
-        compatibleType = '->' + 'Exchange Account' + '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Exchange Account' + '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Parameters':
-        compatibleType = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubType = '->' + 'Trading Process Instance' + '->'
+        compatibleTypes = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
         break
       case 'Backtesting Session':
-        compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Process Instance' + '->'
+        compatibleTypes = '->' + 'Process Instance' + '->'
+        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
         break
       case 'Live Trading Session':
-        compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Process Instance' + '->'
+        compatibleTypes = '->' + 'Process Instance' + '->'
+        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
         break
       case 'Paper Trading Session':
-        compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Process Instance' + '->'
+        compatibleTypes = '->' + 'Process Instance' + '->'
+        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
         break
       case 'Fordward Testing Session':
-        compatibleType = '->' + 'Process Instance' + '->'
-        compatibleSubType = '->' + 'Trading Process Instance' + '->'
+        compatibleTypes = '->' + 'Process Instance' + '->'
+        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
         break
       case 'Base Asset':
-        compatibleType = '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Time Range':
-        compatibleType = '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Time Period':
-        compatibleType = '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Slippage':
-        compatibleType = '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Fee Structure':
-        compatibleType = '->' + 'Parameters' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Parameters' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Layer Manager':
-        compatibleType = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Layer':
-        compatibleType = '->' + 'Layer Manager' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Layer Manager' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Social Bots':
-        compatibleType = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Telegram Bot':
-        compatibleType = '->' + 'Social Bots' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Social Bots' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Announcement':
-        compatibleType = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->' + 'Next Phase Event' + '->' + '->' + 'Phase' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->' + 'Next Phase Event' + '->' + '->' + 'Phase' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Task Manager':
-        compatibleType = '->' + 'Network Node' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Network Node' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Task':
-        compatibleType = '->' + 'Task Manager' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Task Manager' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Sensor Bot Instance':
-        compatibleType = '->' + 'Task' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Task' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Indicator Bot Instance':
-        compatibleType = '->' + 'Task' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Task' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trading Bot Instance':
-        compatibleType = '->' + 'Task' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Task' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Process Instance':
         switch (thisObject.payload.node.subType) {
           case 'Sensor Process Instance': {
-            compatibleType = '->' + 'Sensor Bot Instance' + '->'
+            compatibleTypes = '->' + 'Sensor Bot Instance' + '->'
             break
           }
           case 'Indicator Process Instance': {
-            compatibleType = '->' + 'Indicator Bot Instance' + '->'
+            compatibleTypes = '->' + 'Indicator Bot Instance' + '->'
             break
           }
           case 'Trading Process Instance': {
-            compatibleType = '->' + 'Trading Bot Instance' + '->'
+            compatibleTypes = '->' + 'Trading Bot Instance' + '->'
             break
           }
         }
-        compatibleSubType = undefined
+        compatibleSubTypes = undefined
         break
       case 'Strategy':
-        compatibleType = '->' + 'Trading System' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Trading System' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trigger Stage':
-        compatibleType = '->' + 'Strategy' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Strategy' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Open Stage':
-        compatibleType = '->' + 'Strategy' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Strategy' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Manage Stage':
-        compatibleType = '->' + 'Strategy' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Strategy' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Close Stage':
-        compatibleType = '->' + 'Strategy' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Strategy' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Position Size':
-        compatibleType = '->' + 'Initial Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Initial Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Position Rate':
-        compatibleType = '->' + 'Initial Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Initial Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Take Position Event':
-        compatibleType = '->' + 'Trigger Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Trigger Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trigger Off Event':
-        compatibleType = '->' + 'Trigger Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Trigger Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Trigger On Event':
-        compatibleType = '->' + 'Trigger Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Trigger Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Initial Definition':
-        compatibleType = '->' + 'Open Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Open Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Open Execution':
-        compatibleType = '->' + 'Open Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Open Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Close Execution':
-        compatibleType = '->' + 'Close Stage' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Close Stage' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Stop':
-        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Take Profit':
-        compatibleType = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Phase':
-        compatibleType = '->' + 'Stop' + '->' + 'Take Profit' + '->' + 'Phase' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Stop' + '->' + 'Take Profit' + '->' + 'Phase' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Formula':
-        compatibleType = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->' + 'Record Property' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->' + 'Record Property' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Next Phase Event':
-        compatibleType = '->' + 'Phase' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Phase' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Situation':
-        compatibleType = '->' + 'Take Position Event' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Next Phase Event' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Take Position Event' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Next Phase Event' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Condition':
-        compatibleType = '->' + 'Situation' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Situation' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Javascript Code':
-        compatibleType = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
+        compatibleSubTypes = undefined
         break
       default:
-        return
+        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        if (nodeDefinition !== undefined) {
+          if (nodeDefinition.chainAttachesTo !== undefined) {
+            compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+            compatibleSubTypes = nodeDefinition.chainAttachesTo.compatibleSubTypes
+          } else {
+            return
+          }
+        } else {
+          return
+        }
     }
     let foundCompatible = false
     chainAttachToNode = undefined
@@ -566,8 +572,36 @@ function newUiObject () {
       let distance = nearby[0]
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
-      if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
-        /* Discard objects with busy coonection ports */
+      if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
+        /* Discard App Schema defined objects with busy coonection ports */
+        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        if (nodeDefinition !== undefined) {
+          let mustContinue = false
+          let parentNodeDefinition = APP_SCHEMA_MAP.get(nearbyNode.type)
+          if (parentNodeDefinition !== undefined) {
+            if (parentNodeDefinition.properties !== undefined) {
+              for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
+                let property = parentNodeDefinition.properties[j]
+                if (nodeDefinition.propertyNameAtParent === property.name) {
+                  switch (property.type) {
+                    case 'node': {
+                      if (nearbyNode[property.name] !== undefined) {
+                        mustContinue = true
+                      }
+                    }
+                      break
+                    case 'array': {
+                        /* Nothing to worry about since an array can take more than one element. */
+                    }
+                      break
+                  }
+                }
+              }
+            }
+          }
+          if (mustContinue === true) { continue }
+        }
+        /* Discard legacy objects with busy coonection ports */
         if (thisObject.payload.node.type === 'Status Report' && nearbyNode.statusReport !== undefined) { continue }
         if (thisObject.payload.node.type === 'Execution Started Event' && nearbyNode.executionStartedEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Execution Finished Event' && nearbyNode.executionFinishedEvent !== undefined) { continue }
@@ -611,8 +645,8 @@ function newUiObject () {
         if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
         if (thisObject.payload.node.type === 'Javascript Code' && nearbyNode.javascriptCode !== undefined) { continue }
         /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
-          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
+        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
+          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
             continue
           }
         }
@@ -717,51 +751,61 @@ function newUiObject () {
     if (thisObject.payload.referenceParent !== undefined) { return }
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
-    let compatibleType
-    let compatibleSubType
+    let compatibleTypes
+    let compatibleSubTypes
     switch (thisObject.payload.node.type) {
       case 'Backtesting Session':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Live Trading Session':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Paper Trading Session':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Fordward Testing Session':
-        compatibleType = '->' + 'Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Output Dataset':
-        compatibleType = '->' + 'Dataset Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Dataset Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Data Dependency':
-        compatibleType = '->' + 'Dataset Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Dataset Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Status Dependency':
-        compatibleType = '->' + 'Status Report' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Status Report' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Execution Started Event':
-        compatibleType = '->' + 'Execution Finished Event' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Execution Finished Event' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Process Instance':
-        compatibleType = '->' + 'Process Definition' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Process Definition' + '->'
+        compatibleSubTypes = undefined
         break
       case 'Product Definition':
-        compatibleType = '->' + 'Plotter Module' + '->'
-        compatibleSubType = undefined
+        compatibleTypes = '->' + 'Plotter Module' + '->'
+        compatibleSubTypes = undefined
         break
       default:
-        return
+        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        if (nodeDefinition !== undefined) {
+          if (nodeDefinition.referenceAttachesTo !== undefined) {
+            compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+            compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
+          } else {
+            return
+          }
+        } else {
+          return
+        }
     }
     let foundCompatible = false
     referenceAttachToNode = undefined
@@ -772,10 +816,10 @@ function newUiObject () {
       let distance = nearby[0]
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
-      if (compatibleType.indexOf('->' + nearbyNode.type + '->') >= 0) {
+      if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubType !== undefined) {
-          if (compatibleSubType.indexOf('->' + nearbyNode.subType + '->') < 0) {
+        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
+          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
             continue
           }
         }
@@ -1155,7 +1199,7 @@ function newUiObject () {
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([3, 47])
-      browserCanvasContext.lineWidth = 4
+      browserCanvasContext.lineWidth = 3
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
 
@@ -1164,7 +1208,7 @@ function newUiObject () {
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([1, 9])
-      browserCanvasContext.lineWidth = 2
+      browserCanvasContext.lineWidth = 1
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
     }
@@ -1211,7 +1255,7 @@ function newUiObject () {
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([1, 9])
-      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.lineWidth = 0.75
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
 
@@ -1219,7 +1263,7 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 0, 100])
+      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 0, 500])
       browserCanvasContext.lineWidth = 4
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])

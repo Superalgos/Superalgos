@@ -31,7 +31,13 @@ function newPlotter () {
   container.initialize()
   thisObject.container = container
 
-  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline, otherwise not.
+  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline.
+  let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
+  let plotterModuleConfig
+  let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 10  // This is the amount of slots available
+  let mustRecalculateDataPoints = false
+  let atMousePositionFillStyles = new Map()
+  let atMousePositionStrokeStyles = new Map()
 
   let timePeriod                                                      // This will hold the current Time Period the user is at.
   let datetime                                                        // This will hold the current Datetime the user is at.
@@ -53,6 +59,7 @@ function newPlotter () {
   let marketFilesUpdatedEventSubscriptionId
   let dailyFilesUpdatedEventSubscriptionId
 
+  let logged = false
   return thisObject
 
   function finalize () {
@@ -74,8 +81,16 @@ function newPlotter () {
 
       marketFile = undefined
       fileCursor = undefined
+
+      timeLineCoordinateSystem = undefined
+      slotCoordinateSystem = undefined
+      plotterModuleConfig = undefined
+      slotHeight = undefined
+      mustRecalculateDataPoints = undefined
+      atMousePositionFillStyles = undefined
+      atMousePositionStrokeStyles = undefined
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack.stack) }
     }
   }
 
@@ -115,7 +130,7 @@ function newPlotter () {
 
       callBackFunction()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
   }
@@ -125,10 +140,11 @@ function newPlotter () {
       let newMarketFile = marketFiles.getFile(timePeriod)
       if (newMarketFile !== undefined) {
         marketFile = newMarketFile
+        mustRecalculateDataPoints = true
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onMarketFilesUpdated -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onMarketFilesUpdated -> err = ' + err.stack.stack) }
     }
   }
 
@@ -137,10 +153,11 @@ function newPlotter () {
       let newFileCursor = dailyFiles.getFileCursor(timePeriod)
       if (newFileCursor !== undefined) {
         fileCursor = newFileCursor
+        mustRecalculateDataPoints = true
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFilesUpdated -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFilesUpdated -> err = ' + err.stack.stack) }
     }
   }
 
@@ -155,7 +172,7 @@ function newPlotter () {
         return undefined
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getContainer -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] getContainer -> err = ' + err.stack) }
     }
   }
 
@@ -163,7 +180,7 @@ function newPlotter () {
     try {
       if (timePeriod !== pTimePeriod) {
         timePeriod = pTimePeriod
-
+        mustRecalculateDataPoints = true
         if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
           let newMarketFile = marketFiles.getFile(pTimePeriod)
 
@@ -181,7 +198,7 @@ function newPlotter () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
     }
   }
 
@@ -196,7 +213,7 @@ function newPlotter () {
         recalculate()
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFileLoaded -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDailyFileLoaded -> err = ' + err.stack) }
     }
   }
 
@@ -205,7 +222,7 @@ function newPlotter () {
       this.container.frame.draw()
       plotChart()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }
     }
   }
 
@@ -218,7 +235,7 @@ function newPlotter () {
       }
       thisObject.container.eventHandler.raiseEvent('CandleStairs Changed', records)  // --> Check This
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculate -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculate -> err = ' + err.stack) }
     }
   }
 
@@ -274,7 +291,7 @@ function newPlotter () {
         try {
           eval(calculationsProcedure.initialization.javascriptCode.code)
         } catch (err) {
-          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack)
+          logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = ' + err.stack.stack)
           logger.write('[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = ' + calculationsProcedure.initialization.javascriptCode.code)
           throw ('Error Executing User Code.')
         }
@@ -291,7 +308,7 @@ function newPlotter () {
           try {
             eval(calculationsProcedure.loop.javascriptCode.code)
           } catch (err) {
-            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack)
+            logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = ' + err.stack.stack)
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = ' + JSON.stringify(product))
             logger.write('[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = ' + calculationsProcedure.loop.javascriptCode.code)
             throw ('Error Executing User Code.')
@@ -308,7 +325,7 @@ function newPlotter () {
                     let currentRecord = product
                     currentRecord[property.code.codeName] = newValue
                   } catch (err) {
-                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack)
+                    logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack.stack)
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Code = ' + property.formula.code)
                     throw ('Error Executing User Code.')
@@ -376,7 +393,7 @@ function newPlotter () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingDailyFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingDailyFiles -> err = ' + err.stack) }
     }
   }
 
@@ -394,6 +411,14 @@ function newPlotter () {
       leftDate = new Date(leftDate.valueOf() - dateDiff * 1.5)
       rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5)
 
+      for (let i = 0; i < records.length; i++) {
+        let record = records[i]
+        record.fillStyle = undefined
+        record.strokeStyle = undefined
+        record.dataPoints = undefined
+        record.previous = undefined
+        records[i] = {}
+      }
       records = []
 
       /* Transform the current file content into an array of JSON objects */
@@ -407,14 +432,14 @@ function newPlotter () {
         records.push(...jsonData)// This adds records to the current array.
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingMarketFiles -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateUsingMarketFiles -> err = ' + err.stack) }
     }
   }
 
   function recalculateScale () {
     try {
       if (timeLineCoordinateSystem.maxValue > 0) { return } // Already calculated.
-
+      /* First we calculate the default scale */
       let minValue = {
         x: MIN_PLOTABLE_DATE.valueOf(),
         y: 0
@@ -431,8 +456,25 @@ function newPlotter () {
                 thisObject.container.frame.width,
                 thisObject.container.frame.height
             )
+
+      /* In case the plotter is configured to a certain slot, we calculate the slot coordinate system too. */
+      if (productDefinition.referenceParent.code === undefined) { return }
+      plotterModuleConfig = JSON.parse(productDefinition.referenceParent.code)
+      if (plotterModuleConfig.slot === undefined) { return }
+
+      slotCoordinateSystem = newTimeLineCoordinateSystem()
+
+      minValue.y = plotterModuleConfig.slot.minValue
+      maxValue.y = plotterModuleConfig.slot.maxValue
+
+      slotCoordinateSystem.initialize(
+                minValue,
+                maxValue,
+                thisObject.container.frame.width,
+                slotHeight
+            )
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
     }
   }
 
@@ -449,6 +491,12 @@ function newPlotter () {
 
       for (let i = 0; i < records.length; i++) {
         let record = records[i]
+
+        if (i == 0) {
+          record.previous = record
+        } else {
+          record.previous = records[i - 1]
+        }
 
         let beginPoint = {
           x: record.begin,
@@ -480,18 +528,250 @@ function newPlotter () {
           thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
         }
 
-        eval(productDefinition.referenceParent.javascriptCode.code)
+        /* If there is code we execute it now. */
+        if (productDefinition.referenceParent.javascriptCode !== undefined) {
+          eval(productDefinition.referenceParent.javascriptCode.code)
+        }
+
+        if (productDefinition.referenceParent.shapes === undefined) { continue }
+        if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
+
+        let dataPoints = new Map()
+        if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
+          /* We use the datapoints already calculated. */
+          dataPoints = record.dataPoints
+        } else {
+          if (logged === false) {
+            logged = true
+          }
+          /* Only calculate the datapoints for this record, if we have not calculate it before. */
+          for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
+            let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
+            for (let j = 0; j < chartPoints.points.length; j++) {
+              let point = chartPoints.points[j]
+              if (point.pointFormula !== undefined) {
+                let x = 0
+                let y = 0
+                eval(point.pointFormula.code)
+                let dataPoint = {
+                  x: x,
+                  y: y
+                }
+
+              /*
+              The information we store in files is independent from the charing system and its coordinate systems.
+              That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+              */
+                dataPoint = timeLineCoordinateSystem.transformThisPoint(dataPoint)
+
+              /*
+              The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
+              need the points to be converted into the canvas coordinate system.
+              Next we transform again to the screen coordinate system.
+              */
+                dataPoint = transformThisPoint(dataPoint, thisObject.container)
+
+              /* Store the data point at the local map */
+                dataPoints.set(point.id, dataPoint)
+
+                if (plotterModuleConfig !== undefined) {
+                  if (plotterModuleConfig.slot !== undefined) {
+                  /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
+                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + viewPort.visibleArea.topLeft.y
+                  }
+                }
+              }
+            }
+          }
+
+          /* Remember this datapoints, so that we do not need to calculate them again. */
+          record.dataPoints = dataPoints
+        }
+
+        for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
+          let polygon = productDefinition.referenceParent.shapes.polygons[j]
+          let calculatedStyle
+
+          /* Finding out the fill style */
+          let fillStyle = { // default values
+            opacity: 1,
+            paletteColor: UI_COLOR.BLACK
+          }
+          if (polygon.polygonBody !== undefined) {
+            if (record.fillStyle === undefined) {
+              record.fillStyle = new Map()
+            }
+            calculatedStyle = record.fillStyle.get(polygon.id)
+            if (calculatedStyle !== undefined) {
+            /* We use the already calculated style */
+              fillStyle = calculatedStyle
+            } else {
+              /* Get the default style if exists */
+              if (polygon.polygonBody.style !== undefined) {
+                if (polygon.polygonBody.style.code !== undefined) {
+                  if (polygon.polygonBody.style.code.default !== undefined) {
+                    let bodyStyle = polygon.polygonBody.style.code.default
+                    if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                    if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                  }
+                }
+              }
+              /* Apply conditional styles */
+              if (polygon.polygonBody.styleConditions !== undefined) {
+                for (let k = 0; k < polygon.polygonBody.styleConditions.length; k++) {
+                  let condition = polygon.polygonBody.styleConditions[k]
+                  let value = eval(condition.code)
+                  if (value === true) {
+                    if (condition.style !== undefined) {
+                      let bodyStyle = condition.style.code
+                      if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
+                      if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
+                    }
+                  }
+                }
+              }
+              /* Get the atMousePosition style if exists */
+              if (polygon.polygonBody.style !== undefined) {
+                if (polygon.polygonBody.style.code.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBody.style.code.atMousePosition
+                  let atMousePositionStyle = {}
+                  if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                  if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                  atMousePositionFillStyles.set(polygon.id, atMousePositionStyle)
+                }
+              }
+
+              record.fillStyle.set(polygon.id, fillStyle)
+            }
+          }
+
+          /* Finding out the stroke style */
+          let strokeStyle = { // default values
+            opacity: 1,
+            paletteColor: UI_COLOR.BLACK,
+            lineWidth: 1,
+            lineDash: [0, 0]
+          }
+          if (polygon.polygonBorder !== undefined) {
+            if (record.strokeStyle === undefined) {
+              record.strokeStyle = new Map()
+            }
+            calculatedStyle = record.strokeStyle.get(polygon.id)
+            if (calculatedStyle !== undefined) {
+            /* We use the already calculated style */
+              strokeStyle = calculatedStyle
+            } else {
+              /* Get the default style if exists */
+              if (polygon.polygonBorder.style !== undefined) {
+                if (polygon.polygonBorder.style.code !== undefined) {
+                  if (polygon.polygonBorder.style.code.default !== undefined) {
+                    let borderStyle = polygon.polygonBorder.style.code.default
+                    if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                    if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                    if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                    if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                  }
+                }
+              }
+              /* Apply conditional styles */
+              if (polygon.polygonBorder.styleConditions !== undefined) {
+                for (let k = 0; k < polygon.polygonBorder.styleConditions.length; k++) {
+                  let condition = polygon.polygonBorder.styleConditions[k]
+                  let value = eval(condition.code)
+                  if (value === true) {
+                    if (condition.style !== undefined) {
+                      let borderStyle = condition.style.code
+                      if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
+                      if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
+                      if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
+                      if (borderStyle.lineDash !== undefined) { strokeStyle.lineDash = borderStyle.lineDash }
+                    }
+                  }
+                }
+              }
+              /* Get the atMousePosition style if exists */
+              if (polygon.polygonBorder.style !== undefined) {
+                if (polygon.polygonBorder.style.code.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBorder.style.code.atMousePosition
+                  let atMousePositionStyle = {}
+                  if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
+                  if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
+                  if (atMousePositionStyleDefinition.lineWidth !== undefined) { atMousePositionStyle.lineWidth = atMousePositionStyleDefinition.lineWidth }
+                  if (atMousePositionStyleDefinition.lineDash !== undefined) { atMousePositionStyle.lineDash = atMousePositionStyleDefinition.lineDash }
+                  atMousePositionStrokeStyles.set(polygon.id, atMousePositionStyle)
+                }
+              }
+
+              record.strokeStyle.set(polygon.id, strokeStyle)
+            }
+          }
+
+          /* Draw the Polygon */
+          browserCanvasContext.beginPath()
+          for (let k = 0; k < polygon.polygonVertexes.length; k++) {
+            let polygonVertex = polygon.polygonVertexes[k]
+            if (polygonVertex.referenceParent !== undefined) {
+              let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
+              let dataPoint = {
+                x: dataPointObject.x,
+                y: dataPointObject.y
+              }
+              /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
+              dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
+              if (k === 0) {
+                browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
+              } else {
+                browserCanvasContext.lineTo(dataPoint.x, dataPoint.y)
+              }
+            }
+          }
+          browserCanvasContext.closePath()
+
+        /* Apply the fill style to the canvas object */
+          if (polygon.polygonBody !== undefined) {
+            /* Replace the fill style if we are at mouse position */
+            if (atMousePosition === true) {
+              let atMousePositionFillStyle = atMousePositionFillStyles.get(polygon.id)
+              if (atMousePositionFillStyle !== undefined) {
+                fillStyle = atMousePositionFillStyle
+              }
+            }
+
+            browserCanvasContext.fillStyle = 'rgba(' + fillStyle.paletteColor + ', ' + fillStyle.opacity + ')'
+            browserCanvasContext.fill()
+          }
+
+        /* Apply the stroke style to the canvas object */
+          if (polygon.polygonBorder !== undefined) {
+            /* Replace the stroke style if we are at mouse position */
+            if (atMousePosition === true) {
+              let atMousePositionStrokeStyle = atMousePositionStrokeStyles.get(polygon.id)
+              if (atMousePositionStrokeStyle !== undefined) {
+                strokeStyle = atMousePositionStrokeStyle
+              }
+            }
+
+            browserCanvasContext.lineWidth = strokeStyle.lineWidth
+            browserCanvasContext.setLineDash(strokeStyle.lineDash)
+            browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
+            browserCanvasContext.stroke()
+          }
+        }
       }
+
+      mustRecalculateDataPoints = false
+      logged = false
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }
     }
   }
 
   function onZoomChanged (event) {
     try {
+      mustRecalculateDataPoints = true
       recalculate()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onZoomChanged -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onZoomChanged -> err = ' + err.stack) }
     }
   }
 
@@ -499,12 +779,13 @@ function newPlotter () {
     try {
       recalculate()
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDragFinished -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onDragFinished -> err = ' + err.stack) }
     }
   }
 
   function onOffsetChanged (event) {
     try {
+      mustRecalculateDataPoints = true
       if (event !== undefined) {
         if (event.recalculate === true) {
           recalculate()
@@ -515,7 +796,7 @@ function newPlotter () {
         recalculate()
       };
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onOffsetChanged -> err = ' + err) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] onOffsetChanged -> err = ' + err.stack) }
     }
   }
 }

@@ -100,7 +100,7 @@ function newNoteSets () {
 
             let i
 
-            for (i = 0; i < pNewNotes.length; i++) {
+            for (let i = 0; i < pNewNotes.length; i++) {
               let plotterNote = pNewNotes[i]
               let plotterNoteKey = plotterNote.date.toString() + plotterNote.rate.toString()
 

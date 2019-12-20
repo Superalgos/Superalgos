@@ -17,6 +17,7 @@ function newWorkspace () {
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
+    draw: draw,
     spawn: spawn,
     chainDetachNode: chainDetachNode,
     chainAttachNode: chainAttachNode,
@@ -51,12 +52,18 @@ function newWorkspace () {
   let functionLibraryNodeDeleter = newNodeDeleter()
   let functionLibraryUiObjectsFromNodes = newUiObjectsFromNodes()
   let functionLibraryProtocolNode = newProtocolNode()
+  let functionLibraryNodeCloning = newNodeCloning()
   let functionLibraryTaskFunctions = newTaskFunctions()
   let functionLibrarySessionFunctions = newSessionFunctions()
   let functionLibraryShortcutKeys = newShortcutKeys()
   let functionLibraryOnFocus = newOnFocus()
 
   thisObject.nodeChildren = newNodeChildren()
+
+  let workingAtTask = 0
+  let circularProgressBar = newBusyProgressBar()
+  circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
+  let droppedNode
 
   return thisObject
 
@@ -65,6 +72,8 @@ function newWorkspace () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.workspaceNode = undefined
+    circularProgressBar.finalize()
+    circularProgressBar = undefined
   }
 
   function initialize () {
@@ -102,15 +111,49 @@ function newWorkspace () {
 
   function physics () {
     if (thisObject.enabled !== true) { return }
-    /* Here we will save all the workspace related objects into the local storage */
-    let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-    if (user === null) {
-      return
-    }
-    user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+
+    if (workingAtTask > 0) {
+      circularProgressBar.physics()
+
+      switch (workingAtTask) {
+        case 1:
+          stopAllRunningTasks()
+          workingAtTask++
+          break
+        case 2:
+          functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
+          workingAtTask++
+          break
+        case 3:
+          thisObject.workspaceNode = droppedNode
+          droppedNode = undefined
+          workingAtTask++
+          break
+        case 4:
+          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+          workingAtTask++
+          break
+        case 5:
+          canvas.chartSpace.finalize()
+          workingAtTask++
+          break
+        case 6:
+          canvas.chartSpace.initialize()
+          workingAtTask = 0
+          circularProgressBar.visible = false
+          break
+
+      }
+    }
+  }
+
+  function draw () {
+    if (circularProgressBar !== undefined) {
+      circularProgressBar.draw()
+    }
   }
 
   function stringifyWorkspace (removePersonalData) {
@@ -158,7 +201,7 @@ function newWorkspace () {
             let networkNode = rootNode.networkNodes[j]
             for (let i = 0; i < networkNode.taskManagers.length; i++) {
               let taskManager = networkNode.taskManagers[i]
-              for (k = 0; k < taskManager.tasks.length; k++) {
+              for (let k = 0; k < taskManager.tasks.length; k++) {
                 let task = taskManager.tasks[k]
                 if (task.bot !== undefined) {
                   if (task.bot.type === 'Trading Bot Instance') {
@@ -179,7 +222,6 @@ function newWorkspace () {
   function getNodeByShortcutKey (searchingKey) {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let definition = rootNode
       let node = functionLibraryShortcutKeys.getNodeByShortcutKey(rootNode, searchingKey)
       if (node !== undefined) { return node }
     }
@@ -188,61 +230,41 @@ function newWorkspace () {
   function getNodeThatIsOnFocus () {
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let definition = rootNode
       let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
       if (node !== undefined) { return node }
     }
   }
 
-  function spawn (nodeText, point) {
+  function spawn (nodeText, mousePointer) {
     try {
+      let point = {
+        x: mousePointer.x,
+        y: mousePointer.y
+      }
       point = canvas.floatingSpace.container.frame.unframeThisPoint(point)
       spawnPosition.x = point.x
       spawnPosition.y = point.y
 
-      let droppedNode = JSON.parse(nodeText)
+      droppedNode = JSON.parse(nodeText)
 
       if (droppedNode.type === 'Workspace') {
-        stopAllRunningTasks()
-        functionLibraryNodeDeleter.deleteWorkspace(thisObject.workspaceNode, thisObject.workspaceNode.rootNodes)
-        canvas.floatingSpace.warmUp()
-        thisObject.workspaceNode = droppedNode
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-        canvas.chartSpace.finalize()
-        canvas.chartSpace.initialize()
+        circularProgressBar.initialize(mousePointer)
+        circularProgressBar.visible = true
+        workingAtTask = 1
         return
-      } else {
-        if (
-          droppedNode.type === 'Definition' ||
-          droppedNode.type === 'Network' ||
-          droppedNode.type === 'Team'
-        ) {
-          /* We will only respect the state of each object on these structures, if the structure does not yet exist inside the workspace */
-          let alreadyExists = false
-          for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-            let rootNode = thisObject.workspaceNode.rootNodes[i]
-            if (droppedNode.id === rootNode.id) {
-              alreadyExists = true
-            }
-          }
-          if (alreadyExists === false) {
-            /* It does not exist, so we recreeate it respecting the inner state of each object. */
-            let positionOffset = {
-              x: spawnPosition.x - droppedNode.savedPayload.targetPosition.x,
-              y: spawnPosition.y - droppedNode.savedPayload.targetPosition.y
-            }
-
-            thisObject.workspaceNode.rootNodes.push(droppedNode)
-            functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
-            return
-          }
-        }
       }
 
-      /* This is the default behaviour, which consists of cleaning all nodes that are not supported and then creating the UIObjects that remains on the data structure. */
-      let rootNode = functionLibraryProtocolNode.getProtocolNode(droppedNode)
-      thisObject.workspaceNode.rootNodes.push(rootNode)
-      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(rootNode, undefined, undefined)
+      /* It does not exist, so we recreeate it respecting the inner state of each object. */
+      let positionOffset = {
+        x: spawnPosition.x - droppedNode.savedPayload.targetPosition.x,
+        y: spawnPosition.y - droppedNode.savedPayload.targetPosition.y
+      }
+
+      thisObject.workspaceNode.rootNodes.push(droppedNode)
+      functionLibraryUiObjectsFromNodes.createUiObjectFromNode(droppedNode, undefined, undefined, positionOffset)
+      functionLibraryUiObjectsFromNodes.tryToConnectChildrenWithReferenceParents()
+
+      droppedNode = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }
     }
@@ -253,6 +275,11 @@ function newWorkspace () {
       case 'Add UI Object':
         {
           functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
+        }
+        break
+      case 'Delete UI Object':
+        {
+          functionLibraryNodeDeleter.deleteUIObject(payload.node, thisObject.workspaceNode.rootNodes)
         }
         break
       case 'Share Workspace':
@@ -274,16 +301,7 @@ function newWorkspace () {
         break
       case 'Share':
         {
-          let text
-          if (
-            payload.node.type === 'Definition' ||
-            payload.node.type === 'Network' ||
-            payload.node.type === 'Team'
-          ) {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
-          } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true))
-          }
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, true, false, true, true, true))
 
           let nodeName = payload.node.name
           if (nodeName === undefined) {
@@ -298,24 +316,30 @@ function newWorkspace () {
         break
       case 'Backup':
         {
-          let text
-          if (
-            payload.node.type === 'Definition' ||
-            payload.node.type === 'Network' ||
-            payload.node.type === 'Team'
-          ) {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
-          } else {
-            text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false))
-          }
+          let text = JSON.stringify(functionLibraryProtocolNode.getProtocolNode(payload.node, false, false, true, true, true))
 
           let nodeName = payload.node.name
           if (nodeName === undefined) {
             nodeName = ''
           } else {
-            nodeName = '.' + nodeName
+            nodeName = ' ' + nodeName
           }
           let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
+          download(fileName, text)
+        }
+
+        break
+      case 'Clone':
+        {
+          let text = JSON.stringify(functionLibraryNodeCloning.getNodeClone(payload.node))
+
+          let nodeName = payload.node.name
+          if (nodeName === undefined) {
+            nodeName = ''
+          } else {
+            nodeName = ' ' + nodeName
+          }
+          let fileName = 'Clone - ' + payload.node.type + ' - ' + nodeName + '.json'
           download(fileName, text)
         }
 
@@ -478,11 +502,6 @@ function newWorkspace () {
       case 'Add Plotter Module':
         {
           functionLibraryUiObjectsFromNodes.addPlotterModule(payload.node)
-        }
-        break
-      case 'Add Plotter Panel':
-        {
-          functionLibraryUiObjectsFromNodes.addPlotterPanel(payload.node)
         }
         break
       case 'Add Network':
@@ -762,10 +781,6 @@ function newWorkspace () {
         functionLibraryNodeDeleter.deletePlotterModule(payload.node, thisObject.workspaceNode.rootNodes)
         break
       }
-      case 'Delete Plotter Panel': {
-        functionLibraryNodeDeleter.deletePlotterPanel(payload.node, thisObject.workspaceNode.rootNodes)
-        break
-      }
       case 'Delete Network': {
         functionLibraryNodeDeleter.deleteNetwork(payload.node, thisObject.workspaceNode.rootNodes)
         break
@@ -953,15 +968,5 @@ function newWorkspace () {
       default:
 
     }
-  }
-
-  function download (filename, text) {
-    let element = document.createElement('a')
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-    element.setAttribute('download', filename)
-    element.style.display = 'none'
-    document.body.appendChild(element)
-    element.click()
-    document.body.removeChild(element)
   }
 }

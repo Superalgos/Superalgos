@@ -41,6 +41,7 @@ function newFloatingSpace () {
 
   let devicePixelRatio = window.devicePixelRatio
   const SPACE_SIZE = 50000
+  const WARM_UP_LIMIT = 10000
 
   thisObject.container.frame.width = SPACE_SIZE
   thisObject.container.frame.height = SPACE_SIZE
@@ -100,7 +101,7 @@ function newFloatingSpace () {
     After that we will start evaluating which ones are too far from the current user view.
     */
 
-    if (warmingUpCounter < 10000) {
+    if (warmingUpCounter < WARM_UP_LIMIT) {
       warmingUpCounter++
       return false
     }
@@ -271,7 +272,7 @@ function newFloatingSpace () {
   }
 
   function physics () {
-    if (visible === true) {
+    if (visible === true || warmingUpCounter < WARM_UP_LIMIT) {
       browserZoomPhysics()
       thisObject.floatingLayer.physics()
     }

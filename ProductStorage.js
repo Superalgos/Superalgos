@@ -121,6 +121,8 @@ function newProductStorage (pName) {
             thisObject.fileSequences.push(fileSequences)
           }
             break
+          default:
+            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> initialize -> dataset with no type defined. Data can not be retrieved. -> codeName = ' + thisSet.codeName) }
         }
 
         function onMarketFileReady (err, pCaller) {

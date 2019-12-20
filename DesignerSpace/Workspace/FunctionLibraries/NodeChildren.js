@@ -83,9 +83,6 @@ function newNodeChildren () {
       case 'Plotter Module': {
         return countChildrenPlotterModule(parentNode, childNode)
       }
-      case 'Plotter Panel': {
-        return countChildrenPlotterPanel(parentNode, childNode)
-      }
       case 'Network Node': {
         return countChildrenNetworkNode(parentNode, childNode)
       }
@@ -231,9 +228,48 @@ function newNodeChildren () {
         return countChildrenJavascriptCode(parentNode, childNode)
       }
       default: {
-        console.log('WARNING this parentNode type is not listed at NodeChildren: ' + parentNode.type)
+        return countChildrenUiObject(parentNode, childNode)
       }
     }
+  }
+
+  function countChildrenUiObject (parentNode, childNode) {
+    let response = {
+      childrenCount: 0,
+      childIndex: undefined
+    }
+    let nodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.properties !== undefined) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+          if (parentNode[property.name] !== undefined) {
+            switch (property.type) {
+              case 'node': {
+                response.childrenCount++
+                if (parentNode[property.name].id === childNode.id) {
+                  response.childIndex = response.childrenCount
+                }
+              }
+                break
+              case 'array': {
+                let nodePropertyArray = parentNode[property.name]
+                for (let j = 0; j < nodePropertyArray.length; j++) {
+                  let child = nodePropertyArray[j]
+                  response.childrenCount++
+                  if (child.id === childNode.id) {
+                    response.childIndex = response.childrenCount
+                  }
+                }
+              }
+                break
+            }
+          }
+        }
+      }
+    }
+
+    return response
   }
 
   function countChildrenDefinition (parentNode, childNode) {
@@ -545,9 +581,9 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.code !== undefined) {
+    if (parentNode.javascriptCode !== undefined) {
       response.childrenCount++
-      if (parentNode.code.id === childNode.id) {
+      if (parentNode.javascriptCode.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -559,9 +595,9 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.code !== undefined) {
+    if (parentNode.javascriptCode !== undefined) {
       response.childrenCount++
-      if (parentNode.code.id === childNode.id) {
+      if (parentNode.javascriptCode.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -691,9 +727,15 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.code !== undefined) {
+    if (parentNode.javascriptCode !== undefined) {
       response.childrenCount++
-      if (parentNode.code.id === childNode.id) {
+      if (parentNode.javascriptCode.id === childNode.id) {
+        response.childIndex = response.childrenCount
+      }
+    }
+    if (parentNode.shapes !== undefined) {
+      response.childrenCount++
+      if (parentNode.shapes.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }
@@ -704,20 +746,6 @@ function newNodeChildren () {
         if (child.id === childNode.id) {
           response.childIndex = response.childrenCount
         }
-      }
-    }
-    return response
-  }
-
-  function countChildrenPlotterPanel (parentNode, childNode) {
-    let response = {
-      childrenCount: 0,
-      childIndex: undefined
-    }
-    if (parentNode.code !== undefined) {
-      response.childrenCount++
-      if (parentNode.code.id === childNode.id) {
-        response.childIndex = response.childrenCount
       }
     }
     return response
@@ -1474,9 +1502,9 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    if (parentNode.code !== undefined) {
+    if (parentNode.javascriptCode !== undefined) {
       response.childrenCount++
-      if (parentNode.code.id === childNode.id) {
+      if (parentNode.javascriptCode.id === childNode.id) {
         response.childIndex = response.childrenCount
       }
     }

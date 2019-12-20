@@ -111,12 +111,6 @@ function newWorkspace () {
 
   function physics () {
     if (thisObject.enabled !== true) { return }
-    /* Here we will save all the workspace related objects into the local storage */
-    let user = window.localStorage.getItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY)
-    if (user === null) {
-      return
-    }
-    user = JSON.parse(user)
 
     let textToSave = stringifyWorkspace()
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)

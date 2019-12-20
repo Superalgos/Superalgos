@@ -200,12 +200,12 @@
 
         /* This is Initialization Code */
         if (calculationsProcedure.initialization !== undefined) {
-            if (calculationsProcedure.initialization.code !== undefined) {
+            if (calculationsProcedure.initialization.javascriptCode !== undefined) {
                 try {
-                    eval(calculationsProcedure.initialization.code.code)
+                    eval(calculationsProcedure.initialization.javascriptCode.code)
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
-                    logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = " + calculationsProcedure.initialization.code.code);
+                    logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> initialization -> Error executing User Code. Code = " + calculationsProcedure.initialization.javascriptCode.code);
                     throw ("Error Executing User Code.")
                 }
             }
@@ -213,7 +213,7 @@
 
         /* This is Initialization Code */
         if (calculationsProcedure.loop !== undefined) {
-            if (calculationsProcedure.loop.code !== undefined) {
+            if (calculationsProcedure.loop.javascriptCode !== undefined) {
                 for (let index = 0; index < jsonArray.length; index++) {
 
                     let product = {}
@@ -221,11 +221,11 @@
 
                     /* This is Loop Code */
                     try {
-                        eval(calculationsProcedure.loop.code.code)
+                        eval(calculationsProcedure.loop.javascriptCode.code)
                     } catch (err) {
                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Error = " + err.stack)
                         logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
-                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = " + calculationsProcedure.loop.code.code);
+                        logger.write(MODULE_NAME, "[ERROR] calculationsProcedure -> loop -> Error executing User Code. Code = " + calculationsProcedure.loop.javascriptCode.code);
                         throw ("Error Executing User Code.")
                     }
 
@@ -264,6 +264,7 @@
         recordDefinition,
         dataBuildingProcedure,
         variableName,
+        productName,
         timePeriod,
         timePeriodLabel,
         resultsWithIrregularPeriods,
@@ -290,12 +291,12 @@
 
         /* This is Initialization Code */
         if (dataBuildingProcedure.initialization !== undefined) {
-            if (dataBuildingProcedure.initialization.code !== undefined) {
+            if (dataBuildingProcedure.initialization.javascriptCode !== undefined) {
                 try {
-                    eval(dataBuildingProcedure.initialization.code.code)
+                    eval(dataBuildingProcedure.initialization.javascriptCode.code)
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Error = " + err.stack)
-                    logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Code = " + dataBuildingProcedure.initialization.code.code);
+                    logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> initialization -> Error executing User Code. Code = " + dataBuildingProcedure.initialization.javascriptCode.code);
                     throw ("Error Executing User Code.")
                 }
             }
@@ -305,19 +306,20 @@
             /* Initialization of Last Instance */
             lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
 
-            if (interExecutionMemory.variable === undefined) {
+            if (interExecutionMemory[productName] === undefined) {
                 /* The first time the intialization variables goes to the Inter Execution Memory. */
-                interExecutionMemory.variable = JSON.parse(JSON.stringify(variable))
+                interExecutionMemory[productName] = {}
+                interExecutionMemory[productName].variable = JSON.parse(JSON.stringify(variable))
             }
             else {
                 /* We override the initialization, since the valid stuff is already at the Inter Execution Memory */
-                variable = JSON.parse(JSON.stringify(interExecutionMemory.variable)) 
+                variable = JSON.parse(JSON.stringify(interExecutionMemory[productName].variable)) 
             }
         }
 
         /* This is Initialization Code */
         if (dataBuildingProcedure.loop !== undefined) {
-            if (dataBuildingProcedure.loop.code !== undefined) {
+            if (dataBuildingProcedure.loop.javascriptCode !== undefined) {
                 let lastRecord
                 for (let index = 0; index < mainDependency.records.length; index++) {
 
@@ -338,11 +340,11 @@
 
                     /* This is Loop Code */
                     try {
-                        eval(dataBuildingProcedure.loop.code.code)
+                        eval(dataBuildingProcedure.loop.javascriptCode.code)
                     } catch (err) {
                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Error = " + err.stack)
                         logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. product = " + JSON.stringify(product))
-                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Code = " + dataBuildingProcedure.loop.code.code);
+                        logger.write(MODULE_NAME, "[ERROR] dataBuildingProcedure -> loop -> Error executing User Code. Code = " + dataBuildingProcedure.loop.javascriptCode.code);
                         throw ("Error Executing User Code.")
                     }
 
@@ -386,7 +388,8 @@
                 */
                 if (processingDailyFiles) {
                     if (lastRecord.current.end === lastInstantOfTheDay && yesterday.variable !== undefined) {
-                        interExecutionMemory.variable = JSON.parse(JSON.stringify(yesterday.variable))
+                        interExecutionMemory[productName] = {}
+                        interExecutionMemory[productName].variable = JSON.parse(JSON.stringify(yesterday.variable))
                     }
                 }
             }

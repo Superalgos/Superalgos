@@ -497,6 +497,7 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + currentCandleIndex); }
 
+                let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex];
 
                 /* Not processing while out of user-defined time range */
@@ -657,8 +658,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -675,8 +676,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -693,8 +694,8 @@
                                     let condition = situation.conditions[m];
                                     let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
-                                    if (condition.code !== undefined) {
-                                        newCondition(key, condition.code);
+                                    if (condition.javascriptCode !== undefined) {
+                                        newCondition(key, condition.javascriptCode);
                                     }
                                 }
                             }
@@ -824,8 +825,8 @@
                                                 let condition = situation.conditions[m];
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code);
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode);
                                                 }
                                             }
                                         }
@@ -890,8 +891,8 @@
                                                 let condition = situation.conditions[m];
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                                if (condition.code !== undefined) {
-                                                    newCondition(key, condition.code);
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode);
                                                 }
                                             }
                                         }
@@ -966,8 +967,8 @@
                                             let condition = situation.conditions[m];
                                             let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code);
+                                            if (condition.javascriptCode !== undefined) {
+                                                newCondition(key, condition.javascriptCode);
                                             }
                                         }
                                     }
@@ -1033,8 +1034,8 @@
                                             let condition = situation.conditions[m];
                                             let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                            if (condition.code !== undefined) {
-                                                newCondition(key, condition.code);
+                                            if (condition.javascriptCode !== undefined) {
+                                                newCondition(key, condition.javascriptCode);
                                             }
                                         }
                                     }
@@ -1224,7 +1225,7 @@
                                     currentStrategy.number = currentStrategyIndex
                                     currentStrategy.end = candle.end;
                                     currentStrategy.endRate = candle.min;
-                                    currentStrategy.status = 1;
+                                    currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
                                     strategyStage = 'No Stage';
                                     currentStrategyIndex = -1;
 
@@ -2453,7 +2454,7 @@
                         currentStrategy.number = currentStrategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1;
+                        currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2601,13 +2602,18 @@
 
                     conditionsArray.push(conditionsArrayRecord);
 
+                    /* 
+                    Lets see if there will be an open strategy ...
+                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                    */
+                    if (currentStrategy.begin !== 0 && currentStrategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        currentStrategy.status = 2; // This means the strategy is open, i.e. that has a begin but no end.
+                        currentStrategy.end = candle.end
+                    }
+                    
                     /* Prepare the information for the Strategies File*/
-
-                    if (
-                        (currentStrategy.begin !== 0 && currentStrategy.end !== 0) ||
-                        (currentStrategy.begin !== 0 && currentCandleIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
-                    ) {
-
+                    if (currentStrategy.begin !== 0 && currentStrategy.end !== 0)            
+                     {
                         strategiesArray.push(currentStrategy);
 
                         currentStrategy = {
@@ -2633,12 +2639,25 @@
                         }
                     }
 
-                    /* Prepare the information for the Trades File */
+                    /* 
+                    Lets see if there will be an open trade ...
+                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                    */
+                    if (currentTrade.begin !== 0 && currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        currentTrade.status = 2; // This means the trade is open 
+                        currentTrade.end = candle.end
+                        currentTrade.endRate = candle.close
 
-                    if (
-                        (currentTrade.begin !== 0 && currentTrade.end !== 0) ||
-                        (currentTrade.begin !== 0 && currentCandleIndex === candles.length - 1 && lastCandle.end !== lastInstantOfTheDay)
-                    ) {
+                        /* Here we will calculate the ongoing ROI */
+                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                            currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
+                        } else {
+                            currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100
+                        }
+                    }
+
+                    /* Prepare the information for the Trades File */
+                    if (currentTrade.begin !== 0 && currentTrade.end !== 0) { 
 
                         currentTrade.profit = lastTradeProfitLoss;
 
@@ -2668,6 +2687,8 @@
                             }
                         }
                     }
+
+                    makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
                 }
 
                 function checkAnnouncements(node, value) {
@@ -2714,18 +2735,11 @@
                                     }
                                 }
 
-                                /* Here we check if there is a formula attached to the annoucement, we evaluate it to get the annoucement text. */
-                                let formulaValue
-                                if (announcement.formula !== undefined) {
-                                    try {
-                                        formulaValue = eval(announcement.formula.code);
-                                    } catch (err) {
-                                        announcement.formula.error = err.message
-                                    }
-                                }
-                                announcement.formulaValue = formulaValue
-
-                                bot.SESSION.socialBots.announce(announcement)
+                                /*
+                                We store the announcement temporarily at an Array to differ its execution, becasue we need to evaulate its formula
+                                and at this point in time the potential variables used at the formula are still not set.
+                                */
+                                announcementsToBeMade.push(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                                 if (newAnnouncementRecord.periods !== undefined) {
@@ -2743,7 +2757,28 @@
                         }
                     }
                 }
+
+                function makeAnnoucements() {
+                    /* Here we go through all the annoucements that need to be done during this loop, and we just do them. */
+                    for (let i = 0; i < announcementsToBeMade.length; i++) {
+                        announcement = announcementsToBeMade[i]
+                        /* Here we check if there is a formula attached to the annoucement, we evaluate it to get the annoucement text. */
+                        let formulaValue
+                        if (announcement.formula !== undefined) {
+                            try {
+                                formulaValue = eval(announcement.formula.code);
+                            } catch (err) {
+                                announcement.formula.error = err.message
+                            }
+                        }
+                        announcement.formulaValue = formulaValue
+
+                        bot.SESSION.socialBots.announce(announcement)
+                    }
+                }
             }
+
+
 
             function controlLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }

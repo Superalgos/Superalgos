@@ -97,7 +97,7 @@
             /* Simplifying the access to basic info */
             statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName
             statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.code.codeName
-            statusDependencyNode.type = statusDependencyNode.referenceParent.parentNode.parentNode.type
+            statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
             statusDependencyNode.devTeam = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
 
             /* Let's see if the process is run monthly or not. */
@@ -125,12 +125,10 @@
             }
             statusDependencyNode.dataSetVersion = "dataSet.V1"
 
-
-
-            if (bot.SESSION !== undefined && statusDependencyNode.type === "Trading Bot Instance") {
+            if (bot.SESSION !== undefined && statusDependencyNode.bottype === "Trading Bot") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
-
+ 
             if (statusDependencyNode.processRunMonthly === true && month !== undefined && year !== undefined) {
                 logger.fileName = MODULE_NAME + "." + statusDependencyNode.bot + "." + statusDependencyNode.process + "." + year + "." + month;
                 timePath = "/" + year + "/" + month;
@@ -161,10 +159,6 @@
                 filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
             } else {
                 filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
-            }
-
-            if (statusDependencyNode.type === 'Trading') {
-                fileName = bot.startMode + "." + fileName;
             }
 
             filePath += '/' + fileName
@@ -253,10 +247,6 @@
 
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
-
-            if (bot.type === 'Trading' ) {
-                fileName = bot.startMode + "." + fileName;
-            }
 
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);

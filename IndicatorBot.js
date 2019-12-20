@@ -89,8 +89,11 @@
                 singularVariableName = outputDatasetNode.referenceParent.parentNode.code.singularVariableName
 
                 /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
-                    resultsWithIrregularPeriods = true
+
+                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode !== undefined) {
+                    if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode.code.indexOf('results.push') >= 0) {
+                        resultsWithIrregularPeriods = true
+                    }
                 }
 
                 /* Build the data */
@@ -100,6 +103,7 @@
                     recordDefinition,
                     outputDatasetNode.referenceParent.parentNode.dataBuilding,
                     singularVariableName,
+                    outputDatasetNode.referenceParent.parentNode.code.codeName,
                     timePeriod,
                     timePeriodLabel,
                     resultsWithIrregularPeriods,
@@ -126,7 +130,7 @@
                 let contextSummary = {}
 
                 /* Check Irregular Periods */
-                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.code.code.indexOf('results.push') >= 0) {
+                if (outputDatasetNode.referenceParent.parentNode.dataBuilding.loop.javascriptCode.code.indexOf('results.push') >= 0) {
                     resultsWithIrregularPeriods = true
                 }
 

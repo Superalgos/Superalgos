@@ -1730,7 +1730,7 @@ function newUiObjectsFromNodes () {
     if (node.timePeriod === undefined) {
       node.timePeriod = {
         name: 'Time Period',
-        code: '{ \n\"codeName\": \"01-hs\"\n}'
+        code: '{ \n\"value\": \"01-hs\"\n}'
       }
       createUiObject(true, 'Time Period', '', node.timePeriod, node, node)
     }

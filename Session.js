@@ -180,8 +180,8 @@
                                 if (exchangeAccount.keys.length > 0) {
                                     let key = exchangeAccount.keys[0]
 
-                                    process.env.KEY = key.name
-                                    process.env.SECRET = key.code
+                                    process.env.KEY = key.code.name
+                                    process.env.SECRET = key.code.secret
 
                                 }
                             }
@@ -195,8 +195,8 @@
                         if (bot.DEFINITION.tradingSystem.parameters.key !== undefined) {
                             let key = bot.DEFINITION.tradingSystem.parameters.key
 
-                            process.env.KEY = key.name
-                            process.env.SECRET = key.code
+                            process.env.KEY = key.code.name
+                            process.env.SECRET = key.code.secret
                         }
                     }
                 }
@@ -206,8 +206,8 @@
                     if (bot.SESSION.parameters.key !== undefined) {
                         let key = bot.SESSION.parameters.key
 
-                        process.env.KEY = key.name
-                        process.env.SECRET = key.code
+                        process.env.KEY = key.code.name
+                        process.env.SECRET = key.code.secret
                     }
                 }
             }
@@ -316,7 +316,7 @@
 
                         /* Time Period */
                         if (tradingSystem.parameters.timePeriod !== undefined) {
-                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code
+                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code.value
                         }
 
                         /* Slippage */
@@ -412,7 +412,7 @@
 
                             /* Time Period */
                             if (bot.SESSION.parameters.timePeriod !== undefined) {
-                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code
+                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code.value
                             }
 
                             /* Slippage */

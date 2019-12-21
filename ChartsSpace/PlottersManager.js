@@ -184,7 +184,17 @@ function newPlottersManager () {
 
             /* We take a snapwhot of the current product definition to be used by the plotter. */
             let functionLibraryProtocolNode = newProtocolNode()
-            productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, true)
+            let lightingPath = 'Product Definition->' +
+            'Record Definition->Record Property->' +
+            'Data Building Procedure->Procedure Loop->Javascript Code->' +
+            'Calculations Procedure->Procedure Initialization->Javascript Code->' +
+            'Plotter Module->Shapes->' +
+            'Chart Points->Point->Point Formula->' +
+            'Polygon->Polygon Body->Style->Style Condition->Style->' +
+            'Polygon Border->Style->Style Condition->Style->' +
+            'Polygon Vertex->Point->' +
+            'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
+            productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, lightingPath)
           } else {
             plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
           }

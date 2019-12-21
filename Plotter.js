@@ -459,7 +459,7 @@ function newPlotter () {
 
       /* In case the plotter is configured to a certain slot, we calculate the slot coordinate system too. */
       if (productDefinition.referenceParent.code === undefined) { return }
-      plotterModuleConfig = JSON.parse(productDefinition.referenceParent.code)
+      plotterModuleConfig = productDefinition.referenceParent.code
       if (plotterModuleConfig.slot === undefined) { return }
 
       slotCoordinateSystem = newTimeLineCoordinateSystem()

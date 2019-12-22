@@ -28,7 +28,9 @@ function newTaskFunctions () {
     'Sensor Bot Instance->' +
     'Indicator Bot Instance->' +
     'Trading Bot Instance->' +
-    'Process Instance->Process Definition->' +
+    'Process Instance->' +
+    'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
+    'Process Definition->' +
     'Process Output->Output Dataset->Dataset Definition->Product Definition->' +
     'Process Dependencies->' +
     'Status Dependency->Status Report->Process Definition->' +

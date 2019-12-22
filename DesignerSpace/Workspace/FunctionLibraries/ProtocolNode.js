@@ -9,7 +9,7 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, lightingPath) {
+  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, lightingPath) {
     if (node === undefined) { return }
 
     let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
@@ -30,23 +30,38 @@ function newProtocolNode () {
           switch (property.type) {
             case 'node': {
               if (node[property.name] !== undefined) {
-                let newLightingPath = getNreLightingPath(lightingPath, node.type, property.childType)
-                if (newLightingPath !== undefined) {
-                  object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, newLightingPath)
+                if (lightingPath === undefined) {
+                  object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
+                } else {
+                  let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
+                  if (newLightingPath !== undefined) {
+                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                  }
                 }
               }
               break
             }
             case 'array': {
               if (node[property.name] !== undefined) {
-                let newLightingPath = getNreLightingPath(lightingPath, node.type, property.childType)
-                if (newLightingPath !== undefined) {
+                if (lightingPath === undefined) {
                   let nodePropertyArray = node[property.name]
                   object[property.name] = []
                   for (let m = 0; m < nodePropertyArray.length; m++) {
-                    let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includePayload, newLightingPath)
+                    let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
                     if (protocolNode !== undefined) {
                       object[property.name].push(protocolNode)
+                    }
+                  }
+                } else {
+                  let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
+                  if (newLightingPath !== undefined) {
+                    let nodePropertyArray = node[property.name]
+                    object[property.name] = []
+                    for (let m = 0; m < nodePropertyArray.length; m++) {
+                      let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                      if (protocolNode !== undefined) {
+                        object[property.name].push(protocolNode)
+                      }
                     }
                   }
                 }
@@ -59,15 +74,15 @@ function newProtocolNode () {
 
       /* Parent Nodes */
       if (node.payload.parentNode !== undefined) {
-        let newLightingPath = getNreLightingPath(lightingPath, node.type, node.payload.parentNode.type)
+        let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
         if (newLightingPath !== undefined) {
-          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, newLightingPath)
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
         }
       }
       if (node.payload.referenceParent !== undefined) {
-        let newLightingPath = getNreLightingPath(lightingPath, node.type, node.payload.referenceParent.type)
+        let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.referenceParent.type)
         if (newLightingPath !== undefined) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, newLightingPath)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
         }
       }
 
@@ -89,21 +104,21 @@ function newProtocolNode () {
         object.id = node.id
       }
       if (includePayload) {
-        object.savedPayload = getSavedPayload(node, includeReferences)
+        object.savedPayload = getSavedPayload(node, includeReferencesInSavedPayload)
       }
 
       return object
     }
   }
 
-  function getNreLightingPath (lightingPath, currentNodeType, nextNodeType) {
+  function getNewLightingPath (lightingPath, currentNodeType, nextNodeType) {
     if (lightingPath === undefined) { return }
 
     if (currentNodeType === undefined) { return }
     if (nextNodeType === undefined) { return }
 
-    let currentNodePosition = lightingPath.indexOf(currentNodeType)
-    let nextNodePosition = lightingPath.indexOf(nextNodeType)
+    let currentNodePosition = lightingPath.indexOf('->' + currentNodeType + '->')
+    let nextNodePosition = lightingPath.indexOf('->' + nextNodeType + '->')
 
     let newLightingPath = lightingPath.substring(nextNodePosition, lightingPath.length + 1)
 
@@ -114,7 +129,7 @@ function newProtocolNode () {
     }
   }
 
-  function getSavedPayload (node, includeReferences) {
+  function getSavedPayload (node, includeReferencesInSavedPayload) {
     if (node.payload === undefined) { return }
     let savedPayload = {
       position: {
@@ -137,7 +152,7 @@ function newProtocolNode () {
       }
     }
 
-    if (includeReferences) {
+    if (includeReferencesInSavedPayload) {
       /* Next for the ones that have a reference parent, we include it */
       if (node.payload.referenceParent !== undefined) {
         savedPayload.referenceParent = {

@@ -330,6 +330,7 @@ function newFloatingObject () {
   }
 
   function removeFocus () {
+    if (thisObject.payload === undefined) { return }
     if (thisObject.isOnFocus === true) {
       thisObject.targetRadius = thisObject.rawRadius * 1
       thisObject.targetImageSize = thisObject.rawImageSize * 1

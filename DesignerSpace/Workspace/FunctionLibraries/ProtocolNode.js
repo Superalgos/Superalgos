@@ -11,6 +11,7 @@ function newProtocolNode () {
 
   function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, lightingPath) {
     if (node === undefined) { return }
+    if (node.payload === undefined) { return }
 
     let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
     if (nodeDefinition !== undefined) {

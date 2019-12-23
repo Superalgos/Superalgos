@@ -112,8 +112,8 @@ function newWorkspace () {
   function physics () {
     if (thisObject.enabled !== true) { return }
 
-    let textToSave// = stringifyWorkspace()
-    // window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+    let textToSave = stringifyWorkspace()
+    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
 
     if (workingAtTask > 0) {
       circularProgressBar.physics()

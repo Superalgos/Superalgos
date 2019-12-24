@@ -9,9 +9,7 @@ function newFloatingSpace () {
 
   let thisObject = {
     floatingLayer: undefined,               // This is the array of floatingObjects being displayed
-    profileBalls: undefined,
     uiObjectConstructor: undefined,
-    noteSets: undefined,
     container: undefined,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -60,27 +58,17 @@ function newFloatingSpace () {
     thisObject.container.eventHandler.stopListening(eventSubscriptionId)
 
     thisObject.floatingLayer.finalize()
-    thisObject.profileBalls.finalize()
     thisObject.uiObjectConstructor.finalize()
-    thisObject.noteSets.finalize()
     thisObject.container.finalize()
 
     thisObject.floatingLayer = undefined
-    thisObject.profileBalls = undefined
     thisObject.uiObjectConstructor = undefined
-    thisObject.noteSets = undefined
     thisObject.container = undefined
   }
 
   function initialize (callBackFunction) {
     thisObject.floatingLayer = newFloatingLayer()
     thisObject.floatingLayer.initialize()
-
-    thisObject.profileBalls = newProfileBalls()
-    thisObject.profileBalls.initialize(thisObject.floatingLayer)
-
-    thisObject.noteSets = newNoteSets()
-    thisObject.noteSets.initialize(thisObject.floatingLayer)
 
     thisObject.uiObjectConstructor = newUiObjectConstructor()
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)

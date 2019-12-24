@@ -138,14 +138,14 @@ function newWorkspace () {
           break
         case 5:
           canvas.chartSpace.finalize()
+          canvas.chartSpace.initialize()
           workingAtTask++
           break
         case 6:
-          canvas.chartSpace.initialize()
+          canvas.floatingSpace.warmUp()
           workingAtTask = 0
           circularProgressBar.visible = false
           break
-
       }
     }
   }

@@ -98,12 +98,19 @@ function newUiObjectsFromNodes () {
       type: type
     }
 
-    createUiObject(true, object.type, object.name, object, parent, parent)
-
     let parentNodeDefinition = APP_SCHEMA_MAP.get(parent.type)
     if (parentNodeDefinition !== undefined) {
       /* Resolve Initial Values */
       let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+
+      if (nodeDefinition.isHierarchyHead === true) {
+        parent.rootNodes.push(object)
+        createUiObject(true, object.type, object.name, object, parent, undefined)
+        return object
+      }
+
+      createUiObject(true, object.type, object.name, object, parent, parent)
+
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.initialValues !== undefined) {
           if (nodeDefinition.initialValues.code !== undefined) {
@@ -114,12 +121,16 @@ function newUiObjectsFromNodes () {
 
       /* Connect to Parent */
       if (parentNodeDefinition.properties !== undefined) {
+        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
         for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
           let property = parentNodeDefinition.properties[i]
           if (property.childType === type) {
             switch (property.type) {
               case 'node': {
-                parent[property.name] = object
+                if (property.name !== previousPropertyName) {
+                  parent[property.name] = object
+                  previousPropertyName = property.name
+                }
               }
                 break
               case 'array': {

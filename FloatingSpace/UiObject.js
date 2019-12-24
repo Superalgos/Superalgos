@@ -437,60 +437,19 @@ function newUiObject () {
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
     let compatibleSubTypes
-    switch (thisObject.payload.node.type) {
-      case 'Backtesting Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Live Trading Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Paper Trading Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Fordward Testing Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Output Dataset':
-        compatibleTypes = '->' + 'Dataset Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Data Dependency':
-        compatibleTypes = '->' + 'Dataset Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Status Dependency':
-        compatibleTypes = '->' + 'Status Report' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Execution Started Event':
-        compatibleTypes = '->' + 'Execution Finished Event' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Instance':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Product Definition':
-        compatibleTypes = '->' + 'Plotter Module' + '->'
-        compatibleSubTypes = undefined
-        break
-      default:
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.referenceAttachesTo !== undefined) {
-            compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
-            compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
-          } else {
-            return
-          }
-        } else {
-          return
-        }
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.referenceAttachesTo !== undefined) {
+        compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+        compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
+      } else {
+        return
+      }
+    } else {
+      return
     }
+
     let foundCompatible = false
     referenceAttachToNode = undefined
     isReferenceAttaching = false

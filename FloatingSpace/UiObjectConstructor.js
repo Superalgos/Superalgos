@@ -85,8 +85,8 @@ function newUiObjectConstructor () {
         for (let j = 0; j < menuItems.length; j++) {
           let item = menuItems[j]
           item.angle = undefined
-          if (item.action.indexOf('Add ') >= 0) {
-            // item.action = 'Add UI Object'
+          if (item.action.indexOf('Add ') >= 0 && item.action.indexOf('Missing') >= 0) {
+            item.action = 'Add Missing Children'
           }
           if (item.action.indexOf('Delete ') >= 0) {
             // item.action = 'Delete UI Object'

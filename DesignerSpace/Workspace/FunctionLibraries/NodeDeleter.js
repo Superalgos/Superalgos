@@ -28,13 +28,17 @@ function newNodeDeleter () {
     if (nodeDefinition !== undefined) {
       /* Remove all of its own children nodes. */
       if (nodeDefinition.properties !== undefined) {
+        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
         for (let i = 0; i < nodeDefinition.properties.length; i++) {
           let property = nodeDefinition.properties[i]
 
           switch (property.type) {
             case 'node': {
-              if (node[property.name] !== undefined) {
-                deleteUIObject(node[property.name], rootNodes)
+              if (property.name !== previousPropertyName) {
+                if (node[property.name] !== undefined) {
+                  deleteUIObject(node[property.name], rootNodes)
+                }
+                previousPropertyName = property.name
               }
             }
               break

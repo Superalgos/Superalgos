@@ -227,8 +227,10 @@ function newUiObject () {
       thisObject.payload.targetPosition.x = thisObject.payload.position.x,
       thisObject.payload.targetPosition.y = thisObject.payload.position.y
     } else {
-      thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
-      thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
+      if (thisObject.payload.chainParent.payload.position !== undefined) {
+        thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
+        thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
+      }
     }
 
     if (thisObject.circularProgressBar !== undefined) {

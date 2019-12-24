@@ -188,8 +188,12 @@ function newFloatingObject () {
     if (thisObject.frozenManually !== false) { return }
     if (thisObject.payload === undefined) { return }
     let parent = thisObject.payload.chainParent
-    if (parent !== undefined && parent.payload !== undefined) {
-      thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+    if (parent !== undefined) {
+      if (parent.payload !== undefined) {
+        if (parent.payload.floatingObject !== undefined) {
+          thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+        }
+      }
     }
   }
 
@@ -479,4 +483,3 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
-

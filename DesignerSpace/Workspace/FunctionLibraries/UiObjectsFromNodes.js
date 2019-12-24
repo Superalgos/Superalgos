@@ -110,861 +110,46 @@ function newUiObjectsFromNodes () {
   }
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
-    /*
-    Object.keys(node).forEach(function (key, index) {
-    // key: the name of the object key
-    // index: the ordinal position of the key within the object
-      if (key !== 'savedPayload') {
-        if (node.type === 'Indicator Bot') {
-          console.log('HERE')
-        }
-        if (Array.isArray(node[key]) === false) {
-          if ((typeof node[key] === 'object') && (node[key] !== null)) {
-       // this property is an object
-
-            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-              let schemaNode = APP_SCHEMA_ARRAY[i]
-              if (schemaNode.type === node.type) {
-                if (schemaNode.properties === undefined) {
-                  schemaNode.properties = []
-                }
-
-                let properties = schemaNode.properties
-                let found = false
-                for (let j = 0; j < properties.length; j++) {
-                  let property = properties[j]
-                  if (property.name === key && property.childType === node[key].type) {
-                    found = true
-                  }
-                }
-                if (found === false) {
-                  let newProperty = {
-                    name: key,
-                    type: 'node',
-                    childType: node[key].type
-                  }
-                  properties.push(newProperty)
-                }
-                setPropertyNameAtParent(node[key], key)
-              }
-            }
-          }
-        } else {
-          let childArray = node[key]
-          if (childArray.length > 0) {
-            let childType = childArray[0].type
-            for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-              let schemaNode = APP_SCHEMA_ARRAY[i]
-              if (schemaNode.type === node.type) {
-                if (schemaNode.properties === undefined) {
-                  schemaNode.properties = []
-                }
-
-                let properties = schemaNode.properties
-                let found = false
-                for (let j = 0; j < properties.length; j++) {
-                  let property = properties[j]
-                  if (property.name === key && property.childType === childType) {
-                    found = true
-                  }
-                }
-                if (found === false) {
-                  let newProperty = {
-                    name: key,
-                    type: 'array',
-                    childType: childType
-                  }
-                  properties.push(newProperty)
-                }
-                setPropertyNameAtParent(childArray[0], key)
-              }
-            }
+    /* Get node definition */
+    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    if (nodeDefinition !== undefined) {
+      /* Resolve Initial Values */
+      if (nodeDefinition.initialValues !== undefined) {
+        if (nodeDefinition.initialValues.code !== undefined) {
+          if (node.code === undefined) {
+            node.code = nodeDefinition.initialValues.code
           }
         }
       }
-    })
 
-    function setPropertyNameAtParent (node, propName) {
-      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-        let schemaNode = APP_SCHEMA_ARRAY[i]
-        if (schemaNode.type === node.type) {
-          schemaNode.propertyNameAtParent = propName
-        }
-      }
-    }
-*/
-    switch (node.type) {
-      case 'Javascript Code':
-        {
-          createUiObject(false, 'Javascript Code', node.name, node, parentNode, chainParent, 'Javascript Code', positionOffset)
-          return
-        }
-      case 'Condition':
-        {
-          createUiObject(false, 'Condition', node.name, node, parentNode, chainParent, 'Condition', positionOffset)
+      /* Create Self */
+      createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
-          if (node.javascriptCode !== undefined) {
-            createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-          }
-          return
-        }
-      case 'Situation': {
-        let situation = node
-        createUiObject(false, 'Situation', situation.name, situation, parentNode, chainParent, 'Situation', positionOffset)
-        for (let m = 0; m < node.conditions.length; m++) {
-          let condition = node.conditions[m]
-          createUiObjectFromNode(condition, situation, situation, positionOffset)
-        }
-        return
-      }
-      case 'Formula':
-        {
-          createUiObject(false, 'Formula', node.name, node, parentNode, chainParent, 'Formula', positionOffset)
-          return
-        }
-      case 'Next Phase Event':
-        {
-          createUiObject(false, 'Next Phase Event', node.name, node, parentNode, chainParent, 'Next Phase Event', positionOffset)
-          for (let m = 0; m < node.situations.length; m++) {
-            let situation = node.situations[m]
-            createUiObjectFromNode(situation, node, node, positionOffset)
-          }
-          if (node.announcements === undefined) {
-            node.announcements = []
-          }
-          for (let m = 0; m < node.announcements.length; m++) {
-            let announcement = node.announcements[m]
-            createUiObjectFromNode(announcement, node, node, positionOffset)
-          }
-          return
-        }
-      case 'Phase': {
-        let phase = node
-        createUiObject(false, 'Phase', phase.name, phase, parentNode, chainParent, phase.subType, positionOffset)
-
-        if (node.formula !== undefined) {
-          createUiObjectFromNode(node.formula, phase, phase, positionOffset)
-        }
-        if (node.nextPhaseEvent !== undefined) {
-          createUiObjectFromNode(node.nextPhaseEvent, phase, phase, positionOffset)
-        }
-        if (node.announcements === undefined) {
-          node.announcements = []
-        }
-        for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = node.announcements[m]
-          createUiObjectFromNode(announcement, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Stop': {
-        let lastPhase
-        let stop = node
-        createUiObject(false, 'Stop', stop.name, stop, parentNode, chainParent, 'Stop', positionOffset)
-        for (let m = 0; m < node.phases.length; m++) {
-          let phase = node.phases[m]
-          let thisChainParent
-          if (m === 0) {
-            thisChainParent = node
-          } else {
-            thisChainParent = lastPhase
-          }
-          lastPhase = phase
-          createUiObjectFromNode(phase, stop, thisChainParent, positionOffset)
-        }
-        return
-      }
-      case 'Take Profit': {
-        let lastPhase
-        let takeProfit = node
-        createUiObject(false, 'Take Profit', takeProfit.name, takeProfit, parentNode, chainParent, 'Take Profit', positionOffset)
-        for (let m = 0; m < node.phases.length; m++) {
-          let phase = node.phases[m]
-          let thisChainParent
-          if (m === 0) {
-            thisChainParent = node
-          } else {
-            thisChainParent = lastPhase
-          }
-          lastPhase = phase
-          createUiObjectFromNode(phase, takeProfit, thisChainParent, positionOffset)
-        }
-        return
-      }
-      case 'Open Execution':
-        {
-          createUiObject(false, 'Open Execution', node.name, node, parentNode, chainParent, 'Open Execution', positionOffset)
-          return
-        }
-      case 'Close Execution':
-        {
-          createUiObject(false, 'Close Execution', node.name, node, parentNode, chainParent, 'Close Execution', positionOffset)
-          return
-        }
-      case 'Initial Definition': {
-        createUiObject(false, 'Initial Definition', node.name, node, parentNode, chainParent, 'Initial Definition', positionOffset)
-
-        if (node.stopLoss !== undefined) {
-          createUiObjectFromNode(node.stopLoss, node, node, positionOffset)
-        }
-        if (node.takeProfit !== undefined) {
-          createUiObjectFromNode(node.takeProfit, node, node, positionOffset)
-        }
-        if (node.positionSize !== undefined) {
-          createUiObjectFromNode(node.positionSize, node, node, positionOffset)
-        }
-        if (node.positionRate !== undefined) {
-          createUiObjectFromNode(node.positionRate, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Take Position Event': {
-        let event = node
-        createUiObject(false, 'Take Position Event', event.name, event, parentNode, chainParent, 'Take Position Event', positionOffset)
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = node.situations[m]
-          createUiObjectFromNode(situation, event, event, positionOffset)
-        }
-        if (node.announcements === undefined) {
-          node.announcements = []
-        }
-        for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = node.announcements[m]
-          createUiObjectFromNode(announcement, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trigger On Event': {
-        let event = node
-        createUiObject(false, 'Trigger On Event', event.name, event, parentNode, chainParent, 'Trigger On Event', positionOffset)
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = node.situations[m]
-          createUiObjectFromNode(situation, event, event, positionOffset)
-        }
-        if (node.announcements === undefined) {
-          node.announcements = []
-        }
-        for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = node.announcements[m]
-          createUiObjectFromNode(announcement, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trigger Off Event': {
-        let event = node
-        createUiObject(false, 'Trigger Off Event', event.name, event, parentNode, chainParent, 'Trigger Off Event', positionOffset)
-        for (let m = 0; m < node.situations.length; m++) {
-          let situation = node.situations[m]
-          createUiObjectFromNode(situation, event, event, positionOffset)
-        }
-        if (node.announcements === undefined) {
-          node.announcements = []
-        }
-        for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = node.announcements[m]
-          createUiObjectFromNode(announcement, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Position Size': {
-        createUiObject(false, 'Position Size', node.name, node, parentNode, chainParent, 'Position Size', positionOffset)
-        if (node.formula !== undefined) {
-          createUiObjectFromNode(node.formula, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Position Rate': {
-        createUiObject(false, 'Position Rate', node.name, node, parentNode, chainParent, 'Position Rate', positionOffset)
-        if (node.formula !== undefined) {
-          createUiObjectFromNode(node.formula, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trigger Stage': {
-        let stage = node
-        createUiObject(false, 'Trigger Stage', stage.name, stage, parentNode, chainParent, 'Trigger Stage', positionOffset)
-
-        if (node.triggerOn !== undefined) {
-          createUiObjectFromNode(node.triggerOn, stage, stage, positionOffset)
-        }
-        if (node.triggerOff !== undefined) {
-          createUiObjectFromNode(node.triggerOff, stage, stage, positionOffset)
-        }
-        if (node.takePosition !== undefined) {
-          createUiObjectFromNode(node.takePosition, stage, stage, positionOffset)
-        }
-        return
-      }
-      case 'Open Stage': {
-        let stage = node
-        createUiObject(false, 'Open Stage', stage.name, stage, parentNode, chainParent, 'Open Stage', positionOffset)
-
-        if (node.initialDefinition !== undefined) {
-          createUiObjectFromNode(node.initialDefinition, stage, stage, positionOffset)
-        }
-        if (node.openExecution !== undefined) {
-          createUiObjectFromNode(node.openExecution, stage, stage, positionOffset)
-        }
-        return
-      }
-      case 'Manage Stage': {
-        let stage = node
-        createUiObject(false, 'Manage Stage', stage.name, stage, parentNode, chainParent, 'Manage Stage', positionOffset)
-
-        if (node.stopLoss !== undefined) {
-          createUiObjectFromNode(node.stopLoss, stage, stage, positionOffset)
-        }
-        if (node.takeProfit !== undefined) {
-          createUiObjectFromNode(node.takeProfit, stage, stage, positionOffset)
-        }
-        return
-      }
-      case 'Close Stage': {
-        let stage = node
-        createUiObject(false, 'Close Stage', stage.name, stage, parentNode, chainParent, 'Close Stage', positionOffset)
-
-        if (node.closeExecution !== undefined) {
-          createUiObjectFromNode(node.closeExecution, stage, stage, positionOffset)
-        }
-        return
-      }
-      case 'Strategy': {
-        let strategy = node
-        createUiObject(false, 'Strategy', strategy.name, strategy, parentNode, chainParent, 'Strategy', positionOffset)
-        if (node.triggerStage !== undefined) {
-          createUiObjectFromNode(node.triggerStage, strategy, strategy, positionOffset)
-        }
-        if (node.openStage !== undefined) {
-          createUiObjectFromNode(node.openStage, strategy, strategy, positionOffset)
-        }
-        if (node.manageStage !== undefined) {
-          createUiObjectFromNode(node.manageStage, strategy, strategy, positionOffset)
-        }
-        if (node.closeStage !== undefined) {
-          createUiObjectFromNode(node.closeStage, strategy, strategy, positionOffset)
-        }
-        return
-      }
-      case 'Base Asset': {
-        createUiObject(false, 'Base Asset', node.name, node, parentNode, chainParent, 'Base Asset', positionOffset)
-        return
-      }
-      case 'Time Range': {
-        createUiObject(false, 'Time Range', node.name, node, parentNode, chainParent, 'Time Range', positionOffset)
-        return
-      }
-      case 'Time Period': {
-        createUiObject(false, 'Time Period', node.name, node, parentNode, chainParent, 'Time Period', positionOffset)
-        return
-      }
-      case 'Slippage': {
-        createUiObject(false, 'Slippage', node.name, node, parentNode, chainParent, 'Slippage', positionOffset)
-        return
-      }
-      case 'Fee Structure': {
-        createUiObject(false, 'Fee Structure', node.name, node, parentNode, chainParent, 'Fee Structure', positionOffset)
-        return
-      }
-      case 'Parameters': {
-        createUiObject(false, 'Parameters', node.name, node, parentNode, chainParent, 'Parameters', positionOffset)
-        if (node.baseAsset !== undefined) {
-          createUiObjectFromNode(node.baseAsset, node, node, positionOffset)
-        }
-        if (node.timeRange !== undefined) {
-          createUiObjectFromNode(node.timeRange, node, node, positionOffset)
-        }
-        if (node.timePeriod !== undefined) {
-          createUiObjectFromNode(node.timePeriod, node, node, positionOffset)
-        }
-        if (node.slippage !== undefined) {
-          createUiObjectFromNode(node.slippage, node, node, positionOffset)
-        }
-        if (node.feeStructure !== undefined) {
-          createUiObjectFromNode(node.feeStructure, node, node, positionOffset)
-        }
-        if (node.key !== undefined) {
-          createUiObjectFromNode(node.key, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trading System': {
-        let tradingSystem = node
-        createUiObject(false, 'Trading System', tradingSystem.name, tradingSystem, parentNode, chainParent, 'Trading System', positionOffset)
-        for (let m = 0; m < node.strategies.length; m++) {
-          let strategy = node.strategies[m]
-          createUiObjectFromNode(strategy, tradingSystem, tradingSystem, positionOffset)
-        }
-        if (node.parameters !== undefined) {
-          createUiObjectFromNode(node.parameters, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Personal Data': {
-        createUiObject(false, 'Personal Data', node.name, node, parentNode, chainParent, 'Personal Data', positionOffset)
-        for (let m = 0; m < node.exchangeAccounts.length; m++) {
-          let exchangeAccount = node.exchangeAccounts[m]
-          createUiObjectFromNode(exchangeAccount, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Exchange Account': {
-        createUiObject(false, 'Exchange Account', node.name, node, parentNode, chainParent, 'Exchange Account', positionOffset)
-        for (let m = 0; m < node.assets.length; m++) {
-          let asset = node.assets[m]
-          createUiObjectFromNode(asset, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.keys.length; m++) {
-          let key = node.keys[m]
-          createUiObjectFromNode(key, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Exchange Account Asset': {
-        createUiObject(false, 'Exchange Account Asset', node.name, node, parentNode, chainParent, 'Exchange Account Asset', positionOffset)
-        return
-      }
-      case 'Exchange Account Key': {
-        createUiObject(false, 'Exchange Account Key', node.name, node, parentNode, chainParent, 'Exchange Account Key', positionOffset)
-        return
-      }
-      case 'Definition': {
-        createUiObject(false, 'Definition', node.name, node, parentNode, chainParent, 'Definition', positionOffset)
-        if (node.tradingSystem !== undefined) {
-          createUiObjectFromNode(node.tradingSystem, node, node, positionOffset)
-        }
-        if (node.personalData !== undefined) {
-          createUiObjectFromNode(node.personalData, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Network': {
-        createUiObject(false, 'Network', node.name, node, parentNode, chainParent, 'Network', positionOffset)
-        if (node.networkNodes !== undefined) {
-          for (let m = 0; m < node.networkNodes.length; m++) {
-            let networkNode = node.networkNodes[m]
-            createUiObjectFromNode(networkNode, node, node, positionOffset)
-          }
-        }
-        return
-      }
-      case 'Network Node': {
-        createUiObject(false, 'Network Node', node.name, node, parentNode, chainParent, 'Network Node', positionOffset)
-        if (node.taskManagers !== undefined) {
-          for (let m = 0; m < node.taskManagers.length; m++) {
-            let taskManager = node.taskManagers[m]
-            createUiObjectFromNode(taskManager, node, node, positionOffset)
-          }
-        }
-        return
-      }
-      case 'Social Bots': {
-        createUiObject(false, 'Social Bots', node.name, node, parentNode, chainParent, 'Social Bots', positionOffset)
-        for (let m = 0; m < node.bots.length; m++) {
-          let bot = node.bots[m]
-          createUiObjectFromNode(bot, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Telegram Bot': {
-        createUiObject(false, 'Telegram Bot', node.name, node, parentNode, chainParent, 'Telegram Bot', positionOffset)
-        for (let m = 0; m < node.announcements.length; m++) {
-          let announcement = node.announcements[m]
-          createUiObjectFromNode(announcement, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Announcement': {
-        createUiObject(false, 'Announcement', node.name, node, parentNode, chainParent, 'Announcement', positionOffset)
-        if (node.formula !== undefined) {
-          createUiObjectFromNode(node.formula, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Layer Manager': {
-        createUiObject(false, 'Layer Manager', node.name, node, parentNode, chainParent, 'Layer Manager', positionOffset)
-        for (let m = 0; m < node.layers.length; m++) {
-          let layer = node.layers[m]
-          createUiObjectFromNode(layer, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Layer': {
-        createUiObject(false, 'Layer', node.name, node, parentNode, chainParent, 'Layer', positionOffset)
-        return
-      }
-      case 'Task Manager': {
-        createUiObject(false, 'Task Manager', node.name, node, parentNode, chainParent, 'Task Manager', positionOffset)
-        for (let m = 0; m < node.tasks.length; m++) {
-          let task = node.tasks[m]
-          createUiObjectFromNode(task, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Task': {
-        createUiObject(false, 'Task', node.name, node, parentNode, chainParent, 'Task', positionOffset)
-        if (node.bot !== undefined) {
-          createUiObjectFromNode(node.bot, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Sensor Bot Instance': {
-        createUiObject(false, 'Sensor Bot Instance', node.name, node, parentNode, chainParent, 'Sensor Bot Instance', positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Indicator Bot Instance': {
-        createUiObject(false, 'Indicator Bot Instance', node.name, node, parentNode, chainParent, 'Indicator Bot Instance', positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trading Bot Instance': {
-        createUiObject(false, 'Trading Bot Instance', node.name, node, parentNode, chainParent, 'Trading Bot Instance', positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Process Instance': {
-        if (parentNode !== undefined) {
-          switch (parentNode.type) {
-            case 'Sensor Bot Instance': {
-              node.subType = 'Sensor Process Instance'
-              break
-            }
-            case 'Indicator Bot Instance': {
-              node.subType = 'Indicator Process Instance'
-              break
-            }
-            case 'Trading Bot Instance': {
-              node.subType = 'Trading Process Instance'
-              break
-            }
-          }
-        }
-        createUiObject(false, 'Process Instance', node.name, node, parentNode, chainParent, 'Process Instance', positionOffset)
-        if (node.session !== undefined) {
-          createUiObjectFromNode(node.session, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Backtesting Session': {
-        createUiObject(false, 'Backtesting Session', node.name, node, parentNode, chainParent, 'Backtesting Session', positionOffset)
-        if (node.parameters !== undefined) {
-          createUiObjectFromNode(node.parameters, node, node, positionOffset)
-        }
-        if (node.layerManager !== undefined) {
-          createUiObjectFromNode(node.layerManager, node, node, positionOffset)
-        }
-        if (node.socialBots !== undefined) {
-          createUiObjectFromNode(node.socialBots, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Live Trading Session': {
-        createUiObject(false, 'Live Trading Session', node.name, node, parentNode, chainParent, 'Live Trading Session', positionOffset)
-        if (node.parameters !== undefined) {
-          createUiObjectFromNode(node.parameters, node, node, positionOffset)
-        }
-        if (node.layerManager !== undefined) {
-          createUiObjectFromNode(node.layerManager, node, node, positionOffset)
-        }
-        if (node.socialBots !== undefined) {
-          createUiObjectFromNode(node.socialBots, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Fordward Testing Session': {
-        createUiObject(false, 'Fordward Testing Session', node.name, node, parentNode, chainParent, 'Fordward Testing Session', positionOffset)
-        if (node.parameters !== undefined) {
-          createUiObjectFromNode(node.parameters, node, node, positionOffset)
-        }
-        if (node.layerManager !== undefined) {
-          createUiObjectFromNode(node.layerManager, node, node, positionOffset)
-        }
-        if (node.socialBots !== undefined) {
-          createUiObjectFromNode(node.socialBots, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Paper Trading Session': {
-        createUiObject(false, 'Paper Trading Session', node.name, node, parentNode, chainParent, 'Paper Trading Session', positionOffset)
-        if (node.parameters !== undefined) {
-          createUiObjectFromNode(node.parameters, node, node, positionOffset)
-        }
-        if (node.layerManager !== undefined) {
-          createUiObjectFromNode(node.layerManager, node, node, positionOffset)
-        }
-        if (node.socialBots !== undefined) {
-          createUiObjectFromNode(node.socialBots, node, node, positionOffset)
-        }
-        return
-      }
-
-      case 'Team': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.sensorBots.length; m++) {
-          let sensorBot = node.sensorBots[m]
-          createUiObjectFromNode(sensorBot, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.indicatorBots.length; m++) {
-          let indicatorBot = node.indicatorBots[m]
-          createUiObjectFromNode(indicatorBot, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.tradingBots.length; m++) {
-          let tradingBot = node.tradingBots[m]
-          createUiObjectFromNode(tradingBot, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.plotters.length; m++) {
-          let plotter = node.plotters[m]
-          createUiObjectFromNode(plotter, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Sensor Bot': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.products.length; m++) {
-          let product = node.products[m]
-          createUiObjectFromNode(product, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Indicator Bot': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.products.length; m++) {
-          let product = node.products[m]
-          createUiObjectFromNode(product, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Trading Bot': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.processes.length; m++) {
-          let process = node.processes[m]
-          createUiObjectFromNode(process, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.products.length; m++) {
-          let product = node.products[m]
-          createUiObjectFromNode(product, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Process Definition': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.processOutput !== undefined) {
-          createUiObjectFromNode(node.processOutput, node, node, positionOffset)
-        }
-        if (node.processDependencies !== undefined) {
-          createUiObjectFromNode(node.processDependencies, node, node, positionOffset)
-        }
-        if (node.statusReport !== undefined) {
-          createUiObjectFromNode(node.statusReport, node, node, positionOffset)
-        }
-        if (node.executionStartedEvent !== undefined) {
-          createUiObjectFromNode(node.executionStartedEvent, node, node, positionOffset)
-        }
-        if (node.executionFinishedEvent !== undefined) {
-          createUiObjectFromNode(node.executionFinishedEvent, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Process Output': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.outputDatasets.length; m++) {
-          let outputDataset = node.outputDatasets[m]
-          createUiObjectFromNode(outputDataset, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Process Dependencies': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.statusDependencies.length; m++) {
-          let statusDependency = node.statusDependencies[m]
-          createUiObjectFromNode(statusDependency, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.dataDependencies.length; m++) {
-          let dataDependency = node.dataDependencies[m]
-          createUiObjectFromNode(dataDependency, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Status Report': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Execution Started Event': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Execution Finished Event': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Calculations Procedure': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.initialization !== undefined) {
-          createUiObjectFromNode(node.initialization, node, node, positionOffset)
-        }
-        if (node.loop !== undefined) {
-          createUiObjectFromNode(node.loop, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Data Building Procedure': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.initialization !== undefined) {
-          createUiObjectFromNode(node.initialization, node, node, positionOffset)
-        }
-        if (node.loop !== undefined) {
-          createUiObjectFromNode(node.loop, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Procedure Initialization': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-
-        if (node.javascriptCode !== undefined) {
-          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Procedure Loop': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-
-        if (node.javascriptCode !== undefined) {
-          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Output Dataset': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Status Dependency': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Data Dependency': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Product Definition': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.record !== undefined) {
-          createUiObjectFromNode(node.record, node, node, positionOffset)
-        }
-        for (let m = 0; m < node.datasets.length; m++) {
-          let dataset = node.datasets[m]
-          createUiObjectFromNode(dataset, node, node, positionOffset)
-        }
-        if (node.calculations !== undefined) {
-          createUiObjectFromNode(node.calculations, node, node, positionOffset)
-        }
-        if (node.dataBuilding !== undefined) {
-          createUiObjectFromNode(node.dataBuilding, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Record Definition': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.properties.length; m++) {
-          let property = node.properties[m]
-          createUiObjectFromNode(property, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Record Property': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        if (node.formula !== undefined) {
-          createUiObjectFromNode(node.formula, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Dataset Definition': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        return
-      }
-      case 'Plotter': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-        for (let m = 0; m < node.modules.length; m++) {
-          let module = node.modules[m]
-          createUiObjectFromNode(module, node, node, positionOffset)
-        }
-        return
-      }
-      case 'Plotter Module': {
-        createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-
-        if (node.javascriptCode !== undefined) {
-          createUiObjectFromNode(node.javascriptCode, node, node, positionOffset)
-        }
-
-        if (node.shapes !== undefined) {
-          createUiObjectFromNode(node.shapes, node, node, positionOffset)
-        }
-
-        for (let m = 0; m < node.panels.length; m++) {
-          let panel = node.panels[m]
-          createUiObjectFromNode(panel, node, node, positionOffset)
-        }
-        return
-      }
-
-      default: {
-        /* Get node definition */
-        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
-        if (nodeDefinition !== undefined) {
-          /* Resolve Initial Values */
-          if (nodeDefinition.initialValues !== undefined) {
-            if (nodeDefinition.initialValues.code !== undefined) {
-              if (node.code === undefined) {
-                node.code = nodeDefinition.initialValues.code
-              }
-            }
-          }
-
-          /* Create Self */
-          createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
-
-          /* Create Children */
-          if (nodeDefinition.properties !== undefined) {
-            for (let i = 0; i < nodeDefinition.properties.length; i++) {
-              let property = nodeDefinition.properties[i]
-              if (node[property.name] !== undefined) {
-                switch (property.type) {
-                  case 'node': {
-                    createUiObjectFromNode(node[property.name], node, node, positionOffset)
-                  }
-                    break
-                  case 'array': {
-                    let nodePropertyArray = node[property.name]
-                    for (let m = 0; m < nodePropertyArray.length; m++) {
-                      let arrayItem = nodePropertyArray[m]
-                      createUiObjectFromNode(arrayItem, node, node, positionOffset)
-                    }
-                  }
-                    break
+      /* Create Children */
+      if (nodeDefinition.properties !== undefined) {
+        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+          if (node[property.name] !== undefined) {
+            switch (property.type) {
+              case 'node': {
+                if (property.name !== previousPropertyName) {
+                  createUiObjectFromNode(node[property.name], node, node, positionOffset)
+                  previousPropertyName = property.name
                 }
               }
+                break
+              case 'array': {
+                let nodePropertyArray = node[property.name]
+                for (let m = 0; m < nodePropertyArray.length; m++) {
+                  let arrayItem = nodePropertyArray[m]
+                  createUiObjectFromNode(arrayItem, node, node, positionOffset)
+                }
+              }
+                break
             }
           }
         }
-
-        return
       }
     }
   }
@@ -2034,6 +1219,7 @@ function newUiObjectsFromNodes () {
   function createUiObject (userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {
     let payload = {}
 
+    /* Mechanism related to keeping references when cloning */
     if (node.id === undefined) {
       node.id = newUniqueId()
     } else {
@@ -2043,25 +1229,47 @@ function newUiObjectsFromNodes () {
       }
     }
 
+    /* Default Naming */
     if (name === '' || name === undefined) { name = 'My ' + uiObjectType }
-    if (node.savedPayload !== undefined) {
-      /* If there is a position offset, we apply it here. */
-      if (positionOffset !== undefined) {
-        node.savedPayload.targetPosition.x = node.savedPayload.targetPosition.x + positionOffset.x
-        node.savedPayload.targetPosition.y = node.savedPayload.targetPosition.y + positionOffset.y
-        node.savedPayload.position.x = node.savedPayload.position.x + positionOffset.x
-        node.savedPayload.position.y = node.savedPayload.position.y + positionOffset.y
+
+    /* If we are creating this object as the result of restoring a backup, share or clone, we will bring some of the saved properties to the new running instance. */
+    if (userAddingNew === false && uiObjectType !== 'Workspace') {
+      /* This following info can not be missing. */
+      if (node.savedPayload === undefined) {
+        console.log('Node ' + node.type + ' without savedPayload.', node)
+        return
+      }
+      if (node.savedPayload.position === undefined) {
+        console.log('Node ' + node.type + ' without savedPayload.position.', node)
+        return
+      }
+      if (node.savedPayload.targetPosition === undefined) {
+        console.log('Node ' + node.type + ' without savedPayload.targetPosition.', node)
+        return
       }
 
+      console.log('Node ' + node.type + ' CREATED WITH NO PROBLEMS.')
+
+      /* If there is not a position offset, which happens when we are dropping a node into the designer, we create a cero vector then. */
+      if (positionOffset === undefined) {
+        positionOffset = {
+          x: 0,
+          y: 0
+        }
+      }
+
+      /* Adding the offset to the saved positions. */
+      node.savedPayload.targetPosition.x = node.savedPayload.targetPosition.x + positionOffset.x
+      node.savedPayload.targetPosition.y = node.savedPayload.targetPosition.y + positionOffset.y
+      node.savedPayload.position.x = node.savedPayload.position.x + positionOffset.x
+      node.savedPayload.position.y = node.savedPayload.position.y + positionOffset.y
+
+      /* Transferring the saved payload properties into the running instance being created. */
       payload.targetPosition = {
         x: node.savedPayload.targetPosition.x,
         y: node.savedPayload.targetPosition.y
       }
-
       node.savedPayload.targetPosition = undefined
-
-      if (payload.targetPosition.x === null) { payload.targetPosition.x = spawnPosition.x }
-      if (payload.targetPosition.y === null) { payload.targetPosition.y = spawnPosition.y }
 
       /* Reference children connection to parents */
       if (node.savedPayload.referenceParent !== undefined) {
@@ -2071,17 +1279,23 @@ function newUiObjectsFromNodes () {
           mapOfReferenceChildren.set(node.id, node)
         }
       }
-    } else {
+    }
+
+    /* If we are adding a new object, then we set the initial values for position and targetPosition */
+    if (userAddingNew === true || uiObjectType === 'Workspace') {
+      /* Workspace allways to the spawn position */
+      if (uiObjectType === 'Workspace') {
+        payload.position = {
+          x: spawnPosition.x,
+          y: spawnPosition.y
+        }
+      }
+
+      /* Chain parent pointing to the position of the chain parent if defined. */
       if (chainParent === undefined) {
         payload.targetPosition = {
           x: spawnPosition.x,
           y: spawnPosition.y
-        }
-        if (uiObjectType === 'Workspace' || uiObjectType === 'Trading System') {
-          payload.position = {
-            x: spawnPosition.x,
-            y: spawnPosition.y
-          }
         }
       } else {
         payload.targetPosition = {
@@ -2091,6 +1305,7 @@ function newUiObjectsFromNodes () {
       }
     }
 
+    /* Setting the title */
     if (title !== undefined) {
       payload.subTitle = title
     } else {
@@ -2106,6 +1321,8 @@ function newUiObjectsFromNodes () {
 
     node.payload = payload
     node.type = uiObjectType
+
+    /* Now we mount the floating object where the UIOBject will be laying on top of */
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
     mapOfNodes.set(node.id, node)

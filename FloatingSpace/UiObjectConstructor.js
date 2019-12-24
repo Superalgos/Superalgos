@@ -31,14 +31,23 @@ function newUiObjectConstructor () {
     floatingObject.initialize('UI Object', payload)
     payload.floatingObject = floatingObject
 
-    if (payload.node.savedPayload !== undefined) {
+    /*
+    When this object is created based on a backup, share or clone, we will have a savedPayload that we will use to set the initial properties.
+    If it is a new object being created out of the user interface, we jusst continue with the construction process.
+    */
+    if (userAddingNew === false && payload.node.type !== 'Workspace') {
+      let position = {
+        x: 0,
+        y: 0
+      }
+
       position = {
         x: payload.node.savedPayload.position.x,
         y: payload.node.savedPayload.position.y
       }
 
-      if (position.x === null) { position.x = spawnPosition.x }
-      if (position.y === null) { position.y = spawnPosition.y }
+      // if (position.x === undefined) { position.x = spawnPosition.x }
+      // if (position.y === undefined) { position.y = spawnPosition.y }
 
       floatingObject.setPosition(position)
       payload.node.savedPayload.position = undefined
@@ -56,8 +65,8 @@ function newUiObjectConstructor () {
       }
     }
 
+    /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
-      /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
       if (payload.parentNode.payload.floatingObject.isTensed === true) {
         floatingObject.tensionToggle()
       }

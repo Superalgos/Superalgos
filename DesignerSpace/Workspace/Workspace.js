@@ -279,7 +279,7 @@ function newWorkspace () {
         break
       case 'Add Missing Children':
         {
-          functionLibraryUiObjectsFromNodes.addUIObject(payload.node, relatedUiObject)
+          functionLibraryUiObjectsFromNodes.addMissingChildren(payload.node)
         }
         break
       case 'Delete UI Object':

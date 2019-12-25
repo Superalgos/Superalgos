@@ -149,7 +149,23 @@ function newUiObjectsFromNodes () {
   }
 
   function addMissingChildren (node) {
+    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
 
+      /* Connect to Parent */
+    if (nodeDefinition.properties !== undefined) {
+      let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+      for (let i = 0; i < nodeDefinition.properties.length; i++) {
+        let property = nodeDefinition.properties[i]
+        if (property.type === 'node') {
+          if (property.name !== previousPropertyName) {
+            if (node[property.name] === undefined) {
+              addUIObject(node, property.childType)
+              previousPropertyName = property.name
+            }
+          }
+        }
+      }
+    }
   }
 
   function createUiObject (userAddingNew, uiObjectType, name, node, parentNode, chainParent, title, positionOffset) {

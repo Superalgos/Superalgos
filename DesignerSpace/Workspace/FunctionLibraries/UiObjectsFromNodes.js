@@ -144,6 +144,35 @@ function newUiObjectsFromNodes () {
           }
         }
       }
+
+      /* Auto Add more Children */
+      if (nodeDefinition.properties !== undefined) {
+        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+
+          switch (property.type) {
+            case 'node': {
+              if (property.name !== previousPropertyName) {
+                if (property.autoAdd === true) {
+                  addUIObject(object, property.childType)
+                  previousPropertyName = property.name
+                }
+              }
+            }
+              break
+            case 'array': {
+              if (property.autoAdd === true) {
+                if (object[property.name] === undefined) {
+                  object[property.name] = []
+                }
+                addUIObject(object, property.childType)
+              }
+            }
+              break
+          }
+        }
+      }
     }
     return object
   }

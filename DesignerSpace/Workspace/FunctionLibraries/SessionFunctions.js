@@ -30,12 +30,27 @@ function newSessionFunctions () {
 
     let key = node.name + '-' + node.type + '-' + node.id
 
-    let thisNodeDefinition = node.payload.referenceParent
+    let lightingPath = '->Definition->' +
+    'Trading System->' +
+    'Parameters->' +
+    'Base Asset->Time Range->Time Period->Slippage->Fee Structure->Exchange Account Key->' +
+    'Strategy->' +
+    'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
+    'Announcement->Telegram Bot->' +
+    'Open Stage->Initial Definition->Open Execution->' +
+    'Position Size->Position Rate->Formula->' +
+    'Manage Stage->' +
+    'Stop->Take Profit->' +
+    'Phase->Formula->Next Phase Event->' +
+    'Situation->Condition->Javascript Code->' +
+    'Announcement->Telegram Bot->'
+
+    let definition = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 
     /* Raise event to run the session */
     let event = {
       session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true)),
-      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(thisNodeDefinition, false, true, true)),
+      definition: JSON.stringify(definition),
       uiCurrentValues: getUICurrentValues()
     }
 

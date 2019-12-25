@@ -485,10 +485,7 @@
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
                                     let code = JSON.parse(announcement.code)
-                                    if (code.botId === undefined) {
-                                        code.botId = socialBot.id
-                                    }
-                                    if (socialBot.type === code.botType && socialBot.id === code.botId) {
+                                    if (socialBot.id === announcement.referenceParent.id) {
                                         if (socialBot.type === "Telegram Bot") {
                                             if (announcement.formulaValue !== undefined) {
                                                 socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))

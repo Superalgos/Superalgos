@@ -79,10 +79,6 @@ function newAppLoader() {
                 'Files/FileSequence.js',
                 'Files/FileStorage.js',
 
-                'FloatingSpace/NoteSets.js',
-                'FloatingSpace/Note.js',
-                'FloatingSpace/ProfileBalls.js',
-                'FloatingSpace/ProfileBall.js',
                 'FloatingSpace/FloatingObject.js',
                 'FloatingSpace/FloatingLayer.js',
                 'FloatingSpace/UiObjectConstructor.js',

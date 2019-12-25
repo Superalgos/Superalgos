@@ -137,7 +137,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-fix-unpinned',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -152,7 +153,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-tensor-free-angles',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -167,7 +169,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-mobility-freeze',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -182,7 +185,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-tree-minus',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -195,7 +199,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-backup',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 2
       }
       )
     menuItemsInitialValues.push(
@@ -208,7 +213,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'clone',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 2
       }
         )
     if (isPersonalData !== true) {
@@ -222,9 +228,10 @@ function newUiObjectConstructor () {
           iconPathOff: 'menu-share',
           rawRadius: 8,
           targetRadius: 0,
-          currentRadius: 0
+          currentRadius: 0,
+          ring: 2
         }
-                  )
+      )
     }
   }
 

@@ -146,7 +146,20 @@ function newCircularMenuItem () {
 
     let radiousGrowthFactor
     if (thisObject.type === 'Icon Only') {
-      radiousGrowthFactor = 5
+      switch (thisObject.ring) {
+        case 1: {
+          radiousGrowthFactor = 5
+          break
+        }
+        case 2: {
+          radiousGrowthFactor = 3.5
+          break
+        }
+        case 3: {
+          radiousGrowthFactor = 2
+          break
+        }
+      }
     } else {
       radiousGrowthFactor = 4
     }

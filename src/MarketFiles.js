@@ -24,7 +24,7 @@ function newMarketFiles () {
 
   let market
   let exchange
-  let devTeam
+  let dataMine
   let bot
   let session
   let thisSet
@@ -52,7 +52,7 @@ function newMarketFiles () {
 
       market = undefined
       exchange = undefined
-      devTeam = undefined
+      dataMine = undefined
       bot = undefined
       session = undefined
       thisSet = undefined
@@ -65,16 +65,16 @@ function newMarketFiles () {
     }
   }
 
-  function initialize (pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
+        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.codeName = ' + pDataMine.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
       market = pMarket
-      devTeam = pDevTeam
+      dataMine = pDataMine
       bot = pBot
       session = pSession
       thisSet = pSet
@@ -90,7 +90,7 @@ function newMarketFiles () {
         let periodName = marketFilesPeriods[i][1]
 
         if (thisSet.validPeriods.includes(periodName) === true) {
-          fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+          fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
             try {
@@ -103,7 +103,7 @@ function newMarketFiles () {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
-                let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+                let key = dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
                 systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
@@ -137,7 +137,7 @@ function newMarketFiles () {
         let periodName = marketFilesPeriods[i][1]
 
         if (thisSet.validPeriods.includes(periodName) === true) {
-          fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+          fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
             try {

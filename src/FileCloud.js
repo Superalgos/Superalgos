@@ -46,18 +46,18 @@ function newFileCloud () {
     }
   }
 
-  function getFile (pDevTeam, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+  function getFile (pDataMine, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
 
       const MAX_RETRIES = 3
 
-      getFileRecursively(0, pDevTeam, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+      getFileRecursively(0, pDataMine, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pDevTeam, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDevTeam.codeName + '-' + pBot.codeName + '-' + pSet.filePath + '-' + pSet.fileName) }
+          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.codeName + '-' + pBot.codeName + '-' + pSet.filePath + '-' + pSet.fileName) }
 
           let fileName
           let filePath
@@ -85,7 +85,7 @@ function newFileCloud () {
 
           if (fileName === undefined) {
             logger.write('[ERROR] getFile -> getFileRecursively -> Inconsistant data. Check the following: ')
-            logger.write('[ERROR] getFile -> getFileRecursively -> pDevTeam = ' + JSON.stringify(pDevTeam))
+            logger.write('[ERROR] getFile -> getFileRecursively -> pDataMine = ' + JSON.stringify(pDataMine))
             logger.write('[ERROR] getFile -> getFileRecursively -> pBot = ' + JSON.stringify(pBot))
             logger.write('[ERROR] getFile -> getFileRecursively -> pSet = ' + JSON.stringify(pSet))
             logger.write('[ERROR] getFile -> getFileRecursively -> pExchange = ' + JSON.stringify(pExchange))
@@ -100,8 +100,8 @@ function newFileCloud () {
             fileName = fileName.replace('@AssetB', pMarket.assetB)
           }
 
-          if (pDevTeam !== undefined) {
-            filePath = filePath.replace('@DevTeam', pDevTeam.codeName)
+          if (pDataMine !== undefined) {
+            filePath = filePath.replace('@DataMine', pDataMine.codeName)
           }
 
           if (pBot !== undefined) {
@@ -151,9 +151,9 @@ function newFileCloud () {
 
           let containerName
 
-          containerName = pDevTeam.codeName.toLowerCase()
+          containerName = pDataMine.codeName.toLowerCase()
 
-          blobService.getBlobToText(containerName, filePath + '/' + fileName, pDevTeam.host, onFileReceived)
+          blobService.getBlobToText(containerName, filePath + '/' + fileName, pDataMine.host, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {
@@ -190,7 +190,7 @@ function newFileCloud () {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> MAX_RETRIES = ' + MAX_RETRIES) }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> pRetryCounter = ' + pRetryCounter) }
 
-                    getFileRecursively(pRetryCounter + 1, pDevTeam, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+                    getFileRecursively(pRetryCounter + 1, pDataMine, pBot, pSet, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
                     return
                   } else {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Could not get this file from storage. ') }

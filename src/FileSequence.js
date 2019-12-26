@@ -20,7 +20,7 @@ function newFileSequence () {
   let files = new Map()
   let maxSequence = -1 // This is replaced by the content of the sequence file, which contains an index that starts on zero. In the case that the sequence file is not found the default value is -1 so when you add 1 it gives you the amount of files in the sequence, zero.
   let market
-  let devTeam
+  let dataMine
   let bot
   let session
   let thisSet
@@ -47,7 +47,7 @@ function newFileSequence () {
       files = undefined
       maxSequence = undefined
       market = undefined
-      devTeam = undefined
+      dataMine = undefined
       bot = undefined
       session = undefined
       thisSet = undefined
@@ -59,16 +59,16 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
     try {
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDevTeam.codeName = ' + pDevTeam.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
+        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.codeName = ' + pDataMine.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
       }
 
       market = pMarket
-      devTeam = pDevTeam
+      dataMine = pDataMine
       bot = pBot
       session = pSession
       thisSet = pSet
@@ -79,7 +79,7 @@ function newFileSequence () {
 
       callerId = newUniqueId()
 
-      let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+      let key = dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
       systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
       function onResponse (message) {
@@ -88,7 +88,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -133,7 +133,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -198,7 +198,7 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, sequenceFile) {
         try {
@@ -234,7 +234,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

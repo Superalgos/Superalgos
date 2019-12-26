@@ -4,8 +4,8 @@ function newEcosystem() {
     let thisObject = {
         getHost: getHost,
         getCompetition: getCompetition,
-        getTeam: getTeam,
-        getTeams: getTeams,
+        getDataMine: getDataMine,
+        getDataMines: getDataMines,
         getBot: getBot,
         getProduct: getProduct,
         getDataSet: getDataSet,
@@ -60,41 +60,41 @@ function newEcosystem() {
         }
     }
 
-    function getTeams() {
+    function getDataMines() {
 
-        return ECOSYSTEM.devTeams;
+        return ECOSYSTEM.dataMines;
 
     }
 
-    function getTeam(pTeamCodeName) {
+    function getDataMine(pDataMineCodeName) {
 
-        for (let i = 0; i < ECOSYSTEM.devTeams.length; i++) {
+        for (let i = 0; i < ECOSYSTEM.dataMines.length; i++) {
 
-            if (ECOSYSTEM.devTeams[i].codeName === pTeamCodeName) {
+            if (ECOSYSTEM.dataMines[i].codeName === pDataMineCodeName) {
 
-                return ECOSYSTEM.devTeams[i];
+                return ECOSYSTEM.dataMines[i];
             }
         }
     }
 
-    function getBot(pTeam, pBotCodeName) {
+    function getBot(pDataMine, pBotCodeName) {
 
-        for (let i = 0; i < pTeam.bots.length; i++) {
+        for (let i = 0; i < pDataMine.bots.length; i++) {
 
-            if (pTeam.bots[i].codeName === pBotCodeName) {
+            if (pDataMine.bots[i].codeName === pBotCodeName) {
 
-                return pTeam.bots[i];
+                return pDataMine.bots[i];
             }
         }
     }
 
-    function getPlotter(pTeam, pPlotterCodeName) {
+    function getPlotter(pDataMine, pPlotterCodeName) {
 
-        for (let i = 0; i < pTeam.plotters.length; i++) {
+        for (let i = 0; i < pDataMine.plotters.length; i++) {
 
-            if (pTeam.plotters[i].codeName === pPlotterCodeName) {
+            if (pDataMine.plotters[i].codeName === pPlotterCodeName) {
 
-                return pTeam.plotters[i];
+                return pDataMine.plotters[i];
             }
         }
     }

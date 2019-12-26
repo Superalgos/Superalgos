@@ -275,20 +275,20 @@ function onBrowserRequest (request, response) {
 
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
-        let devTeam = requestParameters[2]
+        let dataMine = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine.toLowerCase() + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
 
     case 'PlotterPanels': // This means the PlotterPanels folder, not to be confused with the Plotter Panels scripts!
       {
-        let devTeam = requestParameters[2]
+        let dataMine = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + '/' + devTeam.toLowerCase() + '/' + devTeam + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine.toLowerCase() + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break

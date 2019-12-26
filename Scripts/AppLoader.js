@@ -194,32 +194,32 @@ function newAppLoader() {
         if (INFO_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> Entering function.') }
 
         let plotters = []
-        let devTeams = ecosystem.devTeams
+        let dataMines = ecosystem.dataMines
         let hosts = ecosystem.hosts
 
-        plotters = plotters.concat(addScript(devTeams))
+        plotters = plotters.concat(addScript(dataMines))
         plotters = plotters.concat(addScript(hosts))
 
         return plotters
     }
 
-    function addScript(pDevTeamsOrHosts) {
+    function addScript(pDataMinesOrHosts) {
         if (INFO_LOG === true) { console.log('[INFO] server -> onBrowserRequest -> onFileRead -> addPlotters -> addScript -> Entering function.') }
-        const htmlLinePlotter = 'Plotters/@devTeam@/@repo@/@module@.js'
-        const htmlLinePlotterPanel = 'PlotterPanels/@devTeam@/@repo@/@module@.js'
+        const htmlLinePlotter = 'Plotters/@dataMine@/@repo@/@module@.js'
+        const htmlLinePlotterPanel = 'PlotterPanels/@dataMine@/@repo@/@module@.js'
         let plotters = []
 
-        for (let i = 0; i < pDevTeamsOrHosts.length; i++) {
-            let devTeam = pDevTeamsOrHosts[i]
-            for (let j = 0; j < devTeam.plotters.length; j++) {
-                let plotter = devTeam.plotters[j]
+        for (let i = 0; i < pDataMinesOrHosts.length; i++) {
+            let dataMine = pDataMinesOrHosts[i]
+            for (let j = 0; j < dataMine.plotters.length; j++) {
+                let plotter = dataMine.plotters[j]
                 if (plotter.modules !== undefined) {
                     for (let k = 0; k < plotter.modules.length; k++) {
                         let module = plotter.modules[k]
                         let htmlLineCopy = htmlLinePlotter
 
                         let stringToInsert
-                        stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName)
+                        stringToInsert = htmlLineCopy.replace('@dataMine@', dataMine.codeName)
                         stringToInsert = stringToInsert.replace('@repo@', plotter.repo)
                         stringToInsert = stringToInsert.replace('@module@', module.moduleName)
 
@@ -231,7 +231,7 @@ function newAppLoader() {
                                 let htmlLineCopy = htmlLinePlotterPanel
 
                                 let stringToInsert
-                                stringToInsert = htmlLineCopy.replace('@devTeam@', devTeam.codeName)
+                                stringToInsert = htmlLineCopy.replace('@dataMine@', dataMine.codeName)
                                 stringToInsert = stringToInsert.replace('@repo@', plotter.repo)
                                 stringToInsert = stringToInsert.replace('@module@', panel.moduleName)
 

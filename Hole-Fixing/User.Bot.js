@@ -452,7 +452,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.devTeam, filePath, onNextFileReceived, true);
+                            fileStorage.getTextFile(bot.dataMine, filePath, onNextFileReceived, true);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> reading file at dateForPath = " + dateForPath);
 
@@ -763,7 +763,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.devTeam, filePath, onNextFileReceived, true);
+                            fileStorage.getTextFile(bot.dataMine, filePath, onNextFileReceived, true);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> reading file at dateForPath = " + dateForPath);
 
@@ -1176,7 +1176,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> creating file at dateForPath = " + dateForPath);
 
@@ -1268,7 +1268,7 @@
                     forward end of the market.
                     */
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
                     let statusReport = statusDependencies.statusReports.get(key);
 
                     if (lastTradeId === undefined) {
@@ -1350,7 +1350,7 @@
 
                                     if (monthChecked === true) {
 
-                                        let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                                        let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
                                         let statusReport = statusDependencies.statusReports.get(key);
                                         statusReport.verifyMarketComplete(callBack);
                                         return;
@@ -1365,7 +1365,7 @@
 
                                 if (monthChecked === true) {
 
-                                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
                                     let statusReport = statusDependencies.statusReports.get(key);
                                     statusReport.verifyMarketComplete(callBack);
                                     return;
@@ -1394,7 +1394,7 @@
                 try {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> createMainStatusReport -> Entering function."); }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
                     let statusReport = statusDependencies.statusReports.get(key);
 

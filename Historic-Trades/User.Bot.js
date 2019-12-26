@@ -45,7 +45,7 @@
             console.log(logText);
             logger.write(logText);
 
-            charlyStorage.initialize(bot.devTeam);
+            charlyStorage.initialize(bot.dataMine);
 
             markets = MARKETS_MODULE.newMarkets(bot.logger);
             markets.initialize(callBackFunction);

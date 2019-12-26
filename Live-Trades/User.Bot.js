@@ -231,7 +231,7 @@
 
                     fileContent = fileContent + ']';
 
-                    fileStorage.createTextFile(bot.devTeam, filePathA +'/'+ fileNameA, fileContent + '\n', onFirstFileACreated);
+                    fileStorage.createTextFile(bot.dataMine, filePathA +'/'+ fileNameA, fileContent + '\n', onFirstFileACreated);
 
                     function onFirstFileACreated(err) {
 
@@ -298,7 +298,7 @@
 
                         fileContent = fileContent + ']';
 
-                        fileStorage.createTextFile(bot.devTeam, filePathB + '/' + fileNameB, fileContent + '\n', onFileBCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePathB + '/' + fileNameB, fileContent + '\n', onFileBCreated);
 
                         function onFileBCreated(err) {
 
@@ -333,7 +333,7 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> Entering function."); }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion;
 
                     let statusReport = statusDependencies.statusReports.get(key);
 

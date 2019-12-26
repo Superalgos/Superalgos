@@ -7,7 +7,7 @@
     "minor": 0,
     "patch": 0
   },
-  "devTeam": "AAMasters",
+  "dataMine": "AAMasters",
   "profilePicture": "Charly.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
@@ -40,7 +40,7 @@
       "comaWaitTime": 86400000,
       "statusDependencies": [
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -80,7 +80,7 @@
       "comaWaitTime": 86400000,
       "statusDependencies": [
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -90,7 +90,7 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -130,7 +130,7 @@
       "comaWaitTime": 86400000,
       "statusDependencies": [
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -141,7 +141,7 @@
           "waitUntilNextUpdate": true
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -151,7 +151,7 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -162,7 +162,7 @@
           "dataSetSection": "Month"
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,

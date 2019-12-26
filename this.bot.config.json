@@ -7,7 +7,7 @@
     "minor": 0,
     "patch": 0
   },
-  "devTeam": "AAMasters",
+  "dataMine": "AAMasters",
   "profilePicture": "Bruce.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
@@ -40,7 +40,7 @@
       "comaWaitTime": 86400000,
       "statusDependencies": [
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -50,7 +50,7 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AACharly",
           "botVersion": {
             "major": 1,
@@ -62,7 +62,7 @@
           "waitUntilNextUpdate": true
         },
         {
-          "devTeam": "AAMasters",
+          "dataMine": "AAMasters",
           "bot": "AABruce",
           "botVersion": {
             "major": 1,
@@ -99,7 +99,7 @@
         }
       ],
       "plotter": {
-        "devTeam": "AAMasters",
+        "dataMine": "AAMasters",
         "codeName": "PlottersCandlesVolumes",
         "moduleName": "Candles"
       }
@@ -127,7 +127,7 @@
         }
       ],
       "plotter": {
-        "devTeam": "AAMasters",
+        "dataMine": "AAMasters",
         "codeName": "PlottersCandlesVolumes",
         "moduleName": "Volumes"
       }

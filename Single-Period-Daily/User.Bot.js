@@ -324,7 +324,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
 
@@ -375,7 +375,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
 
@@ -472,11 +472,11 @@
 
                                 let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                                 let fileName = market.assetA + '_' + market.assetB + ".json"
-                                let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                                fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                                 logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
 
@@ -726,11 +726,11 @@
 
                                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
-                                    let filePathRoot = bot.devTeam + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                                     logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
 
@@ -883,7 +883,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
 
@@ -957,7 +957,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
 
@@ -1058,7 +1058,7 @@
                         return;
                     }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
                     let statusReport = statusDependencies.statusReports.get(key);
 
                     statusReport.file = {

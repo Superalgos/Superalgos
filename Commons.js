@@ -26,7 +26,7 @@
 
             function initializeBruceStorage() {
 
-                bruceStorage.initialize(bot.devTeam, onBruceInizialized);
+                bruceStorage.initialize(bot.dataMine, onBruceInizialized);
 
                 function onBruceInizialized(err) {
 
@@ -43,7 +43,7 @@
 
             function initializeCharlyStorage() {
 
-                charlyStorage.initialize(bot.devTeam, onCharlyInizialized);
+                charlyStorage.initialize(bot.dataMine, onCharlyInizialized);
 
                 function onCharlyInizialized(err) {
 

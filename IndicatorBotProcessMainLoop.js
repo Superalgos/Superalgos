@@ -43,10 +43,10 @@
 
             /* This bot is not ready for taking its code from the UI, then we need to load it from its repo. */
 
-            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
+            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
+            fileStorage.getTextFile(bot.dataMine, filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
@@ -61,10 +61,10 @@
                 USER_BOT_MODULE = {}
                 USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
 
-                filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(bot.devTeam, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(bot.dataMine, filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 

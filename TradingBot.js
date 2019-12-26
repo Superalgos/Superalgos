@@ -221,11 +221,11 @@
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriodLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -299,11 +299,11 @@
                         fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriodLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -369,11 +369,11 @@
                         fileContent = "[" + fileContent + "]";
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriodLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -442,11 +442,11 @@
                         fileContent = "[" + fileContent + "]";
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timePeriodLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -568,11 +568,11 @@
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -675,11 +675,11 @@
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -763,11 +763,11 @@
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -840,11 +840,11 @@
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -920,11 +920,11 @@
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
-                        let filePathRoot = bot.devTeam + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
+                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timePeriodLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 

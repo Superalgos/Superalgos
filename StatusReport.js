@@ -83,13 +83,13 @@
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Team. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Team witn no codeName defined. Team = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -98,7 +98,7 @@
             statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName
             statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.code.codeName
             statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
-            statusDependencyNode.devTeam = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+            statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
 
             /* Let's see if the process is run monthly or not. */
             if (statusDependencyNode.referenceParent.parentNode.code.startMode !== undefined) {
@@ -151,11 +151,11 @@
             let fileName = "Status.Report." + global.MARKET.assetA + '_' + global.MARKET.assetB + ".json";
             let filePath;
 
-            let ownerId = statusDependencyNode.devTeam + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
-                let rootPath = statusDependencyNode.devTeam + "/" + statusDependencyNode.bot + "." + statusDependencyNode.botVersion.major + "." + statusDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + statusDependencyNode.dataSetVersion;
+                let rootPath = statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + "." + statusDependencyNode.botVersion.major + "." + statusDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + statusDependencyNode.dataSetVersion;
                 filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
             } else {
                 filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
@@ -163,7 +163,7 @@
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(statusDependencyNode.devTeam, filePath, onFileReceived);
+            fileStorage.getTextFile(statusDependencyNode.dataMine, filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -231,8 +231,8 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> Entering function."); }
 
-            let ownerId = statusDependencyNode.devTeam + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
@@ -251,7 +251,7 @@
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(statusDependencyNode.devTeam, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(statusDependencyNode.dataMine, filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 

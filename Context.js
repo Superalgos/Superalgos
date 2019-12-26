@@ -134,7 +134,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + "Context" + "-" + bot.dataSetVersion;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + "Context" + "-" + bot.dataSetVersion;
 
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
@@ -168,7 +168,7 @@
                     let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/"  + fileName;
 
-                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -229,7 +229,7 @@
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" +  dateForPath + fileName;
 
-                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -411,7 +411,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileContent = " + fileContent); }
 
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -472,7 +472,7 @@
 
                     let fileContent = JSON.stringify(thisObject.executionHistory);
 
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -494,7 +494,7 @@
                         fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
                         filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" + fileName;
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onSequenceFileCreated);
+                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onSequenceFileCreated);
 
                         function onSequenceFileCreated(err) {
 

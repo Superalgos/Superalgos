@@ -104,13 +104,13 @@
             }
 
             if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Team. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Team witn no codeName defined. Team = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -476,11 +476,11 @@
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = contextSummary.devTeam + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + contextSummary.dataSetVersion;
+            let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + contextSummary.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timePeriodLabel + dateForPath;
             filePath += '/' + fileName
 
-            fileStorage.createTextFile(contextSummary.devTeam, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(contextSummary.dataMine, filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 

@@ -139,7 +139,7 @@
                 contextSummary.dataset = outputDatasetNode.referenceParent.code.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.code.codeName
                 contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.code.codeName
-                contextSummary.devTeam = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+                contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
 
                 /* This stuff is still hardcoded and unresolved. */
                 contextSummary.botVersion = {

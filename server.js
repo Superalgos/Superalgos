@@ -187,7 +187,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
@@ -202,7 +202,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 

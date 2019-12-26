@@ -133,7 +133,7 @@
                     /* Procedure to get the current market rate. */
 
                     let key =
-                        bot.marketRateProvider.devTeam + "-" +
+                        bot.marketRateProvider.dataMine + "-" +
                         bot.marketRateProvider.bot + "-" +
                         bot.marketRateProvider.product + "-" +
                         bot.marketRateProvider.dataSet + "-" +

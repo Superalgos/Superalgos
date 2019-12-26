@@ -155,9 +155,9 @@
                     let key;
 
                     if (statusDependency.dependency.processRunMonthly === true && statusDependency.month !== undefined && statusDependency.year !== undefined) {
-                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion + "-" + statusDependency.year + "-" + statusDependency.month;
+                        key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion + "-" + statusDependency.year + "-" + statusDependency.month;
                     } else {
-                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
+                        key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
                     }
 
                     thisObject.keys.push(key);

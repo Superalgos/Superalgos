@@ -53,10 +53,10 @@
 
             bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
 
-            let filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
+            let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(bot.devTeam, filePath, onBotDownloaded);
+            fileStorage.getTextFile(bot.dataMine, filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
@@ -72,10 +72,10 @@
                 //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AAJason-Trading-Engine-Bot/Multi-Period/User.Bot').newUserBot // Use this for a better debugging experience. You need to bring this js module to this folder in order to work.
                 USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
 
-                filePath = bot.devTeam + "/" + "bots" + "/" + bot.repo;
+                filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(bot.devTeam, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(bot.dataMine, filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 

@@ -42,7 +42,7 @@
                 let dataset;
                 let dependency = dataDependencies.nodeArray[i];
 
-                key = dependency.devTeam + "-" +
+                key = dependency.dataMine + "-" +
                     dependency.bot + "-" +
                     dependency.product + "-" +
                     dependency.dataSet + "-" +
@@ -332,7 +332,7 @@
 
                 try {
 
-                    let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

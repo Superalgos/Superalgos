@@ -48,7 +48,7 @@
                 let dataset;
                 let dependency = dataDependencies.nodeArray[i];
 
-                key = dependency.devTeam + "-" +
+                key = dependency.dataMine + "-" +
                     dependency.bot + "-" +
                     dependency.product + "-" +
                     dependency.dataSet + "-" +
@@ -995,7 +995,7 @@
                     let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -1011,7 +1011,7 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
-                        let key = bot.devTeam + "-" + bot.codeName + "-" + productCodeName + "-" + currentOutputPeriodName
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName + "-" + currentOutputPeriodName
                         let event = {
                             dateRange: dataRange
                         }
@@ -1034,7 +1034,7 @@
 
                 try {
 
-                    let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
+                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.currentDaytime;
@@ -1057,7 +1057,7 @@
 
                 try {
 
-                    let reportKey = bot.devTeam + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
+                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

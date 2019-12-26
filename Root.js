@@ -173,7 +173,7 @@
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> team = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName);
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> dataMine = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName);
                             return;
                         }
 
@@ -207,7 +207,7 @@
                     botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
                     /* Simplifying the access to basic info */
-                    botConfig.devTeam = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
+                    botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
 
                     /* This stuff is still hardcoded and unresolved. */
                     botConfig.version = {
@@ -220,7 +220,7 @@
                     botConfig.loopCounter = 0;                   
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.devTeam + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
+                    botConfig.filePathRoot = botConfig.dataMine + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + botConfig.dataSetVersion;
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id
@@ -459,9 +459,9 @@
 
                                         let botId;
                                         if (pYear !== undefined) {
-                                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
+                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
                                         } else {
-                                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
                                         }
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -533,9 +533,9 @@
 
                                         let botId;
                                         if (pYear !== undefined) {
-                                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
+                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
                                         } else {
-                                            botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
                                         }
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
@@ -602,7 +602,7 @@
 
                                         let botId;
 
-                                        botId = pBotConfig.devTeam + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                                        botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 

@@ -92,22 +92,22 @@ exports.newDebugLog = function newDebugLog() {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
-                let fileContent = fileStorage.getTextFile(thisObject.bot.devTeam, fileToDelete, onGetFile, true) 
+                let fileContent = fileStorage.getTextFile(thisObject.bot.dataMine, fileToDelete, onGetFile, true) 
                 function onGetFile(err, fileContent) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         if (fileContent.indexOf("ERROR") < 0) {
                             /* Logs will only be deleted when they contain no ERROR in them. */
-                            fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                            fileStorage.deleteTextFile(thisObject.bot.dataMine, fileToDelete);
                         } 
                     } else {
-                        fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                        fileStorage.deleteTextFile(thisObject.bot.dataMine, fileToDelete);
                     }
                 }
             }
              
             function writeLog() {
 
-                fileStorage.createTextFile(thisObject.bot.devTeam, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+                fileStorage.createTextFile(thisObject.bot.dataMine, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
                 function onFileCreated(err) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);
@@ -149,7 +149,7 @@ exports.newDebugLog = function newDebugLog() {
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
                 let key = ''
                 if (thisObject.bot) {
-                    key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
+                    key = thisObject.bot.dataMine + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
                 console.log('*********** ' + message + ' @ ' + key)
             }

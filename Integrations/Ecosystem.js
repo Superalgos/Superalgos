@@ -21,7 +21,7 @@ exports.getEcosystem = async function () {
                     query {
                         web_GetEcosystem {
                           id
-                          devTeams {
+                          dataMines {
                             codeName
                             displayName
                             host {

@@ -60,6 +60,33 @@ function newUiObjectsFromNodes () {
         }
       }
 
+      /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
+      if (nodeDefinition.chainedToSameType === true) {
+        let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+        if (parentNodeDefinition !== undefined) {
+          if (parentNodeDefinition.properties !== undefined) {
+            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+              let property = parentNodeDefinition.properties[i]
+              if (property.childType === node.type) {
+                if (property.type === 'array') {
+                  if (parentNode[property.name] !== undefined) {
+                    if (parentNode[property.name].length > 1) {
+                      let nodeChildren = parentNode[property.name]
+                      for (let j = 0; j < nodeChildren.length; j++) {
+                        if (node.id === nodeChildren[j].id) {
+                          if (j > 0) {
+                            chainParent = nodeChildren[j - 1]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       /* Create Self */
       createUiObject(false, node.type, node.name, node, parentNode, chainParent, node.type, positionOffset)
 
@@ -92,24 +119,44 @@ function newUiObjectsFromNodes () {
     }
   }
 
-  function addUIObject (parent, type) {
+  function addUIObject (parentNode, type) {
     let object = {
       name: 'New ' + type,
       type: type
     }
 
-    let parentNodeDefinition = APP_SCHEMA_MAP.get(parent.type)
+    let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
     if (parentNodeDefinition !== undefined) {
       /* Resolve Initial Values */
       let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
 
       if (nodeDefinition.isHierarchyHead === true) {
-        parent.rootNodes.push(object)
-        createUiObject(true, object.type, object.name, object, parent, undefined)
+        parentNode.rootNodes.push(object)
+        createUiObject(true, object.type, object.name, object, parentNode, undefined)
         return object
       }
 
-      createUiObject(true, object.type, object.name, object, parent, parent)
+      /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
+      let chainParent = parentNode
+      if (nodeDefinition.chainedToSameType === true) {
+        if (parentNodeDefinition.properties !== undefined) {
+          for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+            let property = parentNodeDefinition.properties[i]
+            if (property.childType === type) {
+              if (property.type === 'array') {
+                if (parentNode[property.name] !== undefined) {
+                  if (parentNode[property.name].length > 0) {
+                    let nodeChildren = parentNode[property.name]
+                    chainParent = nodeChildren[nodeChildren.length - 1]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      createUiObject(true, object.type, object.name, object, parentNode, chainParent)
 
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.initialValues !== undefined) {
@@ -128,16 +175,16 @@ function newUiObjectsFromNodes () {
             switch (property.type) {
               case 'node': {
                 if (property.name !== previousPropertyName) {
-                  parent[property.name] = object
+                  parentNode[property.name] = object
                   previousPropertyName = property.name
                 }
               }
                 break
               case 'array': {
-                if (parent[property.name] === undefined) {
-                  parent[property.name] = []
+                if (parentNode[property.name] === undefined) {
+                  parentNode[property.name] = []
                 }
-                parent[property.name].push(object)
+                parentNode[property.name].push(object)
               }
                 break
             }

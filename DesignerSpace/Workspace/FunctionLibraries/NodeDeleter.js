@@ -74,6 +74,14 @@ function newNodeDeleter () {
                       for (let j = 0; j < nodePropertyArray.length; j++) {
                         let arrayItem = nodePropertyArray[j]
                         if (arrayItem.id === node.id) {
+                          /* If this object is chained to the ones of the same type we need to give the next in the chain the reference to the current chain parent */
+                          if (nodeDefinition.chainedToSameType === true) {
+                            if (j < nodePropertyArray.length - 1) {
+                              let nextArrayItem = nodePropertyArray[j + 1]
+                              nextArrayItem.payload.chainParent = node.payload.chainParent
+                            }
+                          }
+
                           nodePropertyArray.splice(j, 1)
                         }
                       }

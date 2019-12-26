@@ -14,13 +14,13 @@ function newNodeChildren () {
       childrenCount: 0,
       childIndex: undefined
     }
-    let nodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
-    if (nodeDefinition !== undefined) {
-      if (nodeDefinition.properties !== undefined) {
+    let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    if (parentNodeDefinition !== undefined) {
+      if (parentNodeDefinition.properties !== undefined) {
         let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
 
-        for (let i = 0; i < nodeDefinition.properties.length; i++) {
-          let property = nodeDefinition.properties[i]
+        for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+          let property = parentNodeDefinition.properties[i]
           if (parentNode[property.name] !== undefined) {
             switch (property.type) {
               case 'node': {
@@ -34,12 +34,24 @@ function newNodeChildren () {
               }
                 break
               case 'array': {
-                let nodePropertyArray = parentNode[property.name]
-                for (let j = 0; j < nodePropertyArray.length; j++) {
-                  let child = nodePropertyArray[j]
-                  response.childrenCount++
-                  if (child.id === childNode.id) {
-                    response.childIndex = response.childrenCount
+                let nodeDefinition = APP_SCHEMA_MAP.get(childNode.type)
+                if (nodeDefinition !== undefined) {
+                  let nodePropertyArray = parentNode[property.name]
+                  for (let j = 0; j < nodePropertyArray.length; j++) {
+                    let child = nodePropertyArray[j]
+                    if (nodeDefinition.chainedToSameType === true) {
+                      if (j < 1) {
+                        response.childrenCount++
+                        if (child.id === childNode.id) {
+                          response.childIndex = response.childrenCount
+                        }
+                      }
+                    } else {
+                      response.childrenCount++
+                      if (child.id === childNode.id) {
+                        response.childIndex = response.childrenCount
+                      }
+                    }
                   }
                 }
               }

@@ -54,7 +54,7 @@ function newDashboard () {
 
         if (canvas !== undefined) { canvas.finalize() }
 
-        /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Team. */
+        /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Data Mine. */
 
         if (window.canvasApp.executingAt === 'Local') {
           window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
@@ -67,9 +67,9 @@ function newDashboard () {
         userProfileChangedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('User Profile Changed', userProfileChanged)
         browserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', browserResized)
 
-        /* Here we used to have a call to the Teams Module to get the profile pictures. That was removed but to keep things working, we do this: */
+        /* Here we used to have a call to the DataMines Module to get the profile pictures. That was removed but to keep things working, we do this: */
 
-        window.canvasApp.context.teamProfileImages = new Map()
+        window.canvasApp.context.dataMineProfileImages = new Map()
         window.canvasApp.context.fbProfileImages = new Map()
 
         setTimeout(delayedStart, DEBUG_START_UP_DELAY)

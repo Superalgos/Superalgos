@@ -139,7 +139,7 @@ function newDesignerSpace () {
       'bot-indicator',
       'bot-sensor',
       'time-period',
-      'team',
+      'data-mine',
       'procedure-loop',
       'calculations-procedure',
       'data-building-procedure',

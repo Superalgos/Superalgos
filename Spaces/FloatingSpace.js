@@ -107,7 +107,7 @@ function newFloatingSpace () {
     if (
       payload.node.type === 'Definition' ||
       payload.node.type === 'Network' ||
-      payload.node.type === 'Team'
+      payload.node.type === 'Data Mine'
   ) {
       return false
     }

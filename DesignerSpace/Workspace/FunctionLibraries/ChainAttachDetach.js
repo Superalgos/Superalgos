@@ -14,7 +14,7 @@ function newChainAttachDetach () {
       case 'Network': {
         return
       }
-      case 'Team': {
+      case 'Data Mine': {
         return
       }
       case 'Phase': {

@@ -106,7 +106,7 @@
     <Compile Include="TopSpace\CurrentEvent.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TopSpace\DevTeam.js">
+    <Compile Include="TopSpace\dataMine.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TopSpace\EndUser.js">

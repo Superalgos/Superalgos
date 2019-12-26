@@ -127,7 +127,7 @@ function newPlottersManager () {
   function initializeProductPlotter (pProductCard, callBack) {
     try {
             /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
-      let objName = pProductCard.devTeam.codeName + '-' + pProductCard.bot.codeName + '-' + pProductCard.product.codeName
+      let objName = pProductCard.dataMine.codeName + '-' + pProductCard.bot.codeName + '-' + pProductCard.product.codeName
       let storage = newProductStorage(objName)
             /*
 
@@ -158,7 +158,7 @@ function newPlottersManager () {
         }
       }
 
-      storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
+      storage.initialize(pProductCard.dataMine, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
 
       function onProductStorageInitialized (err) {
         try {
@@ -196,7 +196,7 @@ function newPlottersManager () {
             'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
             productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, lightingPath)
           } else {
-            plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+            plotter = getNewPlotter(pProductCard.product.plotter.dataMine, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
           }
 
           plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
@@ -224,7 +224,7 @@ function newPlottersManager () {
                 let panelConfig = pProductCard.product.plotter.module.panels[i]
 
                 let parameters = {
-                  devTeam: pProductCard.product.plotter.devTeam,
+                  dataMine: pProductCard.product.plotter.dataMine,
                   plotterCodeName: pProductCard.product.plotter.codeName,
                   moduleCodeName: pProductCard.product.plotter.moduleName,
                   panelCodeName: panelConfig.codeName
@@ -245,7 +245,7 @@ function newPlottersManager () {
                   let panel = productDefinition.referenceParent.panels[i]
 
                   let parameters = {
-                    devTeam: pProductCard.product.plotter.devTeam,
+                    dataMine: pProductCard.product.plotter.dataMine,
                     plotterCodeName: pProductCard.product.plotter.codeName,
                     moduleCodeName: pProductCard.product.plotter.moduleName,
                     panelCodeName: panel.id

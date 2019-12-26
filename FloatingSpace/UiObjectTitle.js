@@ -53,7 +53,7 @@ function newUiObjectTitle () {
         thisObject.allwaysVisible = true
         break
       }
-      case 'Team': {
+      case 'Data Mine': {
         thisObject.allwaysVisible = true
         break
       }

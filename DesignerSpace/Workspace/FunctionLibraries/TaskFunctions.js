@@ -48,7 +48,7 @@ function newTaskFunctions () {
     'Sensor Bot->' +
     'Indicator Bot->' +
     'Trading Bot->' +
-    'Team->'
+    'Data Mine->'
 
     let definition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 

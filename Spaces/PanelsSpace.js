@@ -63,7 +63,7 @@ function newPanelsSpace () {
             panel.session = pSession
             panel.initialize(pPanelCode)
           } else {
-            panel = getNewPlotterPanel(pParameters.devTeam, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
+            panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
             panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession

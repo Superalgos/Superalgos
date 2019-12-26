@@ -7,7 +7,7 @@ function newProductCard () {
   let thisObject = {
     container: undefined,
     status: PRODUCT_CARD_STATUS.OFF,
-    devTeam: undefined,
+    dataMine: undefined,
     bot: undefined,
     product: undefined,
     code: undefined,
@@ -69,14 +69,14 @@ function newProductCard () {
   let timePeriod = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
-   /* TODO We are in a transition period in which bots and teams images might be located at different places.
+   /* TODO We are in a transition period in which bots and dataMines images might be located at different places.
    What we are going to do then is to try to load them from both places and use the variable that finally gets an
    image. */
 
    /* This is the legacy image storage. */
 
-  let legacyTeamAvatar
-  let legacyTeamAvatarLoaded = false
+  let legacyDataMineAvatar
+  let legacyDataMineAvatarLoaded = false
 
    /* TODO Temporary code */
   let legacyBotAvatar
@@ -89,11 +89,11 @@ function newProductCard () {
 
    /* We are transitioning towards this */
 
-  let teamAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
-  let teamAvatarLoaded = false
+  let dataMineAvatar // stores the avatar image of the dataMine the bot portrayed at this card belongs to.
+  let dataMineAvatarLoaded = false
 
    /* TODO Temporary code */
-  let botAvatar // stores the avatar image of the team the bot portrayed at this card belongs to.
+  let botAvatar // stores the avatar image of the dataMine the bot portrayed at this card belongs to.
   let botAvatarLoaded = false
 
    /* Add an Event Handler */
@@ -111,14 +111,14 @@ function newProductCard () {
     thisObject.container = undefined
     thisObject.eventHandler = undefined
     thisObject.status = undefined
-    thisObject.devTeam = undefined
+    thisObject.dataMine = undefined
     thisObject.bot = undefined
     thisObject.product = undefined
     thisObject.code = undefined
     thisObject.fitFunction = undefined
 
-    legacyTeamAvatar = undefined
-    legacyTeamAvatarLoaded = undefined
+    legacyDataMineAvatar = undefined
+    legacyDataMineAvatarLoaded = undefined
     legacyBotAvatar = undefined
     legacyBotAvatarLoaded = undefined
     legacyPlotterBanner = undefined
@@ -150,10 +150,10 @@ function newProductCard () {
 
        /* Add information that will later be needed. */
 
-      let team = ecosystem.getTeam(thisObject.product.plotter.devTeam)
+      let dataMine = ecosystem.getDataMine(thisObject.product.plotter.dataMine)
       let plotter
-      if (team !== undefined) {
-        plotter = ecosystem.getPlotter(team, thisObject.product.plotter.codeName)
+      if (dataMine !== undefined) {
+        plotter = ecosystem.getPlotter(dataMine, thisObject.product.plotter.codeName)
       }
 
       if (plotter !== undefined) {
@@ -212,13 +212,13 @@ function newProductCard () {
 
        /* WARNING THIS IS TEMPORARY CODE */
 
-      const LEGACY_TEAM = thisObject.devTeam.codeName
+      const LEGACY_DATA_MINE = thisObject.dataMine.codeName
       const REPO = thisObject.bot.repo
       const PROFILE_PIC = thisObject.bot.profilePicture
 
-       /* The plotter banner, comes from the Legacy Location so far, no matter if the Team is at the Teams Modules or not. */
+       /* The plotter banner, comes from the Legacy Location so far, no matter if the Data Mine is at the DataMines Modules or not. */
 
-      const PLOTTER_TEAM = thisObject.product.plotter.devTeam
+      const PLOTTER_DATA_MINE = thisObject.product.plotter.dataMine
       const PLOTTER_REPO = thisObject.product.plotter.codeName
       const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
 
@@ -230,7 +230,7 @@ function newProductCard () {
       }
 
       if (PLOTTER_PROFILE_PIC !== undefined) {
-        legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_TEAM + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
+        legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_DATA_MINE + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
       } else {
         if (thisObject.product.plotter.banner !== undefined) {
           legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + thisObject.product.plotter.banner + '-Banner.PNG'
@@ -239,25 +239,25 @@ function newProductCard () {
         }
       }
 
-      const TEAM = thisObject.devTeam.codeName.toLowerCase()
+      const DATA_MINE = thisObject.dataMine.codeName.toLowerCase()
       const BOT = thisObject.bot.codeName.toLowerCase()
 
-      if (window.canvasApp.context.teamProfileImages.get(TEAM) === undefined) {
-        // This means this Team is a Lecay Team, still not at any Module.
+      if (window.canvasApp.context.dataMineProfileImages.get(DATA_MINE) === undefined) {
+        // This means this Data Mine is a Lecay Data Mine, still not at any Module.
 
            /*
            Here we will download the images still at the legacy storage.
            */
 
-        legacyTeamAvatar = new Image()
+        legacyDataMineAvatar = new Image()
 
-        legacyTeamAvatar.onload = onLegacyImageLoad
+        legacyDataMineAvatar.onload = onLegacyImageLoad
 
         function onLegacyImageLoad () {
-          legacyTeamAvatarLoaded = true
+          legacyDataMineAvatarLoaded = true
         }
 
-        legacyTeamAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + LEGACY_TEAM + '.png'
+        legacyDataMineAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_DATA_MINE + '/' + LEGACY_DATA_MINE + '.png'
 
         legacyBotAvatar = new Image()
         legacyBotAvatar.onload = onLegacyImageLoadBot
@@ -267,23 +267,23 @@ function newProductCard () {
           thisObject.bot.avatar = legacyBotAvatar
         }
 
-        legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_TEAM + '/' + REPO + '/' + PROFILE_PIC
+        legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_DATA_MINE + '/' + REPO + '/' + PROFILE_PIC
       } else {
            /*
-              Here we will download the images of teams shareed at the Teams Module.
-              There might be Product Cards of bots beloging to teams not present currently at the Teams Module, in those cases
+              Here we will download the images of dataMines shareed at the DataMines Module.
+              There might be Product Cards of bots beloging to dataMines not present currently at the DataMines Module, in those cases
               nothing should happen.
           */
 
-        teamAvatar = new Image()
+        dataMineAvatar = new Image()
 
-        teamAvatar.onload = onImageLoad
+        dataMineAvatar.onload = onImageLoad
 
         function onImageLoad () {
-          teamAvatarLoaded = true
+          dataMineAvatarLoaded = true
         }
 
-        teamAvatar.src = window.canvasApp.context.teamProfileImages.get(TEAM)
+        dataMineAvatar.src = window.canvasApp.context.dataMineProfileImages.get(DATA_MINE)
 
         botAvatar = new Image()
         botAvatar.onload = onImageLoadBot
@@ -293,7 +293,7 @@ function newProductCard () {
           thisObject.bot.avatar = botAvatar
         }
 
-        botAvatar.src = window.canvasApp.context.fbProfileImages.get(TEAM + '-' + BOT)
+        botAvatar.src = window.canvasApp.context.fbProfileImages.get(DATA_MINE + '-' + BOT)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -460,7 +460,7 @@ function newProductCard () {
       y: 0
     }
 
-    const devTeamImageSize = 20
+    const dataMineImageSize = 20
     const botImageSize = 20
     const plotterImageSize = {
       width: 180,
@@ -470,32 +470,32 @@ function newProductCard () {
     lastMouseOver--  // Animating the mouse onMouseOver
 
     if (lastMouseOver > 0) {
-      /* First the Dev Team Profile Picture. */
-      let teamImagePoint = {
+      /* First the Dev Data Mine Profile Picture. */
+      let dataMineImagePoint = {
         x: 2,
-        y: thisObject.container.frame.height / 2 - devTeamImageSize / 2
+        y: thisObject.container.frame.height / 2 - dataMineImageSize / 2
       }
 
-      teamImagePoint = thisObject.container.frame.frameThisPoint(teamImagePoint)
-      fitImagePoint = thisObject.fitFunction(teamImagePoint)
-      let teamImage
-      if (legacyTeamAvatarLoaded === true) {
-        teamImage = legacyTeamAvatar
+      dataMineImagePoint = thisObject.container.frame.frameThisPoint(dataMineImagePoint)
+      fitImagePoint = thisObject.fitFunction(dataMineImagePoint)
+      let dataMineImage
+      if (legacyDataMineAvatarLoaded === true) {
+        dataMineImage = legacyDataMineAvatar
       }
-      if (teamAvatarLoaded === true) {
-        teamImage = teamAvatar
+      if (dataMineAvatarLoaded === true) {
+        dataMineImage = dataMineAvatar
       }
-      if (teamImage !== undefined && teamImagePoint.y === fitImagePoint.y) {
-        if (teamImage.naturalHeight !== 0) {
+      if (dataMineImage !== undefined && dataMineImagePoint.y === fitImagePoint.y) {
+        if (dataMineImage.naturalHeight !== 0) {
          /* The image is rounded before being displayed. */
           browserCanvasContext.save()
           browserCanvasContext.beginPath()
-          browserCanvasContext.arc(teamImagePoint.x + devTeamImageSize / 2, teamImagePoint.y + devTeamImageSize / 2, devTeamImageSize / 2, 0, Math.PI * 2, true)
+          browserCanvasContext.arc(dataMineImagePoint.x + dataMineImageSize / 2, dataMineImagePoint.y + dataMineImageSize / 2, dataMineImageSize / 2, 0, Math.PI * 2, true)
           browserCanvasContext.closePath()
           browserCanvasContext.clip()
-          browserCanvasContext.drawImage(teamImage, teamImagePoint.x, teamImagePoint.y, devTeamImageSize, devTeamImageSize)
+          browserCanvasContext.drawImage(dataMineImage, dataMineImagePoint.x, dataMineImagePoint.y, dataMineImageSize, dataMineImageSize)
           browserCanvasContext.beginPath()
-          browserCanvasContext.arc(teamImagePoint.x, teamImagePoint.y, devTeamImageSize / 2, 0, Math.PI * 2, true)
+          browserCanvasContext.arc(dataMineImagePoint.x, dataMineImagePoint.y, dataMineImageSize / 2, 0, Math.PI * 2, true)
           browserCanvasContext.clip()
           browserCanvasContext.closePath()
           browserCanvasContext.restore()
@@ -511,7 +511,7 @@ function newProductCard () {
         botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
         fitImagePoint = thisObject.fitFunction(botImagePoint)
 
-        let imageId = thisObject.bot.devTeam + '.' + thisObject.bot.profilePicture
+        let imageId = thisObject.bot.dataMine + '.' + thisObject.bot.profilePicture
         /* TODO Temporary code */
         let botImage
         botImage = thisObject.bot.avatar
@@ -545,7 +545,7 @@ function newProductCard () {
         y: plotterImagePoint.y + plotterImageSize.height
       }
       fitImagePoint = thisObject.fitFunction(fitImagePoint)
-      let imageId = thisObject.product.plotter.devTeam + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
+      let imageId = thisObject.product.plotter.dataMine + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
       let plotterImage = legacyPlotterBanner
       if (plotterImage !== undefined && plotterImagePoint.y + plotterImageSize.height === fitImagePoint.y) {
         if (plotterImage.naturalHeight !== 0) {
@@ -627,13 +627,13 @@ function newProductCard () {
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
     let label
     if (lastMouseOver > 0) {
-   /* devTeam */
-      label = thisObject.devTeam.displayName
+   /* dataMine */
+      label = thisObject.dataMine.displayName
       if (label.length > 10) { label = label.substring(1, 8) + '...' }
 
       labelPoint = {
-        x: 2 + devTeamImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-        y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
+        x: 2 + dataMineImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
+        y: thisObject.container.frame.height / 2 + dataMineImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
       }
 
       labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
@@ -647,7 +647,7 @@ function newProductCard () {
 
       labelPoint = {
         x: thisObject.container.frame.width - 8 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-        y: thisObject.container.frame.height / 2 + devTeamImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
+        y: thisObject.container.frame.height / 2 + dataMineImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
       }
 
       labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
@@ -675,7 +675,7 @@ function newProductCard () {
     }
     labelPoint = {
       x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-      y: thisObject.container.frame.height / 2 - devTeamImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 20
+      y: thisObject.container.frame.height / 2 - dataMineImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 20
     }
     labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
     labelPoint = thisObject.fitFunction(labelPoint)

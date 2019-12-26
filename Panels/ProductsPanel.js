@@ -67,18 +67,18 @@ function newProductsPanel () {
     }
 
     /* For legacy plotters, we will add product cards based on the old ecosystem file */
-    for (let i = 0; i < ecosystem.devTeams.length; i++) {
-      let devTeam = ecosystem.devTeams[i]
+    for (let i = 0; i < ecosystem.dataMines.length; i++) {
+      let dataMine = ecosystem.dataMines[i]
 
-      for (let j = 0; j < devTeam.bots.length; j++) {
-        let bot = devTeam.bots[j]
+      for (let j = 0; j < dataMine.bots.length; j++) {
+        let bot = dataMine.bots[j]
         if (bot.type !== 'Indicator Bot Instance') { continue }
 
         if (bot.products !== undefined) {
           for (let k = 0; k < bot.products.length; k++) {
             let product = bot.products[k]
 
-            addProductCard(devTeam, bot, product)
+            addProductCard(dataMine, bot, product)
           }
         }
       }
@@ -88,19 +88,19 @@ function newProductsPanel () {
     let workspaceNode = canvas.designerSpace.workspace.workspaceNode
     for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
       let rootNode = workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Team') {
-        let teamNode = rootNode
+      if (rootNode.type === 'Data Mine') {
+        let dataMineNode = rootNode
 
-        let team = {}
-        if (teamNode.code === undefined) { continue }
+        let dataMine = {}
+        if (dataMineNode.code === undefined) { continue }
         try {
-          let code = JSON.parse(teamNode.code)
-          team.codeName = code.codeName
+          let code = JSON.parse(dataMineNode.code)
+          dataMine.codeName = code.codeName
         } catch (err) {
           continue
         }
-        for (let j = 0; j < teamNode.indicatorBots.length; j++) {
-          let botNode = teamNode.indicatorBots[j]
+        for (let j = 0; j < dataMineNode.indicatorBots.length; j++) {
+          let botNode = dataMineNode.indicatorBots[j]
 
           let bot = {}
           if (botNode.code === undefined) { continue }
@@ -149,20 +149,20 @@ function newProductsPanel () {
             }
 
             if (plotterNode.payload.parentNode === undefined) { continue }
-            let plotterTeamNode = plotterNode.payload.parentNode
+            let plotterDataMineNode = plotterNode.payload.parentNode
 
-            let plotterTeam = {}
-            if (plotterTeamNode.code === undefined) { continue }
+            let plotterDataMine = {}
+            if (plotterDataMineNode.code === undefined) { continue }
             try {
-              let code = JSON.parse(plotterTeamNode.code)
-              plotterTeam.codeName = code.codeName
+              let code = JSON.parse(plotterDataMineNode.code)
+              plotterDataMine.codeName = code.codeName
             } catch (err) {
               continue
             }
 
             /* Conversion to fit old format */
             product.plotter = plotter
-            product.plotter.devTeam = plotterTeam.codeName
+            product.plotter.dataMine = plotterDataMine.codeName
             product.plotter.moduleName = plotterModule.codeName
             product.plotter.banner = plotterModule.banner
             product.plotter.legacy = false
@@ -171,8 +171,8 @@ function newProductsPanel () {
             product.dataSets = []
             product.exchangeList = [{'name': 'Poloniex'}]
             product.node = productNode
-            team.displayName = teamNode.name
-            team.host = {'url': 'localhost'}
+            dataMine.displayName = dataMineNode.name
+            dataMine.host = {'url': 'localhost'}
             bot.displayName = botNode.name
 
             for (let m = 0; m < productNode.datasets.length; m++) {
@@ -187,7 +187,7 @@ function newProductsPanel () {
               }
             }
 
-            addProductCard(team, bot, product)
+            addProductCard(dataMine, bot, product)
           }
         }
       }
@@ -204,15 +204,15 @@ function newProductsPanel () {
     productCard.finalize()
   }
 
-  function addProductCard (devTeam, bot, product, session) {
+  function addProductCard (dataMine, bot, product, session) {
     /* Now we create Product objects */
     let productCard = newProductCard()
 
-    productCard.devTeam = devTeam
+    productCard.dataMine = dataMine
     productCard.bot = bot
     productCard.product = product
     productCard.fitFunction = thisObject.fitFunction
-    productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName
+    productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
 
     if (session !== undefined) {
       productCard.code = productCard.code + '-' + session.id
@@ -397,7 +397,7 @@ function newProductsPanel () {
         let tradingBotInstance = tradingBotInstances[n]
         let code
         let instanceBot
-        let instanceTeam
+        let instanceDataMine
 
         for (let m = 0; m < tradingBotInstance.processes.length; m++) {
           let process = tradingBotInstance.processes[m]
@@ -405,18 +405,18 @@ function newProductsPanel () {
             code = JSON.parse(process.payload.referenceParent.payload.parentNode.code)
             instanceBot = code.codeName
             code = JSON.parse(process.payload.referenceParent.payload.parentNode.payload.parentNode.code)
-            instanceTeam = code.codeName
+            instanceDataMine = code.codeName
           } catch (err) {
             continue
           }
-          for (let i = 0; i < ecosystem.devTeams.length; i++) {
-            let devTeam = ecosystem.devTeams[i]
+          for (let i = 0; i < ecosystem.dataMines.length; i++) {
+            let dataMine = ecosystem.dataMines[i]
 
-            for (let j = 0; j < devTeam.bots.length; j++) {
-              let bot = devTeam.bots[j]
+            for (let j = 0; j < dataMine.bots.length; j++) {
+              let bot = dataMine.bots[j]
               if (bot.type !== 'Trading Bot Instance') { continue }
 
-              if (devTeam.codeName === instanceTeam && bot.codeName === instanceBot) {
+              if (dataMine.codeName === instanceDataMine && bot.codeName === instanceBot) {
                   /* We found an instance of the same Trading we are currently looking at.
                   Next thing to do is to see its layers to see if we can match it with the current product. */
 
@@ -439,10 +439,10 @@ function newProductsPanel () {
 
                             if (product.codeName === layerCode.product) {
                               /* We have a layer that is matching the current product */
-                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
                               let cardFound = removeFromLocalProductCards(cardCode)
                               if (cardFound !== true) {
-                                productCard = addProductCard(devTeam, bot, product, process.session)
+                                productCard = addProductCard(dataMine, bot, product, process.session)
                                 onProductCardStatusChanged(productCard)
                               }
                             }

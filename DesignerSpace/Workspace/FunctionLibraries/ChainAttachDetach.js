@@ -96,11 +96,6 @@ function newChainAttachDetach () {
       case 'Phase': {
         switch (attachToNode.type) {
           case 'Stop': {
-            if (attachToNode.maxPhases !== undefined) {
-              if (attachToNode.phases.length >= attachToNode.maxPhases) {
-                return
-              }
-            }
             node.payload.parentNode = attachToNode
             if (attachToNode.phases.length > 0) {
               let phase = attachToNode.phases[attachToNode.phases.length - 1]
@@ -113,10 +108,36 @@ function newChainAttachDetach () {
           }
             break
           case 'Take Profit': {
-            if (attachToNode.maxPhases !== undefined) {
-              if (attachToNode.phases.length >= attachToNode.maxPhases) {
-                return
-              }
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+            completeAttachment(node, rootNodes)
+          }
+            break
+          case 'Initial Stop': {
+            if (attachToNode.phases.length >= 1) {
+              return
+            }
+
+            node.payload.parentNode = attachToNode
+            if (attachToNode.phases.length > 0) {
+              let phase = attachToNode.phases[attachToNode.phases.length - 1]
+              node.payload.chainParent = phase
+            } else {
+              node.payload.chainParent = attachToNode
+            }
+            attachToNode.phases.push(node)
+            completeAttachment(node, rootNodes)
+          }
+            break
+          case 'Initial Take Profit': {
+            if (attachToNode.phases.length >= 1) {
+              return
             }
             node.payload.parentNode = attachToNode
             if (attachToNode.phases.length > 0) {

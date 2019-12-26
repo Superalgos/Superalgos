@@ -62,20 +62,22 @@ function newUiObjectsFromNodes () {
 
       /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
       if (nodeDefinition.chainedToSameType === true) {
-        let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
-        if (parentNodeDefinition !== undefined) {
-          if (parentNodeDefinition.properties !== undefined) {
-            for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-              let property = parentNodeDefinition.properties[i]
-              if (property.childType === node.type) {
-                if (property.type === 'array') {
-                  if (parentNode[property.name] !== undefined) {
-                    if (parentNode[property.name].length > 1) {
-                      let nodeChildren = parentNode[property.name]
-                      for (let j = 0; j < nodeChildren.length; j++) {
-                        if (node.id === nodeChildren[j].id) {
-                          if (j > 0) {
+        if (parentNode !== undefined) {
+          let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+          if (parentNodeDefinition !== undefined) {
+            if (parentNodeDefinition.properties !== undefined) {
+              for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+                let property = parentNodeDefinition.properties[i]
+                if (property.childType === node.type) {
+                  if (property.type === 'array') {
+                    if (parentNode[property.name] !== undefined) {
+                      if (parentNode[property.name].length > 1) {
+                        let nodeChildren = parentNode[property.name]
+                        for (let j = 0; j < nodeChildren.length; j++) {
+                          if (node.id === nodeChildren[j].id) {
+                            if (j > 0) {
                             chainParent = nodeChildren[j - 1]
+                          }
                           }
                         }
                       }
@@ -156,8 +158,6 @@ function newUiObjectsFromNodes () {
         }
       }
 
-      createUiObject(true, object.type, object.name, object, parentNode, chainParent)
-
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.initialValues !== undefined) {
           if (nodeDefinition.initialValues.code !== undefined) {
@@ -184,13 +184,23 @@ function newUiObjectsFromNodes () {
                 if (parentNode[property.name] === undefined) {
                   parentNode[property.name] = []
                 }
-                parentNode[property.name].push(object)
+                if (property.maxItems !== undefined) {
+                  if (parentNode[property.name].length < property.maxItems) {
+                    parentNode[property.name].push(object)
+                  } else {
+                    return // Object can not be created.
+                  }
+                } else {
+                  parentNode[property.name].push(object)
+                }
               }
                 break
             }
           }
         }
       }
+
+      createUiObject(true, object.type, object.name, object, parentNode, chainParent)
 
       /* Auto Add more Children */
       if (nodeDefinition.properties !== undefined) {

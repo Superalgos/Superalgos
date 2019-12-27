@@ -116,12 +116,12 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             };
 
             let point2 = {
-                x: X_AXIS + record.timePeriod / 4,
+                x: X_AXIS + record.timeFrame / 4,
                 y: Y_AXIS
             };
 
             let point3 = {
-                x: X_AXIS - record.timePeriod / 4,
+                x: X_AXIS - record.timeFrame / 4,
                 y: Y_AXIS
             };
 
@@ -176,12 +176,12 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             };
 
             let point2 = {
-                x: X_AXIS + record.timePeriod / 4,
+                x: X_AXIS + record.timeFrame / 4,
                 y: Y_AXIS
             };
 
             let point3 = {
-                x: X_AXIS - record.timePeriod / 4,
+                x: X_AXIS - record.timeFrame / 4,
                 y: Y_AXIS
             };
 
@@ -234,12 +234,12 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             };
 
             let point2 = {
-                x: X_AXIS + record.timePeriod / 4,
+                x: X_AXIS + record.timeFrame / 4,
                 y: Y_AXIS
             };
 
             let point3 = {
-                x: X_AXIS - record.timePeriod / 4,
+                x: X_AXIS - record.timeFrame / 4,
                 y: Y_AXIS
             };
 
@@ -292,12 +292,12 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             };
 
             let point2 = {
-                x: X_AXIS + record.timePeriod / 4,
+                x: X_AXIS + record.timeFrame / 4,
                 y: Y_AXIS
             };
 
             let point3 = {
-                x: X_AXIS - record.timePeriod / 4,
+                x: X_AXIS - record.timeFrame / 4,
                 y: Y_AXIS
             };
 

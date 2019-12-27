@@ -14,7 +14,7 @@
         finalize: finalize,
         container: undefined,
         getContainer: getContainer,
-        setTimePeriod: setTimePeriod,
+        setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         recalculateScale: recalculateScale,
         draw: draw
@@ -28,7 +28,7 @@
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
-    let timePeriod;                             // This will hold the current Time Period the user is at.
+    let timeFrame;                             // This will hold the current Time Frame the user is at.
     let datetime;                               // This will hold the current Datetime the user is at.
 
     /* these are module specific variables: */
@@ -57,7 +57,7 @@
             /* Destroyd References */
 
             datetime = undefined;
-            timePeriod = undefined;
+            timeFrame = undefined;
 
             fileSequence = undefined;
             plotElements = undefined;
@@ -68,12 +68,12 @@
         }
     }
 
-    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
 
         try {
 
             datetime = pDatetime;
-            timePeriod = pTimePeriod;
+            timeFrame = pTimeFrame;
 
             fileSequence = pStorage.fileSequences[0];
 
@@ -116,8 +116,8 @@
         recalculate();
     }
 
-    function setTimePeriod(pTimePeriod) {
-        timePeriod = pTimePeriod;
+    function setTimeFrame(pTimeFrame) {
+        timeFrame = pTimeFrame;
         recalculate();
     }
 
@@ -136,7 +136,7 @@
             if (fileSequence === undefined) { return; }
             /*
     
-            We are going to filter the records depending on the Time Period. We want that for a 1 min time peroid all the records appears on screen,
+            We are going to filter the records depending on the Time Frame. We want that for a 1 min time peroid all the records appears on screen,
             but for higher periods, we will filter out some records, so that they do not overlap ever. 
     
             */
@@ -163,7 +163,7 @@
                 /* First the small balls */
 
                 const ONE_MIN_IN_MILISECONDS = 60 * 1000;
-                let step = timePeriod / ONE_MIN_IN_MILISECONDS;
+                let step = timeFrame / ONE_MIN_IN_MILISECONDS;
                 step = 1; // For now we dont discard records depending on the zoom level.
 
                 let i = 0;
@@ -200,7 +200,7 @@
 
                     /* Here we build the lines. */
 
-                    //if (timePeriod <= 1 * 60 * 1000) {
+                    //if (timeFrame <= 1 * 60 * 1000) {
 
                     if (newHistoryRecord.lastSellRate > 0) {
                         lastSellRate = newHistoryRecord.lastSellRate;
@@ -359,7 +359,7 @@
                     record = history[i];
                     currentRecord = record
 
-                    let timestamp = record.date // Math.trunc(record.date / timePeriod) * timePeriod + timePeriod / 2;
+                    let timestamp = record.date // Math.trunc(record.date / timeFrame) * timeFrame + timeFrame / 2;
 
                     point = {
                         x: timestamp,
@@ -397,12 +397,12 @@
                         };
 
                         let point2 = {
-                            x: record.date + timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date + timeFrame / 7 * (normalSize + extraSize),
                             y: record.sellExecRate
                         };
 
                         let point3 = {
-                            x: record.date - timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date - timeFrame / 7 * (normalSize + extraSize),
                             y: record.sellExecRate
                         };
 
@@ -422,7 +422,7 @@
                         point2.y = point2.y - diff;
                         point3.y = point3.y - diff;
 
-                        currentRecord.timePeriod = diff
+                        currentRecord.timeFrame = diff
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
@@ -467,12 +467,12 @@
                         };
 
                         let point2 = {
-                            x: record.date + timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date + timeFrame / 7 * (normalSize + extraSize),
                             y: record.buyExecRate
                         };
 
                         let point3 = {
-                            x: record.date - timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date - timeFrame / 7 * (normalSize + extraSize),
                             y: record.buyExecRate
                         };
 
@@ -492,7 +492,7 @@
                         point2.y = point2.y + diff;
                         point3.y = point3.y + diff;
 
-                        currentRecord.timePeriod = diff
+                        currentRecord.timeFrame = diff
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
@@ -535,12 +535,12 @@
                         };
 
                         let point2 = {
-                            x: record.date + timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date + timeFrame / 7 * (normalSize + extraSize),
                             y: record.lastSellRate
                         };
 
                         let point3 = {
-                            x: record.date - timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date - timeFrame / 7 * (normalSize + extraSize),
                             y: record.lastSellRate
                         };
 
@@ -560,7 +560,7 @@
                         point2.y = point2.y - diff;
                         point3.y = point3.y - diff;
 
-                        currentRecord.timePeriod = diff
+                        currentRecord.timeFrame = diff
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
@@ -604,12 +604,12 @@
                         };
 
                         let point2 = {
-                            x: record.date + timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date + timeFrame / 7 * (normalSize + extraSize),
                             y: record.lastBuyRate
                         };
 
                         let point3 = {
-                            x: record.date - timePeriod / 7 * (normalSize + extraSize),
+                            x: record.date - timeFrame / 7 * (normalSize + extraSize),
                             y: record.lastBuyRate
                         };
 
@@ -629,7 +629,7 @@
                         point2.y = point2.y + diff;
                         point3.y = point3.y + diff;
 
-                        currentRecord.timePeriod = diff
+                        currentRecord.timeFrame = diff
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);

@@ -14,7 +14,7 @@
         finalize: finalize,
         container: undefined,
         getContainer: getContainer,
-        setTimePeriod: setTimePeriod,
+        setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         draw: draw,
         recalculateScale: recalculateScale,
@@ -36,14 +36,14 @@
 
     let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
-    let timePeriod;                     // This will hold the current Time Period the user is at.
+    let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
 
     let marketFile;                     // This is the current Market File being plotted.
     let fileCursor;                     // This is the current File Cursor being used to retrieve Daily Files.
 
-    let marketFiles;                      // This object will provide the different Market Files at different Time Periods.
-    let dailyFiles;                // This object will provide the different File Cursors at different Time Periods.
+    let marketFiles;                      // This object will provide the different Market Files at different Time Frames.
+    let dailyFiles;                // This object will provide the different File Cursors at different Time Frames.
 
     /* these are module specific variables: */
 
@@ -86,7 +86,7 @@
             dailyFiles = undefined;
 
             datetime = undefined;
-            timePeriod = undefined;
+            timeFrame = undefined;
 
             marketFile = undefined;
             fileCursor = undefined;
@@ -97,7 +97,7 @@
         }
     }
 
-    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
 
         try {
 
@@ -107,7 +107,7 @@
             dailyFiles = pStorage.dailyFiles[0];
 
             datetime = pDatetime;
-            timePeriod = pTimePeriod;
+            timeFrame = pTimeFrame;
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -117,8 +117,8 @@
 
             /* Now we set the right files according to current Period. */
 
-            marketFile = marketFiles.getFile(pTimePeriod);
-            fileCursor = dailyFiles.getFileCursor(pTimePeriod);
+            marketFile = marketFiles.getFile(pTimeFrame);
+            fileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
             /* Listen to the necesary events. */
 
@@ -166,7 +166,7 @@
 
     function onMarketFilesUpdated() {
         try {
-            let newMarketFile = marketFiles.getFile(timePeriod);
+            let newMarketFile = marketFiles.getFile(timeFrame);
             if (newMarketFile !== undefined) {
                 marketFile = newMarketFile;
                 recalculate();
@@ -178,7 +178,7 @@
 
     function onDailyFilesUpdated() {
         try {
-            let newFileCursor = dailyFiles.getFileCursor(timePeriod);
+            let newFileCursor = dailyFiles.getFileCursor(timeFrame);
             if (newFileCursor !== undefined) {
                 fileCursor = newFileCursor;
                 recalculate();
@@ -188,23 +188,23 @@
         }
     }
 
-    function setTimePeriod(pTimePeriod) {
+    function setTimeFrame(pTimeFrame) {
 
         try {
 
-            if (timePeriod !== pTimePeriod) {
+            if (timeFrame !== pTimeFrame) {
 
-                timePeriod = pTimePeriod;
+                timeFrame = pTimeFrame;
 
-                if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+                if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
 
-                    marketFile = marketFiles.getFile(pTimePeriod);
+                    marketFile = marketFiles.getFile(pTimeFrame);
 
                     recalculate();
 
                 } else {
 
-                    let newFileCursor = dailyFiles.getFileCursor(pTimePeriod);
+                    let newFileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
                     fileCursor = newFileCursor; // In this case, we explicitly want that if there is no valid cursor, we invalidate the data and show nothing.
                     recalculate();
@@ -214,7 +214,7 @@
 
         } catch (err) {
 
-            if (ERROR_LOG === true) { logger.write("[ERROR] setTimePeriod -> err = " + err.stack); }
+            if (ERROR_LOG === true) { logger.write("[ERROR] setTimeFrame -> err = " + err.stack); }
         }
     }
 
@@ -264,7 +264,7 @@
 
             records = []
 
-            if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+            if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
 
                 recalculateUsingMarketFiles();
 
@@ -296,7 +296,7 @@
                 return;
             } // We need to wait until there are files in the cursor
 
-            let daysOnSides = getSideDays(timePeriod);
+            let daysOnSides = getSideDays(timeFrame);
 
             let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
             let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
@@ -394,7 +394,7 @@
 
             if (marketFile === undefined) { return; } // Initialization not complete yet.
 
-            let daysOnSides = getSideDays(timePeriod);
+            let daysOnSides = getSideDays(timeFrame);
 
             let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
             let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
@@ -535,12 +535,12 @@
                 }
 
                 let recordPoint1 = {
-                    x: record.begin + timePeriod / 7 * 1.5,
+                    x: record.begin + timeFrame / 7 * 1.5,
                     y: thisObject.container.frame.height
                 };
 
                 let recordPoint2 = {
-                    x: record.end + timePeriod / 7 * 5.5,
+                    x: record.end + timeFrame / 7 * 5.5,
                     y: thisObject.container.frame.height
                 };
 
@@ -550,7 +550,7 @@
                 };
 
                 let recordPoint4 = {
-                    x: record.begin + timePeriod / 7 * 1.5,
+                    x: record.begin + timeFrame / 7 * 1.5,
                     y: thisObject.container.frame.height * 100
                 };
 

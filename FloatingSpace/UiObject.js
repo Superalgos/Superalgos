@@ -1145,25 +1145,28 @@ function newUiObject () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.payload.node.type === 'Definition' || thisObject.payload.node.type === 'Network' || thisObject.payload.node.type === 'Data Mine') {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
-        let OPACITY = 1
+      let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+      if (nodeDefinition !== undefined) {
+        if (nodeDefinition.isHierarchyHead === true) {
+          VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+          let OPACITY = 1
 
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([4, 16])
-        browserCanvasContext.stroke()
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+          browserCanvasContext.closePath()
+          browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+          browserCanvasContext.lineWidth = 10
+          browserCanvasContext.setLineDash([4, 16])
+          browserCanvasContext.stroke()
 
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = 1
-        browserCanvasContext.setLineDash([20, 20])
-        browserCanvasContext.stroke()
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+          browserCanvasContext.closePath()
+          browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+          browserCanvasContext.lineWidth = 1
+          browserCanvasContext.setLineDash([20, 20])
+          browserCanvasContext.stroke()
+        }
       }
 
       if (thisObject.isOnFocus === true) {

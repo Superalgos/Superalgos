@@ -276,7 +276,7 @@
 
                             /*
 
-                            We will iterate through all posible timePeriods.
+                            We will iterate through all posible timeFrames.
 
                             */
 
@@ -296,7 +296,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> Entering function."); }
 
-                            const timePeriod = global.dailyFilePeriods[n][1];
+                            const timeFrame = global.dailyFilePeriods[n][1];
 
                             let candles = [];                   // Here we will put all the candles of the 2 files read.
 
@@ -315,7 +315,7 @@
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
@@ -355,7 +355,7 @@
                                     let fileName = market.assetA + '_' + market.assetB + ".json"
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timePeriod + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
@@ -585,7 +585,7 @@
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
@@ -657,7 +657,7 @@
                                     let fileName = '' + market.assetA + '_' + market.assetB + '.json';
 
                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + bot.dataSetVersion;
-                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);

@@ -13,7 +13,7 @@
   "processes": [
     {
       "name": "Multi-Period-Market",
-      "description": "Produces a single file for each time period covering all the market.",
+      "description": "Produces a single file for each Time Frame covering all the market.",
       "startMode": {
         "allMonths": {
           "run": "false",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Multi-Period-Daily",
-      "description": "Produces a Daily File at each time period.",
+      "description": "Produces a Daily File at each Time Frame.",
       "startMode": {
         "allMonths": {
           "run": "false",

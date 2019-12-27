@@ -35,8 +35,8 @@
     function runSimulation(
         chart,
         dataDependencies,
-        timePeriod,
-        timePeriodLabel,
+        timeFrame,
+        timeFrameLabel,
         currentDay,
         interExecutionMemory,
         assistant,
@@ -47,7 +47,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
             let processingDailyFiles
-            if (timePeriod > global.dailyFilePeriods[0][0]) {
+            if (timeFrame > global.dailyFilePeriods[0][0]) {
                 processingDailyFiles = false
             } else {
                 processingDailyFiles = true
@@ -456,7 +456,7 @@
 
             /* Main Array and Maps */
 
-            let propertyName = 'at' + timePeriodLabel.replace('-', '');
+            let propertyName = 'at' + timeFrameLabel.replace('-', '');
             let candles = chart[propertyName].candles
             let currentChart = chart[propertyName]
 
@@ -480,7 +480,7 @@
                 let firstEnd = candles[0].end
                 let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
                 let diff = targetEnd - firstEnd
-                let amount = diff / timePeriod
+                let amount = diff / timeFrame
 
                 currentCandleIndex = Math.trunc(amount)
                 if (currentCandleIndex < 0) { currentCandleIndex = 0 }
@@ -594,7 +594,7 @@
                 }
 
                 periods++;
-                days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
+                days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 if (processingDailyFiles) {
                     if (positionedAtYesterday) {
@@ -602,7 +602,7 @@
                     }
 
                     /* We skip the candle at the head of the market because currentCandleIndex has not closed yet. */
-                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timeFrame
                     if (currentCandleIndex === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
@@ -1593,7 +1593,7 @@
                     }
 
                     positionPeriods++;
-                    positionDays = positionPeriods * timePeriod / ONE_DAY_IN_MILISECONDS;
+                    positionDays = positionPeriods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                     if (processingDailyFiles) {
                         if (positionedAtYesterday) {

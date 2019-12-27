@@ -118,7 +118,7 @@
         return true
     }
 
-    function inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod) {
+    function inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame) {
         /*
         For each dataDependencyNode in our data dependencies, we should have a dataFile containing the records needed as an imput for this process.
         What we need to do first is transform those records into JSON objects that can be used by user-defined formulas.
@@ -143,7 +143,7 @@
             jsonData = jsonifyDataFile(dataFile, recordDefinition)
             /* Add the calculated properties */
             if (dataDependencyNode.referenceParent.parentNode.calculations !== undefined) {
-                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
+                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
             } else {
                 inputData = jsonData
             }
@@ -184,7 +184,7 @@
         return jsonifiedArray
     }
 
-    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timePeriod) {
+    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timeFrame) {
 
         /* 
             This function has as an input an array of JSON objects, and it adds calculated properties to
@@ -192,7 +192,7 @@
         */
 
         let system = { // These are the available system variables to be used in User Code and Formulas
-            timePeriod: timePeriod,
+            timeFrame: timeFrame,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
@@ -265,8 +265,8 @@
         dataBuildingProcedure,
         variableName,
         productName,
-        timePeriod,
-        timePeriodLabel,
+        timeFrame,
+        timeFrameLabel,
         resultsWithIrregularPeriods,
         interExecutionMemory,
         processingDailyFiles,
@@ -283,7 +283,7 @@
         let lastInstantOfTheDay 
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
-            timePeriod: timePeriod,
+            timeFrame: timeFrame,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
@@ -462,7 +462,7 @@
         }
     }
 
-    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, currentDay, callBackFunction) {
+    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction) {
 
         try {
 
@@ -477,7 +477,7 @@
             }
 
             let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + contextSummary.dataSetVersion;
-            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timePeriodLabel + dateForPath;
+            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 
             fileStorage.createTextFile(contextSummary.dataMine, filePath, fileContent + '\n', onFileCreated);

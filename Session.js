@@ -227,7 +227,7 @@
                     minimumBalanceB: 0,
                     maximumBalanceA: 0.002,
                     maximumBalanceB: 0,
-                    timePeriod: bot.UI_CURRENT_VALUES.timePeriod,
+                    timeFrame: bot.UI_CURRENT_VALUES.timeFrame,
                     slippage: {
                         positionRate: 0,
                         stopLoss: 0,
@@ -314,9 +314,9 @@
                             }
                         }
 
-                        /* Time Period */
-                        if (tradingSystem.parameters.timePeriod !== undefined) {
-                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code.value
+                        /* Time Frame */
+                        if (tradingSystem.parameters.timeFrame !== undefined) {
+                            bot.VALUES_TO_USE.timeFrame = tradingSystem.parameters.timeFrame.code.value
                         }
 
                         /* Slippage */
@@ -410,9 +410,9 @@
                                 }
                             }
 
-                            /* Time Period */
-                            if (bot.SESSION.parameters.timePeriod !== undefined) {
-                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code.value
+                            /* Time Frame */
+                            if (bot.SESSION.parameters.timeFrame !== undefined) {
+                                bot.VALUES_TO_USE.timeFrame = bot.SESSION.parameters.timeFrame.code.value
                             }
 
                             /* Slippage */

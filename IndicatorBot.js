@@ -44,7 +44,7 @@
         }
     }
 
-    function start(dataFiles, timePeriod, timePeriodLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(dataFiles, timeFrame, timeFrameLabel, currentDay, interExecutionMemory, callBackFunction) {
 
         try {
 
@@ -68,7 +68,7 @@
             if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return } 
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-            commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod)
+            commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
 
             /* During the third phase, we need to generate the data of the different products this process produces an output */
             for (let i = 0; i < outputDatasets.length; i++) {
@@ -104,8 +104,8 @@
                     outputDatasetNode.referenceParent.parentNode.dataBuilding,
                     singularVariableName,
                     outputDatasetNode.referenceParent.parentNode.code.codeName,
-                    timePeriod,
-                    timePeriodLabel,
+                    timeFrame,
+                    timeFrameLabel,
                     resultsWithIrregularPeriods,
                     interExecutionMemory,
                     processingDailyFiles,
@@ -114,7 +114,7 @@
 
                 /* Add the calculated properties */
                 if (outputDatasetNode.referenceParent.parentNode.calculations !== undefined) {
-                    outputData = commons.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
+                    outputData = commons.calculationsProcedure(jsonData, recordDefinition, outputDatasetNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
                 } else {
                     outputData = jsonData
                 }
@@ -149,7 +149,7 @@
                 contextSummary.dataSetVersion = "dataSet.V1"
 
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
-                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, currentDay, callBackFunction)
+                commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)
             }
 
 

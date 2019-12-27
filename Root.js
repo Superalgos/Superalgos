@@ -4,7 +4,7 @@
 
     global.EXECUTION_DATETIME = new Date();
 
-    /* Time Periods Definitions. */
+    /* Time Frames Definitions. */
 
     global.marketFilesPeriods =
         '[' +

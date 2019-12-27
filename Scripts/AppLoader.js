@@ -95,7 +95,7 @@ function newAppLoader() {
 
                 'Scales/RateScale.js',
                 'Scales/TimeScale.js',
-                'Scales/TimePeriodScale.js',
+                'Scales/TimeFrameScale.js',
                 'Scales/Commons.js',
 
                 'CockpitSpace/AssetBalances.js',

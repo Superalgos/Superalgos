@@ -8,7 +8,7 @@ function newTimelineChart () {
 
   let timeLineCoordinateSystem
 
-  let timePeriod = INITIAL_TIME_PERIOD
+  let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
@@ -44,7 +44,7 @@ function newTimelineChart () {
   let market
 
   let productsPanelHandle
-  let timePeriodScale
+  let timeFrameScale
 
   setupContainer()
   return thisObject
@@ -58,8 +58,8 @@ function newTimelineChart () {
   function finalize () {
     plotterManager.finalize()
     plotterManager = undefined
-    timePeriodScale.finalize()
-    timePeriodScale = undefined
+    timeFrameScale.finalize()
+    timeFrameScale = undefined
     canvas.panelsSpace.destroyPanel(productsPanelHandle)
 
     thisObject.container.finalize()
@@ -120,7 +120,7 @@ function newTimelineChart () {
       logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
 
       // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
-      timePeriod = INITIAL_TIME_PERIOD
+      timeFrame = INITIAL_TIME_PERIOD
       datetime = NEW_SESSION_INITIAL_DATE
 
            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
@@ -151,17 +151,17 @@ function newTimelineChart () {
           return
         }
 
-        timePeriodScale = newTimePeriodScale()
-        timePeriodScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-        timePeriodScale.container.eventHandler.listenToEvent('Time Period Changed', function (event) {
-          let currentTimePeriod = timePeriod
-          timePeriod = event.timePeriod
-          if (timePeriod !== currentTimePeriod) {
-            plotterManager.setTimePeriod(timePeriod)
+        timeFrameScale = newTimeFrameScale()
+        timeFrameScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
+        timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+          let currentTimeFrame = timeFrame
+          timeFrame = event.timeFrame
+          if (timeFrame !== currentTimeFrame) {
+            plotterManager.setTimeFrame(timeFrame)
           }
         })
 
-        timePeriodScale.initialize(timeLineCoordinateSystem)
+        timeFrameScale.initialize(timeLineCoordinateSystem)
 
         initializationReady = true
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
@@ -239,7 +239,7 @@ function newTimelineChart () {
 
     let container
 
-    container = timePeriodScale.getContainer(point)
+    container = timeFrameScale.getContainer(point)
 
     if (container !== undefined) { return container }
 
@@ -289,7 +289,7 @@ function newTimelineChart () {
     if (thisObject.container.frame.isInViewPort()) {
       drawChartsBackground()
       plotterManager.draw()
-      timePeriodScale.draw()
+      timeFrameScale.draw()
     }
   }
 

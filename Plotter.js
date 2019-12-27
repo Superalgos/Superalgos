@@ -17,7 +17,7 @@ function newPlotter () {
     finalize: finalize,
     container: undefined,
     getContainer: getContainer,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     setDatetime: setDatetime,
     recalculateScale: recalculateScale,
     draw: draw,
@@ -39,7 +39,7 @@ function newPlotter () {
   let atMousePositionFillStyles = new Map()
   let atMousePositionStrokeStyles = new Map()
 
-  let timePeriod                                                      // This will hold the current Time Period the user is at.
+  let timeFrame                                                      // This will hold the current Time Frame the user is at.
   let datetime                                                        // This will hold the current Datetime the user is at.
 
   let marketFile                                                      // This is the current Market File being plotted.
@@ -77,7 +77,7 @@ function newPlotter () {
       dailyFiles = undefined
 
       datetime = undefined
-      timePeriod = undefined
+      timeFrame = undefined
 
       marketFile = undefined
       fileCursor = undefined
@@ -94,14 +94,14 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction, pProductDefinition) {
+  function initialize (pStorage, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction, pProductDefinition) {
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
       dailyFiles = pStorage.dailyFiles[0]
 
       datetime = pDatetime
-      timePeriod = pTimePeriod
+      timeFrame = pTimeFrame
 
       productDefinition = pProductDefinition
 
@@ -111,8 +111,8 @@ function newPlotter () {
       recalculateScale()
 
       /* Now we set the right files according to current Period. */
-      marketFile = marketFiles.getFile(pTimePeriod)
-      fileCursor = dailyFiles.getFileCursor(pTimePeriod)
+      marketFile = marketFiles.getFile(pTimeFrame)
+      fileCursor = dailyFiles.getFileCursor(pTimeFrame)
 
       /* Listen to the necesary events. */
       zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
@@ -137,7 +137,7 @@ function newPlotter () {
 
   function onMarketFilesUpdated () {
     try {
-      let newMarketFile = marketFiles.getFile(timePeriod)
+      let newMarketFile = marketFiles.getFile(timeFrame)
       if (newMarketFile !== undefined) {
         marketFile = newMarketFile
         mustRecalculateDataPoints = true
@@ -150,7 +150,7 @@ function newPlotter () {
 
   function onDailyFilesUpdated () {
     try {
-      let newFileCursor = dailyFiles.getFileCursor(timePeriod)
+      let newFileCursor = dailyFiles.getFileCursor(timeFrame)
       if (newFileCursor !== undefined) {
         fileCursor = newFileCursor
         mustRecalculateDataPoints = true
@@ -176,20 +176,20 @@ function newPlotter () {
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
+  function setTimeFrame (pTimeFrame) {
     try {
-      if (timePeriod !== pTimePeriod) {
-        timePeriod = pTimePeriod
+      if (timeFrame !== pTimeFrame) {
+        timeFrame = pTimeFrame
         mustRecalculateDataPoints = true
-        if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
-          let newMarketFile = marketFiles.getFile(pTimePeriod)
+        if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
+          let newMarketFile = marketFiles.getFile(pTimeFrame)
 
           if (newMarketFile !== undefined) {
             marketFile = newMarketFile
             recalculate()
           }
         } else {
-          let newFileCursor = dailyFiles.getFileCursor(pTimePeriod)
+          let newFileCursor = dailyFiles.getFileCursor(pTimeFrame)
 
           if (newFileCursor !== undefined) {
             fileCursor = newFileCursor
@@ -198,7 +198,7 @@ function newPlotter () {
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> err = ' + err.stack) }
     }
   }
 
@@ -228,7 +228,7 @@ function newPlotter () {
 
   function recalculate () {
     try {
-      if (timePeriod >= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
         recalculateUsingMarketFiles()
       } else {
         recalculateUsingDailyFiles()
@@ -272,14 +272,14 @@ function newPlotter () {
     return jsonifiedArray
   }
 
-  function calculationsProcedure (jsonArray, recordDefinition, calculationsProcedure, timePeriod) {
+  function calculationsProcedure (jsonArray, recordDefinition, calculationsProcedure, timeFrame) {
       /*
           This function has as an input an array of JSON objects, and it adds calculated properties to
           complete the set of properties that will be available.
       */
 
     let system = { // These are the available system variables to be used in User Code and Formulas
-      timePeriod: timePeriod,
+      timeFrame: timeFrame,
       ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
     }
     let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
@@ -348,7 +348,7 @@ function newPlotter () {
       if (fileCursor === undefined) { return }    // We need to wait until there is a fileCursor
       if (fileCursor.files.size === 0) { return } // We need to wait until there are files in the cursor
 
-      let daysOnSides = getSideDays(timePeriod)
+      let daysOnSides = getSideDays(timeFrame)
 
       let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
       let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem)
@@ -373,7 +373,7 @@ function newPlotter () {
 
           /* Add the calculated properties */
           if (productDefinition.calculations !== undefined) {
-            let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timePeriod)
+            let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timeFrame)
             records.push(...calculationsResult) // This adds records to the current array.
           } else {
             records.push(...jsonData)// This adds records to the current array.
@@ -401,7 +401,7 @@ function newPlotter () {
     try {
       if (marketFile === undefined) { return }    // Initialization not complete yet.
 
-      let daysOnSides = getSideDays(timePeriod)
+      let daysOnSides = getSideDays(timeFrame)
 
       let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
       let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem)
@@ -426,7 +426,7 @@ function newPlotter () {
 
       /* Add the calculated properties */
       if (productDefinition.calculations !== undefined) {
-        let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timePeriod)
+        let calculationsResult = calculationsProcedure(jsonData, productDefinition.record, productDefinition.calculations, timeFrame)
         records.push(...calculationsResult) // This adds records to the current array.
       } else {
         records.push(...jsonData)// This adds records to the current array.

@@ -1,48 +1,48 @@
 
-function getSideDays (timePeriod) {
+function getSideDays (timeFrame) {
   let daysOnSides
 
-  if (timePeriod < _1_HOUR_IN_MILISECONDS) {
+  if (timeFrame < _1_HOUR_IN_MILISECONDS) {
     daysOnSides = 1
   }
 
-  if (timePeriod === _1_HOUR_IN_MILISECONDS) {
+  if (timeFrame === _1_HOUR_IN_MILISECONDS) {
     daysOnSides = 9
   }
 
-  if (timePeriod === _2_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _2_HOURS_IN_MILISECONDS) {
     daysOnSides = 10
   }
 
-  if (timePeriod === _3_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _3_HOURS_IN_MILISECONDS) {
     daysOnSides = 12
   }
 
-  if (timePeriod === _4_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _4_HOURS_IN_MILISECONDS) {
     daysOnSides = 20
   }
 
-  if (timePeriod === _6_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _6_HOURS_IN_MILISECONDS) {
     daysOnSides = 35
   }
 
-  if (timePeriod === _8_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _8_HOURS_IN_MILISECONDS) {
     daysOnSides = 44
   }
 
-  if (timePeriod === _12_HOURS_IN_MILISECONDS) {
+  if (timeFrame === _12_HOURS_IN_MILISECONDS) {
     daysOnSides = 56
   }
 
-  if (timePeriod === ONE_DAY_IN_MILISECONDS) {
+  if (timeFrame === ONE_DAY_IN_MILISECONDS) {
     daysOnSides = 154
   }
 
   return daysOnSides
 }
 
-function getCondenseFactor (timePeriod) {
-  switch (timePeriod) {
+function getCondenseFactor (timeFrame) {
+  switch (timeFrame) {
     case _1_MINUTE_IN_MILISECONDS: return 1
     case _5_MINUTES_IN_MILISECONDS: return 5
     case _10_MINUTES_IN_MILISECONDS: return 10
@@ -51,8 +51,8 @@ function getCondenseFactor (timePeriod) {
   }
 }
 
-function getTransparenceFactor (timePeriod) {
-  switch (timePeriod) {
+function getTransparenceFactor (timeFrame) {
+  switch (timeFrame) {
     case _1_MINUTE_IN_MILISECONDS: return '0.12'
     case _5_MINUTES_IN_MILISECONDS: return '0.10'
     case _10_MINUTES_IN_MILISECONDS: return '0.08'

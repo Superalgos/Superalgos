@@ -16,7 +16,7 @@ function newProductCard () {
     turnOff: turnOff,
     turnOn: turnOn,
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     onMarketFileLoaded: onMarketFileLoaded,
     onDailyFileLoaded: onDailyFileLoaded,
     onSingleFileLoaded: onSingleFileLoaded,
@@ -66,7 +66,7 @@ function newProductCard () {
     opacity: 0.00
   }
 
-  let timePeriod = INITIAL_TIME_PERIOD
+  let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
    /* TODO We are in a transition period in which bots and dataMines images might be located at different places.
@@ -122,7 +122,7 @@ function newProductCard () {
     legacyBotAvatar = undefined
     legacyBotAvatarLoaded = undefined
     legacyPlotterBanner = undefined
-    timePeriod = undefined
+    timeFrame = undefined
     datetime = undefined
 
     LOADING_FILL_STYLE = undefined
@@ -328,13 +328,13 @@ function newProductCard () {
     datetime = pDatetime
 
     if (currentDate !== newDate) {
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         dailyFileProgressBar.animatedValue = 0
       }
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
+  function setTimeFrame (pTimeFrame) {
        /*
 
        When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
@@ -342,10 +342,10 @@ function newProductCard () {
 
        */
 
-    if (timePeriod !== pTimePeriod) {
-      timePeriod = pTimePeriod
+    if (timeFrame !== pTimeFrame) {
+      timeFrame = pTimeFrame
 
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         dailyFileProgressBar.animatedValue = 0
       }
     }

@@ -16,7 +16,7 @@ function newTimeControlPanel () {
   thisObject.container = container
   thisObject.container.frame.containerName = 'Current Datetime'
 
-  let timePeriod
+  let timeFrame
   let panelTabButton
 
   return thisObject
@@ -48,7 +48,7 @@ function newTimeControlPanel () {
     thisObject.datetimeDisplay = datetimeDisplay
 
     viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
-    timePeriod = INITIAL_TIME_PERIOD
+    timeFrame = INITIAL_TIME_PERIOD
   }
 
   function onBotChangedTime (pNewDatetime) {
@@ -59,7 +59,7 @@ function newTimeControlPanel () {
 
   function onZoomChanged (event) {
     if (event !== undefined) { // it is undefined when the level is just being animated.
-      timePeriod = recalculatePeriod(event.newLevel)
+      timeFrame = recalculatePeriod(event.newLevel)
     }
   }
 
@@ -138,10 +138,10 @@ function newTimeControlPanel () {
     browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
-    if (timePeriod > _45_MINUTES_IN_MILISECONDS) {
-      label = timePeriod / _1_HOUR_IN_MILISECONDS + ' hs'
+    if (timeFrame > _45_MINUTES_IN_MILISECONDS) {
+      label = timeFrame / _1_HOUR_IN_MILISECONDS + ' hs'
     } else {
-      label = timePeriod / _1_MINUTE_IN_MILISECONDS + ' min'
+      label = timeFrame / _1_MINUTE_IN_MILISECONDS + ' min'
     }
 
         /* Now we transform x on the actual coordinate on the canvas. */

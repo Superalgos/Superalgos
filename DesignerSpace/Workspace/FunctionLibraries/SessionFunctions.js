@@ -33,7 +33,7 @@ function newSessionFunctions () {
     let lightingPath = '->Definition->' +
     'Trading System->' +
     'Parameters->' +
-    'Base Asset->Time Range->Time Period->Slippage->Fee Structure->Exchange Account Key->' +
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->Exchange Account Key->' +
     'Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
     'Announcement->Telegram Bot->' +
@@ -58,15 +58,15 @@ function newSessionFunctions () {
 
     function getUICurrentValues () {
       let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
-      let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
+      let currentTimeFrame = JSON.parse(window.localStorage.getItem('Current Time Frame'))
 
-      let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
-      let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
-      let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
+      let timeFramesMasterArray = [marketFilesPeriods, dailyFilePeriods]
+      let timeFrameArray = timeFramesMasterArray[currentTimeFrame.filePeriodIndex]
+      let timeFrame = timeFrameArray[currentTimeFrame.timeFrameIndex][1]
 
       let uiCurrentValues = {
         initialDatetime: dateAtScreenCorner,
-        timePeriod: timePeriod,
+        timeFrame: timeFrame,
         timestamp: (new Date()).valueOf()
       }
 

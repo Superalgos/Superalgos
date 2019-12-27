@@ -97,13 +97,13 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-function convertTimePeriodToName(pTimePeriod) {
+function convertTimeFrameToName(pTimeFrame) {
 
     for (let i = 0; i < dailyFilePeriods.length; i++) {
 
         let period = dailyFilePeriods[i];
 
-        if (period[0] === pTimePeriod) {
+        if (period[0] === pTimeFrame) {
 
             return period[1];
 
@@ -114,7 +114,7 @@ function convertTimePeriodToName(pTimePeriod) {
 
         let period = marketFilesPeriods[i];
 
-        if (period[0] === pTimePeriod) {
+        if (period[0] === pTimeFrame) {
 
             return period[1];
 

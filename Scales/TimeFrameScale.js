@@ -1,8 +1,8 @@
-function newTimePeriodScale () {
-  const MODULE_NAME = 'Time Period Scale'
+function newTimeFrameScale () {
+  const MODULE_NAME = 'Time Frame Scale'
 
   let thisObject = {
-    timePeriod: undefined,
+    timeFrame: undefined,
     container: undefined,
     draw: draw,
     getContainer: getContainer,
@@ -25,9 +25,9 @@ function newTimePeriodScale () {
   let timeLineCoordinateSystem
   let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
-  let timePeriodIndex = TIME_PERIOD_DEFAULT_VALUE
-  let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
-  let timePeriodLabel = ''
+  let timeFrameIndex = TIME_PERIOD_DEFAULT_VALUE
+  let timeFramesMasterArray = [marketFilesPeriods, dailyFilePeriods]
+  let timeFrameLabel = ''
 
   let onMouseWheelEventSubscriptionId
   let onMouseOverEventSubscriptionId
@@ -66,7 +66,7 @@ function newTimePeriodScale () {
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
-    newTimePeriod()
+    newTimeFrame()
 
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
       mouse.position.x = event.x
@@ -84,21 +84,21 @@ function newTimePeriodScale () {
 
   function onZoomChanged (event) {
     if (event !== undefined) { // it is undefined when the level is just being animated.
-      let currentTimePeriod = thisObject.timePeriod
-      let timePeriod = recalculatePeriod(event.newLevel)
-      if (timePeriod !== currentTimePeriod) {
-        for (let i = 0; i < timePeriodsMasterArray.length; i++) {
-          let timePeriodArray = timePeriodsMasterArray[i]
-          for (let j = 0; j < timePeriodArray.length; j++) {
-            let record = timePeriodArray[j]
-            if (timePeriod === record[0]) {
+      let currentTimeFrame = thisObject.timeFrame
+      let timeFrame = recalculatePeriod(event.newLevel)
+      if (timeFrame !== currentTimeFrame) {
+        for (let i = 0; i < timeFramesMasterArray.length; i++) {
+          let timeFrameArray = timeFramesMasterArray[i]
+          for (let j = 0; j < timeFrameArray.length; j++) {
+            let record = timeFrameArray[j]
+            if (timeFrame === record[0]) {
               filePeriodIndex = i
-              timePeriodIndex = j
+              timeFrameIndex = j
             }
           }
         }
         saveObjectState()
-        newTimePeriod()
+        newTimeFrame()
       }
     }
   }
@@ -106,31 +106,31 @@ function newTimePeriodScale () {
   function onMouseWheel (event) {
     delta = event.wheelDelta
     if (delta < 0) {
-      timePeriodIndex--
-      if (timePeriodIndex < 0) {
+      timeFrameIndex--
+      if (timeFrameIndex < 0) {
         filePeriodIndex--
         if (filePeriodIndex < 0) {
           filePeriodIndex = 0
-          timePeriodIndex = 0
+          timeFrameIndex = 0
         } else {
-          timePeriodIndex = timePeriodsMasterArray[filePeriodIndex].length - 1
+          timeFrameIndex = timeFramesMasterArray[filePeriodIndex].length - 1
         }
       }
     } else {
-      timePeriodIndex++
-      if (timePeriodIndex > timePeriodsMasterArray[filePeriodIndex].length - 1) {
+      timeFrameIndex++
+      if (timeFrameIndex > timeFramesMasterArray[filePeriodIndex].length - 1) {
         filePeriodIndex++
-        if (filePeriodIndex > timePeriodsMasterArray.length - 1) {
-          filePeriodIndex = timePeriodsMasterArray.length - 1
-          timePeriodIndex = timePeriodsMasterArray[filePeriodIndex].length - 1
+        if (filePeriodIndex > timeFramesMasterArray.length - 1) {
+          filePeriodIndex = timeFramesMasterArray.length - 1
+          timeFrameIndex = timeFramesMasterArray[filePeriodIndex].length - 1
         } else {
-          timePeriodIndex = 0
+          timeFrameIndex = 0
         }
       }
     }
 
     saveObjectState()
-    newTimePeriod()
+    newTimeFrame()
   }
 
   function getContainer (pPoint) {
@@ -156,7 +156,7 @@ function newTimePeriodScale () {
 
   function saveObjectState () {
     objectStorage.filePeriodIndex = filePeriodIndex
-    objectStorage.timePeriodIndex = timePeriodIndex
+    objectStorage.timeFrameIndex = timeFrameIndex
     window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
   }
 
@@ -165,19 +165,19 @@ function newTimePeriodScale () {
     if (objectStorageString !== null && objectStorageString !== '') {
       objectStorage = JSON.parse(objectStorageString)
       filePeriodIndex = objectStorage.filePeriodIndex
-      timePeriodIndex = objectStorage.timePeriodIndex
+      timeFrameIndex = objectStorage.timeFrameIndex
     }
   }
 
-  function newTimePeriod () {
-    let timePeriodArray = timePeriodsMasterArray[filePeriodIndex]
-    thisObject.timePeriod = timePeriodArray[timePeriodIndex][0]
-    timePeriodLabel = timePeriodArray[timePeriodIndex][1]
+  function newTimeFrame () {
+    let timeFrameArray = timeFramesMasterArray[filePeriodIndex]
+    thisObject.timeFrame = timeFrameArray[timeFrameIndex][0]
+    timeFrameLabel = timeFrameArray[timeFrameIndex][1]
 
     let event = {}
-    event.timePeriod = thisObject.timePeriod
-    thisObject.container.eventHandler.raiseEvent('Time Period Changed', event)
-    window.localStorage.setItem('Current Time Period', JSON.stringify({filePeriodIndex: filePeriodIndex, timePeriodIndex: timePeriodIndex}))
+    event.timeFrame = thisObject.timeFrame
+    thisObject.container.eventHandler.raiseEvent('Time Frame Changed', event)
+    window.localStorage.setItem('Current Time Frame', JSON.stringify({filePeriodIndex: filePeriodIndex, timeFrameIndex: timeFrameIndex}))
   }
 
   function draw () {
@@ -262,7 +262,7 @@ to be visible at the top of the viewPort. */
 
   /* Common Variables */
 
-    let label = timePeriodLabel.split('-')
+    let label = timeFrameLabel.split('-')
     let label1 = label[0]
     let label2 = label[1].toUpperCase()
     let fontSize1 = 20

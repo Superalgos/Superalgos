@@ -31,7 +31,7 @@ function newProductStorage (pName) {
     singleFile: [],
     fileSequences: [],
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     initialize: initialize,
     finalize: finalize
   }
@@ -43,7 +43,7 @@ function newProductStorage (pName) {
   thisObject.eventHandler.name = 'Storage-' + pName
 
   let datetime
-  let timePeriod
+  let timeFrame
 
   return thisObject
 
@@ -74,10 +74,10 @@ function newProductStorage (pName) {
     }
   }
 
-  function initialize (pdataMine, pBot, pSession, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+  function initialize (pdataMine, pBot, pSession, pProduct, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
     try {
       datetime = pDatetime
-      timePeriod = pTimePeriod
+      timeFrame = pTimeFrame
 
       let dataSetsToLoad = 0
       let dataSetsLoaded = 0
@@ -99,7 +99,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let dailyFiles = newDailyFiles()
-            dailyFiles.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady)
+            dailyFiles.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimeFrame, onDailyFileReady)
             thisObject.dailyFiles.push(dailyFiles)
           }
             break
@@ -309,7 +309,7 @@ function newProductStorage (pName) {
     datetime = new Date(pDatetime)
 
     if (currentDate !== newDate) {
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         for (let i = 0; i < thisObject.dailyFiles.length; i++) {
           thisObject.dailyFiles[i].setDatetime(pDatetime)
         }
@@ -317,15 +317,15 @@ function newProductStorage (pName) {
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
-        /* We are going to filter out the cases in which the timePeriod received is the same that the one we already know. */
+  function setTimeFrame (pTimeFrame) {
+        /* We are going to filter out the cases in which the timeFrame received is the same that the one we already know. */
 
-    if (timePeriod !== pTimePeriod) {
-      timePeriod = pTimePeriod
+    if (timeFrame !== pTimeFrame) {
+      timeFrame = pTimeFrame
 
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         for (let i = 0; i < thisObject.dailyFiles.length; i++) {
-          thisObject.dailyFiles[i].setTimePeriod(pTimePeriod, datetime)
+          thisObject.dailyFiles[i].setTimeFrame(pTimeFrame, datetime)
         }
       }
     }

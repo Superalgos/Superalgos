@@ -6,14 +6,14 @@ function newPlottersManager () {
 
   let productPlotters = []
 
-  let timePeriod = INITIAL_TIME_PERIOD
+  let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
     fitFunction: undefined,
     container: undefined,
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     positionAtDatetime: positionAtDatetime,
     draw: draw,
     getContainer: getContainer,
@@ -158,7 +158,7 @@ function newPlottersManager () {
         }
       }
 
-      storage.initialize(pProductCard.dataMine, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
+      storage.initialize(pProductCard.dataMine, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timeFrame, onProductStorageInitialized)
 
       function onProductStorageInitialized (err) {
         try {
@@ -203,7 +203,7 @@ function newPlottersManager () {
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, productDefinition)
+          plotter.initialize(storage, exchange, market, datetime, timeFrame, onPlotterInizialized, productDefinition)
 
           function onPlotterInizialized () {
             try {
@@ -316,14 +316,14 @@ function newPlottersManager () {
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
-    timePeriod = pTimePeriod
+  function setTimeFrame (pTimeFrame) {
+    timeFrame = pTimeFrame
     if (initializationReady === true) {
       for (let i = 0; i < productPlotters.length; i++) {
         let productPlotter = productPlotters[i]
-        productPlotter.productCard.setTimePeriod(timePeriod)
-        productPlotter.storage.setTimePeriod(timePeriod)
-        productPlotter.plotter.setTimePeriod(timePeriod)
+        productPlotter.productCard.setTimeFrame(timeFrame)
+        productPlotter.storage.setTimeFrame(timeFrame)
+        productPlotter.plotter.setTimeFrame(timeFrame)
       }
     }
   }

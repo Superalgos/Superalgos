@@ -51,7 +51,7 @@
 
     Read the candles and volumes from Bruce and produce a single Index File for Market Period. But this is the situation:
 
-    Bruce has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timePeriod for the whole market.
+    Bruce has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timeFrame for the whole market.
     Everytime this process run, must be able to resume its job and process everything pending until reaching the head of the market. So the tactic to do this is the
     following:
 
@@ -240,8 +240,8 @@
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> Entering function."); }
 
-                        let timePeriod = global.marketFilesPeriods[n][1];
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> timePeriod = " + timePeriod); }
+                        let timeFrame = global.marketFilesPeriods[n][1];
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame); }
 
                         let previousCandles;
                         let previousVolumes;
@@ -253,7 +253,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                            let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
@@ -292,7 +292,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                            let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
@@ -430,7 +430,7 @@
                             }
 
                             const outputPeriod = global.marketFilesPeriods[n][0];
-                            const timePeriod = global.marketFilesPeriods[n][1];
+                            const timeFrame = global.marketFilesPeriods[n][1];
 
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Bruce's daily files and
@@ -459,7 +459,7 @@
                                         outputCandles[n].push(candle);
 
                                     } else {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + timePeriod + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Candle # " + i + " @ " + timeFrame + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousCandles[n] = []; // erasing these so as not to duplicate them.
@@ -481,7 +481,7 @@
                                         outputVolumes[n].push(volume);
 
                                     } else {
-                                        if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + timePeriod + " discarded for closing past the current process time."); }
+                                        if (FULL_LOG === true) {logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Volume # " + i + " @ " + timeFrame + " discarded for closing past the current process time."); }
                                     }
                                 }
                                 allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
@@ -551,7 +551,7 @@
                                         let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timePeriod read from Bruce, into candles of each timePeriod
+                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Bruce, into candles of each timeFrame
                                         that Olivia generates. For market files those timePediods goes from 1h to 24hs.
                                         */
 
@@ -710,7 +710,7 @@
                                             }
                                         }
 
-                                        writeFiles(outputCandles[n], outputVolumes[n], timePeriod, controlLoop);
+                                        writeFiles(outputCandles[n], outputVolumes[n], timeFrame, controlLoop);
                                     }
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
@@ -742,7 +742,7 @@
                 }
             }
 
-            function writeFiles(candles, volumes, timePeriod, callBack) {
+            function writeFiles(candles, volumes, timeFrame, callBack) {
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> Entering function."); }
 
@@ -779,7 +779,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
@@ -829,7 +829,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
-                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod;
+                        let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);

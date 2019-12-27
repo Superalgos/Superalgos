@@ -277,7 +277,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> Entering function."); }
 
                             const outputPeriod = global.dailyFilePeriods[n][0];
-                            const timePeriod = global.dailyFilePeriods[n][1];
+                            const timeFrame = global.dailyFilePeriods[n][1];
 
                             nextCandleFile();
 
@@ -492,7 +492,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                             }
                                         }
 
-                                        writeFiles(outputCandles[n], outputVolumes[n], timePeriod, controlLoop);
+                                        writeFiles(outputCandles[n], outputVolumes[n], timeFrame, controlLoop);
 
                                     }
                                 } catch (err) {
@@ -539,7 +539,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                 }
             }
 
-            function writeFiles(candles, volumes, timePeriod, callBack) {
+            function writeFiles(candles, volumes, timeFrame, callBack) {
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> Entering function."); }
 
@@ -577,7 +577,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                        let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
@@ -628,7 +628,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         let fileName = '' + market.assetA + '_' + market.assetB + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                        let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timePeriod + "/" + dateForPath;
+                        let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);

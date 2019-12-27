@@ -9,7 +9,7 @@ function newDailyFiles () {
     eventHandler: undefined,
     getFileCursor: getFileCursor,
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     getExpectedFiles: getExpectedFiles,
     getFilesLoaded: getFilesLoaded,
     initialize: initialize,
@@ -45,7 +45,7 @@ function newDailyFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
@@ -110,7 +110,7 @@ function newDailyFiles () {
             if (pSet.validPeriods.includes(periodName) === true) {
               let fileCursor = newFileCursor()
               fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimePeriod, beginDateRange, endDateRange, onInitialized)
+              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, onInitialized)
               function onInitialized (err) {
                 try {
                   switch (err.result) {
@@ -215,19 +215,19 @@ function newDailyFiles () {
     }
   }
 
-  function setTimePeriod (pTimePeriod, pDatetime) {
+  function setTimeFrame (pTimeFrame, pDatetime) {
     try {
       filesLoaded = 0
       expectedFiles = 0
-      fileCursors.forEach(setTimePeriodToEach)
+      fileCursors.forEach(setTimeFrameToEach)
 
-      function setTimePeriodToEach (fileCursor, key, map) {
-        fileCursor.setTimePeriod(pTimePeriod, pDatetime)
+      function setTimeFrameToEach (fileCursor, key, map) {
+        fileCursor.setTimeFrame(pTimeFrame, pDatetime)
         expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
         fileCursor.reload(onFileReceived)
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> err = ' + err.stack) }
     }
   }
 

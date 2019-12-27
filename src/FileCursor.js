@@ -12,7 +12,7 @@ function newFileCursor () {
     eventHandler: undefined, // received from parent
     reload: reload,
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     files: new Map(),
     getExpectedFiles: getExpectedFiles,
     initialize: initialize,
@@ -31,7 +31,7 @@ function newFileCursor () {
   let product
   let thisSet
   let periodName
-  let timePeriod
+  let timeFrame
   let beginDateRange
   let endDateRange
 
@@ -58,7 +58,7 @@ function newFileCursor () {
       product = undefined
       thisSet = undefined
       periodName = undefined
-      timePeriod = undefined
+      timeFrame = undefined
       beginDateRange = undefined
       endDateRange = undefined
 
@@ -66,14 +66,14 @@ function newFileCursor () {
       cursorDate = undefined
       fileCloud = undefined
       periodName = undefined
-      timePeriod = undefined
+      timeFrame = undefined
       finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
-  function initialize (pFileCloud, pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (pFileCloud, pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimeFrame, pCursorDate, pCurrentTimeFrame, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       market = pMarket
       exchange = pExchange
@@ -85,7 +85,7 @@ function newFileCursor () {
       thisSet = pSet
       periodName = pPeriodName
       cursorDate = removeTime(pCursorDate)
-      timePeriod = pTimePeriod
+      timeFrame = pTimeFrame
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
 
@@ -167,7 +167,7 @@ function newFileCursor () {
     }
   }
 
-  function setTimePeriod (pTimePeriod, pDatetime) {
+  function setTimeFrame (pTimeFrame, pDatetime) {
     try {
       if (finalized === true) { return }
 
@@ -177,7 +177,7 @@ function newFileCursor () {
       We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
       is set, then it should exit the saving mode and go to its actual size.
 
-      To do this we are going to measure the distance from the Time Period received to the one the cursors was initialized with.
+      To do this we are going to measure the distance from the Time Frame received to the one the cursors was initialized with.
       If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
 
       */
@@ -189,11 +189,11 @@ function newFileCursor () {
       for (let i = 0; i < dailyFilePeriods.length; i++) {
         let period = dailyFilePeriods[i]
 
-        if (period[0] === pTimePeriod) {
+        if (period[0] === pTimeFrame) {
           positionA = i
         }
 
-        if (period[0] === timePeriod) {
+        if (period[0] === timeFrame) {
           positionB = i
         }
       }
@@ -206,7 +206,7 @@ function newFileCursor () {
 
       function enterSavingMode () {
         try {
-          switch (timePeriod) {
+          switch (timeFrame) {
 
             case _45_MINUTES_IN_MILISECONDS:
               {
@@ -277,13 +277,13 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> enterSavingMode -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> enterSavingMode -> err = ' + err.stack) }
         }
       }
 
       function exitSavingMode () {
         try {
-          switch (timePeriod) {
+          switch (timeFrame) {
 
             case _45_MINUTES_IN_MILISECONDS:
               {
@@ -354,11 +354,11 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> exitSavingMode -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> exitSavingMode -> err = ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> err = ' + err.stack) }
     }
   }
 

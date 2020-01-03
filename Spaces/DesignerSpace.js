@@ -173,7 +173,30 @@ function newDesignerSpace () {
       'shapes-polygon',
       'data-entry',
       'data-formula',
-      'clone'
+      'clone',
+      'exchange-account-asset',
+      'exchange-account-key',
+      'user-keys',
+      'user-assets',
+      'asset',
+      'exchange-accounts',
+      'user-account',
+      'market',
+      'exchange-assets',
+      'crypto-exchanges',
+      'crypto-exchange',
+      'exchange-markets',
+      'charting-system',
+      'time-line-chart',
+      'time-frame-scale',
+      'time-scale',
+      'rate-scale',
+      'time-machine',
+      'data-product',
+      'single-market-data',
+      'data-storage',
+      'dataset',
+      'viewport'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

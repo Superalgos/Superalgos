@@ -650,6 +650,35 @@ function newUiObject () {
 
   function iconPhysics () {
     icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.alternativeIcons !== undefined) {
+      let nodeToUse = thisObject.payload.node
+      if (nodeDefinition.alternativeIcons === 'Use Reference Parent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          nodeToUse = thisObject.payload.node.payload.referenceParent
+        }
+      }
+      nodeDefinition = APP_SCHEMA_MAP.get(nodeToUse.type)
+      let code = nodeToUse.code
+      try {
+        code = JSON.parse(code)
+        let alternativeIcon
+        let iconName
+        for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+          alternativeIcon = nodeDefinition.alternativeIcons[i]
+          if (alternativeIcon.codeName === code.codeName) {
+            iconName = alternativeIcon.iconName
+          }
+        }
+        let newIcon = canvas.designerSpace.iconCollection.get(iconName)
+        if (newIcon !== undefined) {
+          icon = newIcon
+        }
+      } catch (err) {
+          // Nothing to do if JSON is baddly formated.
+      }
+    }
+
     executingIcon = canvas.designerSpace.iconCollection.get('attractive')
   }
 

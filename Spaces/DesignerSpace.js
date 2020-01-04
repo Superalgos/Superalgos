@@ -35,14 +35,6 @@ function newDesignerSpace () {
   }
 
   function buildIconByUiObjectTypeMap () {
-    const relationshipArray = []
-
-    for (let i = 0; i < relationshipArray.length; i++) {
-      let record = relationshipArray[i]
-      let icon = thisObject.iconCollection.get(record[1])
-      thisObject.iconByUiObjectType.set(record[0], icon)
-    }
-
     /* Take types-icons relationships defined at the schema */
     for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
       let nodeDefinition = APP_SCHEMA_ARRAY[i]

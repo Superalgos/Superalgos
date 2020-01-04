@@ -196,7 +196,29 @@ function newDesignerSpace () {
       'single-market-data',
       'data-storage',
       'dataset',
-      'viewport'
+      'viewport',
+      'bitfinex',
+      'binance',
+      'kucoin',
+      'bittrex',
+      'kraken',
+      'poloniex',
+      'upbit',
+      'monero',
+      'tether',
+      'tron',
+      'stellar',
+      'qtum',
+      'neo',
+      'litecoin',
+      'ethereum-classic',
+      'ethereum',
+      'eos',
+      'dash',
+      'cardano',
+      'bitcoin-cash',
+      'bitcoin',
+      'binance-coin'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

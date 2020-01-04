@@ -658,6 +658,13 @@ function newUiObject () {
           nodeToUse = thisObject.payload.node.payload.referenceParent
         }
       }
+      if (nodeDefinition.alternativeIcons === 'Use Reference Gran Parent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
+            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+          }
+        }
+      }
       nodeDefinition = APP_SCHEMA_MAP.get(nodeToUse.type)
       let code = nodeToUse.code
       try {

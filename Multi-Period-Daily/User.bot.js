@@ -286,7 +286,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                let fileName = market.assetA + '_' + market.assetB + ".json"
+                                let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
                                 let filePathRoot = bot.dataMine + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." +  global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
@@ -412,7 +412,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
                                     let filePathRoot = bot.dataMine + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." +  global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
@@ -575,7 +575,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
@@ -598,7 +598,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                 logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated ->  Content written = " + fileContent);
                             }
 
-                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
 
                             writeVolumes();
                         }
@@ -626,7 +626,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
@@ -649,7 +649,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                 logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated ->  Content written = " + fileContent);
                             }
 
-                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
+                            logger.write(MODULE_NAME, "[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
 
                             callBack();
                         }
@@ -715,7 +715,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let fileName = 'Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
                     filePath += '/' + fileName
 

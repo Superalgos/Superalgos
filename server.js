@@ -92,7 +92,6 @@ global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 
 /* Default parameters can be changed by the execution configuration */
 
-global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' } // NOTE: To refactor the name of this variable you would need to go through the bots code that are using it.
 
 /*

@@ -468,7 +468,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
 
-            let market = global.MARKET;
+            let market = bot.market;
             let fileName = '' + market.assetA + '_' + market.assetB + '.json';
             let dateForPath = ''
 

@@ -107,7 +107,7 @@
             const TRADING_SIMULATION = require('./TradingSimulation.js');
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             const SIMULATED_RECORDS_FOLDER_NAME = "Trading-Simulation";
             const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";

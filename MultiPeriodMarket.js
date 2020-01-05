@@ -81,7 +81,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             /* Context Variables */
 

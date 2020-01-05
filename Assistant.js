@@ -87,7 +87,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromExchange -> Entering function."); }
 
-                    exchangeAPI.getTicker(global.MARKET, onTicker);
+                    exchangeAPI.getTicker(bot.market, onTicker);
 
                     return;
 
@@ -144,7 +144,7 @@
                     let dataSet = thisObject.dataDependencies.dataSets.get(key);
 
                     let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                    let fileName = '' + global.MARKET.assetA + '_' + global.MARKET.assetB + '.json';
+                    let fileName = '' + bot.market.assetA + '_' + bot.market.assetB + '.json';
                     let filePath = bot.marketRateProvider.product + "/" + bot.marketRateProvider.dataSet + "/" + dateForPath;
 
                     dataSet.getTextFile(filePath, fileName, onFileReceived);
@@ -345,7 +345,7 @@
                 case "Live": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Live Mode Detected."); }
-                    exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+                    exchangeAPI.getOpenPositions(bot.market, onResponse);
                     break;
                 }
 
@@ -360,7 +360,7 @@
                 case "Competition": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
-                    exchangeAPI.getOpenPositions(global.MARKET, onResponse);
+                    exchangeAPI.getOpenPositions(bot.market, onResponse);
                     break;
                 }
 
@@ -977,7 +977,7 @@
 
                 case "Live": {
 
-                    exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
                     return;
                 }
 
@@ -997,7 +997,7 @@
 
                 case "Competition": {
 
-                    exchangeAPI.putPosition(global.MARKET, pType, pRate, pAmountA, pAmountB, onResponse);
+                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
                     return;
                 }
 

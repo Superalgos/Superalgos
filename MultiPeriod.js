@@ -93,7 +93,7 @@
             let currentTimeFrame
             let currentOutputPeriodName  
 
-            let market = global.MARKET;
+            let market = bot.market;
             let botNeverRan = true;
 
             /* Context Variables */

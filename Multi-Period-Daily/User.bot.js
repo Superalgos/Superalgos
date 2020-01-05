@@ -61,7 +61,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             /* Context Variables */
 

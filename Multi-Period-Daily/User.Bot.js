@@ -66,7 +66,7 @@
             date all stairs of the day plus the ones thas spans to the second day without bigining at the second day. Then when we process the next
             day, we must remember where the last stairs of each type endded, so as not to create overlapping stairs in the current day. */
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             /* Context Variables */
 
@@ -336,7 +336,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> Entering function."); }
 
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -378,7 +378,7 @@
                                                 } catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastCandleStair -> getCandleStairsFile -> onFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 }
@@ -413,7 +413,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> Entering function."); }
 
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -476,7 +476,7 @@
                                                 } catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> getEndOfLastVolumeStair -> getCandleStairsFile -> onFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 }
@@ -516,7 +516,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getCandleStairsFile -> Entering function."); }
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -537,7 +537,7 @@
                                                 } catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 }
@@ -556,7 +556,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> getProcessDayFile -> Entering function."); }
 
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -585,7 +585,7 @@
 
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processCandles -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
@@ -854,7 +854,7 @@
                                                     fileContent = "[" + fileContent + "]";
 
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
@@ -878,7 +878,7 @@
                                                                 return;
                                                             }
 
-                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                            const logText = "[WARN] Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processCandles -> writeCandleStairsFile -> writeFile -> onFileCreated -> " + logText); }
 
                                                             callback();
@@ -930,7 +930,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getCandleStairsFile -> Entering function."); }
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -951,7 +951,7 @@
                                                 } catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                     logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getCandleStairsFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 }
@@ -970,7 +970,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> getProcessDayFile -> Entering function."); }
 
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                            let fileName = market.assetA + '_' + market.assetB + ".json"
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                             let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -999,7 +999,7 @@
 
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                         logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> periodsLoop -> loopBody -> processVolumes -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
@@ -1399,7 +1399,7 @@
                                                     fileContent = "[" + fileContent + "]";
 
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
@@ -1423,7 +1423,7 @@
                                                                 return;
                                                             }
 
-                                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                                            const logText = "[WARN] Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> processVolumes -> writeVolumeStairsFile -> writeFile -> onFileCreated -> " + logText); }
 
                                                             callback();
@@ -1564,7 +1564,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let fileName = 'Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
                     filePath += '/' + fileName
 

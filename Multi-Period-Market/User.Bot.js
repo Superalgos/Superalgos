@@ -58,7 +58,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             buildStairs();
 
@@ -112,7 +112,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -328,7 +328,7 @@
 
                                                     fileContent = "[" + fileContent + "]";
 
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -347,7 +347,7 @@
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextCandleFile -> onFileReceived -> writeCandleStairsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                                                 callBackFunction(err);
                                                                 return;
@@ -388,7 +388,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildStairs -> loopBody -> nextVolumeFile -> Entering function."); }
 
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -698,7 +698,7 @@
 
                                                 fileContent = "[" + fileContent + "]";
 
-                                                let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                 let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                 let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -717,7 +717,7 @@
 
                                                             logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> err = " + err.stack);
                                                             logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> filePath = " + filePath);
-                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> buildStairs -> loopBody -> nextVolumeFile -> onFileReceived -> writeVolumeStairsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                                             callBackFunction(err);
                                                             return;

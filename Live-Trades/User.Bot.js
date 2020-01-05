@@ -83,7 +83,7 @@
             let filePathA;
             let filePathB;
 
-            let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
+            let reportFilePath = bot.exchange + "/Processes/" + bot.process;
 
             let exchangeCallTime;
 

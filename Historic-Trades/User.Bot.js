@@ -268,7 +268,7 @@ This process complements the Live Trades process and write historical trades fil
                         logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
                     }
 
-                    let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
+                    let reportFilePath = bot.exchange + "/Processes/" + bot.process;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                     charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
@@ -324,7 +324,7 @@ This process complements the Live Trades process and write historical trades fil
                         logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
                     }
 
-                    let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
+                    let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + year + "/" + month;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                     charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
@@ -411,7 +411,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     exchangeCallTime = new Date();
 
-                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Key, global.EXCHANGE_KEYS[global.EXCHANGE_NAME].Secret);
+                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[bot.exchange].Key, global.EXCHANGE_KEYS[bot.exchange].Secret);
 
                     poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
 
@@ -718,7 +718,7 @@ This process complements the Live Trades process and write historical trades fil
 
                         dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
 
-                        filePath = global.EXCHANGE_NAME + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                        filePath = bot.exchange + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
 
                         utilities.createFolderIfNeeded(filePath, charlyStorage, onFolderCreated);
 
@@ -840,7 +840,7 @@ This process complements the Live Trades process and write historical trades fil
                         logger.write(MODULE_NAME, "[INFO] Entering function 'writeStatusReport'");
                     }
 
-                    let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process + "/" + year + "/" + month;
+                    let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + year + "/" + month;
 
                     utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
 
@@ -871,7 +871,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             if (isBeginingOfMarket === true) {
 
-                                reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
+                                reportFilePath = bot.exchange + "/Processes/" + bot.process;
 
                                 utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
 
@@ -954,7 +954,7 @@ This process complements the Live Trades process and write historical trades fil
                     let finalYear = (new Date()).getUTCFullYear();
                     let finalMonth = (new Date()).getUTCMonth() + 1;
 
-                    let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
+                    let reportFilePath = bot.exchange + "/Processes/" + bot.process;
                     let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                     /* Lets read the main status report */
@@ -992,7 +992,7 @@ This process complements the Live Trades process and write historical trades fil
                         */
                         let paddedInitialMonth = utilities.pad(initialMonth, 2);
 
-                        let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
+                        let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                         charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived);
@@ -1058,7 +1058,7 @@ This process complements the Live Trades process and write historical trades fil
 
                         /* We will read the current file to preserve its data, and save it again with market complete = true */
 
-                        let reportFilePath = global.EXCHANGE_NAME + "/Processes/" + bot.process;
+                        let reportFilePath = bot.exchange + "/Processes/" + bot.process;
                         let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
 
                         charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);

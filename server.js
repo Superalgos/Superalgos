@@ -196,6 +196,26 @@ function bootLoader() {
             continue
         }
 
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset));
+            continue
+        }
+
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue

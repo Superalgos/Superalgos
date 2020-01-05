@@ -71,7 +71,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             let currentDate;                // This will hold the current datetime of each execution.
             let previousMinute;             // This hold the current time minus 60 seconds.

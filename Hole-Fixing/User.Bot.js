@@ -139,7 +139,7 @@
 
             let currentDate;                    // This will hold the current datetime of each execution.
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             let dateForPath;
             let filePath;

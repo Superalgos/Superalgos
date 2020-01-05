@@ -107,7 +107,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                    let fileName = market.assetA + '_' + market.assetB + ".json";
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -297,7 +297,7 @@
 
                                                     fileContent = "[" + fileContent + "]";
 
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -316,7 +316,7 @@
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writeBandsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                                                 callBackFunction(err);
                                                                 return;
@@ -369,7 +369,7 @@
 
                                                     fileContent = "[" + fileContent + "]";
 
-                                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
@@ -388,7 +388,7 @@
 
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> err = " + err.stack);
                                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> filePath = " + filePath);
-                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> loopBody -> nextCandleFile -> onFileReceived -> writePBFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                                                 callBackFunction(err);
                                                                 return;

@@ -312,7 +312,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
 
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -333,7 +333,7 @@
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                             logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                         }
@@ -352,7 +352,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
                                     let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
@@ -381,7 +381,7 @@
 
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                 logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.assetA + '_' + market.assetB);
+                                                logger.write(MODULE_NAME, "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + market.baseAsset + '_' + market.quotedAsset);
 
                                                 callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                 return;
@@ -582,7 +582,7 @@
                                     fileContent = "[" + fileContent + "]";
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
@@ -606,7 +606,7 @@
                                                 return;
                                             }
 
-                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                            const logText = "[WARN] Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> " + logText); }
 
                                             writePBFile(pPB);
@@ -654,7 +654,7 @@
                                     fileContent = "[" + fileContent + "]";
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                                     let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
@@ -678,7 +678,7 @@
                                                 return;
                                             }
 
-                                            const logText = "[WARN] Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                            const logText = "[WARN] Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "";
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> " + logText); }
 
                                             controlLoop();
@@ -810,7 +810,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let fileName = 'Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
 
                     filePath += '/' + fileName

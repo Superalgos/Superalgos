@@ -104,7 +104,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
+            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + dataDependencyNode.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -146,7 +146,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
+            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + dataDependencyNode.dataSetVersion;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(dataDependencyNode.dataMine, filePath, pFileContent, onFileCreated);

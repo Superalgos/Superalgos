@@ -581,7 +581,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, global.EXCHANGE_NAME);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot.exchange);
 
                             exchangeAPI.initialize(onInizialized);
 

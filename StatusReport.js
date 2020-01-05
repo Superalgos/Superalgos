@@ -155,7 +155,7 @@
             let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
-                let rootPath = statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + "." + statusDependencyNode.botVersion.major + "." + statusDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + statusDependencyNode.dataSetVersion;
+                let rootPath = statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + "." + statusDependencyNode.botVersion.major + "." + statusDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + statusDependencyNode.dataSetVersion;
                 filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
             } else {
                 filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;

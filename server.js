@@ -91,7 +91,7 @@ require('dotenv').config();
 global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 
 /* Default parameters can be changed by the execution configuration */
-global.EXCHANGE_NAME = 'Poloniex'
+
 global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
 global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' } // NOTE: To refactor the name of this variable you would need to go through the bots code that are using it.
 
@@ -174,7 +174,27 @@ function bootLoader() {
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let code = global.TASK_NODE.bot.processes[processIndex].code
 
-        /* Validate that the minimun amount of parameters required are defined. */
+        /* Validate that the minimun amount of input required are defined. */
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Market Instance. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode));
+            continue
+        }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));

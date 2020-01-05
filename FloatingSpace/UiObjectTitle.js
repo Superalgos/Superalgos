@@ -48,106 +48,10 @@ function newUiObjectTitle () {
     thisObject.payload = payload
 
     thisObject.allwaysVisible = false // Default value
-    switch (payload.node.type) {
-      case 'Definition': {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.isTitleAllwaysVisible === true) {
         thisObject.allwaysVisible = true
-        break
-      }
-      case 'Data Mine': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Sensor Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Indicator Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Process Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Product Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Dataset Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Record Property': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Plotter': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Plotter Module': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Network': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Announcement': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Layer': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Sensor Bot Instance': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Indicator Bot Instance': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Backtesting Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Live Trading Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Fordward Testing Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Paper Trading Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Workspace': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading System': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Strategy': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      default: {
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.isTitleAllwaysVisible === true) {
-            thisObject.allwaysVisible = true
-          }
-        }
       }
     }
 

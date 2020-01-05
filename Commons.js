@@ -469,7 +469,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
 
             let market = bot.market;
-            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
@@ -493,7 +493,7 @@
 
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> filePath = " + filePath);
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                         callBackFunction(err);
                         return;

@@ -148,7 +148,7 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] load -> Entering function."); }
 
-            let fileName = "Status.Report." + bot.market.assetA + '_' + bot.market.assetB + ".json";
+            let fileName = "Status.Report." + bot.market.baseAsset + '_' + bot.market.quotedAsset + ".json";
             let filePath;
 
             let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
@@ -245,7 +245,7 @@
                 return;
             }
 
-            let fileName = "Status.Report." + bot.market.assetA + '_' + bot.market.assetB + ".json";
+            let fileName = "Status.Report." + bot.market.baseAsset + '_' + bot.market.quotedAsset + ".json";
             let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
 
             filePath += '/' + fileName

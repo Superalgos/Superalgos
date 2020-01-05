@@ -219,7 +219,7 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
@@ -238,7 +238,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -297,7 +297,7 @@
 
                         fileContent = "[" + fileContent + "]";
                         fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
@@ -316,7 +316,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -367,7 +367,7 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
@@ -386,7 +386,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -440,7 +440,7 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
@@ -459,7 +459,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -566,7 +566,7 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel;
@@ -585,7 +585,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -673,7 +673,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
@@ -692,7 +692,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -761,7 +761,7 @@
                         fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
@@ -780,7 +780,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -838,7 +838,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
@@ -857,7 +857,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
@@ -918,7 +918,7 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
@@ -937,7 +937,7 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> err = " + err.stack);
                                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;

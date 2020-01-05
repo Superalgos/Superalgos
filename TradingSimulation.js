@@ -117,8 +117,8 @@
             */
 
             /*Needed for statistics */
-            let previousBalanceAssetA = 0;
-            let previousBalanceAssetB = 0;
+            let previousBalanceBaseAsset = 0;
+            let previousBalanceQuotedAsset = 0;
 
             /* Position Management */
             let tradePositionRate = 0;
@@ -155,8 +155,8 @@
                 endRate: 0
             }
 
-            let balanceAssetA = bot.VALUES_TO_USE.initialBalanceA;
-            let balanceAssetB = bot.VALUES_TO_USE.initialBalanceB;
+            let balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA;
+            let balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB;
 
             let lastTradeProfitLoss = 0;
             let profit = 0;
@@ -189,8 +189,8 @@
             yesterday.stopLoss = 0
             yesterday.takeProfit = 0
 
-            yesterday.previousBalanceAssetA = previousBalanceAssetA
-            yesterday.previousBalanceAssetB = previousBalanceAssetB
+            yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
+            yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
             yesterday.tradePositionRate = tradePositionRate
             yesterday.tradePositionSize = tradePositionSize
@@ -223,8 +223,8 @@
                 endRate: 0
             }
 
-            yesterday.balanceAssetA = balanceAssetA;
-            yesterday.balanceAssetB = balanceAssetB;
+            yesterday.balanceBaseAsset = balanceBaseAsset;
+            yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
             yesterday.lastTradeProfitLoss = 0;
             yesterday.profit = 0;
@@ -257,8 +257,8 @@
                 interExecutionMemory.stopLoss = 0
                 interExecutionMemory.takeProfit = 0
 
-                interExecutionMemory.previousBalanceAssetA = previousBalanceAssetA
-                interExecutionMemory.previousBalanceAssetB = previousBalanceAssetB
+                interExecutionMemory.previousBalanceBaseAsset = previousBalanceBaseAsset
+                interExecutionMemory.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
                 interExecutionMemory.tradePositionRate = tradePositionRate
                 interExecutionMemory.tradePositionSize = tradePositionSize
@@ -291,8 +291,8 @@
                     endRate: 0
                 }
 
-                interExecutionMemory.balanceAssetA = balanceAssetA;
-                interExecutionMemory.balanceAssetB = balanceAssetB;
+                interExecutionMemory.balanceBaseAsset = balanceBaseAsset;
+                interExecutionMemory.balanceQuotedAsset = balanceQuotedAsset;
 
                 interExecutionMemory.lastTradeProfitLoss = lastTradeProfitLoss;
                 interExecutionMemory.profit = profit;
@@ -327,8 +327,8 @@
                 stopLoss = interExecutionMemory.stopLoss
                 takeProfit = interExecutionMemory.takeProfit
 
-                previousBalanceAssetA = interExecutionMemory.previousBalanceAssetA
-                previousBalanceAssetB = interExecutionMemory.previousBalanceAssetB
+                previousBalanceBaseAsset = interExecutionMemory.previousBalanceBaseAsset
+                previousBalanceQuotedAsset = interExecutionMemory.previousBalanceQuotedAsset
 
                 tradePositionRate = interExecutionMemory.tradePositionRate
                 tradePositionSize = interExecutionMemory.tradePositionSize
@@ -364,11 +364,11 @@
                 if (currentDay) {
                     if (currentDay.valueOf() >= bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
-                        balanceAssetA = interExecutionMemory.balanceAssetA;
-                        balanceAssetB = interExecutionMemory.balanceAssetB;
+                        balanceBaseAsset = interExecutionMemory.balanceBaseAsset;
+                        balanceQuotedAsset = interExecutionMemory.balanceQuotedAsset;
 
-                        yesterday.balanceAssetA = balanceAssetA;
-                        yesterday.balanceAssetB = balanceAssetB;
+                        yesterday.balanceBaseAsset = balanceBaseAsset;
+                        yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
                     }
                 }
@@ -400,8 +400,8 @@
                 yesterday.stopLoss = stopLoss
                 yesterday.takeProfit = takeProfit
 
-                yesterday.previousBalanceAssetA = previousBalanceAssetA
-                yesterday.previousBalanceAssetB = previousBalanceAssetB
+                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
+                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
                 yesterday.tradePositionRate = tradePositionRate
                 yesterday.tradePositionSize = tradePositionSize
@@ -708,10 +708,10 @@
 
                         /* Default Values*/
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionSize = balanceAssetA;
+                            positionSize = balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
-                            positionSize = balanceAssetB;
+                            positionSize = balanceQuotedAsset;
                             positionRate = candle.close;
                         }
 
@@ -731,15 +731,15 @@
                                         }
                                         if (isNaN(positionSize)) {
                                             if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                positionSize = balanceAssetA;
+                                                positionSize = balanceBaseAsset;
                                             } else {
-                                                positionSize = balanceAssetB;
+                                                positionSize = balanceQuotedAsset;
                                             }
                                         } else {
                                             if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
+                                                if (positionSize > balanceBaseAsset) { positionSize = balanceBaseAsset }
                                             } else {
-                                                if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
+                                                if (positionSize > balanceQuotedAsset) { positionSize = balanceQuotedAsset }
                                             }
                                         }
                                     }
@@ -1095,11 +1095,11 @@
                     let balance
 
                     if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                        balance = balanceAssetA
+                        balance = balanceBaseAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
                     } else {
-                        balance = balanceAssetB
+                        balance = balanceQuotedAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
@@ -1718,27 +1718,27 @@
                         let feePaid = 0
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / finalStopLoss;
+                            strategy.positionSize = balanceQuotedAsset / finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            feePaid = balanceAssetB / finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = balanceQuotedAsset / finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss - feePaid;
-                            balanceAssetB = 0;
+                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / finalStopLoss - feePaid;
+                            balanceQuotedAsset = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * finalStopLoss;
+                            strategy.positionSize = balanceBaseAsset * finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
-                            feePaid = balanceAssetA * finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = balanceBaseAsset * finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss - feePaid;
-                            balanceAssetA = 0;
+                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * finalStopLoss - feePaid;
+                            balanceBaseAsset = 0;
                         }
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
                             }
                         }
 
@@ -1814,27 +1814,27 @@
                         let feePaid = 0
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / finalTakeProfit;
+                            strategy.positionSize = balanceQuotedAsset / finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            feePaid = balanceAssetB / finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = balanceQuotedAsset / finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit - feePaid;
-                            balanceAssetB = 0;
+                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / finalTakeProfit - feePaid;
+                            balanceQuotedAsset = 0;
                         } else {
-                            strategy.positionSize = balanceAssetA * finalTakeProfit;
+                            strategy.positionSize = balanceBaseAsset * finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
-                            feePaid = balanceAssetA * finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = balanceBaseAsset * finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit - feePaid;
-                            balanceAssetA = 0;
+                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * finalTakeProfit - feePaid;
+                            balanceBaseAsset = 0;
                         }
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
                             }
                         }
@@ -2041,8 +2041,8 @@
                             amountA = tradePositionSize * openPositionRate
                             amountB = tradePositionSize
 
-                            if (amountB > availableBalance.assetB) { // The assistant know what fees were paid.
-                                amountB = availableBalance.assetB
+                            if (amountB > availableBalance.quotedAsset) { // The assistant know what fees were paid.
+                                amountB = availableBalance.quotedAsset
                             }
                         } else {
                             positionDirection = "buy"
@@ -2052,8 +2052,8 @@
                             amountA = tradePositionSize
                             amountB = tradePositionSize / openPositionRate
 
-                            if (amountA > availableBalance.assetA) { // The assistant know what fees were paid.
-                                amountA = availableBalance.assetA
+                            if (amountA > availableBalance.baseAsset) { // The assistant know what fees were paid.
+                                amountA = availableBalance.baseAsset
                             }
                         }
 
@@ -2117,13 +2117,13 @@
 
                         marketRate = candle.close;
 
-                        previousBalanceAssetA = balanceAssetA;
-                        previousBalanceAssetB = balanceAssetB;
+                        previousBalanceBaseAsset = balanceBaseAsset;
+                        previousBalanceQuotedAsset = balanceQuotedAsset;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.previousBalanceAssetA = previousBalanceAssetA;
-                                yesterday.previousBalanceAssetB = previousBalanceAssetB;
+                                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset;
+                                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset;
                             }
                         }
 
@@ -2136,20 +2136,20 @@
 
                             feePaid = tradePositionSize * tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate - feePaid;
-                            balanceAssetA = balanceAssetA - tradePositionSize;
+                            balanceQuotedAsset = balanceQuotedAsset + tradePositionSize * tradePositionRate - feePaid;
+                            balanceBaseAsset = balanceBaseAsset - tradePositionSize;
                         } else {
 
                             feePaid = tradePositionSize / tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate - feePaid;
-                            balanceAssetB = balanceAssetB - tradePositionSize;
+                            balanceBaseAsset = balanceBaseAsset + tradePositionSize / tradePositionRate - feePaid;
+                            balanceQuotedAsset = balanceQuotedAsset - tradePositionSize;
                         }
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
                                 yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
                                 yesterday.lastTradeROI = lastTradeROI;
@@ -2262,16 +2262,16 @@
 
                             closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.assetA
-                            amountB = availableBalance.assetA / closePositionRate
+                            amountA = availableBalance.baseAsset
+                            amountB = availableBalance.baseAsset / closePositionRate
 
                         } else {
                             positionDirection = "sell"
 
                             closePositionRate = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.assetB * closePositionRate
-                            amountB = availableBalance.assetB
+                            amountA = availableBalance.quotedAsset * closePositionRate
+                            amountB = availableBalance.quotedAsset
 
                         }
 
@@ -2337,15 +2337,15 @@
                         }
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
+                            lastTradeProfitLoss = balanceBaseAsset - previousBalanceBaseAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetA - bot.VALUES_TO_USE.initialBalanceA;
+                            profit = balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
                         } else {
-                            lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
+                            lastTradeProfitLoss = balanceQuotedAsset - previousBalanceQuotedAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetB - bot.VALUES_TO_USE.initialBalanceB;
+                            profit = balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
                         if (processingDailyFiles) {
@@ -2533,12 +2533,12 @@
                         }
                     }
 
-                    if (balanceAssetA === Infinity) {
-                        balanceAssetA = Number.MAX_SAFE_INTEGER
+                    if (balanceBaseAsset === Infinity) {
+                        balanceBaseAsset = Number.MAX_SAFE_INTEGER
                     }
 
-                    if (balanceAssetB === Infinity) {
-                        balanceAssetB = Number.MAX_SAFE_INTEGER
+                    if (balanceQuotedAsset === Infinity) {
+                        balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
                     let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
@@ -2549,8 +2549,8 @@
                         type: type,
                         marketRate: marketRate,
                         amount: 1,
-                        balanceA: balanceAssetA,
-                        balanceB: balanceAssetB,
+                        balanceA: balanceBaseAsset,
+                        balanceB: balanceQuotedAsset,
                         profit: profit,
                         lastTradeProfitLoss: lastTradeProfitLoss,
                         stopLoss: stopLoss,
@@ -2814,8 +2814,8 @@
                         interExecutionMemory.stopLoss = yesterday.stopLoss
                         interExecutionMemory.takeProfit = yesterday.takeProfit
 
-                        interExecutionMemory.previousBalanceAssetA = yesterday.previousBalanceAssetA
-                        interExecutionMemory.previousBalanceAssetB = yesterday.previousBalanceAssetB
+                        interExecutionMemory.previousBalanceBaseAsset = yesterday.previousBalanceBaseAsset
+                        interExecutionMemory.previousBalanceQuotedAsset = yesterday.previousBalanceQuotedAsset
 
                         interExecutionMemory.tradePositionRate = yesterday.tradePositionRate
                         interExecutionMemory.tradePositionSize = yesterday.tradePositionSize
@@ -2848,8 +2848,8 @@
                             endRate: yesterday.currentTrade.endRate
                         }
 
-                        interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
-                        interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
+                        interExecutionMemory.balanceBaseAsset = yesterday.balanceBaseAsset;
+                        interExecutionMemory.balanceQuotedAsset = yesterday.balanceQuotedAsset;
                         interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
                         interExecutionMemory.profit = yesterday.profit;
                         interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;

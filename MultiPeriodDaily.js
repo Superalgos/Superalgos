@@ -422,7 +422,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
                                             }
-                                            let fileName = market.assetA + '_' + market.assetB + ".json";
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -492,7 +492,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
-                                            let fileName = market.assetA + '_' + market.assetB + ".json";
+                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -726,7 +726,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = '/Data.Range.' + market.assetA + '_' + market.assetB + '.json';
+                    let fileName = '/Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
 
                     fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);

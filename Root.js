@@ -210,8 +210,8 @@
                     botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
                     botConfig.exchange = global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode.parentNode.code.codeName
                     botConfig.market = {
-                        assetA: global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset.referenceParent.code.codeName,
-                        assetB: global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset.referenceParent.code.codeName
+                        baseAsset: global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset.referenceParent.code.codeName,
+                        quotedAsset: global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset.referenceParent.code.codeName
                     }
 
                     /* This stuff is still hardcoded and unresolved. */

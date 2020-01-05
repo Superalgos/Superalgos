@@ -319,7 +319,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -370,7 +370,7 @@
                         try {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                             let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -471,7 +471,7 @@
                                 date = new Date(date.valueOf() - 60 * 1000);
 
                                 let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                                let fileName = market.assetA + '_' + market.assetB + ".json"
+                                let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
                                 let filePathRoot = bot.dataMine + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                 filePath += '/' + fileName
@@ -516,14 +516,14 @@
 
                                             lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
 
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.baseAsset + '_' + market.quotedAsset + ".");
                                             logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
 
                                             buildCandlesAndVolumes();
 
                                         } else {
 
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ".");
+                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.baseAsset + '_' + market.quotedAsset + ".");
 
                                             loopStart();
                                         }
@@ -700,7 +700,7 @@
                                         function onFilesWritten() {
 
                                             if (FULL_LOG === true) {
-                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.assetA + '_' + market.assetB + ".");
+                                                logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> Head of the market reached for market " + market.baseAsset + '_' + market.quotedAsset + ".");
                                             }
 
                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -725,7 +725,7 @@
                                     lastTradeFile = new Date(date.valueOf());
 
                                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                                    let fileName = market.assetA + '_' + market.assetB + ".json"
+                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
                                     let filePathRoot = bot.dataMine + "/" + "AACharly" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                     filePath += '/' + fileName
@@ -773,7 +773,7 @@
 
                                             let tradesCount = utilities.pad(tradesFile.length, 5);
 
-                                            logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.assetA + '_' + market.assetB + ". ");
+                                            logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> readTrades -> onFileReceived -> " + tradesCount + " trades found at " + filePath + " for market " + market.baseAsset + '_' + market.quotedAsset + ". ");
 
                                             if (tradesFile.length > 0) {
 
@@ -878,7 +878,7 @@
 
                             fileContent = "[" + fileContent + "]";
 
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -903,7 +903,7 @@
                                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> fileContent = " + fileContent);
                                     }
 
-                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
 
                                     writeVolumes();
 
@@ -952,7 +952,7 @@
 
                             fileContent = "[" + fileContent + "]";
 
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -976,7 +976,7 @@
                                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> fileContent = " + fileContent);
                                     }
 
-                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
+                                    logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> onFileCreated -> Finished with File @ " + market.baseAsset + "_" + market.quotedAsset + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName + "");
 
                                     writeReport();
 

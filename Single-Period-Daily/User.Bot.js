@@ -111,7 +111,7 @@
                 atHeadOfMarket = false;
             }
 
-            let market = global.MARKET;
+            let market = bot.market;
 
             let lastHoleFixedFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.

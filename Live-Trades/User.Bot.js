@@ -131,7 +131,7 @@
 
                     exchangeCallTime = new Date();
 
-                    EXCHANGE_API.getPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    EXCHANGE_API.getPublicTradeHistory(market.baseAsset, market.quotedAsset, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.stack);
@@ -182,8 +182,8 @@
                     let fileRecordCounterA = 0;
                     let fileRecordCounterB = 0;
 
-                    let fileNameA = '' + market.assetA + '_' + market.assetB + '.json';
-                    let fileNameB = '' + market.assetA + '_' + market.assetB + '.json';
+                    let fileNameA = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                    let fileNameB = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                     let needSeparator;
                     let separator;
@@ -247,7 +247,7 @@
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Content written = " + fileContent);
                         }
 
-                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Finished with File A @ " + market.baseAsset + "_" + market.quotedAsset);
                         logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Records inserted = " + fileRecordCounterA);
                         logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFirstFileACreated -> Path = " + filePathA + "/" + fileNameA + "");
 
@@ -314,7 +314,7 @@
                                 logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written = " + fileContent);
                             }
 
-                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.assetA + "_" + market.assetB);
+                            logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Finished with File B @ " + market.baseAsset + "_" + market.quotedAsset);
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Records inserted = " + fileRecordCounterB);
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> onFileBCreated -> Content written -> Path = " + filePathB + "/" + fileNameB + "");
 

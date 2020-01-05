@@ -365,7 +365,7 @@
                     */
 
                     let filePath;
-                    let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let date;               // This is pointing to each Trades File
 
                     let fileCheckedCounter = 0;
@@ -900,7 +900,7 @@
                     }
 
                     exchangeCallTime = new Date();
-                    EXCHANGE_API.getPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    EXCHANGE_API.getPublicTradeHistory(market.baseAsset, market.quotedAsset, startTime, endTime, onExchangeCallReturned);
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getTheTrades -> err = " + err.stack);
@@ -1165,7 +1165,7 @@
                                 return
                             }
 
-                            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                             date = new Date(filesToSave[i].datetime * 60 * 1000);
                             fileRecordCounter = filesToSave[i].records;
@@ -1196,7 +1196,7 @@
                                         logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Content written = " + fileContent);
                                     }
 
-                                    logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Finished with File @ " + market.assetA + "_" + market.assetB);
+                                    logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Finished with File @ " + market.baseAsset + "_" + market.quotedAsset);
                                     logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Records inserted = " + fileRecordCounter);
                                     logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> onFileCreated -> Path = " + filePath + "/" + fileName + "");
 

@@ -102,8 +102,8 @@ This process complements the Live Trades process and write historical trades fil
             let marketQueue;    // This is the queue of all markets to be procesesd at each interval.
             let market = {      // This is the current market being processed after removing it from the queue.
                 id: 0,
-                assetA: "",
-                assetB: ""
+                baseAsset: "",
+                quotedAsset: ""
             };
 
             let dateForPath;
@@ -180,8 +180,8 @@ This process complements the Live Trades process and write historical trades fil
                         const index = parseInt(Math.random() * (marketQueue.length - 1));
 
                         market.id = marketQueue[index][0];
-                        market.assetA = marketQueue[index][1];
-                        market.assetB = marketQueue[index][2];
+                        market.baseAsset = marketQueue[index][1];
+                        market.quotedAsset = marketQueue[index][2];
                         market.status = marketQueue[index][3];
 
                         marketQueue.splice(index, 1);
@@ -189,8 +189,8 @@ This process complements the Live Trades process and write historical trades fil
                         let marketRecord = marketQueue.shift();
 
                         market.id = marketRecord[0];
-                        market.assetA = marketRecord[1];
-                        market.assetB = marketRecord[2];
+                        market.baseAsset = marketRecord[1];
+                        market.quotedAsset = marketRecord[2];
                         market.status = marketRecord[3];
 
                         if (FORCE_MARKET > 0) {
@@ -203,7 +203,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     if (LOG_INFO === true) {
                         logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.baseAsset + "_" + market.quotedAsset);
                     }
 
                     if (market.status === markets.ENABLED) {
@@ -212,7 +212,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     } else {
 
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.assetA + "_" + market.assetB + " skipped because its status is not valid. Status = " + market.status);
+                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.baseAsset + "_" + market.quotedAsset + " skipped because its status is not valid. Status = " + market.status);
                         closeAndOpenMarket();
                         return;
 
@@ -269,7 +269,7 @@ This process complements the Live Trades process and write historical trades fil
                     }
 
                     let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                     charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
@@ -285,7 +285,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             if (statusReport.completeHistory === true) {
 
-                                const logText = "[INFO] 'getMarketStatusReport' - Market " + market.assetA + '_' + market.assetB + " is already complete. Skipping it. ";
+                                const logText = "[INFO] 'getMarketStatusReport' - Market " + market.baseAsset + '_' + market.quotedAsset + " is already complete. Skipping it. ";
                                 logger.write(logText);
 
                                 closeAndOpenMarket();
@@ -325,7 +325,7 @@ This process complements the Live Trades process and write historical trades fil
                     }
 
                     let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + year + "/" + month;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                     charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 
@@ -351,7 +351,7 @@ This process complements the Live Trades process and write historical trades fil
 
                             if (statusReport.completeHistory === true) {
 
-                                const logText = "[INFO] 'getMonthStatusReport' - Market " + market.assetA + '_' + market.assetB + " is already complete. Skipping it. ";
+                                const logText = "[INFO] 'getMonthStatusReport' - Market " + market.baseAsset + '_' + market.quotedAsset + " is already complete. Skipping it. ";
                                 logger.write(logText);
 
                                 closeAndOpenMarket();
@@ -413,7 +413,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[bot.exchange].Key, global.EXCHANGE_KEYS[bot.exchange].Secret);
 
-                    poloniexApiClient.API.returnPublicTradeHistory(market.assetA, market.assetB, startTime, endTime, onExchangeCallReturned);
+                    poloniexApiClient.API.returnPublicTradeHistory(market.baseAsset, market.quotedAsset, startTime, endTime, onExchangeCallReturned);
 
                 }
                 catch (err) {
@@ -479,7 +479,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 function onMarketDeactivated() {
 
-                                    logger.write(MODULE_NAME, "[INFO] Market " + market.assetA + "_" + market.assetB + " deactivated. Id = " + market.id);
+                                    logger.write(MODULE_NAME, "[INFO] Market " + market.baseAsset + "_" + market.quotedAsset + " deactivated. Id = " + market.id);
 
                                     closeAndOpenMarket();
                                     return;
@@ -710,7 +710,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     function nextRecord() {
 
-                        let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
                         date = new Date(filesToSave[i].datetime * 60 * 1000);
                         fileRecordCounter = filesToSave[i].records;
@@ -731,7 +731,7 @@ This process complements the Live Trades process and write historical trades fil
                                 let paddedCounter = utilities.pad(fileRecordCounter, 4);
                                 let paddedFile = utilities.pad(i + 1, 5);
 
-                                const logText = "[WARN] Finished with File # " + paddedFile + " @ " + market.assetA + "_" + market.assetB + ", " + paddedCounter + " records inserted into " + filePath + "/" + fileName + "";
+                                const logText = "[WARN] Finished with File # " + paddedFile + " @ " + market.baseAsset + "_" + market.quotedAsset + ", " + paddedCounter + " records inserted into " + filePath + "/" + fileName + "";
                                 console.log(logText);
                                 logger.write(logText);
 
@@ -846,7 +846,7 @@ This process complements the Live Trades process and write historical trades fil
 
                     function onFolderCreated() {
 
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                         let report = {
                             lastFile: {
@@ -877,7 +877,7 @@ This process complements the Live Trades process and write historical trades fil
 
                                 function onFolderCreated() {
 
-                                    fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                                    fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                                     let report = {
                                         lastFile: {
@@ -955,7 +955,7 @@ This process complements the Live Trades process and write historical trades fil
                     let finalMonth = (new Date()).getUTCMonth() + 1;
 
                     let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                     /* Lets read the main status report */
 
@@ -993,7 +993,7 @@ This process complements the Live Trades process and write historical trades fil
                         let paddedInitialMonth = utilities.pad(initialMonth, 2);
 
                         let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                         charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived);
 
@@ -1059,7 +1059,7 @@ This process complements the Live Trades process and write historical trades fil
                         /* We will read the current file to preserve its data, and save it again with market complete = true */
 
                         let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                        let fileName = "Status.Report." + market.assetA + '_' + market.assetB + ".json";
+                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
 
                         charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
 

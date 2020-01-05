@@ -30,6 +30,7 @@ function newTaskFunctions () {
     'Trading Bot Instance->' +
     'Process Instance->' +
     'Market Instance->Market->Exchange Markets->Crypto Exchange->' +
+    'Market Base Asset->Market Quoted Asset->Asset->' +
     'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
     'Process Definition->' +
     'Process Output->Output Dataset->Dataset Definition->Product Definition->' +

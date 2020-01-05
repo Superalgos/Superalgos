@@ -84,6 +84,28 @@ function newUiObjectTitle () {
     if (thisObject.payload.title === undefined) { return }
     let title = trimTitle(thisObject.payload.title)
 
+    /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.title !== undefined) {
+      let nodeToUse = thisObject.payload.node
+      if (nodeDefinition.title === 'Use Reference Parent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          nodeToUse = thisObject.payload.node.payload.referenceParent
+        }
+      }
+      if (nodeDefinition.title === 'Use Reference Gran Parent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
+            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+          }
+        }
+      }
+      thisObject.payload.title = nodeToUse.payload.title
+      thisObject.payload.name = thisObject.payload.node.name
+      title = trimTitle(thisObject.payload.title)
+    }
+
+    /* Here we set the dimensions and position of this object */
     const FRAME_HEIGHT = 25
     const FRAME_WIDTH = title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
     thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
@@ -117,6 +139,9 @@ function newUiObjectTitle () {
   }
 
   function onMouseClick (event) {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.title !== undefined) { return }
+
     let checkPoint = {
       x: 0,
       y: 0

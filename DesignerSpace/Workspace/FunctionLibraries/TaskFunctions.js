@@ -29,6 +29,7 @@ function newTaskFunctions () {
     'Indicator Bot Instance->' +
     'Trading Bot Instance->' +
     'Process Instance->' +
+    'Market Instance->Market->Exchange Markets->Crypto Exchange->' +
     'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
     'Process Definition->' +
     'Process Output->Output Dataset->Dataset Definition->Product Definition->' +

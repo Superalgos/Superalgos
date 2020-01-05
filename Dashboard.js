@@ -85,8 +85,8 @@ function newDashboard () {
 
       let market = {
         id: 2,
-        assetA: 'USDT',
-        assetB: 'BTC'
+        baseAsset: 'USDT',
+        quotedAsset: 'BTC'
       }
 
       markets = new Map()

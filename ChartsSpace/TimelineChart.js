@@ -30,8 +30,8 @@ function newTimelineChart () {
   let productsPanel
 
    /* Background */
-  let logoAssetA
-  let logoAssetB
+  let logoBaseAsset
+  let logoQuotedAsset
   let logoExchange
   let logoAA
   let canDrawLogoA = false
@@ -80,7 +80,7 @@ function newTimelineChart () {
         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
       })
 
-      let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+      let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
       productsPanel.initialize(exchange, market)
@@ -278,7 +278,7 @@ function newTimelineChart () {
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (window.CHART_ON_FOCUS === '') {
-        window.CHART_ON_FOCUS = exchange + ' ' + market.assetB + '/' + market.assetA
+        window.CHART_ON_FOCUS = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
 
         drawChartsBackgroundImages()
       }

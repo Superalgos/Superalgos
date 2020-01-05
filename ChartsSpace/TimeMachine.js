@@ -172,8 +172,8 @@ function newTimeMachine () {
 
           if (
            exchange === DEFAULT_EXCHANGE &&
-           market.assetA === DEFAULT_MARKET.assetA &&
-           market.assetB === DEFAULT_MARKET.assetB
+           market.baseAsset === DEFAULT_MARKET.baseAsset &&
+           market.quotedAsset === DEFAULT_MARKET.quotedAsset
          ) { continue }
 
           initializeTimelineChart(exchange, market)

@@ -1,5 +1,5 @@
 
-function newAssetBalances () {
+function newQuotedAssetalances () {
   const MODULE_NAME = 'Asset Balances'
 
   let thisObject = {
@@ -87,10 +87,10 @@ function newAssetBalances () {
       speedometer.draw()
     }
 
-    drawAssetBalances()
+    drawQuotedAssetalances()
   }
 
-  function drawAssetBalances () {
+  function drawQuotedAssetalances () {
     if (thisObject.paramsArray === undefined) { return }
 
     let fontSize

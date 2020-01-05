@@ -7,14 +7,14 @@ const CANVAS_APP_NAME = 'Canvas App'
 const SUPPORTED_EXCHANGES = ["Poloniex"];
 const SUPPORTED_MARKETS = [
   {
-      assetA: "USDT",
-      assetB: "BTC",
+      baseAsset: "USDT",
+      quotedAsset: "BTC",
   }
 ];
 const DEFAULT_EXCHANGE = "Poloniex";
 const DEFAULT_MARKET = {
-    assetA: "USDT",
-    assetB: "BTC",
+    baseAsset: "USDT",
+    quotedAsset: "BTC",
 };
 
 UI_COLOR = {

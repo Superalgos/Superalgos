@@ -5,7 +5,7 @@
    let thisObject = {
      container: undefined,
      status: 'BOTTOM',
-     assetBalances: undefined,
+     quotedAssetalances: undefined,
      fullscreen: undefined,
      toTop: toTop,
      toBottom: toBottom,
@@ -40,7 +40,7 @@
 
      thisObject.container.finalize()
      thisObject.container = undefined
-     thisObject.assetBalances = undefined
+     thisObject.quotedAssetalances = undefined
      thisObject.fullscreen = undefined
    }
 
@@ -65,8 +65,8 @@
      canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
-     thisObject.assetBalances = newAssetBalances()
-     thisObject.assetBalances.initialize()
+     thisObject.quotedAssetalances = newQuotedAssetalances()
+     thisObject.quotedAssetalances.initialize()
 
      thisObject.fullscreen = newFullScreen()
      thisObject.fullscreen.container.connectToParent(thisObject.container)
@@ -171,7 +171,7 @@
 
      drawBackground()
 
-     thisObject.assetBalances.draw()
+     thisObject.quotedAssetalances.draw()
      thisObject.fullscreen.draw()
    }
 

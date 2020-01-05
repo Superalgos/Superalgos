@@ -229,7 +229,7 @@ function newPlottersManager () {
                   moduleCodeName: pProductCard.product.plotter.moduleName,
                   panelCodeName: panelConfig.codeName
                 }
-                let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
                 let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session)
                 let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
                                 /* Connect Panel to the Plotter via an Event. */
@@ -250,7 +250,7 @@ function newPlottersManager () {
                     moduleCodeName: pProductCard.product.plotter.moduleName,
                     panelCodeName: panel.id
                   }
-                  let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
+                  let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
                   let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session, panel)
                   let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
 

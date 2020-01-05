@@ -42,7 +42,7 @@ function newProductsPanel () {
     exchange = pExchange
     market = pMarket
 
-    thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.assetB + '/' + market.assetA
+    thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 1.5 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
@@ -212,7 +212,7 @@ function newProductsPanel () {
     productCard.bot = bot
     productCard.product = product
     productCard.fitFunction = thisObject.fitFunction
-    productCard.code = exchange + '-' + market.assetB + '/' + market.assetA + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
+    productCard.code = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
 
     if (session !== undefined) {
       productCard.code = productCard.code + '-' + session.id
@@ -439,7 +439,7 @@ function newProductsPanel () {
 
                             if (product.codeName === layerCode.product) {
                               /* We have a layer that is matching the current product */
-                              let cardCode = exchange + '-' + market.assetB + '/' + market.assetA + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
+                              let cardCode = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
                               let cardFound = removeFromLocalProductCards(cardCode)
                               if (cardFound !== true) {
                                 productCard = addProductCard(dataMine, bot, product, process.session)

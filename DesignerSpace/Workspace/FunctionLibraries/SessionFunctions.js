@@ -39,6 +39,7 @@ function newSessionFunctions () {
     'Announcement->Telegram Bot->' +
     'Open Stage->Initial Definition->Open Execution->' +
     'Position Size->Position Rate->Formula->' +
+    'Initial Stop->Initial Take Profit->' +
     'Manage Stage->' +
     'Stop->Take Profit->' +
     'Phase->Formula->Next Phase Event->' +

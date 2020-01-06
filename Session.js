@@ -278,37 +278,42 @@
                         /* Base Asset and Initial Balances. */
                         {
                             if (tradingSystem.parameters.baseAsset !== undefined) {
-                                let code = tradingSystem.parameters.baseAsset.code
+                                if (tradingSystem.parameters.baseAsset.referenceParent !== undefined) {
+                                    if (tradingSystem.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                if (code.name !== undefined) {
-                                    bot.VALUES_TO_USE.baseAsset = code.name;
-                                }
+                                        let code = tradingSystem.parameters.baseAsset.referenceParent.referenceParent.code
 
-                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') { 
-                                    if (code.initialBalance !== undefined) {
-                                        bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                        bot.VALUES_TO_USE.initialBalanceB = 0
-                                    }
-                                    if (code.minimumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                        bot.VALUES_TO_USE.minimumBalanceB = 0
-                                    }
-                                    if (code.maximumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                        bot.VALUES_TO_USE.maximumBalanceB = 0
-                                    }
-                                } else {
-                                    if (code.initialBalance !== undefined) {
-                                        bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                        bot.VALUES_TO_USE.initialBalanceA = 0
-                                    }
-                                    if (code.minimumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                        bot.VALUES_TO_USE.minimumBalanceA = 0
-                                    }
-                                    if (code.maximumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                        bot.VALUES_TO_USE.maximumBalanceA = 0
+                                        if (code.codeName !== undefined) {
+                                            bot.VALUES_TO_USE.baseAsset = code.codeName;
+                                        }
+
+                                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceB = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceB = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceB = 0
+                                            }
+                                        } else {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceA = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceA = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceA = 0
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -374,37 +379,42 @@
                             /* Base Asset and Initial Balances. */
                             {
                                 if (bot.SESSION.parameters.baseAsset !== undefined) {
-                                    let code = bot.SESSION.parameters.baseAsset.code
+                                    if (tradingSystem.parameters.baseAsset.referenceParent !== undefined) {
+                                        if (tradingSystem.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                    if (code.name !== undefined) {
-                                        bot.VALUES_TO_USE.baseAsset = code.name;
-                                    }
+                                            let code = tradingSystem.parameters.baseAsset.referenceParent.referenceParent.code
 
-                                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceB = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceB = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceB = 0
-                                        }
-                                    } else {
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceA = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceA = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceA = 0
+                                            if (code.codeName !== undefined) {
+                                                bot.VALUES_TO_USE.baseAsset = code.codeName;
+                                            }
+
+                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                                if (code.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                    bot.VALUES_TO_USE.initialBalanceB = 0
+                                                }
+                                                if (code.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                    bot.VALUES_TO_USE.minimumBalanceB = 0
+                                                }
+                                                if (code.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                    bot.VALUES_TO_USE.maximumBalanceB = 0
+                                                }
+                                            } else {
+                                                if (code.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                    bot.VALUES_TO_USE.initialBalanceA = 0
+                                                }
+                                                if (code.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                    bot.VALUES_TO_USE.minimumBalanceA = 0
+                                                }
+                                                if (code.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                    bot.VALUES_TO_USE.maximumBalanceA = 0
+                                                }
+                                            }
                                         }
                                     }
                                 }

@@ -44,7 +44,6 @@
         callBackFunction) {
 
         try {
-
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
             let processingDailyFiles
             if (timeFrame > global.dailyFilePeriods[0][0]) {
@@ -1361,45 +1360,47 @@
                         }
                     }
 
-                    let phase = parentNode.stopLoss.phases[p];
+                    if (parentNode !== undefined) {
+                        let phase = parentNode.stopLoss.phases[p];
 
-                    let nextPhaseEvent = phase.nextPhaseEvent;
-                    if (nextPhaseEvent !== undefined) {
+                        let nextPhaseEvent = phase.nextPhaseEvent;
+                        if (nextPhaseEvent !== undefined) {
 
-                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                            let situation = nextPhaseEvent.situations[k];
-                            let passed = true;
+                                let situation = nextPhaseEvent.situations[k];
+                                let passed = true;
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                let value = false
-                                if (conditions.get(key) !== undefined) {
-                                    value = conditions.get(key).value;
-                                }
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                stopLossPhase++;
-                                stopLossStage = 'Manage Stage'
-                                if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
-
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.stopLossPhase = stopLossPhase;
-                                        yesterday.stopLossStage = stopLossStage;
-                                        yesterday.strategyStage = strategyStage;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
                                     }
+
+                                    if (value === false) { passed = false; }
                                 }
 
-                                checkAnnouncements(nextPhaseEvent)
-                                return;
+                                if (passed) {
+
+                                    stopLossPhase++;
+                                    stopLossStage = 'Manage Stage'
+                                    if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.stopLossPhase = stopLossPhase;
+                                            yesterday.stopLossStage = stopLossStage;
+                                            yesterday.strategyStage = strategyStage;
+                                        }
+                                    }
+
+                                    checkAnnouncements(nextPhaseEvent)
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1490,45 +1491,47 @@
                         }
                     }
 
-                    let phase = parentNode.takeProfit.phases[p];
+                    if (parentNode !== undefined) {
+                        let phase = parentNode.takeProfit.phases[p];
 
-                    let nextPhaseEvent = phase.nextPhaseEvent;
-                    if (nextPhaseEvent !== undefined) {
+                        let nextPhaseEvent = phase.nextPhaseEvent;
+                        if (nextPhaseEvent !== undefined) {
 
-                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                            let situation = nextPhaseEvent.situations[k];
-                            let passed = true;
+                                let situation = nextPhaseEvent.situations[k];
+                                let passed = true;
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                let value = false
-                                if (conditions.get(key) !== undefined) {
-                                    value = conditions.get(key).value;
-                                }
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                takeProfitPhase++;
-                                takeProfitStage = 'Manage Stage'
-                                if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
-
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.takeProfitPhase = takeProfitPhase;
-                                        yesterday.takeProfitStage = takeProfitStage;
-                                        yesterday.strategyStage = strategyStage;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
                                     }
+
+                                    if (value === false) { passed = false; }
                                 }
 
-                                checkAnnouncements(nextPhaseEvent)
-                                return;
+                                if (passed) {
+
+                                    takeProfitPhase++;
+                                    takeProfitStage = 'Manage Stage'
+                                    if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.takeProfitPhase = takeProfitPhase;
+                                            yesterday.takeProfitStage = takeProfitStage;
+                                            yesterday.strategyStage = strategyStage;
+                                        }
+                                    }
+
+                                    checkAnnouncements(nextPhaseEvent)
+                                    return;
+                                }
                             }
                         }
                     }

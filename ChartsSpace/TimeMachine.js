@@ -53,9 +53,6 @@ function newTimeMachine () {
 
     thisObject.container.frame.width = TIME_MACHINE_WIDTH
     thisObject.container.frame.height = TIME_MACHINE_HEIGHT
-
-    thisObject.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
-    thisObject.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
   }
 
   function finalize () {

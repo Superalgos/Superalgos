@@ -14,7 +14,7 @@ function transformThisPoint (point, container) {
 
   point = container.frame.frameThisPoint(point)
 
-    /* We viewport Transformation. */
+    /* We pass this point through the viewPort lends, meaning we apply the viewPort zoom and displacement. */
 
   point = viewPort.zoomThisPoint(point)
 

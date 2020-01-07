@@ -48,7 +48,8 @@ function newTimeMachine () {
   function setupContainer () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
-    thisObject.container.isDraggeable = false
+    thisObject.container.isDraggeable = true
+    thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
     thisObject.container.frame.width = TIME_MACHINE_WIDTH
@@ -329,7 +330,7 @@ function newTimeMachine () {
       if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
       if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
-     // thisObject.container.frame.draw(false, true, false)
+      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     }
   }
 

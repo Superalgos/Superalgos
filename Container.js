@@ -211,6 +211,11 @@ function newContainer () {
             return true
           }
           break
+        case GET_CONTAINER_PURPOSE.DRAGGING:
+          if (thisObject.isDraggeable === true) {
+            return true
+          }
+          break
         default: { return false }
 
       }

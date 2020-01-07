@@ -48,7 +48,8 @@ const MIN_ZOOM_LEVEL = -28.25
 const GET_CONTAINER_PURPOSE = {
   MOUSE_OVER: 1,
   MOUSE_WHEEL: 2,
-  MOUSE_CLICK: 3
+  MOUSE_CLICK: 3,
+  DRAGGING: 4
 }
 
 /* User Interface Panels */

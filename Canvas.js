@@ -850,28 +850,32 @@ function newCanvas () {
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
         if (containerDragStarted || viewPortBeingDragged) {
-                   /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
-
-          let downCopy = {
-            x: dragVector.downX,
-            y: dragVector.downY
-          }
-
-          let downCopyNoTransf
-          downCopyNoTransf = viewPort.unzoomThisPoint(downCopy)
-                   // downCopyNoTransf = containerBeingDragged.zoom.unzoomThisPoint(downCopyNoTransf);
-
-          let upCopy = {
-            x: dragVector.upX,
-            y: dragVector.upY
-          }
-
-          let upCopyNoTranf
-          upCopyNoTranf = viewPort.unzoomThisPoint(upCopy)
-
           let displaceVector = {
             x: dragVector.upX - dragVector.downX,
             y: dragVector.upY - dragVector.downY
+          }
+
+          if (containerBeingDragged !== undefined && containerBeingDragged.insideViewport === true) {
+            let downCopy = {
+              x: dragVector.downX,
+              y: dragVector.downY
+            }
+
+            let downNoZoom
+            downNoZoom = viewPort.unzoomThisPoint(downCopy)
+
+            let upCopy = {
+              x: dragVector.upX,
+              y: dragVector.upY
+            }
+
+            let upNoZoom
+            upNoZoom = viewPort.unzoomThisPoint(upCopy)
+
+            displaceVector = {
+              x: upNoZoom.x - downNoZoom.x,
+              y: upNoZoom.y - downNoZoom.y
+            }
           }
 
           if (viewPortBeingDragged) {

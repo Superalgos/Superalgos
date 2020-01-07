@@ -69,8 +69,6 @@ function newTimelineChart () {
 
   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-
            /* We load the logow we will need for the background. */
       exchange = pExchange
       market = pMarket
@@ -141,8 +139,6 @@ function newTimelineChart () {
       plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
       function onPlotterManagerReady (err) {
-        if (INFO_LOG === true) { logger.write('[INFO] initialize -> onPlotterManagerReady -> Entering function.') }
-
         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> Plotter Manager Initialization Failed. ') }
           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err= ' + err.stack) }
@@ -174,8 +170,6 @@ function newTimelineChart () {
   }
 
   function onZoomChanged (event) {
-    if (INFO_LOG === true) { logger.write('[INFO] onZoomChanged -> Entering function.') }
-
     if (initializationReady === true) {
       recalculateCurrentDatetime()
 
@@ -184,8 +178,6 @@ function newTimelineChart () {
   }
 
   function setDatetime (pDatetime) {
-    if (INFO_LOG === true) { logger.write('[INFO] setDatetime -> Entering function.') }
-
        /* This function is used when the time is changed through the user interface, but without zooming or panning. */
        /* No matter if the day changed or not, we need to inform all visible Plotters. */
 
@@ -196,8 +188,6 @@ function newTimelineChart () {
   }
 
   function onOffsetChanged () {
-    if (INFO_LOG === true) { logger.write('[INFO] onOffsetChanged -> Entering function.') }
-
     if (initializationReady === true) {
       if (thisObject.container.frame.isInViewPort()) {
         recalculateCurrentDatetime()
@@ -207,8 +197,6 @@ function newTimelineChart () {
   }
 
   function recalculateCurrentDatetime () {
-    if (INFO_LOG === true) { logger.write('[INFO] recalculateCurrentDatetime -> Entering function.') }
-
        /*
 
        The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
@@ -235,8 +223,6 @@ function newTimelineChart () {
   }
 
   function getContainer (point) {
-    if (INFO_LOG === true) { logger.write('[INFO] getContainer -> Entering function.') }
-
     let container
 
     container = timeFrameScale.getContainer(point)

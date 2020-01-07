@@ -180,9 +180,9 @@ function newChartSpace () {
   }
 
   function physics () {
-    syncWithDesigner()
     thisObjectPhysics()
     childrenPhysics()
+    syncWithDesigner()
   }
 
   function syncWithDesigner () {
@@ -214,8 +214,8 @@ function newChartSpace () {
       if (timeMachine.syncWithDesignerLoop < syncWithDesignerLoop) {
         /* Must be removed */
         timeMachine.finalize()
-        timeMachinesMap.delete(timeMachine.node.id)
-        timeMachine.node = undefined
+        timeMachinesMap.delete(timeMachine.nodeId)
+        timeMachine.payload = undefined
         thisObject.timeMachines.splice(i, 1)
         /* We remove one at the time */
         return
@@ -225,8 +225,10 @@ function newChartSpace () {
     function initializeTimeMachine (node, syncWithDesignerLoop) {
       let timeMachine = newTimeMachine()
       timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
-      timeMachine.node = node
+      timeMachine.payload = node.payload
+      timeMachine.nodeId = node.id
       timeMachinesMap.set(node.id, timeMachine)
+      timeMachine.payload.uiObject.setValue('Loading...')
 
       /* Setting up the new time machine. */
       timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
@@ -242,7 +244,7 @@ function newChartSpace () {
         }
 
         thisObject.timeMachines.push(timeMachine)
-
+        timeMachine.payload.uiObject.setValue('')
         viewPort.raiseEvents() // These events will impacts on objects just initialized.
       }
     }

@@ -4,8 +4,8 @@ Markets are a function of time. When watching them, end users must be positioned
 to position themselves at any time they like.
 
 In the future, it will be usefull to explore markets and compare them at different times simultaneously. Anticipating that future this module exists.
-All the charts that depand on a datetime are children of this object Time Machine. In the future we will allow users to have more than one Time Machine,
-each one with it own charts, and each one positioned at an especific point in titme.
+All the timelineCharts that depand on a datetime are children of this object Time Machine. In the future we will allow users to have more than one Time Machine,
+each one with it own timelineCharts, and each one positioned at an especific point in titme.
 
 */
 
@@ -19,7 +19,7 @@ function newTimeMachine () {
     timeScale: undefined,
     rateScale: undefined,
     fitFunction: undefined,
-    charts: [],
+    timelineCharts: [],
     physics: physics,
     drawBackground: drawBackground,
     draw: draw,
@@ -39,6 +39,9 @@ function newTimeMachine () {
     }
   }
 
+  let syncWithDesignerLoop = 0
+  let timelineChartsMap = new Map()
+
   setupContainer()
   return thisObject
 
@@ -56,12 +59,13 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    for (let i = 0; i < thisObject.charts.length; i++) {
-      let chart = thisObject.charts[i]
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let chart = thisObject.timelineCharts[i]
       chart.finalize()
     }
 
-    thisObject.charts = []
+    thisObject.timelineCharts = undefined
+    timelineChartsMap = undefined
 
     if (thisObject.timeScale !== undefined) {
       thisObject.timeScale.finalize()
@@ -82,60 +86,35 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     recalculateScale()
 
-     /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
+    /* Each Time Machine has a Time Scale and a Right Scale. */
 
-    let position = 0 // This defines the position of each chart respect to each other.
+    thisObject.timeScale = newTimeScale()
+    thisObject.timeScale.fitFunction = thisObject.fitFunction
 
-    let timelineChart = newTimelineChart()
+    thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
 
-    timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
-    timelineChart.container.frame.height = thisObject.container.frame.height
+    thisObject.timeScale.initialize()
 
-    timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-    timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
+    thisObject.rateScale = newRateScale()
+    thisObject.rateScale.fitFunction = thisObject.fitFunction
 
-    position++
+    thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition)
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
 
-    timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onDefaultInitialized)
+    thisObject.rateScale.initialize()
 
-    function onDefaultInitialized (err) {
-      if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        callBackFunction(err)
-        return
-      }
+    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
-      thisObject.charts.push(timelineChart)
-
-     /* Each Time Machine has a Time Scale and a Right Scale. */
-
-      thisObject.timeScale = newTimeScale()
-      thisObject.timeScale.fitFunction = thisObject.fitFunction
-
-      thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-        recalculateScale()
-        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      })
-
-      thisObject.timeScale.initialize()
-
-      thisObject.rateScale = newRateScale()
-      thisObject.rateScale.fitFunction = thisObject.fitFunction
-
-      thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-        recalculateScale()
-        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition)
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      })
-
-      thisObject.rateScale.initialize()
-
-      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-      initializeTheRest()
-    }
+    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 
     function onMouseOver (event) {
       thisObject.timeScale.visible = true
@@ -143,56 +122,6 @@ function newTimeMachine () {
 
       mouse.position.x = event.x
       mouse.position.y = event.y
-    }
-
-    function initializeTheRest () {
-      let leftToInitialize = SUPPORTED_EXCHANGES.length * SUPPORTED_MARKETS.length - 1 // The default exchange and market was already initialized.
-      let alreadyInitialized = 0
-
-      if (alreadyInitialized === leftToInitialize) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-        return
-      }
-
-      for (let i = 0; i < SUPPORTED_EXCHANGES.length; i++) {
-        for (let j = 0; j < SUPPORTED_MARKETS.length; j++) {
-          let exchange = SUPPORTED_EXCHANGES[i]
-          let market = SUPPORTED_MARKETS[j]
-
-          if (
-           exchange === DEFAULT_EXCHANGE &&
-           market.baseAsset === DEFAULT_MARKET.baseAsset &&
-           market.quotedAsset === DEFAULT_MARKET.quotedAsset
-         ) { continue }
-
-          initializeTimelineChart(exchange, market)
-        }
-      }
-
-      function initializeTimelineChart (exchange, market) {
-        let timelineChart = newTimelineChart()
-
-        timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
-
-        timelineChart.container.frame.height = thisObject.container.frame.height
-
-        timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-        timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
-
-        position++
-
-        timelineChart.initialize(exchange, market, timeLineCoordinateSystem, finalSteps)
-
-        function finalSteps () {
-          thisObject.charts.push(timelineChart)
-
-          alreadyInitialized++
-
-          if (alreadyInitialized === leftToInitialize) {
-            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-          }
-        }
-      }
     }
   }
 
@@ -217,8 +146,8 @@ function newTimeMachine () {
       }
     }
 
-    for (let i = 0; i < this.charts.length; i++) {
-      container = this.charts[i].getContainer(point)
+    for (let i = 0; i < this.timelineCharts.length; i++) {
+      container = this.timelineCharts[i].getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           if (thisObject.container.frame.isThisPointHere(point) === true) {
@@ -247,39 +176,61 @@ function newTimeMachine () {
   function physics () {
     thisObjectPhysics()
     childrenPhysics()
+    syncWithDesigner()
   }
 
   function syncWithDesigner () {
-    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
-    for (let i = 0; i < rootNodes.length; i++) {
-      let rootNode = rootNodes[i]
-      if (rootNode.type === 'Charting System') {
-        let chartingSytemNode = rootNode
-        if (chartingSystem.timeMachines !== undefined) {
-          for (let j = 0; j < chartingSystem.timeMachines.length; j++) {
+    syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-          }
-        }
+    for (let j = 0; j < thisObject.payload.node.timelineCharts.length; j++) {
+      let node = thisObject.payload.node.timelineCharts[j]
+      let timelineChart = timelineChartsMap.get(node.id)
+      if (timelineChart === undefined) {
+              /* The timeline chart node is new, thus we need to initialize a new timelineChart */
+        initializeTimelineChart(node, syncWithDesignerLoop)
+      } else {
+              /* The time machine already exists, we tag it as existing at the current loop. */
+        timelineChart.syncWithDesignerLoop = syncWithDesignerLoop
       }
     }
 
-    function initializeTimelineChart (exchange, market) {
+    /* We check all the timeMachines we have to see if we need to remove any of them */
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let timelineChart = thisObject.timelineCharts[i]
+      if (timelineChart.syncWithDesignerLoop < syncWithDesignerLoop) {
+        /* Must be removed */
+        timelineChart.finalize()
+        timelineChartsMap.delete(timelineChart.nodeId)
+        timelineChart.payload = undefined
+        thisObject.timelineCharts.splice(i, 1)
+        /* We remove one at the time */
+        return
+      }
+    }
+
+    function initializeTimelineChart (node, syncWithDesignerLoop) {
       let timelineChart = newTimelineChart()
+      timelineChart.syncWithDesignerLoop = syncWithDesignerLoop
+      timelineChart.payload = node.payload
+      timelineChart.nodeId = node.id
+      timelineChartsMap.set(node.id, timelineChart)
+      timelineChart.payload.uiObject.setValue('Loading...')
 
+      /* Setting up the new timeline chart. */
       timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
-
       timelineChart.container.frame.height = thisObject.container.frame.height
-
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
-      timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
+      timelineChart.container.frame.position.y = 0
+      timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onTimelineChartInitialized)
 
-      position++
+      function onTimelineChartInitialized (err) {
+        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimelineChart -> Initialization Failed. -> Err ' + err.message) }
+          return
+        }
 
-      timelineChart.initialize(exchange, market, timeLineCoordinateSystem, onTimelineChartInitialized)
-
-      function onTimelineChartInitialized () {
-        thisObject.charts.push(timelineChart)
-        chartsMap.set()
+        thisObject.timelineCharts.push(timelineChart)
+        timelineChart.payload.uiObject.setValue('')
       }
     }
   }
@@ -304,8 +255,8 @@ function newTimeMachine () {
     thisObject.timeScale.physics()
     thisObject.rateScale.physics()
 
-    for (let i = 0; i < thisObject.charts.length; i++) {
-      let chart = thisObject.charts[i]
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let chart = thisObject.timelineCharts[i]
       chart.physics()
     }
 
@@ -364,8 +315,8 @@ function newTimeMachine () {
     thisBackground()
 
     if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.charts.length; i++) {
-        let chart = this.charts[i]
+      for (let i = 0; i < this.timelineCharts.length; i++) {
+        let chart = this.timelineCharts[i]
         chart.drawBackground()
       }
     }
@@ -373,8 +324,8 @@ function newTimeMachine () {
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.charts.length; i++) {
-        let chart = this.charts[i]
+      for (let i = 0; i < this.timelineCharts.length; i++) {
+        let chart = this.timelineCharts[i]
         chart.draw()
       }
 

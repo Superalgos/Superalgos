@@ -1062,7 +1062,9 @@ function newUiObject () {
 
       label = currentValue
       if (!isNaN(label)) {
-        label = currentValue.toFixed(2)
+        if (currentValue.toFixed !== undefined) {
+          label = currentValue.toFixed(2)
+        }
       }
 
       if (label !== undefined) {

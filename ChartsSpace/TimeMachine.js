@@ -249,6 +249,41 @@ function newTimeMachine () {
     childrenPhysics()
   }
 
+  function syncWithDesigner () {
+    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.type === 'Charting System') {
+        let chartingSytemNode = rootNode
+        if (chartingSystem.timeMachines !== undefined) {
+          for (let j = 0; j < chartingSystem.timeMachines.length; j++) {
+
+          }
+        }
+      }
+    }
+
+    function initializeTimelineChart (exchange, market) {
+      let timelineChart = newTimelineChart()
+
+      timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+
+      timelineChart.container.frame.height = thisObject.container.frame.height
+
+      timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
+      timelineChart.container.frame.position.y = timelineChart.container.frame.height * SEPARATION_BETWEEN_TIMELINE_CHARTS * position
+
+      position++
+
+      timelineChart.initialize(exchange, market, timeLineCoordinateSystem, onTimelineChartInitialized)
+
+      function onTimelineChartInitialized () {
+        thisObject.charts.push(timelineChart)
+        chartsMap.set()
+      }
+    }
+  }
+
   function thisObjectPhysics () {
     /* Screen Corner Date Calculation */
 

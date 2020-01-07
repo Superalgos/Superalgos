@@ -31,6 +31,8 @@ function newChartSpace () {
   }
 
   let canvasBrowserResizedEventSubscriptionId
+  let timeMachinesMap = new Map()
+  let syncWithDesignerLoop = 0
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
 
@@ -51,45 +53,17 @@ function newChartSpace () {
       timeMachine.finalize()
     }
 
+    thisObject.timeMachines = undefined
+    timeMachinesMap = undefined
+
     thisObject.container.eventHandler.stopListening(canvasBrowserResizedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
   }
 
   function initialize () {
-    let initializedCounter = 0
-    let toInitialize = 1
-
     canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
-
-       /* We create the first of many possible time machines that could live at the Chart Space. */
-
-    let timeMachine = newTimeMachine()
-
-       /* We make the time machine a little bit smaller than the current space. */
-
-    timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
-    timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
-    timeMachine.container.fitFunction = fitIntoVisibleArea
-    timeMachine.fitFunction = fitIntoVisibleArea
-    timeMachine.initialize(onTimeMachineInitialized)
-
-    function onTimeMachineInitialized (err) {
-      initializedCounter++
-
-      if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Initialization Failed. -> Err ' + err.message) }
-        return
-      }
-
-      thisObject.timeMachines.push(timeMachine)
-
-      if (initializedCounter === toInitialize) {
-        viewPort.raiseEvents() // These events will impacts on objects just initialized.
-      }
-    }
   }
 
   function getContainer (point, purpose) {
@@ -206,8 +180,72 @@ function newChartSpace () {
   }
 
   function physics () {
+    syncWithDesigner()
     thisObjectPhysics()
     childrenPhysics()
+  }
+
+  function syncWithDesigner () {
+    syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
+
+    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.type === 'Charting System') {
+        let chartingSystem = rootNode
+        if (chartingSystem.timeMachines !== undefined) {
+          for (let j = 0; j < chartingSystem.timeMachines.length; j++) {
+            let node = chartingSystem.timeMachines[j]
+            let timeMachine = timeMachinesMap.get(node.id)
+            if (timeMachine === undefined) {
+              /* The time machine node is new, thus we need to initialize a new timeMachine */
+              initializeTimeMachine(node, syncWithDesignerLoop)
+            } else {
+              /* The time machine already exists, we tag it as existing at the current loop. */
+              timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+            }
+          }
+        }
+      }
+    }
+    /* We check all the timeMachines we have to see if we need to remove any of them */
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      if (timeMachine.syncWithDesignerLoop < syncWithDesignerLoop) {
+        /* Must be removed */
+        timeMachine.finalize()
+        timeMachinesMap.delete(timeMachine.node.id)
+        timeMachine.node = undefined
+        thisObject.timeMachines.splice(i, 1)
+        /* We remove one at the time */
+        return
+      }
+    }
+
+    function initializeTimeMachine (node, syncWithDesignerLoop) {
+      let timeMachine = newTimeMachine()
+      timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+      timeMachine.node = node
+      timeMachinesMap.set(node.id, timeMachine)
+
+      /* Setting up the new time machine. */
+      timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
+      timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
+      timeMachine.container.fitFunction = fitIntoVisibleArea
+      timeMachine.fitFunction = fitIntoVisibleArea
+      timeMachine.initialize(onTimeMachineInitialized)
+
+      function onTimeMachineInitialized (err) {
+        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimeMachine -> Initialization Failed. -> Err ' + err.message) }
+          return
+        }
+
+        thisObject.timeMachines.push(timeMachine)
+
+        viewPort.raiseEvents() // These events will impacts on objects just initialized.
+      }
+    }
   }
 
   function thisObjectPhysics () {

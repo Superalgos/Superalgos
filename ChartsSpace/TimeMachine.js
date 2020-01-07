@@ -28,8 +28,6 @@ function newTimeMachine () {
     finalize: finalize
   }
 
-  let controlPanelHandle             // We need this to destroy the Panel when this object is itself destroyed or no longer needs it...
-                                   // ... also to request a reference to the object for the cases we need it.
   const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
 
   let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
@@ -82,12 +80,6 @@ function newTimeMachine () {
   }
 
   function initialize (callBackFunction) {
-     /* Each Time Machine has a Control Panel. */
-
-    let panelOwner = 'Global'
-    controlPanelHandle = canvas.panelsSpace.createNewPanel('Time Control Panel', undefined, panelOwner)
-    let controlPanel = canvas.panelsSpace.getPanel(controlPanelHandle, panelOwner)
-
     recalculateScale()
 
      /* First, we initialize the market that we are going to show first on screen. Later all the other markets will be initialized on the background. */
@@ -113,9 +105,6 @@ function newTimeMachine () {
       }
 
       thisObject.charts.push(timelineChart)
-
-      controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
-      timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
      /* Each Time Machine has a Time Scale and a Right Scale. */
 
@@ -196,9 +185,6 @@ function newTimeMachine () {
 
         function finalSteps () {
           thisObject.charts.push(timelineChart)
-
-          controlPanel.container.eventHandler.listenToEvent('Datetime Changed', timelineChart.setDatetime, undefined)
-          timelineChart.container.eventHandler.listenToEvent('Datetime Changed', controlPanel.setDatetime)
 
           alreadyInitialized++
 

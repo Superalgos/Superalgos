@@ -218,8 +218,6 @@ function newTimelineChart () {
     datetime = newDate
 
     plotterManager.setDatetime(datetime)
-
-    thisObject.container.eventHandler.raiseEvent('Datetime Changed', datetime)
   }
 
   function getContainer (point) {

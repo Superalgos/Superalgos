@@ -40,13 +40,6 @@ function newPanelsSpace () {
 
     switch (pType) {
 
-      case 'Time Control Panel':
-        {
-          panel = newTimeControlPanel()
-          panel.initialize()
-          break
-        }
-
       case 'Products Panel':
         {
           panel = newProductsPanel()

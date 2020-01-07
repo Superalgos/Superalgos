@@ -20,7 +20,6 @@ function newFrame () {
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
     isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
-    canYouMoveHere: canYouMoveHere,
     initialize: initialize
   }
 
@@ -150,78 +149,6 @@ function newFrame () {
     return point
   }
 
-  function canYouMoveHere (tempDisplacement) {
-       /*
-
-       The current frame has a position and a displacement. We need to check that none of the boundaries points of the frame fall outside of its container frame.
-       First we apply the theoreticall displacement.
-
-       */
-
-    point1 = {
-      x: thisObject.position.x,
-      y: thisObject.position.y
-    }
-
-    point2 = {
-      x: thisObject.position.x + thisObject.width,
-      y: thisObject.position.y
-    }
-
-    point3 = {
-      x: thisObject.position.x + thisObject.width,
-      y: thisObject.position.y + thisObject.height
-    }
-
-    point4 = {
-      x: thisObject.position.x,
-      y: thisObject.position.y + thisObject.height
-    }
-
-       /* Now the transformations. */
-
-    if (thisObject.parentFrame !== undefined) {
-  // If there is not a parent then there is no point to check bounderies.
-
-      point1 = thisObject.parentFrame.frameThisPoint(point1)
-      point2 = thisObject.parentFrame.frameThisPoint(point2)
-      point3 = thisObject.parentFrame.frameThisPoint(point3)
-      point4 = thisObject.parentFrame.frameThisPoint(point4)
-
-           /* We apply the temporary displacement. */
-
-      point1 = tempDisplacement.displaceThisPoint(point1)
-      point2 = tempDisplacement.displaceThisPoint(point2)
-      point3 = tempDisplacement.displaceThisPoint(point3)
-      point4 = tempDisplacement.displaceThisPoint(point4)
-
-           /* We add the actual displacement. */
-
-      point1 = thisObject.container.displacement.displaceThisPoint(point1)
-      point2 = thisObject.container.displacement.displaceThisPoint(point2)
-      point3 = thisObject.container.displacement.displaceThisPoint(point3)
-      point4 = thisObject.container.displacement.displaceThisPoint(point4)
-
-      if (thisObject.parentFrame.isThisPointHere(point1) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point2) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point3) === false) {
-        return false
-      }
-
-      if (thisObject.parentFrame.isThisPointHere(point4) === false) {
-        return false
-      }
-    }
-
-    return true
-  }
-
   function isThisPointHere (point, outsideViewPort, dontTransform) {
  // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
 
@@ -236,7 +163,6 @@ function newFrame () {
        in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
     if (dontTransform === false || dontTransform === undefined) {
       if (outsideViewPort === true) {
-        checkPoint = thisObject.container.displacement.undisplaceThisPoint(checkPoint)
         checkPoint = thisObject.container.frame.unframeThisPoint(checkPoint)
       } else {
         checkPoint = unTransformThisPoint(checkPoint, thisObject.container)

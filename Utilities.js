@@ -14,10 +14,6 @@ function transformThisPoint (point, container) {
 
   point = container.frame.frameThisPoint(point)
 
-    /* We add the possible displacement */
-
-  point = container.displacement.displaceThisPoint(point)
-
     /* We viewport Transformation. */
 
   point = viewPort.zoomThisPoint(point)
@@ -27,7 +23,6 @@ function transformThisPoint (point, container) {
 
 function unTransformThisPoint (point, container) {
   point = viewPort.unzoomThisPoint(point)
-  point = container.displacement.undisplaceThisPoint(point)
   point = container.frame.unframeThisPoint(point)
 
   return point

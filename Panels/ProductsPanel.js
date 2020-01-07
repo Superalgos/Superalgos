@@ -224,7 +224,6 @@ function newProductsPanel () {
     cardsMap.set(productCard.code, productCard)
 
     /* Container Stuff */
-    productCard.container.displacement.parentDisplacement = thisObject.container.displacement
     productCard.container.frame.parentFrame = thisObject.container.frame
     productCard.container.parentContainer = thisObject.container
     productCard.container.isWheelable = true

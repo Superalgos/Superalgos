@@ -19,7 +19,6 @@ function newSplashScreen () {
 
   resize()
 
-  container.displacement.containerName = 'Splash Screen'
   container.frame.containerName = 'Splash Screen'
 
   container.frame.position.x = 0

@@ -4,7 +4,6 @@ function newContainer () {
     id: Math.trunc(Math.random() * 10000000),
     type: 'Rectangle',
     frame: undefined,
-    displacement: undefined,
     eventHandler: undefined,
     parentContainer: undefined,
     isDraggeable: true,
@@ -76,10 +75,6 @@ function newContainer () {
 
     thisObject.eventHandler = newEventHandler()
     thisObject.eventHandler.name = pName
-
-    thisObject.displacement = newDisplacement()
-    thisObject.displacement.container = thisObject
-    thisObject.displacement.containerName = pName
   }
 
   function connectToParent (
@@ -111,7 +106,6 @@ function newContainer () {
 
     isConnectedToParent = true
 
-    thisObject.displacement.parentDisplacement = parentContainer.displacement
     thisObject.frame.parentFrame = parentContainer.frame
     thisObject.parentContainer = parentContainer
 

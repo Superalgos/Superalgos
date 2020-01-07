@@ -31,7 +31,6 @@ function newViewPort () {
     zoomLevel: undefined,
     mousePosition: undefined,
     margins: MARGINS,
-    getDisplacement: getDisplacement,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
     isMinZoom: isMinZoom,
@@ -103,14 +102,6 @@ function newViewPort () {
 
     thisObject.width = thisObject.visibleArea.topRight.x - thisObject.visibleArea.topLeft.x
     thisObject.height = thisObject.visibleArea.bottomRight.y - thisObject.visibleArea.topLeft.y
-  }
-
-  function getDisplacement () {
-    let displacement = {
-      x: offset.x,
-      y: offset.y
-    }
-    return displacement
   }
 
   function raiseEvents () {

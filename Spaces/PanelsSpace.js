@@ -23,7 +23,6 @@ function newPanelsSpace () {
   thisObject.container = container
   thisObject.container.isDraggeable = false
 
-  container.displacement.containerName = 'Panels Space'
   container.frame.containerName = 'Panels Space'
 
   panelsMap = new Map()

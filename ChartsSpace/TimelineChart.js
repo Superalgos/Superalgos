@@ -46,6 +46,11 @@ function newTimelineChart () {
   let productsPanelHandle
   let timeFrameScale
 
+  let onOffsetChangedEventSuscriptionId
+  let onZoomChangedEventSuscriptionId
+  let onMouseOverEventSuscriptionId
+  let timeFrameScaleEventSuscriptionId
+
   setupContainer()
   return thisObject
 
@@ -56,6 +61,11 @@ function newTimelineChart () {
   }
 
   function finalize () {
+    viewPort.eventHandler.stopListening(onOffsetChangedEventSuscriptionId)
+    viewPort.eventHandler.stopListening(onZoomChangedEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
+    timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
+
     plotterManager.finalize()
     plotterManager = undefined
     timeFrameScale.finalize()
@@ -74,7 +84,7 @@ function newTimelineChart () {
       market = pMarket
       timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-      thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
       })
 
@@ -123,8 +133,8 @@ function newTimelineChart () {
 
            /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
 
-      viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
-      viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+      onOffsetChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
+      onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
 
            /* Initialize the Plotter Manager */
 
@@ -149,7 +159,7 @@ function newTimelineChart () {
 
         timeFrameScale = newTimeFrameScale()
         timeFrameScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-        timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+        timeFrameScaleEventSuscriptionId = timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
           let currentTimeFrame = timeFrame
           timeFrame = event.timeFrame
           if (timeFrame !== currentTimeFrame) {

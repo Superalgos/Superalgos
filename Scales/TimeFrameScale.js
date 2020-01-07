@@ -50,7 +50,7 @@ function newTimeFrameScale () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
+    viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
 
     timeLineCoordinateSystem = undefined
     objectStorage = undefined
@@ -75,7 +75,7 @@ function newTimeFrameScale () {
       visible = true
     })
 
-    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
       visible = false
     })
 

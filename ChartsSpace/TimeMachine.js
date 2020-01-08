@@ -42,6 +42,11 @@ function newTimeMachine () {
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
 
+  let onMouseOverEventSuscriptionId
+  let onMouseNotOverEventSuscriptionId
+  let timeScaleEventSuscriptionId
+  let rateScaleEventSuscriptionId
+
   setupContainer()
   return thisObject
 
@@ -57,6 +62,11 @@ function newTimeMachine () {
   }
 
   function finalize () {
+    thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
+
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let chart = thisObject.timelineCharts[i]
       chart.finalize()
@@ -90,7 +100,7 @@ function newTimeMachine () {
     thisObject.timeScale = newTimeScale()
     thisObject.timeScale.fitFunction = thisObject.fitFunction
 
-    thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+    timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
       recalculateScale()
       moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
@@ -102,7 +112,7 @@ function newTimeMachine () {
     thisObject.rateScale = newRateScale()
     thisObject.rateScale.fitFunction = thisObject.fitFunction
 
-    thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
       recalculateScale()
       moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
@@ -111,9 +121,7 @@ function newTimeMachine () {
 
     thisObject.rateScale.initialize()
 
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     function onMouseOver (event) {
       thisObject.timeScale.visible = true
@@ -122,6 +130,15 @@ function newTimeMachine () {
       mouse.position.x = event.x
       mouse.position.y = event.y
     }
+
+    onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    function onMouseNotOver (event) {
+      thisObject.timeScale.visible = false
+      thisObject.rateScale.visible = false
+    }
+
+    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
 
   function getContainer (point, purpose) {
@@ -160,7 +177,7 @@ function newTimeMachine () {
       return thisObject.container
     } else {
       if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-        thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
+        thisObject.container.eventHandler.raiseEvent('onMouseNotOverMe')
         if (thisObject.timeScale !== undefined) {
           thisObject.timeScale.visible = false
         }

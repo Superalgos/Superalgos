@@ -309,7 +309,7 @@ function newChartSpace () {
     if (thisObject.visible !== true) { return }
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[i]
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
       timeMachine.draw()
     }
   }

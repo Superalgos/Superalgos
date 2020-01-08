@@ -4,7 +4,9 @@ function newTimeFrameScale () {
   let thisObject = {
     timeFrame: undefined,
     container: undefined,
+    fitFunction: undefined,
     draw: draw,
+    physics: physics,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -14,15 +16,7 @@ function newTimeFrameScale () {
   const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
-  let mouse = {
-    position: {
-      x: 0,
-      y: 0
-    }
-  }
-
   let visible = true
-  let timeLineCoordinateSystem
   let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
   let timeFrameIndex = TIME_PERIOD_DEFAULT_VALUE
@@ -30,8 +24,6 @@ function newTimeFrameScale () {
   let timeFrameLabel = ''
 
   let onMouseWheelEventSubscriptionId
-  let onMouseOverEventSubscriptionId
-  let onMouseNotOverEventSubscriptionId
   let onZoomChangedEventSubscriptionId
 
   setupContainer()
@@ -44,42 +36,33 @@ function newTimeFrameScale () {
     thisObject.container.isDraggeable = false
     thisObject.container.isClickeable = false
     thisObject.container.isWheelable = true
+
+    thisObject.container.frame.width = 190
+    thisObject.container.frame.height = 25
   }
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
     viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
 
-    timeLineCoordinateSystem = undefined
     objectStorage = undefined
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
+    thisObject.fitFunction = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem) {
-    timeLineCoordinateSystem = pTimeLineCoordinateSystem
-
+  function initialize () {
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
     newTimeFrame()
 
-    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
-      mouse.position.x = event.x
-      mouse.position.y = event.y
-
-      visible = true
-    })
-
-    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', function (event) {
-      visible = false
-    })
-
     onZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+  }
+
+  function physics () {
+
   }
 
   function onZoomChanged (event) {
@@ -133,24 +116,9 @@ function newTimeFrameScale () {
     newTimeFrame()
   }
 
-  function getContainer (pPoint) {
-    let container
-
-/* In this case we manually frame this point since we do a very special treatment of the position of this scale. */
-    let point = {
-      x: 0,
-      y: 0
-    }
-
-    point.x = pPoint.x - thisObject.container.frame.position.x
-    point.y = pPoint.y - thisObject.container.frame.position.y
-
-    if (thisObject.container.frame.isThisPointHere(point, undefined, true) === true) {
+  function getContainer (point) {
+    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
-    } else {
-           /* This point does not belong to this space. */
-
-      return undefined
     }
   }
 
@@ -183,142 +151,16 @@ function newTimeFrameScale () {
   function draw () {
     if (visible === false) { return }
 
-/* We need this scale to match the shape of its parent when the parent is inside the viewPort, when it is not, we need the scale still
-to be visible at the top of the viewPort. */
+    drawTimeFrame()
+  }
 
-    let frame = thisObject.container.parentContainer.frame
-    let point1
-    let point2
-    let point3
-    let point4
-
-    point1 = {
-      x: 0,
-      y: frame.height - frame.height * 2 / 100
-    }
-
-    point2 = {
-      x: frame.width,
-      y: frame.height - frame.height * 2 / 100
-    }
-
-    point3 = {
-      x: frame.width,
-      y: frame.height
-    }
-
-    point4 = {
-      x: 0,
-      y: frame.height
-    }
-
-    point5 = {
-      x: 0,
-      y: 0
-    }
-
-        /* Now the transformations. */
-
-    point1 = transformThisPoint(point1, frame.container)
-    point2 = transformThisPoint(point2, frame.container)
-    point3 = transformThisPoint(point3, frame.container)
-    point4 = transformThisPoint(point4, frame.container)
-    point5 = transformThisPoint(point5, frame.container)
-
-    point1 = viewPort.fitIntoVisibleArea(point1)
-    point2 = viewPort.fitIntoVisibleArea(point2)
-    point3 = viewPort.fitIntoVisibleArea(point3)
-    point4 = viewPort.fitIntoVisibleArea(point4)
-    point5 = viewPort.fitIntoVisibleArea(point5)
-
-    if (point3.y - point2.y < MIN_HEIGHT) {
-      point1.y = point3.y - MIN_HEIGHT
-      point2.y = point3.y - MIN_HEIGHT
-    }
-
-    /* Lets start the drawing. */
-
-    let displacement = viewPort.margins.BOTTOM - COCKPIT_SPACE_HEIGHT
-
-    /*
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y + displacement)
-    browserCanvasContext.lineTo(point2.x, point2.y + displacement)
-    browserCanvasContext.lineTo(point3.x, point3.y + displacement)
-    browserCanvasContext.lineTo(point4.x, point4.y + displacement)
-    browserCanvasContext.lineTo(point1.x, point1.y + displacement)
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-    browserCanvasContext.lineWidth = 1
-    browserCanvasContext.stroke()
-*/
-
-    thisObject.container.frame.position.x = point1.x
-    thisObject.container.frame.position.y = point1.y + displacement
-
-    thisObject.container.frame.width = point2.x - point1.x
-    thisObject.container.frame.height = point3.y - point2.y
-
-  /* Common Variables */
+  function drawTimeFrame () {
+    if (thisObject.visible === false || timeFrameLabel === undefined) { return }
 
     let label = timeFrameLabel.split('-')
     let label1 = label[0]
     let label2 = label[1].toUpperCase()
-    let fontSize1 = 20
-    let fontSize2 = 10
 
-    const RED_LINE_HIGHT = 5
-    const OPACITY = 1
-
-    let centerPoint = {
-      x: mouse.position.x,
-      y: point1.y + viewPort.margins.BOTTOM
-    }
-
-    let container = newContainer()
-    container.initialize('Visible Time Scale')
-    container.frame.width = 60
-    container.frame.height = 25
-    container.frame.position.x = centerPoint.x - container.frame.width / 2
-    container.frame.position.y = centerPoint.y - container.frame.height / 2
-
-    let params = {
-      cornerRadius: 3,
-      lineWidth: RED_LINE_HIGHT,
-      container: container,
-      borderColor: UI_COLOR.RUSTED_RED,
-      castShadow: false,
-      backgroundColor: UI_COLOR.DARK,
-      opacity: OPACITY
-    }
-
-    roundedCornersBackground(params)
-
-    /* Place the Text */
-
-    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
-
-    let labelPoint1 = {
-      x: mouse.position.x - xOffset1 / 2 - 14,
-      y: point1.y + viewPort.margins.BOTTOM + 6
-    }
-
-    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
-
-    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
-
-    let labelPoint2 = {
-      x: mouse.position.x - xOffset2 / 2 - 3 + 14,
-      y: point1.y + viewPort.margins.BOTTOM + 6
-    }
-
-    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
+    drawScaleDisplay(label1, label2, 10, 60, thisObject.container, thisObject.fitFunction)
   }
 }

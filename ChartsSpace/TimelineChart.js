@@ -14,6 +14,7 @@ function newTimelineChart () {
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
+    timeFrameScale: undefined,
     physics: physics,
     setDatetime: setDatetime,
     drawBackground: drawBackground,
@@ -44,12 +45,19 @@ function newTimelineChart () {
   let market
 
   let productsPanelHandle
-  let timeFrameScale
 
   let onOffsetChangedEventSuscriptionId
   let onZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
+  let onMouseNotOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
+
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
 
   setupContainer()
   return thisObject
@@ -64,17 +72,19 @@ function newTimelineChart () {
     viewPort.eventHandler.stopListening(onOffsetChangedEventSuscriptionId)
     viewPort.eventHandler.stopListening(onZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-    timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
+    thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
 
     plotterManager.finalize()
     plotterManager = undefined
-    timeFrameScale.finalize()
-    timeFrameScale = undefined
+    thisObject.timeFrameScale.finalize()
+    thisObject.timeFrameScale = undefined
     canvas.panelsSpace.destroyPanel(productsPanelHandle)
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
+
+    mouse = undefined
   }
 
   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
@@ -84,9 +94,22 @@ function newTimelineChart () {
       market = pMarket
       timeLineCoordinateSystem = pTimeLineCoordinateSystem
 
-      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', function (event) {
+      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+
+      function onMouseOver (event) {
+        thisObject.timeFrameScale.visible = true
+
+        mouse.position.x = event.x
+        mouse.position.y = event.y
+
         saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
-      })
+      }
+
+      onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+      function onMouseNotOver (event) {
+        thisObject.timeFrameScale.visible = false
+      }
 
       let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
@@ -157,9 +180,9 @@ function newTimelineChart () {
           return
         }
 
-        timeFrameScale = newTimeFrameScale()
-        timeFrameScale.container.connectToParent(thisObject.container, false, false, false, true, true, true)
-        timeFrameScaleEventSuscriptionId = timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+        thisObject.timeFrameScale = newTimeFrameScale()
+        thisObject.timeFrameScale.fitFunction = thisObject.fitFunction
+        timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
           let currentTimeFrame = timeFrame
           timeFrame = event.timeFrame
           if (timeFrame !== currentTimeFrame) {
@@ -167,7 +190,7 @@ function newTimelineChart () {
           }
         })
 
-        timeFrameScale.initialize(timeLineCoordinateSystem)
+        thisObject.timeFrameScale.initialize()
 
         initializationReady = true
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
@@ -233,7 +256,7 @@ function newTimelineChart () {
   function getContainer (point) {
     let container
 
-    container = timeFrameScale.getContainer(point)
+    container = thisObject.timeFrameScale.getContainer(point)
 
     if (container !== undefined) { return container }
 
@@ -250,7 +273,23 @@ function newTimelineChart () {
   }
 
   function childrenPhysics () {
+    if (thisObject.timeFrameScale === undefined) { return }
 
+    thisObject.timeFrameScale.physics()
+
+    /* thisObject.timeFrameScale Positioning */
+
+    thisObject.timeFrameScale.container.frame.position.x = mouse.position.x - thisObject.timeFrameScale.container.frame.width / 2
+
+    timePoint = {
+      x: 0,
+      y: thisObject.container.frame.height
+    }
+
+    timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
+    timePoint = thisObject.container.fitFunction(timePoint)
+
+    thisObject.timeFrameScale.container.frame.position.y = timePoint.y - thisObject.timeFrameScale.container.frame.height
   }
 
   function tooTiny () {
@@ -283,7 +322,7 @@ function newTimelineChart () {
     if (thisObject.container.frame.isInViewPort()) {
       drawChartsBackground()
       plotterManager.draw()
-      timeFrameScale.draw()
+      thisObject.timeFrameScale.draw()
     }
   }
 

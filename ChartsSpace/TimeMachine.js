@@ -299,7 +299,7 @@ function newTimeMachine () {
     thisObject.rateScale.container.frame.position.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2
 
     ratePoint = {
-      x: 10000000000000,
+      x: thisObject.container.frame.width,
       y: 0
     }
 

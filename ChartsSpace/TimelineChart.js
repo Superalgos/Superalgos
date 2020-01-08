@@ -199,6 +199,8 @@ function newTimelineChart () {
         function timeFrameScaleMouseOver (event) {
           mouse.position.x = event.x
           mouse.position.y = event.y
+
+          saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
         }
 
         initializationReady = true

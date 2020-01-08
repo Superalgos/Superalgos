@@ -12,7 +12,7 @@ function newViewPort () {
   let ANIMATION_INCREMENT = 0.25
 
   let TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
-  let BOTTOM_MARGIN = 30 + COCKPIT_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 32 + COCKPIT_SPACE_HEIGHT
   let LEFT_MARGIN = 50
   let RIGHT_MARGIN = 50
   let MARGINS = {
@@ -83,7 +83,7 @@ function newViewPort () {
 
   function resize () {
     TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
-    BOTTOM_MARGIN = 30 + browserCanvas.height - COCKPIT_SPACE_POSITION
+    BOTTOM_MARGIN = 32 + browserCanvas.height - COCKPIT_SPACE_POSITION
     LEFT_MARGIN = 0
     RIGHT_MARGIN = 0
     MARGINS = {

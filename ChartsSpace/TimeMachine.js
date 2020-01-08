@@ -145,17 +145,13 @@ function newTimeMachine () {
     timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
 
     function timeScaleMouseOver (event) {
-      thisObject.rateScale.visible = false
-      mouse.position.x = event.x
-      mouse.position.y = event.y
+      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
 
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
 
     function rateScaleMouseOver (event) {
-      thisObject.timeScale.visible = false
-      mouse.position.x = event.x
-      mouse.position.y = event.y
+      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }

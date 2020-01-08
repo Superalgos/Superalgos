@@ -65,6 +65,7 @@ function newTimeScale () {
   }
 
   function onMouseOver () {
+    thisObject.visible = true
     isMouseOver = true
   }
 
@@ -216,4 +217,3 @@ function newTimeScale () {
     drawScaleDisplay(label1, label2, 10, 60, thisObject.container, thisObject.fitFunction)
   }
 }
-

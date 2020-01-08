@@ -25,6 +25,7 @@ function newTimeFrameScale () {
 
   let onMouseWheelEventSubscriptionId
   let onZoomChangedEventSubscriptionId
+  let onMouseOverEventSubscriptionId
 
   setupContainer()
   return thisObject
@@ -36,6 +37,7 @@ function newTimeFrameScale () {
     thisObject.container.isDraggeable = false
     thisObject.container.isClickeable = false
     thisObject.container.isWheelable = true
+    thisObject.container.detectMouseOver = true
 
     thisObject.container.frame.width = 190
     thisObject.container.frame.height = 25
@@ -44,6 +46,7 @@ function newTimeFrameScale () {
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
 
     objectStorage = undefined
 
@@ -53,12 +56,16 @@ function newTimeFrameScale () {
   }
 
   function initialize () {
-    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-
     readObjectState()
     newTimeFrame()
 
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+
+    function onMouseOver () {
+      thisObject.visible = true
+    }
   }
 
   function physics () {

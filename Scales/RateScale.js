@@ -65,6 +65,7 @@ function newRateScale () {
   }
 
   function onMouseOver () {
+    thisObject.visible = true
     isMouseOver = true
   }
 

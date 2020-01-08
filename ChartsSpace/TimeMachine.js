@@ -177,7 +177,7 @@ function newTimeMachine () {
       return thisObject.container
     } else {
       if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-        thisObject.container.eventHandler.raiseEvent('onMouseNotOverMe')
+        thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
         if (thisObject.timeScale !== undefined) {
           thisObject.timeScale.visible = false
         }

@@ -40,7 +40,7 @@ function newTimeFrameScale () {
     thisObject.container.detectMouseOver = true
 
     thisObject.container.frame.width = 190
-    thisObject.container.frame.height = 25
+    thisObject.container.frame.height = 30
   }
 
   function finalize () {

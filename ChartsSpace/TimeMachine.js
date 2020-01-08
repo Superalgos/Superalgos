@@ -296,6 +296,21 @@ function newTimeMachine () {
       chart.physics()
     }
 
+    /* Container Limits */
+
+    let upCorner = {
+      x: 0,
+      y: 0
+    }
+
+    let bottonCorner = {
+      x: thisObject.container.frame.width,
+      y: thisObject.container.frame.height
+    }
+
+    upCorner = transformThisPoint(upCorner, thisObject.container)
+    bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
+
     /* Mouse Position Date Calculation */
 
     let timePoint = {
@@ -329,6 +344,12 @@ function newTimeMachine () {
     timePoint.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
     timePoint = thisObject.container.fitFunction(timePoint)
 
+    /* Checking against the container limits. */
+    if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
+    if (timePoint.x + thisObject.timeScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeScale.container.frame.width }
+    if (timePoint.y < upCorner.y) { timePoint.y = upCorner.y }
+    if (timePoint.y + thisObject.timeScale.container.frame.height > bottonCorner.y) { timePoint.y = bottonCorner.y - thisObject.timeScale.container.frame.height }
+
     thisObject.timeScale.container.frame.position.x = timePoint.x
     thisObject.timeScale.container.frame.position.y = timePoint.y
 
@@ -342,6 +363,12 @@ function newTimeMachine () {
     ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
     ratePoint.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2 + thisObject.rateScale.container.frame.height
     ratePoint = thisObject.container.fitFunction(ratePoint, true)
+
+    /* Checking against the container limits. */
+    if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }
+    if (ratePoint.x + thisObject.rateScale.container.frame.width > bottonCorner.x) { ratePoint.x = bottonCorner.x }
+    if (ratePoint.y < upCorner.y + thisObject.rateScale.container.frame.height) { ratePoint.y = upCorner.y + thisObject.rateScale.container.frame.height }
+    if (ratePoint.y > bottonCorner.y) { ratePoint.y = bottonCorner.y }
 
     thisObject.rateScale.container.frame.position.y = ratePoint.y - thisObject.rateScale.container.frame.height
     thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width

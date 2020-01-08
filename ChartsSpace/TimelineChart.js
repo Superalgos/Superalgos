@@ -286,6 +286,21 @@ function newTimelineChart () {
 
     thisObject.timeFrameScale.physics()
 
+    /* Container Limits */
+
+    let upCorner = {
+      x: 0,
+      y: 0
+    }
+
+    let bottonCorner = {
+      x: thisObject.container.frame.width,
+      y: thisObject.container.frame.height
+    }
+
+    upCorner = transformThisPoint(upCorner, thisObject.container)
+    bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
+
     /* thisObject.timeFrameScale Positioning */
 
     timePoint = {
@@ -296,6 +311,10 @@ function newTimelineChart () {
     timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
     timePoint.x = mouse.position.x - thisObject.timeFrameScale.container.frame.width / 2
     timePoint = thisObject.container.fitFunction(timePoint, true)
+
+    /* Checking against the container limits. */
+    if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
+    if (timePoint.x + thisObject.timeFrameScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeFrameScale.container.frame.width }
 
     thisObject.timeFrameScale.container.frame.position.x = timePoint.x
     thisObject.timeFrameScale.container.frame.position.y = timePoint.y - thisObject.timeFrameScale.container.frame.height

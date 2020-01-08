@@ -655,9 +655,8 @@ function newCanvas () {
         dragVector.upY = point.y
 
         checkDrag(event)
-      } else {
-        onMouseOver(event)
       }
+      onMouseOver(event)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseMove -> err = ' + err.stack) }
     }

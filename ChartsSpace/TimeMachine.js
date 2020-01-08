@@ -301,21 +301,19 @@ function newTimeMachine () {
 
     /* timeScale Positioning */
 
-    thisObject.timeScale.container.frame.position.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
-
     timePoint = {
       x: 0,
       y: 0
     }
 
     timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
+    timePoint.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
     timePoint = thisObject.container.fitFunction(timePoint)
 
+    thisObject.timeScale.container.frame.position.x = timePoint.x
     thisObject.timeScale.container.frame.position.y = timePoint.y
 
     /* rateScale Positioning */
-
-    thisObject.rateScale.container.frame.position.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2
 
     ratePoint = {
       x: thisObject.container.frame.width,
@@ -323,8 +321,10 @@ function newTimeMachine () {
     }
 
     ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
-    ratePoint = thisObject.container.fitFunction(ratePoint)
+    ratePoint.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2 + thisObject.rateScale.container.frame.height
+    ratePoint = thisObject.container.fitFunction(ratePoint, true)
 
+    thisObject.rateScale.container.frame.position.y = ratePoint.y - thisObject.rateScale.container.frame.height
     thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width
   }
 

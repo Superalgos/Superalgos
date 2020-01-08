@@ -279,16 +279,16 @@ function newTimelineChart () {
 
     /* thisObject.timeFrameScale Positioning */
 
-    thisObject.timeFrameScale.container.frame.position.x = mouse.position.x - thisObject.timeFrameScale.container.frame.width / 2
-
     timePoint = {
       x: 0,
       y: thisObject.container.frame.height
     }
 
     timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
-    timePoint = thisObject.container.fitFunction(timePoint)
+    timePoint.x = mouse.position.x - thisObject.timeFrameScale.container.frame.width / 2
+    timePoint = thisObject.container.fitFunction(timePoint, true)
 
+    thisObject.timeFrameScale.container.frame.position.x = timePoint.x
     thisObject.timeFrameScale.container.frame.position.y = timePoint.y - thisObject.timeFrameScale.container.frame.height
   }
 

@@ -138,7 +138,7 @@ function newChartSpace () {
     viewPort.displace(displaceVector, true)
   }
 
-  function fitIntoVisibleArea (point) {
+  function fitIntoVisibleArea (point, fullVisible) {
        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
     let returnPoint = {
@@ -154,8 +154,14 @@ function newChartSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
-      returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+    if (fullVisible === true) {
+      if (point.y > COCKPIT_SPACE_POSITION) {
+        returnPoint.y = COCKPIT_SPACE_POSITION
+      }
+    } else {
+      if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+        returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+      }
     }
 
     if (point.y < 0) {

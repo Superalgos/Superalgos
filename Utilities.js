@@ -105,7 +105,7 @@ function getUserPosition (timeLineCoordinateSystem) {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, considerZoom) {
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, considerZoom, moveContainer) {
   let userPosition = getUserPosition(timeLineCoordinateSystem)
 
   if (considerZoom === true) {
@@ -138,17 +138,47 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
   }
 
-    /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
+  /* When we are moving the container, it needs to consider the zooming of the viewport */
+  /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
 
-  let displaceVector = {
-    x: centerPoint.x - targetPoint.x,
-    y: centerPoint.y - targetPoint.y
+  let displaceVector
+  if (moveContainer === true) {
+    let targetCopy = {
+      x: targetPoint.x,
+      y: targetPoint.y
+    }
+
+    let targetNoZoom
+    targetNoZoom = viewPort.unzoomThisPoint(targetCopy)
+
+    let centerCopy = {
+      x: centerPoint.x,
+      y: centerPoint.y
+    }
+
+    let centerNoZoom
+    centerNoZoom = viewPort.unzoomThisPoint(centerCopy)
+
+    displaceVector = {
+      x: centerNoZoom.x - targetNoZoom.x,
+      y: centerNoZoom.y - targetNoZoom.y
+    }
+
+    if (ignoreX) { displaceVector.x = 0 }
+    if (ignoreY) { displaceVector.y = 0 }
+
+    container.displace(displaceVector)
+  } else {
+    displaceVector = {
+      x: centerPoint.x - targetPoint.x,
+      y: centerPoint.y - targetPoint.y
+    }
+
+    if (ignoreX) { displaceVector.x = 0 }
+    if (ignoreY) { displaceVector.y = 0 }
+
+    viewPort.displace(displaceVector)
   }
-
-  if (ignoreX) { displaceVector.x = 0 }
-  if (ignoreY) { displaceVector.y = 0 }
-
-  viewPort.displace(displaceVector)
 }
 
 function removeTime (datetime) {

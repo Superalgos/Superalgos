@@ -92,7 +92,7 @@ function newTimeMachine () {
     thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
       recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition)
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 

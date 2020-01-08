@@ -105,7 +105,7 @@ function newTimeMachine () {
     thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
       recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition)
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 

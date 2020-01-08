@@ -46,6 +46,8 @@ function newTimeMachine () {
   let onMouseNotOverEventSuscriptionId
   let timeScaleEventSuscriptionId
   let rateScaleEventSuscriptionId
+  let timeScaleMouseOverEventSuscriptionId
+  let rateScaleMouseOverEventSuscriptionId
 
   setupContainer()
   return thisObject
@@ -66,6 +68,8 @@ function newTimeMachine () {
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
+    thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let chart = thisObject.timelineCharts[i]
@@ -138,14 +142,29 @@ function newTimeMachine () {
       thisObject.rateScale.visible = false
     }
 
+    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
+
+    function timeScaleMouseOver (event) {
+      thisObject.rateScale.visible = false
+      mouse.position.x = event.x
+      mouse.position.y = event.y
+    }
+
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+
+    function rateScaleMouseOver (event) {
+      thisObject.timeScale.visible = false
+      mouse.position.x = event.x
+      mouse.position.y = event.y
+    }
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
 
   function getContainer (point, purpose) {
     let container
 
-    if (thisObject.timeScale !== undefined) {
-      container = thisObject.timeScale.getContainer(point)
+    if (thisObject.rateScale !== undefined) {
+      container = thisObject.rateScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -153,8 +172,8 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.rateScale !== undefined) {
-      container = thisObject.rateScale.getContainer(point)
+    if (thisObject.timeScale !== undefined) {
+      container = thisObject.timeScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container

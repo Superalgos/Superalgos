@@ -51,6 +51,7 @@ function newTimelineChart () {
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
+  let timeFrameScaleMouseOverEventSuscriptionId
 
   let mouse = {
     position: {
@@ -74,6 +75,7 @@ function newTimelineChart () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
+    thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleMouseOverEventSuscriptionId)
 
     plotterManager.finalize()
     plotterManager = undefined
@@ -93,23 +95,6 @@ function newTimelineChart () {
       exchange = pExchange
       market = pMarket
       timeLineCoordinateSystem = pTimeLineCoordinateSystem
-
-      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-      function onMouseOver (event) {
-        thisObject.timeFrameScale.visible = true
-
-        mouse.position.x = event.x
-        mouse.position.y = event.y
-
-        saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
-      }
-
-      onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-
-      function onMouseNotOver (event) {
-        thisObject.timeFrameScale.visible = false
-      }
 
       let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
@@ -191,6 +176,30 @@ function newTimelineChart () {
         })
 
         thisObject.timeFrameScale.initialize()
+
+        onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+
+        function onMouseOver (event) {
+          thisObject.timeFrameScale.visible = true
+
+          mouse.position.x = event.x
+          mouse.position.y = event.y
+
+          saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+        }
+
+        onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+        function onMouseNotOver (event) {
+          thisObject.timeFrameScale.visible = false
+        }
+
+        timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
+
+        function timeFrameScaleMouseOver (event) {
+          mouse.position.x = event.x
+          mouse.position.y = event.y
+        }
 
         initializationReady = true
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)

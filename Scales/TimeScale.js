@@ -30,18 +30,27 @@ function newTimeScale () {
   thisObject.container.frame.height = 25
 
   let isMouseOver
+
+  let onMouseWheelEventSubscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
   }
 
   function initialize () {
-    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
     if (!thisObject.lenghtPercentage) {

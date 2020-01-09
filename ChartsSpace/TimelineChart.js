@@ -345,13 +345,13 @@ function newTimelineChart () {
 
         // drawChartsBackgroundImages()
       }
+      drawChartsBackground()
+      plotterManager.draw()
     }
   }
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      drawChartsBackground()
-      plotterManager.draw()
       thisObject.timeFrameScale.draw()
     }
   }

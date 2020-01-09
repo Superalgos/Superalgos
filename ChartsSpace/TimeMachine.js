@@ -371,8 +371,6 @@ function newTimeMachine () {
   }
 
   function drawBackground () {
-    thisBackground()
-
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < this.timelineCharts.length; i++) {
         let chart = this.timelineCharts[i]
@@ -393,22 +391,6 @@ function newTimeMachine () {
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     }
-  }
-
-  function thisBackground () {
-    return
-    let params = {
-      cornerRadius: 15,
-      lineWidth: 5,
-      opacity: 1,
-      container: thisObject.container,
-      borderColor: UI_COLOR.RUSTED_RED,
-      backgroundColor: UI_COLOR.WHITE,
-      fitFunction: thisObject.fitFunction,
-      coordinateSystem: timeLineCoordinateSystem
-    }
-
-    roundedCornersBackground(params)
   }
 
   function recalculateScale () {

@@ -26,7 +26,7 @@ function newRateScale () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
 
-  thisObject.container.frame.width = 190
+  thisObject.container.frame.width = 250
   thisObject.container.frame.height = 30
 
   let isMouseOver

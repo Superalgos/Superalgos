@@ -128,7 +128,6 @@ function newCanvas () {
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
-      animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('ViewPort Animate', viewPort.animate)

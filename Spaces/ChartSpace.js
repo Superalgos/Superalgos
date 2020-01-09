@@ -23,7 +23,6 @@ function newChartSpace () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     physics: physics,
-    drawBackground: drawBackground,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
@@ -281,9 +280,17 @@ function newChartSpace () {
     }
   }
 
-  function drawBackground () {
+  function draw () {
     if (thisObject.visible !== true) { return }
+    drawBackground()
 
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
+      timeMachine.draw()
+    }
+  }
+
+  function drawBackground () {
     drawSpaceBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
@@ -291,7 +298,6 @@ function newChartSpace () {
       timeMachine.drawBackground()
     }
   }
-
   function drawSpaceBackground () {
     let opacity = '1'
     let fromPoint = {
@@ -309,14 +315,5 @@ function newChartSpace () {
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
     browserCanvasContext.closePath()
     browserCanvasContext.fill()
-  }
-
-  function draw () {
-    if (thisObject.visible !== true) { return }
-
-    for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
-      timeMachine.draw()
-    }
   }
 }

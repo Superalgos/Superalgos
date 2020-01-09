@@ -343,7 +343,7 @@ function newTimelineChart () {
       if (window.CHART_ON_FOCUS === '') {
         window.CHART_ON_FOCUS = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
 
-        drawChartsBackgroundImages()
+        // drawChartsBackgroundImages()
       }
     }
   }
@@ -359,7 +359,7 @@ function newTimelineChart () {
   function drawChartsBackground () {
        /* We will paint some transparent background here. */
 
-    let opacity = '0.9'
+    let opacity = '0.5'
 
     let fromPoint = {
       x: 0,

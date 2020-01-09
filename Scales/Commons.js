@@ -26,7 +26,7 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
 
   let labelPoint1 = {
-    x: container.frame.width * 1 / 2 - xOffset1 / 2 + xExtraOffSet1,
+    x: container.frame.width * 1 / 2 - xOffset1 / 2 + xExtraOffSet1 - 5,
     y: container.frame.height * 4 / 5
   }
 

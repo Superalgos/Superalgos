@@ -15,6 +15,7 @@ function newTimelineChart () {
     container: undefined,
     fitFunction: undefined,
     timeFrameScale: undefined,
+    payload: undefined,
     physics: physics,
     setDatetime: setDatetime,
     drawBackground: drawBackground,
@@ -86,6 +87,7 @@ function newTimelineChart () {
     thisObject.container.finalize()
     thisObject.container = undefined
 
+    thisObject.payload = undefined
     mouse = undefined
   }
 

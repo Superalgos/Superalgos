@@ -226,7 +226,6 @@ function newChartSpace () {
         /* Must be removed */
         timeMachine.finalize()
         timeMachinesMap.delete(timeMachine.nodeId)
-        timeMachine.payload = undefined
         thisObject.timeMachines.splice(i, 1)
         /* We remove one at the time */
         return

@@ -19,6 +19,7 @@ function newTimeMachine () {
     timeScale: undefined,
     rateScale: undefined,
     fitFunction: undefined,
+    payload: undefined,
     timelineCharts: [],
     physics: physics,
     drawBackground: drawBackground,
@@ -64,12 +65,18 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    if (thisObject.timeScale !== undefined) {
+      thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
+      thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
+    }
+
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+      thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
+    }
+
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
-    thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let chart = thisObject.timelineCharts[i]
@@ -93,6 +100,7 @@ function newTimeMachine () {
     thisObject.container.finalize()
     thisObject.container = undefined
 
+    thisObject.payload = undefined
     mouse = undefined
   }
 
@@ -101,35 +109,43 @@ function newTimeMachine () {
 
     /* Each Time Machine has a Time Scale and a Right Scale. */
 
-    thisObject.timeScale = newTimeScale()
-    thisObject.timeScale.fitFunction = thisObject.fitFunction
+    if (thisObject.payload.node.timeScale !== undefined) {
+      thisObject.timeScale = newTimeScale()
+      thisObject.timeScale.fitFunction = thisObject.fitFunction
 
-    timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-      recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
+      timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+        thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+        recalculateScale()
+        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
 
-    thisObject.timeScale.initialize()
+      thisObject.timeScale.initialize()
+    }
 
-    thisObject.rateScale = newRateScale()
-    thisObject.rateScale.fitFunction = thisObject.fitFunction
+    if (thisObject.payload.node.rateScale !== undefined) {
+      thisObject.rateScale = newRateScale()
+      thisObject.rateScale.fitFunction = thisObject.fitFunction
 
-    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-      recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
+      rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+        recalculateScale()
+        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
+        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      })
 
-    thisObject.rateScale.initialize()
+      thisObject.rateScale.initialize()
+    }
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     function onMouseOver (event) {
-      thisObject.timeScale.visible = true
-      thisObject.rateScale.visible = true
+      if (thisObject.timeScale !== undefined) {
+        thisObject.timeScale.visible = true
+      }
+      if (thisObject.rateScale !== undefined) {
+        thisObject.rateScale.visible = true
+      }
 
       mouse.position.x = event.x
       mouse.position.y = event.y
@@ -138,20 +154,28 @@ function newTimeMachine () {
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     function onMouseNotOver (event) {
-      thisObject.timeScale.visible = false
-      thisObject.rateScale.visible = false
+      if (thisObject.timeScale !== undefined) {
+        thisObject.timeScale.visible = false
+      }
+      if (thisObject.rateScale !== undefined) {
+        thisObject.rateScale.visible = false
+      }
     }
 
-    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
+    if (thisObject.timeScale !== undefined) {
+      timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
 
-    function timeScaleMouseOver (event) {
-      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+      function timeScaleMouseOver (event) {
+        thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+      }
     }
 
-    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+    if (thisObject.rateScale !== undefined) {
+      rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
 
-    function rateScaleMouseOver (event) {
-      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+      function rateScaleMouseOver (event) {
+        thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+      }
     }
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
@@ -232,7 +256,6 @@ function newTimeMachine () {
         /* Must be removed */
         timelineChart.finalize()
         timelineChartsMap.delete(timelineChart.nodeId)
-        timelineChart.payload = undefined
         thisObject.timelineCharts.splice(i, 1)
         /* We remove one at the time */
         return
@@ -281,11 +304,12 @@ function newTimeMachine () {
   }
 
   function childrenPhysics () {
-    if (thisObject.timeScale === undefined) { return }
-    if (thisObject.rateScale === undefined) { return }
-
-    thisObject.timeScale.physics()
-    thisObject.rateScale.physics()
+    if (thisObject.timeScale !== undefined) {
+      thisObject.timeScale.physics()
+    }
+    if (thisObject.rateScale === undefined) {
+      thisObject.rateScale.physics()
+    }
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let chart = thisObject.timelineCharts[i]
@@ -308,66 +332,69 @@ function newTimeMachine () {
     bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
 
     /* Mouse Position Date Calculation */
+    if (thisObject.timeScale !== undefined) {
+      let timePoint = {
+        x: mouse.position.x,
+        y: 0
+      }
 
-    let timePoint = {
-      x: mouse.position.x,
-      y: 0
+      let mouseDate = getDateFromPoint(timePoint, thisObject.container, timeLineCoordinateSystem)
+
+      thisObject.timeScale.date = new Date(mouseDate)
     }
-
-    let mouseDate = getDateFromPoint(timePoint, thisObject.container, timeLineCoordinateSystem)
-
-    thisObject.timeScale.date = new Date(mouseDate)
 
     /* Mouse Position Rate Calculation */
+    if (thisObject.rateScale === undefined) {
+      let ratePoint = {
+        x: 0,
+        y: mouse.position.y
+      }
 
-    let ratePoint = {
-      x: 0,
-      y: mouse.position.y
+      let mouseRate = getRateFromPoint(ratePoint, thisObject.container, timeLineCoordinateSystem)
+
+      thisObject.rateScale.rate = mouseRate
     }
-
-    let mouseRate = getRateFromPoint(ratePoint, thisObject.container, timeLineCoordinateSystem)
-
-    thisObject.rateScale.rate = mouseRate
 
     /* timeScale Positioning */
+    if (thisObject.timeScale !== undefined) {
+      timePoint = {
+        x: 0,
+        y: 0
+      }
 
-    timePoint = {
-      x: 0,
-      y: 0
-    }
-
-    timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
-    timePoint.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
-    timePoint = thisObject.container.fitFunction(timePoint)
+      timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
+      timePoint.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
+      timePoint = thisObject.container.fitFunction(timePoint)
 
     /* Checking against the container limits. */
-    if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
-    if (timePoint.x + thisObject.timeScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeScale.container.frame.width }
-    if (timePoint.y < upCorner.y) { timePoint.y = upCorner.y }
-    if (timePoint.y + thisObject.timeScale.container.frame.height > bottonCorner.y) { timePoint.y = bottonCorner.y - thisObject.timeScale.container.frame.height }
+      if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
+      if (timePoint.x + thisObject.timeScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeScale.container.frame.width }
+      if (timePoint.y < upCorner.y) { timePoint.y = upCorner.y }
+      if (timePoint.y + thisObject.timeScale.container.frame.height > bottonCorner.y) { timePoint.y = bottonCorner.y - thisObject.timeScale.container.frame.height }
 
-    thisObject.timeScale.container.frame.position.x = timePoint.x
-    thisObject.timeScale.container.frame.position.y = timePoint.y
-
+      thisObject.timeScale.container.frame.position.x = timePoint.x
+      thisObject.timeScale.container.frame.position.y = timePoint.y
+    }
     /* rateScale Positioning */
+    if (thisObject.rateScale === undefined) {
+      ratePoint = {
+        x: thisObject.container.frame.width,
+        y: 0
+      }
 
-    ratePoint = {
-      x: thisObject.container.frame.width,
-      y: 0
-    }
-
-    ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
-    ratePoint.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2 + thisObject.rateScale.container.frame.height
-    ratePoint = thisObject.container.fitFunction(ratePoint, true)
+      ratePoint = transformThisPoint(ratePoint, thisObject.container.frame.container)
+      ratePoint.y = mouse.position.y - thisObject.rateScale.container.frame.height / 2 + thisObject.rateScale.container.frame.height
+      ratePoint = thisObject.container.fitFunction(ratePoint, true)
 
     /* Checking against the container limits. */
-    if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }
-    if (ratePoint.x + thisObject.rateScale.container.frame.width > bottonCorner.x) { ratePoint.x = bottonCorner.x }
-    if (ratePoint.y < upCorner.y + thisObject.rateScale.container.frame.height) { ratePoint.y = upCorner.y + thisObject.rateScale.container.frame.height }
-    if (ratePoint.y > bottonCorner.y) { ratePoint.y = bottonCorner.y }
+      if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }
+      if (ratePoint.x + thisObject.rateScale.container.frame.width > bottonCorner.x) { ratePoint.x = bottonCorner.x }
+      if (ratePoint.y < upCorner.y + thisObject.rateScale.container.frame.height) { ratePoint.y = upCorner.y + thisObject.rateScale.container.frame.height }
+      if (ratePoint.y > bottonCorner.y) { ratePoint.y = bottonCorner.y }
 
-    thisObject.rateScale.container.frame.position.y = ratePoint.y - thisObject.rateScale.container.frame.height
-    thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width
+      thisObject.rateScale.container.frame.position.y = ratePoint.y - thisObject.rateScale.container.frame.height
+      thisObject.rateScale.container.frame.position.x = ratePoint.x - thisObject.rateScale.container.frame.width
+    }
   }
 
   function drawBackground () {

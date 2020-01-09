@@ -110,6 +110,11 @@ function newPanelsSpace () {
   function physics () {
     if (thisObject.visible !== true) { return }
 
+    childrenPhysics()
+    positioningPhysics()
+  }
+
+  function childrenPhysics () {
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
@@ -117,6 +122,117 @@ function newPanelsSpace () {
           panel.physics()
         }
       }
+    }
+  }
+
+  function positioningPhysics () {
+    const INCREMENT = 0.5
+    if (thisObject.panels !== undefined) {
+      for (let i = 0; i < thisObject.panels.length; i++) {
+        let panel = thisObject.panels[i]
+
+        let centerPoint = {
+          x: panel.container.frame.position.x,
+          y: panel.container.frame.position.y
+        }
+        centerPoint.x = centerPoint.x + panel.container.frame.width / 2
+        centerPoint.y = centerPoint.y + panel.container.frame.height / 2
+
+        /* Lets see which quadrant the panel is at */
+        let centerVertical = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 + viewPort.visibleArea.topLeft.x
+        let centerHorizontal = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2 + viewPort.visibleArea.topRight.y
+
+        /* According to the quadrant we push the panels to the sides */
+        if (centerPoint.x < centerVertical) {
+          panel.container.frame.position.x = panel.container.frame.position.x - INCREMENT
+          if (isOverlapping(i, panel.container) === true) {
+            panel.container.frame.position.x = panel.container.frame.position.x + INCREMENT * 2
+          }
+          if (panel.container.frame.position.x < viewPort.visibleArea.topLeft.x) {
+            panel.container.frame.position.x = viewPort.visibleArea.topLeft.x
+          }
+        } else {
+          panel.container.frame.position.x = panel.container.frame.position.x + INCREMENT
+          if (isOverlapping(i, panel.container) === true) {
+            panel.container.frame.position.x = panel.container.frame.position.x - INCREMENT * 2
+          }
+          if (panel.container.frame.position.x + panel.container.frame.width > viewPort.visibleArea.topRight.x) {
+            panel.container.frame.position.x = viewPort.visibleArea.topRight.x - panel.container.frame.width
+          }
+        }
+        if (panel.container.frame.height <= viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) {
+          if (centerPoint.y < centerHorizontal) {
+            panel.container.frame.position.y = panel.container.frame.position.y - INCREMENT
+            if (isOverlapping(i, panel.container) === true) {
+              panel.container.frame.position.y = panel.container.frame.position.y + INCREMENT * 2
+            }
+            if (panel.container.frame.position.y < viewPort.visibleArea.topLeft.y) {
+              panel.container.frame.position.y = viewPort.visibleArea.topLeft.y
+            }
+          } else {
+            panel.container.frame.position.y = panel.container.frame.position.y + INCREMENT
+            if (isOverlapping(i, panel.container) === true) {
+              panel.container.frame.position.y = panel.container.frame.position.y - INCREMENT * 2
+            }
+            if (panel.container.frame.position.y + panel.container.frame.height > viewPort.visibleArea.bottomRight.y) {
+              panel.container.frame.position.y = viewPort.visibleArea.bottomRight.y - panel.container.frame.height
+            }
+          }
+        }
+      }
+    }
+
+    function isOverlapping (currentIndex, currentContainer) {
+      let corner1 = {
+        x: currentContainer.frame.position.x,
+        y: currentContainer.frame.position.y
+      }
+      let corner2 = {
+        x: currentContainer.frame.position.x + currentContainer.frame.width,
+        y: currentContainer.frame.position.y
+      }
+      let corner3 = {
+        x: currentContainer.frame.position.x + currentContainer.frame.width,
+        y: currentContainer.frame.position.y + currentContainer.frame.height
+      }
+      let corner4 = {
+        x: currentContainer.frame.position.x,
+        y: currentContainer.frame.position.y + currentContainer.frame.height
+      }
+
+      for (let i = 0; i < currentIndex; i++) {
+        let panel = thisObject.panels[i]
+
+        if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) { return true }
+        if (isThisPointInsideThisFrame(corner2, panel.container.frame) === true) { return true }
+        if (isThisPointInsideThisFrame(corner3, panel.container.frame) === true) { return true }
+        if (isThisPointInsideThisFrame(corner4, panel.container.frame) === true) { return true }
+      }
+
+      function isThisPointInsideThisFrame (point, frame) {
+        let corner1 = {
+          x: frame.position.x,
+          y: frame.position.y
+        }
+        let corner2 = {
+          x: frame.position.x + frame.width,
+          y: frame.position.y
+        }
+        let corner3 = {
+          x: frame.position.x + frame.width,
+          y: frame.position.y + frame.height
+        }
+        let corner4 = {
+          x: frame.position.x,
+          y: frame.position.y + frame.height
+        }
+        if (point.x >= corner1.x && point.y >= corner1.y && point.x <= corner3.x && point.y <= corner3.y) {
+          return true
+        } else {
+          return false
+        }
+      }
+      return false
     }
   }
 

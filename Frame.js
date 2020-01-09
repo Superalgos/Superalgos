@@ -201,7 +201,9 @@ function newFrame () {
       y: thisObject.position.y
     }
 
-    thisPoint = thisObject.parentFrame.frameThisPoint(thisPoint)
+    if (thisObject.parentFrame !== undefined) {
+      thisPoint = thisObject.parentFrame.frameThisPoint(thisPoint)
+    }
 
    /* Now we check if the resulting point is whin the current Frame. */
 

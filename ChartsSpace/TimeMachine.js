@@ -66,13 +66,11 @@ function newTimeMachine () {
 
   function finalize () {
     if (thisObject.timeScale !== undefined) {
-      thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
-      thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
+      finalizeTimeScale()
     }
 
     if (thisObject.rateScale !== undefined) {
-      thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
-      thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
+      finalizeRateScale()
     }
 
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
@@ -86,15 +84,6 @@ function newTimeMachine () {
     thisObject.timelineCharts = undefined
     timelineChartsMap = undefined
 
-    if (thisObject.timeScale !== undefined) {
-      thisObject.timeScale.finalize()
-      thisObject.timeScale = undefined
-    }
-    if (thisObject.rateScale !== undefined) {
-      thisObject.rateScale.finalize()
-      thisObject.rateScale = undefined
-    }
-
     thisObject.fitFunction = undefined
 
     thisObject.container.finalize()
@@ -104,38 +93,22 @@ function newTimeMachine () {
     mouse = undefined
   }
 
+  function finalizeTimeScale () {
+    thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
+    thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
+    thisObject.timeScale.finalize()
+    thisObject.timeScale = undefined
+  }
+
+  function finalizeRateScale () {
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
+    thisObject.rateScale.finalize()
+    thisObject.rateScale = undefined
+  }
+
   function initialize (callBackFunction) {
     recalculateScale()
-
-    /* Each Time Machine has a Time Scale and a Right Scale. */
-
-    if (thisObject.payload.node.timeScale !== undefined) {
-      thisObject.timeScale = newTimeScale()
-      thisObject.timeScale.fitFunction = thisObject.fitFunction
-
-      timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-        recalculateScale()
-        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      })
-
-      thisObject.timeScale.initialize()
-    }
-
-    if (thisObject.payload.node.rateScale !== undefined) {
-      thisObject.rateScale = newRateScale()
-      thisObject.rateScale.fitFunction = thisObject.fitFunction
-
-      rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-        recalculateScale()
-        moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
-        thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      })
-
-      thisObject.rateScale.initialize()
-    }
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
@@ -162,22 +135,47 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.timeScale !== undefined) {
-      timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
-
-      function timeScaleMouseOver (event) {
-        thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
-      }
-    }
-
-    if (thisObject.rateScale !== undefined) {
-      rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
-
-      function rateScaleMouseOver (event) {
-        thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
-      }
-    }
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+  }
+
+  function initializeTimeScale () {
+    thisObject.timeScale = newTimeScale()
+    thisObject.timeScale.fitFunction = thisObject.fitFunction
+
+    timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
+
+    thisObject.timeScale.initialize()
+
+    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
+
+    function timeScaleMouseOver (event) {
+      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+    }
+  }
+
+  function initializeRateScale () {
+    thisObject.rateScale = newRateScale()
+    thisObject.rateScale.fitFunction = thisObject.fitFunction
+
+    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+      recalculateScale()
+      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
+
+    thisObject.rateScale.initialize()
+
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+
+    function rateScaleMouseOver (event) {
+      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+    }
   }
 
   function getContainer (point, purpose) {
@@ -235,6 +233,26 @@ function newTimeMachine () {
   }
 
   function syncWithDesigner () {
+    syncWithDesignerTimelineCharts()
+    syncWithDesignerScales()
+  }
+
+  function syncWithDesignerScales () {
+    if (thisObject.payload.node.timeScale === undefined && thisObject.timeScale !== undefined) {
+      finalizeTimeScale()
+    }
+    if (thisObject.payload.node.timeScale !== undefined && thisObject.timeScale === undefined) {
+      initializeTimeScale()
+    }
+    if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
+      finalizeRateScale()
+    }
+    if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
+      initializeRateScale()
+    }
+  }
+
+  function syncWithDesignerTimelineCharts () {
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
     for (let j = 0; j < thisObject.payload.node.timelineCharts.length; j++) {
@@ -307,7 +325,7 @@ function newTimeMachine () {
     if (thisObject.timeScale !== undefined) {
       thisObject.timeScale.physics()
     }
-    if (thisObject.rateScale === undefined) {
+    if (thisObject.rateScale !== undefined) {
       thisObject.rateScale.physics()
     }
 
@@ -344,7 +362,7 @@ function newTimeMachine () {
     }
 
     /* Mouse Position Rate Calculation */
-    if (thisObject.rateScale === undefined) {
+    if (thisObject.rateScale !== undefined) {
       let ratePoint = {
         x: 0,
         y: mouse.position.y
@@ -376,7 +394,7 @@ function newTimeMachine () {
       thisObject.timeScale.container.frame.position.y = timePoint.y
     }
     /* rateScale Positioning */
-    if (thisObject.rateScale === undefined) {
+    if (thisObject.rateScale !== undefined) {
       ratePoint = {
         x: thisObject.container.frame.width,
         y: 0

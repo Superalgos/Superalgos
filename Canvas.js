@@ -501,7 +501,7 @@ function newCanvas () {
       container = thisObject.chartSpace.getContainer(point)
 
       if (container !== undefined) {
-        if (container.isDraggeable === true) {
+        if (container.isDraggeable === true && event.button === 2) {
           containerBeingDragged = container
           containerDragStarted = true
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)

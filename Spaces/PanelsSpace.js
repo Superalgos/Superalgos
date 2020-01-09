@@ -139,11 +139,11 @@ function newPanelsSpace () {
         centerPoint.y = centerPoint.y + panel.container.frame.height / 2
 
         /* Lets see which quadrant the panel is at */
-        let centerVertical = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 + viewPort.visibleArea.topLeft.x
-        let centerHorizontal = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2 + viewPort.visibleArea.topRight.y
+        let verticalLine = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 + viewPort.visibleArea.topLeft.x
+        let horizontalLine = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) * 2 / 3 + viewPort.visibleArea.topRight.y
 
         /* According to the quadrant we push the panels to the sides */
-        if (centerPoint.x < centerVertical) {
+        if (centerPoint.x < verticalLine) {
           panel.container.frame.position.x = panel.container.frame.position.x - INCREMENT
           if (isOverlapping(i, panel.container) === true) {
             panel.container.frame.position.x = panel.container.frame.position.x + INCREMENT * 2
@@ -161,7 +161,7 @@ function newPanelsSpace () {
           }
         }
         if (panel.container.frame.height <= viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) {
-          if (centerPoint.y < centerHorizontal) {
+          if (centerPoint.y < horizontalLine) {
             panel.container.frame.position.y = panel.container.frame.position.y - INCREMENT
             if (isOverlapping(i, panel.container) === true) {
               panel.container.frame.position.y = panel.container.frame.position.y + INCREMENT * 2

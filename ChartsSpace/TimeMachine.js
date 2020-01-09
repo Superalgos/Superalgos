@@ -141,7 +141,7 @@ function newTimeMachine () {
   function initializeTimeScale () {
     thisObject.timeScale = newTimeScale()
     thisObject.timeScale.fitFunction = thisObject.fitFunction
-    thisObject.timeScale.payload = thisObject.payload
+    thisObject.timeScale.payload = thisObject.payload.node.timeScale.payload
 
     timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
@@ -162,7 +162,7 @@ function newTimeMachine () {
   function initializeRateScale () {
     thisObject.rateScale = newRateScale()
     thisObject.rateScale.fitFunction = thisObject.fitFunction
-    thisObject.rateScale.payload = thisObject.payload
+    thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100

@@ -1,7 +1,8 @@
 
-function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, container, fitFunction) {
-  let fontSize1 = 20
-  let fontSize2 = 10
+function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, fitFunction) {
+  let fontSize1 = 10
+  let fontSize2 = 20
+  let fontSize3 = 10
 
   const RED_LINE_HIGHT = 4
   const OPACITY = 1
@@ -21,11 +22,12 @@ function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, contain
 
   /* Place the Text */
 
+  label1 = label1.substring(0, 18)
   let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
 
   let labelPoint1 = {
-    x: container.frame.width / 2 - xOffset1 + xExtraOffSet1,
-    y: container.frame.height / 2 + 6
+    x: container.frame.width * 1 / 2 - xOffset1 / 2 + xExtraOffSet1,
+    y: container.frame.height * 4 / 5
   }
 
   labelPoint1 = container.frame.frameThisPoint(labelPoint1)
@@ -38,11 +40,12 @@ function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, contain
 
   browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
 
+  label2 = label2.substring(0, 20)
   let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
 
   let labelPoint2 = {
-    x: container.frame.width / 2 - xOffset2 / 2 - 3 + xExtraOffSet2,
-    y: container.frame.height / 2 + 6
+    x: container.frame.width * 1 / 2 - xOffset2 / 2 + xExtraOffSet2,
+    y: container.frame.height * 2 / 5
   }
 
   labelPoint2 = container.frame.frameThisPoint(labelPoint2)
@@ -52,5 +55,57 @@ function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, contain
   browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
   browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
+
+  label3 = label3.substring(0, 20)
+  let xOffset3 = label3.length * fontSize3 * FONT_ASPECT_RATIO
+
+  let labelPoint3 = {
+    x: container.frame.width * 1 / 2 - xOffset3 / 2 + xExtraOffSet3,
+    y: container.frame.height * 3 / 5
+  }
+
+  labelPoint3 = container.frame.frameThisPoint(labelPoint3)
+  labelPoint3 = fitFunction(labelPoint3)
+
+  browserCanvasContext.font = fontSize3 + 'px ' + UI_FONT.PRIMARY
+  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+  browserCanvasContext.fillText(label3, labelPoint3.x, labelPoint3.y)
+
+  /* Images */
+
+  if (icon1 !== undefined) {
+    if (icon1.canDrawIcon === true) {
+      let imageSize = 40
+      let imagePosition = {
+        x: container.frame.width * 1 / 8 - imageSize / 2,
+        y: container.frame.height / 2 - imageSize / 2
+      }
+
+      imagePosition = container.frame.frameThisPoint(imagePosition)
+      browserCanvasContext.drawImage(
+        icon1, imagePosition.x,
+        imagePosition.y,
+        imageSize,
+        imageSize)
+    }
+  }
+
+  if (icon2 !== undefined) {
+    if (icon2.canDrawIcon === true) {
+      let imageSize = 40
+      let imagePosition = {
+        x: container.frame.width * 7 / 8 - imageSize / 2,
+        y: container.frame.height / 2 - imageSize / 2
+      }
+
+      imagePosition = container.frame.frameThisPoint(imagePosition)
+      browserCanvasContext.drawImage(
+        icon2, imagePosition.x,
+        imagePosition.y,
+        imageSize,
+        imageSize)
+    }
+  }
 }
 

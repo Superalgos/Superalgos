@@ -209,7 +209,7 @@ function newTimelineChart () {
   function initializeTimeFrameScale () {
     thisObject.timeFrameScale = newTimeFrameScale()
     thisObject.timeFrameScale.fitFunction = thisObject.fitFunction
-    thisObject.timeFrameScale.payload = thisObject.payload
+    thisObject.timeFrameScale.payload = thisObject.payload.node.timeFrameScale.payload
 
     timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
       let currentTimeFrame = timeFrame

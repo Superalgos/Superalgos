@@ -27,8 +27,8 @@ function newRateScale () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
 
-  thisObject.container.frame.width = 300
-  thisObject.container.frame.height = 30
+  thisObject.container.frame.width = 200
+  thisObject.container.frame.height = 60
 
   let isMouseOver
 
@@ -212,9 +212,13 @@ function newRateScale () {
 
     let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
     let labelArray = label.split('.')
-    let label1 = (Math.trunc(thisObject.rate)).toLocaleString()
-    let label2 = labelArray[1]
+    let label1 = thisObject.payload.node.payload.parentNode.name
+    let label2 = (Math.trunc(thisObject.rate)).toLocaleString()
+    let label3 = labelArray[1]
 
-    drawScaleDisplay(label1, label2, 10, 40, thisObject.container, thisObject.fitFunction)
+    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, thisObject.fitFunction)
   }
 }

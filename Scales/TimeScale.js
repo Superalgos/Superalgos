@@ -26,8 +26,8 @@ function newTimeScale () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
 
-  thisObject.container.frame.width = 300
-  thisObject.container.frame.height = 30
+  thisObject.container.frame.width = 200
+  thisObject.container.frame.height = 60
 
   let isMouseOver
 
@@ -212,9 +212,13 @@ function newTimeScale () {
 
     let label = thisObject.date.toUTCString()
     let labelArray = label.split(' ')
-    let label1 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
-    let label2 = labelArray[4]
+    let label1 = thisObject.payload.node.payload.parentNode.name
+    let label2 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
+    let label3 = labelArray[4]
 
-    drawScaleDisplay(label1, label2, 10, 60, thisObject.container, thisObject.fitFunction)
+    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, thisObject.fitFunction)
   }
 }

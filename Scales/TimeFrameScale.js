@@ -5,6 +5,7 @@ function newTimeFrameScale () {
     timeFrame: undefined,
     container: undefined,
     fitFunction: undefined,
+    payload: undefined,
     draw: draw,
     physics: physics,
     getContainer: getContainer,
@@ -39,7 +40,7 @@ function newTimeFrameScale () {
     thisObject.container.isWheelable = true
     thisObject.container.detectMouseOver = true
 
-    thisObject.container.frame.width = 250
+    thisObject.container.frame.width = 300
     thisObject.container.frame.height = 30
   }
 
@@ -53,6 +54,7 @@ function newTimeFrameScale () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
+    thisObject.payload = undefined
   }
 
   function initialize () {

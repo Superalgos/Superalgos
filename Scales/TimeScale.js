@@ -6,6 +6,7 @@ function newTimeScale () {
     container: undefined,
     date: undefined,
     fitFunction: undefined,
+    payload: undefined,
     visible: true,
     physics: physics,
     draw: draw,
@@ -25,7 +26,7 @@ function newTimeScale () {
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
 
-  thisObject.container.frame.width = 250
+  thisObject.container.frame.width = 300
   thisObject.container.frame.height = 30
 
   let isMouseOver
@@ -44,6 +45,7 @@ function newTimeScale () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
+    thisObject.payload = undefined
   }
 
   function initialize () {

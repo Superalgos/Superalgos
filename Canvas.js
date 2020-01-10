@@ -663,8 +663,12 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
-           /* Then we check who is the current object underneeth the mounse. */
+      if (containerDragStarted === true) {
+        containerBeingDragged.eventHandler.raiseEvent('onMouseOver', event)
+        return
+      }
 
+       /* Then we check who is the current object underneeth the mounse. */
       let point = {
         x: event.pageX,
         y: event.pageY - CURRENT_TOP_MARGIN
@@ -672,8 +676,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
-
+      /* We check if the mouse is over an element of the Strategy Space / */
       if (thisObject.designerSpace !== undefined) {
         container = thisObject.designerSpace.getContainer(point)
 
@@ -683,8 +686,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over an element of the Top Space / */
-
+       /* We check if the mouse is over an element of the Top Space / */
       if (thisObject.topSpace !== undefined) {
         container = thisObject.topSpace.getContainer(point)
 
@@ -694,8 +696,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over an element of the CockpitSpace / */
-
+       /* We check if the mouse is over an element of the CockpitSpace / */
       if (thisObject.cockpitSpace !== undefined) {
         container = thisObject.cockpitSpace.getContainer(point)
 
@@ -705,8 +706,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over a panel/ */
-
+       /* We check if the mouse is over a panel/ */
       if (thisObject.panelsSpace !== undefined) {
         container = thisObject.panelsSpace.getContainer(point)
 
@@ -716,8 +716,7 @@ function newCanvas () {
         }
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
-
+       /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
       if (thisObject.chartSpace !== undefined) {
         container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 

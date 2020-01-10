@@ -105,7 +105,7 @@ function newRateScale () {
     delta = event.wheelDelta
     if (delta < 0) {
       thisObject.heightPercentage = thisObject.heightPercentage - STEP_SIZE
-      if (thisObject.heightPercentage < STEP_SIZE) { thisObject.heightPercentage = STEP_SIZE }
+      if (thisObject.heightPercentage < STEP_SIZE * 3) { thisObject.heightPercentage = STEP_SIZE }
     } else {
       thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE
       if (thisObject.heightPercentage > 150) { thisObject.heightPercentage = 200 }

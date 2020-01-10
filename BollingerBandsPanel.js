@@ -14,7 +14,6 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Bollinger Band";
     container.frame.containerName = "Bollinger Band";
 
     let currentBand;

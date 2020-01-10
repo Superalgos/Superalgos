@@ -111,40 +111,6 @@ function newTimelineChart () {
       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
       productsPanel.initialize(exchange, market)
 
-      logoA = new Image()
-      logoB = new Image()
-      logoExchange = new Image()
-      logoAA = new Image()
-
-      logoA.onload = onImageALoaded
-
-      function onImageALoaded () {
-        canDrawLogoA = true
-      }
-
-      logoB.onload = onImageBLoaded
-
-      function onImageBLoaded () {
-        canDrawLogoB = true
-      }
-
-      logoExchange.onload = onImageExchangeLoaded
-
-      function onImageExchangeLoaded () {
-        canDrawLogoExchange = true
-      }
-
-      logoAA.onload = onImageAALoaded
-
-      function onImageAALoaded () {
-        canDrawLogoAA = true
-      }
-
-      logoA.src = window.canvasApp.urlPrefix + 'Images/tether-logo-background.png'
-      logoB.src = window.canvasApp.urlPrefix + 'Images/bitcoin-logo-background.png'
-      logoExchange.src = window.canvasApp.urlPrefix + 'Images/' + exchange + '-logo-background.png'
-      logoAA.src = window.canvasApp.urlPrefix + 'Images/sa-logo-background.png'
-
       // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
       timeFrame = INITIAL_TIME_PERIOD
       datetime = NEW_SESSION_INITIAL_DATE

@@ -664,7 +664,11 @@ function newCanvas () {
   function onMouseOver (event) {
     try {
       if (containerDragStarted === true) {
-        containerBeingDragged.eventHandler.raiseEvent('onMouseOver', event)
+        let point = {
+          x: event.pageX,
+          y: event.pageY - CURRENT_TOP_MARGIN
+        }
+        containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
 
@@ -742,7 +746,6 @@ function newCanvas () {
             lastContainerMouseOver.eventHandler.raiseEvent('onMouseNotOver', point)
           }
         }
-
         container.eventHandler.raiseEvent('onMouseOver', point)
         lastContainerMouseOver = container
       }

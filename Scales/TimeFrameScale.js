@@ -123,6 +123,8 @@ function newTimeFrameScale () {
     /* Checking against the container limits. */
     if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
     if (timePoint.x + thisObject.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.container.frame.width }
+    if (timePoint.y < upCorner.y + thisObject.container.frame.height) { timePoint.y = upCorner.y + thisObject.container.frame.height }
+    if (timePoint.y > bottonCorner.y) { timePoint.y = bottonCorner.y }
 
     thisObject.container.frame.position.x = timePoint.x
     thisObject.container.frame.position.y = timePoint.y - thisObject.container.frame.height

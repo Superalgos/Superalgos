@@ -13,7 +13,7 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
     container: container,
     borderColor: UI_COLOR.RUSTED_RED,
     castShadow: false,
-    backgroundColor: UI_COLOR.DARK,
+    backgroundColor: UI_COLOR.BLACK,
     opacity: OPACITY
   }
 

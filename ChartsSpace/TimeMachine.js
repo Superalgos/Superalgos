@@ -113,15 +113,16 @@ function newTimeMachine () {
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     function onMouseOver (event) {
+      mouse.position.x = event.x
+      mouse.position.y = event.y
+
       if (thisObject.timeScale !== undefined) {
         thisObject.timeScale.visible = true
+        thisObject.timeScale.onMouseOverSomeInnerContainer(event)
       }
       if (thisObject.rateScale !== undefined) {
         thisObject.rateScale.visible = true
       }
-
-      mouse.position.x = event.x
-      mouse.position.y = event.y
     }
 
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -150,7 +151,7 @@ function newTimeMachine () {
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
-    thisObject.timeScale.initialize()
+    thisObject.timeScale.initialize(timeLineCoordinateSystem, thisObject.container)
 
     timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
 
@@ -351,18 +352,6 @@ function newTimeMachine () {
     upCorner = transformThisPoint(upCorner, thisObject.container)
     bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
 
-    /* Mouse Position Date Calculation */
-    if (thisObject.timeScale !== undefined) {
-      let timePoint = {
-        x: mouse.position.x,
-        y: 0
-      }
-
-      let mouseDate = getDateFromPoint(timePoint, thisObject.container, timeLineCoordinateSystem)
-
-      thisObject.timeScale.date = new Date(mouseDate)
-    }
-
     /* Mouse Position Rate Calculation */
     if (thisObject.rateScale !== undefined) {
       let ratePoint = {
@@ -375,26 +364,6 @@ function newTimeMachine () {
       thisObject.rateScale.rate = mouseRate
     }
 
-    /* timeScale Positioning */
-    if (thisObject.timeScale !== undefined) {
-      timePoint = {
-        x: 0,
-        y: 0
-      }
-
-      timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
-      timePoint.x = mouse.position.x - thisObject.timeScale.container.frame.width / 2
-      timePoint = thisObject.container.fitFunction(timePoint)
-
-    /* Checking against the container limits. */
-      if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
-      if (timePoint.x + thisObject.timeScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeScale.container.frame.width }
-      if (timePoint.y < upCorner.y) { timePoint.y = upCorner.y }
-      if (timePoint.y + thisObject.timeScale.container.frame.height > bottonCorner.y) { timePoint.y = bottonCorner.y - thisObject.timeScale.container.frame.height }
-
-      thisObject.timeScale.container.frame.position.x = timePoint.x
-      thisObject.timeScale.container.frame.position.y = timePoint.y
-    }
     /* rateScale Positioning */
     if (thisObject.rateScale !== undefined) {
       ratePoint = {

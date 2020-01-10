@@ -8,7 +8,7 @@ function newTimeScale () {
     fitFunction: undefined,
     payload: undefined,
     visible: true,
-    onMouseOverSomeInnerContainer: onMouseOverSomeInnerContainer,
+    onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -82,7 +82,7 @@ function newTimeScale () {
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
   }
 
-  function onMouseOverSomeInnerContainer (event) {
+  function onMouseOverSomeTimeMachineContainer (event) {
     mouse = {
       position: {
         x: event.x,

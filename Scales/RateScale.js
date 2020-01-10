@@ -8,6 +8,7 @@ function newRateScale () {
     payload: undefined,
     visible: true,
     heightPercentage: 150,
+    onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -36,6 +37,15 @@ function newRateScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
+  let timeLineCoordinateSystem
+  let limitingContainer
+
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
   return thisObject
 
   function finalize () {
@@ -47,9 +57,16 @@ function newRateScale () {
     thisObject.container = undefined
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
+
+    timeLineCoordinateSystem = undefined
+    limitingContainer = undefined
+    mouse = undefined
   }
 
-  function initialize () {
+  function initialize (pTimeLineCoordinateSystem, pLimitingContainer) {
+    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+    limitingContainer = pLimitingContainer
+
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -64,6 +81,15 @@ function newRateScale () {
     let event = {}
     event.heightPercentage = thisObject.heightPercentage
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+  }
+
+  function onMouseOverSomeTimeMachineContainer (event) {
+    mouse = {
+      position: {
+        x: event.x,
+        y: event.y
+      }
+    }
   }
 
   function onMouseOver () {
@@ -97,7 +123,49 @@ function newRateScale () {
   }
 
   function physics () {
+    /* Container Limits */
 
+    let upCorner = {
+      x: 0,
+      y: 0
+    }
+
+    let bottonCorner = {
+      x: limitingContainer.frame.width,
+      y: limitingContainer.frame.height
+    }
+
+    upCorner = transformThisPoint(upCorner, limitingContainer)
+    bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
+
+    /* Mouse Position Rate Calculation */
+    let ratePoint = {
+      x: 0,
+      y: mouse.position.y
+    }
+
+    let mouseRate = getRateFromPoint(ratePoint, limitingContainer, timeLineCoordinateSystem)
+
+    thisObject.rate = mouseRate
+
+    /* rateScale Positioning */
+    ratePoint = {
+      x: limitingContainer.frame.width,
+      y: 0
+    }
+
+    ratePoint = transformThisPoint(ratePoint, limitingContainer.frame.container)
+    ratePoint.y = mouse.position.y - thisObject.container.frame.height / 2 + thisObject.container.frame.height
+    ratePoint = limitingContainer.fitFunction(ratePoint, true)
+
+    /* Checking against the container limits. */
+    if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }
+    if (ratePoint.x + thisObject.container.frame.width > bottonCorner.x) { ratePoint.x = bottonCorner.x }
+    if (ratePoint.y < upCorner.y + thisObject.container.frame.height) { ratePoint.y = upCorner.y + thisObject.container.frame.height }
+    if (ratePoint.y > bottonCorner.y) { ratePoint.y = bottonCorner.y }
+
+    thisObject.container.frame.position.y = ratePoint.y - thisObject.container.frame.height
+    thisObject.container.frame.position.x = ratePoint.x - thisObject.container.frame.width
   }
 
   function draw () {

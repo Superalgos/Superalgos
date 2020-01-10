@@ -16,7 +16,6 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Simulation";
     container.frame.containerName = "Simulation";
 
     let currentRecord;

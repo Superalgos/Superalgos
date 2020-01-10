@@ -14,7 +14,6 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Volume";
     container.frame.containerName = "Volume";
 
     let currentVolume;

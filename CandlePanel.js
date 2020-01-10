@@ -14,7 +14,6 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
     container.initialize();
     thisObject.container = container;
 
-    container.displacement.containerName = "Candle";
     container.frame.containerName = "Candle";
 
     let currentCandle;

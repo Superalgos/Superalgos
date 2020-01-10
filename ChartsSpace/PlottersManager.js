@@ -318,13 +318,11 @@ function newPlottersManager () {
 
   function setTimeFrame (pTimeFrame) {
     timeFrame = pTimeFrame
-    if (initializationReady === true) {
-      for (let i = 0; i < productPlotters.length; i++) {
-        let productPlotter = productPlotters[i]
-        productPlotter.productCard.setTimeFrame(timeFrame)
-        productPlotter.storage.setTimeFrame(timeFrame)
-        productPlotter.plotter.setTimeFrame(timeFrame)
-      }
+    for (let i = 0; i < productPlotters.length; i++) {
+      let productPlotter = productPlotters[i]
+      productPlotter.productCard.setTimeFrame(timeFrame)
+      productPlotter.storage.setTimeFrame(timeFrame)
+      productPlotter.plotter.setTimeFrame(timeFrame)
     }
   }
 

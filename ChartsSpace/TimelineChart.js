@@ -180,6 +180,7 @@ function newTimelineChart () {
         function onMouseOver (event) {
           if (thisObject.timeFrameScale !== undefined) {
             thisObject.timeFrameScale.visible = true
+            thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
           }
 
           mouse.position.x = event.x
@@ -219,7 +220,7 @@ function newTimelineChart () {
       }
     })
 
-    thisObject.timeFrameScale.initialize()
+    thisObject.timeFrameScale.initialize(timeLineCoordinateSystem, thisObject.container)
 
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
 
@@ -314,40 +315,6 @@ function newTimelineChart () {
   function childrenPhysics () {
     if (thisObject.timeFrameScale !== undefined) {
       thisObject.timeFrameScale.physics()
-    }
-
-    /* Container Limits */
-
-    let upCorner = {
-      x: 0,
-      y: 0
-    }
-
-    let bottonCorner = {
-      x: thisObject.container.frame.width,
-      y: thisObject.container.frame.height
-    }
-
-    upCorner = transformThisPoint(upCorner, thisObject.container)
-    bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
-
-    /* thisObject.timeFrameScale Positioning */
-    if (thisObject.timeFrameScale !== undefined) {
-      timePoint = {
-        x: 0,
-        y: thisObject.container.frame.height
-      }
-
-      timePoint = transformThisPoint(timePoint, thisObject.container.frame.container)
-      timePoint.x = mouse.position.x - thisObject.timeFrameScale.container.frame.width / 2
-      timePoint = thisObject.container.fitFunction(timePoint, true)
-
-    /* Checking against the container limits. */
-      if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
-      if (timePoint.x + thisObject.timeFrameScale.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.timeFrameScale.container.frame.width }
-
-      thisObject.timeFrameScale.container.frame.position.x = timePoint.x
-      thisObject.timeFrameScale.container.frame.position.y = timePoint.y - thisObject.timeFrameScale.container.frame.height
     }
   }
 

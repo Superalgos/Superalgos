@@ -6,6 +6,7 @@ function newTimeFrameScale () {
     container: undefined,
     fitFunction: undefined,
     payload: undefined,
+    onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     draw: draw,
     physics: physics,
     getContainer: getContainer,
@@ -28,6 +29,15 @@ function newTimeFrameScale () {
   let onZoomChangedEventSubscriptionId
   let onMouseOverEventSubscriptionId
 
+  let timeLineCoordinateSystem
+  let limitingContainer
+
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
   setupContainer()
   return thisObject
 
@@ -57,7 +67,10 @@ function newTimeFrameScale () {
     thisObject.payload = undefined
   }
 
-  function initialize () {
+  function initialize (pTimeLineCoordinateSystem, pLimitingContainer) {
+    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+    limitingContainer = pLimitingContainer
+
     readObjectState()
     newTimeFrame()
 
@@ -70,8 +83,47 @@ function newTimeFrameScale () {
     }
   }
 
-  function physics () {
+  function onMouseOverSomeTimeMachineContainer (event) {
+    mouse = {
+      position: {
+        x: event.x,
+        y: event.y
+      }
+    }
+  }
 
+  function physics () {
+    /* Container Limits */
+
+    let upCorner = {
+      x: 0,
+      y: 0
+    }
+
+    let bottonCorner = {
+      x: limitingContainer.frame.width,
+      y: limitingContainer.frame.height
+    }
+
+    upCorner = transformThisPoint(upCorner, limitingContainer)
+    bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
+
+    /* Positioning */
+    timePoint = {
+      x: 0,
+      y: limitingContainer.frame.height
+    }
+
+    timePoint = transformThisPoint(timePoint, limitingContainer.frame.container)
+    timePoint.x = mouse.position.x - thisObject.container.frame.width / 2
+    timePoint = limitingContainer.fitFunction(timePoint, true)
+
+    /* Checking against the container limits. */
+    if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
+    if (timePoint.x + thisObject.container.frame.width > bottonCorner.x) { timePoint.x = bottonCorner.x - thisObject.container.frame.width }
+
+    thisObject.container.frame.position.x = timePoint.x
+    thisObject.container.frame.position.y = timePoint.y - thisObject.container.frame.height
   }
 
   function onZoomChanged (event) {

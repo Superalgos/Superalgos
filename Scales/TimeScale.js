@@ -101,12 +101,15 @@ function newTimeScale () {
   }
 
   function onMouseWheel (event) {
+    let morePower = 1
+    if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
+
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE
+      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE * morePower
       if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
     } else {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE
+      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE * morePower
       if (thisObject.lenghtPercentage > 400) { thisObject.lenghtPercentage = 400 }
     }
 

@@ -17,7 +17,7 @@ function newTimeScale () {
   }
 
   const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
-  const STEP_SIZE = 2.5
+  const STEP_SIZE = 1
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)

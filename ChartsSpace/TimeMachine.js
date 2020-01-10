@@ -77,8 +77,9 @@ function newTimeMachine () {
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-      let chart = thisObject.timelineCharts[i]
-      chart.finalize()
+      let timelineChart = thisObject.timelineCharts[i]
+      timelineChart.container.eventHandler.stopListening(timelineChart.onChildrenMouseOverEventSuscriptionId)
+      timelineChart.finalize()
     }
 
     thisObject.timelineCharts = undefined
@@ -276,6 +277,7 @@ function newTimeMachine () {
       let timelineChart = thisObject.timelineCharts[i]
       if (timelineChart.syncWithDesignerLoop < syncWithDesignerLoop) {
         /* Must be removed */
+        timelineChart.container.eventHandler.stopListening(timelineChart.onChildrenMouseOverEventSuscriptionId)
         timelineChart.finalize()
         timelineChartsMap.delete(timelineChart.nodeId)
         thisObject.timelineCharts.splice(i, 1)
@@ -299,6 +301,13 @@ function newTimeMachine () {
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
       timelineChart.container.frame.position.y = 0
       timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onTimelineChartInitialized)
+
+      /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
+      timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)
+
+      function onChildrenMouseOver (event) {
+        thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+      }
 
       function onTimelineChartInitialized (err) {
         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {

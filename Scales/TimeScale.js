@@ -138,6 +138,9 @@ function newTimeScale () {
     upCorner = transformThisPoint(upCorner, limitingContainer)
     bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
 
+    upCorner = limitingContainer.fitFunction(upCorner, true)
+    bottonCorner = limitingContainer.fitFunction(bottonCorner, true)
+
     /* Mouse Position Date Calculation */
     let timePoint = {
       x: mouse.position.x,
@@ -156,7 +159,6 @@ function newTimeScale () {
 
     timePoint = transformThisPoint(timePoint, limitingContainer.frame.container)
     timePoint.x = mouse.position.x - thisObject.container.frame.width / 2
-    timePoint = limitingContainer.fitFunction(timePoint)
 
     /* Checking against the container limits. */
     if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }
@@ -287,6 +289,6 @@ function newTimeScale () {
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
-    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, thisObject.fitFunction)
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container)
   }
 }

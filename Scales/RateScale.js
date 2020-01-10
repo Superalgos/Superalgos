@@ -138,6 +138,9 @@ function newRateScale () {
     upCorner = transformThisPoint(upCorner, limitingContainer)
     bottonCorner = transformThisPoint(bottonCorner, limitingContainer)
 
+    upCorner = limitingContainer.fitFunction(upCorner, true)
+    bottonCorner = limitingContainer.fitFunction(bottonCorner, true)
+
     /* Mouse Position Rate Calculation */
     let ratePoint = {
       x: 0,
@@ -156,7 +159,6 @@ function newRateScale () {
 
     ratePoint = transformThisPoint(ratePoint, limitingContainer.frame.container)
     ratePoint.y = mouse.position.y - thisObject.container.frame.height / 2 + thisObject.container.frame.height
-    ratePoint = limitingContainer.fitFunction(ratePoint, true)
 
     /* Checking against the container limits. */
     if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }
@@ -287,6 +289,6 @@ function newRateScale () {
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
-    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, thisObject.fitFunction)
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container)
   }
 }

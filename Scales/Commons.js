@@ -1,5 +1,5 @@
 
-function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, fitFunction) {
+function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container) {
   let fontSize1 = 10
   let fontSize2 = 20
   let fontSize3 = 10
@@ -14,8 +14,7 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
     borderColor: UI_COLOR.RUSTED_RED,
     castShadow: false,
     backgroundColor: UI_COLOR.DARK,
-    opacity: OPACITY,
-    fitFunction: fitFunction
+    opacity: OPACITY
   }
 
   roundedCornersBackground(params)
@@ -32,7 +31,6 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
 
   labelPoint1 = container.frame.frameThisPoint(labelPoint1)
   let x = labelPoint1.x
-  labelPoint1 = fitFunction(labelPoint1)
   labelPoint1.x = x
 
   browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
@@ -49,7 +47,6 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   }
 
   labelPoint2 = container.frame.frameThisPoint(labelPoint2)
-  labelPoint2 = fitFunction(labelPoint2)
 
   browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
   browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -65,7 +62,6 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   }
 
   labelPoint3 = container.frame.frameThisPoint(labelPoint3)
-  labelPoint3 = fitFunction(labelPoint3)
 
   browserCanvasContext.font = fontSize3 + 'px ' + UI_FONT.PRIMARY
   browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -108,4 +104,3 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
     }
   }
 }
-

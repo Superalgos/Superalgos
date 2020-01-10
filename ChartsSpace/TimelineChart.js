@@ -193,6 +193,7 @@ function newTimelineChart () {
         onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
         function onMouseNotOver (event) {
+          /* This event is inherited from the Time Machine */
           if (thisObject.timeFrameScale !== undefined) {
             thisObject.timeFrameScale.visible = false
           }

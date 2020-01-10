@@ -70,8 +70,15 @@ function newChartSpace () {
 
     let container
 
-       /* Now we see which is the inner most container that has it */
+    /* This first step is not actually to get the container but to allow things to be turned off in case there is a switch of focus from one time machine to another */
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      container = thisObject.timeMachines[i].container
+      if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
+        container.eventHandler.raiseEvent('onMouseNotOver')
+      }
+    }
 
+    /* Now we see which is the inner most container that has it */
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {

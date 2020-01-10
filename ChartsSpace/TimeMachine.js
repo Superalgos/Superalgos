@@ -217,17 +217,6 @@ function newTimeMachine () {
 
     if (thisObject.container.frame.isThisPointHere(point) === true) {
       return thisObject.container
-    } else {
-      if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-        thisObject.container.eventHandler.raiseEvent('onMouseNotOver')
-        if (thisObject.timeScale !== undefined) {
-          thisObject.timeScale.visible = false
-        }
-        if (thisObject.rateScale !== undefined) {
-          thisObject.rateScale.visible = false
-        }
-      }
-      return
     }
   }
 

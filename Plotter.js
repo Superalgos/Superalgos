@@ -58,6 +58,7 @@ function newPlotter () {
   let dimmensionsChangedEventSubscriptionId
   let marketFilesUpdatedEventSubscriptionId
   let dailyFilesUpdatedEventSubscriptionId
+  let onDisplaceEventSubscriptionId
 
   let logged = false
   return thisObject
@@ -71,6 +72,7 @@ function newPlotter () {
       thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
       marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId)
       dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId)
+      thisObject.container.eventHandler.stopListening(onDisplaceEventSubscriptionId)
 
       /* Clear References */
       marketFiles = undefined
@@ -120,6 +122,7 @@ function newPlotter () {
       dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent('Drag Finished', onDragFinished)
       marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
       dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
+      onDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
 
       /* Get ready for plotting. */
       recalculate()
@@ -783,20 +786,24 @@ function newPlotter () {
     }
   }
 
+  function onDisplace (event) {
+    recalculateAll(event)
+  }
+
   function onOffsetChanged (event) {
-    try {
-      mustRecalculateDataPoints = true
-      if (event !== undefined) {
-        if (event.recalculate === true) {
-          recalculate()
-          return
-        }
-      }
-      if (Math.random() * 100 > 95) {
+    recalculateAll(event)
+  }
+
+  function recalculateAll (event) {
+    mustRecalculateDataPoints = true
+    if (event !== undefined) {
+      if (event.recalculate === true) {
         recalculate()
-      };
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onOffsetChanged -> err = ' + err.stack) }
+        return
+      }
+    }
+    if (Math.random() * 100 > 95) {
+      recalculate()
     }
   }
 }

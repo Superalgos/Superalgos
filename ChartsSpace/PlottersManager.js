@@ -199,7 +199,7 @@ function newPlottersManager () {
             plotter = getNewPlotter(pProductCard.product.plotter.dataMine, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
           }
 
-          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction

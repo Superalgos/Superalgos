@@ -284,7 +284,7 @@ function newTimeMachine () {
       timelineChart.payload.uiObject.setValue('Loading...')
 
       /* Setting up the new timeline chart. */
-      timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+      timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
       timelineChart.container.fitFunction = thisObject.container.fitFunction
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2

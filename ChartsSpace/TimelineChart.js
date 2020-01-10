@@ -158,7 +158,7 @@ function newTimelineChart () {
 
       plotterManager = newPlottersManager()
 
-      plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+      plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
 
       plotterManager.container.frame.position.x = 0
       plotterManager.container.frame.position.y = 0

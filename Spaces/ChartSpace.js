@@ -293,7 +293,7 @@ function newChartSpace () {
     drawSpaceBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[i]
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
       timeMachine.drawBackground()
     }
   }

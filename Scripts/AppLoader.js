@@ -55,7 +55,6 @@ function newAppLoader() {
                 
                 'Utilities/RoundedCornersBackground.js',
 
-                'Panels/TimeControlPanel.js',
                 'Panels/ProductsPanel.js',
                 'Panels/PanelTabButton.js',
                 'Panels/ProductCard.js',
@@ -118,7 +117,6 @@ function newAppLoader() {
                 'Animation.js',
 
                 'Container.js',
-                'Displace.js',
 
                 'Utilities.js',
                 'Dashboard.js'

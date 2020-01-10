@@ -111,6 +111,24 @@ function newTimeFrameScale () {
     upCorner = limitingContainer.fitFunction(upCorner, true)
     bottonCorner = limitingContainer.fitFunction(bottonCorner, true)
 
+    /* We will check if we need to change the bottom because of being one of many scales of the same type */
+    let levelsUp = 0
+    if (thisObject.payload.parentNode === undefined) { return } // This happens when in the process of deleting the scale, timeline chart or time machine.
+    if (thisObject.payload.parentNode.type === 'Timeline Chart') {
+      if (thisObject.payload.parentNode.payload.parentNode.timeFrameScale !== undefined) {
+        levelsUp++
+      }
+      for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
+        let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
+        if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
+          levelsUp++
+        } else {
+          break
+        }
+      }
+    }
+    bottonCorner.y = bottonCorner.y - thisObject.container.frame.height * levelsUp
+
     /* Positioning */
     timePoint = {
       x: 0,

@@ -356,7 +356,7 @@ function newTimelineChart () {
   function drawChartsBackground () {
        /* We will paint some transparent background here. */
 
-    let opacity = '0.5'
+    let opacity = '0.1'
 
     let fromPoint = {
       x: 0,

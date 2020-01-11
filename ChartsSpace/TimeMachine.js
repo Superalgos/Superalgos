@@ -257,7 +257,7 @@ function newTimeMachine () {
     }
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-      container = thisObject.timelineCharts[i].getContainer(point)
+      container = thisObject.timelineCharts[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           if (thisObject.container.frame.isThisPointHere(point) === true) {

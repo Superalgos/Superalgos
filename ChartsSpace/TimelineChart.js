@@ -227,11 +227,16 @@ function newTimelineChart () {
     thisObject.plotterManager.setDatetime(datetime)
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     let container
 
     if (thisObject.timeFrameScale !== undefined) {
       container = thisObject.timeFrameScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
     }
 
     return container

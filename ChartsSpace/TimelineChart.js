@@ -26,8 +26,6 @@ function newTimelineChart () {
     finalize: finalize
   }
 
-  thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
-
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
 
@@ -410,8 +408,8 @@ function newTimelineChart () {
     fromPoint = transformThisPoint(fromPoint, thisObject.container)
     toPoint = transformThisPoint(toPoint, thisObject.container)
 
-    fromPoint = canvas.chartSpace.fitIntoVisibleArea(fromPoint)
-    toPoint = canvas.chartSpace.fitIntoVisibleArea(toPoint)
+    fromPoint = thisObject.fitFunction(fromPoint)
+    toPoint = thisObject.fitFunction(toPoint)
 
     browserCanvasContext.beginPath()
 

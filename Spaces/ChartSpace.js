@@ -20,7 +20,7 @@ function newChartSpace () {
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
     oneScreenRight: oneScreenRight,
-    fitIntoVisibleArea: fitIntoVisibleArea,
+    fitFunction: fitFunction,
     isThisPointVisible: isThisPointVisible,
     physics: physics,
     draw: draw,
@@ -144,7 +144,7 @@ function newChartSpace () {
     viewPort.displace(displaceVector, true)
   }
 
-  function fitIntoVisibleArea (point, fullVisible) {
+  function fitFunction (point, fullVisible) {
        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
     let returnPoint = {
@@ -250,8 +250,6 @@ function newChartSpace () {
       /* Setting up the new time machine. */
       timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
       timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
-      timeMachine.container.fitFunction = fitIntoVisibleArea
-      timeMachine.fitFunction = fitIntoVisibleArea
       timeMachine.initialize(onTimeMachineInitialized)
 
       function onTimeMachineInitialized (err) {

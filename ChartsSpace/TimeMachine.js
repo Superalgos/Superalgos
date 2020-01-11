@@ -20,9 +20,9 @@ function newTimeMachine () {
     container: undefined,
     timeScale: undefined,
     rateScale: undefined,
-    fitFunction: undefined,
     payload: undefined,
     timelineCharts: [],
+    fitFunction: fitFunction,
     physics: physics,
     draw: draw,
     drawBackground: drawBackground,
@@ -60,6 +60,7 @@ function newTimeMachine () {
   function setupContainer () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.fitFunction = thisObject.fitFunction
     thisObject.container.isDraggeable = true
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
@@ -281,6 +282,38 @@ function newTimeMachine () {
     }
   }
 
+  function fitFunction (point, fullVisible) {
+     /* We prevent a point to be out of the container AND out of the Chart Space in general */
+
+    let returnPoint = {
+      x: point.x,
+      y: point.y
+    }
+
+    let upCorner = {
+      x: 0,
+      y: 0
+    }
+
+    let bottonCorner = {
+      x: thisObject.container.frame.width,
+      y: thisObject.container.frame.height
+    }
+
+    upCorner = transformThisPoint(upCorner, thisObject.container)
+    bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
+
+    /* Checking against the container limits. */
+    if (returnPoint.x < upCorner.x) { returnPoint.x = upCorner.x }
+    if (returnPoint.x > bottonCorner.x) { returnPoint.x = bottonCorner.x }
+    if (returnPoint.y < upCorner.y) { returnPoint.y = upCorner.y }
+    if (returnPoint.y > bottonCorner.y) { returnPoint.y = bottonCorner.y }
+
+    returnPoint = canvas.chartSpace.fitFunction(returnPoint, fullVisible)
+
+    return returnPoint
+  }
+
   function physics () {
     thisObjectPhysics()
     childrenPhysics()
@@ -359,6 +392,7 @@ function newTimeMachine () {
       /* Setting up the new timeline timelineChart. */
       timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
       timelineChart.container.fitFunction = thisObject.container.fitFunction
+      timelineChart.fitFunction = thisObject.fitFunction
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
       timelineChart.container.frame.position.y = 0

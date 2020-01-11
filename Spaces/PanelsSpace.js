@@ -42,7 +42,7 @@ function newPanelsSpace () {
       case 'Products Panel':
         {
           panel = newProductsPanel()
-          panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+          panel.fitFunction = canvas.chartSpace.fitFunction
           panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
           break
         }
@@ -50,13 +50,13 @@ function newPanelsSpace () {
         {
           if (pPanelCode !== undefined) {
             panel = newPlotterPanel()
-            panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+            panel.fitFunction = canvas.chartSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession
             panel.initialize(pPanelCode)
           } else {
             panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
-            panel.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+            panel.fitFunction = canvas.chartSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession
             panel.initialize()

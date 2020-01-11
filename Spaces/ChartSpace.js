@@ -286,6 +286,15 @@ function newChartSpace () {
     }
   }
 
+  function drawBackground () {
+    drawSpaceBackground()
+
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
+      timeMachine.drawBackground()
+    }
+  }
+
   function draw () {
     if (thisObject.visible !== true) { return }
     drawBackground()
@@ -296,15 +305,6 @@ function newChartSpace () {
     }
 
     drawForeground()
-  }
-
-  function drawBackground () {
-    drawSpaceBackground()
-
-    for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
-      timeMachine.drawBackground()
-    }
   }
 
   function drawForeground () {

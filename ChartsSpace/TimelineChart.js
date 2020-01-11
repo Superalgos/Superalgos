@@ -359,13 +359,6 @@ function newTimelineChart () {
     }
   }
 
-  function draw () {
-    if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
-    }
-  }
-
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (window.CHART_ON_FOCUS === '') {
@@ -373,6 +366,13 @@ function newTimelineChart () {
       }
       drawChartsBackground()
       thisObject.plotterManager.draw()
+    }
+  }
+
+  function draw () {
+    if (thisObject.container.frame.isInViewPort()) {
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
     }
   }
 

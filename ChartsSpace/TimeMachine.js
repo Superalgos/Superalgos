@@ -408,6 +408,15 @@ function newTimeMachine () {
     }
   }
 
+  function drawBackground () {
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+        let timelineChart = thisObject.timelineCharts[i]
+        timelineChart.drawBackground()
+      }
+    }
+  }
+
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
@@ -420,15 +429,6 @@ function newTimeMachine () {
       if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
-    }
-  }
-
-  function drawBackground () {
-    if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-        let timelineChart = thisObject.timelineCharts[i]
-        timelineChart.drawBackground()
-      }
     }
   }
 

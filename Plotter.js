@@ -168,8 +168,8 @@ function newPlotter () {
     try {
       let container
       /* First we check if this point is inside this space. */
-      if (this.container.frame.isThisPointHere(point) === true) {
-        return this.container
+      if (thisObject.container.frame.isThisPointHere(point) === true) {
+        return thisObject.container
       } else {
       /* This point does not belong to this space. */
         return undefined
@@ -222,7 +222,7 @@ function newPlotter () {
 
   function draw () {
     try {
-      this.container.frame.draw()
+      thisObject.container.frame.draw()
       plotChart()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }

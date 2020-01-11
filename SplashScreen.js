@@ -143,14 +143,14 @@ function newSplashScreen () {
 
         /* First we check if this point is inside this space. */
 
-    if (this.container.frame.isThisPointHere(point) === true) {
+    if (thisObject.container.frame.isThisPointHere(point) === true) {
             /* Now we see which is the inner most container that has it */
 
             // add validation of inner most containers here.
 
             /* The point does not belong to any inner container, so we return the current container. */
 
-      return this.container
+      return thisObject.container
     } else {
             /* This point does not belong to this space. */
 

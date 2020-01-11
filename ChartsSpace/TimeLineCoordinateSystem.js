@@ -92,8 +92,8 @@ function newTimeLineCoordinateSystem () {
         */
 
     point = {
-      x: (point.x - this.min.x) * this.scale.x,
-      y: maxHeight - (point.y - this.min.y) * this.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x,
+      y: maxHeight - (point.y - thisObject.min.y) * thisObject.scale.y
     }
 
     return point
@@ -101,8 +101,8 @@ function newTimeLineCoordinateSystem () {
 
   function transformThisPoint2 (point) {
     point = {
-      x: (point.x - this.min.x) * this.scale.x,
-      y: (maxHeight - point.y - this.min.y) * this.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x,
+      y: (maxHeight - point.y - thisObject.min.y) * thisObject.scale.y
     }
 
     return point
@@ -110,8 +110,8 @@ function newTimeLineCoordinateSystem () {
 
   function unInverseTransform (point, inverseY) {
     point = {
-      x: (point.x / this.scale.x) + this.min.x,
-      y: (inverseY - point.y) / this.scale.y + this.min.y
+      x: (point.x / thisObject.scale.x) + thisObject.min.x,
+      y: (inverseY - point.y) / thisObject.scale.y + thisObject.min.y
     }
 
     return point
@@ -119,8 +119,8 @@ function newTimeLineCoordinateSystem () {
 
   function inverseTransformUncappedY (point, inverseY) {
     point = {
-      x: (point.x - this.min.x) * this.scale.x,
-      y: (inverseY - point.y) * this.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x,
+      y: (inverseY - point.y) * thisObject.scale.y
     }
 
     return point

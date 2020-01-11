@@ -199,6 +199,33 @@ function newTimeMachine () {
     }
   }
 
+  function initializeTimeFrameScale () {
+    thisObject.timeFrameScale = newTimeFrameScale()
+    thisObject.timeFrameScale.fitFunction = thisObject.fitFunction
+    thisObject.timeFrameScale.payload = thisObject.payload.node.timeFrameScale.payload
+
+    timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+      let currentTimeFrame = timeFrame
+      timeFrame = event.timeFrame
+      if (timeFrame !== currentTimeFrame) {
+        for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+          let timelineChart = thisObject.timelineCharts[i]
+          if (timelineChart.timeFrameScale === undefined) {
+            timelineChart.plotterManager.setTimeFrame(timeFrame)
+          }
+        }
+      }
+    })
+
+    thisObject.timeFrameScale.initialize(timeLineCoordinateSystem, thisObject.container)
+
+    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
+
+    function timeFrameScaleMouseOver (event) {
+      thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
+    }
+  }
+
   function getContainer (point, purpose) {
     let container
 
@@ -220,8 +247,17 @@ function newTimeMachine () {
       }
     }
 
-    for (let i = 0; i < this.timelineCharts.length; i++) {
-      container = this.timelineCharts[i].getContainer(point)
+    if (thisObject.timeFrameScale !== undefined) {
+      container = thisObject.timeFrameScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
+    }
+
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      container = thisObject.timelineCharts[i].getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           if (thisObject.container.frame.isThisPointHere(point) === true) {
@@ -269,7 +305,7 @@ function newTimeMachine () {
       let node = thisObject.payload.node.timelineCharts[j]
       let timelineChart = timelineChartsMap.get(node.id)
       if (timelineChart === undefined) {
-              /* The timeline chart node is new, thus we need to initialize a new timelineChart */
+              /* The timeline timelineChart node is new, thus we need to initialize a new timelineChart */
         initializeTimelineChart(node, syncWithDesignerLoop)
       } else {
               /* The time machine already exists, we tag it as existing at the current loop. */
@@ -299,7 +335,7 @@ function newTimeMachine () {
       timelineChartsMap.set(node.id, timelineChart)
       timelineChart.payload.uiObject.setValue('Loading...')
 
-      /* Setting up the new timeline chart. */
+      /* Setting up the new timeline timelineChart. */
       timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
       timelineChart.container.fitFunction = thisObject.container.fitFunction
       timelineChart.container.frame.height = thisObject.container.frame.height
@@ -348,25 +384,25 @@ function newTimeMachine () {
     }
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-      let chart = thisObject.timelineCharts[i]
-      chart.physics()
+      let timelineChart = thisObject.timelineCharts[i]
+      timelineChart.physics()
     }
   }
 
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.timelineCharts.length; i++) {
-        let chart = this.timelineCharts[i]
-        chart.drawBackground()
+      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+        let timelineChart = thisObject.timelineCharts[i]
+        timelineChart.drawBackground()
       }
     }
   }
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < this.timelineCharts.length; i++) {
-        let chart = this.timelineCharts[i]
-        chart.draw()
+      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+        let timelineChart = thisObject.timelineCharts[i]
+        timelineChart.draw()
       }
 
       if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }

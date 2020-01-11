@@ -16,6 +16,7 @@ function newTimelineChart () {
     fitFunction: undefined,
     timeFrameScale: undefined,
     payload: undefined,
+    plotterManager: undefined,
     physics: physics,
     drawBackground: drawBackground,
     draw: draw,
@@ -30,7 +31,6 @@ function newTimelineChart () {
 
   let productsPanel
 
-  let plotterManager
   let exchange
   let market
 
@@ -69,8 +69,8 @@ function newTimelineChart () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
 
-    plotterManager.finalize()
-    plotterManager = undefined
+    thisObject.plotterManager.finalize()
+    thisObject.plotterManager = undefined
 
     canvas.panelsSpace.destroyPanel(productsPanelHandle)
 
@@ -109,15 +109,15 @@ function newTimelineChart () {
       onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
 
        /* Initialize the Plotter Manager */
-      plotterManager = newPlottersManager()
+      thisObject.plotterManager = newPlottersManager()
 
-      plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
+      thisObject.plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
 
-      plotterManager.container.frame.position.x = 0
-      plotterManager.container.frame.position.y = 0
+      thisObject.plotterManager.container.frame.position.x = 0
+      thisObject.plotterManager.container.frame.position.y = 0
 
-      plotterManager.fitFunction = thisObject.fitFunction
-      plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
+      thisObject.plotterManager.fitFunction = thisObject.fitFunction
+      thisObject.plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
 
       function onPlotterManagerReady (err) {
         if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -171,7 +171,7 @@ function newTimelineChart () {
       let currentTimeFrame = timeFrame
       timeFrame = event.timeFrame
       if (timeFrame !== currentTimeFrame) {
-        plotterManager.setTimeFrame(timeFrame)
+        thisObject.plotterManager.setTimeFrame(timeFrame)
       }
     })
 
@@ -224,7 +224,7 @@ function newTimelineChart () {
 
     datetime = newDate
 
-    plotterManager.setDatetime(datetime)
+    thisObject.plotterManager.setDatetime(datetime)
   }
 
   function getContainer (point) {
@@ -284,7 +284,7 @@ function newTimelineChart () {
         window.CHART_ON_FOCUS = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       }
       drawChartsBackground()
-      plotterManager.draw()
+      thisObject.plotterManager.draw()
     }
   }
 

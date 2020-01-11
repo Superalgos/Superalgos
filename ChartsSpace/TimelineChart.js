@@ -89,6 +89,8 @@ function newTimelineChart () {
   }
 
   function finalizeTimeFrameScale () {
+    if (thisObject.timeFrameScale === undefined) { return }
+
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleMouseOverEventSuscriptionId)
     thisObject.timeFrameScale.finalize()
@@ -100,6 +102,8 @@ function newTimelineChart () {
   }
 
   function finalizeRateScale () {
+    if (thisObject.rateScale === undefined) { return }
+
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()

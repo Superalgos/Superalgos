@@ -104,6 +104,8 @@ function newTimeMachine () {
   }
 
   function finalizeTimeScale () {
+    if (thisObject.timeScale === undefined) { return }
+
     thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
     thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
     thisObject.timeScale.finalize()
@@ -111,6 +113,8 @@ function newTimeMachine () {
   }
 
   function finalizeRateScale () {
+    if (thisObject.rateScale === undefined) { return }
+
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
@@ -118,6 +122,8 @@ function newTimeMachine () {
   }
 
   function finalizeTimeFrameScale () {
+    if (thisObject.timeFrameScale === undefined) { return }
+
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleMouseOverEventSuscriptionId)
     thisObject.timeFrameScale.finalize()
@@ -282,7 +288,7 @@ function newTimeMachine () {
     }
   }
 
-  function fitFunction (point, fullVisible) {
+  function fitFunction (point, fullVisible, margin, topMargin, bottomMargin) {
      /* We prevent a point to be out of the container AND out of the Chart Space in general */
 
     let returnPoint = {
@@ -304,10 +310,14 @@ function newTimeMachine () {
     bottonCorner = transformThisPoint(bottonCorner, thisObject.container)
 
     /* Checking against the container limits. */
-    if (returnPoint.x < upCorner.x) { returnPoint.x = upCorner.x }
-    if (returnPoint.x > bottonCorner.x) { returnPoint.x = bottonCorner.x }
-    if (returnPoint.y < upCorner.y) { returnPoint.y = upCorner.y }
-    if (returnPoint.y > bottonCorner.y) { returnPoint.y = bottonCorner.y }
+    if (margin === undefined) { margin = 0 }
+    if (topMargin === undefined) { topMargin = 0 }
+    if (bottomMargin === undefined) { bottomMargin = 0 }
+
+    if (returnPoint.x - margin < upCorner.x) { returnPoint.x = upCorner.x + margin }
+    if (returnPoint.x + margin > bottonCorner.x) { returnPoint.x = bottonCorner.x - margin }
+    if (returnPoint.y - margin - topMargin < upCorner.y) { returnPoint.y = upCorner.y + margin + topMargin }
+    if (returnPoint.y + margin + bottomMargin > bottonCorner.y) { returnPoint.y = bottonCorner.y - margin - bottomMargin }
 
     returnPoint = canvas.chartSpace.fitFunction(returnPoint, fullVisible)
 

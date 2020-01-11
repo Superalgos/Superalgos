@@ -13,6 +13,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -34,7 +35,7 @@
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -81,6 +82,7 @@
             marketFile = undefined;
             fileCursor = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
@@ -242,7 +244,7 @@
                         y: candles[i].open
                     };
 
-                    targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
+                    targetPoint = coordinateSystem.transformThisPoint(targetPoint);
                     targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                     let targetMax = {
@@ -250,7 +252,7 @@
                         y: candles[i].max
                     };
 
-                    targetMax = timeLineCoordinateSystem.transformThisPoint(targetMax);
+                    targetMax = coordinateSystem.transformThisPoint(targetMax);
                     targetMax = transformThisPoint(targetMax, thisObject.container);
 
                     let targetMin = {
@@ -258,7 +260,7 @@
                         y: candles[i].min
                     };
 
-                    targetMin = timeLineCoordinateSystem.transformThisPoint(targetMin);
+                    targetMin = coordinateSystem.transformThisPoint(targetMin);
                     targetMin = transformThisPoint(targetMin, thisObject.container);
 
                     let center = {
@@ -295,7 +297,7 @@
                     y: lastClose
                 };
 
-                targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint);
+                targetPoint = coordinateSystem.transformThisPoint(targetPoint);
                 targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                 let center = {
@@ -385,8 +387,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -471,8 +473,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -529,7 +531,7 @@
 
         try {
 
-            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
                 x: MIN_PLOTABLE_DATE.valueOf(),
@@ -542,7 +544,7 @@
             };
 
 
-            timeLineCoordinateSystem.initialize(
+            coordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
@@ -589,10 +591,10 @@
                         y: candle.close
                     };
 
-                    candle.candlePoint1 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint1);
-                    candle.candlePoint2 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint2);
-                    candle.candlePoint3 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint3);
-                    candle.candlePoint4 = timeLineCoordinateSystem.transformThisPoint(candle.candlePoint4);
+                    candle.candlePoint1 = coordinateSystem.transformThisPoint(candle.candlePoint1);
+                    candle.candlePoint2 = coordinateSystem.transformThisPoint(candle.candlePoint2);
+                    candle.candlePoint3 = coordinateSystem.transformThisPoint(candle.candlePoint3);
+                    candle.candlePoint4 = coordinateSystem.transformThisPoint(candle.candlePoint4);
 
                     candle.candlePoint1 = transformThisPoint(candle.candlePoint1, thisObject.container);
                     candle.candlePoint2 = transformThisPoint(candle.candlePoint2, thisObject.container);
@@ -603,6 +605,11 @@
                     candle.candlePoint2 = viewPort.fitIntoVisibleArea(candle.candlePoint2);
                     candle.candlePoint3 = viewPort.fitIntoVisibleArea(candle.candlePoint3);
                     candle.candlePoint4 = viewPort.fitIntoVisibleArea(candle.candlePoint4);
+
+                    candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
+                    candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
+                    candle.candlePoint3 = thisObject.fitFunction(candle.candlePoint3);
+                    candle.candlePoint4 = thisObject.fitFunction(candle.candlePoint4);
 
                     candle.stickPoint1 = {
                         x: candle.begin + timeFrame / 7 * 3.2,
@@ -624,10 +631,10 @@
                         y: candle.min
                     };
 
-                    candle.stickPoint1 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint1);
-                    candle.stickPoint2 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint2);
-                    candle.stickPoint3 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint3);
-                    candle.stickPoint4 = timeLineCoordinateSystem.transformThisPoint(candle.stickPoint4);
+                    candle.stickPoint1 = coordinateSystem.transformThisPoint(candle.stickPoint1);
+                    candle.stickPoint2 = coordinateSystem.transformThisPoint(candle.stickPoint2);
+                    candle.stickPoint3 = coordinateSystem.transformThisPoint(candle.stickPoint3);
+                    candle.stickPoint4 = coordinateSystem.transformThisPoint(candle.stickPoint4);
 
                     candle.stickPoint1 = transformThisPoint(candle.stickPoint1, thisObject.container);
                     candle.stickPoint2 = transformThisPoint(candle.stickPoint2, thisObject.container);
@@ -638,6 +645,11 @@
                     candle.stickPoint2 = viewPort.fitIntoVisibleArea(candle.stickPoint2);
                     candle.stickPoint3 = viewPort.fitIntoVisibleArea(candle.stickPoint3);
                     candle.stickPoint4 = viewPort.fitIntoVisibleArea(candle.stickPoint4);
+
+                    candle.stickPoint1 = thisObject.fitFunction(candle.stickPoint1);
+                    candle.stickPoint2 = thisObject.fitFunction(candle.stickPoint2);
+                    candle.stickPoint3 = thisObject.fitFunction(candle.stickPoint3);
+                    candle.stickPoint4 = thisObject.fitFunction(candle.stickPoint4);
 
                 }
 

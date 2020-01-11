@@ -17,6 +17,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -29,8 +30,8 @@
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
-    let plotAreaFrame = newTimeLineCoordinateSystem();  // This chart uses this extra object.
+    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let plotAreaFrame = newCoordinateSystem();  // This chart uses this extra object.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -79,6 +80,7 @@
             marketFile = undefined;
             fileCursor = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
@@ -303,8 +305,8 @@
 
             if (fileCursor.files.size === 0) { return; } // We need to wait until there are files in the cursor
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -384,8 +386,8 @@
 
             if (marketFile === undefined) { return; } // Initialization not complete yet.
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -441,7 +443,7 @@
                 x: MAX_PLOTABLE_DATE.valueOf()
             };
 
-            timeLineCoordinateSystem.initializeX(
+            coordinateSystem.initializeX(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width
@@ -475,7 +477,7 @@
 
             maxValue.y = getMaxVolume() / (timeFrameRatio / 2.5);
 
-            timeLineCoordinateSystem.initializeY(
+            coordinateSystem.initializeY(
                 minValue,
                 maxValue,
                 viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y
@@ -601,13 +603,13 @@
 
                         if (volumePointA1.y > viewPort.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
-                            if (calculateBuys(timeLineCoordinateSystem, visibleHeight) === false) { continue; }  // We snap t to the view port.
+                            if (calculateBuys(coordinateSystem, visibleHeight) === false) { continue; }  // We snap t to the view port.
 
                             /* Now we set the real value of y. */
 
                             volumePointA1.y = viewPort.visibleArea.bottomRight.y;
-                            volumePointA2.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * timeLineCoordinateSystem.scale.y;
-                            volumePointA3.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * timeLineCoordinateSystem.scale.y;
+                            volumePointA2.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * coordinateSystem.scale.y;
+                            volumePointA3.y = viewPort.visibleArea.bottomRight.y - volume.amountBuy * coordinateSystem.scale.y;
                             volumePointA4.y = viewPort.visibleArea.bottomRight.y;
 
                         }
@@ -655,13 +657,13 @@
 
                         if (volumePointB1.y < viewPort.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
-                            calculateSells(timeLineCoordinateSystem, visibleHeight); // We snap it to the view port.
+                            calculateSells(coordinateSystem, visibleHeight); // We snap it to the view port.
 
                             /* Now we set the real value of y. */
 
                             volumePointB1.y = viewPort.visibleArea.topLeft.y;
-                            volumePointB2.y = viewPort.visibleArea.topLeft.y + volume.amountSell * timeLineCoordinateSystem.scale.y;
-                            volumePointB3.y = viewPort.visibleArea.topLeft.y + volume.amountSell * timeLineCoordinateSystem.scale.y;
+                            volumePointB2.y = viewPort.visibleArea.topLeft.y + volume.amountSell * coordinateSystem.scale.y;
+                            volumePointB3.y = viewPort.visibleArea.topLeft.y + volume.amountSell * coordinateSystem.scale.y;
                             volumePointB4.y = viewPort.visibleArea.topLeft.y;
 
                         }
@@ -695,6 +697,16 @@
                         volumePointB2 = viewPort.fitIntoVisibleArea(volumePointB2);
                         volumePointB3 = viewPort.fitIntoVisibleArea(volumePointB3);
                         volumePointB4 = viewPort.fitIntoVisibleArea(volumePointB4);
+
+                        volumePointA1 = thisObject.fitFunction(volumePointA1);
+                        volumePointA2 = thisObject.fitFunction(volumePointA2);
+                        volumePointA3 = thisObject.fitFunction(volumePointA3);
+                        volumePointA4 = thisObject.fitFunction(volumePointA4);
+
+                        volumePointB1 = thisObject.fitFunction(volumePointB1);
+                        volumePointB2 = thisObject.fitFunction(volumePointB2);
+                        volumePointB3 = thisObject.fitFunction(volumePointB3);
+                        volumePointB4 = thisObject.fitFunction(volumePointB4);
 
                         /* Everything must fit within the Frame. We know that that is equivalent to say that each bar con not be higher than the base of the opposite . */
 

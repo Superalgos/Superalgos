@@ -141,6 +141,10 @@ function newTimeMachine () {
         thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
         thisObject.rateScale.visible = true
       }
+      if (thisObject.timeFrameScale !== undefined) {
+        thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
+        thisObject.timeFrameScale.visible = true
+      }
     }
 
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -151,6 +155,9 @@ function newTimeMachine () {
       }
       if (thisObject.rateScale !== undefined) {
         thisObject.rateScale.visible = false
+      }
+      if (thisObject.timeFrameScale !== undefined) {
+        thisObject.timeFrameScale.visible = false
       }
     }
 
@@ -210,6 +217,7 @@ function newTimeMachine () {
       if (timeFrame !== currentTimeFrame) {
         for (let i = 0; i < thisObject.timelineCharts.length; i++) {
           let timelineChart = thisObject.timelineCharts[i]
+          timelineChart.upstreamTimeFrame = timeFrame
           if (timelineChart.timeFrameScale === undefined) {
             timelineChart.plotterManager.setTimeFrame(timeFrame)
           }
@@ -295,6 +303,12 @@ function newTimeMachine () {
     }
     if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
       initializeRateScale()
+    }
+    if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
+      finalizeTimeFrameScale()
+    }
+    if (thisObject.payload.node.timeFrameScale !== undefined && thisObject.timeFrameScale === undefined) {
+      initializeTimeFrameScale()
     }
   }
 
@@ -382,6 +396,9 @@ function newTimeMachine () {
     if (thisObject.rateScale !== undefined) {
       thisObject.rateScale.physics()
     }
+    if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.physics()
+    }
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let timelineChart = thisObject.timelineCharts[i]
@@ -407,6 +424,7 @@ function newTimeMachine () {
 
       if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
       if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     }

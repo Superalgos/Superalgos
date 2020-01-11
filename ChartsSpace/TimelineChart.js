@@ -17,6 +17,7 @@ function newTimelineChart () {
     timeFrameScale: undefined,
     payload: undefined,
     plotterManager: undefined,
+    upstreamTimeFrame: undefined,
     physics: physics,
     drawBackground: drawBackground,
     draw: draw,
@@ -86,6 +87,10 @@ function newTimelineChart () {
     thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleMouseOverEventSuscriptionId)
     thisObject.timeFrameScale.finalize()
     thisObject.timeFrameScale = undefined
+    if (thisObject.upstreamTimeFrame !== undefined) {
+      timeFrame = thisObject.upstreamTimeFrame
+      thisObject.plotterManager.setTimeFrame(timeFrame)
+    }
   }
 
   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {

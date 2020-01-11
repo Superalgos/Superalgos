@@ -14,6 +14,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -85,6 +86,7 @@
             marketFile = undefined;
             fileCursor = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
@@ -512,6 +514,10 @@
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
                 recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
 
+                recordPoint1 = thisObject.fitFunction(recordPoint1);
+                recordPoint2 = thisObject.fitFunction(recordPoint2);
+                recordPoint3 = thisObject.fitFunction(recordPoint3);
+
                 let line1 = '';
                 let line2 = '';
 
@@ -575,6 +581,9 @@
                     point.x = recordPoint3.x
                     point.y = recordPoint3.y - 100
                 }
+
+                point = viewPort.fitIntoVisibleArea(point);
+                point = thisObject.fitFunction(point, undefined, 50);
 
                 if (
                     recordPoint3.x < viewPort.visibleArea.topLeft.x + 250

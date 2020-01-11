@@ -14,6 +14,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -87,6 +88,7 @@
 
             strategyImages = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
@@ -532,6 +534,11 @@
                 recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
                 recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
                 recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
+
+                recordPoint1 = thisObject.fitFunction(recordPoint1, undefined, 30);
+                recordPoint2 = thisObject.fitFunction(recordPoint2, undefined, 30);
+                recordPoint3 = thisObject.fitFunction(recordPoint3, undefined, 30);
+                recordPoint4 = thisObject.fitFunction(recordPoint4, undefined, 30);
 
                 let imageSize = 20;
                 let imageToDraw = strategyImages[record.number];

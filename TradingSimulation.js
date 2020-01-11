@@ -13,6 +13,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -91,6 +92,7 @@
             marketFile = undefined;
             fileCursor = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
@@ -668,7 +670,8 @@
                     y: recordPoint4.y + imageOffset.y
                 }
 
-                imagePosition = thisObject.fitFunction(imagePosition)
+                imagePosition = viewPort.fitIntoVisibleArea(imagePosition)
+                imagePosition = thisObject.fitFunction(imagePosition, undefined, 0, 0, imageSize)
 
                 if (imageRecord.canDrawIcon === true) {
                     browserCanvasContext.drawImage(imageRecord, imagePosition.x, imagePosition.y, imageSize, imageSize);
@@ -739,10 +742,24 @@
                 browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
 
+                imagePosition = {
+                    x: recordPoint6.x - imageSize,
+                    y: recordPoint6.y - imageSize * 1.25 + yOffset
+                }
+
+                imagePosition = viewPort.fitIntoVisibleArea(imagePosition)
+                imagePosition = thisObject.fitFunction(imagePosition, undefined, 0, 0, imageSize)
+
+                let labelPosition = {
+                    x: recordPoint6.x - imageSize / 2 - 3,
+                    y: recordPoint6.y - imageSize * 1.5 + yOffset * 2
+                }
+                labelPosition = viewPort.fitIntoVisibleArea(labelPosition)
+                labelPosition = thisObject.fitFunction(labelPosition, undefined, 30)
 
                 if (imageStopLossPhase.canDrawIcon === true && stopLossPhase > -1) {
-                    browserCanvasContext.drawImage(imageStopLossPhase, recordPoint6.x - imageSize, recordPoint6.y - imageSize * 1.25 + yOffset, imageSize, imageSize);
-                    printLabel(stopLossPhase, recordPoint6.x - imageSize / 2 - 3, recordPoint6.y - imageSize * 1.5 + yOffset * 2, '1', 9);
+                    browserCanvasContext.drawImage(imageStopLossPhase, imagePosition.x, imagePosition.y, imageSize, imageSize);
+                    printLabel(stopLossPhase, labelPosition.x, labelPosition.y, '1', 9);
                 }
 
                 /* Next we are drawing the Take Profit */
@@ -767,9 +784,23 @@
                 browserCanvasContext.lineWidth = 1
                 browserCanvasContext.stroke()
 
+                imagePosition = {
+                    x: recordPoint10.x - imageSize * 2 / 3,
+                    y: recordPoint10.y + imageSize / 4 - yOffset
+                }
+                imagePosition = viewPort.fitIntoVisibleArea(imagePosition)
+                imagePosition = thisObject.fitFunction(imagePosition, undefined, 0, 0, imageSize)
+
+                labelPosition = {
+                    x: recordPoint10.x - imageSize * 1 / 3,
+                    y: recordPoint10.y + imageSize * 1.9 - yOffset * 2
+                }
+                labelPosition = viewPort.fitIntoVisibleArea(labelPosition)
+                labelPosition = thisObject.fitFunction(labelPosition, undefined, 30)
+
                 if (imageTakeProfitPhase.canDrawIcon === true && takeProfitPhase > -1) {
-                    browserCanvasContext.drawImage(imageTakeProfitPhase, recordPoint10.x - imageSize * 2 / 3, recordPoint10.y + imageSize / 4 - yOffset, imageSize, imageSize);
-                    printLabel(takeProfitPhase, recordPoint10.x - imageSize * 1 / 3, recordPoint10.y + imageSize * 1.9 - yOffset * 2, '1', 9);
+                    browserCanvasContext.drawImage(imageTakeProfitPhase, imagePosition.x, imagePosition.y, imageSize, imageSize);
+                    printLabel(takeProfitPhase, labelPosition.x, labelPosition.y, '1', 9);
                 }
             }
 

@@ -13,6 +13,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -63,6 +64,7 @@
             plotElements = undefined;
             plotLines = undefined;
 
+            thisObject.fitFunction = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> finalize -> err = " + err.stack.stack); }
         }
@@ -372,6 +374,7 @@
                     if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue; }
 
                     point = viewPort.fitIntoVisibleArea(point);
+                    point = thisObject.fitFunction(point);
 
                     let isCurrentRecord = false;
 
@@ -409,14 +412,17 @@
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
                         point2.y = point2.y - diff;
@@ -426,6 +432,8 @@
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = thisObject.fitFunction(point2);
+                        point3 = thisObject.fitFunction(point3);
 
                         browserCanvasContext.beginPath();
 
@@ -479,14 +487,17 @@
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
                         point2.y = point2.y + diff;
@@ -496,6 +507,8 @@
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = thisObject.fitFunction(point2);
+                        point3 = thisObject.fitFunction(point3);
 
                         browserCanvasContext.beginPath();
 
@@ -547,14 +560,17 @@
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
                         point2.y = point2.y - diff;
@@ -564,6 +580,8 @@
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = thisObject.fitFunction(point2);
+                        point3 = thisObject.fitFunction(point3);
 
                         browserCanvasContext.beginPath();
 
@@ -616,14 +634,17 @@
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
                         point2.y = point2.y + diff;
@@ -633,6 +654,8 @@
 
                         point2 = viewPort.fitIntoVisibleArea(point2);
                         point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = thisObject.fitFunction(point2);
+                        point3 = thisObject.fitFunction(point3);
 
                         browserCanvasContext.beginPath();
 
@@ -734,10 +757,12 @@
                     point1 = coordinateSystem.transformThisPoint(point1);
                     point1 = transformThisPoint(point1, thisObject.container);
                     point1 = viewPort.fitIntoVisibleArea(point1);
+                    point1 = thisObject.fitFunction(point1);
 
                     point2 = coordinateSystem.transformThisPoint(point2);
                     point2 = transformThisPoint(point2, thisObject.container);
                     point2 = viewPort.fitIntoVisibleArea(point2);
+                    point2 = thisObject.fitFunction(point2);
 
                     browserCanvasContext.beginPath();
 

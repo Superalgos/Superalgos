@@ -132,16 +132,13 @@ function newTimeMachine () {
       mouse.position.y = event.y
 
       if (thisObject.timeScale !== undefined) {
-        thisObject.timeScale.visible = true
         thisObject.timeScale.onMouseOverSomeTimeMachineContainer(event)
       }
       if (thisObject.rateScale !== undefined) {
         thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
-        thisObject.rateScale.visible = true
       }
       if (thisObject.timeFrameScale !== undefined) {
         thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
-        thisObject.timeFrameScale.visible = true
       }
     }
 
@@ -176,7 +173,7 @@ function newTimeMachine () {
 
     thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
-    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
+    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOverScale', timeScaleMouseOver)
 
     function timeScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
@@ -197,7 +194,7 @@ function newTimeMachine () {
 
     thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
-    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
 
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
@@ -225,7 +222,7 @@ function newTimeMachine () {
 
     thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
-    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
+    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)

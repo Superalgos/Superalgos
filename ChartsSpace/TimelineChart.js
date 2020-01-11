@@ -155,11 +155,9 @@ function newTimelineChart () {
           /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
           if (thisObject.rateScale !== undefined) {
             thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
-            thisObject.rateScale.visible = true
           }
 
           if (thisObject.timeFrameScale !== undefined) {
-            thisObject.timeFrameScale.visible = true
             thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
           }
 
@@ -205,7 +203,7 @@ function newTimelineChart () {
 
     thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer)
 
-    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
 
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
@@ -227,7 +225,7 @@ function newTimelineChart () {
 
     thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container.parentContainer)
 
-    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
+    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)

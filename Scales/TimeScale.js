@@ -7,7 +7,6 @@ function newTimeScale () {
     date: undefined,
     fitFunction: undefined,
     payload: undefined,
-    visible: true,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -30,6 +29,7 @@ function newTimeScale () {
   thisObject.container.frame.width = 200
   thisObject.container.frame.height = 60
 
+  let visible = true
   let isMouseOver
 
   let onMouseWheelEventSubscriptionId
@@ -83,6 +83,16 @@ function newTimeScale () {
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
+    if (event.containerId === undefined) {
+      /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
+      visible = true
+    } else {
+      if (event.containerId === thisObject.container.id) {
+        visible = true
+      } else {
+        visible = false
+      }
+    }
     mouse = {
       position: {
         x: event.x,
@@ -92,8 +102,9 @@ function newTimeScale () {
   }
 
   function onMouseOver () {
-    thisObject.visible = true
     isMouseOver = true
+    event.containerId = thisObject.container.id
+    thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
   }
 
   function onMouseNotOver () {
@@ -120,6 +131,7 @@ function newTimeScale () {
   }
 
   function getContainer (point) {
+    if (visible !== true) { return }
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -180,7 +192,7 @@ function newTimeScale () {
 
   function drawArrows () {
     if (isMouseOver !== true) { return }
-    if (thisObject.visible === false || thisObject.date === undefined) { return }
+    if (visible === false || thisObject.date === undefined) { return }
 
     const X_OFFSET = thisObject.container.frame.width / 2
     const Y_OFFSET = thisObject.container.frame.height / 2 - 10
@@ -281,7 +293,7 @@ function newTimeScale () {
   }
 
   function drawTime () {
-    if (thisObject.visible === false || thisObject.date === undefined) { return }
+    if (visible === false || thisObject.date === undefined) { return }
 
     let label = thisObject.date.toUTCString()
     let labelArray = label.split(' ')

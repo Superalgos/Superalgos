@@ -79,11 +79,22 @@ function newTimeFrameScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     function onMouseOver () {
-      thisObject.visible = true
+      event.containerId = thisObject.container.id
+      thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
     }
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
+    if (event.containerId === undefined) {
+      /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
+      visible = true
+    } else {
+      if (event.containerId === thisObject.container.id) {
+        visible = true
+      } else {
+        visible = false
+      }
+    }
     mouse = {
       position: {
         x: event.x,
@@ -200,6 +211,7 @@ function newTimeFrameScale () {
   }
 
   function getContainer (point) {
+    if (visible !== true) { return }
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -238,7 +250,7 @@ function newTimeFrameScale () {
   }
 
   function drawTimeFrame () {
-    if (thisObject.visible === false || timeFrameLabel === undefined) { return }
+    if (visible === false || timeFrameLabel === undefined) { return }
 
     let label = timeFrameLabel.split('-')
     let label1 = thisObject.payload.node.payload.parentNode.name

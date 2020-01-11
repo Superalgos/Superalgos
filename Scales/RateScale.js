@@ -6,7 +6,6 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    visible: true,
     heightPercentage: 150,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
@@ -31,6 +30,7 @@ function newRateScale () {
   thisObject.container.frame.width = 200
   thisObject.container.frame.height = 60
 
+  let visible = true
   let isMouseOver
 
   let onMouseWheelEventSubscriptionId
@@ -84,6 +84,16 @@ function newRateScale () {
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
+    if (event.containerId === undefined) {
+      /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
+      visible = true
+    } else {
+      if (event.containerId === thisObject.container.id) {
+        visible = true
+      } else {
+        visible = false
+      }
+    }
     mouse = {
       position: {
         x: event.x,
@@ -92,9 +102,10 @@ function newRateScale () {
     }
   }
 
-  function onMouseOver () {
-    thisObject.visible = true
+  function onMouseOver (event) {
     isMouseOver = true
+    event.containerId = thisObject.container.id
+    thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
   }
 
   function onMouseNotOver () {
@@ -120,6 +131,7 @@ function newRateScale () {
   }
 
   function getContainer (point) {
+    if (visible !== true) { return }
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -198,7 +210,7 @@ function newRateScale () {
 
   function drawArrows () {
     if (isMouseOver !== true) { return }
-    if (thisObject.visible === false || thisObject.rate === undefined) { return }
+    if (visible === false || thisObject.rate === undefined) { return }
 
     const X_OFFSET = thisObject.container.frame.width / 2
     const Y_OFFSET = thisObject.container.frame.height / 2
@@ -299,7 +311,7 @@ function newRateScale () {
   }
 
   function drawRate () {
-    if (thisObject.visible === false || thisObject.rate === undefined) { return }
+    if (visible === false || thisObject.rate === undefined) { return }
 
     let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
     let labelArray = label.split('.')

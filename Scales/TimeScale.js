@@ -92,6 +92,7 @@ function newTimeScale () {
         visible = true
       } else {
         visible = false
+        turnOnCounter = 0
       }
     }
     mouse = {
@@ -102,7 +103,7 @@ function newTimeScale () {
     }
   }
 
-  function onMouseOver () {
+  function onMouseOver (event) {
     isMouseOver = true
     event.containerId = thisObject.container.id
     thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
@@ -132,7 +133,6 @@ function newTimeScale () {
   }
 
   function getContainer (point) {
-    if (visible !== true) { return }
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -212,12 +212,8 @@ function newTimeScale () {
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
-    let backgroundColor
-    if (visible === true) {
-      backgroundColor = UI_COLOR.BLACK
-    } else {
-      backgroundColor = UI_COLOR.DARK
-    }
+    let backgroundColor = UI_COLOR.BLACK
+
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }
 

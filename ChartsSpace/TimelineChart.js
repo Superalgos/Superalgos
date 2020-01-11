@@ -31,16 +31,6 @@ function newTimelineChart () {
 
   let productsPanel
 
-   /* Background */
-  let logoBaseAsset
-  let logoQuotedAsset
-  let logoExchange
-  let logoAA
-  let canDrawLogoA = false
-  let canDrawLogoB = false
-  let canDrawLogoExchange = false
-  let canDrawLogoAA = false
-
   let plotterManager
   let exchange
   let market

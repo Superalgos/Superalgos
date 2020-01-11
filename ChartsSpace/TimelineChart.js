@@ -47,6 +47,7 @@ function newTimelineChart () {
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
 
+  let drawScales = false
   let mouse = {
     position: {
       x: 0,
@@ -154,6 +155,8 @@ function newTimelineChart () {
 
         function onMouseOver (event) {
           /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
+          drawScales = true
+
           if (thisObject.rateScale !== undefined) {
             thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
           }
@@ -172,6 +175,8 @@ function newTimelineChart () {
 
         function onMouseNotOver (event) {
           /* This event is inherited from the Time Machine */
+          drawScales = false
+
           if (thisObject.rateScale !== undefined) {
             thisObject.rateScale.visible = false
           }
@@ -371,15 +376,19 @@ function newTimelineChart () {
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (drawScales === true) {
+        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+        if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      }
     }
   }
 
   function drawForeground () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+      if (drawScales === true) {
+        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
+        if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+      }
     }
   }
 

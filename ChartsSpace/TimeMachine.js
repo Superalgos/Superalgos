@@ -41,6 +41,7 @@ function newTimeMachine () {
     }
   }
 
+  let drawScales = false
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
 
@@ -129,6 +130,8 @@ function newTimeMachine () {
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     function onMouseOver (event) {
+      drawScales = true
+
       mouse.position.x = event.x
       mouse.position.y = event.y
 
@@ -146,6 +149,8 @@ function newTimeMachine () {
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     function onMouseNotOver (event) {
+      drawScales = false
+
       if (thisObject.timeScale !== undefined) {
         thisObject.timeScale.visible = false
       }
@@ -424,9 +429,11 @@ function newTimeMachine () {
         timelineChart.draw()
       }
 
-      if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (drawScales === true) {
+        if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
+        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+        if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     }
@@ -439,9 +446,11 @@ function newTimeMachine () {
         timelineChart.drawForeground()
       }
 
-      if (thisObject.timeScale !== undefined) { thisObject.timeScale.drawForeground() }
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+      if (drawScales === true) {
+        if (thisObject.timeScale !== undefined) { thisObject.timeScale.drawForeground() }
+        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
+        if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+      }
     }
   }
 

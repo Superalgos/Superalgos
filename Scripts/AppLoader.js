@@ -38,7 +38,7 @@ function newAppLoader() {
                 'ChartsSpace/PlottersManager.js',
                 'ChartsSpace/TimelineChart.js',
                 'ChartsSpace/TimeMachine.js',
-                'ChartsSpace/TimeLineCoordinateSystem.js',
+                'ChartsSpace/CoordinateSystem.js',
 
                 'DesignerSpace/Workspace/Workspace.js',
                 'DesignerSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',

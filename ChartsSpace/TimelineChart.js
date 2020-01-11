@@ -372,8 +372,8 @@ function newTimelineChart () {
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
       if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
     }
   }
 

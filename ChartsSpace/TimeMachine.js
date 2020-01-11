@@ -427,8 +427,8 @@ function newTimeMachine () {
       }
 
       if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
       if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     }

@@ -13,6 +13,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -34,8 +35,8 @@
     container.initialize();
     thisObject.container = container;
 
-    let plotAreaFrame = newTimeLineCoordinateSystem();  // Used for full frame view.
-    let plotAreaViewport = newTimeLineCoordinateSystem();  // Used for viewport view.
+    let plotAreaFrame = newCoordinateSystem();  // Used for full frame view.
+    let plotAreaViewport = newCoordinateSystem();  // Used for viewport view.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.

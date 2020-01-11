@@ -13,6 +13,7 @@
         initialize: initialize,
         finalize: finalize,
         container: undefined,
+        fitFunction: undefined,
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
@@ -34,7 +35,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -80,6 +81,8 @@
 
             marketFile = undefined;
             fileCursor = undefined;
+
+            thisObject.fitFunction = undefined
 
         } catch (err) {
 
@@ -290,8 +293,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -375,8 +378,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -424,7 +427,7 @@
 
         try {
 
-            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
                 x: MIN_PLOTABLE_DATE.valueOf(),
@@ -437,7 +440,7 @@
             };
 
 
-            timeLineCoordinateSystem.initialize(
+            coordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
@@ -501,12 +504,12 @@
                         y: band.movingAverage
                     };
 
-                    bandPoint1 = timeLineCoordinateSystem.transformThisPoint(bandPoint1);
-                    bandPoint2 = timeLineCoordinateSystem.transformThisPoint(bandPoint2);
-                    bandPoint3 = timeLineCoordinateSystem.transformThisPoint(bandPoint3);
-                    bandPoint4 = timeLineCoordinateSystem.transformThisPoint(bandPoint4);
-                    bandPoint5 = timeLineCoordinateSystem.transformThisPoint(bandPoint5);
-                    bandPoint6 = timeLineCoordinateSystem.transformThisPoint(bandPoint6);
+                    bandPoint1 = coordinateSystem.transformThisPoint(bandPoint1);
+                    bandPoint2 = coordinateSystem.transformThisPoint(bandPoint2);
+                    bandPoint3 = coordinateSystem.transformThisPoint(bandPoint3);
+                    bandPoint4 = coordinateSystem.transformThisPoint(bandPoint4);
+                    bandPoint5 = coordinateSystem.transformThisPoint(bandPoint5);
+                    bandPoint6 = coordinateSystem.transformThisPoint(bandPoint6);
 
                     bandPoint1 = transformThisPoint(bandPoint1, thisObject.container);
                     bandPoint2 = transformThisPoint(bandPoint2, thisObject.container);
@@ -526,6 +529,12 @@
                     bandPoint5 = viewPort.fitIntoVisibleArea(bandPoint5);
                     bandPoint6 = viewPort.fitIntoVisibleArea(bandPoint6);
 
+                    bandPoint1 = thisObject.fitFunction(bandPoint1);
+                    bandPoint2 = thisObject.fitFunction(bandPoint2);
+                    bandPoint3 = thisObject.fitFunction(bandPoint3);
+                    bandPoint4 = thisObject.fitFunction(bandPoint4);
+                    bandPoint5 = thisObject.fitFunction(bandPoint5);
+                    bandPoint6 = thisObject.fitFunction(bandPoint6);
 
 
                     /* First we are drawing a semi-transparent background */

@@ -17,7 +17,6 @@ function newTimelineChart () {
     timeFrameScale: undefined,
     payload: undefined,
     physics: physics,
-    setDatetime: setDatetime,
     drawBackground: drawBackground,
     draw: draw,
     getContainer: getContainer,
@@ -91,7 +90,7 @@ function newTimelineChart () {
 
   function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
     try {
-           /* We load the logow we will need for the background. */
+       /* We load the logow we will need for the background. */
       exchange = pExchange
       market = pMarket
       timeLineCoordinateSystem = pTimeLineCoordinateSystem
@@ -105,13 +104,11 @@ function newTimelineChart () {
       timeFrame = INITIAL_TIME_PERIOD
       datetime = NEW_SESSION_INITIAL_DATE
 
-           /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-
+       /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
       onOffsetChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
       onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
 
-           /* Initialize the Plotter Manager */
-
+       /* Initialize the Plotter Manager */
       plotterManager = newPlottersManager()
 
       plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
@@ -194,16 +191,6 @@ function newTimelineChart () {
       recalculateCurrentDatetime()
 
       // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
-    }
-  }
-
-  function setDatetime (pDatetime) {
-       /* This function is used when the time is changed through the user interface, but without zooming or panning. */
-       /* No matter if the day changed or not, we need to inform all visible Plotters. */
-
-    if (thisObject.container.frame.isInViewPort()) {
-      plotterManager.setDatetime(pDatetime)
-      plotterManager.positionAtDatetime(pDatetime)
     }
   }
 

@@ -14,6 +14,8 @@ function newTimeMachine () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
+  let timeFrame = INITIAL_TIME_PERIOD
+
   let thisObject = {
     container: undefined,
     timeScale: undefined,
@@ -46,9 +48,11 @@ function newTimeMachine () {
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeScaleEventSuscriptionId
-  let rateScaleEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
+  let rateScaleEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
+  let timeFrameScaleEventSuscriptionId
+  let timeFrameScaleMouseOverEventSuscriptionId
 
   setupContainer()
   return thisObject
@@ -71,6 +75,10 @@ function newTimeMachine () {
 
     if (thisObject.rateScale !== undefined) {
       finalizeRateScale()
+    }
+
+    if (thisObject.timeFrameScale !== undefined) {
+      finalizeTimeFrameScale()
     }
 
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
@@ -108,7 +116,15 @@ function newTimeMachine () {
     thisObject.rateScale = undefined
   }
 
+  function finalizeTimeFrameScale () {
+    thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleEventSuscriptionId)
+    thisObject.timeFrameScale.container.eventHandler.stopListening(timeFrameScaleMouseOverEventSuscriptionId)
+    thisObject.timeFrameScale.finalize()
+    thisObject.timeFrameScale = undefined
+  }
+
   function initialize (callBackFunction) {
+    timeFrame = INITIAL_TIME_PERIOD
     recalculateScale()
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)

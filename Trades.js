@@ -35,7 +35,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -310,8 +310,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -384,8 +384,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem);
+            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -431,7 +431,7 @@
 
         try {
 
-            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
                 x: MIN_PLOTABLE_DATE.valueOf(),
@@ -444,7 +444,7 @@
             };
 
 
-            timeLineCoordinateSystem.initialize(
+            coordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
@@ -496,9 +496,9 @@
                     y: record.endRate
                 };
 
-                recordPoint1 = timeLineCoordinateSystem.transformThisPoint(recordPoint1);
-                recordPoint2 = timeLineCoordinateSystem.transformThisPoint(recordPoint2);
-                recordPoint3 = timeLineCoordinateSystem.transformThisPoint(recordPoint3);
+                recordPoint1 = coordinateSystem.transformThisPoint(recordPoint1);
+                recordPoint2 = coordinateSystem.transformThisPoint(recordPoint2);
+                recordPoint3 = coordinateSystem.transformThisPoint(recordPoint3);
 
                 recordPoint1 = transformThisPoint(recordPoint1, thisObject.container);
                 recordPoint2 = transformThisPoint(recordPoint2, thisObject.container);

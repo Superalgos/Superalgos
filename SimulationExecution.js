@@ -26,7 +26,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let timeLineCoordinateSystem = newTimeLineCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
 
     let timeFrame;                             // This will hold the current Time Frame the user is at.
     let datetime;                               // This will hold the current Datetime the user is at.
@@ -308,7 +308,7 @@
         try {
 
             if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
-            if (timeLineCoordinateSystem.maxValue > 0) { return; } // Already calculated.
+            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
 
             let minValue = {
                 x: MIN_PLOTABLE_DATE.valueOf(),
@@ -320,7 +320,7 @@
                 y: nextPorwerOf10(USDT_BTC_HTH) / 4 // TODO: This 4 is temporary
             };
 
-            timeLineCoordinateSystem.initialize(
+            coordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
@@ -366,7 +366,7 @@
                         y: record.marketRate
                     };
 
-                    point = timeLineCoordinateSystem.transformThisPoint(point);
+                    point = coordinateSystem.transformThisPoint(point);
                     point = transformThisPoint(point, thisObject.container);
 
                     if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue; }
@@ -406,15 +406,15 @@
                             y: record.sellExecRate
                         };
 
-                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
 
-                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
 
-                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
 
@@ -476,15 +476,15 @@
                             y: record.buyExecRate
                         };
 
-                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
 
-                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
 
-                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
 
@@ -544,15 +544,15 @@
                             y: record.lastSellRate
                         };
 
-                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
 
-                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
 
-                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
 
@@ -613,15 +613,15 @@
                             y: record.lastBuyRate
                         };
 
-                        point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                        point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
                         point1 = viewPort.fitIntoVisibleArea(point1);
 
-                        point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                        point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
                         point2 = viewPort.fitIntoVisibleArea(point2);
 
-                        point3 = timeLineCoordinateSystem.transformThisPoint(point3);
+                        point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
                         point3 = viewPort.fitIntoVisibleArea(point3);
 
@@ -731,11 +731,11 @@
                         y: line.y2
                     };
 
-                    point1 = timeLineCoordinateSystem.transformThisPoint(point1);
+                    point1 = coordinateSystem.transformThisPoint(point1);
                     point1 = transformThisPoint(point1, thisObject.container);
                     point1 = viewPort.fitIntoVisibleArea(point1);
 
-                    point2 = timeLineCoordinateSystem.transformThisPoint(point2);
+                    point2 = coordinateSystem.transformThisPoint(point2);
                     point2 = transformThisPoint(point2, thisObject.container);
                     point2 = viewPort.fitIntoVisibleArea(point2);
 

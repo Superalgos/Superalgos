@@ -18,8 +18,9 @@ function newTimelineChart () {
     plotterManager: undefined,
     upstreamTimeFrame: undefined,
     physics: physics,
-    drawBackground: drawBackground,
     draw: draw,
+    drawBackground: drawBackground,
+    drawForeground: drawForeground,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -358,6 +359,13 @@ function newTimelineChart () {
     }
   }
 
+  function draw () {
+    if (thisObject.container.frame.isInViewPort()) {
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+    }
+  }
+
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (window.CHART_ON_FOCUS === '') {
@@ -368,10 +376,10 @@ function newTimelineChart () {
     }
   }
 
-  function draw () {
+  function drawForeground () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
     }
   }
 

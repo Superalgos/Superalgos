@@ -10,6 +10,7 @@ function newRateScale () {
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
+    drawForeground: drawForeground,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
@@ -204,12 +205,41 @@ function newRateScale () {
   }
 
   function draw () {
-    drawRate()
-    drawArrows()
+    drawScaleBox()
+    if (visible === false) {
+      drawScaleDisplayCover(thisObject.container)
+    }
+  }
+
+  function drawForeground () {
+    if (isMouseOver === true) {
+      drawScaleBox()
+      drawArrows()
+    }
+  }
+
+  function drawScaleBox () {
+    if (thisObject.rate === undefined) { return }
+
+    let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
+    let labelArray = label.split('.')
+    let label1 = thisObject.payload.node.payload.parentNode.name
+    let label2 = (Math.trunc(thisObject.rate)).toLocaleString()
+    let label3 = labelArray[1]
+
+    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    let backgroundColor
+    if (visible === true) {
+      backgroundColor = UI_COLOR.BLACK
+    } else {
+      backgroundColor = UI_COLOR.DARK
+    }
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }
 
   function drawArrows () {
-    if (isMouseOver !== true) { return }
     if (visible === false || thisObject.rate === undefined) { return }
 
     const X_OFFSET = thisObject.container.frame.width / 2
@@ -308,20 +338,5 @@ function newRateScale () {
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
       browserCanvasContext.stroke()
     }
-  }
-
-  function drawRate () {
-    if (visible === false || thisObject.rate === undefined) { return }
-
-    let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
-    let labelArray = label.split('.')
-    let label1 = thisObject.payload.node.payload.parentNode.name
-    let label2 = (Math.trunc(thisObject.rate)).toLocaleString()
-    let label3 = labelArray[1]
-
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-
-    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container)
   }
 }

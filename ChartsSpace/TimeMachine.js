@@ -24,8 +24,9 @@ function newTimeMachine () {
     payload: undefined,
     timelineCharts: [],
     physics: physics,
-    drawBackground: drawBackground,
     draw: draw,
+    drawBackground: drawBackground,
+    drawForeground: drawForeground,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
     finalize: finalize
@@ -407,15 +408,6 @@ function newTimeMachine () {
     }
   }
 
-  function drawBackground () {
-    if (thisObject.container.frame.isInViewPort()) {
-      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-        let timelineChart = thisObject.timelineCharts[i]
-        timelineChart.drawBackground()
-      }
-    }
-  }
-
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
@@ -428,6 +420,28 @@ function newTimeMachine () {
       if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
+    }
+  }
+
+  function drawBackground () {
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+        let timelineChart = thisObject.timelineCharts[i]
+        timelineChart.drawBackground()
+      }
+    }
+  }
+
+  function drawForeground () {
+    if (thisObject.container.frame.isInViewPort()) {
+      for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+        let timelineChart = thisObject.timelineCharts[i]
+        timelineChart.drawForeground()
+      }
+
+      if (thisObject.timeScale !== undefined) { thisObject.timeScale.drawForeground() }
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
     }
   }
 

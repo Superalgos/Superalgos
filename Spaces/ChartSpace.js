@@ -294,6 +294,8 @@ function newChartSpace () {
       let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
       timeMachine.draw()
     }
+
+    drawForeground()
   }
 
   function drawBackground () {
@@ -304,6 +306,14 @@ function newChartSpace () {
       timeMachine.drawBackground()
     }
   }
+
+  function drawForeground () {
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
+      timeMachine.drawForeground()
+    }
+  }
+
   function drawSpaceBackground () {
     let opacity = '1'
     let fromPoint = {

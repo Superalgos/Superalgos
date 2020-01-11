@@ -8,6 +8,7 @@ function newTimeFrameScale () {
     payload: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     draw: draw,
+    drawForeground: drawForeground,
     physics: physics,
     getContainer: getContainer,
     initialize: initialize,
@@ -19,6 +20,8 @@ function newTimeFrameScale () {
   const MIN_HEIGHT = 50
 
   let visible = true
+  let isMouseOver
+
   let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
   let timeFrameIndex = TIME_PERIOD_DEFAULT_VALUE
@@ -28,6 +31,7 @@ function newTimeFrameScale () {
   let onMouseWheelEventSubscriptionId
   let onZoomChangedEventSubscriptionId
   let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
 
   let timeLineCoordinateSystem
   let limitingContainer
@@ -58,6 +62,7 @@ function newTimeFrameScale () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
     objectStorage = undefined
 
@@ -77,11 +82,7 @@ function newTimeFrameScale () {
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-    function onMouseOver () {
-      event.containerId = thisObject.container.id
-      thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
-    }
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -101,6 +102,16 @@ function newTimeFrameScale () {
         y: event.y
       }
     }
+  }
+
+  function onMouseOver () {
+    isMouseOver = true
+    event.containerId = thisObject.container.id
+    thisObject.container.eventHandler.raiseEvent('onMouseOverScale', event)
+  }
+
+  function onMouseNotOver () {
+    isMouseOver = false
   }
 
   function physics () {
@@ -244,13 +255,20 @@ function newTimeFrameScale () {
   }
 
   function draw () {
-    if (visible === false) { return }
-
-    drawTimeFrame()
+    drawScaleBox()
+    if (visible === false) {
+      drawScaleDisplayCover(thisObject.container)
+    }
   }
 
-  function drawTimeFrame () {
-    if (visible === false || timeFrameLabel === undefined) { return }
+  function drawForeground () {
+    if (isMouseOver === true) {
+      drawScaleBox()
+    }
+  }
+
+  function drawScaleBox () {
+    if (timeFrameLabel === undefined) { return }
 
     let label = timeFrameLabel.split('-')
     let label1 = thisObject.payload.node.payload.parentNode.name
@@ -260,6 +278,12 @@ function newTimeFrameScale () {
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
-    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container)
+    let backgroundColor
+    if (visible === true) {
+      backgroundColor = UI_COLOR.BLACK
+    } else {
+      backgroundColor = UI_COLOR.DARK
+    }
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }
 }

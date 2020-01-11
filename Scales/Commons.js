@@ -1,5 +1,5 @@
 
-function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container) {
+function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, backgroundColor) {
   let fontSize1 = 10
   let fontSize2 = 20
   let fontSize3 = 10
@@ -8,12 +8,12 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   const OPACITY = 1
 
   let params = {
-    cornerRadius: 5,
-    lineWidth: RED_LINE_HIGHT,
+    cornerRadius: 15,
+    lineWidth: 2,
     container: container,
     borderColor: UI_COLOR.RUSTED_RED,
     castShadow: false,
-    backgroundColor: UI_COLOR.BLACK,
+    backgroundColor: backgroundColor,
     opacity: OPACITY
   }
 
@@ -103,4 +103,18 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
         imageSize)
     }
   }
+}
+
+function drawScaleDisplayCover (container) {
+  let params = {
+    cornerRadius: 15,
+    lineWidth: 2,
+    container: container,
+    borderColor: UI_COLOR.WHITE,
+    castShadow: false,
+    backgroundColor: UI_COLOR.WHITE,
+    opacity: '0.75'
+  }
+
+  roundedCornersBackground(params)
 }

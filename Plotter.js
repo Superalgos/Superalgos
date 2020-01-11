@@ -31,7 +31,7 @@ function newPlotter () {
   container.initialize()
   thisObject.container = container
 
-  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()        // Needed to be able to plot on the timeline.
+  let coordinateSystem = newCoordinateSystem()        // Needed to be able to plot on the timeline.
   let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
   let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 10  // This is the amount of slots available
@@ -84,7 +84,7 @@ function newPlotter () {
       marketFile = undefined
       fileCursor = undefined
 
-      timeLineCoordinateSystem = undefined
+      coordinateSystem = undefined
       slotCoordinateSystem = undefined
       plotterModuleConfig = undefined
       slotHeight = undefined
@@ -353,8 +353,8 @@ function newPlotter () {
 
       let daysOnSides = getSideDays(timeFrame)
 
-      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
-      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem)
+      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem)
+      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem)
 
       let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -406,8 +406,8 @@ function newPlotter () {
 
       let daysOnSides = getSideDays(timeFrame)
 
-      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, timeLineCoordinateSystem)
-      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, timeLineCoordinateSystem)
+      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem)
+      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem)
 
       let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -441,7 +441,7 @@ function newPlotter () {
 
   function recalculateScale () {
     try {
-      if (timeLineCoordinateSystem.maxValue > 0) { return } // Already calculated.
+      if (coordinateSystem.maxValue > 0) { return } // Already calculated.
       /* First we calculate the default scale */
       let minValue = {
         x: MIN_PLOTABLE_DATE.valueOf(),
@@ -453,7 +453,7 @@ function newPlotter () {
         y: nextPorwerOf10(USDT_BTC_HTH) / 4 // TODO: This 4 is temporary
       }
 
-      timeLineCoordinateSystem.initialize(
+      coordinateSystem.initialize(
                 minValue,
                 maxValue,
                 thisObject.container.frame.width,
@@ -465,7 +465,7 @@ function newPlotter () {
       plotterModuleConfig = productDefinition.referenceParent.code
       if (plotterModuleConfig.slot === undefined) { return }
 
-      slotCoordinateSystem = newTimeLineCoordinateSystem()
+      slotCoordinateSystem = newCoordinateSystem()
 
       minValue.y = plotterModuleConfig.slot.minValue
       maxValue.y = plotterModuleConfig.slot.maxValue
@@ -511,8 +511,8 @@ function newPlotter () {
           y: 0
         }
 
-        beginPoint = timeLineCoordinateSystem.transformThisPoint(beginPoint)
-        endPoint = timeLineCoordinateSystem.transformThisPoint(endPoint)
+        beginPoint = coordinateSystem.transformThisPoint(beginPoint)
+        endPoint = coordinateSystem.transformThisPoint(endPoint)
 
         beginPoint = transformThisPoint(beginPoint, thisObject.container)
         endPoint = transformThisPoint(endPoint, thisObject.container)
@@ -565,7 +565,7 @@ function newPlotter () {
               The information we store in files is independent from the charing system and its coordinate systems.
               That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
               */
-                dataPoint = timeLineCoordinateSystem.transformThisPoint(dataPoint)
+                dataPoint = coordinateSystem.transformThisPoint(dataPoint)
 
               /*
               The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we

@@ -31,9 +31,7 @@ function newTimeMachine () {
     finalize: finalize
   }
 
-  const SEPARATION_BETWEEN_TIMELINE_CHARTS = 1.5
-
-  let timeLineCoordinateSystem = newTimeLineCoordinateSystem()
+  let timeMachineCoordinateSystem = newCoordinateSystem()
 
   let mouse = {
     position: {
@@ -125,7 +123,7 @@ function newTimeMachine () {
 
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
-    recalculateScale()
+    recalculateCoordinateSystem()
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
@@ -171,12 +169,12 @@ function newTimeMachine () {
 
     timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.lenghtPercentage / 100
-      recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, false, true, event.mousePosition, false, true)
+      recalculateCoordinateSystem()
+      moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
-    thisObject.timeScale.initialize(timeLineCoordinateSystem, thisObject.container)
+    thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOver', timeScaleMouseOver)
 
@@ -192,12 +190,12 @@ function newTimeMachine () {
 
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
-      recalculateScale()
-      moveToUserPosition(thisObject.container, timeLineCoordinateSystem, true, false, event.mousePosition, false, true)
+      recalculateCoordinateSystem()
+      moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
-    thisObject.rateScale.initialize(timeLineCoordinateSystem, thisObject.container)
+    thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
 
@@ -225,7 +223,7 @@ function newTimeMachine () {
       }
     })
 
-    thisObject.timeFrameScale.initialize(timeLineCoordinateSystem, thisObject.container)
+    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
 
@@ -292,6 +290,12 @@ function newTimeMachine () {
   }
 
   function syncWithDesignerScales () {
+    if (thisObject.payload.node === undefined) {
+      finalizeTimeScale()
+      finalizeRateScale()
+      finalizeTimeFrameScale()
+      return
+    }
     if (thisObject.payload.node.timeScale === undefined && thisObject.timeScale !== undefined) {
       finalizeTimeScale()
     }
@@ -355,7 +359,7 @@ function newTimeMachine () {
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
       timelineChart.container.frame.position.y = 0
-      timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeLineCoordinateSystem, onTimelineChartInitialized)
+      timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeMachineCoordinateSystem, onTimelineChartInitialized)
 
       /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
       timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)
@@ -384,7 +388,7 @@ function newTimeMachine () {
       y: 0
     }
 
-    let cornerDate = getDateFromPoint(point, thisObject.container, timeLineCoordinateSystem)
+    let cornerDate = getDateFromPoint(point, thisObject.container, timeMachineCoordinateSystem)
     cornerDate = new Date(cornerDate)
     window.localStorage.setItem('Date @ Screen Corner', cornerDate.toUTCString())
   }
@@ -430,7 +434,7 @@ function newTimeMachine () {
     }
   }
 
-  function recalculateScale () {
+  function recalculateCoordinateSystem () {
     let minValue = {
       x: MIN_PLOTABLE_DATE.valueOf(),
       y: 0
@@ -441,7 +445,7 @@ function newTimeMachine () {
       y: nextPorwerOf10(USDT_BTC_HTH) / 4
     }
 
-    timeLineCoordinateSystem.initialize(
+    timeMachineCoordinateSystem.initialize(
           minValue,
           maxValue,
           thisObject.container.frame.width,

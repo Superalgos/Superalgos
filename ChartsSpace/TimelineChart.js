@@ -6,14 +6,13 @@ function newTimelineChart () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  let timeLineCoordinateSystem
-
   let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
+    rateScale: undefined,
     timeFrameScale: undefined,
     payload: undefined,
     plotterManager: undefined,
@@ -27,6 +26,9 @@ function newTimelineChart () {
   }
 
   thisObject.fitFunction = canvas.chartSpace.fitIntoVisibleArea
+
+  let timeMachineCoordinateSystem
+  let timelineChartCoordinateSystem = newCoordinateSystem()
 
   let initializationReady = false
 
@@ -61,6 +63,10 @@ function newTimelineChart () {
   }
 
   function finalize () {
+    if (thisObject.rateScale !== undefined) {
+      finalizeRateScale()
+    }
+
     if (thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()
     }
@@ -93,19 +99,29 @@ function newTimelineChart () {
     }
   }
 
-  function initialize (pExchange, pMarket, pTimeLineCoordinateSystem, callBackFunction) {
+  function finalizeRateScale () {
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
+    thisObject.rateScale.finalize()
+    thisObject.rateScale = undefined
+
+    /* Resets the local container with the dimessions of its parent, the Time Machine */
+    thisObject.container.frame.position.position.y = 0
+    thisObject.container.frame.position.height = thisObject.container.parentContainer.frame.height
+  }
+
+  function initialize (pExchange, pMarket, pTimeMachineCoordinateSystem, callBackFunction) {
     try {
        /* We load the logow we will need for the background. */
       exchange = pExchange
       market = pMarket
-      timeLineCoordinateSystem = pTimeLineCoordinateSystem
+      timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
 
       let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
       let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
       productsPanel.initialize(exchange, market)
 
-      // moveToUserPosition(thisObject.container, timeLineCoordinateSystem, undefined, undefined, undefined, true)
       timeFrame = INITIAL_TIME_PERIOD
       datetime = NEW_SESSION_INITIAL_DATE
 
@@ -137,6 +153,11 @@ function newTimelineChart () {
 
         function onMouseOver (event) {
           /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
+          if (thisObject.rateScale !== undefined) {
+            thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
+            thisObject.rateScale.visible = true
+          }
+
           if (thisObject.timeFrameScale !== undefined) {
             thisObject.timeFrameScale.visible = true
             thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
@@ -145,13 +166,16 @@ function newTimelineChart () {
           mouse.position.x = event.x
           mouse.position.y = event.y
 
-          saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+          saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
         }
 
         onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
         function onMouseNotOver (event) {
           /* This event is inherited from the Time Machine */
+          if (thisObject.rateScale !== undefined) {
+            thisObject.rateScale.visible = false
+          }
           if (thisObject.timeFrameScale !== undefined) {
             thisObject.timeFrameScale.visible = false
           }
@@ -164,6 +188,27 @@ function newTimelineChart () {
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    }
+  }
+
+  function initializeRateScale () {
+    thisObject.rateScale = newRateScale()
+    thisObject.rateScale.fitFunction = thisObject.fitFunction
+    thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
+
+    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+      recalculateCoordinateSystem()
+      moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, false, true)
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    })
+
+    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container)
+
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
+
+    function rateScaleMouseOver (event) {
+      thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
     }
   }
 
@@ -180,14 +225,14 @@ function newTimelineChart () {
       }
     })
 
-    thisObject.timeFrameScale.initialize(timeLineCoordinateSystem, thisObject.container)
+    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
 
-      saveUserPosition(thisObject.container, timeLineCoordinateSystem, event)
+      saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
     }
   }
 
@@ -195,7 +240,7 @@ function newTimelineChart () {
     if (initializationReady === true) {
       recalculateCurrentDatetime()
 
-      // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+      // saveUserPosition(thisObject.container, timeMachineCoordinateSystem)
     }
   }
 
@@ -203,7 +248,7 @@ function newTimelineChart () {
     if (initializationReady === true) {
       if (thisObject.container.frame.isInViewPort()) {
         recalculateCurrentDatetime()
-        // saveUserPosition(thisObject.container, timeLineCoordinateSystem)
+        // saveUserPosition(thisObject.container, timeMachineCoordinateSystem)
       }
     }
   }
@@ -222,7 +267,11 @@ function newTimelineChart () {
     }
 
     center = unTransformThisPoint(center, thisObject.container)
-    center = timeLineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
+    if (thisObject.rateScale === undefined) {
+      center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
+    } else {
+      center = timelineChartCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
+    }
 
     let newDate = new Date(0)
     newDate.setUTCSeconds(center.x / 1000)
@@ -234,6 +283,15 @@ function newTimelineChart () {
 
   function getContainer (point, purpose) {
     let container
+
+    if (thisObject.rateScale !== undefined) {
+      container = thisObject.rateScale.getContainer(point)
+      if (container !== undefined) {
+        if (container.isForThisPurpose(purpose)) {
+          return container
+        }
+      }
+    }
 
     if (thisObject.timeFrameScale !== undefined) {
       container = thisObject.timeFrameScale.getContainer(point)
@@ -258,6 +316,17 @@ function newTimelineChart () {
   }
 
   function syncWithDesignerScales () {
+    if (thisObject.payload.node === undefined) {
+      finalizeRateScale()
+      finalizeTimeFrameScale()
+      return
+    }
+    if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
+      finalizeRateScale()
+    }
+    if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
+      initializeRateScale()
+    }
     if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()
     }
@@ -267,6 +336,9 @@ function newTimelineChart () {
   }
 
   function childrenPhysics () {
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.physics()
+    }
     if (thisObject.timeFrameScale !== undefined) {
       thisObject.timeFrameScale.physics()
     }
@@ -300,9 +372,8 @@ function newTimelineChart () {
 
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (thisObject.timeFrameScale !== undefined) {
-        thisObject.timeFrameScale.draw()
-      }
+      if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+      if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
     }
   }
 
@@ -335,5 +406,24 @@ function newTimelineChart () {
     browserCanvasContext.closePath()
 
     browserCanvasContext.fill()
+  }
+
+  function recalculateCoordinateSystem () {
+    let minValue = {
+      x: MIN_PLOTABLE_DATE.valueOf(),
+      y: 0
+    }
+
+    let maxValue = {
+      x: MAX_PLOTABLE_DATE.valueOf(),
+      y: nextPorwerOf10(USDT_BTC_HTH) / 4
+    }
+
+    timelineChartCoordinateSystem.initialize(
+          minValue,
+          maxValue,
+          thisObject.container.frame.width,
+          thisObject.container.frame.height
+      )
   }
 }

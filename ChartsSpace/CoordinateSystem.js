@@ -7,7 +7,7 @@ The scale on the Y axis depends on the data that wants to be plotted. Usually we
 
 */
 
-function newTimeLineCoordinateSystem () {
+function newCoordinateSystem () {
   let thisObject = {
     min: undefined,
     max: undefined,
@@ -126,4 +126,3 @@ function newTimeLineCoordinateSystem () {
     return point
   }
 }
-

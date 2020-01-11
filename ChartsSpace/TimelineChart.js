@@ -203,7 +203,7 @@ function newTimelineChart () {
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
-    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container)
+    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer)
 
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOver', rateScaleMouseOver)
 
@@ -225,7 +225,7 @@ function newTimelineChart () {
       }
     })
 
-    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container.parentContainer)
 
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOver', timeFrameScaleMouseOver)
 

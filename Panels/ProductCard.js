@@ -134,7 +134,7 @@ function newProductCard () {
       }
 
       thisObject.container.frame.position = position
-      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE - 20
+      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
       thisObject.container.frame.height = 100
 
        /* We retrieve the locally stored status of the Product */
@@ -345,6 +345,17 @@ function newProductCard () {
         label = thisObject.session.name + ' - ' + label
       }
     }
+
+    let label1 = label
+    let label2 = 'ON'
+    let label3 = ''
+
+    let icon1 = canvas.designerSpace.iconCollection.get('oscillator')
+    let icon2 = canvas.designerSpace.iconCollection.get('poloniex') // canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    let backgroundColor = UI_COLOR.BLACK
+
+    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
 
        /* ------------------- Progress Bars -------------------------- */
 

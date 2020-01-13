@@ -215,7 +215,9 @@ function newDesignerSpace () {
       'oscillator',
       'moving-average',
       'histogram',
-      'band'
+      'band',
+      'volume',
+      'candles'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

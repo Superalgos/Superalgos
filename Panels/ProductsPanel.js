@@ -494,7 +494,7 @@ function newProductsPanel () {
   function draw () {
     if (isInitialized === false) { return }
 
-    thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
+    thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 
     for (let i = 0; i < visibleProductCards.length; i++) {
       visibleProductCards[i].draw()

@@ -227,7 +227,7 @@ function newTimeMachine () {
           let timelineChart = thisObject.timelineCharts[i]
           timelineChart.upstreamTimeFrame = timeFrame
           if (timelineChart.timeFrameScale === undefined) {
-            timelineChart.plotterManager.setTimeFrame(timeFrame)
+            timelineChart.setTimeFrame(timeFrame)
           }
         }
       }
@@ -406,23 +406,16 @@ function newTimeMachine () {
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
       timelineChart.container.frame.position.y = 0
-      timelineChart.initialize(DEFAULT_EXCHANGE, DEFAULT_MARKET, timeMachineCoordinateSystem, onTimelineChartInitialized)
+      timelineChart.initialize(timeMachineCoordinateSystem)
 
       /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
       timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)
 
+      thisObject.timelineCharts.push(timelineChart)
+      timelineChart.payload.uiObject.setValue('')
+
       function onChildrenMouseOver (event) {
         thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
-      }
-
-      function onTimelineChartInitialized (err) {
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimelineChart -> Initialization Failed. -> Err ' + err.message) }
-          return
-        }
-
-        thisObject.timelineCharts.push(timelineChart)
-        timelineChart.payload.uiObject.setValue('')
       }
     }
   }

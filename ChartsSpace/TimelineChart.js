@@ -17,6 +17,7 @@ function newTimelineChart () {
     payload: undefined,
     plotterManager: undefined,
     upstreamTimeFrame: undefined,
+    setTimeFrame: setTimeFrame,
     physics: physics,
     draw: draw,
     drawBackground: drawBackground,
@@ -29,12 +30,10 @@ function newTimelineChart () {
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
 
-  let initializationReady = false
-
   let productsPanel
 
-  let exchange
-  let market
+  let exchange = DEFAULT_EXCHANGE
+  let market = DEFAULT_MARKET
 
   let productsPanelHandle
 
@@ -63,6 +62,10 @@ function newTimelineChart () {
   }
 
   function finalize () {
+    if (thisObject.layersManager !== undefined) {
+      finalizeLayersManager()
+    }
+
     if (thisObject.rateScale !== undefined) {
       finalizeRateScale()
     }
@@ -76,16 +79,21 @@ function newTimelineChart () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
 
-    thisObject.plotterManager.finalize()
-    thisObject.plotterManager = undefined
-
-    canvas.panelsSpace.destroyPanel(productsPanelHandle)
-
     thisObject.container.finalize()
     thisObject.container = undefined
 
     thisObject.payload = undefined
     mouse = undefined
+  }
+
+  function finalizeLayersManager () {
+    if (thisObject.plotterManager !== undefined) {
+      thisObject.plotterManager.finalize()
+    }
+    thisObject.plotterManager = undefined
+    thisObject.layersManager = undefined
+
+    canvas.panelsSpace.destroyPanel(productsPanelHandle)
   }
 
   function finalizeTimeFrameScale () {
@@ -97,7 +105,9 @@ function newTimelineChart () {
     thisObject.timeFrameScale = undefined
     if (thisObject.upstreamTimeFrame !== undefined) {
       timeFrame = thisObject.upstreamTimeFrame
-      thisObject.plotterManager.setTimeFrame(timeFrame)
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.setTimeFrame(timeFrame)
+      }
     }
   }
 
@@ -114,87 +124,40 @@ function newTimelineChart () {
     thisObject.container.frame.position.height = thisObject.container.parentContainer.frame.height
   }
 
-  function initialize (pExchange, pMarket, pTimeMachineCoordinateSystem, callBackFunction) {
-    try {
-       /* We load the logow we will need for the background. */
-      exchange = pExchange
-      market = pMarket
-      timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
+  function initialize (pTimeMachineCoordinateSystem) {
+     /* We load the logow we will need for the background. */
 
-      let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
-      productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
-      let productsPanel = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
-      productsPanel.initialize(exchange, market)
+    timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
 
-      timeFrame = INITIAL_TIME_PERIOD
-      datetime = NEW_SESSION_INITIAL_DATE
+    timeFrame = INITIAL_TIME_PERIOD
+    datetime = NEW_SESSION_INITIAL_DATE
 
-       /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-      onOffsetChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
-      onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+     /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
+    onOffsetChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
+    onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
 
-       /* Initialize the Plotter Manager */
-      thisObject.plotterManager = newPlottersManager()
+    onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+  }
 
-      thisObject.plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
+  function initializeLayersManager () {
+    let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
+    productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
+    thisObject.layersManager = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
+    thisObject.layersManager.initialize(exchange, market)
+    thisObject.layersManager.payload = thisObject.payload.node.layersManager.payload
 
-      thisObject.plotterManager.container.frame.position.x = 0
-      thisObject.plotterManager.container.frame.position.y = 0
+    /* Initialize the Plotter Manager */
+    thisObject.plotterManager = newPlottersManager()
 
-      thisObject.plotterManager.fitFunction = thisObject.fitFunction
-      thisObject.plotterManager.initialize(productsPanel, pExchange, pMarket, onPlotterManagerReady)
+    thisObject.plotterManager.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
 
-      function onPlotterManagerReady (err) {
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> Plotter Manager Initialization Failed. ') }
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onPlotterManagerReady -> err= ' + err.stack) }
+    thisObject.plotterManager.container.frame.position.x = 0
+    thisObject.plotterManager.container.frame.position.y = 0
 
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-          return
-        }
-
-        onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-        function onMouseOver (event) {
-          /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
-          drawScales = true
-
-          if (thisObject.rateScale !== undefined) {
-            thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
-          }
-
-          if (thisObject.timeFrameScale !== undefined) {
-            thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
-          }
-
-          mouse.position.x = event.x
-          mouse.position.y = event.y
-
-          saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
-        }
-
-        onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-
-        function onMouseNotOver (event) {
-          /* This event is inherited from the Time Machine */
-          drawScales = false
-
-          if (thisObject.rateScale !== undefined) {
-            thisObject.rateScale.visible = false
-          }
-          if (thisObject.timeFrameScale !== undefined) {
-            thisObject.timeFrameScale.visible = false
-          }
-        }
-
-        initializationReady = true
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-        return
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+    thisObject.plotterManager.fitFunction = thisObject.fitFunction
+    thisObject.plotterManager.initialize(thisObject.layersManager, DEFAULT_EXCHANGE, DEFAULT_MARKET)
+    thisObject.plotterManager.setTimeFrame(timeFrame)
   }
 
   function initializeRateScale () {
@@ -227,7 +190,9 @@ function newTimelineChart () {
       let currentTimeFrame = timeFrame
       timeFrame = event.timeFrame
       if (timeFrame !== currentTimeFrame) {
-        thisObject.plotterManager.setTimeFrame(timeFrame)
+        if (thisObject.plotterManager !== undefined) {
+          thisObject.plotterManager.setTimeFrame(timeFrame)
+        }
       }
     })
 
@@ -242,20 +207,50 @@ function newTimelineChart () {
     }
   }
 
-  function onZoomChanged (event) {
-    if (initializationReady === true) {
-      recalculateCurrentDatetime()
-
-      // saveUserPosition(thisObject.container, timeMachineCoordinateSystem)
+  function setTimeFrame (pTimeFrame) {
+    timeFrame = pTimeFrame
+    if (thisObject.plotterManager !== undefined) {
+      thisObject.plotterManager.setTimeFrame(timeFrame)
     }
   }
 
+  function onMouseOver (event) {
+    /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
+    drawScales = true
+
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
+    }
+
+    if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
+    }
+
+    mouse.position.x = event.x
+    mouse.position.y = event.y
+
+    saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
+  }
+
+  function onMouseNotOver (event) {
+    /* This event is inherited from the Time Machine */
+    drawScales = false
+
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.visible = false
+    }
+    if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.visible = false
+    }
+  }
+
+  function onZoomChanged (event) {
+    recalculateCurrentDatetime()
+  }
+
   function onOffsetChanged () {
-    if (initializationReady === true) {
-      if (thisObject.container.frame.isInViewPort()) {
-        recalculateCurrentDatetime()
-        // saveUserPosition(thisObject.container, timeMachineCoordinateSystem)
-      }
+    if (thisObject.container.frame.isInViewPort()) {
+      recalculateCurrentDatetime()
     }
   }
 
@@ -315,10 +310,25 @@ function newTimelineChart () {
     thisObjectPhysics()
     childrenPhysics()
     syncWithDesignerScales()
+    syncWithDesignerLayersManager()
   }
 
   function thisObjectPhysics () {
 
+  }
+
+  function syncWithDesignerLayersManager () {
+    if (thisObject.payload.node === undefined) {
+      finalizeLayersManager()
+      return
+    }
+
+    if (thisObject.payload.node.layersManager === undefined && thisObject.layersManager !== undefined) {
+      finalizeLayersManager()
+    }
+    if (thisObject.payload.node.layersManager !== undefined && thisObject.layersManager === undefined) {
+      initializeLayersManager()
+    }
   }
 
   function syncWithDesignerScales () {
@@ -372,7 +382,9 @@ function newTimelineChart () {
         window.CHART_ON_FOCUS = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
       }
       drawChartsBackground()
-      thisObject.plotterManager.draw()
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.draw()
+      }
     }
   }
 

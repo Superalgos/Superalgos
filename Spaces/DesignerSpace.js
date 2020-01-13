@@ -210,7 +210,12 @@ function newDesignerSpace () {
       'cardano',
       'bitcoin-cash',
       'bitcoin',
-      'binance-coin'
+      'binance-coin',
+      'trend',
+      'oscillator',
+      'moving-average',
+      'histogram',
+      'band'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

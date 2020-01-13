@@ -69,39 +69,10 @@ function newProductCard () {
   let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
-   /* TODO We are in a transition period in which bots and dataMines images might be located at different places.
-   What we are going to do then is to try to load them from both places and use the variable that finally gets an
-   image. */
-
-   /* This is the legacy image storage. */
-
-  let legacyDataMineAvatar
-  let legacyDataMineAvatarLoaded = false
-
-   /* TODO Temporary code */
-  let legacyBotAvatar
-  let legacyBotAvatarLoaded = false
-
-   /* Now the plotters images */
-
-  let legacyPlotterBanner
-  let legacyPlotterBannerLoaded = false
-
-   /* We are transitioning towards this */
-
-  let dataMineAvatar // stores the avatar image of the dataMine the bot portrayed at this card belongs to.
-  let dataMineAvatarLoaded = false
-
-   /* TODO Temporary code */
-  let botAvatar // stores the avatar image of the dataMine the bot portrayed at this card belongs to.
-  let botAvatarLoaded = false
-
    /* Add an Event Handler */
 
   thisObject.eventHandler = newEventHandler()
   let imagesLoaded = 0
-
-  let lastMouseOver = 0 // This variable is used to animate what happens while we are having a mounse over.
 
   return thisObject
 
@@ -117,11 +88,6 @@ function newProductCard () {
     thisObject.code = undefined
     thisObject.fitFunction = undefined
 
-    legacyDataMineAvatar = undefined
-    legacyDataMineAvatarLoaded = undefined
-    legacyBotAvatar = undefined
-    legacyBotAvatarLoaded = undefined
-    legacyPlotterBanner = undefined
     timeFrame = undefined
     datetime = undefined
 
@@ -144,7 +110,6 @@ function newProductCard () {
     try {
       thisObject.container = newContainer()
       thisObject.container.initialize(MODULE_NAME + thisObject.code)
-      thisObject.container.detectMouseOver = true
       thisObject.container.isDraggeable = false
       thisObject.container.isClickeable = true
 
@@ -158,8 +123,6 @@ function newProductCard () {
 
       if (plotter !== undefined) {
         let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
-
-        thisObject.product.plotter.profilePicture = plotterModule.profilePicture
         thisObject.product.plotter.module = plotterModule
       }
 
@@ -208,93 +171,6 @@ function newProductCard () {
        /* Lets listen to our own events to react when we have a Mouse Click */
 
       thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-      thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-       /* WARNING THIS IS TEMPORARY CODE */
-
-      const LEGACY_DATA_MINE = thisObject.dataMine.codeName
-      const REPO = thisObject.bot.repo
-      const PROFILE_PIC = thisObject.bot.profilePicture
-
-       /* The plotter banner, comes from the Legacy Location so far, no matter if the Data Mine is at the DataMines Modules or not. */
-
-      const PLOTTER_DATA_MINE = thisObject.product.plotter.dataMine
-      const PLOTTER_REPO = thisObject.product.plotter.codeName
-      const PLOTTER_PROFILE_PIC = thisObject.product.plotter.profilePicture
-
-      legacyPlotterBanner = new Image()
-      legacyPlotterBanner.onload = onLegacyPlotterBanner
-
-      function onLegacyPlotterBanner () {
-        legacyPlotterBannerLoaded = true
-      }
-
-      if (PLOTTER_PROFILE_PIC !== undefined) {
-        legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + PLOTTER_DATA_MINE + '/' + PLOTTER_REPO + '/' + PLOTTER_PROFILE_PIC
-      } else {
-        if (thisObject.product.plotter.banner !== undefined) {
-          legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + thisObject.product.plotter.banner + '-Banner.PNG'
-        } else {
-          legacyPlotterBanner.src = window.canvasApp.urlPrefix + 'Images/' + 'Default-Banner.PNG'
-        }
-      }
-
-      const DATA_MINE = thisObject.dataMine.codeName.toLowerCase()
-      const BOT = thisObject.bot.codeName.toLowerCase()
-
-      if (window.canvasApp.context.dataMineProfileImages.get(DATA_MINE) === undefined) {
-        // This means this Data Mine is a Lecay Data Mine, still not at any Module.
-
-           /*
-           Here we will download the images still at the legacy storage.
-           */
-
-        legacyDataMineAvatar = new Image()
-
-        legacyDataMineAvatar.onload = onLegacyImageLoad
-
-        function onLegacyImageLoad () {
-          legacyDataMineAvatarLoaded = true
-        }
-
-        legacyDataMineAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_DATA_MINE + '/' + LEGACY_DATA_MINE + '.png'
-
-        legacyBotAvatar = new Image()
-        legacyBotAvatar.onload = onLegacyImageLoadBot
-
-        function onLegacyImageLoadBot () {
-          legacyBotAvatarLoaded = true
-          thisObject.bot.avatar = legacyBotAvatar
-        }
-
-        legacyBotAvatar.src = window.canvasApp.urlPrefix + 'Images/' + LEGACY_DATA_MINE + '/' + REPO + '/' + PROFILE_PIC
-      } else {
-           /*
-              Here we will download the images of dataMines shareed at the DataMines Module.
-              There might be Product Cards of bots beloging to dataMines not present currently at the DataMines Module, in those cases
-              nothing should happen.
-          */
-
-        dataMineAvatar = new Image()
-
-        dataMineAvatar.onload = onImageLoad
-
-        function onImageLoad () {
-          dataMineAvatarLoaded = true
-        }
-
-        dataMineAvatar.src = window.canvasApp.context.dataMineProfileImages.get(DATA_MINE)
-
-        botAvatar = new Image()
-        botAvatar.onload = onImageLoadBot
-
-        function onImageLoadBot () {
-          botAvatarLoaded = true
-          thisObject.bot.avatar = botAvatar
-        }
-
-        botAvatar.src = window.canvasApp.context.fbProfileImages.get(DATA_MINE + '-' + BOT)
-      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -433,10 +309,6 @@ function newProductCard () {
     fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
   }
 
-  function onMouseOver (event) {
-    lastMouseOver = 25
-  }
-
   function changeStatusTo (pNewStatus) {
     if (thisObject.status !== pNewStatus) {
       thisObject.status = pNewStatus
@@ -451,215 +323,19 @@ function newProductCard () {
   }
 
   function drawProductCard () {
-       /*
-       Put images on the card.
-       */
+    switch (thisObject.status) {
+      case PRODUCT_CARD_STATUS.ON:
 
-    let fitImagePoint = {
-      x: 0,
-      y: 0
+        break
+      case PRODUCT_CARD_STATUS.OFF:
+
+        break
+      case PRODUCT_CARD_STATUS.LOADING:
+
+        break
     }
 
-    const dataMineImageSize = 20
-    const botImageSize = 20
-    const plotterImageSize = {
-      width: 180,
-      height: 50
-    }
-
-    lastMouseOver--  // Animating the mouse onMouseOver
-
-    if (lastMouseOver > 0) {
-      /* First the Dev Data Mine Profile Picture. */
-      let dataMineImagePoint = {
-        x: 2,
-        y: thisObject.container.frame.height / 2 - dataMineImageSize / 2
-      }
-
-      dataMineImagePoint = thisObject.container.frame.frameThisPoint(dataMineImagePoint)
-      fitImagePoint = thisObject.fitFunction(dataMineImagePoint)
-      let dataMineImage
-      if (legacyDataMineAvatarLoaded === true) {
-        dataMineImage = legacyDataMineAvatar
-      }
-      if (dataMineAvatarLoaded === true) {
-        dataMineImage = dataMineAvatar
-      }
-      if (dataMineImage !== undefined && dataMineImagePoint.y === fitImagePoint.y) {
-        if (dataMineImage.naturalHeight !== 0) {
-         /* The image is rounded before being displayed. */
-          browserCanvasContext.save()
-          browserCanvasContext.beginPath()
-          browserCanvasContext.arc(dataMineImagePoint.x + dataMineImageSize / 2, dataMineImagePoint.y + dataMineImageSize / 2, dataMineImageSize / 2, 0, Math.PI * 2, true)
-          browserCanvasContext.closePath()
-          browserCanvasContext.clip()
-          browserCanvasContext.drawImage(dataMineImage, dataMineImagePoint.x, dataMineImagePoint.y, dataMineImageSize, dataMineImageSize)
-          browserCanvasContext.beginPath()
-          browserCanvasContext.arc(dataMineImagePoint.x, dataMineImagePoint.y, dataMineImageSize / 2, 0, Math.PI * 2, true)
-          browserCanvasContext.clip()
-          browserCanvasContext.closePath()
-          browserCanvasContext.restore()
-        }
-      }
-
-      /* Second the Bot's Profile Picture. */
-      if (thisObject.bot.profilePicture !== undefined) {
-        let botImagePoint = {
-          x: thisObject.container.frame.width - botImageSize / 2 - 8,
-          y: thisObject.container.frame.height / 2 - botImageSize / 2
-        }
-        botImagePoint = thisObject.container.frame.frameThisPoint(botImagePoint)
-        fitImagePoint = thisObject.fitFunction(botImagePoint)
-
-        let imageId = thisObject.bot.dataMine + '.' + thisObject.bot.profilePicture
-        /* TODO Temporary code */
-        let botImage
-        botImage = thisObject.bot.avatar
-        if (botImage !== undefined && botImagePoint.y === fitImagePoint.y) {
-          if (botImage.naturalHeight !== 0) {
-             /* The image is rounded before being displayed. */
-            browserCanvasContext.save()
-            browserCanvasContext.beginPath()
-            browserCanvasContext.arc(botImagePoint.x + botImageSize / 2, botImagePoint.y + botImageSize / 2, botImageSize / 2, 0, Math.PI * 2, true)
-            browserCanvasContext.closePath()
-            browserCanvasContext.clip()
-            browserCanvasContext.drawImage(botImage, botImagePoint.x, botImagePoint.y, botImageSize, botImageSize)
-            browserCanvasContext.beginPath()
-            browserCanvasContext.arc(botImagePoint.x, botImagePoint.y, botImageSize / 2, 0, Math.PI * 2, true)
-            browserCanvasContext.clip()
-            browserCanvasContext.closePath()
-            browserCanvasContext.restore()
-          }
-        }
-      }
-    }
-       /* Third the Plotter's Profile Picture. */
-    if (thisObject.product.plotter.profilePicture !== undefined || thisObject.product.plotter.legacy === false) {
-      let plotterImagePoint = {
-        x: thisObject.container.frame.width / 2 - plotterImageSize.width / 2,
-        y: thisObject.container.frame.height / 2 - plotterImageSize.height / 2
-      }
-      plotterImagePoint = thisObject.container.frame.frameThisPoint(plotterImagePoint)
-      fitImagePoint = {
-        x: 0,
-        y: plotterImagePoint.y + plotterImageSize.height
-      }
-      fitImagePoint = thisObject.fitFunction(fitImagePoint)
-      let imageId = thisObject.product.plotter.dataMine + '.' + thisObject.product.plotter.codeName + '.' + thisObject.product.plotter.moduleName + '.' + thisObject.product.plotter.profilePicture
-      let plotterImage = legacyPlotterBanner
-      if (plotterImage !== undefined && plotterImagePoint.y + plotterImageSize.height === fitImagePoint.y) {
-        if (plotterImage.naturalHeight !== 0) {
-          browserCanvasContext.drawImage(plotterImage, plotterImagePoint.x, plotterImagePoint.y, plotterImageSize.width, plotterImageSize.height)
-        }
-      }
-    }
-    drawProductLoadStatus()
-
-    function drawProductLoadStatus () {
-      let offFillStyle = 'rgba(' + UI_COLOR.RED + ', 0.20)'
-      let onFillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.20)'
-      let loadingFillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'
-
-      switch (thisObject.status) {
-        case PRODUCT_CARD_STATUS.ON:
-          browserCanvasContext.fillStyle = onFillStyle
-          break
-        case PRODUCT_CARD_STATUS.OFF:
-          browserCanvasContext.fillStyle = offFillStyle
-          break
-        case PRODUCT_CARD_STATUS.LOADING:
-          browserCanvasContext.fillStyle = loadingFillStyle
-          break
-      }
-
-      let centerPoint = {
-        x: thisObject.container.frame.width / 2,
-        y: thisObject.container.frame.height / 2 - 13
-      }
-
-      let point1 = {
-        x: centerPoint.x - plotterImageSize.width / 2,
-        y: centerPoint.y - plotterImageSize.height / 2 - 7
-      }
-
-      let point2 = {
-        x: centerPoint.x + plotterImageSize.width / 2,
-        y: centerPoint.y - plotterImageSize.height / 2 - 7
-      }
-
-      let point3 = {
-        x: centerPoint.x + plotterImageSize.width / 2,
-        y: centerPoint.y - plotterImageSize.height / 2 + 7
-      }
-
-      let point4 = {
-        x: centerPoint.x - plotterImageSize.width / 2,
-        y: centerPoint.y - plotterImageSize.height / 2 + 7
-      }
-           /* Now the transformations. */
-      point1 = thisObject.container.frame.frameThisPoint(point1)
-      point2 = thisObject.container.frame.frameThisPoint(point2)
-      point3 = thisObject.container.frame.frameThisPoint(point3)
-      point4 = thisObject.container.frame.frameThisPoint(point4)
-
-      point1 = thisObject.fitFunction(point1)
-      point2 = thisObject.fitFunction(point2)
-      point3 = thisObject.fitFunction(point3)
-      point4 = thisObject.fitFunction(point4)
-
-      browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(point1.x, point1.y)
-      browserCanvasContext.lineTo(point2.x, point2.y)
-      browserCanvasContext.lineTo(point3.x, point3.y)
-      browserCanvasContext.lineTo(point4.x, point4.y)
-      browserCanvasContext.closePath()
-      browserCanvasContext.fill()
-      browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-      browserCanvasContext.lineWidth = 0.1
-      browserCanvasContext.stroke()
-    }
-       /*
-       print the text
-       */
-    let labelPoint
-    let fontSize = 10
-
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    let label
-    if (lastMouseOver > 0) {
-   /* dataMine */
-      label = thisObject.dataMine.displayName
-      if (label.length > 10) { label = label.substring(1, 8) + '...' }
-
-      labelPoint = {
-        x: 2 + dataMineImageSize / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-        y: thisObject.container.frame.height / 2 + dataMineImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
-      }
-
-      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-      labelPoint = thisObject.fitFunction(labelPoint)
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-      browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
-      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-   /* bot */
-      label = thisObject.bot.displayName
-      if (label.length > 10) { label = label.substring(1, 8) + '...' }
-
-      labelPoint = {
-        x: thisObject.container.frame.width - 8 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-        y: thisObject.container.frame.height / 2 + dataMineImageSize / 2 + fontSize * FONT_ASPECT_RATIO + 5
-      }
-
-      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-      labelPoint = thisObject.fitFunction(labelPoint)
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-      browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 0.50)'
-      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-    }
-       /* product */
-    fontSize = 10
-    label = thisObject.product.displayName
+    let label = thisObject.product.displayName
 
     if (thisObject.session !== undefined) {
       const MAX_LABEL_LENGTH = 20
@@ -669,20 +345,6 @@ function newProductCard () {
         label = thisObject.session.name + ' - ' + label
       }
     }
-    labelPoint = {
-      x: 65,
-      y: thisObject.container.frame.height / 2 + 15
-    }
-    labelPoint = {
-      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO,
-      y: thisObject.container.frame.height / 2 - dataMineImageSize / 2 - fontSize * FONT_ASPECT_RATIO - 20
-    }
-    labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-    labelPoint = thisObject.fitFunction(labelPoint)
-
-    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(60, 60, 60, 1)'
-    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 
        /* ------------------- Progress Bars -------------------------- */
 

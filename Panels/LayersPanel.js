@@ -3,8 +3,8 @@ function newProductsPanel () {
     name: 'Layers Panel',
     fitFunction: undefined,
     container: undefined,
-    productCards: [],
-    getLoadingProductCards: getLoadingProductCards,
+    layers: [],
+    getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
@@ -24,8 +24,8 @@ function newProductsPanel () {
 
   let isInitialized = false
 
-  let cardsMap = new Map()
-  let visibleProductCards = []
+  let layersMap = new Map()
+  let visibleLayers = []
   let firstVisibleCard = 1
 
    /* Needed Variables */
@@ -60,7 +60,7 @@ function newProductsPanel () {
     panelTabButton.fitFunction = thisObject.fitFunction
     panelTabButton.initialize()
 
-     /* First thing is to build the thisObject.productCards array */
+     /* First thing is to build the thisObject.layers array */
     let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
     if (ecosystem === null || ecosystem === undefined) {
       ecosystem = getUserEcosystem()
@@ -78,7 +78,7 @@ function newProductsPanel () {
           for (let k = 0; k < bot.products.length; k++) {
             let product = bot.products[k]
 
-            addProductCard(dataMine, bot, product)
+            addLayer(dataMine, bot, product)
           }
         }
       }
@@ -187,7 +187,7 @@ function newProductsPanel () {
               }
             }
 
-            addProductCard(dataMine, bot, product)
+            addLayer(dataMine, bot, product)
           }
         }
       }
@@ -197,36 +197,36 @@ function newProductsPanel () {
     isInitialized = true
   }
 
-  function removeProductCard (code) {
-    let productCard = cardsMap.get(code)
-    cardsMap.delete(code)
-    productCard.turnOff()
-    productCard.finalize()
+  function removeLayer (code) {
+    let layer = layersMap.get(code)
+    layersMap.delete(code)
+    layer.turnOff()
+    layer.finalize()
   }
 
-  function addProductCard (dataMine, bot, product, session) {
+  function addLayer (dataMine, bot, product, session) {
     /* Now we create Product objects */
-    let productCard = newProductCard()
+    let layer = newLayer()
 
-    productCard.dataMine = dataMine
-    productCard.bot = bot
-    productCard.product = product
-    productCard.fitFunction = thisObject.fitFunction
-    productCard.code = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
+    layer.dataMine = dataMine
+    layer.bot = bot
+    layer.product = product
+    layer.fitFunction = thisObject.fitFunction
+    layer.code = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
 
     if (session !== undefined) {
-      productCard.code = productCard.code + '-' + session.id
+      layer.code = layer.code + '-' + session.id
     }
-    productCard.session = session
+    layer.session = session
 
     /* Initialize it */
-    productCard.initialize()
-    cardsMap.set(productCard.code, productCard)
+    layer.initialize()
+    layersMap.set(layer.code, layer)
 
     /* Container Stuff */
-    productCard.container.frame.parentFrame = thisObject.container.frame
-    productCard.container.parentContainer = thisObject.container
-    productCard.container.isWheelable = true
+    layer.container.frame.parentFrame = thisObject.container.frame
+    layer.container.parentContainer = thisObject.container
+    layer.container.isWheelable = true
 
     /* Positioning within thisObject Panel */
     let position = {
@@ -234,22 +234,22 @@ function newProductsPanel () {
       y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
     }
 
-    productCard.container.frame.position.x = position.x
-    productCard.container.frame.position.y = position.y + productCard.container.frame.height * thisObject.productCards.length + CANRD_SEPARATION
+    layer.container.frame.position.x = position.x
+    layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + CANRD_SEPARATION
 
     /* Add to the Product Array */
-    thisObject.productCards.push(productCard)
+    thisObject.layers.push(layer)
 
     /* Add to Visible Product Array */
-    if (productCard.container.frame.position.y + productCard.container.frame.height < thisObject.container.frame.height) {
-      visibleProductCards.push(productCard)
+    if (layer.container.frame.position.y + layer.container.frame.height < thisObject.container.frame.height) {
+      visibleLayers.push(layer)
     }
 
     /* Listen to Status Changes Events */
-    productCard.container.eventHandler.listenToEvent('Status Changed', onProductCardStatusChanged)
-    productCard.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
+    layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
-    return productCard
+    return layer
   }
 
   function onMouseWheel (event) {
@@ -262,20 +262,20 @@ function newProductsPanel () {
 
     firstVisibleCard = firstVisibleCard + delta
 
-    calculateVisbleProductCards()
+    calculateVisbleLayers()
   }
 
-  function calculateVisbleProductCards () {
-    let availableSlots = visibleProductCards.length
+  function calculateVisbleLayers () {
+    let availableSlots = visibleLayers.length
 
     if (firstVisibleCard < 1) { firstVisibleCard = 1 }
-    if (firstVisibleCard > (thisObject.productCards.length - availableSlots + 1)) { firstVisibleCard = thisObject.productCards.length - availableSlots + 1 }
+    if (firstVisibleCard > (thisObject.layers.length - availableSlots + 1)) { firstVisibleCard = thisObject.layers.length - availableSlots + 1 }
 
-    visibleProductCards = []
+    visibleLayers = []
 
-    for (let i = 0; i < thisObject.productCards.length; i++) {
+    for (let i = 0; i < thisObject.layers.length; i++) {
       if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
-        let productCard = thisObject.productCards[i]
+        let layer = thisObject.layers[i]
 
                /* Positioning within thisObject Panel */
 
@@ -283,28 +283,28 @@ function newProductsPanel () {
           x: 10,
           y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
         }
-        productCard.container.frame.position.x = position.x
-        productCard.container.frame.position.y = position.y + productCard.container.frame.height * visibleProductCards.length + CANRD_SEPARATION
+        layer.container.frame.position.x = position.x
+        layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + CANRD_SEPARATION
 
                /* Add to Visible Product Array */
 
-        visibleProductCards.push(productCard)
+        visibleLayers.push(layer)
       }
     }
   }
 
-  function onProductCardStatusChanged (pProductCard) {
-    thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pProductCard)
+  function onLayerStatusChanged (pLayer) {
+    thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pLayer)
   }
 
-  function getLoadingProductCards () {
-       /* Returns all thisObject.productCards which status is LOADING */
+  function getLoadingLayers () {
+       /* Returns all thisObject.layers which status is LOADING */
 
     let onProducts = []
 
-    for (let i = 0; i < thisObject.productCards.length; i++) {
-      if (thisObject.productCards[i].status === PRODUCT_CARD_STATUS.LOADING) {
-        onProducts.push(thisObject.productCards[i])
+    for (let i = 0; i < thisObject.layers.length; i++) {
+      if (thisObject.layers[i].status === PRODUCT_CARD_STATUS.LOADING) {
+        onProducts.push(thisObject.layers[i])
       }
     }
 
@@ -322,8 +322,8 @@ function newProductsPanel () {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
            /* Now we see which is the inner most container that has it */
 
-      for (let i = 0; i < visibleProductCards.length; i++) {
-        container = visibleProductCards[i].getContainer(point)
+      for (let i = 0; i < visibleLayers.length; i++) {
+        container = visibleLayers[i].getContainer(point)
 
         if (container !== undefined) {
           let checkPoint = {
@@ -371,15 +371,15 @@ function newProductsPanel () {
     local array after all the layers at the designer have been processed, are turned off and discarded.
     */
 
-    let localProductCards = []
-    moveToLocalProductCards()
-    synchronizeLayersAndProductCards()
+    let localLayers = []
+    moveToLocalLayers()
+    synchronizeLayersAndLayers()
 
     /* At this poins all the cards still at the local array need to be removed from the panel. */
     turnOffUnusedProducCards()
-    calculateVisbleProductCards()
+    calculateVisbleLayers()
 
-    function synchronizeLayersAndProductCards () {
+    function synchronizeLayersAndLayers () {
         /* We will look into the ecosystem to know which Trading bots are defined there. */
       let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
       if (ecosystem === null || ecosystem === undefined) {
@@ -439,10 +439,10 @@ function newProductsPanel () {
                             if (product.codeName === layerCode.product) {
                               /* We have a layer that is matching the current product */
                               let cardCode = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
-                              let cardFound = removeFromLocalProductCards(cardCode)
+                              let cardFound = removeFromLocalLayers(cardCode)
                               if (cardFound !== true) {
-                                productCard = addProductCard(dataMine, bot, product, process.session)
-                                onProductCardStatusChanged(productCard)
+                                layer = addLayer(dataMine, bot, product, process.session)
+                                onLayerStatusChanged(layer)
                               }
                             }
                           }
@@ -458,36 +458,36 @@ function newProductsPanel () {
       }
     }
 
-    function moveToLocalProductCards () {
+    function moveToLocalLayers () {
       removeNext()
 
       function removeNext () {
-        for (let i = 0; i < thisObject.productCards.length; i++) {
-          let productCard = thisObject.productCards[i]
-          if (productCard.session !== undefined) {
-            thisObject.productCards.splice(i, 1)
-            localProductCards.push(productCard)
+        for (let i = 0; i < thisObject.layers.length; i++) {
+          let layer = thisObject.layers[i]
+          if (layer.session !== undefined) {
+            thisObject.layers.splice(i, 1)
+            localLayers.push(layer)
             removeNext()
           }
         }
       }
     }
 
-    function removeFromLocalProductCards (code) {
-      for (let i = 0; i < localProductCards.length; i++) {
-        let productCard = localProductCards[i]
-        if (productCard.code === code) {
-          thisObject.productCards.push(productCard)
-          localProductCards.splice(i, 1)
+    function removeFromLocalLayers (code) {
+      for (let i = 0; i < localLayers.length; i++) {
+        let layer = localLayers[i]
+        if (layer.code === code) {
+          thisObject.layers.push(layer)
+          localLayers.splice(i, 1)
           return true
         }
       }
     }
 
     function turnOffUnusedProducCards () {
-      for (let i = 0; i < localProductCards.length; i++) {
-        let productCard = localProductCards[i]
-        removeProductCard(productCard.code)
+      for (let i = 0; i < localLayers.length; i++) {
+        let layer = localLayers[i]
+        removeLayer(layer.code)
       }
     }
   }
@@ -496,8 +496,8 @@ function newProductsPanel () {
 
     thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 
-    for (let i = 0; i < visibleProductCards.length; i++) {
-      visibleProductCards[i].draw()
+    for (let i = 0; i < visibleLayers.length; i++) {
+      visibleLayers[i].draw()
     }
 
     panelTabButton.draw()

@@ -127,7 +127,7 @@
     <Compile Include="Spaces\PanelsSpace.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ProductCard.js">
+    <Compile Include="Layer.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Files\SingleFile.js">

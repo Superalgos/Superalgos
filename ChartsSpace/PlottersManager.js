@@ -72,25 +72,25 @@ function newPlottersManager () {
       exchange = pExchange
       market = pMarket
             /* Listen to the event of change of status */
-      layersPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onProductCardStatusChanged)
+      layersPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onLayerStatusChanged)
 
       /* Lets get all the cards that needs to be loaded. */
 
-      let loadingProductCards = layersPanel.getLoadingProductCards()
+      let loadingLayers = layersPanel.getLoadingLayers()
 
-      for (let i = 0; i < loadingProductCards.length; i++) {
+      for (let i = 0; i < loadingLayers.length; i++) {
           /* For each one, we will initialize the associated plotter. */
-        initializeProductPlotter(loadingProductCards[i])
+        initializeProductPlotter(loadingLayers[i])
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
   }
 
-  function initializeProductPlotter (pProductCard, callBack) {
+  function initializeProductPlotter (pLayer, callBack) {
     try {
             /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
-      let objName = pProductCard.dataMine.codeName + '-' + pProductCard.bot.codeName + '-' + pProductCard.product.codeName
+      let objName = pLayer.dataMine.codeName + '-' + pLayer.bot.codeName + '-' + pLayer.product.codeName
       let storage = newProductStorage(objName)
             /*
 
@@ -98,30 +98,30 @@ function newPlottersManager () {
             so that the UI can somehow show this. There are different types of events.
 
             */
-      for (let i = 0; i < pProductCard.product.dataSets.length; i++) {
-        let thisSet = pProductCard.product.dataSets[i]
+      for (let i = 0; i < pLayer.product.dataSets.length; i++) {
+        let thisSet = pLayer.product.dataSets[i]
 
         switch (thisSet.type) {
           case 'Market Files': {
-            storage.eventHandler.listenToEvent('Market File Loaded', pProductCard.onMarketFileLoaded)
+            storage.eventHandler.listenToEvent('Market File Loaded', pLayer.onMarketFileLoaded)
           }
             break
           case 'Daily Files': {
-            storage.eventHandler.listenToEvent('Daily File Loaded', pProductCard.onDailyFileLoaded)
+            storage.eventHandler.listenToEvent('Daily File Loaded', pLayer.onDailyFileLoaded)
           }
             break
           case 'Single File': {
-            storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded)
+            storage.eventHandler.listenToEvent('Single File Loaded', pLayer.onSingleFileLoaded)
           }
             break
           case 'File Sequence': {
-            storage.eventHandler.listenToEvent('File Sequence Loaded', pProductCard.onFileSequenceLoaded)
+            storage.eventHandler.listenToEvent('File Sequence Loaded', pLayer.onFileSequenceLoaded)
           }
             break
         }
       }
 
-      storage.initialize(pProductCard.dataMine, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timeFrame, onProductStorageInitialized)
+      storage.initialize(pLayer.dataMine, pLayer.bot, pLayer.session, pLayer.product, exchange, market, datetime, timeFrame, onProductStorageInitialized)
 
       function onProductStorageInitialized (err) {
         try {
@@ -130,7 +130,7 @@ function newPlottersManager () {
             let plotter
             let productDefinition
 
-            if (pProductCard.product.plotter.legacy === false) {
+            if (pLayer.product.plotter.legacy === false) {
               plotter = newPlotter()
 
               /* We take a snapwhot of the current product definition to be used by the plotter. */
@@ -145,9 +145,9 @@ function newPlottersManager () {
                                 'Polygon Border->Style->Style Condition->Style->' +
                                 'Polygon Vertex->Point->' +
                                 'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
-              productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, lightingPath)
+              productDefinition = functionLibraryProtocolNode.getProtocolNode(pLayer.product.node, false, true, true, false, false, lightingPath)
             } else {
-              plotter = getNewPlotter(pProductCard.product.plotter.dataMine, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
+              plotter = getNewPlotter(pLayer.product.plotter.dataMine, pLayer.product.plotter.codeName, pLayer.product.plotter.moduleName)
             }
 
             plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
@@ -159,7 +159,7 @@ function newPlottersManager () {
             function onPlotterInizialized () {
               try {
                 let productPlotter = {
-                  productCard: pProductCard,
+                  layer: pLayer,
                   plotter: plotter,
                   storage: storage,
                   profile: undefined,
@@ -171,17 +171,17 @@ function newPlottersManager () {
                 productPlotter.panels = []
 
                 /* Here is where we instantiate the legacy panels */
-                for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
-                  let panelConfig = pProductCard.product.plotter.module.panels[i]
+                for (let i = 0; i < pLayer.product.plotter.module.panels.length; i++) {
+                  let panelConfig = pLayer.product.plotter.module.panels[i]
 
                   let parameters = {
-                    dataMine: pProductCard.product.plotter.dataMine,
-                    plotterCodeName: pProductCard.product.plotter.codeName,
-                    moduleCodeName: pProductCard.product.plotter.moduleName,
+                    dataMine: pLayer.product.plotter.dataMine,
+                    plotterCodeName: pLayer.product.plotter.codeName,
+                    moduleCodeName: pLayer.product.plotter.moduleName,
                     panelCodeName: panelConfig.codeName
                   }
                   let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
-                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session)
+                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pLayer.session)
                   let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
                         /* Connect Panel to the Plotter via an Event. */
                   if (panelConfig.event !== undefined) {
@@ -196,13 +196,13 @@ function newPlottersManager () {
                     let panel = productDefinition.referenceParent.panels[i]
 
                     let parameters = {
-                      dataMine: pProductCard.product.plotter.dataMine,
-                      plotterCodeName: pProductCard.product.plotter.codeName,
-                      moduleCodeName: pProductCard.product.plotter.moduleName,
+                      dataMine: pLayer.product.plotter.dataMine,
+                      plotterCodeName: pLayer.product.plotter.codeName,
+                      moduleCodeName: pLayer.product.plotter.moduleName,
                       panelCodeName: panel.id
                     }
                     let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
-                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session, panel)
+                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pLayer.session, panel)
                     let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
 
                     /* Connect Panel to the Plotter via an Event. */
@@ -226,26 +226,26 @@ function newPlottersManager () {
     }
   }
 
-  function onProductCardStatusChanged (pProductCard) {
-    if (pProductCard.status === PRODUCT_CARD_STATUS.LOADING) {
+  function onLayerStatusChanged (pLayer) {
+    if (pLayer.status === PRODUCT_CARD_STATUS.LOADING) {
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
       let found = false
       for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].productCard.code === pProductCard.code) {
+        if (productPlotters[i].layer.code === pLayer.code) {
           found = true
         }
       }
       if (found === false) {
-        initializeProductPlotter(pProductCard, onProductPlotterInitialized)
+        initializeProductPlotter(pLayer, onProductPlotterInitialized)
         function onProductPlotterInitialized (err) {
                     /* There is no policy yet of what to do if this fails. */
         }
       }
     }
-    if (pProductCard.status === PRODUCT_CARD_STATUS.OFF) {
+    if (pLayer.status === PRODUCT_CARD_STATUS.OFF) {
             /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
       for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].productCard.code === pProductCard.code) {
+        if (productPlotters[i].layer.code === pLayer.code) {
                     /* Then the panels. */
           for (let j = 0; j < productPlotters[i].panels.length; j++) {
             canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
@@ -268,7 +268,7 @@ function newPlottersManager () {
     timeFrame = pTimeFrame
     for (let i = 0; i < productPlotters.length; i++) {
       let productPlotter = productPlotters[i]
-      productPlotter.productCard.setTimeFrame(timeFrame)
+      productPlotter.layer.setTimeFrame(timeFrame)
       productPlotter.storage.setTimeFrame(timeFrame)
       productPlotter.plotter.setTimeFrame(timeFrame)
     }
@@ -278,7 +278,7 @@ function newPlottersManager () {
     datetime = pDatetime
     for (let i = 0; i < productPlotters.length; i++) {
       let productPlotter = productPlotters[i]
-      productPlotter.productCard.setDatetime(pDatetime)
+      productPlotter.layer.setDatetime(pDatetime)
       productPlotter.storage.setDatetime(pDatetime)
       productPlotter.plotter.setDatetime(pDatetime)
     }

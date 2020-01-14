@@ -1,4 +1,4 @@
-function newProductCard () {
+function newLayer () {
   const MODULE_NAME = 'Product Card'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -319,10 +319,10 @@ function newProductCard () {
   }
 
   function draw () {
-    drawProductCard()
+    drawLayer()
   }
 
-  function drawProductCard () {
+  function drawLayer () {
     switch (thisObject.status) {
       case PRODUCT_CARD_STATUS.ON:
 
@@ -568,4 +568,3 @@ function newProductCard () {
     browserCanvasContext.lineWidth = 10
   }
 }
-

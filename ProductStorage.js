@@ -1,5 +1,5 @@
  ﻿
-function newProductStorage (pName) {
+function newProductStorage (name) {
   const MODULE_NAME = 'Product Storage'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -40,7 +40,7 @@ function newProductStorage (pName) {
 
     /* We name the event Handler to easy debugging. */
 
-  thisObject.eventHandler.name = 'Storage-' + pName
+  thisObject.eventHandler.name = 'Storage-' + name
 
   let datetime
   let timeFrame
@@ -74,7 +74,7 @@ function newProductStorage (pName) {
     }
   }
 
-  function initialize (pdataMine, pBot, pSession, pProduct, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
+  function initialize (dataMine, bot, session, product, exchange, market, pDatetime, pTimeFrame, callBackFunction) {
     try {
       datetime = pDatetime
       timeFrame = pTimeFrame
@@ -82,15 +82,15 @@ function newProductStorage (pName) {
       let dataSetsToLoad = 0
       let dataSetsLoaded = 0
 
-      for (let i = 0; i < pProduct.dataSets.length; i++) {
-        let thisSet = pProduct.dataSets[i]
+      for (let i = 0; i < product.datasets.length; i++) {
+        let dataset = product.datasets[i]
 
-        switch (thisSet.type) {
+        switch (dataset.type) {
           case 'Market Files': {
             dataSetsToLoad++
 
             let marketFiles = newMarketFiles()
-            marketFiles.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onMarketFileReady)
+            marketFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, onMarketFileReady)
             thisObject.marketFiles.push(marketFiles)
           }
             break
@@ -99,7 +99,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let dailyFiles = newDailyFiles()
-            dailyFiles.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimeFrame, onDailyFileReady)
+            dailyFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, onDailyFileReady)
             thisObject.dailyFiles.push(dailyFiles)
           }
             break
@@ -108,7 +108,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let singleFile = newSingleFile()
-            singleFile.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onSingleFileReady)
+            singleFile.initialize(dataMine, bot, session, product, dataset, exchange, market, onSingleFileReady)
             thisObject.singleFile.push(singleFile)
           }
             break
@@ -117,12 +117,12 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let fileSequences = newFileSequence()
-            fileSequences.initialize(pdataMine, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady)
+            fileSequences.initialize(dataMine, bot, session, product, dataset, exchange, market, onFileSequenceReady)
             thisObject.fileSequences.push(fileSequences)
           }
             break
           default:
-            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> initialize -> dataset with no type defined. Data can not be retrieved. -> codeName = ' + thisSet.codeName) }
+            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> initialize -> dataset with no type defined. Data can not be retrieved. -> codeName = ' + dataset.codeName) }
         }
 
         function onMarketFileReady (err, pCaller) {

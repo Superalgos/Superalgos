@@ -101,7 +101,7 @@ function newUiObjectTitle () {
         }
       }
       thisObject.payload.title = nodeToUse.payload.title
-      thisObject.payload.name = thisObject.payload.node.name
+      thisObject.payload.node.name = nodeToUse.payload.node.name
       title = trimTitle(thisObject.payload.title)
     }
 

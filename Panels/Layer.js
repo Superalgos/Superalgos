@@ -7,12 +7,9 @@ function newLayer () {
   let thisObject = {
     container: undefined,
     status: PRODUCT_CARD_STATUS.OFF,
-    dataMine: undefined,
-    bot: undefined,
-    product: undefined,
-    code: undefined,
     fitFunction: undefined,
     payload: undefined,
+    definition: undefined,
     draw: draw,
     turnOff: turnOff,
     turnOn: turnOn,
@@ -74,6 +71,7 @@ function newLayer () {
 
   thisObject.eventHandler = newEventHandler()
   let imagesLoaded = 0
+  let onMouseClickEventSuscriptionId
 
   return thisObject
 
@@ -83,12 +81,9 @@ function newLayer () {
     thisObject.container = undefined
     thisObject.eventHandler = undefined
     thisObject.status = undefined
-    thisObject.dataMine = undefined
-    thisObject.bot = undefined
-    thisObject.product = undefined
-    thisObject.code = undefined
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
+    thisObject.definition = undefined
 
     timeFrame = undefined
     datetime = undefined
@@ -105,32 +100,21 @@ function newLayer () {
     dailyFileProgressBar = undefined
     singleFileProgressBar = undefined
     fileSequenceProgressBar = undefined
+
+    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
   }
 
   function initialize () {
        /* Create this objects continer */
     try {
       thisObject.container = newContainer()
-      thisObject.container.initialize(MODULE_NAME + thisObject.code)
+      thisObject.container.initialize(MODULE_NAME + ' ' + thisObject.payload.node.id)
       thisObject.container.isDraggeable = false
       thisObject.container.isClickeable = true
 
-       /* Add information that will later be needed. */
-
-      let dataMine = ecosystem.getDataMine(thisObject.product.plotter.dataMine)
-      let plotter
-      if (dataMine !== undefined) {
-        plotter = ecosystem.getPlotter(dataMine, thisObject.product.plotter.codeName)
-      }
-
-      if (plotter !== undefined) {
-        let plotterModule = ecosystem.getPlotterModule(plotter, thisObject.product.plotter.moduleName)
-        thisObject.product.plotter.module = plotterModule
-      }
-
        /* Lets set the basic dimensions of this thisObject. */
 
-      var position = {
+      let position = {
         x: 0,
         y: 0
       }
@@ -139,9 +123,44 @@ function newLayer () {
       thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
       thisObject.container.frame.height = 100
 
-       /* We retrieve the locally stored status of the Product */
+      let functionLibraryProtocolNode = newProtocolNode()
+      let lightingPath =
+                        '->Layer->' +
+                        'Data Product->Single Market Data->Market->' +
+                        'Market Base Asset->Asset->' +
+                        'Market Quoted Asset->Asset->' +
+                        'Exchange Markets->Crypto Exchange->' +
+                        'Product Definition->' +
+                        'Sensor Bot->Indicator Bot->Trading Bot->' +
+                        'Data Mine->' +
+                        'Dataset Definition->' +
+                        'Record Definition->Record Property->Formula->' +
+                        'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
+                        'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
+                        'Plotter Module->Shapes->' +
+                        'Chart Points->Point->Point Formula->' +
+                        'Polygon->Polygon Body->Style->Style Condition->Style->' +
+                        'Polygon Border->Style->Style Condition->Style->' +
+                        'Polygon Vertex->Point->' +
+                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
+      thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
-      let storedValue = window.localStorage.getItem(thisObject.code)
+      /* Here we validate that we have all the needed information */
+      if (thisObject.definition.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.referenceParent.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.referenceParent.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.referenceParent.parentNode.parentNode === undefined) { return }
+
+       /* We retrieve the locally stored status of the Product */
+      let storedValue = window.localStorage.getItem(thisObject.payload.node.id)
 
       if (storedValue !== null) {
         thisObject.status = storedValue
@@ -150,56 +169,27 @@ function newLayer () {
           changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
         }
       } else {
-           /*
-
-           This happens the first time the app is run on a new browser.
-
-           We will start with all product off, except for the candles chart, since something needs to be shown and allow the user to position themselves
-           on the timeline.
-
-           For the time being, we will hard-code the name of the bot we will turn on by default, since we dont see that change in the near future.
-
-           */
-
-        const DEFAULT_ON_PRODUCT = 'Poloniex-BTC/USDT-AAMasters-AAOlivia-Candles'
-
-        if (thisObject.code === DEFAULT_ON_PRODUCT) {
-          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-        } else {
-          changeStatusTo(PRODUCT_CARD_STATUS.OFF)
-        }
+        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
       }
 
        /* Lets listen to our own events to react when we have a Mouse Click */
-
-      thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+      onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
   }
 
   function getContainer (point) {
-    var container
-
-       /* First we check if this point is inside this space. */
-
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
-    } else {
-           /* This point does not belong to this space. */
-
-      return undefined
     }
   }
 
   function setDatetime (pDatetime) {
-       /*
-
-       When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
-       get ready to receive events on files loaded.
-
-       */
-
+     /*
+     When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
+     get ready to receive events on files loaded.
+     */
     let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
     let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
 
@@ -213,13 +203,10 @@ function newLayer () {
   }
 
   function setTimeFrame (pTimeFrame) {
-       /*
-
-       When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
-       get ready to receive events on files loaded.
-
-       */
-
+     /*
+     When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
+     get ready to receive events on files loaded.
+     */
     if (timeFrame !== pTimeFrame) {
       timeFrame = pTimeFrame
 
@@ -337,27 +324,7 @@ function newLayer () {
         break
     }
 
-    let label = thisObject.product.displayName
-
-    if (thisObject.session !== undefined) {
-      const MAX_LABEL_LENGTH = 20
-      if (thisObject.session.name.length > MAX_LABEL_LENGTH) {
-        label = thisObject.session.name.substring(0, MAX_LABEL_LENGTH) + '...' + ' - ' + label
-      } else {
-        label = thisObject.session.name + ' - ' + label
-      }
-    }
-
-    let label1 = label
-    let label2 = 'ON'
-    let label3 = ''
-
-    let icon1 = canvas.designerSpace.iconCollection.get('oscillator')
-    let icon2 = canvas.designerSpace.iconCollection.get('poloniex') // canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-
-    let backgroundColor = UI_COLOR.BLACK
-
-    drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
+    drawLayerDisplay()
 
        /* ------------------- Progress Bars -------------------------- */
 
@@ -568,5 +535,126 @@ function newLayer () {
 
     browserCanvasContext.setLineDash([2, 5])
     browserCanvasContext.lineWidth = 10
+  }
+
+  function drawLayerDisplay () {
+    const MAX_LABEL_LENGTH = 20
+    let label = thisObject.payload.node.name
+    if (label > MAX_LABEL_LENGTH) {
+      label = label.substring(0, MAX_LABEL_LENGTH)
+    }
+
+    let label1 = label
+    let label2 = thisObject.status
+    let label3 = ''
+
+    let icon1 = canvas.designerSpace.iconCollection.get('oscillator')
+    let icon2 = canvas.designerSpace.iconCollection.get('poloniex') // canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    let backgroundColor = UI_COLOR.BLACK
+
+    let fontSize1 = 10
+    let fontSize2 = 20
+    let fontSize3 = 10
+
+    const RED_LINE_HIGHT = 4
+    const OPACITY = 1
+
+    let params = {
+      cornerRadius: 15,
+      lineWidth: 2,
+      container: thisObject.container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      castShadow: false,
+      backgroundColor: backgroundColor,
+      opacity: OPACITY
+    }
+
+    roundedCornersBackground(params)
+
+    /* Place the Text */
+
+    label1 = label1.substring(0, 18)
+    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
+
+    let labelPoint1 = {
+      x: thisObject.container.frame.width * 1 / 2 - xOffset1 / 2 - 5,
+      y: thisObject.container.frame.height * 4 / 5
+    }
+
+    labelPoint1 = thisObject.container.frame.frameThisPoint(labelPoint1)
+    let x = labelPoint1.x
+    labelPoint1.x = x
+
+    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
+
+    label2 = label2.substring(0, 20)
+    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
+
+    let labelPoint2 = {
+      x: thisObject.container.frame.width * 1 / 2 - xOffset2 / 2,
+      y: thisObject.container.frame.height * 2 / 5
+    }
+
+    labelPoint2 = thisObject.container.frame.frameThisPoint(labelPoint2)
+
+    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
+
+    label3 = label3.substring(0, 20)
+    let xOffset3 = label3.length * fontSize3 * FONT_ASPECT_RATIO
+
+    let labelPoint3 = {
+      x: thisObject.container.frame.width * 1 / 2 - xOffset3 / 2,
+      y: thisObject.container.frame.height * 3 / 5
+    }
+
+    labelPoint3 = thisObject.container.frame.frameThisPoint(labelPoint3)
+
+    browserCanvasContext.font = fontSize3 + 'px ' + UI_FONT.PRIMARY
+    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+    browserCanvasContext.fillText(label3, labelPoint3.x, labelPoint3.y)
+
+    /* Images */
+
+    if (icon1 !== undefined) {
+      if (icon1.canDrawIcon === true) {
+        let imageSize = 40
+        let imagePosition = {
+          x: thisObject.container.frame.width * 1 / 8 - imageSize / 2,
+          y: thisObject.container.frame.height / 2 - imageSize / 2
+        }
+
+        imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
+        browserCanvasContext.drawImage(
+          icon1, imagePosition.x,
+          imagePosition.y,
+          imageSize,
+          imageSize)
+      }
+    }
+
+    if (icon2 !== undefined) {
+      if (icon2.canDrawIcon === true) {
+        let imageSize = 40
+        let imagePosition = {
+          x: thisObject.container.frame.width * 7 / 8 - imageSize / 2,
+          y: thisObject.container.frame.height / 2 - imageSize / 2
+        }
+
+        imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
+        browserCanvasContext.drawImage(
+          icon2, imagePosition.x,
+          imagePosition.y,
+          imageSize,
+          imageSize)
+      }
+    }
   }
 }

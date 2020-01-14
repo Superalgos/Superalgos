@@ -33,9 +33,6 @@ function newTimelineChart () {
 
   let layersPanel
 
-  let exchange = DEFAULT_EXCHANGE
-  let market = DEFAULT_MARKET
-
   let layersPanelHandle
 
   let onOffsetChangedEventSuscriptionId
@@ -143,11 +140,10 @@ function newTimelineChart () {
   }
 
   function initializeLayersManager () {
-    let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
-    layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, panelOwner)
-    thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle, panelOwner)
-    thisObject.layersManager.initialize(exchange, market)
+    layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, thisObject.payload.node.id)
+    thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle, thisObject.payload.node.id)
     thisObject.layersManager.payload = thisObject.payload.node.layersManager.payload
+    thisObject.layersManager.initialize()
 
     /* Initialize the Plotter Manager */
     thisObject.plotterManager = newPlottersManager()
@@ -381,7 +377,7 @@ function newTimelineChart () {
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (window.CHART_ON_FOCUS === '') {
-        window.CHART_ON_FOCUS = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
+        window.CHART_ON_FOCUS = thisObject.payload.node.id
       }
       drawChartsBackground()
       if (thisObject.plotterManager !== undefined) {

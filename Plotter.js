@@ -96,7 +96,7 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction, pProductDefinition) {
+  function initialize (pStorage, pDatetime, pTimeFrame, callBackFunction, pProductDefinition) {
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]

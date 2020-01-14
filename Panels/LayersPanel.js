@@ -27,9 +27,6 @@ function newProductsPanel () {
   const LAYER_SEPARATION = 5
   let panelTabButton
 
-  let exchange
-  let market
-
   let onMouseWheelEventSuscriptionId
   return thisObject
 
@@ -47,11 +44,8 @@ function newProductsPanel () {
     thisObject = undefined
   }
 
-  function initialize (pExchange, pMarket) {
-    exchange = pExchange
-    market = pMarket
-
-    thisObject.container.name = 'Layers @ ' + exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
+  function initialize () {
+    thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
     thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 1.5 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
@@ -249,7 +243,7 @@ function newProductsPanel () {
 
         let found = removeFromLocalLayers(layerNode.id)
         if (found !== true) {
-          layer = addLayer(layerNode.id)
+          layer = addLayer(layerNode)
           onLayerStatusChanged(layer)
         }
       }
@@ -270,10 +264,10 @@ function newProductsPanel () {
       }
     }
 
-    function removeFromLocalLayers (code) {
+    function removeFromLocalLayers (id) {
       for (let i = 0; i < localLayers.length; i++) {
         let layer = localLayers[i]
-        if (layer.code === code) {
+        if (layer.payload.node.id === id) {
           thisObject.layers.push(layer)
           localLayers.splice(i, 1)
           return true
@@ -284,7 +278,7 @@ function newProductsPanel () {
     function turnOffUnusedLayers () {
       for (let i = 0; i < localLayers.length; i++) {
         let layer = localLayers[i]
-        removeLayer(layer.code)
+        removeLayer(layer.payload.node.id)
       }
     }
   }

@@ -1,7 +1,6 @@
 
  ﻿/* User Interface Colors */
 
-const STORAGE_PROVIDER = 'AAWeb';
 const CANVAS_APP_NAME = 'Canvas App'
 
 const SUPPORTED_EXCHANGES = ["Poloniex"];

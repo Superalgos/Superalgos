@@ -544,9 +544,18 @@ function newLayer () {
     let exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
     let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
-    let label1 = thisObject.status.toUpperCase()
-    let label2 = thisObject.payload.node.name.substring(0, 20)
+    let labelArray = thisObject.payload.node.name.split(' ')
+    let label1 = labelArray[0]
+    let label2 = labelArray[1]
     let label3 = exchange.name.substring(0, 15) + ' - ' + market
+    let label4 = thisObject.status.toUpperCase()
+
+    if (label1 !== undefined) {
+      label1 = label1.substring(0, 15)
+    }
+    if (label2 !== undefined) {
+      label2 = label2.substring(0, 15)
+    }
 
     let icon1 = getIcon(exchange)
 
@@ -579,16 +588,12 @@ function newLayer () {
 
     let backgroundColor = UI_COLOR.BLACK
 
-    let fontSize1 = 10
-    let fontSize2 = 20
-    let fontSize3 = 10
-
     const RED_LINE_HIGHT = 4
     const OPACITY = 1
 
     let params = {
-      cornerRadius: 15,
-      lineWidth: 2,
+      cornerRadius: 0,
+      lineWidth: 1,
       container: thisObject.container,
       borderColor: UI_COLOR.RUSTED_RED,
       castShadow: false,
@@ -598,54 +603,32 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    /* Place the Text */
-
-    label1 = label1.substring(0, 18)
-    let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
-
-    let labelPoint1 = {
-      x: thisObject.container.frame.width * 1 / 2 - xOffset1 / 2 - 5,
-      y: thisObject.container.frame.height * 4 / 5
+    if (label2 !== undefined) {
+      drawLabel(label1, 1 / 2, 2 / 8, 16)
+      drawLabel(label2, 1 / 2, 4 / 8, 16)
+    } else {
+      drawLabel(label1, 1 / 2, 3 / 8, 20)
     }
 
-    labelPoint1 = thisObject.container.frame.frameThisPoint(labelPoint1)
-    let x = labelPoint1.x
-    labelPoint1.x = x
+    drawLabel(label3, 1 / 2, 6 / 8, 10)
+    drawLabel(label4, 1 / 2, 7 / 8, 10)
 
-    browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+    function drawLabel (label, xFactor, yFactor, fontSize) {
+      if (label === undefined) { return }
+      let xOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
 
-    browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
+      let labelPoint = {
+        x: thisObject.container.frame.width * xFactor - xOffset / 2,
+        y: thisObject.container.frame.height * yFactor
+      }
 
-    label2 = label2.substring(0, 20)
-    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO + 15
+      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
-    let labelPoint2 = {
-      x: thisObject.container.frame.width * 1 / 2 - xOffset2 / 2,
-      y: thisObject.container.frame.height * 2 / 5
+      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
     }
-
-    labelPoint2 = thisObject.container.frame.frameThisPoint(labelPoint2)
-
-    browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-    browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
-
-    label3 = label3.substring(0, 20)
-    let xOffset3 = label3.length * fontSize3 * FONT_ASPECT_RATIO
-
-    let labelPoint3 = {
-      x: thisObject.container.frame.width * 1 / 2 - xOffset3 / 2,
-      y: thisObject.container.frame.height * 3 / 5
-    }
-
-    labelPoint3 = thisObject.container.frame.frameThisPoint(labelPoint3)
-
-    browserCanvasContext.font = fontSize3 + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-    browserCanvasContext.fillText(label3, labelPoint3.x, labelPoint3.y)
 
     /* Images */
 
@@ -657,7 +640,7 @@ function newLayer () {
     function drawIcon (icon, xFactor, yFactor) {
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
-          let imageSize = 40
+          let imageSize = 20
           let imagePosition = {
             x: thisObject.container.frame.width * xFactor - imageSize / 2,
             y: thisObject.container.frame.height * yFactor - imageSize / 2
@@ -674,3 +657,4 @@ function newLayer () {
     }
   }
 }
+

@@ -8,7 +8,7 @@ function newProductsPanel () {
     getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,
-    getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
+    getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
@@ -24,17 +24,18 @@ function newProductsPanel () {
   let visibleLayers = []
   let firstVisibleLayer = 1
 
-   /* Needed Variables */
-
   const LAYER_SEPARATION = 5
   let panelTabButton
 
   let exchange
   let market
 
+  let onMouseWheelEventSuscriptionId
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
+
     panelTabButton = undefined
     layersMap = undefined
     visibleLayers = undefined
@@ -68,168 +69,28 @@ function newProductsPanel () {
     panelTabButton.fitFunction = thisObject.fitFunction
     panelTabButton.initialize()
 
-     /* First thing is to build the thisObject.layers array */
-    let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
-    if (ecosystem === null || ecosystem === undefined) {
-      ecosystem = getUserEcosystem()
-    }
-
-    /* For legacy plotters, we will add product cards based on the old ecosystem file */
-    for (let i = 0; i < ecosystem.dataMines.length; i++) {
-      let dataMine = ecosystem.dataMines[i]
-
-      for (let j = 0; j < dataMine.bots.length; j++) {
-        let bot = dataMine.bots[j]
-        if (bot.type !== 'Indicator Bot Instance') { continue }
-
-        if (bot.products !== undefined) {
-          for (let k = 0; k < bot.products.length; k++) {
-            let product = bot.products[k]
-
-            addLayer(dataMine, bot, product)
-          }
-        }
-      }
-    }
-
-    /* For new plotters defined at the UI, we will add product cards based on what we find at the workspace */
-    let workspaceNode = canvas.designerSpace.workspace.workspaceNode
-    for (let i = 0; i < workspaceNode.rootNodes.length; i++) {
-      let rootNode = workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Data Mine') {
-        let dataMineNode = rootNode
-
-        let dataMine = {}
-        if (dataMineNode.code === undefined) { continue }
-        try {
-          let code = JSON.parse(dataMineNode.code)
-          dataMine.codeName = code.codeName
-        } catch (err) {
-          continue
-        }
-        for (let j = 0; j < dataMineNode.indicatorBots.length; j++) {
-          let botNode = dataMineNode.indicatorBots[j]
-
-          let bot = {}
-          if (botNode.code === undefined) { continue }
-          try {
-            let code = JSON.parse(botNode.code)
-            bot.codeName = code.codeName
-          } catch (err) {
-            continue
-          }
-
-          for (let k = 0; k < botNode.products.length; k++) {
-            let productNode = botNode.products[k]
-
-            let product = {}
-            if (productNode.code === undefined) { continue }
-            try {
-              let code = JSON.parse(productNode.code)
-              product.codeName = code.codeName
-            } catch (err) {
-              continue
-            }
-
-            if (productNode.payload.referenceParent === undefined) { continue }
-            let plotterModuleNode = productNode.payload.referenceParent
-
-            let plotterModule = {}
-            if (plotterModuleNode.code === undefined) { continue }
-            try {
-              let code = JSON.parse(plotterModuleNode.code)
-              plotterModule.codeName = code.codeName
-              plotterModule.banner = code.banner
-            } catch (err) {
-              continue
-            }
-
-            if (plotterModuleNode.payload.parentNode === undefined) { continue }
-            let plotterNode = plotterModuleNode.payload.parentNode
-
-            let plotter = {}
-            if (plotterNode.code === undefined) { continue }
-            try {
-              let code = JSON.parse(plotterNode.code)
-              plotter.codeName = code.codeName
-            } catch (err) {
-              continue
-            }
-
-            if (plotterNode.payload.parentNode === undefined) { continue }
-            let plotterDataMineNode = plotterNode.payload.parentNode
-
-            let plotterDataMine = {}
-            if (plotterDataMineNode.code === undefined) { continue }
-            try {
-              let code = JSON.parse(plotterDataMineNode.code)
-              plotterDataMine.codeName = code.codeName
-            } catch (err) {
-              continue
-            }
-
-            /* Conversion to fit old format */
-            product.plotter = plotter
-            product.plotter.dataMine = plotterDataMine.codeName
-            product.plotter.moduleName = plotterModule.codeName
-            product.plotter.banner = plotterModule.banner
-            product.plotter.legacy = false
-            product.plotter.module = { panels: [] }
-            product.displayName = productNode.name
-            product.dataSets = []
-            product.exchangeList = [{'name': 'Poloniex'}]
-            product.node = productNode
-            dataMine.displayName = dataMineNode.name
-            dataMine.host = {'url': 'localhost'}
-            bot.displayName = botNode.name
-
-            for (let m = 0; m < productNode.datasets.length; m++) {
-              let dataset = productNode.datasets[m]
-
-              if (dataset.code === undefined) { continue }
-              try {
-                let code = JSON.parse(dataset.code)
-                product.dataSets.push(code)
-              } catch (err) {
-                continue
-              }
-            }
-
-            addLayer(dataMine, bot, product)
-          }
-        }
-      }
-    }
-
-    thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     isInitialized = true
   }
 
-  function removeLayer (code) {
-    let layer = layersMap.get(code)
-    layersMap.delete(code)
+  function removeLayer (id) {
+    let layer = layersMap.get(id)
+    layersMap.delete(id)
     layer.turnOff()
+    layer.container.eventHandler.stopListening(layer.onLayerStatusChangedEventSuscriptionId)
+    layer.container.eventHandler.stopListening(layer.onMouseWheelEventSuscriptionId)
     layer.finalize()
   }
 
-  function addLayer (dataMine, bot, product, session) {
+  function addLayer (layerNode) {
     /* Now we create Product objects */
     let layer = newLayer()
-
-    layer.dataMine = dataMine
-    layer.bot = bot
-    layer.product = product
+    layer.payload = layerNode.payload
     layer.fitFunction = thisObject.fitFunction
-    layer.code = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName
-
-    if (session !== undefined) {
-      layer.code = layer.code + '-' + session.id
-    }
-    layer.session = session
 
     /* Initialize it */
     layer.initialize()
-    layersMap.set(layer.code, layer)
+    layersMap.set(layerNode.id, layer)
 
     /* Container Stuff */
     layer.container.frame.parentFrame = thisObject.container.frame
@@ -238,7 +99,7 @@ function newProductsPanel () {
 
     /* Positioning within thisObject Panel */
     let position = {
-      x: 10,
+      x: 0,
       y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
     }
 
@@ -254,8 +115,8 @@ function newProductsPanel () {
     }
 
     /* Listen to Status Changes Events */
-    layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
-    layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    layer.onLayerStatusChangedEventSuscriptionId = layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
+    layer.onMouseWheelEventSuscriptionId = layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     return layer
   }
@@ -285,17 +146,15 @@ function newProductsPanel () {
       if (i + 1 >= firstVisibleLayer && i + 1 < firstVisibleLayer + availableSlots) {
         let layer = thisObject.layers[i]
 
-               /* Positioning within thisObject Panel */
-
+         /* Positioning within thisObject Panel */
         let position = {
-          x: 10,
+          x: 0,
           y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
         }
         layer.container.frame.position.x = position.x
         layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + LAYER_SEPARATION
 
-               /* Add to Visible Product Array */
-
+         /* Add to Visible Product Array */
         visibleLayers.push(layer)
       }
     }
@@ -306,8 +165,7 @@ function newProductsPanel () {
   }
 
   function getLoadingLayers () {
-       /* Returns all thisObject.layers which status is LOADING */
-
+    /* Returns all thisObject.layers which status is LOADING */
     let onProducts = []
 
     for (let i = 0; i < thisObject.layers.length; i++) {
@@ -325,11 +183,9 @@ function newProductsPanel () {
     container = panelTabButton.getContainer(point)
     if (container !== undefined) { return container }
 
-       /* First we check if thisObject point is inside thisObject space. */
-
+     /* First we check if thisObject point is inside thisObject space. */
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-           /* Now we see which is the inner most container that has it */
-
+       /* Now we see which is the inner most container that has it */
       for (let i = 0; i < visibleLayers.length; i++) {
         container = visibleLayers[i].getContainer(point)
 
@@ -347,8 +203,7 @@ function newProductsPanel () {
         }
       }
 
-           /* The point does not belong to any inner container, so we return the current container. */
-
+     /* The point does not belong to any inner container, so we return the current container. */
       let checkPoint = {
         x: point.x,
         y: point.y
@@ -388,80 +243,14 @@ function newProductsPanel () {
     calculateVisbleLayers()
 
     function syncWithDesignerLayers () {
-        /* We will look into the ecosystem to know which Trading bots are defined there. */
-      let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
-      if (ecosystem === null || ecosystem === undefined) {
-        ecosystem = getUserEcosystem()
-      }
+      let layerManager = thisObject.payload.node
+      for (let p = 0; p < layerManager.layers.length; p++) {
+        let layerNode = layerManager.layers[p]
 
-        /* Then we get an Array of all instances of this bot placed at Definitions on the Workspace. */
-      let tradingBotInstances = canvas.designerSpace.workspace.getAllTradingBotInstances()
-
-        /* Here we will go through all the instances of trading engines and see their layers, to see
-        if we can find a matching layer. */
-
-      for (let n = 0; n < tradingBotInstances.length; n++) {
-        let tradingBotInstance = tradingBotInstances[n]
-        let code
-        let instanceBot
-        let instanceDataMine
-
-        for (let m = 0; m < tradingBotInstance.processes.length; m++) {
-          let process = tradingBotInstance.processes[m]
-          try {
-            code = JSON.parse(process.payload.referenceParent.payload.parentNode.code)
-            instanceBot = code.codeName
-            code = JSON.parse(process.payload.referenceParent.payload.parentNode.payload.parentNode.code)
-            instanceDataMine = code.codeName
-          } catch (err) {
-            continue
-          }
-          for (let i = 0; i < ecosystem.dataMines.length; i++) {
-            let dataMine = ecosystem.dataMines[i]
-
-            for (let j = 0; j < dataMine.bots.length; j++) {
-              let bot = dataMine.bots[j]
-              if (bot.type !== 'Trading Bot Instance') { continue }
-
-              if (dataMine.codeName === instanceDataMine && bot.codeName === instanceBot) {
-                  /* We found an instance of the same Trading we are currently looking at.
-                  Next thing to do is to see its layers to see if we can match it with the current product. */
-
-                if (process.session !== undefined) {
-                  if (process.session.layerManager !== undefined) {
-                    let layerManager = process.session.layerManager
-                    if (layerManager.payload.floatingObject.isCollapsed !== true) {
-                      if (bot.products !== undefined) {
-                        for (let k = 0; k < bot.products.length; k++) {
-                          let product = bot.products[k]
-
-                          for (let p = 0; p < layerManager.layers.length; p++) {
-                            let layer = layerManager.layers[p]
-                            let layerCode
-                            try {
-                              layerCode = JSON.parse(layer.code)
-                            } catch (err) {
-                              // if we can not parse this, then we ignore this trading engine.
-                            }
-
-                            if (product.codeName === layerCode.product) {
-                              /* We have a layer that is matching the current product */
-                              let cardCode = exchange + '-' + market.quotedAsset + '/' + market.baseAsset + '-' + dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + process.session.id
-                              let cardFound = removeFromLocalLayers(cardCode)
-                              if (cardFound !== true) {
-                                layer = addLayer(dataMine, bot, product, process.session)
-                                onLayerStatusChanged(layer)
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+        let found = removeFromLocalLayers(layerNode.id)
+        if (found !== true) {
+          layer = addLayer(layerNode.id)
+          onLayerStatusChanged(layer)
         }
       }
     }
@@ -499,6 +288,7 @@ function newProductsPanel () {
       }
     }
   }
+
   function draw () {
     if (isInitialized === false) { return }
 

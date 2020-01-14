@@ -12,6 +12,7 @@ function newLayer () {
     product: undefined,
     code: undefined,
     fitFunction: undefined,
+    payload: undefined,
     draw: draw,
     turnOff: turnOff,
     turnOn: turnOn,
@@ -87,6 +88,7 @@ function newLayer () {
     thisObject.product = undefined
     thisObject.code = undefined
     thisObject.fitFunction = undefined
+    thisObject.payload = undefined
 
     timeFrame = undefined
     datetime = undefined

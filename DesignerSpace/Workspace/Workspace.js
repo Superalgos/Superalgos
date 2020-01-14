@@ -13,7 +13,6 @@ function newWorkspace () {
     nodeChildren: undefined,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
-    getAllTradingBotInstances: getAllTradingBotInstances,
     stopAllRunningTasks: stopAllRunningTasks,
     onMenuItemClick: onMenuItemClick,
     physics: physics,
@@ -189,34 +188,6 @@ function newWorkspace () {
         }
       }
     }
-  }
-
-  function getAllTradingBotInstances () {
-    let tradingBotInstances = []
-    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
-      let rootNode = thisObject.workspaceNode.rootNodes[i]
-      if (rootNode.type === 'Network') {
-        if (rootNode.networkNodes !== undefined) {
-          for (let j = 0; j < rootNode.networkNodes.length; j++) {
-            let networkNode = rootNode.networkNodes[j]
-            for (let i = 0; i < networkNode.taskManagers.length; i++) {
-              let taskManager = networkNode.taskManagers[i]
-              for (let k = 0; k < taskManager.tasks.length; k++) {
-                let task = taskManager.tasks[k]
-                if (task.bot !== undefined) {
-                  if (task.bot.type === 'Trading Bot Instance') {
-                    if (task.bot.payload.floatingObject.isCollapsed !== true) {
-                      tradingBotInstances.push(task.bot)
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return tradingBotInstances
   }
 
   function getNodeByShortcutKey (searchingKey) {

@@ -3,7 +3,7 @@ function newTimelineChart () {
   const INFO_LOG = false
   const INTENSIVE_LOG = false
   const ERROR_LOG = true
-  const logger = newWebDebugLog()
+  let logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
   let timeFrame = INITIAL_TIME_PERIOD
@@ -85,6 +85,7 @@ function newTimelineChart () {
 
     thisObject.payload = undefined
     mouse = undefined
+    logger = undefined
   }
 
   function finalizeLayersManager () {

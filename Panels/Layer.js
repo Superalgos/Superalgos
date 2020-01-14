@@ -1,5 +1,5 @@
 function newLayer () {
-  const MODULE_NAME = 'Product Card'
+  const MODULE_NAME = 'Layer'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME

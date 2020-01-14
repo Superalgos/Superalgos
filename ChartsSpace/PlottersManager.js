@@ -72,7 +72,7 @@ function newPlottersManager () {
       exchange = pExchange
       market = pMarket
             /* Listen to the event of change of status */
-      layersPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onLayerStatusChanged)
+      layersPanel.container.eventHandler.listenToEvent('Layer Status Changed', onLayerStatusChanged)
 
       /* Lets get all the cards that needs to be loaded. */
 
@@ -94,7 +94,7 @@ function newPlottersManager () {
       let storage = newProductStorage(objName)
             /*
 
-            Before Initializing the Storage, we will put the Product Card to listen to the events the storage will raise every time a file is loaded,
+            Before Initializing the Storage, we will put the Layer to listen to the events the storage will raise every time a file is loaded,
             so that the UI can somehow show this. There are different types of events.
 
             */

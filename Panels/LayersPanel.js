@@ -4,39 +4,47 @@ function newProductsPanel () {
     fitFunction: undefined,
     container: undefined,
     layers: [],
+    payload: undefined,
     getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
-   /* Cointainer stuff */
-
-  let container = newContainer()
-
-  container.initialize()
-
-  container.isDraggeable = true
-  container.isWheelable = true
-
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize()
+  thisObject.container.isDraggeable = true
+  thisObject.container.isWheelable = true
 
   let isInitialized = false
 
   let layersMap = new Map()
   let visibleLayers = []
-  let firstVisibleCard = 1
+  let firstVisibleLayer = 1
 
    /* Needed Variables */
 
-  const CANRD_SEPARATION = 5
+  const LAYER_SEPARATION = 5
   let panelTabButton
 
   let exchange
   let market
 
   return thisObject
+
+  function finalize () {
+    panelTabButton = undefined
+    layersMap = undefined
+    visibleLayers = undefined
+
+    thisObject.container.finalize()
+    thisObject.container = undefined
+
+    thisObject.payload = undefined
+    thisObject = undefined
+  }
 
   function initialize (pExchange, pMarket) {
     exchange = pExchange
@@ -235,7 +243,7 @@ function newProductsPanel () {
     }
 
     layer.container.frame.position.x = position.x
-    layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + CANRD_SEPARATION
+    layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + LAYER_SEPARATION
 
     /* Add to the Product Array */
     thisObject.layers.push(layer)
@@ -260,7 +268,7 @@ function newProductsPanel () {
       delta = 1
     }
 
-    firstVisibleCard = firstVisibleCard + delta
+    firstVisibleLayer = firstVisibleLayer + delta
 
     calculateVisbleLayers()
   }
@@ -268,13 +276,13 @@ function newProductsPanel () {
   function calculateVisbleLayers () {
     let availableSlots = visibleLayers.length
 
-    if (firstVisibleCard < 1) { firstVisibleCard = 1 }
-    if (firstVisibleCard > (thisObject.layers.length - availableSlots + 1)) { firstVisibleCard = thisObject.layers.length - availableSlots + 1 }
+    if (firstVisibleLayer < 1) { firstVisibleLayer = 1 }
+    if (firstVisibleLayer > (thisObject.layers.length - availableSlots + 1)) { firstVisibleLayer = thisObject.layers.length - availableSlots + 1 }
 
     visibleLayers = []
 
     for (let i = 0; i < thisObject.layers.length; i++) {
-      if (i + 1 >= firstVisibleCard && i + 1 < firstVisibleCard + availableSlots) {
+      if (i + 1 >= firstVisibleLayer && i + 1 < firstVisibleLayer + availableSlots) {
         let layer = thisObject.layers[i]
 
                /* Positioning within thisObject Panel */
@@ -284,7 +292,7 @@ function newProductsPanel () {
           y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
         }
         layer.container.frame.position.x = position.x
-        layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + CANRD_SEPARATION
+        layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + LAYER_SEPARATION
 
                /* Add to Visible Product Array */
 
@@ -294,7 +302,7 @@ function newProductsPanel () {
   }
 
   function onLayerStatusChanged (pLayer) {
-    thisObject.container.eventHandler.raiseEvent('Product Card Status Changed', pLayer)
+    thisObject.container.eventHandler.raiseEvent('Layer Status Changed', pLayer)
   }
 
   function getLoadingLayers () {
@@ -361,7 +369,7 @@ function newProductsPanel () {
     The overall idea here is that we need to keep syncronized the panel with the layers that are
     defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
     are valid layers and which not at any point in time. So what we do here is trying to keep the panel
-    only with the layers that are connected to each Definition structure.
+    only with the layers that are connected to the Charting System hiriarcy.
 
     To achieve this, first we are going to move all session related cards to a local array. Then we are
     going to check for layers at the designer, and will move back the cards which still have layers well
@@ -373,13 +381,13 @@ function newProductsPanel () {
 
     let localLayers = []
     moveToLocalLayers()
-    synchronizeLayersAndLayers()
+    syncWithDesignerLayers()
 
     /* At this poins all the cards still at the local array need to be removed from the panel. */
-    turnOffUnusedProducCards()
+    turnOffUnusedLayers()
     calculateVisbleLayers()
 
-    function synchronizeLayersAndLayers () {
+    function syncWithDesignerLayers () {
         /* We will look into the ecosystem to know which Trading bots are defined there. */
       let ecosystem = JSON.parse(window.localStorage.getItem('ecosystem'))
       if (ecosystem === null || ecosystem === undefined) {
@@ -484,7 +492,7 @@ function newProductsPanel () {
       }
     }
 
-    function turnOffUnusedProducCards () {
+    function turnOffUnusedLayers () {
       for (let i = 0; i < localLayers.length; i++) {
         let layer = localLayers[i]
         removeLayer(layer.code)

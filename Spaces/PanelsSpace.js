@@ -216,7 +216,6 @@ function newPanelsSpace () {
           if (panel.container.resistance.x < -3) {
             panel.container.resistance.x = 0
             panel.container.speed.x = ACCELERATION * 5
-            console.log('desAccelerateOnX Invertido', panel.container.speed.x)
             return
           }
           panel.container.speed.x = panel.container.speed.x - ACCELERATION

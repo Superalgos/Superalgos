@@ -31,7 +31,7 @@ function newProductCard () {
   let UNLOADED_FILL_STYLE = 'rgba(226, 226, 226, @Opacity)'
 
   let LOADING_STROKE_STYLE = 'rgba(234, 143, 23, @Opacity)'
-  let LOADED_STROKE_STYLE = 'rgba(150, 150, 150, @Opacity)'
+  let LOADED_STROKE_STYLE = 'rgba(45, 232, 28, @Opacity)'
   let UNLOADED_STROKE_STYLE = 'rgba(226, 226, 226, @Opacity)'
 
   let marketFileProgressBar = {
@@ -361,12 +361,10 @@ function newProductCard () {
 
     const ANIMATED_INCREMENT = 5
     const OPACITY_INCREMENT = 0.05
-    const OPACITY_MIN = 0.1
+    const OPACITY_MIN = 1
 
     let point1
     let point2
-    let point3
-    let point4
 
        /* We draw here the Market Progress Bar. */
 
@@ -391,48 +389,32 @@ function newProductCard () {
 
     point1 = {
       x: 0,
-      y: thisObject.container.frame.height - 1
+      y: thisObject.container.frame.height - 15
     }
 
     point2 = {
       x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 1
-    }
-
-    point3 = {
-      x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 3
-    }
-
-    point4 = {
-      x: 0,
-      y: thisObject.container.frame.height - 3
+      y: thisObject.container.frame.height - 15
     }
 
        /* Now the transformations. */
 
     point1 = thisObject.container.frame.frameThisPoint(point1)
     point2 = thisObject.container.frame.frameThisPoint(point2)
-    point3 = thisObject.container.frame.frameThisPoint(point3)
-    point4 = thisObject.container.frame.frameThisPoint(point4)
 
     point1 = thisObject.fitFunction(point1)
     point2 = thisObject.fitFunction(point2)
-    point3 = thisObject.fitFunction(point3)
-    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.lineTo(point3.x, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
+
     browserCanvasContext.closePath()
 
-    browserCanvasContext.fillStyle = marketFileProgressBar.fillStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
     browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
 
-    browserCanvasContext.fill()
-    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.setLineDash([2, 5])
+    browserCanvasContext.lineWidth = 10
     browserCanvasContext.stroke()
 
        /* We draw here the Daily Progress Bar. */
@@ -458,48 +440,32 @@ function newProductCard () {
 
     point1 = {
       x: 0,
-      y: thisObject.container.frame.height - 4
+      y: thisObject.container.frame.height - 25
     }
 
     point2 = {
       x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 4
-    }
-
-    point3 = {
-      x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 6
-    }
-
-    point4 = {
-      x: 0,
-      y: thisObject.container.frame.height - 6
+      y: thisObject.container.frame.height - 25
     }
 
        /* Now the transformations. */
 
     point1 = thisObject.container.frame.frameThisPoint(point1)
     point2 = thisObject.container.frame.frameThisPoint(point2)
-    point3 = thisObject.container.frame.frameThisPoint(point3)
-    point4 = thisObject.container.frame.frameThisPoint(point4)
 
     point1 = thisObject.fitFunction(point1)
     point2 = thisObject.fitFunction(point2)
-    point3 = thisObject.fitFunction(point3)
-    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.lineTo(point3.x, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
+
     browserCanvasContext.closePath()
 
-    browserCanvasContext.fillStyle = dailyFileProgressBar.fillStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
     browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
 
-    browserCanvasContext.fill()
-    browserCanvasContext.lineWidth = 0.1
+    browserCanvasContext.setLineDash([2, 5])
+    browserCanvasContext.lineWidth = 10
     browserCanvasContext.stroke()
 
        /* We draw here the Single File Progress Bar. */
@@ -533,41 +499,23 @@ function newProductCard () {
       y: thisObject.container.frame.height - 7
     }
 
-    point3 = {
-      x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 9
-    }
-
-    point4 = {
-      x: 0,
-      y: thisObject.container.frame.height - 9
-    }
-
        /* Now the transformations. */
 
     point1 = thisObject.container.frame.frameThisPoint(point1)
     point2 = thisObject.container.frame.frameThisPoint(point2)
-    point3 = thisObject.container.frame.frameThisPoint(point3)
-    point4 = thisObject.container.frame.frameThisPoint(point4)
 
     point1 = thisObject.fitFunction(point1)
     point2 = thisObject.fitFunction(point2)
-    point3 = thisObject.fitFunction(point3)
-    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.lineTo(point3.x, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
     browserCanvasContext.closePath()
 
-    browserCanvasContext.fillStyle = singleFileProgressBar.fillStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
     browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
 
-    browserCanvasContext.fill()
-    browserCanvasContext.lineWidth = 0.1
-    browserCanvasContext.stroke()
+    browserCanvasContext.setLineDash([2, 5])
+    browserCanvasContext.lineWidth = 10
 
        /* We draw here the File Sequence Progress Bar. */
 
@@ -600,41 +548,24 @@ function newProductCard () {
       y: thisObject.container.frame.height - 10
     }
 
-    point3 = {
-      x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 11
-    }
-
-    point4 = {
-      x: 0,
-      y: thisObject.container.frame.height - 11
-    }
-
        /* Now the transformations. */
 
     point1 = thisObject.container.frame.frameThisPoint(point1)
     point2 = thisObject.container.frame.frameThisPoint(point2)
-    point3 = thisObject.container.frame.frameThisPoint(point3)
-    point4 = thisObject.container.frame.frameThisPoint(point4)
 
     point1 = thisObject.fitFunction(point1)
     point2 = thisObject.fitFunction(point2)
-    point3 = thisObject.fitFunction(point3)
-    point4 = thisObject.fitFunction(point4)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.lineTo(point3.x, point3.y)
-    browserCanvasContext.lineTo(point4.x, point4.y)
+
     browserCanvasContext.closePath()
 
-    browserCanvasContext.fillStyle = fileSequenceProgressBar.fillStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
     browserCanvasContext.strokeStyle = fileSequenceProgressBar.strokeStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
 
-    browserCanvasContext.fill()
-    browserCanvasContext.lineWidth = 0.1
-    browserCanvasContext.stroke()
+    browserCanvasContext.setLineDash([2, 5])
+    browserCanvasContext.lineWidth = 10
   }
 }
 

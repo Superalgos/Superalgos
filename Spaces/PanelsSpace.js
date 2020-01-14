@@ -126,11 +126,24 @@ function newPanelsSpace () {
   }
 
   function positioningPhysics () {
-    const INCREMENT = 0.5
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
 
+        /* setting the speed of the panel */
+        let ACCELERATION = 0.1 // This is resting speed.
+        if (panel.container.speed === undefined) {
+          panel.container.speed = {
+            x: 1,
+            y: 1
+          }
+          panel.container.resistance = {
+            x: 0,
+            y: 0
+          }
+        }
+
+        /* Trying to move the panel and see if it is possible */
         let centerPoint = {
           x: panel.container.frame.position.x,
           y: panel.container.frame.position.y
@@ -144,17 +157,23 @@ function newPanelsSpace () {
 
         /* According to the quadrant we push the panels to the sides */
         if (centerPoint.x < verticalLine) {
-          panel.container.frame.position.x = panel.container.frame.position.x - INCREMENT
+          panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x
           if (isOverlapping(i, panel.container) === true) {
-            panel.container.frame.position.x = panel.container.frame.position.x + INCREMENT * 2
+            panel.container.frame.position.x = panel.container.frame.position.x + panel.container.speed.x * 3
+            accelerateOnX()
+          } else {
+            desAccelerateOnX()
           }
           if (panel.container.frame.position.x < viewPort.visibleArea.topLeft.x) {
             panel.container.frame.position.x = viewPort.visibleArea.topLeft.x
           }
         } else {
-          panel.container.frame.position.x = panel.container.frame.position.x + INCREMENT
+          panel.container.frame.position.x = panel.container.frame.position.x + panel.container.speed.x
           if (isOverlapping(i, panel.container) === true) {
-            panel.container.frame.position.x = panel.container.frame.position.x - INCREMENT * 2
+            panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x * 3
+            accelerateOnX()
+          } else {
+            desAccelerateOnX()
           }
           if (panel.container.frame.position.x + panel.container.frame.width > viewPort.visibleArea.topRight.x) {
             panel.container.frame.position.x = viewPort.visibleArea.topRight.x - panel.container.frame.width
@@ -162,22 +181,72 @@ function newPanelsSpace () {
         }
         if (panel.container.frame.height <= viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) {
           if (centerPoint.y < horizontalLine) {
-            panel.container.frame.position.y = panel.container.frame.position.y - INCREMENT
+            panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
             if (isOverlapping(i, panel.container) === true) {
-              panel.container.frame.position.y = panel.container.frame.position.y + INCREMENT * 2
+              panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y * 3
+              accelerateOnY()
+            } else {
+              desAccelerateOnY()
             }
             if (panel.container.frame.position.y < viewPort.visibleArea.topLeft.y) {
               panel.container.frame.position.y = viewPort.visibleArea.topLeft.y
             }
           } else {
-            panel.container.frame.position.y = panel.container.frame.position.y + INCREMENT
+            panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y
             if (isOverlapping(i, panel.container) === true) {
-              panel.container.frame.position.y = panel.container.frame.position.y - INCREMENT * 2
+              panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y * 3
+              accelerateOnY()
+            } else {
+              desAccelerateOnY()
             }
             if (panel.container.frame.position.y + panel.container.frame.height > viewPort.visibleArea.bottomRight.y) {
               panel.container.frame.position.y = viewPort.visibleArea.bottomRight.y - panel.container.frame.height
             }
           }
+        }
+
+        function accelerateOnX () {
+          panel.container.speed.x = panel.container.speed.x + ACCELERATION
+          if (panel.container.speed.x > ACCELERATION * 10) {
+            panel.container.speed.x = ACCELERATION * 10
+          }
+          panel.container.resistance.x = panel.container.resistance.x + 1
+        }
+        function desAccelerateOnX () {
+          if (panel.container.resistance.x < -3) {
+            panel.container.resistance.x = 0
+            panel.container.speed.x = ACCELERATION * 5
+            console.log('desAccelerateOnX Invertido', panel.container.speed.x)
+            return
+          }
+          panel.container.speed.x = panel.container.speed.x - ACCELERATION
+          if (panel.container.speed.x < ACCELERATION) {
+            panel.container.speed.x = ACCELERATION * 1
+          }
+          panel.container.resistance.x = panel.container.resistance.x - 1
+        }
+        function accelerateOnY () {
+          if (panel.container.resistance.y > 5) {
+            panel.container.resistance.y = 0
+            return
+          }
+          panel.container.speed.y = panel.container.speed.y + ACCELERATION
+          if (panel.container.speed.y > ACCELERATION * 10) {
+            panel.container.speed.y = ACCELERATION * 5
+          }
+          panel.container.resistance.y = panel.container.resistance.y + 1
+        }
+        function desAccelerateOnY () {
+          if (panel.container.resistance.y < -3) {
+            panel.container.resistance.y = 0
+            panel.container.speed.y = ACCELERATION * 10
+            return
+          }
+          panel.container.speed.y = panel.container.speed.y - ACCELERATION
+          if (panel.container.speed.y < ACCELERATION) {
+            panel.container.speed.y = ACCELERATION * 1
+          }
+          panel.container.resistance.y = panel.container.resistance.y - 1
         }
       }
     }

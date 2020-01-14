@@ -138,15 +138,17 @@ function newTimeFrameScale () {
     let displaceFactor = 0
     if (thisObject.payload.parentNode === undefined) { return } // This happens when in the process of deleting the scale, timeline chart or time machine.
     if (thisObject.payload.parentNode.type === 'Timeline Chart') {
-      if (thisObject.payload.parentNode.payload.parentNode.timeFrameScale !== undefined) {
-        displaceFactor++
-      }
-      for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
-        let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
-        if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
+      if (thisObject.payload.parentNode.payload.parentNode !== undefined) {
+        if (thisObject.payload.parentNode.payload.parentNode.timeFrameScale !== undefined) {
           displaceFactor++
-        } else {
-          break
+        }
+        for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
+          let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
+          if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
+            displaceFactor++
+          } else {
+            break
+          }
         }
       }
     }

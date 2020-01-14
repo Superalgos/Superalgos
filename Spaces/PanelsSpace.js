@@ -39,7 +39,7 @@ function newPanelsSpace () {
 
     switch (pType) {
 
-      case 'Products Panel':
+      case 'Layers Panel':
         {
           panel = newProductsPanel()
           panel.fitFunction = canvas.chartSpace.fitFunction

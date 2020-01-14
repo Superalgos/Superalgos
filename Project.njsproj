@@ -156,7 +156,7 @@
     <Compile Include="EventHandler.js" />
     <Compile Include="Spaces\FloatingSpace.js" />
     <Compile Include="Frame.js" />
-    <Compile Include="Panels\ProductsPanel.js" />
+    <Compile Include="Panels\LayersPanel.js" />
     <Compile Include="Panels\TimeControlPanel.js" />
     <Compile Include="TimeLineCoordinateSystem.js" />
     <Compile Include="SplashScreen.js">

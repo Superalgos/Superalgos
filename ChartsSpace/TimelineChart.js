@@ -15,6 +15,7 @@ function newTimelineChart () {
     rateScale: undefined,
     timeFrameScale: undefined,
     payload: undefined,
+    layersManager: undefined,
     plotterManager: undefined,
     upstreamTimeFrame: undefined,
     setTimeFrame: setTimeFrame,
@@ -30,12 +31,12 @@ function newTimelineChart () {
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
 
-  let productsPanel
+  let layersPanel
 
   let exchange = DEFAULT_EXCHANGE
   let market = DEFAULT_MARKET
 
-  let productsPanelHandle
+  let layersPanelHandle
 
   let onOffsetChangedEventSuscriptionId
   let onZoomChangedEventSuscriptionId
@@ -93,7 +94,7 @@ function newTimelineChart () {
     thisObject.plotterManager = undefined
     thisObject.layersManager = undefined
 
-    canvas.panelsSpace.destroyPanel(productsPanelHandle)
+    canvas.panelsSpace.destroyPanel(layersPanelHandle)
   }
 
   function finalizeTimeFrameScale () {
@@ -142,8 +143,8 @@ function newTimelineChart () {
 
   function initializeLayersManager () {
     let panelOwner = exchange + ' ' + market.quotedAsset + '/' + market.baseAsset
-    productsPanelHandle = canvas.panelsSpace.createNewPanel('Products Panel', undefined, panelOwner)
-    thisObject.layersManager = canvas.panelsSpace.getPanel(productsPanelHandle, panelOwner)
+    layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, panelOwner)
+    thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle, panelOwner)
     thisObject.layersManager.initialize(exchange, market)
     thisObject.layersManager.payload = thisObject.payload.node.layersManager.payload
 

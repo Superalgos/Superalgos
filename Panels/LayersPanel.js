@@ -1,6 +1,6 @@
 function newProductsPanel () {
   let thisObject = {
-    name: 'Products Panel',
+    name: 'Layers Panel',
     fitFunction: undefined,
     container: undefined,
     productCards: [],

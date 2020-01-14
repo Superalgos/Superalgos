@@ -23,7 +23,7 @@ function newPlottersManager () {
 
   let initializationReady = false
 
-  let productsPanel
+  let layersPanel
   let exchange
   let market
 
@@ -58,7 +58,7 @@ function newPlottersManager () {
     }
     productPlotters = []
 
-    productsPanel = undefined
+    layersPanel = undefined
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -67,16 +67,16 @@ function newPlottersManager () {
 
   function initialize (pProductsPanel, pExchange, pMarket) {
     try {
-            /* Remember the Products Panel */
-      productsPanel = pProductsPanel
+            /* Remember the Layers Panel */
+      layersPanel = pProductsPanel
       exchange = pExchange
       market = pMarket
             /* Listen to the event of change of status */
-      productsPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onProductCardStatusChanged)
+      layersPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onProductCardStatusChanged)
 
       /* Lets get all the cards that needs to be loaded. */
 
-      let loadingProductCards = productsPanel.getLoadingProductCards()
+      let loadingProductCards = layersPanel.getLoadingProductCards()
 
       for (let i = 0; i < loadingProductCards.length; i++) {
           /* For each one, we will initialize the associated plotter. */

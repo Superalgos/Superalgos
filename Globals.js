@@ -57,11 +57,13 @@ UI_PANEL = {
     WIDTH: {
         SMALL: 100,
         NORMAL: 150,
+        MEDIUM: 200,
         LARGE: 250,
         X_LARGE: 350
     },
     HEIGHT: {
         SMALL: 65,
+        MEDIUM: 90,
         NORMAL: 300,
         LARGE: 450
     }

@@ -120,8 +120,8 @@ function newLayer () {
       }
 
       thisObject.container.frame.position = position
-      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE * 1.5
-      thisObject.container.frame.height = 60
+      thisObject.container.frame.width = UI_PANEL.WIDTH.MEDIUM
+      thisObject.container.frame.height = 90
 
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
@@ -538,9 +538,9 @@ function newLayer () {
   }
 
   function drawLayerDisplay () {
-    let baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.code.codeName
-    let quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.code.codeName
-    let market = baseAsset + '/' + quotedAsset
+    let baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
+    let quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
+    let market = baseAsset.code.codeName + '/' + quotedAsset.code.codeName
     let exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
     let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
@@ -548,24 +548,33 @@ function newLayer () {
     let label2 = thisObject.payload.node.name.substring(0, 20)
     let label3 = exchange.name.substring(0, 15) + ' - ' + market
 
-    let icon1
-    let nodeDefinition = APP_SCHEMA_MAP.get(exchange.type)
-    let iconName
-    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-      alternativeIcon = nodeDefinition.alternativeIcons[i]
-      if (alternativeIcon.codeName === exchange.code.codeName) {
-        iconName = alternativeIcon.iconName
-      }
-    }
-    if (iconName !== undefined) {
-      icon1 = canvas.designerSpace.iconCollection.get(iconName)
-    } else {
-      icon1 = canvas.designerSpace.iconCollection.get(nodeDefinition.icon)
-    }
+    let icon1 = getIcon(exchange)
 
     let icon2
     if (plotterModule.code.icon !== undefined) {
       icon2 = canvas.designerSpace.iconCollection.get(plotterModule.code.icon)
+    }
+
+    let icon3 = getIcon(baseAsset)
+    let icon4 = getIcon(quotedAsset)
+
+    function getIcon (node) {
+      let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+      let iconName
+      if (nodeDefinition.alternativeIcons !== undefined) {
+        for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+          alternativeIcon = nodeDefinition.alternativeIcons[i]
+          if (alternativeIcon.codeName === node.code.codeName) {
+            iconName = alternativeIcon.iconName
+          }
+        }
+      }
+      if (iconName !== undefined) {
+        icon = canvas.designerSpace.iconCollection.get(iconName)
+      } else {
+        icon = canvas.designerSpace.iconCollection.get(nodeDefinition.icon)
+      }
+      return icon
     }
 
     let backgroundColor = UI_COLOR.BLACK
@@ -640,37 +649,27 @@ function newLayer () {
 
     /* Images */
 
-    if (icon1 !== undefined) {
-      if (icon1.canDrawIcon === true) {
-        let imageSize = 40
-        let imagePosition = {
-          x: thisObject.container.frame.width * 1 / 8 - imageSize / 2,
-          y: thisObject.container.frame.height / 2 - imageSize / 2
+    drawIcon(icon1, 1 / 8, 1 / 4)
+    drawIcon(icon2, 7 / 8, 1 / 4)
+    drawIcon(icon3, 1 / 8, 3 / 4)
+    drawIcon(icon4, 7 / 8, 3 / 4)
+
+    function drawIcon (icon, xFactor, yFactor) {
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          let imageSize = 40
+          let imagePosition = {
+            x: thisObject.container.frame.width * xFactor - imageSize / 2,
+            y: thisObject.container.frame.height * yFactor - imageSize / 2
+          }
+
+          imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
+          browserCanvasContext.drawImage(
+            icon, imagePosition.x,
+            imagePosition.y,
+            imageSize,
+            imageSize)
         }
-
-        imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
-        browserCanvasContext.drawImage(
-          icon1, imagePosition.x,
-          imagePosition.y,
-          imageSize,
-          imageSize)
-      }
-    }
-
-    if (icon2 !== undefined) {
-      if (icon2.canDrawIcon === true) {
-        let imageSize = 40
-        let imagePosition = {
-          x: thisObject.container.frame.width * 7 / 8 - imageSize / 2,
-          y: thisObject.container.frame.height / 2 - imageSize / 2
-        }
-
-        imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
-        browserCanvasContext.drawImage(
-          icon2, imagePosition.x,
-          imagePosition.y,
-          imageSize,
-          imageSize)
       }
     }
   }

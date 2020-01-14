@@ -55,7 +55,7 @@ function newAppLoader() {
                 
                 'Utilities/RoundedCornersBackground.js',
 
-                'Panels/ProductsPanel.js',
+                'Panels/LayersPanel.js',
                 'Panels/PanelTabButton.js',
                 'Panels/ProductCard.js',
                 'Panels/PlotterPanel.js',

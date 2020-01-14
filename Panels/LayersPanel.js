@@ -154,8 +154,8 @@ function newProductsPanel () {
     }
   }
 
-  function onLayerStatusChanged (pLayer) {
-    thisObject.container.eventHandler.raiseEvent('Layer Status Changed', pLayer)
+  function onLayerStatusChanged (layer) {
+    thisObject.container.eventHandler.raiseEvent('Layer Status Changed', layer)
   }
 
   function getLoadingLayers () {
@@ -255,11 +255,10 @@ function newProductsPanel () {
       function removeNext () {
         for (let i = 0; i < thisObject.layers.length; i++) {
           let layer = thisObject.layers[i]
-          if (layer.session !== undefined) {
-            thisObject.layers.splice(i, 1)
-            localLayers.push(layer)
-            removeNext()
-          }
+
+          thisObject.layers.splice(i, 1)
+          localLayers.push(layer)
+          removeNext()
         }
       }
     }

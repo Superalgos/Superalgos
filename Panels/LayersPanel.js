@@ -47,8 +47,8 @@ function newProductsPanel () {
   function initialize () {
     thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
-    thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE * 1.5 // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+    thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE * 1.5
+    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE   // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
 
     let position = {
       x: viewPort.visibleArea.topLeft.x,

@@ -120,8 +120,8 @@ function newLayer () {
       }
 
       thisObject.container.frame.position = position
-      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE
-      thisObject.container.frame.height = 100
+      thisObject.container.frame.width = UI_PANEL.WIDTH.LARGE * 1.5
+      thisObject.container.frame.height = 60
 
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
@@ -538,18 +538,35 @@ function newLayer () {
   }
 
   function drawLayerDisplay () {
-    const MAX_LABEL_LENGTH = 20
-    let label = thisObject.payload.node.name
-    if (label > MAX_LABEL_LENGTH) {
-      label = label.substring(0, MAX_LABEL_LENGTH)
+    let baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.code.codeName
+    let quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.code.codeName
+    let market = baseAsset + '/' + quotedAsset
+    let exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
+    let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
+
+    let label1 = thisObject.status.toUpperCase()
+    let label2 = thisObject.payload.node.name.substring(0, 20)
+    let label3 = exchange.name.substring(0, 15) + ' - ' + market
+
+    let icon1
+    let nodeDefinition = APP_SCHEMA_MAP.get(exchange.type)
+    let iconName
+    for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+      alternativeIcon = nodeDefinition.alternativeIcons[i]
+      if (alternativeIcon.codeName === exchange.code.codeName) {
+        iconName = alternativeIcon.iconName
+      }
+    }
+    if (iconName !== undefined) {
+      icon1 = canvas.designerSpace.iconCollection.get(iconName)
+    } else {
+      icon1 = canvas.designerSpace.iconCollection.get(nodeDefinition.icon)
     }
 
-    let label1 = label
-    let label2 = thisObject.status
-    let label3 = ''
-
-    let icon1 = canvas.designerSpace.iconCollection.get('oscillator')
-    let icon2 = canvas.designerSpace.iconCollection.get('poloniex') // canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon2
+    if (plotterModule.code.icon !== undefined) {
+      icon2 = canvas.designerSpace.iconCollection.get(plotterModule.code.icon)
+    }
 
     let backgroundColor = UI_COLOR.BLACK
 
@@ -592,7 +609,7 @@ function newLayer () {
     browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
 
     label2 = label2.substring(0, 20)
-    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
+    let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO + 15
 
     let labelPoint2 = {
       x: thisObject.container.frame.width * 1 / 2 - xOffset2 / 2,

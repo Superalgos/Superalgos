@@ -473,6 +473,27 @@ function newTimeMachine () {
       }
 
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
+    } else {
+      let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          let imageSize = 40
+          let imagePosition = {
+            x: thisObject.container.frame.width / 2,
+            y: thisObject.container.frame.height / 2
+          }
+
+          imagePosition = transformThisPoint(imagePosition, thisObject.container)
+          imagePosition = thisObject.fitFunction(imagePosition, true)
+
+          browserCanvasContext.drawImage(
+             icon,
+             imagePosition.x - imageSize / 2,
+             imagePosition.y - imageSize / 2,
+             imageSize,
+             imageSize)
+        }
+      }
     }
   }
 

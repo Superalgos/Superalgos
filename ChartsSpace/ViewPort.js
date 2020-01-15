@@ -13,8 +13,8 @@ function newViewPort () {
 
   let TOP_MARGIN = 57 + TOP_SPACE_HEIGHT
   let BOTTOM_MARGIN = 62 + COCKPIT_SPACE_HEIGHT
-  let LEFT_MARGIN = 200
-  let RIGHT_MARGIN = 200
+  let LEFT_MARGIN = 0
+  let RIGHT_MARGIN = 0
   let MARGINS = {
     TOP: TOP_MARGIN,
     BOTTOM: BOTTOM_MARGIN,
@@ -84,8 +84,8 @@ function newViewPort () {
   function resize () {
     TOP_MARGIN = 57 + TOP_SPACE_HEIGHT
     BOTTOM_MARGIN = 62 + browserCanvas.height - COCKPIT_SPACE_POSITION
-    LEFT_MARGIN = 200
-    RIGHT_MARGIN = 200
+    LEFT_MARGIN = 0
+    RIGHT_MARGIN = 0
     MARGINS = {
       TOP: TOP_MARGIN,
       BOTTOM: BOTTOM_MARGIN,

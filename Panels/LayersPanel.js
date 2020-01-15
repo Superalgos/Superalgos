@@ -327,7 +327,6 @@ function newProductsPanel () {
     drawLabel(label1, 1 / 2, 6 / 100, 10, thisObject.container)
     drawLabel(label2, 1 / 2, 9 / 100, 10, thisObject.container)
 
-    /* Images */
     drawIcon(icon1, 1 / 8, 6 / 100, 40, thisObject.container)
     drawIcon(icon2, 7 / 8, 6 / 100, 40, thisObject.container)
   }

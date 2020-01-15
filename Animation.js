@@ -57,21 +57,14 @@ function newAnimation () {
   function animationLoop () {
     try {
       if (window.canvasApp.visible === true) {
-                /* We set the canvas to its normal width and height */
-
+        /* We set the canvas to its normal width and height */
         browserCanvas.width = window.innerWidth
         browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
 
-                /* First thing is to clear the actual canvas */
-
+        /* First thing is to clear the actual canvas */
         clearBrowserCanvas()
 
-                /* Let reset the current chart that is on focus */
-
-        window.CHART_ON_FOCUS = ''
-
-                /* We loop through the callback functions collections and execute them all. */
-
+        /* We loop through the callback functions collections and execute them all. */
         let performanceMap = new Map()
         let totalTimeConsumed = 0
         let totalElements = 0

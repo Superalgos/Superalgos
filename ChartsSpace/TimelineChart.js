@@ -140,8 +140,9 @@ function newTimelineChart () {
   }
 
   function initializeLayersManager () {
-    layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, thisObject.payload.node.id)
-    thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle, thisObject.payload.node.id)
+    let owner = thisObject.payload.node.payload.parentNode.id // The real owner is the Time Machine
+    layersPanelHandle = canvas.panelsSpace.createNewPanel('Layers Panel', undefined, owner)
+    thisObject.layersManager = canvas.panelsSpace.getPanel(layersPanelHandle)
     thisObject.layersManager.payload = thisObject.payload.node.layersManager.payload
     thisObject.layersManager.initialize()
 
@@ -376,9 +377,6 @@ function newTimelineChart () {
 
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
-      if (window.CHART_ON_FOCUS === '') {
-        window.CHART_ON_FOCUS = thisObject.payload.node.id
-      }
       drawChartsBackground()
       if (thisObject.plotterManager !== undefined) {
         thisObject.plotterManager.draw()

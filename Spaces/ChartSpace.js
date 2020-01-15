@@ -15,6 +15,7 @@ function newChartSpace () {
   let thisObject = {
     visible: true,
     container: undefined,
+    inViewport: new Map(),
     timeMachines: [],
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -52,6 +53,7 @@ function newChartSpace () {
       timeMachine.finalize()
     }
 
+    thisObject.inViewport = undefined
     thisObject.timeMachines = undefined
     timeMachinesMap = undefined
 
@@ -280,7 +282,13 @@ function newChartSpace () {
   function childrenPhysics () {
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       let timeMachine = thisObject.timeMachines[i]
-      timeMachine.physics()
+
+      if (timeMachine.container.frame.isInViewPort()) {
+        timeMachine.physics()
+        thisObject.inViewport.set(timeMachine.payload.node.id, timeMachine)
+      } else {
+        thisObject.inViewport.delete(timeMachine.payload.node.id)
+      }
     }
   }
 

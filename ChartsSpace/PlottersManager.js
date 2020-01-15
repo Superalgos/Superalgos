@@ -138,7 +138,10 @@ function newPlottersManager () {
 
       let baseAsset = layer.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.code.codeName
       let quotedAsset = layer.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.code.codeName
-      let market = baseAsset + '/' + quotedAsset
+      let market = {
+        baseAsset: baseAsset,
+        quotedAsset: quotedAsset
+      }
       let product = layer.definition.referenceParent.referenceParent
       let bot = layer.definition.referenceParent.referenceParent.parentNode
       let dataMine = layer.definition.referenceParent.referenceParent.parentNode.parentNode
@@ -188,40 +191,22 @@ function newPlottersManager () {
                 /* Lets load now this plotter panels. */
                 connector.panels = []
 
-                /* Here is where we instantiate the legacy panels */
-                for (let i = 0; i < plotterModule.panels.length; i++) {
-                  let panelConfig = plotterModule.panels[i]
-
-                  let parameters = {
-                    dataMine: layer.product.plotter.dataMine,
-                    plotterCodeName: layer.product.plotter.codeName,
-                    moduleCodeName: layer.product.plotter.moduleName,
-                    panelCodeName: panelConfig.codeName
-                  }
-
-                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, layer.payload.node.id, layer.session)
-                  let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, layer.payload.node.id)
-                        /* Connect Panel to the Plotter via an Event. */
-                  if (panelConfig.event !== undefined) {
-                    connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised)
-                  }
-                  connector.panels.push(plotterPanelHandle)
-                }
-
-                /* Here we instantiate the UI Defined Panels. */
                 if (product !== undefined) {
-                  for (let i = 0; i < product.referenceParent.panels.length; i++) {
-                    let panel = product.referenceParent.panels[i]
+                  for (let i = 0; i < plotterModule.panels.length; i++) {
+                    let panel = plotterModule.panels[i]
 
                     let parameters = {
-                      dataMine: layer.product.plotter.dataMine,
-                      plotterCodeName: layer.product.plotter.codeName,
-                      moduleCodeName: layer.product.plotter.moduleName,
-                      panelCodeName: panel.id
+                      dataMine: dataMine.code.codeName,
+                      plotterCodeName: plotterModule.parentNode.code.codeName,
+                      moduleCodeName: plotterModule.code.codeName,
+                      panelCodeName: panel.code.codeName,
+                      panelId: panel.id,
+                      isLegacy: panel.code.isLegacy
                     }
 
-                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, layer.payload.node.id, layer.session, panel)
-                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, layer.payload.node.id)
+                    let owner = thisObject.payload.node.payload.parentNode.payload.parentNode.id // Panels are owned by the time machine.
+                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
+                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
 
                     /* Connect Panel to the Plotter via an Event. */
                     connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)

@@ -25,7 +25,6 @@ function newPanelsSpace () {
 
   container.frame.containerName = 'Panels Space'
 
-  panelsMap = new Map()
   return thisObject
 
   function initialize () {
@@ -34,7 +33,7 @@ function newPanelsSpace () {
 
   }
 
-  function createNewPanel (pType, pParameters, pOwner, pSession, pPanelCode) {
+  function createNewPanel (pType, pParameters, pOwner, pSession) {
     let panel
 
     switch (pType) {
@@ -48,12 +47,12 @@ function newPanelsSpace () {
         }
       case 'Plotter Panel':
         {
-          if (pPanelCode !== undefined) {
+          if (pParameters.isLegacy !== true) {
             panel = newPlotterPanel()
             panel.fitFunction = canvas.chartSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession
-            panel.initialize(pPanelCode)
+            panel.initialize(pParameters.panelId)
           } else {
             panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
             panel.fitFunction = canvas.chartSpace.fitFunction
@@ -66,13 +65,8 @@ function newPanelsSpace () {
         }
     }
 
-    let panelArray = panelsMap.get(pOwner)
-    if (panelArray === undefined) {
-      panelArray = []
-      panelsMap.set(pOwner, panelArray)
-    }
-
-    panelArray.push(panel)
+    panel.owner = pOwner
+    thisObject.panels.push(panel)
 
     panel.handle = Math.floor((Math.random() * 10000000) + 1)
 
@@ -94,15 +88,12 @@ function newPanelsSpace () {
     }
   }
 
-  function getPanel (pPanelHandle, pOwner) {
-    thisObject.panels = panelsMap.get(pOwner)
-    if (thisObject.panels != undefined) {
-      for (let i = 0; i < thisObject.panels.length; i++) {
-        let panel = thisObject.panels[i]
+  function getPanel (pPanelHandle) {
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
 
-        if (panel.handle === pPanelHandle) {
-          return panel
-        }
+      if (panel.handle === pPanelHandle) {
+        return panel
       }
     }
   }
@@ -118,8 +109,11 @@ function newPanelsSpace () {
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
-        if (panel.physics !== undefined) {
-          panel.physics()
+        let owner = canvas.chartSpace.inViewport.get(panel.owner)
+        if (owner !== undefined) {
+          if (panel.physics !== undefined) {
+            panel.physics()
+          }
         }
       }
     }
@@ -309,18 +303,10 @@ function newPanelsSpace () {
 
     thisObject.container.frame.draw(false, false)
 
-    thisObject.panels = panelsMap.get('Global')
-    if (thisObject.panels !== undefined) {
-      for (let i = 0; i < thisObject.panels.length; i++) {
-        let panel = thisObject.panels[i]
-        panel.draw()
-      }
-    }
-
-    thisObject.panels = panelsMap.get(window.CHART_ON_FOCUS)
-    if (thisObject.panels !== undefined) {
-      for (let i = 0; i < thisObject.panels.length; i++) {
-        let panel = thisObject.panels[i]
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
+      let owner = canvas.chartSpace.inViewport.get(panel.owner)
+      if (owner !== undefined) {
         panel.draw()
       }
     }
@@ -330,26 +316,20 @@ function newPanelsSpace () {
     if (thisObject.visible !== true) { return }
 
     let container
-
-        /*
-
-        We search for the container of panels in the oposite direction than we do it for drawing them,
-        so panels overlapping others are picked firt although they are drawn last.
-
-        */
-    if (thisObject.panels !== undefined) {
-      for (var i = thisObject.panels.length - 1; i >= 0; i--) {
-        container = thisObject.panels[i].getContainer(point)
-
-        if (container !== undefined) {
-              /* We found an inner container which has the point. We return it. */
-
-          return container
-        }
+      /*
+      We search for the container of panels in the oposite direction than we do it for drawing them,
+      so panels overlapping others are picked firt although they are drawn last.
+      */
+    for (let i = thisObject.panels.length - 1; i >= 0; i--) {
+      let panel = thisObject.panels[i]
+      let owner = canvas.chartSpace.inViewport.get(panel.owner)
+      if (owner !== undefined) {
+        container = panel.getContainer(point)
+      }
+      if (container !== undefined) {
+        return container
       }
     }
-        /* The point does not belong to any inner container, so we return the current container. */
-
     return thisObject.container
   }
 }

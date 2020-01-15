@@ -27,6 +27,13 @@ function newProductsPanel () {
   const LAYER_SEPARATION = 5
   let panelTabButton
 
+  let heatherHeight = 60
+  let layerHeight = 90
+  let desiredVisibleLayers = 5
+  let posibleVisibleLayers = 5
+  let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight
+  let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+
   let onMouseWheelEventSuscriptionId
   return thisObject
 
@@ -49,7 +56,7 @@ function newProductsPanel () {
     thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.MEDIUM
-    thisObject.container.frame.height = 95 * 5 + 60
+    thisObject.container.frame.height = heatherHeight
 
     let position = {
       x: viewPort.visibleArea.topLeft.x,
@@ -94,22 +101,8 @@ function newProductsPanel () {
         layer.container.parentContainer = thisObject.container
         layer.container.isWheelable = true
 
-        /* Positioning within thisObject Panel */
-        let position = {
-          x: 0,
-          y: 60
-        }
-
-        layer.container.frame.position.x = position.x
-        layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + LAYER_SEPARATION
-
         /* Add to the Product Array */
         thisObject.layers.push(layer)
-
-        /* Add to Visible Product Array */
-        if (layer.container.frame.position.y + layer.container.frame.height < thisObject.container.frame.height) {
-          visibleLayers.push(layer)
-        }
 
         /* Listen to Status Changes Events */
         layer.onLayerStatusChangedEventSuscriptionId = layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
@@ -133,8 +126,21 @@ function newProductsPanel () {
     calculateVisbleLayers()
   }
 
+  function panelSizePhysics () {
+    let viewPortHeight = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y
+    if (desiredPanelHeight > viewPortHeight) {
+      posibleVisibleLayers = Math.trunc((viewPortHeight - heatherHeight) / (layerHeight + LAYER_SEPARATION))
+    } else {
+      posibleVisibleLayers = desiredVisibleLayers
+    }
+
+    posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+    thisObject.container.frame.height = posiblePanelHeight
+  }
+
   function calculateVisbleLayers () {
-    let availableSlots = visibleLayers.length
+    panelSizePhysics()
+    let availableSlots = posibleVisibleLayers
 
     if (firstVisibleLayer < 1) { firstVisibleLayer = 1 }
     if (firstVisibleLayer > (thisObject.layers.length - availableSlots + 1)) { firstVisibleLayer = thisObject.layers.length - availableSlots + 1 }
@@ -145,13 +151,8 @@ function newProductsPanel () {
       if (i + 1 >= firstVisibleLayer && i + 1 < firstVisibleLayer + availableSlots) {
         let layer = thisObject.layers[i]
 
-         /* Positioning within thisObject Panel */
-        let position = {
-          x: 0,
-          y: 60
-        }
-        layer.container.frame.position.x = position.x
-        layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + LAYER_SEPARATION
+        layer.container.frame.position.x = 0
+        layer.container.frame.position.y = (layerHeight + LAYER_SEPARATION) * visibleLayers.length + heatherHeight
 
          /* Add to Visible Product Array */
         visibleLayers.push(layer)
@@ -331,4 +332,3 @@ function newProductsPanel () {
     drawIcon(icon2, 7 / 8, 6 / 100, 40, thisObject.container)
   }
 }
-

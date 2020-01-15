@@ -167,10 +167,12 @@ function newRateScale () {
         }
         for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
           let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
-          if (thisObject.payload.node.id !== timelineChart.rateScale.id) {
-            displaceFactor++
-          } else {
-            break
+          if (timelineChart.rateScale !== undefined) {
+            if (thisObject.payload.node.id !== timelineChart.rateScale.id) {
+              displaceFactor++
+            } else {
+              break
+            }
           }
         }
       }

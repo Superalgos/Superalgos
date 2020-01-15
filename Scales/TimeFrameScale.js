@@ -144,10 +144,12 @@ function newTimeFrameScale () {
         }
         for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
           let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
-          if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
-            displaceFactor++
-          } else {
-            break
+          if (timelineChart.timeFrameScale !== undefined) {
+            if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
+              displaceFactor++
+            } else {
+              break
+            }
           }
         }
       }

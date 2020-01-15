@@ -45,14 +45,14 @@ function newDailyFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
       let exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
-        throw 'Exchange not supoorted by this product of the ecosystem! - pDataMine.codeName = ' + pDataMine.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
+        throw 'Exchange not supoorted by this product of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
       }
 
       fileCloud = newFileCloud()
@@ -60,7 +60,7 @@ function newDailyFiles () {
 
             /* First we will get the Data Range */
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pSet, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)
+      fileCloud.getFile(pDataMine, pBot, pSession, pDataset, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)
 
       function onDataRangeReceived (err, pFile) {
         try {
@@ -107,10 +107,10 @@ function newDailyFiles () {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 
-            if (pSet.validPeriods.includes(periodName) === true) {
+            if (pDataset.validPeriods.includes(periodName) === true) {
               let fileCursor = newFileCursor()
               fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pSet, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, onInitialized)
+              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, onInitialized)
               function onInitialized (err) {
                 try {
                   switch (err.result) {
@@ -143,7 +143,7 @@ function newDailyFiles () {
                 let periodTime = dailyFilePeriods[i][0]
                 let periodName = dailyFilePeriods[i][1]
 
-                if (pSet.validPeriods.includes(periodName) === true) {
+                if (pDataset.validPeriods.includes(periodName) === true) {
                   let fileCursor = fileCursors.get(periodTime)
                   fileCursor.reload(onFileReceived)
                 }

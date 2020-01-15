@@ -23,7 +23,7 @@ function newFileSequence () {
   let dataMine
   let bot
   let session
-  let thisSet
+  let dataset
   let product
   let finalized = false
   let initialized = false
@@ -50,7 +50,7 @@ function newFileSequence () {
       dataMine = undefined
       bot = undefined
       session = undefined
-      thisSet = undefined
+      dataset = undefined
       product = undefined
 
       finalized = true
@@ -59,19 +59,19 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
     try {
       exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (exchange === undefined) {
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.codeName = ' + pDataMine.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
+        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
       }
 
       market = pMarket
       dataMine = pDataMine
       bot = pBot
       session = pSession
-      thisSet = pSet
+      dataset = pDataset
       product = pProduct
 
       fileCloud = newFileCloud()
@@ -79,7 +79,7 @@ function newFileSequence () {
 
       callerId = newUniqueId()
 
-      let key = dataMine.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName
       systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
       function onResponse (message) {
@@ -88,7 +88,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -133,7 +133,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -198,7 +198,7 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, sequenceFile) {
         try {
@@ -234,7 +234,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, thisSet, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

@@ -1,5 +1,5 @@
-function newFileStorage() {
-  const MODULE_NAME = 'File Cloud'
+function newFileStorage () {
+  const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -29,61 +29,17 @@ function newFileStorage() {
 
   return thisObject
 
-  async function getBlobToText(container, filePath, host, callBackFunction) {
+  async function getBlobToText (container, filePath, host, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
 
-      if (host.url.indexOf('localhost') !== -1) {
-        callServer(undefined, 'Storage/' + container + '/' + filePath, (response, fileContent) => {
-          if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-            callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
-          } else {
-            callBackFunction(response)
-          }
-        })
-       } else {
-        let headers
-        let accessToken = window.localStorage.getItem('access_token')
-        if (accessToken !== null) {
-          headers = {
-            authorization: 'Bearer ' + accessToken
-          }
-        }
-
-        let response = await axios({
-          url: host.url + 'graphql',
-          method: 'post',
-          data: {
-            query: `
-          query web_FileContent($file: web_FileInput){
-            web_FileContent(file: $file)
-          }
-          `,
-            variables: {
-              file: {
-                container: container.toLowerCase(),
-                filePath,
-                storage: host.storage,
-                accessKey: host.accessKey
-              }
-            }
-          },
-          headers: headers
-        })
-
-        if (response.data.errors) {
-          let error = { code: response.data.errors[0] }
-          callBackFunction(error)
-          return
-        }
-
-        if (response.data.data.web_FileContent) {
-          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, response.data.data.web_FileContent)
+      callServer(undefined, 'Storage/' + container + '/' + filePath, (response, fileContent) => {
+        if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
         } else {
-          callBackFunction({ code: 'The specified key does not exist.' })
+          callBackFunction(response)
         }
-      }
-
+      })
     } catch (err) {
       if (verifyRetry(err.code) && currentRetry < MAX_RETRY) {
         currentRetry++
@@ -99,9 +55,9 @@ function newFileStorage() {
     }
   }
 
-  function verifyRetry(errorCode) {
+  function verifyRetry (errorCode) {
     for (let i = 0; i < recoverableErrors.length; i++) {
-      const error = recoverableErrors[i];
+      const error = recoverableErrors[i]
       if (error === errorCode) {
         return true
       }

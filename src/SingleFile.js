@@ -16,17 +16,17 @@ function newSingleFile () {
 
   return thisObject
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pSet, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.codeName + '-' + pBot.codeName + '-' + pProduct.codeName) }
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }
 
       let exchange = ecosystem.getExchange(pProduct, pExchange)
 
       if (pExchange !== undefined && exchange === undefined) {
  // We support no exchange as a parameter, but if provided, then it must be at the list of exchanges of that product.
 
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.codeName = ' + pDataMine.codeName + ', pBot.codeName = ' + pBot.codeName + ', pProduct.codeName = ' + pProduct.codeName + ', pExchange = ' + pExchange
+        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
       }
 
       fileCloud = newFileCloud()
@@ -34,7 +34,7 @@ function newSingleFile () {
 
             /* Now we will get the file */
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pSet, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(pDataMine, pBot, pSession, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, pFile) {
         try {

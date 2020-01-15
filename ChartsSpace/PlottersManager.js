@@ -12,6 +12,7 @@ function newPlottersManager () {
   let thisObject = {
     fitFunction: undefined,
     container: undefined,
+    payload: undefined,
     setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
     positionAtDatetime: positionAtDatetime,
@@ -66,7 +67,8 @@ function newPlottersManager () {
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
+
+    thisObject.payload = undefined
   }
 
   function finalizeStorage (storage) {
@@ -204,7 +206,7 @@ function newPlottersManager () {
                       isLegacy: panel.code.isLegacy
                     }
 
-                    let owner = thisObject.payload.node.payload.parentNode.payload.parentNode.id // Panels are owned by the time machine.
+                    let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.
                     let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
                     let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
 

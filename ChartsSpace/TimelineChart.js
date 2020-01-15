@@ -155,6 +155,7 @@ function newTimelineChart () {
     thisObject.plotterManager.container.frame.position.y = 0
 
     thisObject.plotterManager.fitFunction = thisObject.fitFunction
+    thisObject.plotterManager.payload = thisObject.payload
     thisObject.plotterManager.initialize(thisObject.layersManager, DEFAULT_EXCHANGE, DEFAULT_MARKET)
     thisObject.plotterManager.setTimeFrame(timeFrame)
   }

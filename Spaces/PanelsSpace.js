@@ -47,14 +47,14 @@ function newPanelsSpace () {
         }
       case 'Plotter Panel':
         {
-          if (pParameters.isLegacy !== true) {
+          if (pParameters.panelNode.code.isLegacy !== true) {
             panel = newPlotterPanel()
             panel.fitFunction = canvas.chartSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession
-            panel.initialize(pParameters.panelId)
+            panel.initialize(pParameters.panelNode)
           } else {
-            panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelCodeName)
+            panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.code.codeName)
             panel.fitFunction = canvas.chartSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
             panel.session = pSession

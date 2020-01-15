@@ -8,18 +8,16 @@ function newPlotterPanel () {
 
   let thisObject = {
     fitFunction: undefined,
-    onRecordChange: onRecordChange,
     container: undefined,
+    onRecordChange: onRecordChange,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
-
-  container.frame.containerName = 'Plotter Panel'
+  thisObject.container = newContainer()
+  thisObject.container.initialize('Plotter Panel')
 
   let heightFactor = 1
   let currentRecord
@@ -28,9 +26,21 @@ function newPlotterPanel () {
 
   return thisObject
 
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.fitFunction = undefined
+
+    heightFactor = undefined
+    currentRecord = undefined
+    panelTabButton.finalize()
+    panelTabButton = undefined
+    panelNode = undefined
+  }
+
   function initialize (pPanelNode) {
     panelNode = pPanelNode
-    container.frame.containerName = panelNode.name
+    thisObject.container.frame.containerName = panelNode.name
 
     thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
     thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL

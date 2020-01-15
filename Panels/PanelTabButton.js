@@ -5,34 +5,40 @@ function newPanelTabButton () {
     parentContainer: undefined,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let isInitialized = false
    /* Cointainer stuff */
 
-  var container = newContainer()
-
-  container.name = 'Panel Tab Button'
-  container.initialize()
-
-  container.isClickeable = true
-
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.name = 'Panel Tab Button'
+  thisObject.container.initialize()
+  thisObject.container.isClickeable = true
   thisObject.container.frame.containerName = 'Panel Tab Button'
 
-  /* Lets listen to our own events to react when we have a Mouse Click */
-
-  thisObject.container.eventHandler.listenToEvent('onMouseClick', buttonPressed)
-
   /* Animation to hide the pannel */
-
   let tabStatus = 'visible'
   let visiblePosition = {}
   let hiddenPosition = {}
   let transitionPosition = {}
 
+  let onMouseClickEventSuscriptionId
   return thisObject
+
+  function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.fitFunction = undefined
+    thisObject.parentContainer = undefined
+
+    tabStatus = undefined
+    visiblePosition = undefined
+    hiddenPosition = undefined
+    transitionPosition = undefined
+  }
 
   function initialize () {
     thisObject.container.frame.width = 10
@@ -54,10 +60,13 @@ function newPanelTabButton () {
     transitionPosition.x = visiblePosition.x
     transitionPosition.y = visiblePosition.y
 
+    /* Lets listen to our own events to react when we have a Mouse Click */
+    onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+
     isInitialized = true
   }
 
-  function buttonPressed (event) {
+  function onMouseClick (event) {
     if (tabStatus === 'visible') {
       visiblePosition.x = thisObject.parentContainer.frame.position.x
       visiblePosition.y = thisObject.parentContainer.frame.position.y
@@ -104,7 +113,7 @@ function newPanelTabButton () {
   }
 
   function getContainer (point) {
-    var container
+    let container
 
        /* First we check if thisObject point is inside thisObject space. */
 
@@ -132,13 +141,13 @@ function newPanelTabButton () {
         }
 
         point2 = {
-          x: container.frame.width - 3,
+          x: thisObject.container.frame.width - 3,
           y: 3
         }
 
         point3 = {
-          x: container.frame.width / 2,
-          y: container.frame.height - 3
+          x: thisObject.container.frame.width / 2,
+          y: thisObject.container.frame.height - 3
         }
         break
       }
@@ -150,13 +159,13 @@ function newPanelTabButton () {
         }
 
         point2 = {
-          x: container.frame.width - 4,
+          x: thisObject.container.frame.width - 4,
           y: 4
         }
 
         point3 = {
-          x: container.frame.width / 2,
-          y: container.frame.height - 4
+          x: thisObject.container.frame.width / 2,
+          y: thisObject.container.frame.height - 4
         }
         break
       }
@@ -164,16 +173,16 @@ function newPanelTabButton () {
       case 'going up': {
         point1 = {
           x: 4,
-          y: container.frame.height - 4
+          y: thisObject.container.frame.height - 4
         }
 
         point2 = {
-          x: container.frame.width - 4,
-          y: container.frame.height - 4
+          x: thisObject.container.frame.width - 4,
+          y: thisObject.container.frame.height - 4
         }
 
         point3 = {
-          x: container.frame.width / 2,
+          x: thisObject.container.frame.width / 2,
           y: 4
         }
         break
@@ -182,16 +191,16 @@ function newPanelTabButton () {
       case 'hidden': {
         point1 = {
           x: 3,
-          y: container.frame.height - 3
+          y: thisObject.container.frame.height - 3
         }
 
         point2 = {
-          x: container.frame.width - 3,
-          y: container.frame.height - 3
+          x: thisObject.container.frame.width - 3,
+          y: thisObject.container.frame.height - 3
         }
 
         point3 = {
-          x: container.frame.width / 2,
+          x: thisObject.container.frame.width / 2,
           y: 3
         }
         break

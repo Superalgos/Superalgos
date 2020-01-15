@@ -33,6 +33,7 @@ function newProductsPanel () {
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
 
+    panelTabButton.finalize()
     panelTabButton = undefined
     layersMap = undefined
     visibleLayers = undefined

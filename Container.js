@@ -70,7 +70,9 @@ function newContainer () {
 
     thisObject.frame = newFrame()
     thisObject.frame.initialize(pType)
-    thisObject.frame.containerName = pName
+    if (pName !== undefined) {
+      thisObject.frame.containerName = pName
+    }
     thisObject.frame.container = thisObject
 
     thisObject.eventHandler = newEventHandler()

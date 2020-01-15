@@ -201,9 +201,7 @@ function newPlottersManager () {
                       dataMine: dataMine.code.codeName,
                       plotterCodeName: plotterModule.parentNode.code.codeName,
                       moduleCodeName: plotterModule.code.codeName,
-                      panelCodeName: panel.code.codeName,
-                      panelId: panel.id,
-                      isLegacy: panel.code.isLegacy
+                      panelNode: panel
                     }
 
                     let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.

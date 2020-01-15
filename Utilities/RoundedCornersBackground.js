@@ -105,13 +105,13 @@ function roundedCornersBackground (params) {
   browserCanvasContext.stroke()
 }
 
-function drawLabel (label, xFactor, yFactor, fontSize, container) {
+function drawLabel (label, xFactor, yFactor, xOffset, yOffset, fontSize, container) {
   if (label === undefined) { return }
-  let xOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
+  let fontOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
 
   let labelPoint = {
-    x: container.frame.width * xFactor - xOffset / 2,
-    y: container.frame.height * yFactor
+    x: container.frame.width * xFactor + xOffset - fontOffset / 2,
+    y: container.frame.height * yFactor + yOffset
   }
 
   labelPoint = container.frame.frameThisPoint(labelPoint)
@@ -122,12 +122,12 @@ function drawLabel (label, xFactor, yFactor, fontSize, container) {
   browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 }
 
-function drawIcon (icon, xFactor, yFactor, imageSize, container) {
+function drawIcon (icon, xFactor, yFactor, xOffset, yOffset, imageSize, container) {
   if (icon !== undefined) {
     if (icon.canDrawIcon === true) {
       let imagePosition = {
-        x: container.frame.width * xFactor - imageSize / 2,
-        y: container.frame.height * yFactor - imageSize / 2
+        x: container.frame.width * xFactor + xOffset - imageSize / 2,
+        y: container.frame.height * yFactor + yOffset - imageSize / 2
       }
 
       imagePosition = container.frame.frameThisPoint(imagePosition)

@@ -452,20 +452,20 @@ function newLayer () {
     roundedCornersBackground(params)
 
     if (label2 !== undefined) {
-      drawLabel(label1, 1 / 2, 2 / 8, 16, thisObject.container)
-      drawLabel(label2, 1 / 2, 4 / 8, 16, thisObject.container)
+      drawLabel(label1, 1 / 2, 2 / 8, 0, 0, 16, thisObject.container)
+      drawLabel(label2, 1 / 2, 4 / 8, 0, 0, 16, thisObject.container)
     } else {
-      drawLabel(label1, 1 / 2, 3 / 8, 20, thisObject.container)
+      drawLabel(label1, 1 / 2, 3 / 8, 0, 0, 20, thisObject.container)
     }
 
-    drawLabel(label3, 1 / 2, 6 / 8, 10, thisObject.container)
-    drawLabel(label4, 1 / 2, 7 / 8, 10, thisObject.container)
+    drawLabel(label3, 1 / 2, 6 / 8, 0, 0, 10, thisObject.container)
+    drawLabel(label4, 1 / 2, 7 / 8, 0, 0, 10, thisObject.container)
 
     /* Images */
-    drawIcon(icon1, 1 / 8, 1 / 4, 20, thisObject.container)
-    drawIcon(icon2, 7 / 8, 1 / 4, 20, thisObject.container)
-    drawIcon(icon3, 1 / 8, 3 / 4, 20, thisObject.container)
-    drawIcon(icon4, 7 / 8, 3 / 4, 20, thisObject.container)
+    drawIcon(icon1, 1 / 8, 1 / 4, 0, 0, 20, thisObject.container)
+    drawIcon(icon2, 7 / 8, 1 / 4, 0, 0, 20, thisObject.container)
+    drawIcon(icon3, 1 / 8, 3 / 4, 0, 0, 20, thisObject.container)
+    drawIcon(icon4, 7 / 8, 3 / 4, 0, 0, 20, thisObject.container)
   }
 }
 

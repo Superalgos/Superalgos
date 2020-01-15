@@ -37,7 +37,7 @@ function drawScaleDisplayCover (container) {
     borderColor: UI_COLOR.WHITE,
     castShadow: false,
     backgroundColor: UI_COLOR.WHITE,
-    opacity: '0.75'
+    opacity: '0.50'
   }
 
   roundedCornersBackground(params)

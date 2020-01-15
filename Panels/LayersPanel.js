@@ -122,8 +122,14 @@ function newProductsPanel () {
       delta = 1
     }
 
-    firstVisibleLayer = firstVisibleLayer + delta
-
+    if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < heatherHeight) {
+      desiredVisibleLayers = desiredVisibleLayers + delta
+      if (desiredVisibleLayers < 0) { desiredVisibleLayers = 0 }
+      if (desiredVisibleLayers > thisObject.layers.length) { desiredVisibleLayers = thisObject.layers.length }
+    } else {
+      firstVisibleLayer = firstVisibleLayer + delta
+    }
+    desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
     calculateVisbleLayers()
   }
 
@@ -136,7 +142,12 @@ function newProductsPanel () {
     }
     if (thisObject.layers.length < posibleVisibleLayers) { posibleVisibleLayers = thisObject.layers.length }
 
-    posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
+    if (posibleVisibleLayers === 0) {
+      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+    } else {
+      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
+    }
+
     thisObject.container.frame.height = posiblePanelHeight
   }
 

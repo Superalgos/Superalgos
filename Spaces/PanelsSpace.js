@@ -158,8 +158,8 @@ function newPanelsSpace () {
           } else {
             desAccelerateOnX()
           }
-          if (panel.container.frame.position.x < viewPort.visibleArea.topLeft.x) {
-            panel.container.frame.position.x = viewPort.visibleArea.topLeft.x
+          if (panel.container.frame.position.x < 0) {
+            panel.container.frame.position.x = 0
           }
         } else {
           panel.container.frame.position.x = panel.container.frame.position.x + panel.container.speed.x
@@ -169,8 +169,8 @@ function newPanelsSpace () {
           } else {
             desAccelerateOnX()
           }
-          if (panel.container.frame.position.x + panel.container.frame.width > viewPort.visibleArea.topRight.x) {
-            panel.container.frame.position.x = viewPort.visibleArea.topRight.x - panel.container.frame.width
+          if (panel.container.frame.position.x + panel.container.frame.width > browserCanvas.width) {
+            panel.container.frame.position.x = browserCanvas.width - panel.container.frame.width
           }
         }
         if (panel.container.frame.height <= viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) {

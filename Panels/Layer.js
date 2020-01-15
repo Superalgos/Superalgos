@@ -137,7 +137,8 @@ function newLayer () {
                         'Record Definition->Record Property->Formula->' +
                         'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
                         'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                        'Plotter Module->Shapes->' +
+                        'Plotter Module->Plotter->' +
+                        'Shapes->' +
                         'Chart Points->Point->Point Formula->' +
                         'Polygon->Polygon Body->Style->Style Condition->Style->' +
                         'Polygon Border->Style->Style Condition->Style->' +

@@ -95,7 +95,7 @@
         }
     }
 
-    function initialize(pStorage, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
 
         try {
 

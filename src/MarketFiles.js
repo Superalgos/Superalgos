@@ -67,12 +67,7 @@ function newMarketFiles () {
 
   function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
     try {
-      exchange = ecosystem.getExchange(pProduct, pExchange)
-
-      if (exchange === undefined) {
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
-      }
-
+      exchange = pExchange
       market = pMarket
       dataMine = pDataMine
       bot = pBot
@@ -89,7 +84,7 @@ function newMarketFiles () {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.validPeriods.includes(periodName) === true) {
+        if (dataset.code.validTimeFrames.includes(periodName) === true) {
           fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
@@ -136,7 +131,7 @@ function newMarketFiles () {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.validPeriods.includes(periodName) === true) {
+        if (dataset.code.validTimeFrames.includes(periodName) === true) {
           fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {

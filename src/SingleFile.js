@@ -21,13 +21,7 @@ function newSingleFile () {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }
 
-      let exchange = ecosystem.getExchange(pProduct, pExchange)
-
-      if (pExchange !== undefined && exchange === undefined) {
- // We support no exchange as a parameter, but if provided, then it must be at the list of exchanges of that product.
-
-        throw 'Exchange not supoorted by this pProduct of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
-      }
+      let exchange = pExchange
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot)

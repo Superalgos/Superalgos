@@ -36,18 +36,18 @@ function newFileCloud () {
       function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pDataset.filePath + '-' + pDataset.fileName) }
+          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pDataset.code.filePath + '-' + pDataset.code.fileName) }
 
           let fileName
           let filePath
 
           if (pDataRange === undefined) {
-            fileName = pDataset.fileName
-            filePath = pDataset.filePath
+            fileName = pDataset.code.fileName
+            filePath = pDataset.code.filePath
           } else {
-            if (pDataset.dataRange !== undefined) {
-              fileName = pDataset.dataRange.fileName
-              filePath = pDataset.dataRange.filePath
+            if (pDataset.code.dataRange !== undefined) {
+              fileName = pDataset.code.dataRange.fileName
+              filePath = pDataset.code.dataRange.filePath
             } else {
               let customErr = {
                 result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
@@ -84,11 +84,7 @@ function newFileCloud () {
           }
 
           if (pBot !== undefined) {
-            if (pBot.cloneId !== undefined) {
-              filePath = filePath.replace('@Bot', pBot.code.codeName + '-' + pBot.cloneId)
-            } else {
-              filePath = filePath.replace('@Bot', pBot.code.codeName)
-            }
+            filePath = filePath.replace('@Bot', pBot.code.codeName)
           }
 
           if (pSession !== undefined) {
@@ -108,7 +104,7 @@ function newFileCloud () {
           }
 
           if (pExchange !== undefined) {
-            filePath = filePath.replace('@Exchange', pExchange.code.code.codeName)
+            filePath = filePath.replace('@Exchange', pExchange.code.codeName)
           }
 
           filePath = filePath.replace('@Period', pPeriodName)
@@ -130,7 +126,7 @@ function newFileCloud () {
 
           let containerName
 
-          containerName = pDataMine.code.codeName.toLowerCase()
+          containerName = pDataMine.codeName.toLowerCase()
 
           blobService.getBlobToText(containerName, filePath + '/' + fileName, pDataMine.host, onFileReceived)
 

@@ -49,11 +49,7 @@ function newDailyFiles () {
     try {
       callBackWhenFileReceived = callBackFunction
 
-      let exchange = ecosystem.getExchange(pProduct, pExchange)
-
-      if (exchange === undefined) {
-        throw 'Exchange not supoorted by this product of the ecosystem! - pDataMine.code.codeName = ' + pDataMine.code.codeName + ', pBot.code.codeName = ' + pBot.code.codeName + ', pProduct.code.codeName = ' + pProduct.code.codeName + ', pExchange = ' + pExchange
-      }
+      let exchange = pExchange
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot)
@@ -107,7 +103,7 @@ function newDailyFiles () {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 
-            if (pDataset.validPeriods.includes(periodName) === true) {
+            if (pDataset.code.validTimeFrames.includes(periodName) === true) {
               let fileCursor = newFileCursor()
               fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
               fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, onInitialized)
@@ -143,7 +139,7 @@ function newDailyFiles () {
                 let periodTime = dailyFilePeriods[i][0]
                 let periodName = dailyFilePeriods[i][1]
 
-                if (pDataset.validPeriods.includes(periodName) === true) {
+                if (pDataset.code.validTimeFrames.includes(periodName) === true) {
                   let fileCursor = fileCursors.get(periodTime)
                   fileCursor.reload(onFileReceived)
                 }

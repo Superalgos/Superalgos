@@ -49,7 +49,7 @@ function newProductsPanel () {
     thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.MEDIUM
-    thisObject.container.frame.height = UI_PANEL.HEIGHT.LARGE   // viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y // UI_PANEL.HEIGHT.LARGE;
+    thisObject.container.frame.height = 95 * 5 + 60
 
     let position = {
       x: viewPort.visibleArea.topLeft.x,
@@ -97,7 +97,7 @@ function newProductsPanel () {
         /* Positioning within thisObject Panel */
         let position = {
           x: 0,
-          y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+          y: 60
         }
 
         layer.container.frame.position.x = position.x
@@ -148,7 +148,7 @@ function newProductsPanel () {
          /* Positioning within thisObject Panel */
         let position = {
           x: 0,
-          y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+          y: 60
         }
         layer.container.frame.position.x = position.x
         layer.container.frame.position.y = position.y + layer.container.frame.height * visibleLayers.length + LAYER_SEPARATION
@@ -292,12 +292,44 @@ function newProductsPanel () {
   function draw () {
     if (isInitialized === false) { return }
 
-    thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
+    // thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 
+    drawHeader()
     for (let i = 0; i < visibleLayers.length; i++) {
       visibleLayers[i].draw()
     }
 
     panelTabButton.draw()
   }
+
+  function drawHeader () {
+    let label1 = thisObject.payload.node.name.substring(0, 15)
+    let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 15)
+    let label3 = ''
+
+    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    let backgroundColor = UI_COLOR.BLACK
+
+    let params = {
+      cornerRadius: 15,
+      lineWidth: 2,
+      container: thisObject.container,
+      borderColor: UI_COLOR.RUSTED_RED,
+      castShadow: false,
+      backgroundColor: backgroundColor,
+      opacity: 1
+    }
+
+    roundedCornersBackground(params)
+
+    drawLabel(label1, 1 / 2, 6 / 100, 10, thisObject.container)
+    drawLabel(label2, 1 / 2, 9 / 100, 10, thisObject.container)
+
+    /* Images */
+    drawIcon(icon1, 1 / 8, 6 / 100, 40, thisObject.container)
+    drawIcon(icon2, 7 / 8, 6 / 100, 40, thisObject.container)
+  }
 }
+

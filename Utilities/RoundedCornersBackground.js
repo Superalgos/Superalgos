@@ -104,3 +104,38 @@ function roundedCornersBackground (params) {
   browserCanvasContext.strokeStyle = 'rgba(' + params.borderColor + ', ' + params.opacity + ')'
   browserCanvasContext.stroke()
 }
+
+function drawLabel (label, xFactor, yFactor, fontSize, container) {
+  if (label === undefined) { return }
+  let xOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
+
+  let labelPoint = {
+    x: container.frame.width * xFactor - xOffset / 2,
+    y: container.frame.height * yFactor
+  }
+
+  labelPoint = container.frame.frameThisPoint(labelPoint)
+
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+
+  browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+}
+
+function drawIcon (icon, xFactor, yFactor, imageSize, container) {
+  if (icon !== undefined) {
+    if (icon.canDrawIcon === true) {
+      let imagePosition = {
+        x: container.frame.width * xFactor - imageSize / 2,
+        y: container.frame.height * yFactor - imageSize / 2
+      }
+
+      imagePosition = container.frame.frameThisPoint(imagePosition)
+      browserCanvasContext.drawImage(
+        icon, imagePosition.x,
+        imagePosition.y,
+        imageSize,
+        imageSize)
+    }
+  }
+}

@@ -452,57 +452,20 @@ function newLayer () {
     roundedCornersBackground(params)
 
     if (label2 !== undefined) {
-      drawLabel(label1, 1 / 2, 2 / 8, 16)
-      drawLabel(label2, 1 / 2, 4 / 8, 16)
+      drawLabel(label1, 1 / 2, 2 / 8, 16, thisObject.container)
+      drawLabel(label2, 1 / 2, 4 / 8, 16, thisObject.container)
     } else {
-      drawLabel(label1, 1 / 2, 3 / 8, 20)
+      drawLabel(label1, 1 / 2, 3 / 8, 20, thisObject.container)
     }
 
-    drawLabel(label3, 1 / 2, 6 / 8, 10)
-    drawLabel(label4, 1 / 2, 7 / 8, 10)
-
-    function drawLabel (label, xFactor, yFactor, fontSize) {
-      if (label === undefined) { return }
-      let xOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
-
-      let labelPoint = {
-        x: thisObject.container.frame.width * xFactor - xOffset / 2,
-        y: thisObject.container.frame.height * yFactor
-      }
-
-      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-    }
+    drawLabel(label3, 1 / 2, 6 / 8, 10, thisObject.container)
+    drawLabel(label4, 1 / 2, 7 / 8, 10, thisObject.container)
 
     /* Images */
-
-    drawIcon(icon1, 1 / 8, 1 / 4)
-    drawIcon(icon2, 7 / 8, 1 / 4)
-    drawIcon(icon3, 1 / 8, 3 / 4)
-    drawIcon(icon4, 7 / 8, 3 / 4)
-
-    function drawIcon (icon, xFactor, yFactor) {
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          let imageSize = 20
-          let imagePosition = {
-            x: thisObject.container.frame.width * xFactor - imageSize / 2,
-            y: thisObject.container.frame.height * yFactor - imageSize / 2
-          }
-
-          imagePosition = thisObject.container.frame.frameThisPoint(imagePosition)
-          browserCanvasContext.drawImage(
-            icon, imagePosition.x,
-            imagePosition.y,
-            imageSize,
-            imageSize)
-        }
-      }
-    }
+    drawIcon(icon1, 1 / 8, 1 / 4, 20, thisObject.container)
+    drawIcon(icon2, 7 / 8, 1 / 4, 20, thisObject.container)
+    drawIcon(icon3, 1 / 8, 3 / 4, 20, thisObject.container)
+    drawIcon(icon4, 7 / 8, 3 / 4, 20, thisObject.container)
   }
 }
 

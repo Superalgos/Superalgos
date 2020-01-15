@@ -235,7 +235,7 @@ function newPlottersManager () {
       let found = false
       for (let i = 0; i < connectors.length; i++) {
         let connector = connectors[i]
-        if (connector.layer.code === layer.code) {
+        if (connector.layer.payload.node.id === layer.payload.node.id) {
           found = true
         }
       }
@@ -250,7 +250,7 @@ function newPlottersManager () {
             /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
       for (let i = 0; i < connectors.length; i++) {
         let connector = connectors[i]
-        if (connector.layer.code === layer.code) {
+        if (connector.layer.payload.node.id === layer.payload.node.id) {
                     /* Then the panels. */
           for (let j = 0; j < connector.panels.length; j++) {
             canvas.panelsSpace.destroyPanel(connector.panels[j])

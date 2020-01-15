@@ -315,229 +315,74 @@ function newLayer () {
   }
 
   function drawLayer () {
-    switch (thisObject.status) {
-      case PRODUCT_CARD_STATUS.ON:
-
-        break
-      case PRODUCT_CARD_STATUS.OFF:
-
-        break
-      case PRODUCT_CARD_STATUS.LOADING:
-
-        break
-    }
-
-    drawLayerDisplay()
-
        /* ------------------- Progress Bars -------------------------- */
 
     const ANIMATED_INCREMENT = 5
-    const OPACITY_INCREMENT = 0.05
+    const OPACITY_INCREMENT = 0.01
     const OPACITY_MIN = 1
 
-    let point1
-    let point2
+    drawLayerDisplay()
 
-       /* We draw here the Market Progress Bar. */
+    drawProgressBar(marketFileProgressBar, 1, -5)
+    drawProgressBar(dailyFileProgressBar, 1, -6)
+    drawProgressBar(singleFileProgressBar, 1, -7)
+    drawProgressBar(fileSequenceProgressBar, 1, -8)
 
-       /* Animate */
+    function drawProgressBar (progressBar, lineWidth, offsetY) {
+      let point1
+      let point2
+      let horizontalMargin = 50
 
-    if (marketFileProgressBar.animatedValue < marketFileProgressBar.value) {
-      marketFileProgressBar.animatedValue = marketFileProgressBar.animatedValue + ANIMATED_INCREMENT
-      marketFileProgressBar.opacity = marketFileProgressBar.opacity + OPACITY_INCREMENT
-    }
-
-    if (marketFileProgressBar.animatedValue >= 100) {
-      marketFileProgressBar.animatedValue = 100
-
-      marketFileProgressBar.opacity = marketFileProgressBar.opacity - OPACITY_INCREMENT
-      if (marketFileProgressBar.opacity < OPACITY_MIN) { marketFileProgressBar.opacity = OPACITY_MIN }
-
-      marketFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
-      marketFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', marketFileProgressBar.opacity.toString())
-
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
-    }
-
-    point1 = {
-      x: 0,
-      y: thisObject.container.frame.height - 15
-    }
-
-    point2 = {
-      x: thisObject.container.frame.width * marketFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 15
-    }
-
-       /* Now the transformations. */
-
-    point1 = thisObject.container.frame.frameThisPoint(point1)
-    point2 = thisObject.container.frame.frameThisPoint(point2)
-
-    point1 = thisObject.fitFunction(point1)
-    point2 = thisObject.fitFunction(point2)
-
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x, point2.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = marketFileProgressBar.strokeStyle.replace('@Opacity', marketFileProgressBar.opacity.toString())
-
-    browserCanvasContext.setLineDash([2, 5])
-    browserCanvasContext.lineWidth = 10
-    browserCanvasContext.stroke()
-
-       /* We draw here the Daily Progress Bar. */
+      if (progressBar.value === 0) {
+        return
+      }
 
        /* Animate */
+      if (progressBar.animatedValue < progressBar.value) {
+        progressBar.animatedValue = progressBar.animatedValue + ANIMATED_INCREMENT
+        progressBar.opacity = progressBar.opacity + OPACITY_INCREMENT
+      }
 
-    if (dailyFileProgressBar.animatedValue < dailyFileProgressBar.value) {
-      dailyFileProgressBar.animatedValue = dailyFileProgressBar.animatedValue + ANIMATED_INCREMENT
-      dailyFileProgressBar.opacity = dailyFileProgressBar.opacity + OPACITY_INCREMENT
-    }
+      if (progressBar.animatedValue >= 100) {
+        progressBar.animatedValue = 100
 
-    if (dailyFileProgressBar.animatedValue >= 100) {
-      dailyFileProgressBar.animatedValue = 100
+        progressBar.opacity = progressBar.opacity - OPACITY_INCREMENT
+        if (progressBar.opacity < OPACITY_MIN) { progressBar.opacity = OPACITY_MIN }
 
-      dailyFileProgressBar.opacity = dailyFileProgressBar.opacity - OPACITY_INCREMENT
-      if (dailyFileProgressBar.opacity < OPACITY_MIN) { dailyFileProgressBar.opacity = OPACITY_MIN }
+        progressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', progressBar.opacity.toString())
 
-      dailyFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
-      dailyFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', dailyFileProgressBar.opacity.toString())
+        changeStatusTo(PRODUCT_CARD_STATUS.ON)
+      }
 
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
-    }
+      point1 = {
+        x: 0 + horizontalMargin,
+        y: thisObject.container.frame.height + offsetY
+      }
 
-    point1 = {
-      x: 0,
-      y: thisObject.container.frame.height - 25
-    }
-
-    point2 = {
-      x: thisObject.container.frame.width * dailyFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 25
-    }
+      point2 = {
+        x: (thisObject.container.frame.width - horizontalMargin * 2) * progressBar.animatedValue / 100 + horizontalMargin,
+        y: thisObject.container.frame.height + offsetY
+      }
 
        /* Now the transformations. */
+      point1 = thisObject.container.frame.frameThisPoint(point1)
+      point2 = thisObject.container.frame.frameThisPoint(point2)
 
-    point1 = thisObject.container.frame.frameThisPoint(point1)
-    point2 = thisObject.container.frame.frameThisPoint(point2)
+      point1 = thisObject.fitFunction(point1)
+      point2 = thisObject.fitFunction(point2)
 
-    point1 = thisObject.fitFunction(point1)
-    point2 = thisObject.fitFunction(point2)
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(point1.x, point1.y)
+      browserCanvasContext.lineTo(point2.x, point2.y)
 
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x, point2.y)
+      browserCanvasContext.closePath()
 
-    browserCanvasContext.closePath()
+      browserCanvasContext.strokeStyle = progressBar.strokeStyle.replace('@Opacity', progressBar.opacity.toString())
 
-    browserCanvasContext.strokeStyle = dailyFileProgressBar.strokeStyle.replace('@Opacity', dailyFileProgressBar.opacity.toString())
-
-    browserCanvasContext.setLineDash([2, 5])
-    browserCanvasContext.lineWidth = 10
-    browserCanvasContext.stroke()
-
-       /* We draw here the Single File Progress Bar. */
-
-       /* Animate */
-
-    if (singleFileProgressBar.animatedValue < singleFileProgressBar.value) {
-      singleFileProgressBar.animatedValue = singleFileProgressBar.animatedValue + ANIMATED_INCREMENT
-      singleFileProgressBar.opacity = singleFileProgressBar.opacity + OPACITY_INCREMENT
+      browserCanvasContext.setLineDash([1, 4])
+      browserCanvasContext.lineWidth = lineWidth
+      browserCanvasContext.stroke()
     }
-
-    if (singleFileProgressBar.animatedValue >= 100) {
-      singleFileProgressBar.animatedValue = 100
-
-      singleFileProgressBar.opacity = singleFileProgressBar.opacity - OPACITY_INCREMENT
-      if (singleFileProgressBar.opacity < OPACITY_MIN) { singleFileProgressBar.opacity = OPACITY_MIN }
-
-      singleFileProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
-      singleFileProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', singleFileProgressBar.opacity.toString())
-
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
-    }
-
-    point1 = {
-      x: 0,
-      y: thisObject.container.frame.height - 7
-    }
-
-    point2 = {
-      x: thisObject.container.frame.width * singleFileProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 7
-    }
-
-       /* Now the transformations. */
-
-    point1 = thisObject.container.frame.frameThisPoint(point1)
-    point2 = thisObject.container.frame.frameThisPoint(point2)
-
-    point1 = thisObject.fitFunction(point1)
-    point2 = thisObject.fitFunction(point2)
-
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x, point2.y)
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = singleFileProgressBar.strokeStyle.replace('@Opacity', singleFileProgressBar.opacity.toString())
-
-    browserCanvasContext.setLineDash([2, 5])
-    browserCanvasContext.lineWidth = 10
-
-       /* We draw here the File Sequence Progress Bar. */
-
-       /* Animate */
-
-    if (fileSequenceProgressBar.animatedValue < fileSequenceProgressBar.value) {
-      fileSequenceProgressBar.animatedValue = fileSequenceProgressBar.animatedValue + ANIMATED_INCREMENT
-      fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity + OPACITY_INCREMENT
-    }
-
-    if (fileSequenceProgressBar.animatedValue >= 100) {
-      fileSequenceProgressBar.animatedValue = 100
-
-      fileSequenceProgressBar.opacity = fileSequenceProgressBar.opacity - OPACITY_INCREMENT
-      if (fileSequenceProgressBar.opacity < OPACITY_MIN) { fileSequenceProgressBar.opacity = OPACITY_MIN }
-
-      fileSequenceProgressBar.fillStyle = LOADED_FILL_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
-      fileSequenceProgressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
-
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
-    }
-
-    point1 = {
-      x: 0,
-      y: thisObject.container.frame.height - 10
-    }
-
-    point2 = {
-      x: thisObject.container.frame.width * fileSequenceProgressBar.animatedValue / 100,
-      y: thisObject.container.frame.height - 10
-    }
-
-       /* Now the transformations. */
-
-    point1 = thisObject.container.frame.frameThisPoint(point1)
-    point2 = thisObject.container.frame.frameThisPoint(point2)
-
-    point1 = thisObject.fitFunction(point1)
-    point2 = thisObject.fitFunction(point2)
-
-    browserCanvasContext.beginPath()
-    browserCanvasContext.moveTo(point1.x, point1.y)
-    browserCanvasContext.lineTo(point2.x, point2.y)
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.strokeStyle = fileSequenceProgressBar.strokeStyle.replace('@Opacity', fileSequenceProgressBar.opacity.toString())
-
-    browserCanvasContext.setLineDash([2, 5])
-    browserCanvasContext.lineWidth = 10
   }
 
   function drawLayerDisplay () {

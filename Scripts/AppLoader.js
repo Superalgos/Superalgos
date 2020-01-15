@@ -57,7 +57,7 @@ function newAppLoader() {
 
                 'Panels/LayersPanel.js',
                 'Panels/PanelTabButton.js',
-                'Panels/ProductCard.js',
+                'Panels/Layer.js',
                 'Panels/PlotterPanel.js',
                 
                 'ControlsToolBox/SidePanel.js',

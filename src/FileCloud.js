@@ -126,9 +126,9 @@ function newFileCloud () {
 
           let containerName
 
-          containerName = pDataMine.codeName.toLowerCase()
+          containerName = pDataMine.code.codeName.toLowerCase()
 
-          blobService.getBlobToText(containerName, filePath + '/' + fileName, pDataMine.host, onFileReceived)
+          blobService.getBlobToText(containerName, filePath + '/' + fileName, undefined, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {

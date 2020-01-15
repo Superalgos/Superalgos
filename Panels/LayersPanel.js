@@ -24,15 +24,16 @@ function newProductsPanel () {
   let visibleLayers = []
   let firstVisibleLayer = 1
 
-  const LAYER_SEPARATION = 5
+  const LAYER_SEPARATION = 0
   let panelTabButton
 
   let heatherHeight = 60
+  let footerHeight = 15
   let layerHeight = 90
   let desiredVisibleLayers = 5
   let posibleVisibleLayers = 5
-  let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight
-  let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+  let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
+  let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
 
   let onMouseWheelEventSuscriptionId
   return thisObject
@@ -129,12 +130,13 @@ function newProductsPanel () {
   function panelSizePhysics () {
     let viewPortHeight = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y
     if (desiredPanelHeight > viewPortHeight) {
-      posibleVisibleLayers = Math.trunc((viewPortHeight - heatherHeight) / (layerHeight + LAYER_SEPARATION))
+      posibleVisibleLayers = Math.trunc((viewPortHeight - heatherHeight - footerHeight) / (layerHeight + LAYER_SEPARATION))
     } else {
       posibleVisibleLayers = desiredVisibleLayers
     }
+    if (thisObject.layers.length < posibleVisibleLayers) { posibleVisibleLayers = thisObject.layers.length }
 
-    posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+    posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
     thisObject.container.frame.height = posiblePanelHeight
   }
 
@@ -328,7 +330,7 @@ function newProductsPanel () {
     drawLabel(label1, 1 / 2, 0, 0, 20, 10, thisObject.container)
     drawLabel(label2, 1 / 2, 0, 0, 40, 10, thisObject.container)
 
-    drawIcon(icon1, 1 / 8, 0, 0, 20, 40, thisObject.container)
-    drawIcon(icon2, 7 / 8, 0, 0, 40, 40, thisObject.container)
+    drawIcon(icon1, 1 / 8, 0, 0, 30, 40, thisObject.container)
+    drawIcon(icon2, 7 / 8, 0, 0, 30, 40, thisObject.container)
   }
 }

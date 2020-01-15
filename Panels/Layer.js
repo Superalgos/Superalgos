@@ -437,7 +437,7 @@ function newLayer () {
     let backgroundColor = UI_COLOR.BLACK
 
     const RED_LINE_HIGHT = 4
-    const OPACITY = 0.25
+    const OPACITY = 0.75
 
     let params = {
       cornerRadius: 0,

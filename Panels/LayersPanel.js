@@ -83,36 +83,40 @@ function newProductsPanel () {
     layer.fitFunction = thisObject.fitFunction
 
     /* Initialize it */
-    layer.initialize()
-    layersMap.set(layerNode.id, layer)
+    layer.initialize(onInitialized)
+    function onInitialized (err) {
+      if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+        layersMap.set(layerNode.id, layer)
 
-    /* Container Stuff */
-    layer.container.frame.parentFrame = thisObject.container.frame
-    layer.container.parentContainer = thisObject.container
-    layer.container.isWheelable = true
+        /* Container Stuff */
+        layer.container.frame.parentFrame = thisObject.container.frame
+        layer.container.parentContainer = thisObject.container
+        layer.container.isWheelable = true
 
-    /* Positioning within thisObject Panel */
-    let position = {
-      x: 0,
-      y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+        /* Positioning within thisObject Panel */
+        let position = {
+          x: 0,
+          y: thisObject.container.frame.height - thisObject.container.frame.getBodyHeight()
+        }
+
+        layer.container.frame.position.x = position.x
+        layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + LAYER_SEPARATION
+
+        /* Add to the Product Array */
+        thisObject.layers.push(layer)
+
+        /* Add to Visible Product Array */
+        if (layer.container.frame.position.y + layer.container.frame.height < thisObject.container.frame.height) {
+          visibleLayers.push(layer)
+        }
+
+        /* Listen to Status Changes Events */
+        layer.onLayerStatusChangedEventSuscriptionId = layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
+        layer.onMouseWheelEventSuscriptionId = layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+
+        return layer
+      }
     }
-
-    layer.container.frame.position.x = position.x
-    layer.container.frame.position.y = position.y + layer.container.frame.height * thisObject.layers.length + LAYER_SEPARATION
-
-    /* Add to the Product Array */
-    thisObject.layers.push(layer)
-
-    /* Add to Visible Product Array */
-    if (layer.container.frame.position.y + layer.container.frame.height < thisObject.container.frame.height) {
-      visibleLayers.push(layer)
-    }
-
-    /* Listen to Status Changes Events */
-    layer.onLayerStatusChangedEventSuscriptionId = layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
-    layer.onMouseWheelEventSuscriptionId = layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-
-    return layer
   }
 
   function onMouseWheel (event) {
@@ -244,7 +248,9 @@ function newProductsPanel () {
         let found = removeFromLocalLayers(layerNode.id)
         if (found !== true) {
           layer = addLayer(layerNode)
-          onLayerStatusChanged(layer)
+          if (layer !== undefined) {
+            onLayerStatusChanged(layer)
+          }
         }
       }
     }

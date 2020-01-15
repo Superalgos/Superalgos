@@ -104,7 +104,7 @@ function newLayer () {
     thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
   }
 
-  function initialize () {
+  function initialize (callBackFunction) {
        /* Create this objects continer */
     try {
       thisObject.container = newContainer()
@@ -149,8 +149,8 @@ function newLayer () {
       if (thisObject.definition.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent === undefined) { return }
-      if (thisObject.definition.referenceParent.parentNode.referenceParent.referenceParent === undefined) { return }
-      if (thisObject.definition.referenceParent.parentNode.referenceParent.referenceParent.referenceParent === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset === undefined) { return }
@@ -174,6 +174,8 @@ function newLayer () {
 
        /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }

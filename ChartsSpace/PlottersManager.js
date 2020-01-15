@@ -110,7 +110,7 @@ function newPlottersManager () {
       for (let i = 0; i < layer.definition.referenceParent.referenceParent.datasets.length; i++) {
         let dataset = layer.definition.referenceParent.referenceParent.datasets[i]
 
-        switch (dataset.type) {
+        switch (dataset.code.type) {
           case 'Market Files': {
             storage.onMarketFileLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('Market File Loaded', layer.onMarketFileLoaded)
           }

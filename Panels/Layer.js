@@ -10,6 +10,7 @@ function newLayer () {
     fitFunction: undefined,
     payload: undefined,
     definition: undefined,
+    physics: physics,
     draw: draw,
     turnOff: turnOff,
     turnOn: turnOn,
@@ -160,19 +161,6 @@ function newLayer () {
       if (thisObject.definition.referenceParent.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.referenceParent.parentNode.parentNode === undefined) { return }
 
-       /* We retrieve the locally stored status of the Product */
-      let storedValue = window.localStorage.getItem(thisObject.payload.node.id)
-
-      if (storedValue !== null) {
-        thisObject.status = storedValue
-
-        if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
-          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
-        }
-      } else {
-        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
-      }
-
        /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
@@ -301,12 +289,49 @@ function newLayer () {
     fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
   }
 
-  function changeStatusTo (pNewStatus) {
-    if (thisObject.status !== pNewStatus) {
-      thisObject.status = pNewStatus
+  function physics () {
+  /* We retrieve the stored status at the config. */
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      let storedValue = code.status
+
+      if (storedValue !== undefined) {
+        thisObject.status = storedValue
+
+        if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
+          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        }
+      } else {
+        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+      }
+    } catch (err) {
+   // we ignore errors here since most likely they will be parsing errors.
+    }
+
+    /* Check when the loading finishes */
+    if (
+      thisObject.status === PRODUCT_CARD_STATUS.LOADING &&
+      marketFileProgressBar.value === 100 &&
+      dailyFileProgressBar.value === 100
+    ) {
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
+  }
+
+  function changeStatusTo (newStatus) {
+    if (thisObject.status !== newStatus) {
+      thisObject.status = newStatus
+
+      try {
+        let code = JSON.parse(thisObject.payload.node.code)
+        code.status = thisObject.status
+        thisObject.payload.node.code = JSON.stringify(code)
+      } catch (err) {
+         // we ignore errors here since most likely they will be parsing errors.
+      }
+
       let eventData = thisObject
       thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
-      window.localStorage.setItem(thisObject.code, thisObject.status)
     }
   }
 
@@ -325,7 +350,7 @@ function newLayer () {
 
     let point1
     let point2
-    let horizontalMargin = 15
+    let horizontalMargin = 32
 
     if (progressBar.value === 0) {
       return
@@ -344,8 +369,6 @@ function newLayer () {
       if (progressBar.opacity < OPACITY_MIN) { progressBar.opacity = OPACITY_MIN }
 
       progressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', progressBar.opacity.toString())
-
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
     }
 
     point1 = {
@@ -450,8 +473,7 @@ function newLayer () {
 
     drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon3, 3.3 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon4, 4.7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon3, 3.4 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon4, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
-

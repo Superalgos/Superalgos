@@ -240,7 +240,6 @@ function newDesignerSpace () {
   }
 
   function physics () {
-    if (visible !== true) { return }
     thisObject.workspace.physics()
   }
 

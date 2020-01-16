@@ -94,6 +94,7 @@ function newProductsPanel () {
 
     /* Initialize it */
     layer.initialize(onInitialized)
+
     function onInitialized (err) {
       if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
         layersMap.set(layerNode.id, layer)
@@ -238,6 +239,13 @@ function newProductsPanel () {
     }
   }
 
+  function childrenPhysics () {
+    for (let i = 0; i < thisObject.layers.length; i++) {
+      let layer = thisObject.layers[i]
+      layer.physics()
+    }
+  }
+
   function physics () {
     if (isInitialized === false) { return }
 
@@ -254,6 +262,7 @@ function newProductsPanel () {
     If we find new layers we will add them at that point. Finally, the cards that still remain at the
     local array after all the layers at the designer have been processed, are turned off and discarded.
     */
+    childrenPhysics()
 
     let localLayers = []
     moveToLocalLayers()

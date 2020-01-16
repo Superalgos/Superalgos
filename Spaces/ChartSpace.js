@@ -13,10 +13,11 @@ function newChartSpace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    visible: true,
+    visible: undefined,
     container: undefined,
-    inViewport: new Map(),
-    timeMachines: [],
+    inViewport: undefined,
+    timeMachines: undefined,
+    reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
@@ -31,15 +32,27 @@ function newChartSpace () {
   }
 
   let canvasBrowserResizedEventSubscriptionId
-  let timeMachinesMap = new Map()
-  let syncWithDesignerLoop = 0
+  let timeMachinesMap
+  let syncWithDesignerLoop
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
 
-  setupContainer()
+  initialSetup()
   return thisObject
 
-  function setupContainer () {
+  function reset () {
+    finalize()
+    initialSetup()
+    initialize()
+  }
+
+  function initialSetup () {
+    thisObject.timeMachines = []
+    thisObject.visible = true
+    timeMachinesMap = new Map()
+    syncWithDesignerLoop = 0
+    thisObject.inViewport = new Map()
+
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 

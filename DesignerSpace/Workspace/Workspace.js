@@ -136,8 +136,7 @@ function newWorkspace () {
           workingAtTask++
           break
         case 5:
-          canvas.chartSpace.finalize()
-          canvas.chartSpace.initialize()
+          canvas.chartSpace.reset()
           workingAtTask++
           break
         case 6:

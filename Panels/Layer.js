@@ -248,6 +248,7 @@ function newLayer () {
 
   function turnOn () {
     if (thisObject.status === PRODUCT_CARD_STATUS.OFF) {
+      resetProgressBars()
       changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
     }
   }
@@ -259,6 +260,7 @@ function newLayer () {
         changeStatusTo(PRODUCT_CARD_STATUS.OFF)
         break
       case PRODUCT_CARD_STATUS.OFF:
+        resetProgressBars()
         changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
         break
       case PRODUCT_CARD_STATUS.LOADING:
@@ -296,12 +298,18 @@ function newLayer () {
       let storedValue = code.status
 
       if (storedValue !== undefined) {
-        thisObject.status = storedValue
-
-        if (thisObject.status === PRODUCT_CARD_STATUS.ON) {
-          changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        if (storedValue !== thisObject.status) {
+          if (storedValue === PRODUCT_CARD_STATUS.ON) {
+            resetProgressBars()
+            changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+          }
+          if (storedValue === PRODUCT_CARD_STATUS.OFF) {
+            resetProgressBars()
+            changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+          }
         }
       } else {
+        resetProgressBars()
         changeStatusTo(PRODUCT_CARD_STATUS.OFF)
       }
     } catch (err) {

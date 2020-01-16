@@ -325,12 +325,12 @@ function newProductsPanel () {
   }
 
   function drawHeader () {
-    let label1 = thisObject.payload.node.name.substring(0, 15)
+    let label1 = thisObject.payload.node.payload.parentNode.payload.parentNode.name.substring(0, 15)
     let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 15)
     let label3 = ''
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.payload.parentNode.type)
+    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

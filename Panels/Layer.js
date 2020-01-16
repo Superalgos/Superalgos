@@ -450,8 +450,8 @@ function newLayer () {
 
     drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon3, 3.5 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon4, 4.5 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon3, 3.3 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon4, 4.7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
 

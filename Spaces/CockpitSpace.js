@@ -156,8 +156,8 @@
    function getContainer (point) {
      let container
 
-     container = thisObject.fullscreen.getContainer(point)
-     if (container !== undefined) { return container }
+     // container = thisObject.fullscreen.getContainer(point)
+     // if (container !== undefined) { return container }
 
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
@@ -172,7 +172,7 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
-     thisObject.fullscreen.draw()
+     // thisObject.fullscreen.draw()
    }
 
    function drawBackground () {

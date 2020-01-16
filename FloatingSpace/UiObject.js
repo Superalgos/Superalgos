@@ -189,8 +189,33 @@ function newUiObject () {
         if (container !== undefined) { return container }
       }
 
-      container = thisObject.uiObjectTitle.getContainer(point)
-      if (container !== undefined) { return container }
+      let getitle = true
+
+      if (thisObject.codeEditor !== undefined) {
+        if (thisObject.codeEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.configEditor !== undefined) {
+        if (thisObject.configEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.conditionEditor !== undefined) {
+        if (thisObject.conditionEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.formulaEditor !== undefined) {
+        if (thisObject.formulaEditor.visible === true) {
+          getitle = false
+        }
+      }
+
+      if (getitle === true) {
+        container = thisObject.uiObjectTitle.getContainer(point)
+        if (container !== undefined) { return container }
+      }
 
       container = thisObject.menu.getContainer(point)
       if (container !== undefined) { return container }
@@ -811,25 +836,30 @@ function newUiObject () {
       }
 
       let drawMenu = true
+      let drawTitle = true
 
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.configEditor !== undefined) {
         if (thisObject.configEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.conditionEditor !== undefined) {
         if (thisObject.conditionEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.formulaEditor !== undefined) {
         if (thisObject.formulaEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
 
@@ -844,7 +874,10 @@ function newUiObject () {
       drawErrorMessage()
       drawValue()
       drawText()
-      thisObject.uiObjectTitle.draw()
+
+      if (drawTitle === true) {
+        thisObject.uiObjectTitle.draw()
+      }
     }
   }
 

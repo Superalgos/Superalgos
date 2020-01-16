@@ -290,6 +290,7 @@ function newFrame () {
 
     browserCanvasContext.lineWidth = 0.1
     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 0.75)'
+    browserCanvasContext.setLineDash([0, 0])
     browserCanvasContext.stroke()
 
        /* print the title */
@@ -373,6 +374,7 @@ function newFrame () {
 
     browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
     browserCanvasContext.lineWidth = 1
+    browserCanvasContext.setLineDash([0, 0])
     browserCanvasContext.stroke()
 
     browserCanvasContext.closePath()
@@ -434,6 +436,7 @@ function newFrame () {
       browserCanvasContext.closePath()
       browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.1)'
       browserCanvasContext.lineWidth = 1
+      browserCanvasContext.setLineDash([0, 0])
       browserCanvasContext.stroke()
     }
 
@@ -491,6 +494,7 @@ function newFrame () {
     browserCanvasContext.closePath()
     browserCanvasContext.strokeStyle = 'rgba(100, 100, 100, 0.2)'
     browserCanvasContext.lineWidth = 1
+    browserCanvasContext.setLineDash([0, 0])
     browserCanvasContext.stroke()
   }
 }

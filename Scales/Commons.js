@@ -5,7 +5,7 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
 
   let params = {
     cornerRadius: 15,
-    lineWidth: 2,
+    lineWidth: 1,
     container: container,
     borderColor: UI_COLOR.RUSTED_RED,
     castShadow: false,
@@ -32,12 +32,12 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
 function drawScaleDisplayCover (container) {
   let params = {
     cornerRadius: 15,
-    lineWidth: 2,
+    lineWidth: 1,
     container: container,
     borderColor: UI_COLOR.WHITE,
     castShadow: false,
     backgroundColor: UI_COLOR.WHITE,
-    opacity: '0.50'
+    opacity: '0.25'
   }
 
   roundedCornersBackground(params)

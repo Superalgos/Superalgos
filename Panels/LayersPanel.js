@@ -328,7 +328,7 @@ function newProductsPanel () {
 
     let params = {
       cornerRadius: 15,
-      lineWidth: 2,
+      lineWidth: 1,
       container: thisObject.container,
       borderColor: UI_COLOR.RUSTED_RED,
       castShadow: false,

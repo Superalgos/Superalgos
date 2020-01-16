@@ -158,8 +158,8 @@ maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that proj
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;
 
-const TOP_SPACE_HEIGHT = 5;
-const COCKPIT_SPACE_HEIGHT = 40;
+const TOP_SPACE_HEIGHT = 2
+const COCKPIT_SPACE_HEIGHT = 30;
 const BREAKPOINT_HEIGHT = 15;
 const SIDE_PANEL_WIDTH = 450
 let COCKPIT_SPACE_POSITION = browserCanvas.height - COCKPIT_SPACE_HEIGHT
@@ -183,10 +183,6 @@ const PERIOD_30_MIN = "30-min";
 const PERIOD_10_MIN = "10-min";
 const PERIOD_05_MIN = "05-min";
 const PERIOD_01_MIN = "01-min";
-
-
-
-
 
 /*
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.

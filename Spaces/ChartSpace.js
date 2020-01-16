@@ -185,8 +185,8 @@ function newChartSpace () {
       }
     }
 
-    if (point.y < 0) {
-      returnPoint.y = 0
+    if (point.y < TOP_SPACE_HEIGHT) {
+      returnPoint.y = TOP_SPACE_HEIGHT
     }
 
     return returnPoint

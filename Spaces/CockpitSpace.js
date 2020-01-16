@@ -183,7 +183,7 @@
        y: 0
      }
 
-     const RED_LINE_HIGHT = 5
+     const RED_LINE_HIGHT = 2
 
      zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 

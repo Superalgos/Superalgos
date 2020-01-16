@@ -144,7 +144,7 @@ function newCanvas () {
   function initializeBrowserCanvas () {
     try {
       browserCanvasContext = browserCanvas.getContext('2d')
-      browserCanvasContext.font = 'Saira'
+      browserCanvasContext.font = 'Saira Condensed'
 
       viewPort.initialize()
     } catch (err) {

@@ -37,11 +37,11 @@ UI_COLOR = {
 /* User Interface Fonts */
 
 UI_FONT = {
-    PRIMARY: "Saira",
+    PRIMARY: "Saira Condensed",
     SECONDARY: "Source Code Pro"
 };
 
-FONT_ASPECT_RATIO = 0.45;
+let FONT_ASPECT_RATIO = 0.35;
 const MIN_ZOOM_LEVEL = -28.25
 
 const GET_CONTAINER_PURPOSE = {

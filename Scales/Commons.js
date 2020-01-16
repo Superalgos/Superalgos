@@ -4,7 +4,7 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   const OPACITY = 1
 
   let params = {
-    cornerRadius: 15,
+    cornerRadius: 5,
     lineWidth: 1,
     container: container,
     borderColor: UI_COLOR.RUSTED_RED,
@@ -25,13 +25,13 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   drawLabel(label2, 1 / 2, 2 / 5, 0, 0, 20, container)
   drawLabel(label3, 1 / 2, 3 / 5, 0, 0, 10, container)
 
-  drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 40, container)
-  drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 40, container)
+  drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 30, container)
+  drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 30, container)
 }
 
 function drawScaleDisplayCover (container) {
   let params = {
-    cornerRadius: 15,
+    cornerRadius: 5,
     lineWidth: 1,
     container: container,
     borderColor: UI_COLOR.WHITE,

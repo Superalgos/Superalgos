@@ -120,8 +120,8 @@ function newLayer () {
       }
 
       thisObject.container.frame.position = position
-      thisObject.container.frame.width = UI_PANEL.WIDTH.MEDIUM
-      thisObject.container.frame.height = 90
+      thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
+      thisObject.container.frame.height = 70
 
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
@@ -323,15 +323,15 @@ function newLayer () {
 
     drawLayerDisplay()
 
-    drawProgressBar(marketFileProgressBar, 1, -5)
-    drawProgressBar(dailyFileProgressBar, 1, -6)
-    drawProgressBar(singleFileProgressBar, 1, -7)
-    drawProgressBar(fileSequenceProgressBar, 1, -8)
+    drawProgressBar(marketFileProgressBar, 1, -55)
+    drawProgressBar(dailyFileProgressBar, 1, -56)
+    drawProgressBar(singleFileProgressBar, 1, -57)
+    drawProgressBar(fileSequenceProgressBar, 1, -58)
 
     function drawProgressBar (progressBar, lineWidth, offsetY) {
       let point1
       let point2
-      let horizontalMargin = 50
+      let horizontalMargin = 15
 
       if (progressBar.value === 0) {
         return
@@ -393,13 +393,13 @@ function newLayer () {
     let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
     let labelArray = thisObject.payload.node.name.split(' ')
-    let label1 = labelArray[0]
-    let label2 = labelArray[1]
+    let label1 = thisObject.payload.node.name
+    let label2 = ''
     let label3 = exchange.name.substring(0, 15) + ' - ' + market
     let label4 = thisObject.status.toUpperCase()
 
     if (label1 !== undefined) {
-      label1 = label1.substring(0, 15)
+      label1 = label1.substring(0, 22)
     }
     if (label2 !== undefined) {
       label2 = label2.substring(0, 15)
@@ -451,21 +451,16 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    if (label2 !== undefined) {
-      drawLabel(label1, 1 / 2, 2 / 8, 0, 0, 16, thisObject.container)
-      drawLabel(label2, 1 / 2, 4 / 8, 0, 0, 16, thisObject.container)
-    } else {
-      drawLabel(label1, 1 / 2, 3 / 8, 0, 0, 20, thisObject.container)
-    }
+    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 17, thisObject.container)
 
-    drawLabel(label3, 1 / 2, 6 / 8, 0, 0, 10, thisObject.container)
-    drawLabel(label4, 1 / 2, 7 / 8, 0, 0, 10, thisObject.container)
+    drawLabel(label3, 1 / 2, 8.2 / 10, -5, 0, 10, thisObject.container)
+    drawLabel(label4, 1 / 2, 9.5 / 10, -5, 0, 10, thisObject.container)
 
     /* Images */
-    drawIcon(icon1, 1 / 8, 1 / 4, 0, 0, 20, thisObject.container)
-    drawIcon(icon2, 7 / 8, 1 / 4, 0, 0, 20, thisObject.container)
-    drawIcon(icon3, 1 / 8, 3 / 4, 0, 0, 20, thisObject.container)
-    drawIcon(icon4, 7 / 8, 3 / 4, 0, 0, 20, thisObject.container)
+    drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 15, thisObject.container)
+    drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 15, thisObject.container)
+    drawIcon(icon3, 3 / 8, 2 / 10, 0, 0, 15, thisObject.container)
+    drawIcon(icon4, 5 / 8, 2 / 10, 0, 0, 15, thisObject.container)
   }
 }
 

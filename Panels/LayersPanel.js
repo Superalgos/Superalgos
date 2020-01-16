@@ -28,9 +28,9 @@ function newProductsPanel () {
   let panelTabButton
 
   let visible = true
-  let heatherHeight = 60
+  let heatherHeight = 50
   let footerHeight = 15
-  let layerHeight = 90
+  let layerHeight = 70
   let desiredVisibleLayers = 5
   let posibleVisibleLayers = 5
   let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
@@ -57,7 +57,7 @@ function newProductsPanel () {
   function initialize () {
     thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
-    thisObject.container.frame.width = UI_PANEL.WIDTH.MEDIUM
+    thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
     thisObject.container.frame.height = heatherHeight
 
     let position = {
@@ -335,7 +335,7 @@ function newProductsPanel () {
     let backgroundColor = UI_COLOR.BLACK
 
     let params = {
-      cornerRadius: 15,
+      cornerRadius: 5,
       lineWidth: 1,
       container: thisObject.container,
       borderColor: UI_COLOR.RUSTED_RED,
@@ -349,13 +349,13 @@ function newProductsPanel () {
     drawLabel(label1, 1 / 2, 0, 0, 20, 10, thisObject.container)
     drawLabel(label2, 1 / 2, 0, 0, 40, 10, thisObject.container)
 
-    drawIcon(icon1, 1 / 8, 0, 0, 30, 40, thisObject.container)
-    drawIcon(icon2, 7 / 8, 0, 0, 30, 40, thisObject.container)
+    drawIcon(icon1, 1 / 8, 0, 0, 30, 30, thisObject.container)
+    drawIcon(icon2, 7 / 8, 0, 0, 30, 30, thisObject.container)
   }
 
   function drawScrollBar () {
     if (thisObject.layers.length > posibleVisibleLayers && posibleVisibleLayers > 0) {
-      let xOffset = 5
+      let xOffset = 4
       let barTopPoint = {
         x: thisObject.container.frame.width - xOffset,
         y: heatherHeight
@@ -393,7 +393,7 @@ function newProductsPanel () {
       browserCanvasContext.lineTo(handleBottomPoint.x, handleBottomPoint.y)
       browserCanvasContext.closePath()
       browserCanvasContext.setLineDash([0, 0])
-      browserCanvasContext.lineWidth = 6
+      browserCanvasContext.lineWidth = 4
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + 1 + ')'
       browserCanvasContext.stroke()
     }

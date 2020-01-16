@@ -133,7 +133,7 @@ function newSplashScreen () {
     }
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.font = 'Saira'
+    browserCanvasContext.font = 'Saira Condensed'
     browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')'
     browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y)
   }

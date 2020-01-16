@@ -315,74 +315,67 @@ function newLayer () {
   }
 
   function drawLayer () {
-       /* ------------------- Progress Bars -------------------------- */
+    drawLayerDisplay()
+  }
 
+  function drawProgressBar (progressBar, lineWidth, offsetY) {
     const ANIMATED_INCREMENT = 5
     const OPACITY_INCREMENT = 0.01
     const OPACITY_MIN = 1
 
-    drawLayerDisplay()
+    let point1
+    let point2
+    let horizontalMargin = 15
 
-    drawProgressBar(marketFileProgressBar, 1, -55)
-    drawProgressBar(dailyFileProgressBar, 1, -56)
-    drawProgressBar(singleFileProgressBar, 1, -57)
-    drawProgressBar(fileSequenceProgressBar, 1, -58)
-
-    function drawProgressBar (progressBar, lineWidth, offsetY) {
-      let point1
-      let point2
-      let horizontalMargin = 15
-
-      if (progressBar.value === 0) {
-        return
-      }
-
-       /* Animate */
-      if (progressBar.animatedValue < progressBar.value) {
-        progressBar.animatedValue = progressBar.animatedValue + ANIMATED_INCREMENT
-        progressBar.opacity = progressBar.opacity + OPACITY_INCREMENT
-      }
-
-      if (progressBar.animatedValue >= 100) {
-        progressBar.animatedValue = 100
-
-        progressBar.opacity = progressBar.opacity - OPACITY_INCREMENT
-        if (progressBar.opacity < OPACITY_MIN) { progressBar.opacity = OPACITY_MIN }
-
-        progressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', progressBar.opacity.toString())
-
-        changeStatusTo(PRODUCT_CARD_STATUS.ON)
-      }
-
-      point1 = {
-        x: 0 + horizontalMargin,
-        y: thisObject.container.frame.height + offsetY
-      }
-
-      point2 = {
-        x: (thisObject.container.frame.width - horizontalMargin * 2) * progressBar.animatedValue / 100 + horizontalMargin,
-        y: thisObject.container.frame.height + offsetY
-      }
-
-       /* Now the transformations. */
-      point1 = thisObject.container.frame.frameThisPoint(point1)
-      point2 = thisObject.container.frame.frameThisPoint(point2)
-
-      point1 = thisObject.fitFunction(point1)
-      point2 = thisObject.fitFunction(point2)
-
-      browserCanvasContext.beginPath()
-      browserCanvasContext.moveTo(point1.x, point1.y)
-      browserCanvasContext.lineTo(point2.x, point2.y)
-
-      browserCanvasContext.closePath()
-
-      browserCanvasContext.strokeStyle = progressBar.strokeStyle.replace('@Opacity', progressBar.opacity.toString())
-
-      browserCanvasContext.setLineDash([1, 4])
-      browserCanvasContext.lineWidth = lineWidth
-      browserCanvasContext.stroke()
+    if (progressBar.value === 0) {
+      return
     }
+
+     /* Animate */
+    if (progressBar.animatedValue < progressBar.value) {
+      progressBar.animatedValue = progressBar.animatedValue + ANIMATED_INCREMENT
+      progressBar.opacity = progressBar.opacity + OPACITY_INCREMENT
+    }
+
+    if (progressBar.animatedValue >= 100) {
+      progressBar.animatedValue = 100
+
+      progressBar.opacity = progressBar.opacity - OPACITY_INCREMENT
+      if (progressBar.opacity < OPACITY_MIN) { progressBar.opacity = OPACITY_MIN }
+
+      progressBar.strokeStyle = LOADED_STROKE_STYLE.replace('@Opacity', progressBar.opacity.toString())
+
+      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+    }
+
+    point1 = {
+      x: 0 + horizontalMargin,
+      y: thisObject.container.frame.height + offsetY
+    }
+
+    point2 = {
+      x: (thisObject.container.frame.width - horizontalMargin * 2) * progressBar.animatedValue / 100 + horizontalMargin,
+      y: thisObject.container.frame.height + offsetY
+    }
+
+     /* Now the transformations. */
+    point1 = thisObject.container.frame.frameThisPoint(point1)
+    point2 = thisObject.container.frame.frameThisPoint(point2)
+
+    point1 = thisObject.fitFunction(point1)
+    point2 = thisObject.fitFunction(point2)
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(point1.x, point1.y)
+    browserCanvasContext.lineTo(point2.x, point2.y)
+
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.strokeStyle = progressBar.strokeStyle.replace('@Opacity', progressBar.opacity.toString())
+
+    browserCanvasContext.setLineDash([1, 4])
+    browserCanvasContext.lineWidth = lineWidth
+    browserCanvasContext.stroke()
   }
 
   function drawLayerDisplay () {
@@ -392,17 +385,12 @@ function newLayer () {
     let exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
     let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
-    let labelArray = thisObject.payload.node.name.split(' ')
     let label1 = thisObject.payload.node.name
-    let label2 = ''
-    let label3 = exchange.name.substring(0, 15) + ' - ' + market
-    let label4 = thisObject.status.toUpperCase()
+    let label2 = exchange.name.substring(0, 15) + ' - ' + market
+    let label3 = thisObject.status.toUpperCase()
 
     if (label1 !== undefined) {
       label1 = label1.substring(0, 22)
-    }
-    if (label2 !== undefined) {
-      label2 = label2.substring(0, 15)
     }
 
     let icon1 = getIcon(exchange)
@@ -451,16 +439,19 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 18, thisObject.container)
+    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 17, thisObject.container)
+    drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
+    drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
 
-    drawLabel(label3, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
-    drawLabel(label4, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
+    drawProgressBar(marketFileProgressBar, 1, -55)
+    drawProgressBar(dailyFileProgressBar, 1, -56)
+    drawProgressBar(singleFileProgressBar, 1, -57)
+    drawProgressBar(fileSequenceProgressBar, 1, -58)
 
-    /* Images */
-    drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 15, thisObject.container)
-    drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 15, thisObject.container)
-    drawIcon(icon3, 3 / 8, 2 / 10, 0, 0, 15, thisObject.container)
-    drawIcon(icon4, 5 / 8, 2 / 10, 0, 0, 15, thisObject.container)
+    drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon3, 3.5 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(icon4, 4.5 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
 

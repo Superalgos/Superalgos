@@ -349,8 +349,8 @@ function newProductsPanel () {
     drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
     drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
 
-    drawIcon(icon1, 1 / 8, 0, 0, 20, 32, thisObject.container)
-    drawIcon(icon2, 7 / 8, 0, 0, 20, 32, thisObject.container)
+    drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
+    drawIcon(icon2, 7 / 8, 0, 0, 20, 28, thisObject.container)
   }
 
   function drawScrollBar () {

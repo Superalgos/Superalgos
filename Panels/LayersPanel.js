@@ -27,6 +27,7 @@ function newProductsPanel () {
   const LAYER_SEPARATION = 0
   let panelTabButton
 
+  let visible = true
   let heatherHeight = 60
   let footerHeight = 15
   let layerHeight = 90
@@ -135,6 +136,13 @@ function newProductsPanel () {
 
   function panelSizePhysics () {
     let viewPortHeight = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y
+
+    if (viewPortHeight < heatherHeight) {
+      visible = false
+    } else {
+      visible = true
+    }
+
     if (desiredPanelHeight > viewPortHeight) {
       posibleVisibleLayers = Math.trunc((viewPortHeight - heatherHeight - footerHeight) / (layerHeight + LAYER_SEPARATION))
     } else {
@@ -304,7 +312,7 @@ function newProductsPanel () {
   }
 
   function draw () {
-    if (isInitialized === false) { return }
+    if (isInitialized === false || visible === false) { return }
 
     // thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 

@@ -242,10 +242,14 @@ function newChartSpace () {
     }
 
     function initializeTimeMachine (node, syncWithDesignerLoop) {
+      if (node.payload === undefined) { return } // not ready to consider this Time Machine
+      if (node.payload.uiObject === undefined) { return }
+
       let timeMachine = newTimeMachine()
       timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
       timeMachine.payload = node.payload
       timeMachine.nodeId = node.id
+
       timeMachinesMap.set(node.id, timeMachine)
       timeMachine.payload.uiObject.setValue('Loading...')
 
@@ -282,6 +286,9 @@ function newChartSpace () {
   function childrenPhysics () {
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       let timeMachine = thisObject.timeMachines[i]
+      if (timeMachine.payload.node === undefined) {
+        continue
+      }
 
       if (timeMachine.container.frame.isInViewPort()) {
         timeMachine.physics()

@@ -346,11 +346,11 @@ function newProductsPanel () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 0, 0, 15, 10, thisObject.container)
-    drawLabel(label2, 1 / 2, 0, 0, 30, 10, thisObject.container)
+    drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container)
+    drawLabel(label2, 1 / 2, 0, 0, 30, 9, thisObject.container)
 
-    drawIcon(icon1, 1 / 8, 0, 0, 20, 35, thisObject.container)
-    drawIcon(icon2, 7 / 8, 0, 0, 20, 35, thisObject.container)
+    drawIcon(icon1, 1 / 8, 0, 0, 20, 32, thisObject.container)
+    drawIcon(icon2, 7 / 8, 0, 0, 20, 32, thisObject.container)
   }
 
   function drawScrollBar () {

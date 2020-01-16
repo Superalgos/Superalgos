@@ -451,10 +451,10 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 17, thisObject.container)
+    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 18, thisObject.container)
 
-    drawLabel(label3, 1 / 2, 8.2 / 10, -5, 0, 10, thisObject.container)
-    drawLabel(label4, 1 / 2, 9.5 / 10, -5, 0, 10, thisObject.container)
+    drawLabel(label3, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
+    drawLabel(label4, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
 
     /* Images */
     drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 15, thisObject.container)

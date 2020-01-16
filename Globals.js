@@ -99,31 +99,6 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-function convertTimeFrameToName(pTimeFrame) {
-
-    for (let i = 0; i < dailyFilePeriods.length; i++) {
-
-        let period = dailyFilePeriods[i];
-
-        if (period[0] === pTimeFrame) {
-
-            return period[1];
-
-        }
-    }
-
-    for (let i = 0; i < marketFilesPeriods.length; i++) {
-
-        let period = marketFilesPeriods[i];
-
-        if (period[0] === pTimeFrame) {
-
-            return period[1];
-
-        }
-    }
-}
-
 window.AT_BREAKPOINT = false;
 
 let testUser = window.localStorage.getItem("test_user")

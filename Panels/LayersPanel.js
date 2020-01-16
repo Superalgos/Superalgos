@@ -312,7 +312,7 @@ function newProductsPanel () {
     for (let i = 0; i < visibleLayers.length; i++) {
       visibleLayers[i].draw()
     }
-
+    drawScrollBar()
     panelTabButton.draw()
   }
 
@@ -344,4 +344,51 @@ function newProductsPanel () {
     drawIcon(icon1, 1 / 8, 0, 0, 30, 40, thisObject.container)
     drawIcon(icon2, 7 / 8, 0, 0, 30, 40, thisObject.container)
   }
+
+  function drawScrollBar () {
+    if (thisObject.layers.length > posibleVisibleLayers && posibleVisibleLayers > 0) {
+      let xOffset = 5
+      let barTopPoint = {
+        x: thisObject.container.frame.width - xOffset,
+        y: heatherHeight
+      }
+      let barBottomPoint = {
+        x: thisObject.container.frame.width - xOffset,
+        y: thisObject.container.frame.height - footerHeight
+      }
+      let ratio = posibleVisibleLayers / thisObject.layers.length
+      let handleHeight = (posibleVisibleLayers * (layerHeight + LAYER_SEPARATION)) * ratio
+      let handleTopPoint = {
+        x: thisObject.container.frame.width - xOffset,
+        y: heatherHeight + (layerHeight + LAYER_SEPARATION) * ratio * (firstVisibleLayer - 1)
+      }
+      let handleBottomPoint = {
+        x: thisObject.container.frame.width - xOffset,
+        y: handleTopPoint.y + handleHeight
+      }
+      barTopPoint = thisObject.container.frame.frameThisPoint(barTopPoint)
+      barBottomPoint = thisObject.container.frame.frameThisPoint(barBottomPoint)
+      handleTopPoint = thisObject.container.frame.frameThisPoint(handleTopPoint)
+      handleBottomPoint = thisObject.container.frame.frameThisPoint(handleBottomPoint)
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(barTopPoint.x, barTopPoint.y)
+      browserCanvasContext.lineTo(barBottomPoint.x, barBottomPoint.y)
+      browserCanvasContext.closePath()
+      browserCanvasContext.setLineDash([0, 0])
+      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
+      browserCanvasContext.stroke()
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(handleTopPoint.x, handleTopPoint.y)
+      browserCanvasContext.lineTo(handleBottomPoint.x, handleBottomPoint.y)
+      browserCanvasContext.closePath()
+      browserCanvasContext.setLineDash([0, 0])
+      browserCanvasContext.lineWidth = 6
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + 1 + ')'
+      browserCanvasContext.stroke()
+    }
+  }
 }
+

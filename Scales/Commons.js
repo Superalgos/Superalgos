@@ -21,12 +21,12 @@ function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2,
   label2 = label2.substring(0, 20)
   label3 = label3.substring(0, 20)
 
-  drawLabel(label1, 1 / 2, 4 / 5, 0, 0, 10, container)
-  drawLabel(label2, 1 / 2, 2 / 5, 0, 0, 20, container)
-  drawLabel(label3, 1 / 2, 3 / 5, 0, 0, 10, container)
+  drawLabel(label1, 1 / 2, 92 / 100, 0, 0, 10, container)
+  drawLabel(label2, 1 / 2, 42 / 100, 0, 0, 18, container)
+  drawLabel(label3, 1 / 2, 67 / 100, 0, 0, 10, container)
 
-  drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 30, container)
-  drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 30, container)
+  drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 35, container)
+  drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 35, container)
 }
 
 function drawScaleDisplayCover (container) {

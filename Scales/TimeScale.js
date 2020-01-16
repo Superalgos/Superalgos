@@ -28,7 +28,7 @@ function newTimeScale () {
   thisObject.container.detectMouseOver = true
 
   thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
-  thisObject.container.frame.height = 50
+  thisObject.container.frame.height = 40
 
   let visible = true
   let isMouseOver

@@ -44,9 +44,9 @@
     }
 
     function onResize() {
-      if (window.canvasApp === undefined) { return }
-      if (window.canvasApp.eventHandler === undefined) { return }
-      window.canvasApp.eventHandler.raiseEvent('Browser Resized')
+      if (canvas === undefined) { return }
+      if (canvas.eventHandler === undefined) { return }
+      canvas.eventHandler.raiseEvent('Browser Resized')
     }
   </script>
 </head>

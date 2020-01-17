@@ -35,8 +35,8 @@ function newTimelineChart () {
 
   let layersPanelHandle
 
-  let onOffsetChangedEventSuscriptionId
-  let onZoomChangedEventSuscriptionId
+  let onViewportPositionChangedEventSuscriptionId
+  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
@@ -72,8 +72,8 @@ function newTimelineChart () {
       finalizeTimeFrameScale()
     }
 
-    viewPort.eventHandler.stopListening(onOffsetChangedEventSuscriptionId)
-    viewPort.eventHandler.stopListening(onZoomChangedEventSuscriptionId)
+    viewPort.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    viewPort.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
 
@@ -132,8 +132,8 @@ function newTimelineChart () {
     datetime = NEW_SESSION_INITIAL_DATE
 
      /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-    onOffsetChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Offset Changed', onOffsetChanged)
-    onZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+    onViewportPositionChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -246,11 +246,13 @@ function newTimelineChart () {
     }
   }
 
-  function onZoomChanged (event) {
-    recalculateCurrentDatetime()
+  function onViewportZoomChanged (event) {
+    if (thisObject.container.frame.isInViewPort()) {
+      recalculateCurrentDatetime()
+    }
   }
 
-  function onOffsetChanged () {
+  function onViewportPositionChanged () {
     if (thisObject.container.frame.isInViewPort()) {
       recalculateCurrentDatetime()
     }

@@ -125,12 +125,12 @@ function newCanvas () {
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
+      animation.addCallBackFunction('ViewPort physics', viewPort.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
-      animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)

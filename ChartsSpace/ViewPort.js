@@ -41,7 +41,7 @@ function newViewPort () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     displace: displace,
     displaceTarget: displaceTarget,
-    animate: animate,
+    physics: physics,
     draw: draw,
     raiseEvents: raiseEvents,
     resize: resize,
@@ -50,17 +50,17 @@ function newViewPort () {
 
   let increment = 0.035
 
-  let offset = {
+  let position = {
     x: 0,
     y: 0
   }
 
-  var targetOffset = {
+  let targetPosition = {
     x: 0,
     y: 0
   }
 
-  let offsetIncrement = {
+  let positionIncrement = {
     x: 0,
     y: 0
   }
@@ -106,13 +106,17 @@ function newViewPort () {
 
   function raiseEvents () {
     let event = {
-      newOffset: offset
+      newPosition: position
     }
 
-    thisObject.eventHandler.raiseEvent('Offset Changed', event)
+    thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
-  function animate () {
+  function physics () {
+    animationPhysics()
+  }
+
+  function animationPhysics () {
     if (thisObject.zoomLevel < thisObject.zoomTargetLevel) {
       if (thisObject.zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
         ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
@@ -129,43 +133,43 @@ function newViewPort () {
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
-    if (offsetIncrement.y !== 0) {
-      if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
-        offset.y = offset.y + offsetIncrement.y
+    if (positionIncrement.y !== 0) {
+      if (Math.trunc(Math.abs(targetPosition.y - position.y) * 1000) >= Math.trunc(Math.abs(positionIncrement.y) * 1000)) {
+        position.y = position.y + positionIncrement.y
 
-              // console.log("offset.y changed to " + offset.y)
+              // console.log("position.y changed to " + position.y)
       } else {
-        offsetIncrement.y = 0
+        positionIncrement.y = 0
       }
     }
   }
 
   function displace (displaceVector, recalculate) {
-    offset.x = offset.x + displaceVector.x
-    offset.y = offset.y + displaceVector.y
+    position.x = position.x + displaceVector.x
+    position.y = position.y + displaceVector.y
 
     saveObjectState()
 
     let event = {
-      newOffset: offset,
+      newPosition: position,
       recalculate: recalculate
     }
 
-    thisObject.eventHandler.raiseEvent('Offset Changed', event)
+    thisObject.eventHandler.raiseEvent('Position Changed', event)
 
-      // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
+      // console.log("displace produced new Position x = " + position.x + " y = " + position.y);
   }
 
   function displaceTarget (displaceVector) {
-    targetOffset.x = targetOffset.x + displaceVector.x
-    targetOffset.y = targetOffset.y + displaceVector.y
+    targetPosition.x = targetPosition.x + displaceVector.x
+    targetPosition.y = targetPosition.y + displaceVector.y
 
-    offsetIncrement = {
-      x: (targetOffset.x - offset.x) / 10,
-      y: (targetOffset.y - offset.y) / 10
+    positionIncrement = {
+      x: (targetPosition.x - position.x) / 10,
+      y: (targetPosition.y - position.y) / 10
     }
 
-      // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
+      // console.log("displaceTarget x = " + targetPosition.x + " y = " + targetPosition.y);
   }
 
   function newZoomLevel (level) {
@@ -178,7 +182,7 @@ function newViewPort () {
 
     let event = {
       newLevel: thisObject.zoomTargetLevel,
-      newOffset: offset,
+      newPosition: position,
       type: undefined
     }
 
@@ -250,7 +254,7 @@ function newViewPort () {
 
     let event = {
       newLevel: thisObject.zoomTargetLevel,
-      newOffset: offset,
+      newPosition: position,
       type: undefined
     }
 
@@ -269,15 +273,15 @@ function newViewPort () {
     let mouseNoZoom = unzoomThisPoint(thisObject.mousePosition, oldLevel)
     let newMouse = zoomThisPoint(mouseNoZoom, newLevel)
 
-    offset.x = offset.x - newMouse.x + thisObject.mousePosition.x
-    offset.y = offset.y - newMouse.y + thisObject.mousePosition.y
+    position.x = position.x - newMouse.x + thisObject.mousePosition.x
+    position.y = position.y - newMouse.y + thisObject.mousePosition.y
 
     saveObjectState()
 
-    targetOffset.x = offset.x
-    targetOffset.y = offset.y
+    targetPosition.x = position.x
+    targetPosition.y = position.y
 
-    offsetIncrement = {
+    positionIncrement = {
       x: 0,
       y: 0
     }
@@ -323,11 +327,11 @@ function newViewPort () {
     let zoomFactor = increment // + increment * thisObject.zoomLevel / 100;
 
     if (level === undefined) {
-      point.x = point.x * (1 + zoomFactor * thisObject.zoomLevel) + offset.x
-      point.y = point.y * (1 + zoomFactor * thisObject.zoomLevel) + offset.y
+      point.x = point.x * (1 + zoomFactor * thisObject.zoomLevel) + position.x
+      point.y = point.y * (1 + zoomFactor * thisObject.zoomLevel) + position.y
     } else {
-      point.x = point.x * (1 + zoomFactor * level) + offset.x
-      point.y = point.y * (1 + zoomFactor * level) + offset.y
+      point.x = point.x * (1 + zoomFactor * level) + position.x
+      point.y = point.y * (1 + zoomFactor * level) + position.y
     }
 
     return point
@@ -339,13 +343,13 @@ function newViewPort () {
 
     if (level === undefined) {
       pointWithoutZoom = {
-        x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * thisObject.zoomLevel),
-        y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * thisObject.zoomLevel)
+        x: (pointWithZoom.x - position.x) / (1 + zoomFactor * thisObject.zoomLevel),
+        y: (pointWithZoom.y - position.y) / (1 + zoomFactor * thisObject.zoomLevel)
       }
     } else {
       pointWithoutZoom = {
-        x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * level),
-        y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * level)
+        x: (pointWithZoom.x - position.x) / (1 + zoomFactor * level),
+        y: (pointWithZoom.y - position.y) / (1 + zoomFactor * level)
       }
     }
     return pointWithoutZoom
@@ -373,8 +377,8 @@ function newViewPort () {
     let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step
     squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel
 
-    let startingX = offset.x - Math.trunc(offset.x / squareWidth) * squareWidth
-    let startingY = offset.y - Math.trunc(offset.y / squareWidth) * squareWidth
+    let startingX = position.x - Math.trunc(position.x / squareWidth) * squareWidth
+    let startingY = position.y - Math.trunc(position.y / squareWidth) * squareWidth
     let lineWidth = 0.4 + thisObject.zoomLevel / 100
     lineWidth = lineWidth.toFixed(2)
 
@@ -428,7 +432,7 @@ function newViewPort () {
   }
 
   function saveObjectState () {
-    objectStorage.offset = offset
+    objectStorage.position = position
     objectStorage.zoomLevel = thisObject.zoomLevel
     window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
   }
@@ -437,12 +441,12 @@ function newViewPort () {
     let objectStorageString = window.localStorage.getItem(MODULE_NAME)
     if (objectStorageString !== null && objectStorageString !== '') {
       objectStorage = JSON.parse(objectStorageString)
-      offset = objectStorage.offset
+      position = objectStorage.position
       thisObject.zoomLevel = objectStorage.zoomLevel
       thisObject.zoomTargetLevel = objectStorage.zoomLevel
       INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
     } else { // Setting default values for first session
-      offset = {
+      position = {
         x: 0,
         y: 0
       }

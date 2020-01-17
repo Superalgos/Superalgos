@@ -28,7 +28,7 @@ function newTimeFrameScale () {
   let timeFrameLabel = '24-hs'
 
   let onMouseWheelEventSubscriptionId
-  let onZoomChangedEventSubscriptionId
+  let onViewportZoomChangedEventSubscriptionId
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
@@ -59,7 +59,7 @@ function newTimeFrameScale () {
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-    viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
+    viewPort.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
@@ -77,7 +77,7 @@ function newTimeFrameScale () {
     newTimeFrame()
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onZoomChanged)
+    onViewportZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
@@ -177,7 +177,7 @@ function newTimeFrameScale () {
     thisObject.container.frame.position.y = timePoint.y - thisObject.container.frame.height
   }
 
-  function onZoomChanged (event) {
+  function onViewportZoomChanged (event) {
     if (event !== undefined) { // it is undefined when the level is just being animated.
       let currentTimeFrame = thisObject.timeFrame
       let timeFrame = recalculatePeriod(event.newLevel)

@@ -124,6 +124,7 @@ function newTimeScale () {
     }
 
     event.value = thisObject.value
+    event.isUserAction = true
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
 
     saveObjectState()

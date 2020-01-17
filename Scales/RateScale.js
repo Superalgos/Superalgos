@@ -124,6 +124,7 @@ function newRateScale () {
       if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
     }
     event.value = thisObject.value
+    event.isUserAction = true
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 
     saveObjectState()

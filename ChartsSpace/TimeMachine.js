@@ -182,7 +182,9 @@ function newTimeMachine () {
     timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.value / 100
       recalculateCoordinateSystem()
-      // moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
+      if (event.isUserAction === true) {
+        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
+      }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
@@ -203,7 +205,9 @@ function newTimeMachine () {
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value / 100
       recalculateCoordinateSystem()
-      // moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
+      if (event.isUserAction === true) {
+        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
+      }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 

@@ -157,6 +157,18 @@ function newProtocolNode () {
       }
     }
 
+    if (node.payload.frame !== undefined) {
+      savedPayload.frame = {
+        position: {
+          x: node.payload.frame.position.x,
+          y: node.payload.frame.position.y
+        },
+        width: node.payload.frame.width,
+        height: node.payload.frame.height,
+        radius: node.payload.frame.radius
+      }
+    }
+
     if (includeReferencesInSavedPayload) {
       /* Next for the ones that have a reference parent, we include it */
       if (node.payload.referenceParent !== undefined) {

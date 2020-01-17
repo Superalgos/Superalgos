@@ -132,6 +132,8 @@ function newTimeMachine () {
 
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
+    loadFrame(thisObject.payload, thisObject.container.frame)
+
     recalculateCoordinateSystem()
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -180,7 +182,7 @@ function newTimeMachine () {
     timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.value / 100
       recalculateCoordinateSystem()
-      moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
+      // moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
@@ -201,7 +203,7 @@ function newTimeMachine () {
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value / 100
       recalculateCoordinateSystem()
-      moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
+      // moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
 
@@ -328,6 +330,7 @@ function newTimeMachine () {
     thisObjectPhysics()
     childrenPhysics()
     syncWithDesigner()
+    saveFrame(thisObject.payload, thisObject.container.frame)
   }
 
   function syncWithDesigner () {

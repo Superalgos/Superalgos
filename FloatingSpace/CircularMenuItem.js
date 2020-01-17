@@ -144,28 +144,28 @@ function newCircularMenuItem () {
       }
     }
 
-    let radiousGrowthFactor
+    let radiusGrowthFactor
     if (thisObject.type === 'Icon Only') {
       switch (thisObject.ring) {
         case 1: {
-          radiousGrowthFactor = 5
+          radiusGrowthFactor = 5
           break
         }
         case 2: {
-          radiousGrowthFactor = 3.5
+          radiusGrowthFactor = 3.5
           break
         }
         case 3: {
-          radiousGrowthFactor = 2
+          radiusGrowthFactor = 2
           break
         }
       }
     } else {
-      radiousGrowthFactor = 4
+      radiusGrowthFactor = 4
     }
 
-    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
+    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
     /* Temporary Status impacts on the label to use and the background of that label */
     if (temporaryStatusCounter > 0) {

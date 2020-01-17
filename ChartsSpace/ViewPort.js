@@ -31,6 +31,7 @@ function newViewPort () {
     zoomLevel: undefined,
     mousePosition: undefined,
     margins: MARGINS,
+    payload: undefined,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
     isMinZoom: isMinZoom,
@@ -45,36 +46,36 @@ function newViewPort () {
     draw: draw,
     raiseEvents: raiseEvents,
     resize: resize,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
-
   let increment = 0.035
-
   let position = {
     x: 0,
     y: 0
   }
-
   let targetPosition = {
     x: 0,
     y: 0
   }
-
   let positionIncrement = {
     x: 0,
     y: 0
   }
-
   thisObject.mousePosition = {
     x: 0,
     y: 0
   }
-
   thisObject.eventHandler = newEventHandler()
-
   let objectStorage = {}
-
   return thisObject
+
+  function finalize () {
+    logger = undefined
+    thisObject.eventHandler.finalize()
+    thisObject.payload = undefined
+    thisObject = undefined
+  }
 
   function initialize () {
     resize()
@@ -435,6 +436,10 @@ function newViewPort () {
     objectStorage.position = position
     objectStorage.zoomLevel = thisObject.zoomLevel
     window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+
+    let frame = {}
+    frame.position = position
+    saveFrame(thisObject.payload, frame)
   }
 
   function readObjectState () {
@@ -455,4 +460,3 @@ function newViewPort () {
     }
   }
 }
-

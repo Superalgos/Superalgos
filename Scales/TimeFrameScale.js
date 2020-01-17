@@ -22,11 +22,10 @@ function newTimeFrameScale () {
   let visible = true
   let isMouseOver
 
-  let objectStorage = {}
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
   let timeFrameIndex = TIME_PERIOD_DEFAULT_VALUE
   let timeFramesMasterArray = [marketFilesPeriods, dailyFilePeriods]
-  let timeFrameLabel = ''
+  let timeFrameLabel = '24-hs'
 
   let onMouseWheelEventSubscriptionId
   let onZoomChangedEventSubscriptionId
@@ -63,8 +62,6 @@ function newTimeFrameScale () {
     viewPort.eventHandler.stopListening(onZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
-
-    objectStorage = undefined
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -116,6 +113,11 @@ function newTimeFrameScale () {
   }
 
   function physics () {
+    readObjectState()
+    positioningphysics()
+  }
+
+  function positioningphysics () {
     /* Container Limits */
 
     let upCorner = {
@@ -190,8 +192,8 @@ function newTimeFrameScale () {
             }
           }
         }
-        saveObjectState()
         newTimeFrame()
+        saveObjectState()
       }
     }
   }
@@ -222,8 +224,8 @@ function newTimeFrameScale () {
       }
     }
 
-    saveObjectState()
     newTimeFrame()
+    saveObjectState()
   }
 
   function getContainer (point) {
@@ -233,17 +235,39 @@ function newTimeFrameScale () {
   }
 
   function saveObjectState () {
-    objectStorage.filePeriodIndex = filePeriodIndex
-    objectStorage.timeFrameIndex = timeFrameIndex
-    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      code.value = timeFrameLabel
+      thisObject.payload.node.code = JSON.stringify(code)
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
   }
 
   function readObjectState () {
-    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
-    if (objectStorageString !== null && objectStorageString !== '') {
-      objectStorage = JSON.parse(objectStorageString)
-      filePeriodIndex = objectStorage.filePeriodIndex
-      timeFrameIndex = objectStorage.timeFrameIndex
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      if (code.value !== timeFrameLabel) {
+        let found = false
+        for (let i = 0; i < timeFramesMasterArray.length; i++) {
+          let timeFrameArray = timeFramesMasterArray[i]
+          for (let j = 0; j < timeFrameArray.length; j++) {
+            let record = timeFrameArray[j]
+            if (code.value === record[1]) {
+              filePeriodIndex = i
+              timeFrameIndex = j
+              found = true
+            }
+          }
+        }
+        if (found === true) {
+          newTimeFrame()
+        } else {
+          saveObjectState()
+        }
+      }
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
     }
   }
 

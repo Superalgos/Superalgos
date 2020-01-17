@@ -83,7 +83,7 @@
             recalculateScale();
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
-            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Offset Changed", onOffsetChanged);
+            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
 
             /* Ready for when dimmension changes. */
 
@@ -127,7 +127,7 @@
         datetime = newDatetime;
     }
 
-    function onOffsetChanged() {
+    function onViewportPositionChanged() {
         if (Math.random() * 100 > 95) {
             recalculate()
         }

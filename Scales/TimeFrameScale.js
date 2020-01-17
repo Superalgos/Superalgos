@@ -59,7 +59,7 @@ function newTimeFrameScale () {
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-    viewPort.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
+    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
@@ -77,7 +77,7 @@ function newTimeFrameScale () {
     newTimeFrame()
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onViewportZoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportZoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }

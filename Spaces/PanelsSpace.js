@@ -146,8 +146,8 @@ function newPanelsSpace () {
         centerPoint.y = centerPoint.y + panel.container.frame.height / 2
 
         /* Lets see which quadrant the panel is at */
-        let verticalLine = (viewPort.visibleArea.topRight.x - viewPort.visibleArea.topLeft.x) / 2 + viewPort.visibleArea.topLeft.x
-        let horizontalLine = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) * 2 / 3 + viewPort.visibleArea.topRight.y
+        let verticalLine = (canvas.chartSpace.viewport.visibleArea.topRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartSpace.viewport.visibleArea.topLeft.x
+        let horizontalLine = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) * 2 / 3 + canvas.chartSpace.viewport.visibleArea.topRight.y
 
         /* According to the quadrant we push the panels to the sides */
         if (centerPoint.x < verticalLine) {
@@ -173,7 +173,7 @@ function newPanelsSpace () {
             panel.container.frame.position.x = browserCanvas.width - panel.container.frame.width
           }
         }
-        if (panel.container.frame.height <= viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) {
+        if (panel.container.frame.height <= canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) {
           if (centerPoint.y < horizontalLine) {
             panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
             if (isOverlapping(i, panel.container) === true) {
@@ -182,8 +182,8 @@ function newPanelsSpace () {
             } else {
               desAccelerateOnY()
             }
-            if (panel.container.frame.position.y < viewPort.visibleArea.topLeft.y) {
-              panel.container.frame.position.y = viewPort.visibleArea.topLeft.y
+            if (panel.container.frame.position.y < canvas.chartSpace.viewport.visibleArea.topLeft.y) {
+              panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topLeft.y
             }
           } else {
             panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y
@@ -193,8 +193,8 @@ function newPanelsSpace () {
             } else {
               desAccelerateOnY()
             }
-            if (panel.container.frame.position.y + panel.container.frame.height > viewPort.visibleArea.bottomRight.y) {
-              panel.container.frame.position.y = viewPort.visibleArea.bottomRight.y - panel.container.frame.height
+            if (panel.container.frame.position.y + panel.container.frame.height > canvas.chartSpace.viewport.visibleArea.bottomRight.y) {
+              panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
             }
           }
         }

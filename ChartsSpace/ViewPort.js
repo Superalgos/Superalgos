@@ -439,7 +439,7 @@ function newViewPort () {
 
     let frame = {}
     frame.position = position
-    saveFrame(thisObject.payload, frame)
+    // saveFrame(thisObject.payload, frame)
   }
 
   function readObjectState () {

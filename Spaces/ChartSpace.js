@@ -17,6 +17,7 @@ function newChartSpace () {
     container: undefined,
     inViewport: undefined,
     timeMachines: undefined,
+    viewport: undefined,
     reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -74,10 +75,15 @@ function newChartSpace () {
 
     thisObject.container.finalize()
     thisObject.container = undefined
+
+    thisObject.viewport.finalize()
+    thisObject.viewport = undefined
   }
 
   function initialize () {
-    canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+    thisObject.viewport = newViewPort()
+    thisObject.viewport.initialize()
+    canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
   function getContainer (point, purpose) {
@@ -119,6 +125,7 @@ function newChartSpace () {
   }
 
   function resize () {
+    thisObject.viewport.resize()
     thisObject.container.frame.width = browserCanvas.width
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
   }
@@ -129,7 +136,7 @@ function newChartSpace () {
       y: +browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    viewPort.displace(displaceVector)
+    canvas.chartSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenDown () {
@@ -138,7 +145,7 @@ function newChartSpace () {
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    viewPort.displace(displaceVector)
+    canvas.chartSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenLeft () {
@@ -147,7 +154,7 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector, true)
+    canvas.chartSpace.viewport.displace(displaceVector, true)
   }
 
   function oneScreenRight () {
@@ -156,7 +163,7 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector, true)
+    canvas.chartSpace.viewport.displace(displaceVector, true)
   }
 
   function fitFunction (point, fullVisible) {
@@ -279,7 +286,7 @@ function newChartSpace () {
 
         thisObject.timeMachines.push(timeMachine)
         timeMachine.payload.uiObject.setValue('')
-        viewPort.raiseEvents() // These events will impacts on objects just initialized.
+        canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
       }
     }
   }
@@ -293,7 +300,7 @@ function newChartSpace () {
       thisObject.visible = true
     }
 
-    viewPort.resize()
+    canvas.chartSpace.viewport.resize()
   }
 
   function childrenPhysics () {

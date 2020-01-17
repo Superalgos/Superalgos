@@ -34,7 +34,7 @@ function newPlotter () {
   let coordinateSystem = newCoordinateSystem()        // Needed to be able to plot on the timeline.
   let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
-  let slotHeight = (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 10  // This is the amount of slots available
+  let slotHeight = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
   let mustRecalculateDataPoints = false
   let atMousePositionFillStyles = new Map()
   let atMousePositionStrokeStyles = new Map()
@@ -66,8 +66,8 @@ function newPlotter () {
   function finalize () {
     try {
       /* Stop listening to the necesary events. */
-      viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId)
-      viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId)
+      canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId)
+      canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId)
       canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId)
       thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
       marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId)
@@ -117,8 +117,8 @@ function newPlotter () {
       fileCursor = dailyFiles.getFileCursor(pTimeFrame)
 
       /* Listen to the necesary events. */
-      zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
-      offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+      zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+      offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
       dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent('Drag Finished', onDragFinished)
       marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
       dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
@@ -353,8 +353,8 @@ function newPlotter () {
 
       let daysOnSides = getSideDays(timeFrame)
 
-      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem)
-      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem)
+      let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+      let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
       let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -406,8 +406,8 @@ function newPlotter () {
 
       let daysOnSides = getSideDays(timeFrame)
 
-      let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem)
-      let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem)
+      let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem)
+      let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem)
 
       let dateDiff = rightDate.valueOf() - leftDate.valueOf()
 
@@ -517,7 +517,7 @@ function newPlotter () {
         beginPoint = transformThisPoint(beginPoint, thisObject.container)
         endPoint = transformThisPoint(endPoint, thisObject.container)
 
-        if (endPoint.x < viewPort.visibleArea.bottomLeft.x || beginPoint.x > viewPort.visibleArea.bottomRight.x) {
+        if (endPoint.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
           continue
         }
 
@@ -580,7 +580,7 @@ function newPlotter () {
                 if (plotterModuleConfig !== undefined) {
                   if (plotterModuleConfig.slot !== undefined) {
                   /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + viewPort.visibleArea.topLeft.y
+                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + canvas.chartSpace.viewport.visibleArea.topLeft.y
                   }
                 }
               }
@@ -720,7 +720,7 @@ function newPlotter () {
                 y: dataPointObject.y
               }
               /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
-              dataPoint = viewPort.fitIntoVisibleArea(dataPoint)
+              dataPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(dataPoint)
               if (k === 0) {
                 browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
               } else {

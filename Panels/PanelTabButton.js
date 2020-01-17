@@ -55,7 +55,7 @@ function newPanelTabButton () {
     visiblePosition.y = thisObject.parentContainer.frame.position.y
 
     hiddenPosition.x = thisObject.parentContainer.frame.position.x
-    hiddenPosition.y = viewPort.visibleArea.bottomRight.y
+    hiddenPosition.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y
 
     transitionPosition.x = visiblePosition.x
     transitionPosition.y = visiblePosition.y
@@ -72,7 +72,7 @@ function newPanelTabButton () {
       visiblePosition.y = thisObject.parentContainer.frame.position.y
 
       hiddenPosition.x = thisObject.parentContainer.frame.position.x
-      hiddenPosition.y = viewPort.visibleArea.bottomRight.y
+      hiddenPosition.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y
 
       transitionPosition.x = visiblePosition.x
       transitionPosition.y = visiblePosition.y

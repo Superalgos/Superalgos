@@ -18,7 +18,7 @@ function newTopSpace () {
   return thisObject
 
   function initialize () {
-    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+    canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
   function resize () {
@@ -27,7 +27,7 @@ function newTopSpace () {
 
     container.frame.position.x = 0
     try {
-      container.frame.position.y = viewPort.visibleArea.bottomLeft.y
+      container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomLeft.y
     } catch (e) { }
   }
 

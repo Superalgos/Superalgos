@@ -45,7 +45,7 @@ function newSplashScreen () {
 
     logo.src = window.canvasApp.urlPrefix + 'Images/Superalgos-logo-horz-sm-t.png'
 
-    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+    canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
   function resize () {

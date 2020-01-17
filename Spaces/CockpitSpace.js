@@ -62,7 +62,7 @@
        thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
      }
 
-     canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
      thisObject.assetBalances = newQuotedAssetalances()
@@ -150,7 +150,7 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     viewPort.resize()
+     canvas.chartSpace.viewport.resize()
    }
 
    function getContainer (point) {

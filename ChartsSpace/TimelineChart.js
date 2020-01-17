@@ -72,8 +72,8 @@ function newTimelineChart () {
       finalizeTimeFrameScale()
     }
 
-    viewPort.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    viewPort.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
 
@@ -132,8 +132,8 @@ function newTimelineChart () {
     datetime = NEW_SESSION_INITIAL_DATE
 
      /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-    onViewportPositionChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = viewPort.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -267,8 +267,8 @@ function newTimelineChart () {
        */
 
     let center = {
-      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
+      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
     }
 
     center = unTransformThisPoint(center, thisObject.container)
@@ -365,7 +365,7 @@ function newTimelineChart () {
   }
 
   function tooTiny () {
-    if (viewPort.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
+    if (canvas.chartSpace.viewport.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
       return true
     } else {
       return false
@@ -373,7 +373,7 @@ function newTimelineChart () {
   }
 
   function tooSmall () {
-    if (viewPort.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
+    if (canvas.chartSpace.viewport.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
       return true
     } else {
       return false

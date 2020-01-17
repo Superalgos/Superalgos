@@ -61,8 +61,8 @@ function newProductsPanel () {
     thisObject.container.frame.height = heatherHeight
 
     let position = {
-      x: viewPort.visibleArea.topLeft.x,
-      y: viewPort.visibleArea.topLeft.y// viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height
+      x: canvas.chartSpace.viewport.visibleArea.topLeft.x,
+      y: canvas.chartSpace.viewport.visibleArea.topLeft.y// canvas.chartSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height
     }
 
     thisObject.container.frame.position = position
@@ -136,7 +136,7 @@ function newProductsPanel () {
   }
 
   function panelSizePhysics () {
-    let viewPortHeight = viewPort.visibleArea.bottomLeft.y - viewPort.visibleArea.topLeft.y
+    let viewPortHeight = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
 
     if (viewPortHeight < heatherHeight) {
       visible = false

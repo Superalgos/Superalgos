@@ -26,7 +26,7 @@ function newSidePanel () {
     thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
     thisObject.sidePanelTab.initialize()
 
-    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+    canvas.eventHandler.listenToEvent('Browser Resized', resize)
     isInitialized = true
   }
 

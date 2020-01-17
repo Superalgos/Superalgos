@@ -125,7 +125,7 @@ function newCanvas () {
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
-      animation.addCallBackFunction('ViewPort physics', viewPort.physics)
+      animation.addCallBackFunction('ViewPort physics', canvas.chartSpace.viewport.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
@@ -146,7 +146,7 @@ function newCanvas () {
       browserCanvasContext = browserCanvas.getContext('2d')
       browserCanvasContext.font = 'Saira Condensed'
 
-      viewPort.initialize()
+      canvas.chartSpace.viewport.initialize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initializeBrowserCanvas -> err = ' + err.stack) }
     }
@@ -154,11 +154,12 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
+      canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
+
       /* Keyboard events */
       window.addEventListener('keydown', onKeyDown, true)
 
       /* Mouse Events */
-
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
@@ -171,7 +172,6 @@ function newCanvas () {
       } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
       /* Dragging Files Over the Canvas */
-
       browserCanvas.addEventListener('dragenter', onDragEnter, false)
       browserCanvas.addEventListener('dragleave', onDragLeave, false)
       browserCanvas.addEventListener('dragover', onDragOver, false)
@@ -183,6 +183,17 @@ function newCanvas () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err.stack) }
+    }
+  }
+
+  function browserResized () {
+    try {
+      browserCanvas = document.getElementById('canvas')
+
+      browserCanvas.width = window.innerWidth
+      browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] browserResized -> err = ' + err.stack) }
     }
   }
 
@@ -623,8 +634,8 @@ function newCanvas () {
         y: event.pageY - CURRENT_TOP_MARGIN
       }
 
-      viewPort.mousePosition.x = point.x
-      viewPort.mousePosition.y = point.y
+      canvas.chartSpace.viewport.mousePosition.x = point.x
+      canvas.chartSpace.viewport.mousePosition.y = point.y
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         if (floatingObjectDragStarted === true) {
@@ -794,7 +805,7 @@ function newCanvas () {
       }
 
       if (container !== undefined) {
-        viewPort.applyZoom(delta)
+        canvas.chartSpace.viewport.applyZoom(delta)
         return false
       }
 
@@ -862,7 +873,7 @@ function newCanvas () {
             }
 
             let downNoZoom
-            downNoZoom = viewPort.unzoomThisPoint(downCopy)
+            downNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(downCopy)
 
             let upCopy = {
               x: dragVector.upX,
@@ -870,7 +881,7 @@ function newCanvas () {
             }
 
             let upNoZoom
-            upNoZoom = viewPort.unzoomThisPoint(upCopy)
+            upNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(upCopy)
 
             displaceVector = {
               x: upNoZoom.x - downNoZoom.x,
@@ -879,7 +890,7 @@ function newCanvas () {
           }
 
           if (viewPortBeingDragged) {
-            viewPort.displace(displaceVector)
+            canvas.chartSpace.viewport.displace(displaceVector)
           }
 
           if (containerBeingDragged !== undefined) {

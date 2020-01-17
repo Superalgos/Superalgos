@@ -55,15 +55,15 @@ function transformThisPoint (point, container) {
 
   point = container.frame.frameThisPoint(point)
 
-    /* We pass this point through the viewPort lends, meaning we apply the viewPort zoom and displacement. */
+    /* We pass this point through the canvas.chartSpace.viewport lends, meaning we apply the canvas.chartSpace.viewport zoom and displacement. */
 
-  point = viewPort.zoomThisPoint(point)
+  point = canvas.chartSpace.viewport.zoomThisPoint(point)
 
   return point
 }
 
 function unTransformThisPoint (point, container) {
-  point = viewPort.unzoomThisPoint(point)
+  point = canvas.chartSpace.viewport.unzoomThisPoint(point)
   point = container.frame.unframeThisPoint(point)
 
   return point
@@ -108,8 +108,8 @@ function getMilisecondsFromPoint (point, container, timeLineCoordinateSystem) {
 function saveUserPosition (container, timeLineCoordinateSystem, position) {
   if (position === undefined) {
     position = {
-      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
+      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 2
     }
   }
 
@@ -117,7 +117,7 @@ function saveUserPosition (container, timeLineCoordinateSystem, position) {
     date: getDateFromPoint(position, container, timeLineCoordinateSystem),
     rate: getRateFromPoint(position, container, timeLineCoordinateSystem),
     market: DEFAULT_MARKET,
-    zoom: viewPort.zoomTargetLevel
+    zoom: canvas.chartSpace.viewport.zoomTargetLevel
   }
 
   window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
@@ -150,7 +150,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
   let userPosition = getUserPosition(timeLineCoordinateSystem)
 
   if (considerZoom === true) {
-    viewPort.newZoomLevel(userPosition.zoom)
+    canvas.chartSpace.viewport.newZoomLevel(userPosition.zoom)
   }
 
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
@@ -161,7 +161,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     y: userPosition.rate
   }
 
-    /* Put this po int in the coordinate system of the viewPort */
+    /* Put this po int in the coordinate system of the canvas.chartSpace.viewport */
 
   targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
@@ -174,8 +174,8 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
   } else {
     centerPoint = {
-      x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.topLeft.x) / 2,
-      y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topLeft.y) / 2
+      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
+      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 2
     }
   }
 
@@ -190,7 +190,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
 
     let targetNoZoom
-    targetNoZoom = viewPort.unzoomThisPoint(targetCopy)
+    targetNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(targetCopy)
 
     let centerCopy = {
       x: centerPoint.x,
@@ -198,7 +198,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
 
     let centerNoZoom
-    centerNoZoom = viewPort.unzoomThisPoint(centerCopy)
+    centerNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(centerCopy)
 
     displaceVector = {
       x: centerNoZoom.x - targetNoZoom.x,
@@ -218,7 +218,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     if (ignoreX) { displaceVector.x = 0 }
     if (ignoreY) { displaceVector.y = 0 }
 
-    viewPort.displace(displaceVector)
+    canvas.chartSpace.viewport.displace(displaceVector)
   }
 }
 

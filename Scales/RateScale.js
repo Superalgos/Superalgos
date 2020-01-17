@@ -6,7 +6,7 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    heightPercentage: undefined,
+    value: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -73,11 +73,11 @@ function newRateScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.heightPercentage = DEFAULT_VALUE
+    thisObject.value = DEFAULT_VALUE
     readObjectState()
 
     let event = {}
-    event.heightPercentage = thisObject.heightPercentage
+    event.value = thisObject.value
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
   }
 
@@ -117,13 +117,13 @@ function newRateScale () {
 
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.heightPercentage = thisObject.heightPercentage - STEP_SIZE * morePower
-      if (thisObject.heightPercentage < STEP_SIZE * 3) { thisObject.heightPercentage = STEP_SIZE }
+      thisObject.value = thisObject.value - STEP_SIZE * morePower
+      if (thisObject.value < STEP_SIZE * 3) { thisObject.value = STEP_SIZE }
     } else {
-      thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE * morePower
-      if (thisObject.heightPercentage > MAX_VALUE) { thisObject.heightPercentage = MAX_VALUE }
+      thisObject.value = thisObject.value + STEP_SIZE * morePower
+      if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
     }
-    event.heightPercentage = thisObject.heightPercentage
+    event.value = thisObject.value
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 
     saveObjectState()
@@ -138,7 +138,7 @@ function newRateScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.value = thisObject.heightPercentage / MAX_VALUE * 100
+      code.value = thisObject.value / MAX_VALUE * 100
       code.value = code.value.toFixed(2)
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
@@ -158,10 +158,10 @@ function newRateScale () {
       if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
       if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
 
-      if (code.value !== thisObject.heightPercentage) {
-        thisObject.heightPercentage = code.value
+      if (code.value !== thisObject.value) {
+        thisObject.value = code.value
         let event = {}
-        event.heightPercentage = thisObject.heightPercentage
+        event.value = thisObject.value
         thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
       } else {
         saveObjectState()
@@ -288,7 +288,7 @@ function newRateScale () {
     const OPACITY = 0.2
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 30
-    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.heightPercentage
+    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.value
     const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 215 + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0

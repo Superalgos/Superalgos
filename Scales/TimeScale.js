@@ -2,7 +2,7 @@ function newTimeScale () {
   const MODULE_NAME = 'Time Scale'
 
   let thisObject = {
-    lenghtPercentage: undefined,
+    value: undefined,
     container: undefined,
     date: undefined,
     fitFunction: undefined,
@@ -72,11 +72,11 @@ function newTimeScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.lenghtPercentage = DEFAULT_VALUE
+    thisObject.value = DEFAULT_VALUE
     readObjectState()
 
     let event = {}
-    event.lenghtPercentage = thisObject.lenghtPercentage
+    event.value = thisObject.value
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
   }
 
@@ -116,14 +116,14 @@ function newTimeScale () {
 
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage - STEP_SIZE * morePower
-      if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
+      thisObject.value = thisObject.value - STEP_SIZE * morePower
+      if (thisObject.value < STEP_SIZE) { thisObject.value = STEP_SIZE }
     } else {
-      thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE * morePower
-      if (thisObject.lenghtPercentage > MAX_VALUE) { thisObject.lenghtPercentage = MAX_VALUE }
+      thisObject.value = thisObject.value + STEP_SIZE * morePower
+      if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
     }
 
-    event.lenghtPercentage = thisObject.lenghtPercentage
+    event.value = thisObject.value
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
 
     saveObjectState()
@@ -138,7 +138,7 @@ function newTimeScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.value = thisObject.lenghtPercentage / MAX_VALUE * 100
+      code.value = thisObject.value / MAX_VALUE * 100
       code.value = code.value.toFixed(2)
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
@@ -158,10 +158,10 @@ function newTimeScale () {
       if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
       if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
 
-      if (code.value !== thisObject.lenghtPercentage) {
-        thisObject.lenghtPercentage = code.value
+      if (code.value !== thisObject.value) {
+        thisObject.value = code.value
         let event = {}
-        event.lenghtPercentage = thisObject.lenghtPercentage
+        event.value = thisObject.value
         thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
       } else {
         saveObjectState()
@@ -266,7 +266,7 @@ function newTimeScale () {
     const OPACITY = 0.2
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 110
-    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.lenghtPercentage
+    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.value
     const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + MAX_VALUE + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0

@@ -166,7 +166,7 @@ function newTimelineChart () {
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.heightPercentage / 100
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value / 100
       recalculateCoordinateSystem()
       moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, false, true)
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)

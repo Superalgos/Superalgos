@@ -18,6 +18,7 @@ function newTimeScale () {
 
   const LENGHT_PERCENTAGE_DEFAULT_VALUE = 5
   const STEP_SIZE = 2.5
+  const LENGHT_PERCENTAGE_MAX_VALUE = 400
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -71,12 +72,8 @@ function newTimeScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.lenghtPercentage = window.localStorage.getItem(MODULE_NAME)
-    if (!thisObject.lenghtPercentage) {
-      thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE
-    } else {
-      thisObject.lenghtPercentage = JSON.parse(thisObject.lenghtPercentage)
-    }
+    thisObject.lenghtPercentage = LENGHT_PERCENTAGE_DEFAULT_VALUE
+    readObjectState()
 
     let event = {}
     event.lenghtPercentage = thisObject.lenghtPercentage
@@ -123,13 +120,13 @@ function newTimeScale () {
       if (thisObject.lenghtPercentage < STEP_SIZE) { thisObject.lenghtPercentage = STEP_SIZE }
     } else {
       thisObject.lenghtPercentage = thisObject.lenghtPercentage + STEP_SIZE * morePower
-      if (thisObject.lenghtPercentage > 400) { thisObject.lenghtPercentage = 400 }
+      if (thisObject.lenghtPercentage > LENGHT_PERCENTAGE_MAX_VALUE) { thisObject.lenghtPercentage = LENGHT_PERCENTAGE_MAX_VALUE }
     }
 
     event.lenghtPercentage = thisObject.lenghtPercentage
     thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
 
-    window.localStorage.setItem(MODULE_NAME, thisObject.lenghtPercentage)
+    saveObjectState()
   }
 
   function getContainer (point) {
@@ -138,7 +135,47 @@ function newTimeScale () {
     }
   }
 
+  function saveObjectState () {
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      code.value = thisObject.lenghtPercentage / LENGHT_PERCENTAGE_MAX_VALUE * 100
+      thisObject.payload.node.code = JSON.stringify(code)
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+  }
+
+  function readObjectState () {
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+
+      if (isNaN(code.value) || code.value === null || code.value === undefined) {
+        saveObjectState()
+        return
+      }
+      code.value = code.value / 100 * LENGHT_PERCENTAGE_MAX_VALUE
+      if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
+      if (code.value > LENGHT_PERCENTAGE_MAX_VALUE) { code.value = LENGHT_PERCENTAGE_MAX_VALUE }
+
+      if (code.value !== thisObject.lenghtPercentage) {
+        thisObject.lenghtPercentage = code.value
+        let event = {}
+        event.lenghtPercentage = thisObject.lenghtPercentage
+        thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+      } else {
+        saveObjectState()
+      }
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+  }
+
   function physics () {
+    readObjectState()
+    positioningphysics()
+  }
+
+  function positioningphysics () {
     /* Container Limits */
 
     let upCorner = {
@@ -229,7 +266,7 @@ function newTimeScale () {
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 110
     const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.lenghtPercentage
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 400 + DISTANCE_BETWEEN_ARROWS
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + LENGHT_PERCENTAGE_MAX_VALUE + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0
 

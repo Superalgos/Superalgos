@@ -336,7 +336,7 @@
                             if (datetime.valueOf() >= band.begin && datetime.valueOf() <= band.end) {
 
                                 thisObject.currentBand = band;
-                                thisObject.container.eventHandler.raiseEvent("Current Band Changed", thisObject.currentBand);
+                                thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentBand);
 
                             }
                         }
@@ -411,7 +411,7 @@
                     if (datetime.valueOf() >= band.begin && datetime.valueOf() <= band.end) {
 
                         thisObject.currentBand = band;
-                        thisObject.container.eventHandler.raiseEvent("Current Band Changed", thisObject.currentBand);
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentBand);
 
                     }
                 }
@@ -597,7 +597,7 @@
                             innerBand: band
                         };
 
-                        thisObject.container.eventHandler.raiseEvent("Current Band Changed", currentBand);
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentBand);
                     }
 
                     browserCanvasContext.lineWidth = 0.2;

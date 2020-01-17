@@ -12,7 +12,7 @@
         {
           "codeName": "BollingerBandsPanel",
           "moduleName": "BollingerBandsPanel",
-          "event": "Current Band Changed"
+          "event": "Current Record Changed"
         }
       ]
     },

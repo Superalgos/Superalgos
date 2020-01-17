@@ -3,23 +3,32 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
 
     var thisObject = {
         fitFunction: undefined,
-        onEventRaised: onEventRaised,
+        onRecordChange: onRecordChange,
         container: undefined,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
-    var container = newContainer();
-    container.initialize();
-    thisObject.container = container;
-
-    container.frame.containerName = "Bollinger Band";
+    thisObject.container = newContainer();
+    thisObject.container.initialize();
+    thisObject.container.frame.containerName = "Bollinger Band";
 
     let currentBand;
     let panelTabButton
 
     return thisObject;
+
+    function finalize() {
+        thisObject.container.finalize()
+        thisObject.container = undefined
+        thisObject.fitFunction = undefined
+
+        currentBand = undefined
+        panelTabButton.finalize()
+        panelTabButton = undefined
+    }
 
     function initialize() {
 
@@ -59,7 +68,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
     }
 
 
-    function onEventRaised(lastCurrentBand) {
+    function onRecordChange(lastCurrentBand) {
 
         currentBand = lastCurrentBand;
 

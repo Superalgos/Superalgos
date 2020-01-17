@@ -64,8 +64,8 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -115,8 +115,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -293,8 +293,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -378,8 +378,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -518,16 +518,16 @@
                     bandPoint5 = transformThisPoint(bandPoint5, thisObject.container);
                     bandPoint6 = transformThisPoint(bandPoint6, thisObject.container);
 
-                    if (bandPoint2.x < viewPort.visibleArea.bottomLeft.x || bandPoint1.x > viewPort.visibleArea.bottomRight.x) {
+                    if (bandPoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || bandPoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
                         continue;
                     }
 
-                    bandPoint1 = viewPort.fitIntoVisibleArea(bandPoint1);
-                    bandPoint2 = viewPort.fitIntoVisibleArea(bandPoint2);
-                    bandPoint3 = viewPort.fitIntoVisibleArea(bandPoint3);
-                    bandPoint4 = viewPort.fitIntoVisibleArea(bandPoint4);
-                    bandPoint5 = viewPort.fitIntoVisibleArea(bandPoint5);
-                    bandPoint6 = viewPort.fitIntoVisibleArea(bandPoint6);
+                    bandPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint1);
+                    bandPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint2);
+                    bandPoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint3);
+                    bandPoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint4);
+                    bandPoint5 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint5);
+                    bandPoint6 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint6);
 
                     bandPoint1 = thisObject.fitFunction(bandPoint1);
                     bandPoint2 = thisObject.fitFunction(bandPoint2);
@@ -556,9 +556,9 @@
                     }
 
                     if (
-                        bandPoint1.x < viewPort.visibleArea.topLeft.x + 50
+                        bandPoint1.x < canvas.chartSpace.viewport.visibleArea.topLeft.x + 50
                         ||
-                        bandPoint1.x > viewPort.visibleArea.bottomRight.x - 50
+                        bandPoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x - 50
                     ) {
                         // we leave this bands without fill.
                     } else {

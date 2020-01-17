@@ -439,7 +439,7 @@
                             if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
 
                                 thisObject.currentCandle = candle;
-                                thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+                                thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentCandle);
 
                             }
                         }
@@ -515,7 +515,7 @@
                     if (datetime.valueOf() >= candle.begin && datetime.valueOf() <= candle.end) {
 
                         thisObject.currentCandle = candle;
-                        thisObject.container.eventHandler.raiseEvent("Current Candle Changed", thisObject.currentCandle);
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentCandle);
 
                     }
                 }
@@ -785,7 +785,7 @@
                         period: timeFrame,
                         innerCandle: candle
                     };
-                    thisObject.container.eventHandler.raiseEvent("Current Candle Changed", currentCandle);
+                    thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentCandle);
                 }
             }
 

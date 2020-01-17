@@ -12,7 +12,7 @@
         {
           "codeName": "CandlePanel",
           "moduleName": "CandlePanel",
-          "event": "Current Candle Changed"
+          "event": "Current Record Changed"
         }
       ]
     },
@@ -25,7 +25,7 @@
         {
           "codeName": "VolumePanel",
           "moduleName": "VolumePanel",
-          "event": "Current Volume Changed"
+          "event": "Current Record Changed"
         }
       ]
     }

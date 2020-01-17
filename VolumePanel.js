@@ -4,22 +4,31 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     let thisObject = {
         fitFunction: undefined,
         container: undefined,
-        onEventRaised: onEventRaised,
+        onRecordChange: onRecordChange,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
-    let container = newContainer();
-    container.initialize();
-    thisObject.container = container;
-
-    container.frame.containerName = "Volume";
+    thisObject.container = newContainer();
+    thisObject.container.initialize();
+    thisObject.container.frame.containerName = "Volume";
 
     let currentVolume;
     let panelTabButton
 
     return thisObject;
+
+    function finalize() {
+        thisObject.container.finalize()
+        thisObject.container = undefined
+        thisObject.fitFunction = undefined
+
+        currentVolume = undefined
+        panelTabButton.finalize()
+        panelTabButton = undefined
+    }
 
     function initialize() {
 
@@ -59,7 +68,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     }
 
 
-    function onEventRaised(lastCurrentVolume) {
+    function onRecordChange(lastCurrentVolume) {
 
         currentVolume = lastCurrentVolume;
 

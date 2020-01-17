@@ -346,7 +346,7 @@
 
                             if (datetime.valueOf() >= volume.begin && datetime.valueOf() <= volume.end) {
 
-                                thisObject.container.eventHandler.raiseEvent("Current Volume Changed", thisObject.currentCandle);
+                                thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentCandle);
 
                             }
                         }
@@ -417,7 +417,7 @@
 
                     if (datetime.valueOf() >= volume.begin && datetime.valueOf() <= volume.end) {
 
-                        thisObject.container.eventHandler.raiseEvent("Current Volume Changed", thisObject.currentCandle);
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", thisObject.currentCandle);
 
                     }
                 }
@@ -791,7 +791,7 @@
                                 innerVolumeBar: volume
                             };
 
-                            thisObject.container.eventHandler.raiseEvent("Current Volume Changed", currentVolume);
+                            thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentVolume);
 
                         }
 

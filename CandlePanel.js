@@ -35,8 +35,8 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL;
 
-        thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width * 2;
-        thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height;
+        thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 2;
+        thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container

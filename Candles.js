@@ -64,8 +64,8 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -114,8 +114,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -264,18 +264,18 @@
                     targetMin = transformThisPoint(targetMin, thisObject.container);
 
                     let center = {
-                        x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-                        y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+                        x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
+                        y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
                     };
 
-                    if (targetMax.y < viewPort.visibleArea.topLeft.y || targetMin.y > viewPort.visibleArea.bottomRight.y) {
+                    if (targetMax.y < canvas.chartSpace.viewport.visibleArea.topLeft.y || targetMin.y > canvas.chartSpace.viewport.visibleArea.bottomRight.y) {
 
                         let displaceVector = {
                             x: 0,
                             y: center.y - targetPoint.y
                         };
 
-                        viewPort.displaceTarget(displaceVector);
+                        canvas.chartSpace.viewport.displaceTarget(displaceVector);
 
                     }
 
@@ -284,7 +284,7 @@
                         y: 0
                     };
 
-                    viewPort.displace(displaceVector);
+                    canvas.chartSpace.viewport.displace(displaceVector);
 
                     return;
                 }
@@ -301,8 +301,8 @@
                 targetPoint = transformThisPoint(targetPoint, thisObject.container);
 
                 let center = {
-                    x: (viewPort.visibleArea.bottomRight.x - viewPort.visibleArea.bottomLeft.x) / 2,
-                    y: (viewPort.visibleArea.bottomRight.y - viewPort.visibleArea.topRight.y) / 2
+                    x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
+                    y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
                 };
 
                 let displaceVector = {
@@ -310,7 +310,7 @@
                     y: center.y - targetPoint.y
                 };
 
-                viewPort.displace(displaceVector);
+                canvas.chartSpace.viewport.displace(displaceVector);
 
                 return;
             }
@@ -387,8 +387,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -473,8 +473,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -601,10 +601,10 @@
                     candle.candlePoint3 = transformThisPoint(candle.candlePoint3, thisObject.container);
                     candle.candlePoint4 = transformThisPoint(candle.candlePoint4, thisObject.container);
 
-                    candle.candlePoint1 = viewPort.fitIntoVisibleArea(candle.candlePoint1);
-                    candle.candlePoint2 = viewPort.fitIntoVisibleArea(candle.candlePoint2);
-                    candle.candlePoint3 = viewPort.fitIntoVisibleArea(candle.candlePoint3);
-                    candle.candlePoint4 = viewPort.fitIntoVisibleArea(candle.candlePoint4);
+                    candle.candlePoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
+                    candle.candlePoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
+                    candle.candlePoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
+                    candle.candlePoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
 
                     candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
                     candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
@@ -641,10 +641,10 @@
                     candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
                     candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
 
-                    candle.stickPoint1 = viewPort.fitIntoVisibleArea(candle.stickPoint1);
-                    candle.stickPoint2 = viewPort.fitIntoVisibleArea(candle.stickPoint2);
-                    candle.stickPoint3 = viewPort.fitIntoVisibleArea(candle.stickPoint3);
-                    candle.stickPoint4 = viewPort.fitIntoVisibleArea(candle.stickPoint4);
+                    candle.stickPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
+                    candle.stickPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);
+                    candle.stickPoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint3);
+                    candle.stickPoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint4);
 
                     candle.stickPoint1 = thisObject.fitFunction(candle.stickPoint1);
                     candle.stickPoint2 = thisObject.fitFunction(candle.stickPoint2);
@@ -661,7 +661,7 @@
                     
                     candle = candles[i];
 
-                    if (candle.candlePoint2.x < viewPort.visibleArea.bottomLeft.x || candle.candlePoint1.x > viewPort.visibleArea.bottomRight.x) {
+                    if (candle.candlePoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
                         continue
                     }
 

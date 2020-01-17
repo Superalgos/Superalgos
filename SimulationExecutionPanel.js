@@ -27,8 +27,8 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.5;
 
-        thisObject.container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
-        thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
+        thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
+        thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topRight.y;
 
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container
@@ -137,8 +137,8 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             point2.y = point2.y - diff;
             point3.y = point3.y - diff;
 
-            point2 = viewPort.fitIntoVisibleArea(point2);
-            point3 = viewPort.fitIntoVisibleArea(point3);
+            point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+            point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
 
             browserCanvasContext.beginPath();
 
@@ -197,8 +197,8 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             point2.y = point2.y + diff;
             point3.y = point3.y + diff;
 
-            point2 = viewPort.fitIntoVisibleArea(point2);
-            point3 = viewPort.fitIntoVisibleArea(point3);
+            point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+            point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
 
             browserCanvasContext.beginPath();
 
@@ -255,8 +255,8 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             point2.y = point2.y - diff;
             point3.y = point3.y - diff;
 
-            point2 = viewPort.fitIntoVisibleArea(point2);
-            point3 = viewPort.fitIntoVisibleArea(point3);
+            point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+            point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
 
             browserCanvasContext.beginPath();
 
@@ -313,8 +313,8 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             point2.y = point2.y + diff;
             point3.y = point3.y + diff;
 
-            point2 = viewPort.fitIntoVisibleArea(point2);
-            point3 = viewPort.fitIntoVisibleArea(point3);
+            point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+            point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
 
             browserCanvasContext.beginPath();
 
@@ -353,7 +353,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
             browserCanvasContext.arc(point.x, point.y, currentRadius, 0, Math.PI * 2, true);
             browserCanvasContext.closePath();
 
-            if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+            if (point.x < canvas.chartSpace.viewport.visibleArea.topLeft.x + 50 || point.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                 browserCanvasContext.fill();
             }
             browserCanvasContext.setLineDash([0, 0])
@@ -371,7 +371,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
         browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
         browserCanvasContext.closePath();
 
-        if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+        if (point.x < canvas.chartSpace.viewport.visibleArea.topLeft.x + 50 || point.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
             browserCanvasContext.fill();
         }
         browserCanvasContext.setLineDash([0, 0])

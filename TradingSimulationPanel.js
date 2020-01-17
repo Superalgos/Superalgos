@@ -30,8 +30,8 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 1;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.5;
 
-        thisObject.container.frame.position.x = viewPort.visibleArea.topLeft.x + thisObject.container.frame.width * 3;
-        thisObject.container.frame.position.y = viewPort.visibleArea.topRight.y;
+        thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topLeft.x + thisObject.container.frame.width * 3;
+        thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topRight.y;
 
         panelTabButton = newPanelTabButton()
         panelTabButton.parentContainer = thisObject.container

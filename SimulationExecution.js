@@ -51,7 +51,7 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             fileSequence.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
 
@@ -83,7 +83,7 @@
             recalculateScale();
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
-            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
 
             /* Ready for when dimmension changes. */
 
@@ -371,9 +371,9 @@
                     point = coordinateSystem.transformThisPoint(point);
                     point = transformThisPoint(point, thisObject.container);
 
-                    if (point.x < viewPort.visibleArea.bottomLeft.x || point.x > viewPort.visibleArea.bottomRight.x) { continue; }
+                    if (point.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || point.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) { continue; }
 
-                    point = viewPort.fitIntoVisibleArea(point);
+                    point = canvas.chartSpace.viewport.fitIntoVisibleArea(point);
                     point = thisObject.fitFunction(point);
 
                     let isCurrentRecord = false;
@@ -411,17 +411,17 @@
 
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
-                        point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = canvas.chartSpace.viewport.fitIntoVisibleArea(point1);
                         point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
-                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
                         point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
@@ -430,8 +430,8 @@
 
                         currentRecord.timeFrame = diff
 
-                        point2 = viewPort.fitIntoVisibleArea(point2);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point2 = thisObject.fitFunction(point2);
                         point3 = thisObject.fitFunction(point3);
 
@@ -486,17 +486,17 @@
 
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
-                        point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = canvas.chartSpace.viewport.fitIntoVisibleArea(point1);
                         point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
-                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
                         point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
@@ -505,8 +505,8 @@
 
                         currentRecord.timeFrame = diff
 
-                        point2 = viewPort.fitIntoVisibleArea(point2);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point2 = thisObject.fitFunction(point2);
                         point3 = thisObject.fitFunction(point3);
 
@@ -559,17 +559,17 @@
 
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
-                        point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = canvas.chartSpace.viewport.fitIntoVisibleArea(point1);
                         point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
-                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
                         point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
@@ -578,8 +578,8 @@
 
                         currentRecord.timeFrame = diff
 
-                        point2 = viewPort.fitIntoVisibleArea(point2);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point2 = thisObject.fitFunction(point2);
                         point3 = thisObject.fitFunction(point3);
 
@@ -633,17 +633,17 @@
 
                         point1 = coordinateSystem.transformThisPoint(point1);
                         point1 = transformThisPoint(point1, thisObject.container);
-                        point1 = viewPort.fitIntoVisibleArea(point1);
+                        point1 = canvas.chartSpace.viewport.fitIntoVisibleArea(point1);
                         point1 = thisObject.fitFunction(point1);
 
                         point2 = coordinateSystem.transformThisPoint(point2);
                         point2 = transformThisPoint(point2, thisObject.container);
-                        point2 = viewPort.fitIntoVisibleArea(point2);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
                         point2 = thisObject.fitFunction(point2);
 
                         point3 = coordinateSystem.transformThisPoint(point3);
                         point3 = transformThisPoint(point3, thisObject.container);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point3 = thisObject.fitFunction(point3);
 
                         let diff = point2.x - point3.x;
@@ -652,8 +652,8 @@
 
                         currentRecord.timeFrame = diff
 
-                        point2 = viewPort.fitIntoVisibleArea(point2);
-                        point3 = viewPort.fitIntoVisibleArea(point3);
+                        point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
+                        point3 = canvas.chartSpace.viewport.fitIntoVisibleArea(point3);
                         point2 = thisObject.fitFunction(point2);
                         point3 = thisObject.fitFunction(point3);
 
@@ -705,7 +705,7 @@
                         browserCanvasContext.arc(point.x, point.y, currentRadius, 0, Math.PI * 2, true);
                         browserCanvasContext.closePath();
 
-                        if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                        if (point.x < canvas.chartSpace.viewport.visibleArea.topLeft.x + 50 || point.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                             browserCanvasContext.fill();
                         }
 
@@ -725,7 +725,7 @@
                     browserCanvasContext.arc(point.x, point.y, radius, 0, Math.PI * 2, true);
                     browserCanvasContext.closePath();
 
-                    if (point.x < viewPort.visibleArea.topLeft.x + 50 || point.x > viewPort.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
+                    if (point.x < canvas.chartSpace.viewport.visibleArea.topLeft.x + 50 || point.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x - 50) {/*we leave this history without fill. */ } else {
                         browserCanvasContext.fill();
                     }
 
@@ -756,12 +756,12 @@
 
                     point1 = coordinateSystem.transformThisPoint(point1);
                     point1 = transformThisPoint(point1, thisObject.container);
-                    point1 = viewPort.fitIntoVisibleArea(point1);
+                    point1 = canvas.chartSpace.viewport.fitIntoVisibleArea(point1);
                     point1 = thisObject.fitFunction(point1);
 
                     point2 = coordinateSystem.transformThisPoint(point2);
                     point2 = transformThisPoint(point2, thisObject.container);
-                    point2 = viewPort.fitIntoVisibleArea(point2);
+                    point2 = canvas.chartSpace.viewport.fitIntoVisibleArea(point2);
                     point2 = thisObject.fitFunction(point2);
 
                     browserCanvasContext.beginPath();

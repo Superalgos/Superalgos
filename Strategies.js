@@ -68,8 +68,8 @@
 
             /* Stop listening to the necesary events. */
 
-            viewPort.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            viewPort.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -122,8 +122,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = viewPort.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -319,8 +319,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -399,8 +399,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPoint(viewPort.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPoint(viewPort.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPoint(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -523,17 +523,17 @@
                 recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
                 recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
 
-                if (recordPoint2.x < viewPort.visibleArea.bottomLeft.x || recordPoint1.x > viewPort.visibleArea.bottomRight.x) {
+                if (recordPoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || recordPoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
                     continue;
                 }
 
                 recordPoint3.y = recordPoint1.y + 2000;
                 recordPoint4.y = recordPoint1.y + 2000;
 
-                recordPoint1 = viewPort.fitIntoVisibleArea(recordPoint1);
-                recordPoint2 = viewPort.fitIntoVisibleArea(recordPoint2);
-                recordPoint3 = viewPort.fitIntoVisibleArea(recordPoint3);
-                recordPoint4 = viewPort.fitIntoVisibleArea(recordPoint4);
+                recordPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint1);
+                recordPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint2);
+                recordPoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint3);
+                recordPoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint4);
 
                 recordPoint1 = thisObject.fitFunction(recordPoint1, undefined, 30);
                 recordPoint2 = thisObject.fitFunction(recordPoint2, undefined, 30);

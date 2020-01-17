@@ -6,7 +6,7 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    heightPercentage: 150,
+    heightPercentage: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -16,9 +16,10 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const HEIGHT_PERCENTAGE_DEFAULT_VALUE = 50
+  const DEFAULT_VALUE = 50
   const STEP_SIZE = 2
   const MIN_WIDTH = 50
+  const MAX_VALUE = 150
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -72,12 +73,8 @@ function newRateScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.heightPercentage = window.localStorage.getItem(MODULE_NAME)
-    if (!thisObject.heightPercentage) {
-      thisObject.heightPercentage = HEIGHT_PERCENTAGE_DEFAULT_VALUE
-    } else {
-      thisObject.heightPercentage = JSON.parse(thisObject.heightPercentage)
-    }
+    thisObject.heightPercentage = DEFAULT_VALUE
+    readObjectState()
 
     let event = {}
     event.heightPercentage = thisObject.heightPercentage
@@ -124,12 +121,12 @@ function newRateScale () {
       if (thisObject.heightPercentage < STEP_SIZE * 3) { thisObject.heightPercentage = STEP_SIZE }
     } else {
       thisObject.heightPercentage = thisObject.heightPercentage + STEP_SIZE * morePower
-      if (thisObject.heightPercentage > 150) { thisObject.heightPercentage = 200 }
+      if (thisObject.heightPercentage > MAX_VALUE) { thisObject.heightPercentage = MAX_VALUE }
     }
     event.heightPercentage = thisObject.heightPercentage
     thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
 
-    window.localStorage.setItem(MODULE_NAME, thisObject.heightPercentage)
+    saveObjectState()
   }
 
   function getContainer (point) {
@@ -138,7 +135,48 @@ function newRateScale () {
     }
   }
 
+  function saveObjectState () {
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      code.value = thisObject.heightPercentage / MAX_VALUE * 100
+      code.value = code.value.toFixed(2)
+      thisObject.payload.node.code = JSON.stringify(code)
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+  }
+
+  function readObjectState () {
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+
+      if (isNaN(code.value) || code.value === null || code.value === undefined) {
+        saveObjectState()
+        return
+      }
+      code.value = code.value / 100 * MAX_VALUE
+      if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
+      if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
+
+      if (code.value !== thisObject.heightPercentage) {
+        thisObject.heightPercentage = code.value
+        let event = {}
+        event.heightPercentage = thisObject.heightPercentage
+        thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+      } else {
+        saveObjectState()
+      }
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+  }
+
   function physics () {
+    readObjectState()
+    positioningphysics()
+  }
+
+  function positioningphysics () {
     /* Container Limits */
 
     let upCorner = {

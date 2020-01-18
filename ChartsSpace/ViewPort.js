@@ -36,16 +36,12 @@ function newViewport () {
     payload: undefined,
     newZoomLevel: newZoomLevel,
     applyZoom: applyZoom,
-    isMinZoom: isMinZoom,
-    zoomFontSize: zoomFontSize,
     zoomThisPoint: zoomThisPoint,
     unzoomThisPoint: unzoomThisPoint,
     isThisPointVisible: isThisPointVisible,
     fitIntoVisibleArea: fitIntoVisibleArea,
     displace: displace,
-    displaceTarget: displaceTarget,
     physics: physics,
-    draw: draw,
     raiseEvents: raiseEvents,
     resize: resize,
     initialize: initialize,
@@ -195,18 +191,6 @@ function newViewport () {
       // console.log("displace produced new Position x = " + position.x + " y = " + position.y);
   }
 
-  function displaceTarget (displaceVector) {
-    targetPosition.x = targetPosition.x + displaceVector.x
-    targetPosition.y = targetPosition.y + displaceVector.y
-
-    positionIncrement = {
-      x: (targetPosition.x - position.x) / 10,
-      y: (targetPosition.y - position.y) / 10
-    }
-
-      // console.log("displaceTarget x = " + targetPosition.x + " y = " + targetPosition.y);
-  }
-
   function newZoomLevel (level) {
     thisObject.zoomTargetLevel = level
     thisObject.zoomLevel = level
@@ -224,12 +208,6 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Zoom Changed', event)
 
     return true
-  }
-
-  function isMinZoom () {
-      /* returns true is we are currently at the min zoom level. */
-
-    if (thisObject.zoomTargetLevel === MIN_ZOOM_LEVEL) { return true } else { return false }
   }
 
   function applyZoom (amount) {
@@ -324,18 +302,6 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 
-  function zoomFontSize (baseSize, level) {
-    let zoomFactor = increment // + increment * thisObject.zoomLevel / 100;
-
-    if (level === undefined) {
-      baseSize = baseSize * (1 + zoomFactor * thisObject.zoomLevel)
-    } else {
-      baseSize = baseSize * (1 + zoomFactor * level)
-    }
-
-    return baseSize
-  }
-
   function fitIntoVisibleArea (point) {
        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
@@ -400,70 +366,6 @@ function newViewport () {
     } else {
       return true
     }
-  }
-
-  function draw () {
-    drawGrid(0.1)
-  }
-
-  function drawGrid (step) {
-    if (thisObject.zoomLevel > -17) { return }
-
-    let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step
-    squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel
-
-    let startingX = position.x - Math.trunc(position.x / squareWidth) * squareWidth
-    let startingY = position.y - Math.trunc(position.y / squareWidth) * squareWidth
-    let lineWidth = 0.4 + thisObject.zoomLevel / 100
-    lineWidth = lineWidth.toFixed(2)
-
-    if (lineWidth < 0.1) {
-      return
-    }
-
-    if (lineWidth > 2) {
-      lineWidth = 2
-    }
-
-    browserCanvasContext.beginPath()
-
-    let CROSS_SIZE = 4
-
-    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x + RIGHT_MARGIN; i = i + squareWidth) {
-      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y + BOTTOM_MARGIN; j = j + squareWidth) {
-        let point1 = {
-          x: Math.trunc(i - CROSS_SIZE),
-          y: Math.trunc(j)
-        }
-
-        let point2 = {
-          x: Math.trunc(i + CROSS_SIZE),
-          y: Math.trunc(j)
-        }
-
-        browserCanvasContext.moveTo(point1.x, point1.y)
-        browserCanvasContext.lineTo(point2.x, point2.y)
-
-        let point3 = {
-          x: Math.trunc(i),
-          y: Math.trunc(j - CROSS_SIZE)
-        }
-
-        let point4 = {
-          x: Math.trunc(i),
-          y: Math.trunc(j + CROSS_SIZE)
-        }
-
-        browserCanvasContext.moveTo(point3.x, point3.y)
-        browserCanvasContext.lineTo(point4.x, point4.y)
-      }
-    }
-    browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.5)'
-
-    browserCanvasContext.lineWidth = 1
-
-    browserCanvasContext.stroke()
   }
 
   function saveObjectState () {

@@ -15,7 +15,6 @@ function newPlottersManager () {
     payload: undefined,
     setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
-    positionAtDatetime: positionAtDatetime,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
@@ -287,15 +286,6 @@ function newPlottersManager () {
       connector.layer.setDatetime(pDatetime)
       connector.storage.setDatetime(pDatetime)
       connector.plotter.setDatetime(pDatetime)
-    }
-  }
-
-  function positionAtDatetime (pDatetime) {
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
-      if (connector.plotter.positionAtDatetime !== undefined) {
-        connector.plotter.positionAtDatetime(pDatetime)
-      }
     }
   }
 

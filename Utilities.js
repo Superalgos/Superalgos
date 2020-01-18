@@ -57,13 +57,13 @@ function transformThisPoint (point, container) {
 
     /* We pass this point through the canvas.chartSpace.viewport lends, meaning we apply the canvas.chartSpace.viewport zoom and displacement. */
 
-  point = canvas.chartSpace.viewport.zoomThisPoint(point)
+  point = canvas.chartSpace.viewport.transformThisPoint(point)
 
   return point
 }
 
 function unTransformThisPoint (point, container) {
-  point = canvas.chartSpace.viewport.unzoomThisPoint(point)
+  point = canvas.chartSpace.viewport.unTransformThisPoint(point)
   point = container.frame.unframeThisPoint(point)
 
   return point
@@ -146,12 +146,8 @@ function getUserPosition (timeLineCoordinateSystem) {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, considerZoom, moveContainer) {
+function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, moveContainer) {
   let userPosition = getUserPosition(timeLineCoordinateSystem)
-
-  if (considerZoom === true) {
-    canvas.chartSpace.viewport.newZoomLevel(userPosition.zoom)
-  }
 
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
   NEW_SESSION_INITIAL_DATE = new Date(userPosition.date)
@@ -190,7 +186,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
 
     let targetNoZoom
-    targetNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(targetCopy)
+    targetNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(targetCopy)
 
     let centerCopy = {
       x: centerPoint.x,
@@ -198,7 +194,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
     }
 
     let centerNoZoom
-    centerNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(centerCopy)
+    centerNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(centerCopy)
 
     displaceVector = {
       x: centerNoZoom.x - targetNoZoom.x,

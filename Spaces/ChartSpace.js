@@ -151,7 +151,7 @@ function newChartSpace () {
   function oneScreenUp () {
     let displaceVector = {
       x: 0,
-      y: +browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+      y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
     canvas.chartSpace.viewport.displace(displaceVector)
@@ -290,8 +290,8 @@ function newChartSpace () {
       timeMachine.payload.uiObject.setValue('Loading...')
 
       /* Setting up the new time machine. */
-      timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
-      timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
+      timeMachine.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
+      timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
       timeMachine.initialize(onTimeMachineInitialized)
 
       function onTimeMachineInitialized (err) {

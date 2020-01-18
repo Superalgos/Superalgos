@@ -804,7 +804,7 @@ function newCanvas () {
       }
 
       if (container !== undefined) {
-        canvas.chartSpace.viewport.applyZoom(delta)
+        canvas.chartSpace.viewport.onMouseWheel(delta)
         return false
       }
 
@@ -872,7 +872,7 @@ function newCanvas () {
             }
 
             let downNoZoom
-            downNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(downCopy)
+            downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
 
             let upCopy = {
               x: dragVector.upX,
@@ -880,7 +880,7 @@ function newCanvas () {
             }
 
             let upNoZoom
-            upNoZoom = canvas.chartSpace.viewport.unzoomThisPoint(upCopy)
+            upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
 
             displaceVector = {
               x: upNoZoom.x - downNoZoom.x,

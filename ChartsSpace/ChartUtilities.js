@@ -64,11 +64,11 @@ function getTransparenceFactor (timeFrame) {
 function recalculatePeriod (zoomLevel) {
     // console.log(" recalculatePeriod > " + zoomLevel);
 
-  if (zoomLevel > 200) {
+  if (zoomLevel > 90) {
     return _1_MINUTE_IN_MILISECONDS
   }
 
-  if (zoomLevel > 120) {
+  if (zoomLevel > 85) {
     return _2_MINUTES_IN_MILISECONDS
   }
 
@@ -76,68 +76,65 @@ function recalculatePeriod (zoomLevel) {
     return _3_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > 60) {
+  if (zoomLevel > 75) {
     return _4_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > 15) {
+  if (zoomLevel > 70) {
     return _5_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -7) {
+  if (zoomLevel > 65) {
     return _10_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -10) {
+  if (zoomLevel > 60) {
     return _15_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -13) {
+  if (zoomLevel > 55) {
     return _20_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -15) {
+  if (zoomLevel > 50) {
     return _30_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -16) {
+  if (zoomLevel > 45) {
     return _40_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -17) {
+  if (zoomLevel > 50) {
     return _45_MINUTES_IN_MILISECONDS
   }
 
-  if (zoomLevel > -18) {
+  if (zoomLevel > 35) {
     return _1_HOUR_IN_MILISECONDS
   }
 
-  if (zoomLevel > -24) {
+  if (zoomLevel > 30) {
     return _2_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > -25) {
+  if (zoomLevel > 25) {
     return _3_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > -27) {
+  if (zoomLevel > 20) {
     return _4_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > -27.5) {
+  if (zoomLevel > 15) {
     return _6_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > -27.75) {
+  if (zoomLevel > 10) {
     return _8_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > -28) {
+  if (zoomLevel > 5) {
     return _12_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel <= -28) {
-    return ONE_DAY_IN_MILISECONDS
-  }
   return ONE_DAY_IN_MILISECONDS
 }

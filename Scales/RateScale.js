@@ -16,10 +16,10 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const DEFAULT_VALUE = 50
-  const STEP_SIZE = 2
+  const DEFAULT_VALUE = 1
+  const STEP_SIZE = 1
   const MIN_WIDTH = 50
-  const MAX_VALUE = 150
+  const MAX_VALUE = 100
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -148,6 +148,7 @@ function newRateScale () {
   }
 
   function readObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 

@@ -57,6 +57,9 @@ function newTimelineChart () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.detectMouseOver = true
+
+    thisObject.container.frame.width = TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
   }
 
   function finalize () {
@@ -119,8 +122,10 @@ function newTimelineChart () {
     thisObject.rateScale = undefined
 
     /* Resets the local container with the dimessions of its parent, the Time Machine */
+    thisObject.container.frame.position.position.x = 0
     thisObject.container.frame.position.position.y = 0
-    thisObject.container.frame.position.height = thisObject.container.parentContainer.frame.height
+    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
+    thisObject.container.frame.width = TIME_MACHINE_WIDTH
   }
 
   function initialize (pTimeMachineCoordinateSystem) {
@@ -166,10 +171,10 @@ function newTimelineChart () {
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value / 100
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
-        moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, false, true)
+        moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
@@ -279,7 +284,7 @@ function newTimelineChart () {
     }
 
     let newDate = new Date(0)
-    newDate.setUTCSeconds(center.x / 1000)
+    newDate.setUTCSeconds(center.x)
 
     datetime = newDate
 
@@ -363,22 +368,6 @@ function newTimelineChart () {
     }
     if (thisObject.timeFrameScale !== undefined) {
       thisObject.timeFrameScale.physics()
-    }
-  }
-
-  function tooTiny () {
-    if (canvas.chartSpace.viewport.zoomLevel < Math.trunc(-28.25 * 100) / 100) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  function tooSmall () {
-    if (canvas.chartSpace.viewport.zoomLevel < Math.trunc(-27.25 * 100) / 100) {
-      return true
-    } else {
-      return false
     }
   }
 

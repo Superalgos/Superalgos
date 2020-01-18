@@ -132,7 +132,7 @@ function newTimeMachine () {
 
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
-    loadFrame(thisObject.payload, thisObject.container.frame)
+    // loadFrame(thisObject.payload, thisObject.container.frame)
 
     recalculateCoordinateSystem()
 
@@ -180,10 +180,10 @@ function newTimeMachine () {
     thisObject.timeScale.payload = thisObject.payload.node.timeScale.payload
 
     timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.value / 100
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
-        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, false, true)
+        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
@@ -203,10 +203,10 @@ function newTimeMachine () {
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
     rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value / 100
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
-        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, false, true)
+        moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     })
@@ -411,7 +411,7 @@ function newTimeMachine () {
       timelineChart.container.fitFunction = thisObject.container.fitFunction
       timelineChart.fitFunction = thisObject.fitFunction
       timelineChart.container.frame.height = thisObject.container.frame.height
-      timelineChart.container.frame.position.x = thisObject.container.frame.width / 2 - timelineChart.container.frame.width / 2
+      timelineChart.container.frame.position.x = 0
       timelineChart.container.frame.position.y = 0
       timelineChart.initialize(timeMachineCoordinateSystem)
 

@@ -188,8 +188,8 @@ const PERIOD_01_MIN = "01-min";
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const TIME_MACHINE_WIDTH = browserCanvas.width * 1000;
-const TIME_MACHINE_HEIGHT = browserCanvas.height * 100;
+const TIME_MACHINE_WIDTH = 500;
+const TIME_MACHINE_HEIGHT = 100;
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

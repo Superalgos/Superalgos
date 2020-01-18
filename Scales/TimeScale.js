@@ -16,8 +16,9 @@ function newTimeScale () {
     finalize: finalize
   }
 
-  const DEFAULT_VALUE = 5
-  const STEP_SIZE = 2.5
+  const DEFAULT_VALUE = 1
+  const STEP_SIZE = 1
+  const MIN_VALUE = 1
   const MAX_VALUE = 400
 
   thisObject.container = newContainer()
@@ -117,7 +118,7 @@ function newTimeScale () {
     delta = event.wheelDelta
     if (delta < 0) {
       thisObject.value = thisObject.value - STEP_SIZE * morePower
-      if (thisObject.value < STEP_SIZE) { thisObject.value = STEP_SIZE }
+      if (thisObject.value < MIN_VALUE) { thisObject.value = STEP_SIZE }
     } else {
       thisObject.value = thisObject.value + STEP_SIZE * morePower
       if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
@@ -148,6 +149,7 @@ function newTimeScale () {
   }
 
   function readObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
@@ -156,7 +158,7 @@ function newTimeScale () {
         return
       }
       code.value = code.value / 100 * MAX_VALUE
-      if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
+      if (code.value < MIN_VALUE) { code.value = STEP_SIZE }
       if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
 
       if (code.value !== thisObject.value) {

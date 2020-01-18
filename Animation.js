@@ -62,7 +62,7 @@ function newAnimation () {
         browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
 
         /* First thing is to clear the actual canvas */
-        clearBrowserCanvas()
+        // clearBrowserCanvas()
 
         /* We loop through the callback functions collections and execute them all. */
         let performanceMap = new Map()

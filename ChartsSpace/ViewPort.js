@@ -8,7 +8,7 @@ function newViewport () {
   logger.fileName = MODULE_NAME
 
   const CONSOLE_LOG = true
-  const MIN_ZOOM_LEVEL = -28.04435
+  const MIN_ZOOM_LEVEL = -28.25
   const MAX_ZOOM_LEVEL = 1000
 
   let ANIMATION_INCREMENT = 0.25

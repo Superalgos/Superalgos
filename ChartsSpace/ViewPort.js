@@ -8,7 +8,7 @@ function newViewport () {
   logger.fileName = MODULE_NAME
 
   const CONSOLE_LOG = true
-  const MIN_ZOOM_LEVEL = -28.25
+  const MIN_ZOOM_LEVEL = -28.04435
   const MAX_ZOOM_LEVEL = 1000
 
   let ANIMATION_INCREMENT = 0.25
@@ -85,6 +85,23 @@ function newViewport () {
   }
 
   function initialize () {
+    if (thisObject.payload !== undefined) {
+      /* Read the position from the frame structure */
+      let frame = {
+        position: {
+          x: 0,
+          y: 0
+        }
+      }
+      loadFrame(thisObject.payload, frame)
+      if (!isNaN(frame.position.x)) {
+        position.x = frame.position.x
+      }
+      if (!isNaN(frame.position.y)) {
+        position.y = frame.position.y
+      }
+    }
+
     resize()
     readObjectState()
   }
@@ -122,6 +139,16 @@ function newViewport () {
 
   function physics () {
     animationPhysics()
+    positioningphysics()
+    readObjectState()
+  }
+
+  function positioningphysics () {
+    if (thisObject.payload === undefined) { return }
+    /* Save the position at the frame lavel */
+    let frame = {}
+    frame.position = position
+    saveFrame(thisObject.payload, frame)
   }
 
   function animationPhysics () {
@@ -451,30 +478,10 @@ function newViewport () {
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
-
-    /* Save the position at the frame lavel */
-    let frame = {}
-    frame.position = position
-    saveFrame(thisObject.payload, frame)
   }
 
   function readObjectState () {
     if (thisObject.payload === undefined) { return }
-
-    /* Read the position from the frame structure */
-    let frame = {
-      position: {
-        x: 0,
-        y: 0
-      }
-    }
-    loadFrame(thisObject.payload, frame)
-    if (!isNaN(frame.position.x)) {
-      position.x = frame.position.x
-    }
-    if (!isNaN(frame.position.y)) {
-      position.y = frame.position.y
-    }
 
     /* Read the zoom level from the node config */
     try {
@@ -489,9 +496,7 @@ function newViewport () {
       if (code.zoom > MAX_ZOOM_LEVEL) { code.zoom = MAX_ZOOM_LEVEL }
 
       if (code.zoom !== thisObject.zoomLevel) {
-        thisObject.zoomLevel = code.zoom
-        thisObject.zoomTargetLevel = code.zoom
-        INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+        newZoomLevel(code.zoom)
       } else {
         saveObjectState()
       }

@@ -283,7 +283,9 @@ function newTimelineChart () {
 
     datetime = newDate
 
-    thisObject.plotterManager.setDatetime(datetime)
+    if (thisObject.plotterManager !== undefined) {
+      thisObject.plotterManager.setDatetime(datetime)
+    }
   }
 
   function getContainer (point, purpose) {

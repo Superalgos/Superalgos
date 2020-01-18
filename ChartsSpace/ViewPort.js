@@ -2,7 +2,7 @@
 function newViewport () {
   const MODULE_NAME = 'Viewport'
 
-  const MIN_ZOOM_LEVEL = 1
+  const MIN_ZOOM_LEVEL = 0
   const MAX_ZOOM_LEVEL = 100
 
   let ANIMATION_INCREMENT = 0.25
@@ -134,6 +134,7 @@ function newViewport () {
   }
 
   function physics () {
+    console.log(position, thisObject.zoomLevel)
     animationPhysics()
     positioningphysics()
     // readObjectState()

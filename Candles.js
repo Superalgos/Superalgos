@@ -26,8 +26,7 @@
 
         // Secondary functions and properties.
 
-        currentCandle: undefined,
-        positionAtDatetime: positionAtDatetime
+        currentCandle: undefined
     };
 
     /* this is part of the module template */
@@ -218,107 +217,6 @@
 
         datetime = pDatetime;
 
-    }
-
-    function positionAtDatetime(newDatetime) {
-
-        try {
-
-            value = newDatetime.valueOf();
-
-            /* Now we calculate which candle has this new time, because it will give us the y coordinate. */
-
-            let candleFound = false;
-            let lastClose;
-
-            for (let i = 0; i < candles.length; i++) {
-
-                lastClose = candles[i].close;
-
-                if (value >= candles[i].begin && value <= candles[i].end) {
-
-                    candleFound = true;
-
-                    let targetPoint = {
-                        x: value,
-                        y: candles[i].open
-                    };
-
-                    targetPoint = coordinateSystem.transformThisPoint(targetPoint);
-                    targetPoint = transformThisPoint(targetPoint, thisObject.container);
-
-                    let targetMax = {
-                        x: value,
-                        y: candles[i].max
-                    };
-
-                    targetMax = coordinateSystem.transformThisPoint(targetMax);
-                    targetMax = transformThisPoint(targetMax, thisObject.container);
-
-                    let targetMin = {
-                        x: value,
-                        y: candles[i].min
-                    };
-
-                    targetMin = coordinateSystem.transformThisPoint(targetMin);
-                    targetMin = transformThisPoint(targetMin, thisObject.container);
-
-                    let center = {
-                        x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-                        y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
-                    };
-
-                    if (targetMax.y < canvas.chartSpace.viewport.visibleArea.topLeft.y || targetMin.y > canvas.chartSpace.viewport.visibleArea.bottomRight.y) {
-
-                        let displaceVector = {
-                            x: 0,
-                            y: center.y - targetPoint.y
-                        };
-
-                        canvas.chartSpace.viewport.displaceTarget(displaceVector);
-
-                    }
-
-                    let displaceVector = {
-                        x: center.x - targetPoint.x,
-                        y: 0
-                    };
-
-                    canvas.chartSpace.viewport.displace(displaceVector);
-
-                    return;
-                }
-            }
-
-            if (candleFound === false) {
-
-                let targetPoint = {
-                    x: value,
-                    y: lastClose
-                };
-
-                targetPoint = coordinateSystem.transformThisPoint(targetPoint);
-                targetPoint = transformThisPoint(targetPoint, thisObject.container);
-
-                let center = {
-                    x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-                    y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
-                };
-
-                let displaceVector = {
-                    x: center.x - targetPoint.x,
-                    y: center.y - targetPoint.y
-                };
-
-                canvas.chartSpace.viewport.displace(displaceVector);
-
-                return;
-            }
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] positionAtDatetime -> err = " + err.stack); }
-        }
     }
 
     function onDailyFileLoaded(event) {

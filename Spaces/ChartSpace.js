@@ -81,7 +81,7 @@ function newChartSpace () {
   }
 
   function initialize () {
-    thisObject.viewport = newViewPort()
+    thisObject.viewport = newViewport()
     thisObject.viewport.initialize()
     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }

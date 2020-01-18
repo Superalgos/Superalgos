@@ -1,5 +1,5 @@
 
-function newViewPort () {
+function newViewport () {
   const MODULE_NAME = 'Viewport'
   const INFO_LOG = false
   const INTENSIVE_LOG = false
@@ -439,7 +439,7 @@ function newViewPort () {
 
     let frame = {}
     frame.position = position
-    // saveFrame(thisObject.payload, frame)
+    saveFrame(thisObject.payload, frame)
   }
 
   function readObjectState () {

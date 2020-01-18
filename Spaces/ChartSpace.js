@@ -18,6 +18,7 @@ function newChartSpace () {
     inViewport: undefined,
     timeMachines: undefined,
     viewport: undefined,
+    payload: undefined,
     reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -78,9 +79,19 @@ function newChartSpace () {
 
     thisObject.viewport.finalize()
     thisObject.viewport = undefined
+
+    thisObject.payload = undefined
   }
 
   function initialize () {
+    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.type === 'Charting System') {
+        thisObject.payload = rootNode.payload
+      }
+    }
+
     thisObject.viewport = newViewport()
     thisObject.viewport.initialize()
     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
@@ -228,26 +239,20 @@ function newChartSpace () {
   function syncWithDesigner () {
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
-    for (let i = 0; i < rootNodes.length; i++) {
-      let rootNode = rootNodes[i]
-      if (rootNode.type === 'Charting System') {
-        let chartingSystem = rootNode
-        if (chartingSystem.timeMachines !== undefined) {
-          for (let j = 0; j < chartingSystem.timeMachines.length; j++) {
-            let node = chartingSystem.timeMachines[j]
-            let timeMachine = timeMachinesMap.get(node.id)
-            if (timeMachine === undefined) {
+    if (thisObject.payload.node.timeMachines !== undefined) {
+      for (let j = 0; j < thisObject.payload.node.timeMachines.length; j++) {
+        let node = thisObject.payload.node.timeMachines[j]
+        let timeMachine = timeMachinesMap.get(node.id)
+        if (timeMachine === undefined) {
               /* The time machine node is new, thus we need to initialize a new timeMachine */
-              initializeTimeMachine(node, syncWithDesignerLoop)
-            } else {
+          initializeTimeMachine(node, syncWithDesignerLoop)
+        } else {
               /* The time machine already exists, we tag it as existing at the current loop. */
-              timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
-            }
-          }
+          timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
         }
       }
     }
+
     /* We check all the timeMachines we have to see if we need to remove any of them */
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       let timeMachine = thisObject.timeMachines[i]

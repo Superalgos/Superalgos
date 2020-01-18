@@ -26,7 +26,7 @@ function newAppLoader() {
             modulesArray = ['UserEcosystem.js']
        
             modulesArray = modulesArray.concat([
-                'ChartsSpace/ViewPort.js',
+                'ChartsSpace/Viewport.js',
 
                 'Globals.js',
                 'Ecosystem.js',

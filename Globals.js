@@ -42,7 +42,7 @@ UI_FONT = {
 };
 
 let FONT_ASPECT_RATIO = 0.32;
-const MIN_ZOOM_LEVEL = -28.25
+
 
 const GET_CONTAINER_PURPOSE = {
   MOUSE_OVER: 1,

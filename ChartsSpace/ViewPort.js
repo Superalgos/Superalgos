@@ -8,6 +8,8 @@ function newViewport () {
   logger.fileName = MODULE_NAME
 
   const CONSOLE_LOG = true
+  const MIN_ZOOM_LEVEL = -28.25
+  const MAX_ZOOM_LEVEL = 1000
 
   let ANIMATION_INCREMENT = 0.25
 
@@ -67,7 +69,12 @@ function newViewport () {
     y: 0
   }
   thisObject.eventHandler = newEventHandler()
-  let objectStorage = {}
+
+/* Initial default value */
+  thisObject.zoomLevel = MIN_ZOOM_LEVEL
+  thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+  INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+
   return thisObject
 
   function finalize () {
@@ -233,7 +240,7 @@ function newViewport () {
       }
     }
 
-    if (thisObject.zoomTargetLevel + amount > 1000) {
+    if (thisObject.zoomTargetLevel + amount > MAX_ZOOM_LEVEL) {
       return false
     }
 
@@ -434,9 +441,18 @@ function newViewport () {
 
   function saveObjectState () {
     if (thisObject.payload === undefined) { return }
-    objectStorage.zoomLevel = thisObject.zoomLevel
-    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
 
+    /* Save the zoom at the node config, so that the user can change it if he wishes to. */
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      code.zoom = (thisObject.zoomLevel - MIN_ZOOM_LEVEL) / (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) * 100
+      code.zoom = code.zoom.toFixed(2)
+      thisObject.payload.node.code = JSON.stringify(code)
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+
+    /* Save the position at the frame lavel */
     let frame = {}
     frame.position = position
     saveFrame(thisObject.payload, frame)
@@ -444,6 +460,8 @@ function newViewport () {
 
   function readObjectState () {
     if (thisObject.payload === undefined) { return }
+
+    /* Read the position from the frame structure */
     let frame = {
       position: {
         x: 0,
@@ -458,19 +476,27 @@ function newViewport () {
       position.y = frame.position.y
     }
 
-    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
-    if (objectStorageString !== null && objectStorageString !== '') {
-      objectStorage = JSON.parse(objectStorageString)
-      thisObject.zoomLevel = objectStorage.zoomLevel
-      thisObject.zoomTargetLevel = objectStorage.zoomLevel
-      INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
-    } else { // Setting default values for first session
-      position = {
-        x: 0,
-        y: 0
+    /* Read the zoom level from the node config */
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+
+      if (isNaN(code.zoom) || code.zoom === null || code.zoom === undefined) {
+        saveObjectState()
+        return
       }
-      thisObject.zoomLevel = MIN_ZOOM_LEVEL
-      thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+      code.zoom = code.zoom / 100 * (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) + MIN_ZOOM_LEVEL
+      if (code.zoom < MIN_ZOOM_LEVEL) { code.zoom = MIN_ZOOM_LEVEL }
+      if (code.zoom > MAX_ZOOM_LEVEL) { code.zoom = MAX_ZOOM_LEVEL }
+
+      if (code.zoom !== thisObject.zoomLevel) {
+        thisObject.zoomLevel = code.zoom
+        thisObject.zoomTargetLevel = code.zoom
+        INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+      } else {
+        saveObjectState()
+      }
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
     }
   }
 }

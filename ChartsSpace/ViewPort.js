@@ -433,7 +433,7 @@ function newViewport () {
   }
 
   function saveObjectState () {
-    objectStorage.position = position
+    if (thisObject.payload === undefined) { return }
     objectStorage.zoomLevel = thisObject.zoomLevel
     window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
 
@@ -443,10 +443,24 @@ function newViewport () {
   }
 
   function readObjectState () {
+    if (thisObject.payload === undefined) { return }
+    let frame = {
+      position: {
+        x: 0,
+        y: 0
+      }
+    }
+    loadFrame(thisObject.payload, frame)
+    if (!isNaN(frame.position.x)) {
+      position.x = frame.position.x
+    }
+    if (!isNaN(frame.position.y)) {
+      position.y = frame.position.y
+    }
+
     let objectStorageString = window.localStorage.getItem(MODULE_NAME)
     if (objectStorageString !== null && objectStorageString !== '') {
       objectStorage = JSON.parse(objectStorageString)
-      position = objectStorage.position
       thisObject.zoomLevel = objectStorage.zoomLevel
       thisObject.zoomTargetLevel = objectStorage.zoomLevel
       INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)

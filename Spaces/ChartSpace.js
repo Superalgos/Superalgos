@@ -93,7 +93,14 @@ function newChartSpace () {
     }
 
     thisObject.viewport = newViewport()
+    if (thisObject.payload.node.viewport === undefined) {
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Viewport node attached to the Charting System node in order for the Viewport save its properties. ') }
+    } else {
+      thisObject.viewport.payload = thisObject.payload.node.viewport.payload
+    }
+
     thisObject.viewport.initialize()
+
     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
@@ -231,6 +238,10 @@ function newChartSpace () {
   }
 
   function physics () {
+    if (thisObject.viewport !== undefined) {
+      thisObject.viewport.physics()
+    }
+
     thisObjectPhysics()
     childrenPhysics()
     syncWithDesigner()
@@ -291,7 +302,9 @@ function newChartSpace () {
 
         thisObject.timeMachines.push(timeMachine)
         timeMachine.payload.uiObject.setValue('')
-        canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+        if (canvas.chartSpace.viewport !== undefined) {
+          canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+        }
       }
     }
   }
@@ -305,7 +318,9 @@ function newChartSpace () {
       thisObject.visible = true
     }
 
-    canvas.chartSpace.viewport.resize()
+    if (canvas.chartSpace.viewport !== undefined) {
+      canvas.chartSpace.viewport.resize()
+    }
   }
 
   function childrenPhysics () {

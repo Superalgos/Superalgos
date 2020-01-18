@@ -150,7 +150,9 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     canvas.chartSpace.viewport.resize()
+     if (canvas.chartSpace.viewport !== undefined) {
+       canvas.chartSpace.viewport.resize()
+     }
    }
 
    function getContainer (point) {

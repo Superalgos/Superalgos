@@ -125,7 +125,6 @@ function newCanvas () {
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
       animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
-      animation.addCallBackFunction('ViewPort physics', canvas.chartSpace.viewport.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
@@ -145,8 +144,6 @@ function newCanvas () {
     try {
       browserCanvasContext = browserCanvas.getContext('2d')
       browserCanvasContext.font = 'Saira Condensed'
-
-      canvas.chartSpace.viewport.initialize()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initializeBrowserCanvas -> err = ' + err.stack) }
     }
@@ -634,8 +631,10 @@ function newCanvas () {
         y: event.pageY - CURRENT_TOP_MARGIN
       }
 
-      canvas.chartSpace.viewport.mousePosition.x = point.x
-      canvas.chartSpace.viewport.mousePosition.y = point.y
+      if (canvas.chartSpace.viewport !== undefined) {
+        canvas.chartSpace.viewport.mousePosition.x = point.x
+        canvas.chartSpace.viewport.mousePosition.y = point.y
+      }
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         if (floatingObjectDragStarted === true) {

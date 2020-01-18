@@ -180,7 +180,7 @@ function newTimeFrameScale () {
   function onViewportZoomChanged (event) {
     if (event !== undefined) { // it is undefined when the level is just being animated.
       let currentTimeFrame = thisObject.timeFrame
-      let timeFrame = currentTimeFrame // recalculatePeriod(event.newLevel)
+      let timeFrame = recalculatePeriod(event.newLevel)
       if (timeFrame !== currentTimeFrame) {
         for (let i = 0; i < timeFramesMasterArray.length; i++) {
           let timeFrameArray = timeFramesMasterArray[i]

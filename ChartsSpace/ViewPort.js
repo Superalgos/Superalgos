@@ -3,7 +3,7 @@ function newViewport () {
   const MODULE_NAME = 'Viewport'
 
   const MIN_ZOOM_LEVEL = 0
-  const MAX_ZOOM_LEVEL = 100
+  const MAX_ZOOM_LEVEL = 500
 
   let ANIMATION_INCREMENT = 0.25
   let ANIMATION_STEPS = 5
@@ -134,7 +134,6 @@ function newViewport () {
   }
 
   function physics () {
-    console.log(position, thisObject.zoomLevel)
     animationPhysics()
     positioningphysics()
     // readObjectState()
@@ -181,39 +180,17 @@ function newViewport () {
     let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
     if (isMac) { amount = amount / 5 }
 
-/*
-    if (amount > 0) {
-      if (thisObject.zoomTargetLevel > -5) {
-        amount = amount * 2
-      }
-      if (thisObject.zoomTargetLevel > 10) {
-        amount = amount * 3
-      }
-      if (thisObject.zoomTargetLevel > 15) {
-        amount = amount * 4
-      }
+    if (thisObject.zoomTargetLevel > 10) {
+      amount = amount * 2
+    }
+    if (thisObject.zoomTargetLevel > 25) {
+      amount = amount * 3
+    }
+    if (thisObject.zoomTargetLevel > 50) {
+      amount = amount * 3.5
     }
 
-    if (amount < 0) {
-      if (thisObject.zoomTargetLevel > -4) {
-        amount = amount * 2
-      }
-      if (thisObject.zoomTargetLevel > 13) {
-        amount = amount * 3
-      }
-      if (thisObject.zoomTargetLevel > 19) {
-        amount = amount * 4
-      }
-    }
-
-    if (thisObject.zoomTargetLevel <= -27 && amount < 0) {
-      amount = amount / 4
-    }
-    if (thisObject.zoomTargetLevel < -27 && amount > 0) {
-      amount = amount / 4
-    }
-
-*/
+    console.log(thisObject.zoomLevel, amount)
     if (thisObject.zoomTargetLevel + amount > MAX_ZOOM_LEVEL) {
       return false
     }

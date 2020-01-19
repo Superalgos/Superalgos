@@ -61,6 +61,8 @@ function newContainer () {
 
       thisObject.parentContainer = undefined
       thisObject.eventHandler.finalize()
+
+      thisObject.frame.finalize()
     }
   }
 

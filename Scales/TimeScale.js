@@ -17,7 +17,7 @@ function newTimeScale () {
   }
 
   const DEFAULT_VALUE = 1
-  const STEP_SIZE = 1
+  const STEP_VALUE = 1
   const MIN_VALUE = 1
   const MAX_VALUE = 400
 
@@ -78,7 +78,7 @@ function newTimeScale () {
 
     let event = {}
     event.value = thisObject.value
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+    thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -117,16 +117,16 @@ function newTimeScale () {
 
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.value = thisObject.value - STEP_SIZE * morePower
-      if (thisObject.value < MIN_VALUE) { thisObject.value = STEP_SIZE }
+      thisObject.value = thisObject.value - STEP_VALUE * morePower
+      if (thisObject.value < MIN_VALUE) { thisObject.value = MIN_VALUE }
     } else {
-      thisObject.value = thisObject.value + STEP_SIZE * morePower
+      thisObject.value = thisObject.value + STEP_VALUE * morePower
       if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
     }
 
     event.value = thisObject.value
     event.isUserAction = true
-    thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+    thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
 
     saveObjectState()
   }
@@ -157,14 +157,14 @@ function newTimeScale () {
         return
       }
       code.value = code.value / 100 * MAX_VALUE
-      if (code.value < MIN_VALUE) { code.value = STEP_SIZE }
+      if (code.value < MIN_VALUE) { code.value = MIN_VALUE }
       if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
 
       if (code.value !== thisObject.value) {
         thisObject.value = code.value
         let event = {}
         event.value = thisObject.value
-        thisObject.container.eventHandler.raiseEvent('Lenght Percentage Changed', event)
+        thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
       } else {
         saveObjectState()
       }

@@ -8,6 +8,7 @@ function newFrame () {
     containerName: '',                  // This is for debugging purposes only.
     parentFrame: undefined,             // Here we store the parent cointainer zoom object.
     radius: 0,
+    offset: undefined,
     position: undefined,
     container: undefined,
     width: browserCanvas.width,
@@ -20,20 +21,30 @@ function newFrame () {
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
     isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   return thisObject
 
+  function finalize () {
+    thisObject.parentFrame = undefined
+    thisObject.position = undefined
+    thisObject.offset = undefined
+  }
+
   function initialize (pType) {
     if (pType !== undefined) { thisObject.type = pType }
 
-    let position = {
+    thisObject.position = {
       x: 0,
       y: 0
     }
 
-    thisObject.position = position
+    thisObject.offset = {
+      x: 0,
+      y: 0
+    }
   }
 
   function getBodyHeight () {
@@ -86,11 +97,11 @@ function newFrame () {
     if (thisObject.parentFrame !== undefined) {
       parentPoint = thisObject.parentFrame.frameThisPoint(checkPoint)
 
-      returnPoint.x = parentPoint.x + thisObject.position.x
-      returnPoint.y = parentPoint.y + thisObject.position.y
+      returnPoint.x = parentPoint.x + thisObject.position.x + thisObject.offset.x
+      returnPoint.y = parentPoint.y + thisObject.position.y + thisObject.offset.y
     } else {
-      returnPoint.x = checkPoint.x + thisObject.position.x
-      returnPoint.y = checkPoint.y + thisObject.position.y
+      returnPoint.x = checkPoint.x + thisObject.position.x + thisObject.offset.x
+      returnPoint.y = checkPoint.y + thisObject.position.y + thisObject.offset.y
     }
 
     return returnPoint

@@ -47,9 +47,9 @@ function newTimeMachine () {
 
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
-  let timeScaleEventSuscriptionId
+  let timeScaleValueEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
-  let rateScaleEventSuscriptionId
+  let rateScaleValueEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
@@ -106,7 +106,7 @@ function newTimeMachine () {
   function finalizeTimeScale () {
     if (thisObject.timeScale === undefined) { return }
 
-    thisObject.timeScale.container.eventHandler.stopListening(timeScaleEventSuscriptionId)
+    thisObject.timeScale.container.eventHandler.stopListening(timeScaleValueEventSuscriptionId)
     thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
     thisObject.timeScale.finalize()
     thisObject.timeScale = undefined
@@ -115,7 +115,7 @@ function newTimeMachine () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
@@ -179,19 +179,18 @@ function newTimeMachine () {
     thisObject.timeScale.fitFunction = thisObject.fitFunction
     thisObject.timeScale.payload = thisObject.payload.node.timeScale.payload
 
-    timeScaleEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Lenght Percentage Changed', function (event) {
+    timeScaleValueEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Time Scale Value Changed', timeScaleValueChanged)
+    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOverScale', timeScaleMouseOver)
+    thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+
+    function timeScaleValueChanged (event) {
       thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
         moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
-
-    thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
-
-    timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOverScale', timeScaleMouseOver)
-
+    }
     function timeScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -202,19 +201,18 @@ function newTimeMachine () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
+    thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+
+    function rateScaleValueChanged (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
         moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
-
-    thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container)
-
-    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
-
+    }
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -225,7 +223,11 @@ function newTimeMachine () {
     thisObject.timeFrameScale.fitFunction = thisObject.fitFunction
     thisObject.timeFrameScale.payload = thisObject.payload.node.timeFrameScale.payload
 
-    timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+    timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Value Changed', timeFrameScaleValueChanged)
+    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
+    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+
+    function timeFrameScaleValueChanged (event) {
       let currentTimeFrame = timeFrame
       timeFrame = event.timeFrame
       if (timeFrame !== currentTimeFrame) {
@@ -237,12 +239,7 @@ function newTimeMachine () {
           }
         }
       }
-    })
-
-    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
-
-    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
-
+    }
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }

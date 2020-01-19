@@ -278,7 +278,7 @@ function newTimeFrameScale () {
     // console.log('NEW TIME FRAME LABEL', timeFrameLabel)
     let event = {}
     event.timeFrame = thisObject.timeFrame
-    thisObject.container.eventHandler.raiseEvent('Time Frame Changed', event)
+    thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
     window.localStorage.setItem('Current Time Frame', JSON.stringify({filePeriodIndex: filePeriodIndex, timeFrameIndex: timeFrameIndex}))
   }
 

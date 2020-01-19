@@ -7,6 +7,7 @@ function newRateScale () {
     fitFunction: undefined,
     payload: undefined,
     value: undefined,
+    offset: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -17,9 +18,15 @@ function newRateScale () {
   }
 
   const DEFAULT_VALUE = 25
-  const STEP_SIZE = 1
-  const MIN_WIDTH = 50
+  const STEP_VALUE = 1
+  const MIN_VALUE = 1
   const MAX_VALUE = 100
+
+  const DEFAULT_OFFSET = 0
+  const STEP_OFFSET = 1
+  const MIN_OFFSET = -1000
+  const MAX_OFFSET = 1000
+  const SNAP_THRESHOLD_OFFSET = 5
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -31,6 +38,8 @@ function newRateScale () {
 
   thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
   thisObject.container.frame.height = 40
+
+  thisObject.offset = DEFAULT_OFFSET
 
   let visible = true
   let isMouseOver
@@ -78,7 +87,7 @@ function newRateScale () {
 
     let event = {}
     event.value = thisObject.value
-    thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+    thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -113,21 +122,48 @@ function newRateScale () {
 
   function onMouseWheel (event) {
     let morePower = 1
-    if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
+    let delta
 
-    delta = event.wheelDelta
-    if (delta < 0) {
-      thisObject.value = thisObject.value - STEP_SIZE * morePower
-      if (thisObject.value < STEP_SIZE * 3) { thisObject.value = STEP_SIZE }
+    if (event.shiftKey === true) {
+      if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
+      delta = event.wheelDelta
+      if (delta > 0) {
+        thisObject.offset = thisObject.offset - STEP_OFFSET * morePower
+        if (thisObject.offset < MIN_OFFSET) { thisObject.offset = STEP_OFFSET }
+      } else {
+        thisObject.offset = thisObject.offset + STEP_OFFSET * morePower
+        if (thisObject.offset > MAX_OFFSET) { thisObject.offset = MAX_OFFSET }
+      }
+
+      if (
+        thisObject.offset <= +SNAP_THRESHOLD_OFFSET &&
+        thisObject.offset >= -SNAP_THRESHOLD_OFFSET
+      ) {
+        event.offset = 0
+      } else {
+        event.offset = thisObject.offset
+      }
+
+      event.isUserAction = true
+      thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
+
+      saveObjectState()
     } else {
-      thisObject.value = thisObject.value + STEP_SIZE * morePower
-      if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
-    }
-    event.value = thisObject.value
-    event.isUserAction = true
-    thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+      if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
+      delta = event.wheelDelta
+      if (delta < 0) {
+        thisObject.value = thisObject.value - STEP_VALUE * morePower
+        if (thisObject.value < MIN_VALUE) { thisObject.value = MIN_VALUE }
+      } else {
+        thisObject.value = thisObject.value + STEP_VALUE * morePower
+        if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
+      }
+      event.value = thisObject.value
+      event.isUserAction = true
+      thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
 
-    saveObjectState()
+      saveObjectState()
+    }
   }
 
   function getContainer (point) {
@@ -141,6 +177,7 @@ function newRateScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.value = thisObject.value / MAX_VALUE * 100
       code.value = code.value.toFixed(2)
+      code.offset = thisObject.offset
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -156,16 +193,30 @@ function newRateScale () {
         return
       }
       code.value = code.value / 100 * MAX_VALUE
-      if (code.value < STEP_SIZE) { code.value = STEP_SIZE }
+      if (code.value < MIN_VALUE) { code.value = MIN_VALUE }
       if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
 
       if (code.value !== thisObject.value) {
         thisObject.value = code.value
         let event = {}
         event.value = thisObject.value
-        thisObject.container.eventHandler.raiseEvent('Height Percentage Changed', event)
+        thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
       } else {
         saveObjectState()
+        return
+      }
+
+      if (code.offset < MIN_OFFSET) { code.offset = MIN_OFFSET }
+      if (code.offset > MAX_OFFSET) { code.offset = MAX_OFFSET }
+
+      if (code.offset !== thisObject.offset) {
+        thisObject.offset = code.offset
+        let event = {}
+        event.offset = thisObject.offset
+        thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
+      } else {
+        saveObjectState()
+        return
       }
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.

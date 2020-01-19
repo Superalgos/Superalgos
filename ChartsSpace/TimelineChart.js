@@ -39,6 +39,9 @@ function newTimelineChart () {
   let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
+  let rateScaleValueEventSuscriptionId
+  let rateScaleMouseOverEventSuscriptionId
+  let rateScaleOffsetEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
 
@@ -116,7 +119,8 @@ function newTimelineChart () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleOffsetEventSuscriptionId)
+    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
@@ -170,18 +174,23 @@ function newTimelineChart () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Height Percentage Changed', function (event) {
+    rateScaleOffsetEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Offset Changed', rateScaleOffsetChanged)
+    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
+    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
+    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer)
+
+    function rateScaleOffsetChanged (event) {
+      thisObject.container.frame.offset.y = event.offset
+    }
+
+    function rateScaleValueChanged (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
-        moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, true)
+        // moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    })
-
-    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer)
-
-    rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
+    }
 
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
@@ -193,7 +202,11 @@ function newTimelineChart () {
     thisObject.timeFrameScale.fitFunction = thisObject.fitFunction
     thisObject.timeFrameScale.payload = thisObject.payload.node.timeFrameScale.payload
 
-    timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Changed', function (event) {
+    timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Value Changed', timeFrameScaleValueChanged)
+    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
+    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container.parentContainer)
+
+    function timeFrameScaleValueChanged (event) {
       let currentTimeFrame = timeFrame
       timeFrame = event.timeFrame
       if (timeFrame !== currentTimeFrame) {
@@ -201,15 +214,10 @@ function newTimelineChart () {
           thisObject.plotterManager.setTimeFrame(timeFrame)
         }
       }
-    })
-
-    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container.parentContainer)
-
-    timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
+    }
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
-
       saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
     }
   }

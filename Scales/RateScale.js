@@ -16,7 +16,7 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const DEFAULT_VALUE = 1
+  const DEFAULT_VALUE = 25
   const STEP_SIZE = 1
   const MIN_WIDTH = 50
   const MAX_VALUE = 100

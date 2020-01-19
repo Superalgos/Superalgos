@@ -245,7 +245,6 @@ function newTimeFrameScale () {
   }
 
   function readObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
       if (code.value !== timeFrameLabel) {

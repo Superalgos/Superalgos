@@ -86,15 +86,15 @@ function newViewport () {
       }
       loadFrame(thisObject.payload, frame)
       if (!isNaN(frame.position.x)) {
-        // position.x = frame.position.x
+        position.x = frame.position.x
       }
       if (!isNaN(frame.position.y)) {
-        // position.y = frame.position.y
+        position.y = frame.position.y
       }
     }
 
     resize()
-    // readObjectState()
+    readObjectState()
   }
 
   function resize () {
@@ -136,7 +136,7 @@ function newViewport () {
   function physics () {
     animationPhysics()
     positioningphysics()
-    // readObjectState()
+    readObjectState()
   }
 
   function positioningphysics () {

@@ -132,7 +132,7 @@ function newTimeMachine () {
 
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
-    // loadFrame(thisObject.payload, thisObject.container.frame)
+    loadFrame(thisObject.payload, thisObject.container.frame)
 
     recalculateCoordinateSystem()
 

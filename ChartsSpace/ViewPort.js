@@ -167,8 +167,6 @@ function newViewport () {
     if (positionIncrement.y !== 0) {
       if (Math.trunc(Math.abs(targetPosition.y - position.y) * 1000) >= Math.trunc(Math.abs(positionIncrement.y) * 1000)) {
         position.y = position.y + positionIncrement.y
-
-              // console.log("position.y changed to " + position.y)
       } else {
         positionIncrement.y = 0
       }
@@ -193,7 +191,6 @@ function newViewport () {
       amount = amount * 3.5
     }
 
-    console.log(thisObject.zoomLevel, amount)
     if (thisObject.zoomTargetLevel + amount * morePower > MAX_ZOOM_LEVEL) {
       return false
     }
@@ -254,8 +251,6 @@ function newViewport () {
     }
 
     thisObject.eventHandler.raiseEvent('Position Changed', event)
-
-        // console.log("displace produced new Position x = " + position.x + " y = " + position.y);
   }
 
   function changeZoom (oldLevel, newLevel) {
@@ -354,7 +349,7 @@ function newViewport () {
       if (code.zoom < MIN_ZOOM_LEVEL) { code.zoom = MIN_ZOOM_LEVEL }
       if (code.zoom > MAX_ZOOM_LEVEL) { code.zoom = MAX_ZOOM_LEVEL }
 
-      if (code.zoom !== thisObject.zoomTargetLevel) {
+      if (code.zoom.toFixed(2) !== thisObject.zoomTargetLevel.toFixed(2)) {
         newZoomLevel(code.zoom)
       } else {
         saveObjectState()
@@ -366,7 +361,7 @@ function newViewport () {
     function newZoomLevel (level) {
       thisObject.zoomLevel = level
       thisObject.zoomTargetLevel = level
-      INITIAL_TIME_PERIOD = recalculatePeriod(level)
+      // INITIAL_TIME_PERIOD = recalculatePeriod(level)
       saveObjectState()
       ANIMATION_INCREMENT = 0
 

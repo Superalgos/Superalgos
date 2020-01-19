@@ -175,7 +175,10 @@ function newViewport () {
     }
   }
 
-  function onMouseWheel (amount) {
+  function onMouseWheel (event) {
+    let morePower = 1
+    let amount = event.delta
+    if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
     let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
     if (isMac) { amount = amount / 5 }
@@ -191,29 +194,29 @@ function newViewport () {
     }
 
     console.log(thisObject.zoomLevel, amount)
-    if (thisObject.zoomTargetLevel + amount > MAX_ZOOM_LEVEL) {
+    if (thisObject.zoomTargetLevel + amount * morePower > MAX_ZOOM_LEVEL) {
       return false
     }
-    if (thisObject.zoomTargetLevel + amount < MIN_ZOOM_LEVEL) {
+    if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount
+    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount * morePower
 
     ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS
 
-    let event = {
+    let newEvent = {
       newLevel: thisObject.zoomTargetLevel,
       newPosition: position,
       type: undefined
     }
 
     if (amount > 0) {
-      event.type = 'Zoom In'
+      newEvent.type = 'Zoom In'
     } else {
-      event.type = 'Zoom Out'
+      newEvent.type = 'Zoom Out'
     }
 
-    thisObject.eventHandler.raiseEvent('Zoom Changed', event)
+    thisObject.eventHandler.raiseEvent('Zoom Changed', newEvent)
     return true
   }
 

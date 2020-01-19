@@ -768,7 +768,7 @@ function newCanvas () {
     try {
            // cross-browser wheel delta
       var event = window.event || event // old IE support
-      let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
+      event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
 
            /* We try first with panels. */
 
@@ -804,7 +804,7 @@ function newCanvas () {
       }
 
       if (container !== undefined) {
-        canvas.chartSpace.viewport.onMouseWheel(delta)
+        canvas.chartSpace.viewport.onMouseWheel(event)
         return false
       }
 

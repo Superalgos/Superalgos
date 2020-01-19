@@ -62,7 +62,7 @@ function getTransparenceFactor (timeFrame) {
 }
 
 function recalculatePeriod (zoomLevel) {
-  console.log('NEW ZOOM LEVEL', zoomLevel)
+  // console.log('NEW ZOOM LEVEL', zoomLevel)
   if (zoomLevel > 400) {
     return _1_MINUTE_IN_MILISECONDS
   }

@@ -275,7 +275,7 @@ function newTimeFrameScale () {
     let timeFrameArray = timeFramesMasterArray[filePeriodIndex]
     thisObject.timeFrame = timeFrameArray[timeFrameIndex][0]
     timeFrameLabel = timeFrameArray[timeFrameIndex][1]
-    console.log('NEW TIME FRAME LABEL', timeFrameLabel)
+    // console.log('NEW TIME FRAME LABEL', timeFrameLabel)
     let event = {}
     event.timeFrame = thisObject.timeFrame
     thisObject.container.eventHandler.raiseEvent('Time Frame Changed', event)

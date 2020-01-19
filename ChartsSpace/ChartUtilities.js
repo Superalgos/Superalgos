@@ -62,8 +62,7 @@ function getTransparenceFactor (timeFrame) {
 }
 
 function recalculatePeriod (zoomLevel) {
-    // console.log(" recalculatePeriod > " + zoomLevel);
-
+  console.log('NEW ZOOM LEVEL', zoomLevel)
   if (zoomLevel > 400) {
     return _1_MINUTE_IN_MILISECONDS
   }
@@ -116,23 +115,23 @@ function recalculatePeriod (zoomLevel) {
     return _2_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > 90) {
+  if (zoomLevel > 80) {
     return _3_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > 70) {
+  if (zoomLevel > 50) {
     return _4_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > 50) {
+  if (zoomLevel > 35) {
     return _6_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > 30) {
+  if (zoomLevel > 20) {
     return _8_HOURS_IN_MILISECONDS
   }
 
-  if (zoomLevel > 15) {
+  if (zoomLevel > 10) {
     return _12_HOURS_IN_MILISECONDS
   }
 

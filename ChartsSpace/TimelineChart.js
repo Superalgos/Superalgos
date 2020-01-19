@@ -283,8 +283,7 @@ function newTimelineChart () {
       center = timelineChartCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
     }
 
-    let newDate = new Date(0)
-    newDate.setUTCSeconds(center.x)
+    let newDate = new Date(center.x)
 
     datetime = newDate
 

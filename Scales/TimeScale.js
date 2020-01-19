@@ -49,6 +49,7 @@ function newTimeScale () {
       y: 0
     }
   }
+  let scaleTimer = 0
   return thisObject
 
   function finalize () {
@@ -110,6 +111,7 @@ function newTimeScale () {
 
   function onMouseNotOver () {
     isMouseOver = false
+    scaleTimer = 0
   }
 
   function onMouseWheel (event) {
@@ -138,6 +140,7 @@ function newTimeScale () {
     thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
 
     saveObjectState()
+    scaleTimer = 100
   }
 
   function getContainer (point) {
@@ -190,6 +193,7 @@ function newTimeScale () {
   }
 
   function physics () {
+    scaleTimer--
     readObjectState()
     positioningphysics()
   }
@@ -269,6 +273,11 @@ function newTimeScale () {
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
+
+    if (scaleTimer > 0) {
+      label2 = thisObject.scale.toFixed(0)
+      label3 = 'SCALE'
+    }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }

@@ -21,12 +21,13 @@ function newRateScale () {
   const STEP_VALUE = 1
   const MIN_VALUE = 1
   const MAX_VALUE = 100
+  const SNAP_THRESHOLD_VALUE = 2
 
   const DEFAULT_OFFSET = 0
   const STEP_OFFSET = 1
   const MIN_OFFSET = -1000
   const MAX_OFFSET = 1000
-  const SNAP_THRESHOLD_OFFSET = 5
+  const SNAP_THRESHOLD_OFFSET = 4
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -136,8 +137,8 @@ function newRateScale () {
       }
 
       if (
-        thisObject.offset <= +SNAP_THRESHOLD_OFFSET &&
-        thisObject.offset >= -SNAP_THRESHOLD_OFFSET
+        thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
+        thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
       ) {
         event.offset = 0
       } else {
@@ -158,7 +159,16 @@ function newRateScale () {
         thisObject.value = thisObject.value + STEP_VALUE * morePower
         if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
       }
-      event.value = thisObject.value
+
+      if (
+        thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
+        thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+      ) {
+        event.value = DEFAULT_VALUE
+      } else {
+        event.value = thisObject.value
+      }
+
       event.isUserAction = true
       thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
 
@@ -199,7 +209,14 @@ function newRateScale () {
       if (code.value !== thisObject.value) {
         thisObject.value = code.value
         let event = {}
-        event.value = thisObject.value
+        if (
+          thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
+          thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+        ) {
+          event.value = DEFAULT_VALUE
+        } else {
+          event.value = thisObject.value
+        }
         thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
       } else {
         saveObjectState()
@@ -212,7 +229,14 @@ function newRateScale () {
       if (code.offset !== thisObject.offset) {
         thisObject.offset = code.offset
         let event = {}
-        event.offset = thisObject.offset
+        if (
+          thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
+          thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
+        ) {
+          event.offset = 0
+        } else {
+          event.offset = thisObject.offset
+        }
         thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
       } else {
         saveObjectState()

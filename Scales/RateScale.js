@@ -6,7 +6,7 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    value: undefined,
+    scale: undefined,
     offset: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
@@ -17,11 +17,11 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const DEFAULT_VALUE = 25
-  const STEP_VALUE = 1
-  const MIN_VALUE = 1
-  const MAX_VALUE = 100
-  const SNAP_THRESHOLD_VALUE = 2
+  const DEFAULT_SCALE = 25
+  const STEP_SCALE = 1
+  const MIN_SCALE = 1
+  const MAX_SCALE = 100
+  const SNAP_THRESHOLD_SCALE = 2
 
   const DEFAULT_OFFSET = 0
   const STEP_OFFSET = 1
@@ -58,6 +58,9 @@ function newRateScale () {
       y: 0
     }
   }
+
+  let offsetTimer = 0
+  let scaleTimer = 0
   return thisObject
 
   function finalize () {
@@ -83,11 +86,11 @@ function newRateScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.value = DEFAULT_VALUE
+    thisObject.scale = DEFAULT_SCALE
     readObjectState()
 
     let event = {}
-    event.value = thisObject.value
+    event.scale = thisObject.scale
     thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
   }
 
@@ -119,6 +122,8 @@ function newRateScale () {
 
   function onMouseNotOver () {
     isMouseOver = false
+    offsetTimer = 0
+    scaleTimer = 0
   }
 
   function onMouseWheel (event) {
@@ -128,7 +133,7 @@ function newRateScale () {
     if (event.shiftKey === true) {
       if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
       delta = event.wheelDelta
-      if (delta > 0) {
+      if (delta < 0) {
         thisObject.offset = thisObject.offset - STEP_OFFSET * morePower
         if (thisObject.offset < MIN_OFFSET) { thisObject.offset = STEP_OFFSET }
       } else {
@@ -142,37 +147,39 @@ function newRateScale () {
       ) {
         event.offset = 0
       } else {
-        event.offset = thisObject.offset
+        event.offset = -thisObject.offset
       }
 
       event.isUserAction = true
       thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
 
       saveObjectState()
+      offsetTimer = 100
     } else {
       if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
       delta = event.wheelDelta
       if (delta < 0) {
-        thisObject.value = thisObject.value - STEP_VALUE * morePower
-        if (thisObject.value < MIN_VALUE) { thisObject.value = MIN_VALUE }
+        thisObject.scale = thisObject.scale - STEP_SCALE * morePower
+        if (thisObject.scale < MIN_SCALE) { thisObject.scale = MIN_SCALE }
       } else {
-        thisObject.value = thisObject.value + STEP_VALUE * morePower
-        if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
+        thisObject.scale = thisObject.scale + STEP_SCALE * morePower
+        if (thisObject.scale > MAX_SCALE) { thisObject.scale = MAX_SCALE }
       }
 
       if (
-        thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
-        thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+        thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+        thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
       ) {
-        event.value = DEFAULT_VALUE
+        event.scale = DEFAULT_SCALE
       } else {
-        event.value = thisObject.value
+        event.scale = thisObject.scale
       }
 
       event.isUserAction = true
       thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
 
       saveObjectState()
+      scaleTimer = 100
     }
   }
 
@@ -185,8 +192,8 @@ function newRateScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.value = thisObject.value / MAX_VALUE * 100
-      code.value = code.value.toFixed(2)
+      code.scale = thisObject.scale / MAX_SCALE * 100
+      code.scale = code.scale.toFixed(2)
       code.offset = thisObject.offset
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
@@ -198,24 +205,24 @@ function newRateScale () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
-      if (isNaN(code.value) || code.value === null || code.value === undefined) {
+      if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
         saveObjectState()
         return
       }
-      code.value = code.value / 100 * MAX_VALUE
-      if (code.value < MIN_VALUE) { code.value = MIN_VALUE }
-      if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
+      code.scale = code.scale / 100 * MAX_SCALE
+      if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
+      if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
 
-      if (code.value !== thisObject.value) {
-        thisObject.value = code.value
+      if (code.scale !== thisObject.scale) {
+        thisObject.scale = code.scale
         let event = {}
         if (
-          thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
-          thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+          thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+          thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
         ) {
-          event.value = DEFAULT_VALUE
+          event.scale = DEFAULT_SCALE
         } else {
-          event.value = thisObject.value
+          event.scale = thisObject.scale
         }
         thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
       } else {
@@ -235,7 +242,7 @@ function newRateScale () {
         ) {
           event.offset = 0
         } else {
-          event.offset = thisObject.offset
+          event.offset = -thisObject.offset
         }
         thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
       } else {
@@ -248,6 +255,8 @@ function newRateScale () {
   }
 
   function physics () {
+    offsetTimer--
+    scaleTimer--
     readObjectState()
     positioningphysics()
   }
@@ -350,6 +359,16 @@ function newRateScale () {
 
     let backgroundColor = UI_COLOR.BLACK
 
+    if (offsetTimer > 0) {
+      label2 = thisObject.offset.toFixed(0)
+      label3 = 'OFFSET'
+    }
+
+    if (scaleTimer > 0) {
+      label2 = thisObject.scale.toFixed(0)
+      label3 = 'SCALE'
+    }
+
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }
 
@@ -364,7 +383,7 @@ function newRateScale () {
     const OPACITY = 0.2
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 30
-    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.value
+    const CURRENT_SCALE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.scale
     const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 215 + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0
@@ -377,17 +396,17 @@ function newRateScale () {
     function drawTwoArrows () {
       point1 = {
         x: X_OFFSET - WIDTH / 2,
-        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point2 = {
         x: X_OFFSET,
-        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point3 = {
         x: X_OFFSET + WIDTH / 2,
-        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point1 = thisObject.container.frame.frameThisPoint(point1)
@@ -396,17 +415,17 @@ function newRateScale () {
 
       point4 = {
         x: X_OFFSET - WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point5 = {
         x: X_OFFSET,
-        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point6 = {
         x: X_OFFSET + WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION
+        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
       }
 
       point4 = thisObject.container.frame.frameThisPoint(point4)

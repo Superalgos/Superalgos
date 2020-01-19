@@ -184,7 +184,7 @@ function newTimelineChart () {
     }
 
     function rateScaleValueChanged (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.value
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.scale
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
         // moveToUserPosition(thisObject.container, timelineChartCoordinateSystem, true, false, event.mousePosition, true)

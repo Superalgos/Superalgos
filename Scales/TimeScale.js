@@ -2,7 +2,7 @@ function newTimeScale () {
   const MODULE_NAME = 'Time Scale'
 
   let thisObject = {
-    value: undefined,
+    scale: undefined,
     container: undefined,
     date: undefined,
     fitFunction: undefined,
@@ -16,11 +16,11 @@ function newTimeScale () {
     finalize: finalize
   }
 
-  const DEFAULT_VALUE = 1
-  const STEP_VALUE = 1
-  const MIN_VALUE = 1
-  const MAX_VALUE = 400
-  const SNAP_THRESHOLD_VALUE = 0
+  const DEFAULT_SCALE = 1
+  const STEP_SCALE = 1
+  const MIN_SCALE = 1
+  const MAX_SCALE = 400
+  const SNAP_THRESHOLD_SCALE = 0
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -74,11 +74,11 @@ function newTimeScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    thisObject.value = DEFAULT_VALUE
+    thisObject.scale = DEFAULT_SCALE
     readObjectState()
 
     let event = {}
-    event.value = thisObject.value
+    event.scale = thisObject.scale
     thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
   }
 
@@ -118,20 +118,20 @@ function newTimeScale () {
 
     delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.value = thisObject.value - STEP_VALUE * morePower
-      if (thisObject.value < MIN_VALUE) { thisObject.value = MIN_VALUE }
+      thisObject.scale = thisObject.scale - STEP_SCALE * morePower
+      if (thisObject.scale < MIN_SCALE) { thisObject.scale = MIN_SCALE }
     } else {
-      thisObject.value = thisObject.value + STEP_VALUE * morePower
-      if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
+      thisObject.scale = thisObject.scale + STEP_SCALE * morePower
+      if (thisObject.scale > MAX_SCALE) { thisObject.scale = MAX_SCALE }
     }
 
     if (
-      thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
-      thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+      thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+      thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
     ) {
-      event.value = DEFAULT_VALUE
+      event.scale = DEFAULT_SCALE
     } else {
-      event.value = thisObject.value
+      event.scale = thisObject.scale
     }
 
     event.isUserAction = true
@@ -149,8 +149,8 @@ function newTimeScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.value = thisObject.value / MAX_VALUE * 100
-      code.value = code.value.toFixed(2)
+      code.scale = thisObject.scale / MAX_SCALE * 100
+      code.scale = code.scale.toFixed(2)
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -161,24 +161,24 @@ function newTimeScale () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
-      if (isNaN(code.value) || code.value === null || code.value === undefined) {
+      if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
         saveObjectState()
         return
       }
-      code.value = code.value / 100 * MAX_VALUE
-      if (code.value < MIN_VALUE) { code.value = MIN_VALUE }
-      if (code.value > MAX_VALUE) { code.value = MAX_VALUE }
+      code.scale = code.scale / 100 * MAX_SCALE
+      if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
+      if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
 
-      if (code.value !== thisObject.value) {
-        thisObject.value = code.value
+      if (code.scale !== thisObject.scale) {
+        thisObject.scale = code.scale
         let event = {}
         if (
-          thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
-          thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+          thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+          thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
         ) {
-          event.value = DEFAULT_VALUE
+          event.scale = DEFAULT_SCALE
         } else {
-          event.value = thisObject.value
+          event.scale = thisObject.scale
         }
         thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
       } else {
@@ -284,8 +284,8 @@ function newTimeScale () {
     const OPACITY = 0.2
     const DISTANCE_BETWEEN_ARROWS = 10
     const MIN_DISTANCE_FROM_CENTER = 110
-    const CURRENT_VALUE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.value
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + MAX_VALUE + DISTANCE_BETWEEN_ARROWS
+    const CURRENT_SCALE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.scale
+    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + MAX_SCALE + DISTANCE_BETWEEN_ARROWS
 
     let ARROW_DIRECTION = 0
 
@@ -296,17 +296,17 @@ function newTimeScale () {
 
     function drawTwoArrows () {
       point1 = {
-        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET - 0
       }
 
       point2 = {
-        x: X_OFFSET + WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET + WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET + HEIGHT / 2
       }
 
       point3 = {
-        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET + HEIGHT
       }
 
@@ -315,17 +315,17 @@ function newTimeScale () {
       point3 = thisObject.container.frame.frameThisPoint(point3)
 
       point4 = {
-        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET - 0
       }
 
       point5 = {
-        x: X_OFFSET + WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET + WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET + HEIGHT / 2
       }
 
       point6 = {
-        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_VALUE_DISTANCE * ARROW_DIRECTION,
+        x: X_OFFSET - WIDTH / 2 * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION,
         y: Y_OFFSET + HEIGHT
       }
 

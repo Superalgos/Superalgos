@@ -212,6 +212,7 @@ function newTimeMachine () {
         moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, true)
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+      thisObject.container.eventHandler.raiseEvent('Upstream Rate Scale Value Changed', event)
     }
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
@@ -407,6 +408,7 @@ function newTimeMachine () {
       timelineChart.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
       timelineChart.container.fitFunction = thisObject.container.fitFunction
       timelineChart.fitFunction = thisObject.fitFunction
+      timelineChart.container.frame.width = thisObject.container.frame.width
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = 0
       timelineChart.container.frame.position.y = 0

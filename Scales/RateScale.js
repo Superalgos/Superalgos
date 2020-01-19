@@ -8,6 +8,7 @@ function newRateScale () {
     payload: undefined,
     scale: undefined,
     offset: undefined,
+    setScale: setScale,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -183,6 +184,24 @@ function newRateScale () {
       offsetTimer = 0
       scaleTimer = 100
     }
+  }
+
+  function setScale (scale) {
+    thisObject.scale = scale
+    if (
+      thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+      thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
+    ) {
+      event.scale = DEFAULT_SCALE
+    } else {
+      event.scale = thisObject.scale
+    }
+    event.isUserAction = true
+    thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
+
+    saveObjectState()
+    offsetTimer = 0
+    scaleTimer = 100
   }
 
   function getContainer (point) {

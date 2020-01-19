@@ -358,7 +358,7 @@ function newLayer () {
 
     let point1
     let point2
-    let horizontalMargin = 32
+    let horizontalMargin = 12
 
     if (progressBar.value === 0) {
       return
@@ -474,10 +474,10 @@ function newLayer () {
     drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
     drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
 
-    drawProgressBar(marketFileProgressBar, 1, -55)
-    drawProgressBar(dailyFileProgressBar, 1, -56)
-    drawProgressBar(singleFileProgressBar, 1, -57)
-    drawProgressBar(fileSequenceProgressBar, 1, -58)
+    drawProgressBar(marketFileProgressBar, 1, -45)
+    drawProgressBar(dailyFileProgressBar, 1, -46)
+    drawProgressBar(singleFileProgressBar, 1, -47)
+    drawProgressBar(fileSequenceProgressBar, 1, -48)
 
     drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
@@ -485,3 +485,4 @@ function newLayer () {
     drawIcon(icon4, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
+

@@ -20,6 +20,7 @@ function newTimeScale () {
   const STEP_VALUE = 1
   const MIN_VALUE = 1
   const MAX_VALUE = 400
+  const SNAP_THRESHOLD_VALUE = 0
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -124,7 +125,15 @@ function newTimeScale () {
       if (thisObject.value > MAX_VALUE) { thisObject.value = MAX_VALUE }
     }
 
-    event.value = thisObject.value
+    if (
+      thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
+      thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+    ) {
+      event.value = DEFAULT_VALUE
+    } else {
+      event.value = thisObject.value
+    }
+
     event.isUserAction = true
     thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
 
@@ -163,7 +172,14 @@ function newTimeScale () {
       if (code.value !== thisObject.value) {
         thisObject.value = code.value
         let event = {}
-        event.value = thisObject.value
+        if (
+          thisObject.value <= DEFAULT_VALUE + SNAP_THRESHOLD_VALUE &&
+          thisObject.value >= DEFAULT_VALUE - SNAP_THRESHOLD_VALUE
+        ) {
+          event.value = DEFAULT_VALUE
+        } else {
+          event.value = thisObject.value
+        }
         thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
       } else {
         saveObjectState()

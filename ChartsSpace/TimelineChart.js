@@ -122,8 +122,8 @@ function newTimelineChart () {
     thisObject.rateScale = undefined
 
     /* Resets the local container with the dimessions of its parent, the Time Machine */
-    thisObject.container.frame.position.position.x = 0
-    thisObject.container.frame.position.position.y = 0
+    thisObject.container.frame.position.x = 0
+    thisObject.container.frame.position.y = 0
     thisObject.container.frame.height = TIME_MACHINE_HEIGHT
     thisObject.container.frame.width = TIME_MACHINE_WIDTH
   }

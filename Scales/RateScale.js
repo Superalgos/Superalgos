@@ -148,7 +148,6 @@ function newRateScale () {
   }
 
   function readObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 

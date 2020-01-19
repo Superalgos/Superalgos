@@ -203,7 +203,7 @@ function newTimeMachine () {
 
     rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
-    thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+    thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container, thisObject.container)
 
     function rateScaleValueChanged (event) {
       thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.scale

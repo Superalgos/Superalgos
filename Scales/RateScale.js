@@ -52,6 +52,7 @@ function newRateScale () {
 
   let timeLineCoordinateSystem
   let limitingContainer
+  let rateCalculationsContainer
 
   let mouse = {
     position: {
@@ -76,12 +77,14 @@ function newRateScale () {
 
     timeLineCoordinateSystem = undefined
     limitingContainer = undefined
+    rateCalculationsContainer = undefined
     mouse = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem, pLimitingContainer) {
+  function initialize (pTimeLineCoordinateSystem, pLimitingContainer, pRateCalculationsContainer) {
     timeLineCoordinateSystem = pTimeLineCoordinateSystem
     limitingContainer = pLimitingContainer
+    rateCalculationsContainer = pRateCalculationsContainer
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -326,12 +329,10 @@ function newRateScale () {
     /* Mouse Position Rate Calculation */
     let ratePoint = {
       x: 0,
-      y: mouse.position.y
+      y: mouse.position.y + thisObject.offset
     }
 
-    let mouseRate = getRateFromPoint(ratePoint, limitingContainer, timeLineCoordinateSystem)
-
-    thisObject.rate = mouseRate
+    thisObject.rate = getRateFromPoint(ratePoint, rateCalculationsContainer, timeLineCoordinateSystem)
 
     /* rateScale Positioning */
     ratePoint = {
@@ -369,10 +370,15 @@ function newRateScale () {
   function drawScaleBox () {
     if (thisObject.rate === undefined) { return }
 
-    let label = (thisObject.rate - Math.trunc(thisObject.rate)).toFixed(2)
+    let rate = thisObject.rate
+
+    if (rate < timeLineCoordinateSystem.min.y) { rate = timeLineCoordinateSystem.min.y }
+    if (rate > timeLineCoordinateSystem.max.y) { rate = timeLineCoordinateSystem.max.y }
+
+    let label = (rate - Math.trunc(rate)).toFixed(2)
     let labelArray = label.split('.')
     let label1 = thisObject.payload.node.payload.parentNode.name
-    let label2 = (Math.trunc(thisObject.rate)).toLocaleString()
+    let label2 = (Math.trunc(rate)).toLocaleString()
     let label3 = labelArray[1]
 
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)

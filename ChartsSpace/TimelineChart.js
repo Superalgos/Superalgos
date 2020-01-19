@@ -177,7 +177,7 @@ function newTimelineChart () {
     rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     rateScaleUpstreamEventSuscriptionId = thisObject.container.parentContainer.eventHandler.listenToEvent('Upstream Rate Scale Value Changed', rateScaleUpstreamChanged)
-    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer)
+    thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer, thisObject.container)
 
     function rateScaleUpstreamChanged (event) {
       thisObject.rateScale.setScale(event.scale)

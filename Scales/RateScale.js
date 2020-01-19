@@ -155,6 +155,7 @@ function newRateScale () {
 
       saveObjectState()
       offsetTimer = 100
+      scaleTimer = 0
     } else {
       if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
       delta = event.wheelDelta
@@ -179,6 +180,7 @@ function newRateScale () {
       thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
 
       saveObjectState()
+      offsetTimer = 0
       scaleTimer = 100
     }
   }

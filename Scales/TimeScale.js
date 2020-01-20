@@ -40,7 +40,7 @@ function newTimeScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
-  let timeLineCoordinateSystem
+  let coordinateSystem
   let limitingContainer
 
   let mouse = {
@@ -62,13 +62,13 @@ function newTimeScale () {
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
 
-    timeLineCoordinateSystem = undefined
+    coordinateSystem = undefined
     limitingContainer = undefined
     mouse = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem, pLimitingContainer) {
-    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+  function initialize (pCoordinateSystem, pLimitingContainer) {
+    coordinateSystem = pCoordinateSystem
     limitingContainer = pLimitingContainer
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
@@ -195,10 +195,10 @@ function newTimeScale () {
   function physics () {
     scaleTimer--
     readObjectState()
-    positioningphysics()
+    positioningPhysics()
   }
 
-  function positioningphysics () {
+  function positioningPhysics () {
     /* Container Limits */
 
     let upCorner = {
@@ -223,7 +223,7 @@ function newTimeScale () {
       y: 0
     }
 
-    let mouseDate = getDateFromPoint(timePoint, limitingContainer, timeLineCoordinateSystem)
+    let mouseDate = getDateFromPoint(timePoint, limitingContainer, coordinateSystem)
 
     thisObject.date = new Date(mouseDate)
 

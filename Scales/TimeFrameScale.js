@@ -32,7 +32,7 @@ function newTimeFrameScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
-  let timeLineCoordinateSystem
+  let coordinateSystem
   let limitingContainer
 
   let mouse = {
@@ -69,8 +69,8 @@ function newTimeFrameScale () {
     thisObject.payload = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem, pLimitingContainer) {
-    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+  function initialize (pCoordinateSystem, pLimitingContainer) {
+    coordinateSystem = pCoordinateSystem
     limitingContainer = pLimitingContainer
 
     readObjectState()
@@ -114,10 +114,10 @@ function newTimeFrameScale () {
 
   function physics () {
     readObjectState()
-    positioningphysics()
+    positioningPhysics()
   }
 
-  function positioningphysics () {
+  function positioningPhysics () {
     /* Container Limits */
 
     let upCorner = {

@@ -8,6 +8,8 @@ function newRateScale () {
     payload: undefined,
     scale: undefined,
     offset: undefined,
+    minValue: undefined,
+    maxValue: undefined,
     setScale: setScale,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
@@ -50,7 +52,7 @@ function newRateScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
-  let timeLineCoordinateSystem
+  let coordinateSystem
   let limitingContainer
   let rateCalculationsContainer
 
@@ -75,14 +77,14 @@ function newRateScale () {
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
 
-    timeLineCoordinateSystem = undefined
+    coordinateSystem = undefined
     limitingContainer = undefined
     rateCalculationsContainer = undefined
     mouse = undefined
   }
 
-  function initialize (pTimeLineCoordinateSystem, pLimitingContainer, pRateCalculationsContainer) {
-    timeLineCoordinateSystem = pTimeLineCoordinateSystem
+  function initialize (pCoordinateSystem, pLimitingContainer, pRateCalculationsContainer) {
+    coordinateSystem = pCoordinateSystem
     limitingContainer = pLimitingContainer
     rateCalculationsContainer = pRateCalculationsContainer
 
@@ -233,10 +235,7 @@ function newRateScale () {
         saveObjectState()
         return
       }
-      if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
-        saveObjectState()
-        return
-      }
+
       code.scale = code.scale / 100 * MAX_SCALE
       if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
       if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
@@ -254,6 +253,11 @@ function newRateScale () {
         }
         thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
       } else {
+        saveObjectState()
+        return
+      }
+
+      if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
         saveObjectState()
         return
       }
@@ -277,6 +281,18 @@ function newRateScale () {
         saveObjectState()
         return
       }
+
+      if (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) {
+        saveObjectState()
+        return
+      }
+      if (isNaN(code.maxValue) || code.maxValue === null || code.maxValue === undefined) {
+        saveObjectState()
+        return
+      }
+
+      coordinateSystem.min.y = code.minValue
+      coordinateSystem.max.y = code.maxValue
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -286,10 +302,10 @@ function newRateScale () {
     offsetTimer--
     scaleTimer--
     readObjectState()
-    positioningphysics()
+    positioningPhysics()
   }
 
-  function positioningphysics () {
+  function positioningPhysics () {
     /* Container Limits */
 
     let upCorner = {
@@ -336,7 +352,7 @@ function newRateScale () {
       y: mouse.position.y + thisObject.offset
     }
 
-    thisObject.rate = getRateFromPoint(ratePoint, rateCalculationsContainer, timeLineCoordinateSystem)
+    thisObject.rate = getRateFromPoint(ratePoint, rateCalculationsContainer, coordinateSystem)
 
     /* rateScale Positioning */
     ratePoint = {
@@ -376,8 +392,8 @@ function newRateScale () {
 
     let rate = thisObject.rate
 
-    if (rate < timeLineCoordinateSystem.min.y) { rate = timeLineCoordinateSystem.min.y }
-    if (rate > timeLineCoordinateSystem.max.y) { rate = timeLineCoordinateSystem.max.y }
+    if (rate < coordinateSystem.min.y) { rate = coordinateSystem.min.y }
+    if (rate > coordinateSystem.max.y) { rate = coordinateSystem.max.y }
 
     let label = (rate - Math.trunc(rate)).toFixed(2)
     let labelArray = label.split('.')

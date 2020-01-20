@@ -158,7 +158,7 @@
     <Compile Include="Frame.js" />
     <Compile Include="Panels\LayersPanel.js" />
     <Compile Include="Panels\TimeControlPanel.js" />
-    <Compile Include="TimeLineCoordinateSystem.js" />
+    <Compile Include="coordinateSystem.js" />
     <Compile Include="SplashScreen.js">
       <SubType>Code</SubType>
     </Compile>

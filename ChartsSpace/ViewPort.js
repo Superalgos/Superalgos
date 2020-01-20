@@ -135,11 +135,11 @@ function newViewport () {
 
   function physics () {
     animationPhysics()
-    positioningphysics()
+    positioningPhysics()
     readObjectState()
   }
 
-  function positioningphysics () {
+  function positioningPhysics () {
     if (thisObject.payload === undefined) { return }
     /* Save the position at the frame lavel */
     let frame = {}

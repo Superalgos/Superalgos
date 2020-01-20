@@ -82,30 +82,30 @@ function pad (str, max) {
   return str.length < max ? pad('0' + str, max) : str
 }
 
-function getDateFromPoint (point, container, timeLineCoordinateSystem) {
+function getDateFromPoint (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
-  point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   let date = new Date(point.x)
 
   return date
 }
 
-function getRateFromPoint (point, container, timeLineCoordinateSystem) {
+function getRateFromPoint (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
-  point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   return point.y
 }
 
-function getMilisecondsFromPoint (point, container, timeLineCoordinateSystem) {
+function getMilisecondsFromPoint (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
-  point = timeLineCoordinateSystem.unInverseTransform(point, container.frame.height)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   return point.x
 }
 
-function saveUserPosition (container, timeLineCoordinateSystem, position) {
+function saveUserPosition (container, coordinateSystem, position) {
   if (position === undefined) {
     position = {
       x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
@@ -114,8 +114,8 @@ function saveUserPosition (container, timeLineCoordinateSystem, position) {
   }
 
   let userPosition = {
-    date: getDateFromPoint(position, container, timeLineCoordinateSystem),
-    rate: getRateFromPoint(position, container, timeLineCoordinateSystem),
+    date: getDateFromPoint(position, container, coordinateSystem),
+    rate: getRateFromPoint(position, container, coordinateSystem),
     market: DEFAULT_MARKET,
     zoom: canvas.chartSpace.viewport.zoomTargetLevel
   }
@@ -123,14 +123,14 @@ function saveUserPosition (container, timeLineCoordinateSystem, position) {
   window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
 }
 
-function getUserPosition (timeLineCoordinateSystem) {
+function getUserPosition (coordinateSystem) {
   let savedPosition = window.localStorage.getItem('userPosition')
   let userPosition
 
   if (savedPosition === null) {
     userPosition = {
       date: (new Date()).toString(),
-      rate: timeLineCoordinateSystem.max.y / 2,
+      rate: coordinateSystem.max.y / 2,
       market: DEFAULT_MARKET,
       zoom: INITIAL_ZOOM_LEVEL
     }
@@ -146,8 +146,8 @@ function getUserPosition (timeLineCoordinateSystem) {
   return userPosition
 }
 
-function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignoreY, center, moveContainer) {
-  let userPosition = getUserPosition(timeLineCoordinateSystem)
+function moveToUserPosition (container, coordinateSystem, ignoreX, ignoreY, center, moveContainer) {
+  let userPosition = getUserPosition(coordinateSystem)
 
   INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
   NEW_SESSION_INITIAL_DATE = new Date(userPosition.date)
@@ -159,7 +159,7 @@ function moveToUserPosition (container, timeLineCoordinateSystem, ignoreX, ignor
 
     /* Put this po int in the coordinate system of the canvas.chartSpace.viewport */
 
-  targetPoint = timeLineCoordinateSystem.transformThisPoint(targetPoint)
+  targetPoint = coordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
 
   let centerPoint

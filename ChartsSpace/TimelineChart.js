@@ -139,7 +139,7 @@ function newTimelineChart () {
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
 
     timeFrame = INITIAL_TIME_PERIOD
-    datetime = NEW_SESSION_INITIAL_DATE
+    recalculateCurrentDatetime()
 
      /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
     onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
@@ -168,6 +168,7 @@ function newTimelineChart () {
     thisObject.plotterManager.payload = thisObject.payload
     thisObject.plotterManager.initialize(thisObject.layersManager, DEFAULT_EXCHANGE, DEFAULT_MARKET)
     thisObject.plotterManager.setTimeFrame(timeFrame)
+    thisObject.plotterManager.setDatetime(datetime)
   }
 
   function initializeRateScale () {

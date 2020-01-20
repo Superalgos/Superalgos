@@ -184,7 +184,7 @@ function newTimeMachine () {
     thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     function timeScaleValueChanged (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH * event.scale
+      thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
         moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, false, true, event.mousePosition, true)
@@ -206,7 +206,7 @@ function newTimeMachine () {
     thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container, thisObject.container)
 
     function rateScaleValueChanged (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.scale
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
       recalculateCoordinateSystem()
       if (event.isUserAction === true) {
         moveToUserPosition(thisObject.container, timeMachineCoordinateSystem, true, false, event.mousePosition, true)

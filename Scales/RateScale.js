@@ -18,17 +18,17 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const DEFAULT_SCALE = 25
+  const DEFAULT_SCALE = 50
   const STEP_SCALE = 1
-  const MIN_SCALE = 1
+  const MIN_SCALE = 0
   const MAX_SCALE = 100
-  const SNAP_THRESHOLD_SCALE = 2
+  const SNAP_THRESHOLD_SCALE = 1
 
   const DEFAULT_OFFSET = 0
   const STEP_OFFSET = 1
   const MIN_OFFSET = -1000
   const MAX_OFFSET = 1000
-  const SNAP_THRESHOLD_OFFSET = 4
+  const SNAP_THRESHOLD_OFFSET = 3
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -217,7 +217,7 @@ function newRateScale () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
       code.scale = thisObject.scale / MAX_SCALE * 100
-      code.scale = code.scale.toFixed(2)
+      code.scale = code.scale.toFixed(0)
       code.offset = thisObject.offset
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
@@ -392,7 +392,7 @@ function newRateScale () {
     }
 
     if (scaleTimer > 0) {
-      label2 = thisObject.scale.toFixed(0)
+      label2 = (thisObject.scale / MAX_SCALE * 100).toFixed(0)
       label3 = 'SCALE'
     }
 

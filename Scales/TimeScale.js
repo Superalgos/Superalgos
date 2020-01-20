@@ -16,10 +16,10 @@ function newTimeScale () {
     finalize: finalize
   }
 
-  const DEFAULT_SCALE = 1
-  const STEP_SCALE = 1
-  const MIN_SCALE = 1
-  const MAX_SCALE = 400
+  const DEFAULT_SCALE = 0
+  const STEP_SCALE = 2.5
+  const MIN_SCALE = 0
+  const MAX_SCALE = 250
   const SNAP_THRESHOLD_SCALE = 0
 
   thisObject.container = newContainer()
@@ -153,7 +153,7 @@ function newTimeScale () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
       code.scale = thisObject.scale / MAX_SCALE * 100
-      code.scale = code.scale.toFixed(2)
+      code.scale = code.scale.toFixed(0)
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -275,7 +275,7 @@ function newTimeScale () {
     let backgroundColor = UI_COLOR.BLACK
 
     if (scaleTimer > 0) {
-      label2 = thisObject.scale.toFixed(0)
+      label2 = (thisObject.scale / MAX_SCALE * 100).toFixed(0)
       label3 = 'SCALE'
     }
 

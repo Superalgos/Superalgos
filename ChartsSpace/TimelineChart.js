@@ -188,7 +188,7 @@ function newTimelineChart () {
     }
 
     function rateScaleValueChanged (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT * event.scale
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
       recalculateCoordinateSystem()
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }

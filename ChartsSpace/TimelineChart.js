@@ -43,6 +43,7 @@ function newTimelineChart () {
   let rateScaleUpstreamEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let rateScaleOffsetEventSuscriptionId
+  let rateScaleUpstreamDimensionsEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
 
@@ -121,6 +122,7 @@ function newTimelineChart () {
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamEventSuscriptionId)
+    thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamDimensionsEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
 
@@ -177,7 +179,14 @@ function newTimelineChart () {
     rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     rateScaleUpstreamEventSuscriptionId = thisObject.container.parentContainer.eventHandler.listenToEvent('Upstream Rate Scale Value Changed', rateScaleUpstreamChanged)
+    rateScaleUpstreamDimensionsEventSuscriptionId = thisObject.container.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', rateScaleUpstreamDimensioinsChanged)
     thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer, thisObject.container)
+
+    function rateScaleUpstreamDimensioinsChanged () {
+      thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * thisObject.rateScale.scale
+      recalculateCoordinateSystem()
+      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+    }
 
     function rateScaleUpstreamChanged (event) {
       thisObject.rateScale.setScale(event.scale)

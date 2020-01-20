@@ -204,7 +204,8 @@ function newViewport () {
     let newEvent = {
       newLevel: thisObject.zoomTargetLevel,
       newPosition: position,
-      type: undefined
+      type: undefined,
+      shiftKey: event.shiftKey
     }
 
     if (amount > 0) {

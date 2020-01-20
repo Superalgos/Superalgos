@@ -233,6 +233,10 @@ function newRateScale () {
         saveObjectState()
         return
       }
+      if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
+        saveObjectState()
+        return
+      }
       code.scale = code.scale / 100 * MAX_SCALE
       if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
       if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }

@@ -57,7 +57,7 @@
             let strategiesArray = [];
             let tradesArray = [];
 
-            let tradingSystem = bot.DEFINITION.tradingSystem;
+            let tradingSystem = bot.TRADING_SYSTEM 
 
             /* Initial Default Values */
 

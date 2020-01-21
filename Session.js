@@ -46,7 +46,7 @@
             function runSession(message) {
 
                 /* We are going to run the Definition comming at the event. */
-                bot.DEFINITION = JSON.parse(message.event.definition)
+                bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                 bot.SESSION = JSON.parse(message.event.session)
                 bot.UI_CURRENT_VALUES = message.event.uiCurrentValues
 
@@ -171,29 +171,12 @@
             }
 
             function setKeyToUse() {
-                /* The last place where we can find a key to use is the key pool at the exchange account. */
-                if (bot.DEFINITION.personalData) {
-                    if (bot.DEFINITION.personalData.exchangeAccounts) {
-                        if (bot.DEFINITION.personalData.exchangeAccounts.length > 0) {
-                            let exchangeAccount = bot.DEFINITION.personalData.exchangeAccounts[0]
-                            if (exchangeAccount.keys) {
-                                if (exchangeAccount.keys.length > 0) {
-                                    let key = exchangeAccount.keys[0]
-
-                                    process.env.KEY = key.code.name
-                                    process.env.SECRET = key.code.secret
-
-                                }
-                            }
-                        }
-                    }
-                }
 
                 /* This is the primary fallback, when there is no key defined at the parameters at the session level. */
-                if (bot.DEFINITION.tradingSystem) {
-                    if (bot.DEFINITION.tradingSystem.parameters) {
-                        if (bot.DEFINITION.tradingSystem.parameters.key !== undefined) {
-                            let key = bot.DEFINITION.tradingSystem.parameters.key
+                if (bot.TRADING_SYSTEM) {
+                    if (bot.TRADING_SYSTEM.parameters) {
+                        if (bot.TRADING_SYSTEM.parameters.key !== undefined) {
+                            let key = bot.TRADING_SYSTEM.parameters.key
 
                             process.env.KEY = key.code.name
                             process.env.SECRET = key.code.secret
@@ -268,7 +251,7 @@
                     }
                 }
 
-                let tradingSystem = bot.DEFINITION.tradingSystem
+                let tradingSystem = bot.TRADING_SYSTEM 
 
                 if (tradingSystem !== undefined) {
 

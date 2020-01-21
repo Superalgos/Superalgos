@@ -175,43 +175,43 @@ function bootLoader() {
 
         /* Validate that the minimun amount of input required are defined. */
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Market Instance. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Market Reference. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Market Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market Reference without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode.parentNode === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.parentNode));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset.referenceParent === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.baseAsset));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset.referenceParent === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketInstance.referenceParent.quotedAsset));
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset));
             continue
         }
 

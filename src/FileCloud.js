@@ -91,13 +91,8 @@ function newFileCloud () {
             let code
             let sessionFolderName = pSession.id
             if (pSession.code !== undefined) {
-              try {
-                code = JSON.parse(pSession.code)
-                if (code.folderName !== undefined) {
-                  sessionFolderName = code.folderName + '-' + pSession.id
-                }
-              } catch (err) {
-                sessionFolderName = pSession.id
+              if (pSession.code.folderName !== undefined) {
+                sessionFolderName = pSession.code.folderName + '-' + pSession.id
               }
             }
             filePath = filePath.replace('@Session', sessionFolderName)

@@ -175,11 +175,13 @@
                 /* This is the primary fallback, when there is no key defined at the parameters at the session level. */
                 if (bot.TRADING_SYSTEM) {
                     if (bot.TRADING_SYSTEM.parameters) {
-                        if (bot.TRADING_SYSTEM.parameters.key !== undefined) {
-                            let key = bot.TRADING_SYSTEM.parameters.key
+                        if (bot.TRADING_SYSTEM.parameters.keyInstance !== undefined) {
+                            if (bot.TRADING_SYSTEM.parameters.keyInstance.referenceParent !== undefined) {
+                                let key = bot.TRADING_SYSTEM.parameters.keyInstance.referenceParent
 
-                            process.env.KEY = key.code.name
-                            process.env.SECRET = key.code.secret
+                                process.env.KEY = key.code.codeName
+                                process.env.SECRET = key.code.secret
+                            }
                         }
                     }
                 }

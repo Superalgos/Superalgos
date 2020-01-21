@@ -5,7 +5,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
     let thisObject = {
         fitFunction: undefined,
         container: undefined,
-        onEventRaised: onEventRaised,
+        onRecordChange: onRecordChange,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize
@@ -60,7 +60,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
     }
 
 
-    function onEventRaised(lastCurrentCandle) {
+    function onRecordChange(lastCurrentCandle) {
 
         currentRecord = lastCurrentCandle;
 

@@ -3,7 +3,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
     let thisObject = {
         fitFunction: undefined,
-        onEventRaised: onEventRaised,
+        onRecordChange: onRecordChange,
         container: undefined,
         session: undefined,
         draw: draw,
@@ -30,7 +30,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 1;
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.5;
 
-        thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topLeft.x + thisObject.container.frame.width * 3;
+        thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topRight.y;
 
         panelTabButton = newPanelTabButton()
@@ -47,7 +47,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         thisObject.container.finalize()
         thisObject.container = undefined
         thisObject.fitFunction = undefined
-        thisObject.onEventRaised = undefined
+        thisObject.onRecordChange = undefined
 
         currentRecord = undefined
         lastRecord = undefined
@@ -77,7 +77,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     }
 
 
-    function onEventRaised(records) {
+    function onRecordChange(records) {
 
         currentRecord = records.currentRecord;
         lastRecord = records.lastRecord

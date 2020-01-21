@@ -129,7 +129,7 @@ function newLayer () {
                         '->Layer->' +
                         'Data Product->Single Market Data->' +
                         'Session Independent Data->Session Based Data->' +
-                        'Session Instance->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Session Reference->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +

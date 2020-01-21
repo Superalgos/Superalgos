@@ -248,6 +248,7 @@ function newChartSpace () {
   }
 
   function syncWithDesigner () {
+    if (thisObject.payload.node === undefined) { return }
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
     if (thisObject.payload.node.timeMachines !== undefined) {

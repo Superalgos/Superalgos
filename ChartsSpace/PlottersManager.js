@@ -150,6 +150,14 @@ function newPlottersManager () {
       let plotterModule = layer.definition.referenceParent.referenceParent.referenceParent
       let session
 
+      if (layer.definition.referenceParent.parentNode.parentNode !== undefined) {
+        if (layer.definition.referenceParent.parentNode.parentNode.type === 'Session Reference') {
+          if (layer.definition.referenceParent.parentNode.parentNode.referenceParent !== undefined) {
+            session = layer.definition.referenceParent.parentNode.parentNode.referenceParent
+          }
+        }
+      }
+
       storage.initialize(
         dataMine,
         bot,

@@ -90,6 +90,7 @@ function newProductsPanel () {
     /* Now we create Product objects */
     let layer = newLayer()
     layer.payload = layerNode.payload
+    layer.nodeId = layerNode.payload.node.id
     layer.fitFunction = thisObject.fitFunction
 
     /* Initialize it */
@@ -315,7 +316,7 @@ function newProductsPanel () {
     function turnOffUnusedLayers () {
       for (let i = 0; i < localLayers.length; i++) {
         let layer = localLayers[i]
-        removeLayer(layer.payload.node.id)
+        removeLayer(layer.nodeId)
       }
     }
   }
@@ -334,8 +335,8 @@ function newProductsPanel () {
   }
 
   function drawHeader () {
-    let label1 = thisObject.payload.node.payload.parentNode.payload.parentNode.name.substring(0, 15)
-    let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 15)
+    let label1 = thisObject.payload.node.payload.parentNode.payload.parentNode.name.substring(0, 18)
+    let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 18)
     let label3 = ''
 
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.payload.parentNode.type)

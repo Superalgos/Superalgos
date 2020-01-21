@@ -127,8 +127,10 @@ function newLayer () {
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
                         '->Layer->' +
-                        'Data Product->Single Market Data->Market->' +
-                        'Market Base Asset->Asset->' +
+                        'Data Product->Single Market Data->' +
+                        'Session Independent Data->Session Based Data->' +
+                        'Session Instance->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +
                         'Product Definition->' +
@@ -485,4 +487,3 @@ function newLayer () {
     drawIcon(icon4, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
-

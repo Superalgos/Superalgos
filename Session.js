@@ -49,11 +49,10 @@
                 bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                 bot.SESSION = JSON.parse(message.event.session)
                 bot.UI_CURRENT_VALUES = message.event.uiCurrentValues
-
+    
                 /* Set the folderName for logging, reports, context and data output */
                 let code
                 if (bot.SESSION.code !== undefined) {
-        
                     code = bot.SESSION.code
                     if (code.folderName === undefined) {
                         bot.SESSION.folderName = bot.SESSION.id
@@ -67,27 +66,31 @@
 
                 /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
                 setValuesToUse(message)
-
+                let allGood 
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
-                        startBackTesting(message)
+                        allGood = startBackTesting(message)
                         break
                     }
                     case 'Live Trading Session': {
-                        startLiveTrading(message)
+                        allGood = startLiveTrading(message)
                         break
                     }
                     case 'Fordward Testing Session': {
-                        startFordwardTesting(message)
+                        allGood = startFordwardTesting(message)
                         break
                     }
                     case 'Paper Trading Session': {
-                        startPaperTrading(message)
+                        allGood = startPaperTrading(message)
                         break
                     }
                 }
-                bot.SESSION_STATUS = 'Idle'
-                bot.STOP_SESSION = false
+                if (allGood === true) {
+                    bot.SESSION_STATUS = 'Idle'
+                    bot.STOP_SESSION = false
+                } else {
+                    bot.STOP_SESSION = true
+                }
             }
 
             function stopSession(message) {
@@ -102,14 +105,14 @@
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                return true
             }
 
             function startLiveTrading(message) {
-
                 setKeyToUse()
-
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
+                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }
 
@@ -120,7 +123,7 @@
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
-
+                return true
             }
 
             function startFordwardTesting(message) {
@@ -129,6 +132,7 @@
 
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }
 
@@ -156,18 +160,19 @@
                
                 bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
+                return true
             }
 
             function startPaperTrading(message) {
                 bot.startMode = "Backtest"
-                console.log("startPaperTrading")
+                
                 if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
                     bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
                 }
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
-
+                return true
             }
 
             function setKeyToUse() {
@@ -188,11 +193,12 @@
 
                 /* Key defined at the parameters at the session level. */
                 if (bot.SESSION.parameters) {
-                    if (bot.SESSION.parameters.key !== undefined) {
-                        let key = bot.SESSION.parameters.key
-
-                        process.env.KEY = key.code.name
-                        process.env.SECRET = key.code.secret
+                    if (bot.SESSION.parameters.keyInstance !== undefined) {
+                        if (bot.SESSION.parameters.keyInstance.referenceParent !== undefined) {
+                            let key = bot.SESSION.parameters.keyInstance.referenceParent
+                            process.env.KEY = key.code.codeName
+                            process.env.SECRET = key.code.secret
+                        }
                     }
                 }
             }

@@ -33,7 +33,7 @@ function newSessionFunctions () {
     let lightingPath = '' +
     'Trading System->' +
     'Parameters->' +
-    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->Exchange Account Key->' +
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->Key Instance->Exchange Account Key->' +
     'Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
     'Announcement->Telegram Bot->' +
@@ -48,9 +48,16 @@ function newSessionFunctions () {
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 
+    lightingPath = '' +
+    'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+    'Parameters->' +
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->Key Instance->Exchange Account Key->'
+
+    let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+
     /* Raise event to run the session */
     let event = {
-      session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true)),
+      session: JSON.stringify(session),
       tradingSystem: JSON.stringify(tradingSystem),
       uiCurrentValues: getUICurrentValues()
     }

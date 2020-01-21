@@ -459,7 +459,7 @@ function newTimeMachine () {
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-        let timelineChart = thisObject.timelineCharts[i]
+        let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
         timelineChart.drawBackground()
       }
     }
@@ -468,7 +468,7 @@ function newTimeMachine () {
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-        let timelineChart = thisObject.timelineCharts[i]
+        let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
         timelineChart.draw()
       }
 
@@ -506,7 +506,7 @@ function newTimeMachine () {
   function drawForeground () {
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
-        let timelineChart = thisObject.timelineCharts[i]
+        let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
         timelineChart.drawForeground()
       }
 

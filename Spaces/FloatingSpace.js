@@ -105,8 +105,10 @@ function newFloatingSpace () {
 
     /* Exceptions that are never considered far. */
     if (
-      payload.node.type === 'Definition' ||
+      payload.node.type === 'Trading System' ||
       payload.node.type === 'Network' ||
+      payload.node.type === 'Crypto Ecosystem' ||
+      payload.node.type === 'Charting System' ||
       payload.node.type === 'Data Mine'
   ) {
       return false

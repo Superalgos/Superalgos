@@ -30,7 +30,7 @@ function newSessionFunctions () {
 
     let key = node.name + '-' + node.type + '-' + node.id
 
-    let lightingPath = '->Definition->' +
+    let lightingPath = '' +
     'Trading System->' +
     'Parameters->' +
     'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->Exchange Account Key->' +
@@ -46,12 +46,12 @@ function newSessionFunctions () {
     'Situation->Condition->Javascript Code->' +
     'Announcement->Telegram Bot->'
 
-    let definition = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
+    let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 
     /* Raise event to run the session */
     let event = {
       session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true)),
-      definition: JSON.stringify(definition),
+      tradingSystem: JSON.stringify(tradingSystem),
       uiCurrentValues: getUICurrentValues()
     }
 

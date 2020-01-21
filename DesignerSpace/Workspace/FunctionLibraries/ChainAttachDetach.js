@@ -8,15 +8,6 @@ function newChainAttachDetach () {
 
   function chainDetachNode (node, rootNodes) {
     switch (node.type) {
-      case 'Definition': {
-        return
-      }
-      case 'Network': {
-        return
-      }
-      case 'Data Mine': {
-        return
-      }
       case 'Phase': {
         let payload = node.payload
         for (let i = 0; i < payload.parentNode.phases.length; i++) {

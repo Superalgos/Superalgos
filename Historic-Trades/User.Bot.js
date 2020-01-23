@@ -17,7 +17,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let statusDependencies
 
     const ONE_MINUTE = 60000
-    const MAX_TRADES_PER_EXECUTION = 2000
+    const MAX_TRADES_PER_EXECUTION = 100000
+    const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
     let allTrades = []
@@ -109,7 +110,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 let lastTradeKey = ''
 
                 const limit = 1000
-                const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
                 const exchangeId = bot.exchange.toLowerCase()
                 const exchangeClass = ccxt[exchangeId]
                 const exchange = new exchangeClass({
@@ -119,21 +119,20 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 })
 
                 try {
-                    console.log("exchange.milliseconds()", exchange.milliseconds())
+
                     while (since < exchange.milliseconds()) {
 
                         /* Reporting we are doing well */
                         let processingDate = new Date(since)
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> symbol = " + symbol + "-> since = " + since + "-> limit = " + limit ) }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit ) }
                         console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades  @ " + processingDate)
-                        bot.processHeartBeat("Fetching " + processingDate) // tell the world we are alive and doing well
+                        bot.processHeartBeat("Fetching " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         /* Fetching the trades from the exchange.*/
                         const trades = await exchange.fetchTrades(symbol, since, limit)
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> trades.length = " + trades.length) }
 
-                        if (trades.length >= 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                        if (trades.length > 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
                             since = trades[trades.length - 1]['timestamp']
 
                             for (let i = 0; i < trades.length; i++) {
@@ -144,7 +143,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 }
                                 lastTradeKey = tradeKey
                             }
-                            console.log("allTrades.length:", allTrades.length)
+
                         } else {
                             break
                         }
@@ -177,14 +176,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
 
                         /* Reporting we are doing well */
-                        heartBeatCounter++
-                        if (heartBeatCounter > 1000) {
-                            heartBeatCounter = 0
+                        heartBeatCounter--
+                        if (heartBeatCounter <= 0) {
+                            heartBeatCounter = 1000
                             let processingDate = new Date(trade.timestamp)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Saving Trades  @ " + processingDate + "-> i = " + i + "-> total = " + allTrades.length) }
-                            console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades  @ " + processingDate)
-                            bot.processHeartBeat("Saving " + processingDate) // tell the world we are alive and doing well
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
+                            console.log("Charly -> " + MODULE_NAME + " -> start -> saveTrades -> Saving Trades  from " + bot.exchange + " " + symbol + " @ " + processingDate)
+                            bot.processHeartBeat("Saving " + bot.exchange + " " + symbol + " @ "  + processingDate) // tell the world we are alive and doing well
                         }
 
                         /* Saving the trades in Files*/
@@ -232,17 +231,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                             filesToCreate++
                             fileStorage.createTextFile(bot.dataMine, getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
-                            console.log("FILE CONTENT", getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent)
                             fileContent = '['
                             needSeparator = false
                         }
                         function createMissingEmptyFiles(begin, end) {
-                            console.log("createMissingEmptyFiles", begin, end)
+
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                                 filesToCreate++
                                 fileStorage.createTextFile(bot.dataMine, getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
-                                console.log("EMPTY FILE AT ", getFilePath(j * ONE_MINUTE) + '/' + fileName)
+
                             }
                         }
                         function onFileCreated(err) {

@@ -17,7 +17,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let statusDependencies
 
     const ONE_MINUTE = 60000
-    const MAX_TRADES_PER_EXECUTION = 100000
+    const MAX_TRADES_PER_EXECUTION = 10000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -27,8 +27,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let initialProcessTimestamp
     let beginingOfMarket
     let lastFileSaved
-    let filesToCreate = 0
-    let filesCreated = 0
 
     return thisObject;
 
@@ -126,7 +124,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         let processingDate = new Date(since)
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit ) }
-                        console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades  @ " + processingDate)
+                        console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades from " + bot.exchange + " " + symbol + " @ " + processingDate)
                         bot.processHeartBeat("Fetching " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         /* Fetching the trades from the exchange.*/
@@ -166,7 +164,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let separator
                     let heartBeatCounter = 0
 
-                    for (let i = 0; i < allTrades.length; i++) {
+                    let i = -1
+                    controlLoop()
+
+                    function loop() {
+
+                        let filesToCreate = 0
+                        let filesCreated = 0
+
                         let record = allTrades[i]
                         let trade = {
                             timestamp: record[0],
@@ -182,15 +187,15 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let processingDate = new Date(trade.timestamp)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
-                            console.log("Charly -> " + MODULE_NAME + " -> start -> saveTrades -> Saving Trades  from " + bot.exchange + " " + symbol + " @ " + processingDate)
-                            bot.processHeartBeat("Saving " + bot.exchange + " " + symbol + " @ "  + processingDate) // tell the world we are alive and doing well
+                            console.log("Charly -> " + MODULE_NAME + " -> start -> saveTrades -> Saving Trades from " + bot.exchange + " " + symbol + " @ " + processingDate)
+                            bot.processHeartBeat("Saving " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                         }
 
                         /* Saving the trades in Files*/
                         currentRecordMinute = Math.trunc(trade.timestamp / ONE_MINUTE)
 
                         if (
-                            currentRecordMinute !== previousRecordMinute 
+                            currentRecordMinute !== previousRecordMinute
                         ) {
                             /* There are no more trades at this minute or it is the last trade, so we save the file.*/
                             saveFile()
@@ -223,6 +228,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             callBackFunction(error);
                             return;
                         }
+                        if (filesToCreate === 0) {
+                            controlLoop()
+                        }
                         function saveFile() {
                             fileContent = fileContent + ']'
                             if (currentRecordMinute - previousRecordMinute > 1) {
@@ -233,6 +241,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             fileStorage.createTextFile(bot.dataMine, getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
                             fileContent = '['
                             needSeparator = false
+
                         }
                         function createMissingEmptyFiles(begin, end) {
 
@@ -245,14 +254,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                         function onFileCreated(err) {
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
                                 error = err // This allows the loop to be breaked.
                                 return;
                             }
                             filesCreated++
                             lastFileSaved = new Date((currentRecordMinute * ONE_MINUTE))
                             if (filesCreated === filesToCreate) {
-                                writeStatusReport()
+                                controlLoop()
                             }
                         }
                         function getFilePath(timestamp) {
@@ -265,7 +274,18 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             return filePath
                         }
+
+
                     }
+                    function controlLoop() {
+                        i++
+                        if (i < allTrades.length) {
+                            loop()
+                        } else {
+                            writeStatusReport()
+                        }
+                    }
+ 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> saveTrades -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);

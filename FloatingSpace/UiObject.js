@@ -1091,7 +1091,7 @@ function newUiObject () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 30
+      const MAX_LABEL_LENGTH = 45
 
       label = currentValue
       if (!isNaN(label)) {

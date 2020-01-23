@@ -143,7 +143,7 @@
 
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
+                    if (thisReport.beginingOfMarket === undefined) {
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
@@ -158,7 +158,7 @@
 
                     if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not.
 
-                        firstTradeFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                        firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
                         /* Before processing this month we need to check if it is not too far in the past.*/
 
@@ -202,7 +202,7 @@
 
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
+                    if (thisReport.lastFileSaved === undefined) {
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the hole fixing process has not started yet for this month.");
 
@@ -228,7 +228,7 @@
 
                         if (atHeadOfMarket === true) {
 
-                            lastFileWithoutHoles = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                            lastFileWithoutHoles = new Date(thisReport.lastFileSaved.year + "-" + thisReport.lastFileSaved.month + "-" + thisReport.lastFileSaved.days + " " + thisReport.lastFileSaved.hours + ":" + thisReport.lastFileSaved.minutes + GMT_SECONDS);
 
                         } else {
 

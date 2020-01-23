@@ -2,12 +2,9 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
-
     const MODULE_NAME = "User Bot";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     thisObject = {
@@ -22,16 +19,13 @@
     return thisObject;
 
     function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
-
         try {
 
             logger.fileName = MODULE_NAME;
             logger.initialize();
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             statusDependencies = pStatusDependencies;
-
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {

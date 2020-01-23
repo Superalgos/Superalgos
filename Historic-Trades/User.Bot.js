@@ -1,1103 +1,300 @@
-﻿exports.newInterval = function newInterval(bot, logger, UTILITIES, FILE_STORAGE, MARKETS_MODULE, POLONIEX_CLIENT_MODULE) {
+﻿
+exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage, STATUS_REPORT, EXCHANGE_API) {
 
-    const ROOT_DIR = './';
+    const FULL_LOG = true;
+    const LOG_FILE_CONTENT = false;
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
-
-    const MODULE_NAME = "Interval";
-    const LOG_INFO = true;
-
-    const EXCHANGE_ID = 1;
-
+    const MODULE_NAME = "User Bot";
     const TRADES_FOLDER_NAME = "Trades";
 
-    const GO_RANDOM = false;
-    const FORCE_MARKET = 2;     // This allows to debug the execution of an specific market. Not intended for production. 
-
-    interval = {
+    thisObject = {
         initialize: initialize,
         start: start
     };
 
-    let markets;
+    let utilities = UTILITIES.newCloudUtilities(bot, logger)
+    let statusDependencies
 
-    let charlyStorage = FILE_STORAGE.newFileStorage(bot, logger);
+    const ONE_MINUTE = 60000
+    const MAX_TRADES_PER_EXECUTION = 2000
+    const ccxt = require('ccxt')
 
-    let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let allTrades = []
+    let thisReport;
+    let since
+    let initialProcessTimestamp
+    let beginingOfMarket
+    let lastFileSaved
+    let filesToCreate = 0
+    let filesCreated = 0
 
-    let year;
-    let month;
+    return thisObject;
 
-    return interval;
-
-    function initialize(yearAssigend, monthAssigned, callBackFunction) {
-
+    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
         try {
 
-            year = yearAssigend;
-            month = monthAssigned;
+            logger.fileName = MODULE_NAME;
+            logger.initialize();
 
-            month = utilities.pad(month, 2); // Adding a left zero when needed.
-
-            logger.fileName = MODULE_NAME + "-" + year + "-" + month;
-
-            const logText = "[INFO] initialize - Entering function 'initialize' " + " @ " + year + "-" + month;
-            console.log(logText);
-            logger.write(logText);
-
-            charlyStorage.initialize(bot.dataMine);
-
-            markets = MARKETS_MODULE.newMarkets(bot.logger);
-            markets.initialize(callBackFunction);
-
+            statusDependencies = pStatusDependencies;
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
-
-            const logText = "[ERROR] initialize - ' ERROR : " + err.message;
-            console.log(logText);
-            logger.write(logText);
-
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-/*
-
-This process is going to do the following:
-
-It will look for the oldest file for each market and it will request to the exchange the max amount of transactions from that moment, backwards.
-Then it will iterate through those transactions to create the files for each minute with the trades it got from the exchange. Finally when it reaches the
-begining of the history of the market, it will move to the next market and repead the process.
-
-This process complements the Live Trades process and write historical trades files exactly in the same format.
-
-*/
-
     function start(callBackFunction) {
-
         try {
 
-            if (LOG_INFO === true) {
-                logger.write(MODULE_NAME, "[INFO] Entering function 'start', with year = " + year + " and month = " + month);
+            begin()
+
+            async function begin() {
+                getContextVariables()
+                defineSince()
+                await getTrades()
+                await saveTrades()
             }
 
-            let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-            processDate.setUTCMonth(processDate.getUTCMonth() + 1);          // First we go 1 month into the future.
-            processDate.setUTCSeconds(processDate.getUTCSeconds() - 30);    // Then we go back 30 seconds, or to the last minute of the original month.
-
-            let thisDatetime = new Date();
-
-            if ((year === thisDatetime.getUTCFullYear() && month > thisDatetime.getUTCMonth() + 1) || year > thisDatetime.getUTCFullYear()) {
-
-                logger.write(MODULE_NAME, "[INFO] We are too far in the future. Interval will not execute. Sorry.");
-                return;
-
-            }
-
-            let moreIntervalCallsNeeded = false;    // Here we control if some processing has been done. If none, that means that it is not necesary to call this Interval again.
-
-            let currentDate;    // This will hold the current datetime of each execution.
-            let cursorDatetime; // This holds the datetime we are using to request records from, backwards.
-
-            let marketQueue;    // This is the queue of all markets to be procesesd at each interval.
-            let market = {      // This is the current market being processed after removing it from the queue.
-                id: 0,
-                baseAsset: "",
-                quotedAsset: ""
-            };
-
-            let dateForPath;
-
-            let filePath;
-
-            let exchangeCallTime;
-
-            const FIRST_RECORD_ID = 100; // This should be around 100.
-
-            marketsLoop(); 
-
-            /*
-    
-            At every run, the process needs to loop through all the markets at this exchange.
-            The problem is that we can not fire all the requests at once to the exchange or we would get banned.
-            For that reason we create a queue with the markets to process and we do one at the time.
-            The following functions marketsLoop(), openMarket(), closeMarket() and closeAndOpenMarket() controls the serialization of this processing.
-
-            */
-
-            function marketsLoop() {
+            function getContextVariables() {
 
                 try {
+                    let reportKey;
 
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'marketsLoop'");
-                    }
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
-                    currentDate = new Date();
-                    markets.getMarketsByExchange(EXCHANGE_ID, onMarketsReady);
-
-                    function onMarketsReady(marketsArray) {
-
-                        marketQueue = JSON.parse(marketsArray);
-
-                        openMarket(); // First execution and entering into the real loop.
-
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'marketsLoop' - ERROR : " + err.message;
-                    logger.write(logText);
-                }
-            }
-
-            function openMarket() {
-
-                // To open a Market means picking a new market from the queue.
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'openMarket'");
-                    }
-
-
-                    if (marketQueue.length === 0) {
-
-                        if (LOG_INFO === true) {
-                            logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length === 0");
-                        }
-
-                        const logText = "[WARN] We processed all the markets.";
-                        logger.write(logText);
-
-                        callBackFunction(moreIntervalCallsNeeded);
-
+                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
 
+                    thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (GO_RANDOM === true) {
-                        const index = parseInt(Math.random() * (marketQueue.length - 1));
-
-                        market.id = marketQueue[index][0];
-                        market.baseAsset = marketQueue[index][1];
-                        market.quotedAsset = marketQueue[index][2];
-                        market.status = marketQueue[index][3];
-
-                        marketQueue.splice(index, 1);
-                    } else {
-                        let marketRecord = marketQueue.shift();
-
-                        market.id = marketRecord[0];
-                        market.baseAsset = marketRecord[1];
-                        market.quotedAsset = marketRecord[2];
-                        market.status = marketRecord[3];
-
-                        if (FORCE_MARKET > 0) {
-                            if (FORCE_MARKET !== market.id) {
-                                closeAndOpenMarket();
-                                return;
-                            }
-                        }
+                    if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
+                        beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
+                        lastFileSaved = new Date(thisReport.file.lastFileSaved.year + "-" + thisReport.file.lastFileSaved.month + "-" + thisReport.file.lastFileSaved.days + " " + thisReport.file.lastFileSaved.hours + ":" + thisReport.file.lastFileSaved.minutes + GMT_SECONDS);
+                    } else {  // This means this is the first time this process run.
+                        beginingOfMarket = new Date()
                     }
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - marketQueue.length = " + marketQueue.length);
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market sucessfully opened : " + market.baseAsset + "_" + market.quotedAsset);
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                    if (err.message === "Cannot read property 'file' of undefined") {
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ");
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
-
-                    if (market.status === markets.ENABLED) {
-
-                        getMarketStatusReport();
-
-                    } else {
-
-                        logger.write(MODULE_NAME, "[INFO] 'openMarket' - market " + market.baseAsset + "_" + market.quotedAsset + " skipped because its status is not valid. Status = " + market.status);
-                        closeAndOpenMarket();
-                        return;
-
-                    }
-
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'openMarket' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
-            function closeMarket() {
+            function defineSince() {
 
-                if (LOG_INFO === true) {
-                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeMarket'");
-                }
+                let uiStartDate = new Date(bot.uiStartDate)
 
-            }
-
-            function closeAndOpenMarket() {
-
-                if (LOG_INFO === true) {
-                    logger.write(MODULE_NAME, "[INFO] Entering function 'closeAndOpenMarket'");
-                }
-
-                openMarket();
-
-            }
-
-
-            /*
-
-            The following code executes for each market, getting the trades from the exchange and saving them in files at the cloud storage.
-
-            */
-
-
-            function getMarketStatusReport() {
-
-                /*
-
-                The market status report is independent from the year and month this current interval is working on. We will read the report to
-                check if the whole market is already completed. If it is, there is no need to do anything else.
-
-                */
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
-                    }
-
-                    let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                    function onFileReceived(text) {
-
-                        if (text === undefined) {
-
-                            getMonthStatusReport();
-
-                        } else {
-
-                            let statusReport = JSON.parse(text);
-
-                            if (statusReport.completeHistory === true) {
-
-                                const logText = "[INFO] 'getMarketStatusReport' - Market " + market.baseAsset + '_' + market.quotedAsset + " is already complete. Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                            } else {
-
-                                getMonthStatusReport();
-
-                            }
-
-                        }
-
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getMarketStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-
-            function getMonthStatusReport() {
-
-                /*
-
-                In order to know where to start the process (which datetime) we need to read the StatusReport of the process. This file will tell
-                us where we left after the last execution or if the process has finished for this market.
-
-                */
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'getMarketStatusReport'");
-                    }
-
-                    let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + year + "/" + month;
-                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                    function onFileReceived(text) {
-
-                        if (text === undefined) {
-
-                            if (processDate.valueOf() > thisDatetime.valueOf()) {
-
-                                currentDate = thisDatetime;
-                                getTheTrades();
-
-                            } else {
-
-                                currentDate = processDate;
-                                getTheTrades();
-
-                            }
-
-                        } else {
-
-                            let statusReport = JSON.parse(text);
-
-                            if (statusReport.completeHistory === true) {
-
-                                const logText = "[INFO] 'getMonthStatusReport' - Market " + market.baseAsset + '_' + market.quotedAsset + " is already complete. Skipping it. ";
-                                logger.write(logText);
-
-                                closeAndOpenMarket();
-
-                            } else {
-
-                                /* We get from the file the datetime of the last file created. */
-
-                                currentDate = new Date(statusReport.lastFile.year + "-" + statusReport.lastFile.month + "-" + statusReport.lastFile.days + " " + statusReport.lastFile.hours + ":" + statusReport.lastFile.minutes + GMT_SECONDS); 
-
-                                getTheTrades();
-
-                            }
-
-                        }
-
-                    }
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getMonthStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function getTheTrades() {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'getTheTrades'");
-                    }
-
-                    const firstTradeDate = parseInt(currentDate.valueOf() / 1000);
-
-                    const firstMomentOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-                    /* We request to the Exchange API some more records than needed, anyway we will discard records out of the range we need. To do this we substract some seconds and add some
-                    seconds to the already calculated UNIX timestamps. */
-
-                    let startTime = parseInt(firstMomentOfMonth.valueOf() / 1000) - 5;
-                    let endTime = firstTradeDate + 60;
-
-                    if (endTime - startTime > 60 * 60 * 24 * 30) {
-
-                        /*
-
-                        We can not ask this exchange for more than 30 days in a single request. So we substract in this case a few days so as not
-                        to violate this policy on 31 days months.
-
-                        */
-
-                        startTime = startTime + 60 * 60 * 25 * 7; // we add one week to be confortable.
-
-                    }
-
-                    exchangeCallTime = new Date();
-
-                    let poloniexApiClient = POLONIEX_CLIENT_MODULE.newPoloniexAPIClient(global.EXCHANGE_KEYS[bot.exchange].Key, global.EXCHANGE_KEYS[bot.exchange].Secret);
-
-                    poloniexApiClient.API.returnPublicTradeHistory(market.baseAsset, market.quotedAsset, startTime, endTime, onExchangeCallReturned);
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'getTheTrades' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-            function onExchangeCallReturned(err, tradesRequested) {
-
-                try {
-
-                    if (LOG_INFO === true) {
-
-                        let exchangeResponseTime = new Date();
-                        let timeDifference = (exchangeResponseTime.valueOf() - exchangeCallTime.valueOf()) / 1000;
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'onExchangeCallReturned' - Call time recorded = " + timeDifference + " seconds.");
-                    }
-
-                    if (err || tradesRequested.error !== undefined) {
-                        try {
-
-                            if (err.message.indexOf("ETIMEDOUT") > 0) {
-
-                                const logText = "[WARN] onExchangeCallReturned - Timeout reached while trying to access the Exchange API. Trying again. : ERROR = " + err.message;
-                                logger.write(logText);
-
-                                /* We try to reconnect to the exchange and fetch the data again. */
-
-                                getTheTrades();
-                                return;
-
-                            } else {
-
-                                if (err.message.indexOf("ECONNRESET") > 0) {
-
-                                    const logText = "[WARN] onExchangeCallReturned - The exchange reseted the connection. Trying again. : ERROR = " + err.message;
-                                    logger.write(logText);
-
-                                    /* We try to reconnect to the exchange and fetch the data again. */
-
-                                    getTheTrades();
-                                    return;
-
-                                } else {
-
-
-                                    const logText = "[ERROR] onExchangeCallReturned - Unexpected error trying to contact the Exchange. Giving up. : ERROR = " + err.message;
-                                    logger.write(logText);
-                                    closeMarket();
-                                    return;
-                                }
-                            }
-
-                        } catch (err) {
-                            const logText = "[ERROR] onExchangeCallReturned : ERROR : tradesRequested.error = " + tradesRequested.error;
-                            logger.write(logText);
-
-                            if (tradesRequested.error === "Invalid currency pair.") {
-
-                                markets.disableMarket(EXCHANGE_ID, market.id, onMarketDeactivated);
-
-                                function onMarketDeactivated() {
-
-                                    logger.write(MODULE_NAME, "[INFO] Market " + market.baseAsset + "_" + market.quotedAsset + " deactivated. Id = " + market.id);
-
-                                    closeAndOpenMarket();
-                                    return;
-
-                                }
-
-                            }
-
-                            closeMarket();
-                            return;
-                        }
-
-                        closeMarket();
-                        return;
-
-                    } else {
-
-                        if (tradesRequested.length === 0) {
-
-                            const logText = "[WARN] 'onExchangeCallReturned' - The exchange didn't return any records. We assume this means the date requested is before the begining of this market. ";
-                            logger.write(logText);
-                            closeAndOpenMarket();
-
-                        } else {
-
-                            tradesReadyToBeSaved(tradesRequested);
-
-                        }
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'onExchangeCallReturned' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
-            }
-
-            function tradesReadyToBeSaved(tradesRequested) {
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'tradesReadyToBeSaved'");
-                    }
-
-                    moreIntervalCallsNeeded = true; // If we are requesting trades from the exchange, that means that something is being done.
-
-                    let filesWrittenCounter = 0;    // We count each file written to the cloud so when we reach some number we partially update the status report
-                    let fileRecordCounter = 0;
-
-                    let needSeparator;
-                    let separator;
-
-                    let lastProcessMinute;  // Stores the previous record minute during each iteration
-                    let filesToSave = [];   // Array where we will store all the content to be written to files
-
-                    needSeparator = false;
-
-                    let fileContent = "";
-
-                    let beginingOfMarket = false; // This flag is turned on when we detect the conditions that makes us assume we are at the begining of the hitory of the market. 
-
-                    let currentProcessMinute = Math.trunc(currentDate.valueOf() / 1000 / 60); 
-                    let firstProcessMinute = currentProcessMinute;
-
-                    /* We will iterate through all the records received from the exchange. We expect the exchange API to return the records ordered by ID DESC so we change it to ASC. So this is going to be going back in time as we advance. */
-
-                    for (let i = 0; i < tradesRequested.length; i++) {
-
-                        let record = tradesRequested[i];
-
-                        const trade = {
-                            tradeIdAtExchange: record.tradeID,
-                            marketIdAtExchange: record.globalTradeID,
-                            type: record.type,
-                            rate: record.rate,
-                            amountA: record.total,
-                            amountB: record.amount,
-                            datetime: new Date(record.date + GMT_MILI_SECONDS)
-                        };
-
-                        trade.seconds = trade.datetime.getUTCSeconds();
-
-                        if (trade.tradeIdAtExchange < FIRST_RECORD_ID) {  // Experience has shown us that the first trade records of any market are out of range, because they are teststing the market with any value. So no worries if they are not recorded in our history.
-
-                            beginingOfMarket = true;
-
-                        }
-
-                        let currentRecordMinute = Math.trunc(trade.datetime.valueOf() / 1000 / 60);  // This are the number of minutes since the begining of time of this trade.
-
-                        if (currentRecordMinute > currentProcessMinute) {
-
-                            /* We discard this trade, since it happened after the minute we want to record in the current file. */
-
-                            continue;
-                        }
-
-                        if (currentRecordMinute < currentProcessMinute) {
-
-                            /* 
-
-                            The information is older that the current time.
-                            We must store the current info and reset the pointer to the current time to match the one on the information currently being processd.
-                            We know this can lead to a 'hole' or some empty files being skipped, but we solve that problem with the next loop.
-
-                            */
-
-                            let blackMinutes = currentProcessMinute - currentRecordMinute;
-
-                            for (let j = 1; j <= blackMinutes; j++) {
-
-                                storeFileContent();
-                                currentProcessMinute--;
-
-                            }
-                        }
-
-                        if (currentRecordMinute === currentProcessMinute) {
-
-                            if (needSeparator === false) {
-
-                                needSeparator = true;
-                                separator = '';
-
-                            } else {
-                                separator = ',';
-                            }
-
-                            fileContent = '[' + trade.tradeIdAtExchange + ',"' + trade.type + '",' + trade.rate + ',' + trade.amountA + ',' + trade.amountB + ',' + trade.seconds + ']' + separator + fileContent;
-
-                            fileRecordCounter++;
-
-                        }
-
-                    }
-
-                    if (fileContent !== "") {
-
-                        /* 
-
-                        Normally, we would not save the content of the last file, since it usually contains some of the records of that minute.
-                        There are a few exceptions:
-
-                        If it is the last file of the month (the one at the very begining of the month) we must save it.
-
-                        */
-
-                        let date = new Date(currentProcessMinute * 60 * 1000);
-
-                        if ((date.getUTCFullYear() === year) &&
-                            (date.getUTCMonth() + 1 === parseInt(month)) &&  // remember we added left zeros to look cool.
-                            (date.getUTCDate() === 1) &&
-                            (date.getUTCHours() === 0) &&
-                            (date.getUTCMinutes() === 0)) {
-
-                            storeFileContent();
-
-                        } else {
-
-                            /* 
-
-                            The second exception happens when we approach the begining of the month.
-                            In markets with few volume, there might be a lot of minutes or even hours, close to the begining of the month with no records. Naturally the process
-                            would stop with the last record received from the exchange. So we must fix that an to do it, we check if we processed only one minute,
-                            in that case, we interpret that all the minutes below until the begining of the month, are with empty records. If this condition is not met, then we must
-                            ignore the records as they might be some missing for the current minute.
-
-                            */
-
-                            if (firstProcessMinute - currentProcessMinute === 1) {
-
-                                /* We will artificially generate all the minutes upto the begining of the month. The first will contain some records, all the rest will be empty. */
-
-                                const firstMomentOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-                                let firstMinute = Math.trunc(firstMomentOfMonth.valueOf() / 1000 / 60);  // This are the number of minutes since the begining of time to the begining of the month.
-
-                                let blackMinutes = currentProcessMinute - firstMinute + 1;
-
-                                for (let j = 1; j <= blackMinutes; j++) {
-
-                                    storeFileContent();
-                                    currentProcessMinute--;
-
-                                }
-
-                            } else {
-
-                                /* We dont store the last processed file since it might be incomplete. */
-
-                            }
-                        }
-                    }
-
-                    function storeFileContent() {
-
-                        fileContent = '[' + fileContent + ']';
-
-                        let fileRecord = {
-                            datetime: currentProcessMinute,
-                            content: fileContent,
-                            records: fileRecordCounter
-                        };
-
-                        filesToSave.push(fileRecord);
-
-                        fileRecordCounter = 0;
-                        needSeparator = false;
-                        fileContent = "";
-                    }
-
-                    /*
-
-                    Now it is time to process all the information we stored at filesToSave.
-
-                    */
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] About to save " + (filesToSave.length + 1) + " files. ");
-                    }
-
-                    let i = 0;
-                    let date;
-
-                    nextRecord();
-
-                    function nextRecord() {
-
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        date = new Date(filesToSave[i].datetime * 60 * 1000);
-                        fileRecordCounter = filesToSave[i].records;
-                        fileContent = filesToSave[i].content;
-
-                        dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-
-                        filePath = bot.exchange + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-
-                        utilities.createFolderIfNeeded(filePath, charlyStorage, onFolderCreated);
-
-                        function onFolderCreated() {
-
-                            charlyStorage.createTextFile(filePath, fileName, fileContent + '\n', onFileCreated);
-
-                            function onFileCreated() {
-
-                                let paddedCounter = utilities.pad(fileRecordCounter, 4);
-                                let paddedFile = utilities.pad(i + 1, 5);
-
-                                const logText = "[WARN] Finished with File # " + paddedFile + " @ " + market.baseAsset + "_" + market.quotedAsset + ", " + paddedCounter + " records inserted into " + filePath + "/" + fileName + "";
-                                console.log(logText);
-                                logger.write(logText);
-
-                                controlLoop();
-                            }
-                        }
-                    }
-
-                    
-                    function controlLoop() {
-
-                        i++;
-
-                        if (i < filesToSave.length) {
-
-                            filesWrittenCounter++;
-
-                            if (filesWrittenCounter === 30) { // Every now and then we write a Status Report so that if the process is terminated, it can resume later from there.
-
-                                writeStatusReport(date, false, false, onReportWritten);
-
-                                function onReportWritten() {
-
-                                    filesWrittenCounter = 0;
-                                    nextRecord();
-
-                                }
-
-                            } else {
-
-                                nextRecord();
-
-                            }
-
-                        } else {
-
-                            if (LOG_INFO === true) {
-                                logger.write(MODULE_NAME, "[INFO] Leaving function 'tradesReadyToBeSaved'");
-                            }
-
-                            let monthCompleteHistory = false;
-
-                            if ((date.getUTCFullYear() === year) &&
-                                (date.getUTCMonth() + 1 === parseInt(month)) &&  // remember we added left zeros to look cool.
-                                (date.getUTCDate() === 1) &&
-                                (date.getUTCHours() === 0) &&
-                                (date.getUTCMinutes() === 0)) {
-
-                                /*
-
-                                When we get to the first minute of the month, that menas we completed the whole month and this should later be recorded
-                                at the Status Report.
-
-                                */
-
-                                monthCompleteHistory = true;
-
-                            }
-
-                            if (beginingOfMarket === true) {
-
-                                /*
-
-                                If we already detected that we completed the whole market (by reaching a very low trade Id) then we can also say that
-                                we completed the current month.
-
-                                */
-
-                                monthCompleteHistory = true;
-                            }
-
-                            writeStatusReport(date, monthCompleteHistory, beginingOfMarket, onReportWritten);
-
-                            function onReportWritten() {
-
-                                closeAndOpenMarket();
-
-                            }
-
-                        }
-                    }
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'tradesReadyToBeSaved' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-            }
-
-
-            function writeStatusReport(lastFileDate, isMonthComplete, isBeginingOfMarket, callBack) {
-
-                /*
-
-                The report is a file that records important information to be used by a) another instance of the same process, b) another process or by c) another bot.
-
-                The first thing to do is to read the current report file content, if it exists.
-
-                In this particular process, we will record the last file processed. 
-
-                */
-
-                try {
-
-                    if (LOG_INFO === true) {
-                        logger.write(MODULE_NAME, "[INFO] Entering function 'writeStatusReport'");
-                    }
-
-                    let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + year + "/" + month;
-
-                    utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
-
-                    function onFolderCreated() {
-
-                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                        let report = {
-                            lastFile: {
-                                year: lastFileDate.getUTCFullYear(),
-                                month: (lastFileDate.getUTCMonth() + 1),
-                                days: lastFileDate.getUTCDate(),
-                                hours: lastFileDate.getUTCHours(),
-                                minutes: lastFileDate.getUTCMinutes()
-                            },
-                            completeHistory: isMonthComplete
-                        };
-
-                        let fileContent = JSON.stringify(report); 
-
-                        charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onFileCreated);
-
-                        function onFileCreated() {
-
-                            if (LOG_INFO === true) {
-                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Content written: " + fileContent);
-                            }
-
-                            if (isBeginingOfMarket === true) {
-
-                                reportFilePath = bot.exchange + "/Processes/" + bot.process;
-
-                                utilities.createFolderIfNeeded(reportFilePath, charlyStorage, onFolderCreated);
-
-                                function onFolderCreated() {
-
-                                    fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                                    let report = {
-                                        lastFile: {
-                                            year: lastFileDate.getUTCFullYear(),
-                                            month: (lastFileDate.getUTCMonth() + 1),
-                                            days: lastFileDate.getUTCDate(),
-                                            hours: lastFileDate.getUTCHours(),
-                                            minutes: lastFileDate.getUTCMinutes()
-                                        },
-                                        completeHistory: false // This will be true only when all months are completed.
-                                    };
-
-                                    let fileContent = JSON.stringify(report);
-
-                                    charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
-
-                                    function onMasterFileCreated() {
-
-                                        if (LOG_INFO === true) {
-                                            logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - Begining of market reached !!! - Content written: " + fileContent);
-                                        }
-
-                                        verifyMarketComplete(isMonthComplete, callBack);
-
-                                    }
-
-                                }
-
-                            }
-                                
-                            else {
-
-                                verifyMarketComplete(isMonthComplete, callBack);
-
-                            }
-
-                        }
-                    }
-
-
-                }
-                catch (err) {
-                    const logText = "[ERROR] 'writeStatusReport' - ERROR : " + err.message;
-                    logger.write(logText);
-                    closeMarket();
-                }
-
-            }
-
-            function verifyMarketComplete(isMonthComplete, callBack) {
-
-                if (isMonthComplete === true) {
-
-                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Month Completed !!! ");
-
-                    /*
- 
-                    To know if the whole market is complete, we need to ready all the status reports, one by one, since the first
-                    month / year to the current month / year.
-
-                    To know which is the first month / year we will read the main Status Report. Only if it exists (that is after the first
-                    month of the market reached a very low trade), we will know from it which is the initial month / year.
-
-                    Obtaining the current month / year is trivial, since it is current time. We will scan all the files and we need all of
-                    them to report that the month has been completed in order to declare the whole market as completed.
-
-                    All of the above is what we call the last step.
- 
-                    */
-
-                    let initialYear;
-                    let initialMonth;
-
-                    let finalYear = (new Date()).getUTCFullYear();
-                    let finalMonth = (new Date()).getUTCMonth() + 1;
-
-                    let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                    let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                    /* Lets read the main status report */
-
-                    charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                    function onFileReceived(text) {
-
-                        if (text === undefined) {
-
-                            /* The first month of the market didnt create this file yet. Aborting verification. */
-
-                            logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the main status report did not exist. ");
-
-                            callBack();
-
-                        } else {
-
-                            let statusReport = JSON.parse(text);
-
-                            initialYear = statusReport.lastFile.year;
-                            initialMonth = statusReport.lastFile.month;
-
-                            loopCycle();
-                        }
-
-                    }
-
-                    function loopCycle() {
-
-                        /*
-
-                        Here we read the status report file of each month / year to verify if it is complete or not.
-
-                        */
-                        let paddedInitialMonth = utilities.pad(initialMonth, 2);
-
-                        let reportFilePath = bot.exchange + "/Processes/" + bot.process + "/" + initialYear + "/" + paddedInitialMonth;
-                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                        charlyStorage.getTextFile(reportFilePath, fileName, onStatusReportFileReceived);
-
-                        function onStatusReportFileReceived(text) {
-
-                            if (text === undefined) {
-
-                                /* If any of the files do not exist, it is enough to know the market is not complete. */
-
-                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. ");
-
-                                callBack();
-
-                            } else {
-
-                                let statusReport = JSON.parse(text);
-
-                                if (statusReport.completeHistory === true) {
-
-                                    loop();  // Lets see the next month.
-
-                                } else {
-
-                                    /* If any of the files says that month is not complete then it is enough to know the market is not complete. */
-
-                                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " did not have a complete history. ");
-
-                                    callBack();
-
-                                }
-                            }
-
-                        }
-
-                    }
-
-                    function loop() {
-
-                        initialMonth++;
-
-                        if (initialMonth > 12) {
-
-                            initialMonth = 1;
-                            initialYear++;
-
-                        }
-
-                        if ((initialYear === finalYear && initialMonth > finalMonth) || (initialYear > finalYear)) {
-
-                            /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
-
-                            readAndWriteNewReport();
-
-                            return;
-                        }
-
-                        loopCycle();
-
-                    }
-
-                    function readAndWriteNewReport() {
-
-                        /* We will read the current file to preserve its data, and save it again with market complete = true */
-
-                        let reportFilePath = bot.exchange + "/Processes/" + bot.process;
-                        let fileName = "Status.Report." + market.baseAsset + '_' + market.quotedAsset + ".json";
-
-                        charlyStorage.getTextFile(reportFilePath, fileName, onFileReceived);
-
-                        function onFileReceived(text) {
-
-                            let statusReport = JSON.parse(text);
-
-                            statusReport.completeHistory = true;
-
-                            let fileContent = JSON.stringify(statusReport);
-
-                            charlyStorage.createTextFile(reportFilePath, fileName, fileContent + '\n', onMasterFileCreated);
-
-                            function onMasterFileCreated() {
-
-                                logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification SUCESSFULL . Market Completed !!! - Content written: " + fileContent);
-
-                                callBack();
-
-                            }
-                        }
-                    }
-
+                if (uiStartDate.valueOf() < beginingOfMarket.valueOf()) {
+                    since = (new Date(bot.uiStartDate)).valueOf()
+                    initialProcessTimestamp = since 
+                    beginingOfMarket = new Date(uiStartDate.valueOf())
                 } else {
-
-                    logger.write(MODULE_NAME, "[INFO] 'writeStatusReport' - verifyMarketComplete - Verification ABORTED: Month is not complete. ");
-                    callBack();
-
+                    since = lastFileSaved.valueOf()
+                    initialProcessTimestamp = lastFileSaved.valueOf()
                 }
+            }
 
+            async function getTrades() {
+
+                let lastTradeKey = ''
+
+                const limit = 1000
+                const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+                const exchangeId = bot.exchange.toLowerCase()
+                const exchangeClass = ccxt[exchangeId]
+                const exchange = new exchangeClass({
+                    'timeout': 30000,
+                    'enableRateLimit': true//,
+                     //verbose: true
+                })
+
+                try {
+                    console.log("exchange.milliseconds()", exchange.milliseconds())
+                    while (since < exchange.milliseconds()) {
+                        console.log("symbol", symbol)
+                        console.log("since", since)
+                        console.log("limit", limit)
+                        const trades = await exchange.fetchTrades(symbol, since, limit)
+                        console.log("trades.length:" + trades.length)
+
+                        if (trades.length >= 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                            since = trades[trades.length - 1]['timestamp']
+
+                            for (let i = 0; i < trades.length; i++) {
+                                let trade = trades[i]
+                                let tradeKey = trade.timestamp + '-' + trade.side + '-' + trade.price.toFixed(16) + '-' + trade.amount.toFixed(16)
+                                if (tradeKey !== lastTradeKey) {
+                                    allTrades.push([trade.timestamp, trade.side, trade.price, trade.amount])
+                                }
+                                lastTradeKey = tradeKey
+                            }
+                            console.log("allTrades.length:", allTrades.length)
+                        } else {
+                            break
+                        }
+                    }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            async function saveTrades() {
+
+                try {
+
+                    let fileContent = '['
+                    let previousRecordMinute = Math.trunc((initialProcessTimestamp - ONE_MINUTE) / ONE_MINUTE)  
+                    let currentRecordMinute
+                    let needSeparator = false
+                    let error
+                    let separator
+
+                    for (let i = 0; i < allTrades.length; i++) {
+                        let record = allTrades[i]
+                        let trade = {
+                            timestamp: record[0],
+                            side: record[1],
+                            price: record[2],
+                            amount: record[3]
+                        }
+
+                        currentRecordMinute = Math.trunc(trade.timestamp / ONE_MINUTE)
+
+                        if (
+                            currentRecordMinute !== previousRecordMinute 
+                        ) {
+                            /* There are no more trades at this minute or it is the last trade, so we save the file.*/
+                            saveFile()
+                        }
+
+                        if (needSeparator === false) {
+                            needSeparator = true;
+                            separator = '';
+                        } else {
+                            separator = ',';
+                        }
+
+                        /* Add the trade to the file content.*/
+                        fileContent = fileContent + separator + '[' + trade.timestamp + ',"' + trade.side + '",' + trade.price + ',' + trade.amount + ']';
+
+                        if (i === allTrades.length) {
+                            /* This is the last trade, so we save the file.*/
+                            saveFile()
+                            /* It might happen that there are several minutes after the last trade without trades. We need to record empty files for them.*/
+                            if (allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                                let currentTimeMinute = Math.trunc((new Date()).valueOf() / ONE_MINUTE)
+                                if (currentTimeMinute - currentRecordMinute > 1) {
+                                    createMissingEmptyFiles(currentRecordMinute, currentTimeMinute)
+                                }
+                            }
+                            return
+                        }
+                        previousRecordMinute = currentRecordMinute
+                        if (error) {
+                            callBackFunction(error);
+                            return;
+                        }
+                        function saveFile() {
+                            fileContent = fileContent + ']'
+                            if (currentRecordMinute - previousRecordMinute > 1) {
+                                createMissingEmptyFiles(previousRecordMinute, currentRecordMinute)
+                            }
+                            let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
+                            filesToCreate++
+                            fileStorage.createTextFile(bot.dataMine, getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
+                            console.log("FILE CONTENT", getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent)
+                            fileContent = '['
+                            needSeparator = false
+                        }
+                        function createMissingEmptyFiles(begin, end) {
+                            console.log("createMissingEmptyFiles", begin, end)
+                            for (let j = begin + 1; j < end; j++) {
+                                let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
+                                filesToCreate++
+                                fileStorage.createTextFile(bot.dataMine, getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
+                                console.log("EMPTY FILE AT ", getFilePath(j * ONE_MINUTE) + '/' + fileName)
+                            }
+                        }
+                        function onFileCreated(err) {
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> tradesReadyToBeSaved -> onFileBCreated -> err = " + err.stack);
+                                error = err // This allows the loop to be breaked.
+                                return;
+                            }
+                            filesCreated++
+                            lastFileSaved = new Date((currentRecordMinute * ONE_MINUTE))
+                            if (filesCreated === filesToCreate) {
+                                writeStatusReport()
+                            }
+                        }
+                        function getFilePath(timestamp) {
+                            let datetime = new Date(timestamp)
+                            let dateForPath = datetime.getUTCFullYear() + '/' +
+                                utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                utilities.pad(datetime.getUTCDate(), 2) + '/' +
+                                utilities.pad(datetime.getUTCHours(), 2) + '/' +
+                                utilities.pad(datetime.getUTCMinutes(), 2)
+                            let filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                            return filePath
+                        }
+                    }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> saveTrades -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
+            }
+
+            function writeStatusReport() {
+                try {
+                    if (lastFileSaved === undefined) {return}
+                    thisReport.file = {
+                        lastFileSaved: {
+                            year: lastFileSaved.getUTCFullYear(),
+                            month: (lastFileSaved.getUTCMonth() + 1),
+                            days: lastFileSaved.getUTCDate(),
+                            hours: lastFileSaved.getUTCHours(),
+                            minutes: lastFileSaved.getUTCMinutes()
+                        },
+                        beginingOfMarket: {
+                            year: beginingOfMarket.getUTCFullYear(),
+                            month: (beginingOfMarket.getUTCMonth() + 1),
+                            days: beginingOfMarket.getUTCDate(),
+                            hours: beginingOfMarket.getUTCHours(),
+                            minutes: beginingOfMarket.getUTCMinutes()
+                        }
+                    };
+
+                    thisReport.save(onSaved);
+
+                    function onSaved(err) {
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
+                            callBackFunction(err);
+                            return;
+                        }
+                        callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
             }
 
 
-
-        }
-        catch (err) {
-            const logText = "[ERROR] 'Start' - ERROR : " + err.message;
-            logger.write(logText);
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 };

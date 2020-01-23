@@ -2,12 +2,9 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
-
     const MODULE_NAME = "User Bot Hole Fixing";
-
     const TRADES_FOLDER_NAME = "Trades";
 
     thisObject = {
@@ -25,7 +22,6 @@
     return thisObject;
 
     function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
-
         try {
 
             year = pYear;

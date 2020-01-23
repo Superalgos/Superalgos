@@ -213,6 +213,7 @@
                         baseAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent.code.codeName,
                         quotedAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent.code.codeName
                     }
+                    botConfig.uiStartDate = global.TASK_NODE.bot.code.startDate
 
                     /* This stuff is still hardcoded and unresolved. */
                     botConfig.version = {

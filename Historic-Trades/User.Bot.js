@@ -17,7 +17,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let statusDependencies
 
     const ONE_MINUTE = 60000
-    const MAX_TRADES_PER_EXECUTION = 10000
+    const MAX_TRADES_PER_EXECUTION = 100000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 

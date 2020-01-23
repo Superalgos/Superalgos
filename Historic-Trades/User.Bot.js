@@ -121,11 +121,17 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 try {
                     console.log("exchange.milliseconds()", exchange.milliseconds())
                     while (since < exchange.milliseconds()) {
-                        console.log("symbol", symbol)
-                        console.log("since", since)
-                        console.log("limit", limit)
+
+                        /* Reporting we are doing well */
+                        let processingDate = new Date(since)
+                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> symbol = " + symbol + "-> since = " + since + "-> limit = " + limit ) }
+                        console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades  @ " + processingDate)
+                        bot.processHeartBeat("Fetching " + processingDate) // tell the world we are alive and doing well
+
+                        /* Fetching the trades from the exchange.*/
                         const trades = await exchange.fetchTrades(symbol, since, limit)
-                        console.log("trades.length:" + trades.length)
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> trades.length = " + trades.length) }
 
                         if (trades.length >= 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
                             since = trades[trades.length - 1]['timestamp']
@@ -159,6 +165,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let needSeparator = false
                     let error
                     let separator
+                    let heartBeatCounter = 0
 
                     for (let i = 0; i < allTrades.length; i++) {
                         let record = allTrades[i]
@@ -169,6 +176,18 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             amount: record[3]
                         }
 
+                        /* Reporting we are doing well */
+                        heartBeatCounter++
+                        if (heartBeatCounter > 1000) {
+                            heartBeatCounter = 0
+                            let processingDate = new Date(trade.timestamp)
+                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Saving Trades  @ " + processingDate + "-> i = " + i + "-> total = " + allTrades.length) }
+                            console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades  @ " + processingDate)
+                            bot.processHeartBeat("Saving " + processingDate) // tell the world we are alive and doing well
+                        }
+
+                        /* Saving the trades in Files*/
                         currentRecordMinute = Math.trunc(trade.timestamp / ONE_MINUTE)
 
                         if (

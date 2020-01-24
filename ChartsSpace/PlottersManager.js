@@ -304,7 +304,7 @@ function newPlottersManager () {
     if (connectors === undefined) { return } // We need to wait
         /* First the Product Plotters. */
     for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
+      let connector = connectors[connectors.length - i - 1]
       connector.plotter.draw()
     }
   }

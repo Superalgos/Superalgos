@@ -309,7 +309,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             days: beginingOfMarket.getUTCDate(),
                             hours: beginingOfMarket.getUTCHours(),
                             minutes: beginingOfMarket.getUTCMinutes()
-                        }
+                        },
+                        completeHistory: true
                     };
 
                     thisReport.save(onSaved);

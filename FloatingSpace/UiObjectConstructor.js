@@ -46,9 +46,6 @@ function newUiObjectConstructor () {
         y: payload.node.savedPayload.position.y
       }
 
-      // if (position.x === undefined) { position.x = spawnPosition.x }
-      // if (position.y === undefined) { position.y = spawnPosition.y }
-
       floatingObject.setPosition(position)
       payload.node.savedPayload.position = undefined
       if (payload.node.savedPayload.floatingObject.isPinned === true) {

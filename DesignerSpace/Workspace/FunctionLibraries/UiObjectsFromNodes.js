@@ -76,8 +76,8 @@ function newUiObjectsFromNodes () {
                         for (let j = 0; j < nodeChildren.length; j++) {
                           if (node.id === nodeChildren[j].id) {
                             if (j > 0) {
-                            chainParent = nodeChildren[j - 1]
-                          }
+                              chainParent = nodeChildren[j - 1]
+                            }
                           }
                         }
                       }

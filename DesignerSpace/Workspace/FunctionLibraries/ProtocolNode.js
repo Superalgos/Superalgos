@@ -18,7 +18,6 @@ function newProtocolNode () {
       if (removePersonalData === true && nodeDefinition.isPersonalData === true) { return }
       let object = {
         type: node.type,
-        subType: node.subType,
         name: node.name,
         code: node.code
       }
@@ -174,7 +173,6 @@ function newProtocolNode () {
       if (node.payload.referenceParent !== undefined) {
         savedPayload.referenceParent = {
           type: node.payload.referenceParent.type,
-          subType: node.payload.referenceParent.subType,
           name: node.payload.referenceParent.name,
           id: node.payload.referenceParent.id
         }

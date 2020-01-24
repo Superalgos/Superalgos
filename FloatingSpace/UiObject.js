@@ -282,40 +282,18 @@ function newUiObject () {
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
-    let compatibleSubTypes
-    switch (thisObject.payload.node.type) {
 
-      case 'Process Instance':
-        switch (thisObject.payload.node.subType) {
-          case 'Sensor Process Instance': {
-            compatibleTypes = '->' + 'Sensor Bot Instance' + '->'
-            break
-          }
-          case 'Indicator Process Instance': {
-            compatibleTypes = '->' + 'Indicator Bot Instance' + '->'
-            break
-          }
-          case 'Trading Process Instance': {
-            compatibleTypes = '->' + 'Trading Bot Instance' + '->'
-            break
-          }
-        }
-        compatibleSubTypes = undefined
-        break
-
-      default:
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.chainAttachesTo !== undefined) {
-            compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
-            compatibleSubTypes = nodeDefinition.chainAttachesTo.compatibleSubTypes
-          } else {
-            return
-          }
-        } else {
-          return
-        }
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.chainAttachesTo !== undefined) {
+        compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+      } else {
+        return
+      }
+    } else {
+      return
     }
+
     let foundCompatible = false
     chainAttachToNode = undefined
     isChainAttaching = false
@@ -327,7 +305,7 @@ function newUiObject () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard App Schema defined objects with busy coonection ports */
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
         if (nodeDefinition !== undefined) {
           let mustContinue = false
           let parentNodeDefinition = APP_SCHEMA_MAP.get(nearbyNode.type)
@@ -355,12 +333,6 @@ function newUiObject () {
           if (mustContinue === true) { continue }
         }
 
-        /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
-          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
-            continue
-          }
-        }
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         /* Control maxPhases */
@@ -463,13 +435,11 @@ function newUiObject () {
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
-    let compatibleSubTypes
 
     let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.referenceAttachesTo !== undefined) {
         compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
-        compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
       } else {
         return
       }
@@ -487,13 +457,6 @@ function newUiObject () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
-        /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
-          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
-            continue
-          }
-        }
-
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToReferenceAttach()

@@ -19,9 +19,9 @@ function loadFrame (payload, frame) {
       frame.width = payload.node.savedPayload.frame.width
       frame.height = payload.node.savedPayload.frame.height
       frame.radius = payload.node.savedPayload.frame.radius
+      payload.node.savedPayload.frame = undefined
     }
   }
-  payload.node.savedPayload.frame = undefined
 }
 
 function convertTimeFrameToName (pTimeFrame) {

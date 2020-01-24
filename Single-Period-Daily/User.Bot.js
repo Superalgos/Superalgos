@@ -191,7 +191,7 @@
 
                     /* Next Status Report */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Hole-Fixing" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
@@ -278,7 +278,7 @@
 
                     } else {
 
-                        lastHoleFixedFile = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + "00:00" + GMT_SECONDS);
+                        lastHoleFixedFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
                         lastCandleClose = thisReport.candleClose;
 
                         if (thisReport.fileComplete === true) {
@@ -436,7 +436,7 @@
                     Before going backwards, we need to be sure we are not at the begining of the market.
                     */
 
-                    if ((year === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
+                    if ((Number(year) === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
 
                         /*
                         We are at the begining of the market, so we will set everyting to build the first candle.
@@ -786,13 +786,17 @@
 
                                             for (let i = 0; i < tradesFile.length; i++) {
 
-                                                const trade = {
-                                                    id: tradesFile[i][0],
-                                                    type: tradesFile[i][1],
-                                                    rate: tradesFile[i][2],
-                                                    amountA: tradesFile[i][3],
-                                                    amountB: tradesFile[i][4],
-                                                    seconds: tradesFile[i][5]
+                                                let record = {
+                                                    side: tradesFile[i][1],
+                                                    price: tradesFile[i][2],
+                                                    amount: tradesFile[i][3]
+                                                };
+
+                                                let trade = {
+                                                    type: record.side,
+                                                    rate: record.price,
+                                                    amountA: record.amount,
+                                                    amountB: record.amount * record.price
                                                 };
 
                                                 /* Candle min and max Calculations */

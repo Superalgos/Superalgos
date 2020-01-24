@@ -82,28 +82,66 @@ function newUiObjectTitle () {
 
   function physics () {
     if (thisObject.payload.title === undefined) { return }
-    let title = trimTitle(thisObject.payload.title)
 
     /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
     let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
     if (nodeDefinition.title !== undefined) {
-      let nodeToUse = thisObject.payload.node
-      if (nodeDefinition.title === 'Use Reference Parent') {
-        if (thisObject.payload.node.payload.referenceParent !== undefined) {
-          nodeToUse = thisObject.payload.node.payload.referenceParent
-        }
-      }
-      if (nodeDefinition.title === 'Use Reference Gran Parent') {
-        if (thisObject.payload.node.payload.referenceParent !== undefined) {
-          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
-            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+      thisObject.payload.title = ''
+      thisObject.payload.node.name = ''
+      let separator = ''
+      for (let i = 0; i < nodeDefinition.title.length; i++) {
+        let titleReference = nodeDefinition.title[i]
+        switch (titleReference) {
+          case 'Use Reference Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined) {
+              thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+              thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+            }
+            break
+          }
+          case 'Use Reference Grandparent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+              if (nodeToUse !== undefined) {
+                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+              }
+            }
+            break
+          }
+          case 'Use Reference Parent Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+              if (nodeToUse !== undefined) {
+                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+              }
+            }
+            break
+          }
+          case 'Use Reference Parent Parent Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+              if (nodeToUse !== undefined) {
+                nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
+                if (nodeToUse !== undefined) {
+                  thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                  thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                }
+              }
+            }
+            break
           }
         }
+        separator = ' '
       }
-      thisObject.payload.title = nodeToUse.payload.title
-      thisObject.payload.node.name = nodeToUse.payload.node.name
-      title = trimTitle(thisObject.payload.title)
     }
+
+    let title = trimTitle(thisObject.payload.title)
 
     /* Here we set the dimensions and position of this object */
     const FRAME_HEIGHT = 25
@@ -258,4 +296,3 @@ function newUiObjectTitle () {
     return title
   }
 }
-

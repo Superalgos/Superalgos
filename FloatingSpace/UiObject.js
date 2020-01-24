@@ -646,7 +646,7 @@ function newUiObject () {
           nodeToUse = thisObject.payload.node.payload.referenceParent
         }
       }
-      if (nodeDefinition.alternativeIcons === 'Use Reference Gran Parent') {
+      if (nodeDefinition.alternativeIcons === 'Use Reference Grandparent') {
         if (thisObject.payload.node.payload.referenceParent !== undefined) {
           if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent

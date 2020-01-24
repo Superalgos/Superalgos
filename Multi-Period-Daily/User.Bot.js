@@ -207,10 +207,11 @@
 
                         /*
                         In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
-                        go one day back in time, so that when we enter the loop, one day will be added and we will be exactly at the date where the first trades occured.
+                        go one day fordward in time, so that when we enter the loop, the "previous day" does not fall outside the begining of the market.
                         */
 
                         contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS)
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastCandleFile = " + contextVariables.lastCandleFile); }

@@ -94,7 +94,7 @@ function newUiObjectTitle () {
         switch (titleReference) {
           case 'Use Reference Parent': {
             let nodeToUse = thisObject.payload.node.payload.referenceParent
-            if (nodeToUse !== undefined) {
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
               thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
               thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
             }
@@ -102,7 +102,7 @@ function newUiObjectTitle () {
           }
           case 'Use Reference Grandparent': {
             let nodeToUse = thisObject.payload.node.payload.referenceParent
-            if (nodeToUse !== undefined) {
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
               nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
               if (nodeToUse !== undefined) {
                 thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
@@ -113,9 +113,9 @@ function newUiObjectTitle () {
           }
           case 'Use Reference Parent Parent': {
             let nodeToUse = thisObject.payload.node.payload.referenceParent
-            if (nodeToUse !== undefined) {
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
               nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
-              if (nodeToUse !== undefined) {
+              if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                 thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                 thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
               }
@@ -124,11 +124,11 @@ function newUiObjectTitle () {
           }
           case 'Use Reference Parent Parent Parent': {
             let nodeToUse = thisObject.payload.node.payload.referenceParent
-            if (nodeToUse !== undefined) {
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
               nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
-              if (nodeToUse !== undefined) {
+              if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                 nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
-                if (nodeToUse !== undefined) {
+                if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                   thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                   thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                 }

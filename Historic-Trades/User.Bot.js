@@ -106,9 +106,17 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             async function getTrades() {
 
                 let lastTradeKey = ''
+                let exchangeId = bot.exchange.toLowerCase()
+
+                if (bot.exchangeNode.code.API !== undefined) {
+                    for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
+                        if (bot.exchangeNode.code.API[i].method === 'fetchTrades') {
+                            exchangeId = bot.exchangeNode.code.API[i].class
+                        }
+                    }
+                }
 
                 const limit = 1000
-                const exchangeId = bot.exchange.toLowerCase()
                 const exchangeClass = ccxt[exchangeId]
                 const exchange = new exchangeClass({
                     'timeout': 30000,
@@ -129,6 +137,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                         /* Fetching the trades from the exchange.*/
                         const trades = await exchange.fetchTrades(symbol, since, limit)
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched = " + trades.length) }
+                        if (trades.length > 0) {
+                            let beginDate = new Date(trades[0].timestamp)
+                            let endDate = new Date(trades[trades.length - 1].timestamp)
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched From " + beginDate) }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched to " + endDate) }
+                        }
 
                         if (trades.length > 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
                             since = trades[trades.length - 1]['timestamp']

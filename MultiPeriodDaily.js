@@ -143,7 +143,7 @@
 
                         thisReport = statusReport.file;
 
-                        if (thisReport.lastFile === undefined) {
+                        if (thisReport.beginingOfMarket === undefined) {
                             logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                             logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
@@ -156,7 +156,7 @@
                             return;
                         }
 
-                        contextVariables.dateBeginOfMarket = new Date(thisReport.lastFile.year + "-" + thisReport.lastFile.month + "-" + thisReport.lastFile.days + " " + thisReport.lastFile.hours + ":" + thisReport.lastFile.minutes + GMT_SECONDS);
+                        contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
                     }
 

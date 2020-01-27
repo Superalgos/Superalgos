@@ -48,11 +48,46 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     function start(callBackFunction) {
         try {
 
+            let exchangeId = bot.exchange.toLowerCase()
+            let options
+            let fetchType = "by Time"
+            let lastId
+
+            if (bot.exchangeNode.code.API !== undefined) {
+                for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
+                    if (bot.exchangeNode.code.API[i].method === 'fetchTrades') {
+                        if (bot.exchangeNode.code.API[i].class !== undefined) {
+                            exchangeId = bot.exchangeNode.code.API[i].class
+                        }
+                        if (bot.exchangeNode.code.API[i].fetchType !== undefined) {
+                            fetchType = bot.exchangeNode.code.API[i].fetchType
+                        }
+                        if (bot.exchangeNode.code.API[i].fetchTradesMethod !== undefined) {
+                            options = {
+                                'fetchTradesMethod': bot.exchangeNode.code.API[i].fetchTradesMethod
+                            }
+                        }
+                    }
+                }
+            }
+
+            const limit = 1000
+            const exchangeClass = ccxt[exchangeId]
+            const exchange = new exchangeClass({
+                'timeout': 30000,
+                'enableRateLimit': true,
+                verbose: false,
+                options: options
+            })
+
             begin()
 
             async function begin() {
+
                 getContextVariables()
                 defineSince()
+                getFirstId()
+
                 await getTrades()
                 await saveTrades()
             }
@@ -76,6 +111,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
                         lastFileSaved = new Date(thisReport.file.lastFileSaved.year + "-" + thisReport.file.lastFileSaved.month + "-" + thisReport.file.lastFileSaved.days + " " + thisReport.file.lastFileSaved.hours + ":" + thisReport.file.lastFileSaved.minutes + GMT_SECONDS);
+                        lastId = thisReport.file.lastId
                     } else {  // This means this is the first time this process run.
                         beginingOfMarket = new Date()
                     }
@@ -103,40 +139,54 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 }
             }
 
+            function getFirstId() {
+                try {
+                    /* We need the first id only when we are going to fetch trades based on id and it is the first time the process runs*/
+                    if (fetchType !== "by Id") { return }
+                    if (lastId !== undefined) { return }
+
+                    const limit = 1
+                    const exchangeClass = ccxt[exchangeId]
+                    const exchange = new exchangeClass({
+                        'timeout': 30000,
+                        'enableRateLimit': true,
+                        verbose: false
+                    })
+
+                    const trades = await exchange.fetchTrades(symbol, since, limit, undefined)
+                    lastId = trades[trades.length - 1]['id']
+
+                } catch (err) {
+                    /* If something fails trying to get an id close to since, we just will continue without an id.*/
+                }
+            }
+
             async function getTrades() {
 
-                let lastTradeKey = ''
-                let exchangeId = bot.exchange.toLowerCase()
-
-                if (bot.exchangeNode.code.API !== undefined) {
-                    for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
-                        if (bot.exchangeNode.code.API[i].method === 'fetchTrades') {
-                            exchangeId = bot.exchangeNode.code.API[i].class
-                        }
-                    }
-                }
-
-                const limit = 1000
-                const exchangeClass = ccxt[exchangeId]
-                const exchange = new exchangeClass({
-                    'timeout': 30000,
-                    'enableRateLimit': true//,
-                     //verbose: true
-                })
-
                 try {
+                    let lastTradeKey = ''
+                    let params = undefined
+                    let from_id
+                    let previousSince
 
-                    while (since < exchange.milliseconds()) {
+                    while (true) {
 
                         /* Reporting we are doing well */
                         let processingDate = new Date(since)
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit ) }
-                        console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades from " + bot.exchange + " " + symbol + " @ " + processingDate)
-                        bot.processHeartBeat("Fetching " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                        console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades from " + bot.exchange + " " + symbol + " @ " + processingDate + " collecting " + allTrades.length + " records trades so far.")
+                        bot.processHeartBeat("Fetching " + allTrades.length.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+
+                        if (fetchType === "by Id") {
+                            params = {
+                                'from_id': lastId 
+                            }
+                        }
 
                         /* Fetching the trades from the exchange.*/
-                        const trades = await exchange.fetchTrades(symbol, since, limit)
+                        const trades = await exchange.fetchTrades(symbol, since, limit, params)
+
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched = " + trades.length) }
                         if (trades.length > 0) {
                             let beginDate = new Date(trades[0].timestamp)
@@ -146,11 +196,17 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
 
                         if (trades.length > 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                            previousSince = since
                             since = trades[trades.length - 1]['timestamp']
+                            if (since === previousSince) { 
+                                since++ // this prevents requesting in a loop trades with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
+                            }
+
+                            lastId = trades[trades.length - 1]['id']
 
                             for (let i = 0; i < trades.length; i++) {
                                 let trade = trades[i]
-                                let tradeKey = trade.timestamp + '-' + trade.side + '-' + trade.price.toFixed(16) + '-' + trade.amount.toFixed(16)
+                                let tradeKey = trade.id + '-' + trade.timestamp + '-' + trade.side + '-' + trade.price.toFixed(16) + '-' + trade.amount.toFixed(16)
                                 if (tradeKey !== lastTradeKey) {
                                     allTrades.push([trade.timestamp, trade.side, trade.price, trade.amount])
                                 }
@@ -163,7 +219,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     }
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    if (err.message.indexOf('exchange is down or offline') >= 0) {
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                    } else {
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    }
                 }
             }
 
@@ -203,7 +263,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
                             console.log("Charly -> " + MODULE_NAME + " -> start -> saveTrades -> Saving Trades from " + bot.exchange + " " + symbol + " @ " + processingDate)
-                            bot.processHeartBeat("Saving " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                            bot.processHeartBeat("Saving " + i.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                         }
 
                         /* Saving the trades in Files*/
@@ -295,7 +355,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     function controlLoop() {
                         i++
                         if (i < allTrades.length) {
-                            loop()
+                            setImmediate(loop)
                         } else {
                             writeStatusReport()
                         }
@@ -327,6 +387,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         },
                         completeHistory: true
                     };
+
+                    if (fetchType === "by Id") {
+                        thisReport.file.lastId = lastId
+                    }
 
                     thisReport.save(onSaved);
 

@@ -217,7 +217,11 @@ function newDesignerSpace () {
       'histogram',
       'band',
       'volume',
-      'candles'
+      'candles',
+      'bitmex',
+      'liquid',
+      'hitbtc',
+      'us-dollar'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

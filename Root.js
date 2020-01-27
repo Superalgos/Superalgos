@@ -235,6 +235,23 @@
                     /* Bot Type */
                     botConfig.type = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
 
+                    /* Setting the Key to use */
+                    process.env.KEY = undefined
+                    process.env.SECRET = undefined
+
+                    if (botConfig.processNode) {
+                        if (botConfig.processNode.marketReference) {
+                            if (botConfig.processNode.marketReference.keyInstance !== undefined) {
+                                if (botConfig.processNode.marketReference.keyInstance.referenceParent !== undefined) {
+                                    let key = botConfig.processNode.marketReference.keyInstance.referenceParent
+
+                                    process.env.KEY = key.code.codeName
+                                    process.env.SECRET = key.code.secret
+                                }
+                            }
+                        }
+                    }
+
                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> filePathRoot = " + botConfig.filePathRoot); }
                     if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Process found at the bot configuration file. -> process = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName); }
 

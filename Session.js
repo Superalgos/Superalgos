@@ -109,7 +109,7 @@
             }
 
             function startLiveTrading(message) {
-                setKeyToUse()
+
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
@@ -127,8 +127,6 @@
             }
 
             function startFordwardTesting(message) {
-
-                setKeyToUse()
 
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
@@ -173,34 +171,6 @@
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 return true
-            }
-
-            function setKeyToUse() {
-
-                /* This is the primary fallback, when there is no key defined at the parameters at the session level. */
-                if (bot.TRADING_SYSTEM) {
-                    if (bot.TRADING_SYSTEM.parameters) {
-                        if (bot.TRADING_SYSTEM.parameters.keyInstance !== undefined) {
-                            if (bot.TRADING_SYSTEM.parameters.keyInstance.referenceParent !== undefined) {
-                                let key = bot.TRADING_SYSTEM.parameters.keyInstance.referenceParent
-
-                                process.env.KEY = key.code.codeName
-                                process.env.SECRET = key.code.secret
-                            }
-                        }
-                    }
-                }
-
-                /* Key defined at the parameters at the session level. */
-                if (bot.SESSION.parameters) {
-                    if (bot.SESSION.parameters.keyInstance !== undefined) {
-                        if (bot.SESSION.parameters.keyInstance.referenceParent !== undefined) {
-                            let key = bot.SESSION.parameters.keyInstance.referenceParent
-                            process.env.KEY = key.code.codeName
-                            process.env.SECRET = key.code.secret
-                        }
-                    }
-                }
             }
 
             function setValuesToUse(message) {

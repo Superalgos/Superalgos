@@ -59,7 +59,12 @@
                 if (bot.process === "Hole-Fixing") {
                     //USER_BOT_MODULE.newUserBot = require(process.env.BOTS_PATH + '/aamasters/AAMasters/bots/AACharly-Sensor-Bot/Hole-Fixing/User.Bot').newUserBot
                 }
-                USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+                try {
+                    USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onBotDownloaded -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
 
                 filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"

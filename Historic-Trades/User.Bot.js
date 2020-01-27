@@ -53,6 +53,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             let fetchType = "by Time"
             let lastId
 
+            /* Applying the parameters defined by the user at the Exchange node */
             if (bot.exchangeNode.code.API !== undefined) {
                 for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
                     if (bot.exchangeNode.code.API[i].method === 'fetchTrades') {
@@ -74,6 +75,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             const limit = 1000
             const exchangeClass = ccxt[exchangeId]
             const exchange = new exchangeClass({
+                'apiKey': process.env.KEY,
+                'secret': process.env.SECRET,
                 'timeout': 30000,
                 'enableRateLimit': true,
                 verbose: false,
@@ -86,8 +89,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                 getContextVariables()
                 defineSince()
-                getFirstId()
 
+                await getFirstId()
                 await getTrades()
                 await saveTrades()
             }
@@ -139,7 +142,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 }
             }
 
-            function getFirstId() {
+            async function getFirstId() {
                 try {
                     /* We need the first id only when we are going to fetch trades based on id and it is the first time the process runs*/
                     if (fetchType !== "by Id") { return }
@@ -154,7 +157,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     })
 
                     const trades = await exchange.fetchTrades(symbol, since, limit, undefined)
-                    lastId = trades[trades.length - 1]['id']
+
+                    let lastRecord = trades[trades.length - 1]
+                    lastId = lastRecord.info.f
+
+
+                                        //lastId = trades[trades.length - 1]['id']
 
                 } catch (err) {
                     /* If something fails trying to get an id close to since, we just will continue without an id.*/
@@ -166,7 +174,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 try {
                     let lastTradeKey = ''
                     let params = undefined
-                    let from_id
                     let previousSince
 
                     while (true) {
@@ -180,8 +187,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                         if (fetchType === "by Id") {
                             params = {
-                                'from_id': lastId 
+                                'fromId': lastId 
                             }
+                            since = undefined
                         }
 
                         /* Fetching the trades from the exchange.*/
@@ -208,7 +216,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 let trade = trades[i]
                                 let tradeKey = trade.id + '-' + trade.timestamp + '-' + trade.side + '-' + trade.price.toFixed(16) + '-' + trade.amount.toFixed(16)
                                 if (tradeKey !== lastTradeKey) {
-                                    allTrades.push([trade.timestamp, trade.side, trade.price, trade.amount])
+                                    allTrades.push([trade.timestamp, trade.side, trade.price, trade.amount, trade.id])
                                 }
                                 lastTradeKey = tradeKey
                             }
@@ -240,6 +248,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let heartBeatCounter = 0
 
                     let i = -1
+                    lastId = undefined
                     controlLoop()
 
                     function loop() {
@@ -253,6 +262,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             side: record[1],
                             price: record[2],
                             amount: record[3]
+                        }
+
+                        if (lastId === undefined) {
+                            lastId = record[4]
                         }
 
                         /* Reporting we are doing well */
@@ -273,7 +286,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             currentRecordMinute !== previousRecordMinute
                         ) {
                             /* There are no more trades at this minute or it is the last trade, so we save the file.*/
-                            saveFile()
+                            saveFile(previousRecordMinute)
+                            lastId = undefined
                         }
 
                         if (needSeparator === false) {
@@ -286,9 +300,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         /* Add the trade to the file content.*/
                         fileContent = fileContent + separator + '[' + trade.timestamp + ',"' + trade.side + '",' + trade.price + ',' + trade.amount + ']';
 
-                        if (i === allTrades.length) {
+                        if (i === allTrades.length - 1) {
                             /* This is the last trade, so we save the file.*/
-                            saveFile()
+                            saveFile(currentRecordMinute)
                             /* It might happen that there are several minutes after the last trade without trades. We need to record empty files for them.*/
                             if (allTrades.length < MAX_TRADES_PER_EXECUTION) {
                                 let currentTimeMinute = Math.trunc((new Date()).valueOf() / ONE_MINUTE)
@@ -306,14 +320,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (filesToCreate === 0) {
                             controlLoop()
                         }
-                        function saveFile() {
+                        function saveFile(minute) {
                             fileContent = fileContent + ']'
                             if (currentRecordMinute - previousRecordMinute > 1) {
                                 createMissingEmptyFiles(previousRecordMinute, currentRecordMinute)
                             }
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
-                            filesToCreate++
-                            fileStorage.createTextFile(bot.dataMine, getFilePath(currentRecordMinute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
+                            if (previousRecordMinute >= initialProcessTimestamp / ONE_MINUTE) {
+                                filesToCreate++
+                                fileStorage.createTextFile(bot.dataMine, getFilePath(minute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
+                            }
                             fileContent = '['
                             needSeparator = false
 

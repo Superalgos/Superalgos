@@ -339,7 +339,7 @@
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -416,7 +416,7 @@
                                             let dateForPath = fileDate.getUTCFullYear() + '/' + utilities.pad(fileDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(fileDate.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -519,7 +519,7 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -559,7 +559,7 @@
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -857,7 +857,7 @@
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
                                                     let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                                     filePath += '/' + fileName
 
@@ -933,7 +933,7 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -973,7 +973,7 @@
                                             let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                             let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
 
-                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                            let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
@@ -1402,7 +1402,7 @@
                                                     let dateForPath = pDate.getUTCFullYear() + '/' + utilities.pad(pDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(pDate.getUTCDate(), 2);
                                                     let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                                     let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                                     filePath += '/' + fileName
 

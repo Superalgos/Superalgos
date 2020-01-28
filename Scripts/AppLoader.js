@@ -168,7 +168,7 @@ function newAppLoader() {
     }
 
     function defaultPlotters() {
-        return [ // TODO This should be at te ecosystem file.
+        return [  
             'Plotters/AAMasters/Plotters-Candles-Volumes/Candles.js',
             'Plotters/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
             'Plotters/AAMasters/Plotters-Candles-Volumes/Volumes.js',

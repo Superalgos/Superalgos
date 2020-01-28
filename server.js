@@ -278,7 +278,7 @@ function onBrowserRequest (request, response) {
         let dataMine = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine.toLowerCase() + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break
@@ -288,7 +288,7 @@ function onBrowserRequest (request, response) {
         let dataMine = requestParameters[2]
         let codeName = requestParameters[3]
         let moduleName = requestParameters[4]
-        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine.toLowerCase() + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
+        let filePath = process.env.PLOTTERS_PATH + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
         respondWithFile(filePath, response)
       }
       break

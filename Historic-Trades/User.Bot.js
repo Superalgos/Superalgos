@@ -328,7 +328,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                             if (previousRecordMinute >= initialProcessTimestamp / ONE_MINUTE) {
                                 filesToCreate++
-                                fileStorage.createTextFile(bot.dataMine, getFilePath(minute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(minute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
                             }
                             fileContent = '['
                             needSeparator = false
@@ -339,7 +339,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                                 filesToCreate++
-                                fileStorage.createTextFile(bot.dataMine, getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
 
                             }
                         }

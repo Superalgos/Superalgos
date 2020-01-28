@@ -448,7 +448,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onNextFileReceived, true);
+                            fileStorage.getTextFile(filePath, onNextFileReceived, true);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> readNextFile -> reading file at dateForPath = " + dateForPath);
 
@@ -759,7 +759,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onNextFileReceived, true);
+                            fileStorage.getTextFile(filePath, onNextFileReceived, true);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findNextHole -> findEndOfHole -> reading file at dateForPath = " + dateForPath);
 
@@ -1172,7 +1172,7 @@
                             filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> tradesReadyToBeSaved -> nextRecord -> creating file at dateForPath = " + dateForPath);
 

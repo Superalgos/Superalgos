@@ -225,7 +225,7 @@
 
                     fileContent = fileContent + ']';
 
-                    fileStorage.createTextFile(bot.dataMine, filePathA +'/'+ fileNameA, fileContent + '\n', onFirstFileACreated);
+                    fileStorage.createTextFile(filePathA +'/'+ fileNameA, fileContent + '\n', onFirstFileACreated);
 
                     function onFirstFileACreated(err) {
 
@@ -292,7 +292,7 @@
 
                         fileContent = fileContent + ']';
 
-                        fileStorage.createTextFile(bot.dataMine, filePathB + '/' + fileNameB, fileContent + '\n', onFileBCreated);
+                        fileStorage.createTextFile(filePathB + '/' + fileNameB, fileContent + '\n', onFileBCreated);
 
                         function onFileBCreated(err) {
 

@@ -109,7 +109,7 @@
 
                                     let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
 
-                                    let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
@@ -299,7 +299,7 @@
 
                                                     let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
@@ -371,7 +371,7 @@
 
                                                     let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
                                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 

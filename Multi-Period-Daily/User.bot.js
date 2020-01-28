@@ -287,7 +287,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." +  global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -413,7 +413,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AABruce" + "." + bot.version.major + "." + bot.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." +  global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + bot.dataSetVersion;
+                                    let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 

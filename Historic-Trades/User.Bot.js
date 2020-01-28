@@ -52,6 +52,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             let options
             let fetchType = "by Time"
             let lastId
+            let firstId
 
             /* Applying the parameters defined by the user at the Exchange node */
             if (bot.exchangeNode.code.API !== undefined) {
@@ -67,6 +68,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             options = {
                                 'fetchTradesMethod': bot.exchangeNode.code.API[i].fetchTradesMethod
                             }
+                        }
+                        if (bot.exchangeNode.code.API[i].firstId !== undefined) {
+                            firstId = bot.exchangeNode.code.API[i].firstId
                         }
                     }
                 }
@@ -159,11 +163,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     const trades = await exchange.fetchTrades(symbol, since, limit, undefined)
 
                     let lastRecord = trades[trades.length - 1]
-                    lastId = lastRecord.info.f
-
-
-                                        //lastId = trades[trades.length - 1]['id']
-
+                    lastId = lastRecord.info[firstId] 
                 } catch (err) {
                     /* If something fails trying to get an id close to since, we just will continue without an id.*/
                 }

@@ -343,7 +343,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                            fileStorage.getTextFile(filePath, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -420,7 +420,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                            fileStorage.getTextFile(filePath, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -523,7 +523,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                            fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -563,7 +563,7 @@
                                             let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                            fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -861,7 +861,7 @@
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                                     filePath += '/' + fileName
 
-                                                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -937,7 +937,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                            fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -977,7 +977,7 @@
                                             let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                             filePath += '/' + fileName
 
-                                            fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                            fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                             function onCurrentDayFileReceived(err, text) {
 
@@ -1406,7 +1406,7 @@
                                                     let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                                     filePath += '/' + fileName
 
-                                                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -1569,7 +1569,7 @@
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
                     filePath += '/' + fileName
 
-                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

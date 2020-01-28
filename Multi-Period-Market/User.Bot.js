@@ -118,7 +118,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                    fileStorage.getTextFile(filePath, onFileReceived);
 
                                     function onFileReceived(err, text) {
 
@@ -334,7 +334,7 @@
                                                     let filePath = filePathRoot + "/Output/" + CANDLE_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
-                                                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                                     function onFileCreated(err) {
 
@@ -394,7 +394,7 @@
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                    fileStorage.getTextFile(filePath, onFileReceived);
 
                                     function onFileReceived(err, text) {
 
@@ -704,7 +704,7 @@
                                                 let filePath = filePathRoot + "/Output/" + VOLUME_STAIRS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                 filePath += '/' + fileName
 
-                                                fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                                 function onFileCreated(err) {
 

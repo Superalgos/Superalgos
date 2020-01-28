@@ -90,10 +90,6 @@ require('dotenv').config();
 
 global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
 
-/* Default parameters can be changed by the execution configuration */
-
-global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' } // NOTE: To refactor the name of this variable you would need to go through the bots code that are using it.
-
 /*
 We need to count how many process instances we deployd and how many of them have already finished their job, either
 because they just finished or because there was a request to stop the proceses. In this way, once we reach the

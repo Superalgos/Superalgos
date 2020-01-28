@@ -227,7 +227,7 @@
                     botConfig.loopCounter = 0;                   
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.dataMine + "/" + botConfig.codeName + "." + botConfig.version.major + "." + botConfig.version.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + botConfig.exchange + "/" + botConfig.dataSetVersion;
+                    botConfig.filePathRoot = botConfig.dataMine + "/" + botConfig.codeName + "/" + botConfig.exchange;
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id

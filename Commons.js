@@ -476,7 +476,7 @@
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + bot.exchange + "/" + contextSummary.dataSetVersion;
+            let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "/" + bot.exchange;
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 

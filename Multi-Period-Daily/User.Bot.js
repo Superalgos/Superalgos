@@ -318,7 +318,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                    fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                     function onCurrentDayFileReceived(err, text) {
 
@@ -358,7 +358,7 @@
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onCurrentDayFileReceived);
+                                    fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
 
                                     function onCurrentDayFileReceived(err, text) {
 
@@ -588,7 +588,7 @@
                                     let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 
@@ -660,7 +660,7 @@
                                     let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                                     function onFileCreated(err) {
 
@@ -815,7 +815,7 @@
 
                     filePath += '/' + fileName
 
-                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

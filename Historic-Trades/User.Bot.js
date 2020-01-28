@@ -54,7 +54,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             }
 
             let exchangeId = bot.exchange.toLowerCase()
-            let options
+            let options = {}
             let fetchType = "by Time"
             let lastId
             let firstId
@@ -97,7 +97,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 verbose: false,
                 options: options
             }
-            //console.log(JSON.stringify(exchangeConstructorParams))
+            console.log(JSON.stringify(exchangeConstructorParams))
             const exchange = new exchangeClass(exchangeConstructorParams)
 
             begin()
@@ -210,6 +210,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
 
                         /* Fetching the trades from the exchange.*/
+                        console.log(JSON.stringify("PARAMS ", params))
                         const trades = await exchange.fetchTrades(symbol, since, limit, params)
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched = " + trades.length) }

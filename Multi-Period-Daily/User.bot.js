@@ -291,7 +291,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                fileStorage.getTextFile(filePath, onFileReceived);
 
                                 logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath);
 
@@ -417,7 +417,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                    fileStorage.getTextFile(filePath, onFileReceived);
 
                                     logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
@@ -580,7 +580,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
 
@@ -631,7 +631,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 
@@ -719,7 +719,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
                     filePath += '/' + fileName
 
-                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

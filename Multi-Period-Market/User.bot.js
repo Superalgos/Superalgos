@@ -256,7 +256,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                            fileStorage.getTextFile(filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
 
@@ -295,7 +295,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                            fileStorage.getTextFile(filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
 
@@ -505,7 +505,7 @@
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                fileStorage.getTextFile(filePath, onFileReceived);
 
                                 logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
 
@@ -636,7 +636,7 @@
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                    fileStorage.getTextFile(filePath, onFileReceived);
 
                                     logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
@@ -782,7 +782,7 @@
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
 
@@ -832,7 +832,7 @@
                         let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
 

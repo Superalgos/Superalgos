@@ -48,6 +48,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     function start(callBackFunction) {
         try {
 
+            if (global.STOP_TASK_GRACEFULLY === true) {
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return
+            }
+
             let exchangeId = bot.exchange.toLowerCase()
             let options
             let fetchType = "by Time"
@@ -76,16 +81,24 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 }
             }
 
+            let key = process.env.KEY
+            let secret = process.env.SECRET
+
+            if (key === "undefined") { key = undefined }
+            if (secret === "undefined") { secret = undefined }
+
             const limit = 1000
             const exchangeClass = ccxt[exchangeId]
-            const exchange = new exchangeClass({
-                'apiKey': process.env.KEY,
-                'secret': process.env.SECRET,
+            const exchangeConstructorParams = {
+                'apiKey': key,
+                'secret': secret,
                 'timeout': 30000,
                 'enableRateLimit': true,
                 verbose: false,
                 options: options
-            })
+            }
+            //console.log(JSON.stringify(exchangeConstructorParams))
+            const exchange = new exchangeClass(exchangeConstructorParams)
 
             begin()
 
@@ -96,6 +109,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                 await getFirstId()
                 await getTrades()
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                    return
+                }
                 await saveTrades()
             }
 
@@ -222,6 +239,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
 
                         } else {
+                            break
+                        }
+                        if (global.STOP_TASK_GRACEFULLY === true) {
                             break
                         }
                     }
@@ -369,6 +389,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                     }
                     function controlLoop() {
+                        if (global.STOP_TASK_GRACEFULLY === true) {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                            return
+                        }
+
                         i++
                         if (i < allTrades.length) {
                             setImmediate(loop)

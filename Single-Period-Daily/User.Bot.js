@@ -324,7 +324,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                            fileStorage.getTextFile(filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> reading file at dateForPath = " + dateForPath);
 
@@ -375,7 +375,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                            fileStorage.getTextFile(filePath, onFileReceived);
 
                             logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> reading file at dateForPath = " + dateForPath);
 
@@ -476,7 +476,7 @@
                                 let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                fileStorage.getTextFile(filePath, onFileReceived);
 
                                 logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
 
@@ -730,7 +730,7 @@
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(bot.dataMine, filePath, onFileReceived);
+                                    fileStorage.getTextFile(filePath, onFileReceived);
 
                                     logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> readTrades -> reading file at dateForPath = " + dateForPath);
 
@@ -887,7 +887,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeCandles -> writing file at dateForPath = " + dateForPath);
 
@@ -961,7 +961,7 @@
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
-                            fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                             logger.write(MODULE_NAME, "[INFO] start -> writeFiles -> writeVolumes -> writing file at dateForPath = " + dateForPath);
 

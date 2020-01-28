@@ -1,0 +1,241 @@
+{
+  "displayName": "Olivia",
+  "codeName": "AAOlivia",
+  "type": "Indicator Bot",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "dataMine": "AAMasters",
+  "profilePicture": "Olivia.png",
+  "dataSetVersion": "dataSet.V1",
+  "processes": [
+    {
+      "name": "Multi-Period-Market",
+      "description": "Produces different files with multi-period candles and volumes for entire markets.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
+        }
+      },
+      "deadWaitTime": 0,
+      "normalWaitTime": 0,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candles",
+          "dataSet": "Multi-Period-Market"
+        },
+        {
+          "product": "Volumes",
+          "dataSet": "Multi-Period-Market"
+        }
+      ],
+      "statusDependencies": [
+        {
+          "dataMine": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Single-Period-Daily",
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Market",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
+    },
+    {
+      "name": "Multi-Period-Daily",
+      "description": "Produces different files with multi-period candles and volumes on a daily format.",
+      "startMode": {
+        "allMonths": {
+          "run": "false",
+          "minYear": "",
+          "maxYear": ""
+        },
+        "oneMonth": {
+          "run": "false",
+          "year": "",
+          "month": ""
+        },
+        "noTime": {
+          "run": "true"
+        },
+        "fixedInterval": {
+          "run": "false",
+          "interval": 0
+        }
+      },
+      "deadWaitTime": 0,
+      "normalWaitTime": 0,
+      "retryWaitTime": 10000,
+      "sleepWaitTime": 3600000,
+      "comaWaitTime": 86400000,
+      "updatesDatasets": [
+        {
+          "product": "Candles",
+          "dataSet": "Multi-Period-Daily"
+        },
+        {
+          "product": "Volumes",
+          "dataSet": "Multi-Period-Daily"
+        }
+      ],
+      "statusDependencies": [
+        {
+          "dataMine": "AAMasters",
+          "bot": "AACharly",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Historic-Trades",
+          "dataSetVersion": "dataSet.V1"
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AABruce",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Single-Period-Daily",
+          "dataSetVersion": "dataSet.V1",
+          "dataSetSection": "Month",
+          "waitUntilNextUpdate": true
+        },
+        {
+          "dataMine": "AAMasters",
+          "bot": "AAOlivia",
+          "botVersion": {
+            "major": 1,
+            "minor": 0
+          },
+          "process": "Multi-Period-Daily",
+          "dataSetVersion": "dataSet.V1"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "codeName": "Candles",
+      "displayName": "Candles",
+      "description": "Two sets of files per period that contains candles.",
+      "storageAccount": "aaolivia",
+      "shareWith": "Public",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "dataMine": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Candles"
+      }
+    },
+    {
+      "codeName": "Volumes",
+      "displayName": "Buy and Sell Volumes",
+      "description": "Two sets of files per period that contains buy and sell volumes.",
+      "storageAccount": "aaolivia",
+      "shareWith": "Public",
+      "dataSets": [
+        {
+          "codeName": "Multi-Period-Market",
+          "type": "Market Files",
+          "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
+          "fileName": "@AssetA_@AssetB.json"
+        },
+        {
+          "codeName": "Multi-Period-Daily",
+          "type": "Daily Files",
+          "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "fileName": "@AssetA_@AssetB.json",
+          "dataRange": {
+            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
+            "fileName": "Data.Range.@AssetA_@AssetB.json"
+          }
+        }
+      ],
+      "exchangeList": [
+        {
+          "name": "Poloniex"
+        },
+        {
+          "name": "Coss"
+        }
+      ],
+      "plotter": {
+        "dataMine": "AAMasters",
+        "codeName": "PlottersCandlesVolumes",
+        "moduleName": "Volumes"
+      }
+    }
+  ]
+}

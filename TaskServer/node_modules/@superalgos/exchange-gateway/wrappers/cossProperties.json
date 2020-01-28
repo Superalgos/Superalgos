@@ -1,0 +1,23 @@
+{
+	"currencies": [
+		"BTC",
+		"USDT"
+	],
+	"assets": [
+		"BTC",
+		"USDT"
+	],
+	"markets": [
+		{
+			"pair": [
+				"USDT",
+				"BTC"
+			],
+			"maxDecimals": 5,
+			"minimalOrder": {
+				"amount": 0.0001,
+				"unit": "asset"
+			}
+		}
+	]
+}

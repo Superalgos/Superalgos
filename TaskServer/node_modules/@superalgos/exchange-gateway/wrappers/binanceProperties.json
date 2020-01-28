@@ -1,0 +1,4594 @@
+{
+  "assets": [
+    "NULS",
+    "VEN",
+    "BNB",
+    "NEO",
+    "LINK",
+    "SALT",
+    "IOTA",
+    "ETC",
+    "AST",
+    "KNC",
+    "WTC",
+    "SNGLS",
+    "EOS",
+    "SNT",
+    "MCO",
+    "BTC",
+    "OAX",
+    "OMG",
+    "GAS",
+    "BQX",
+    "QTUM",
+    "BNT",
+    "DNT",
+    "ICN",
+    "SNM",
+    "STRAT",
+    "ZRX",
+    "FUN",
+    "LTC",
+    "ETH",
+    "XVG",
+    "BCC",
+    "ADA",
+    "ADX",
+    "AE",
+    "AGI",
+    "AION",
+    "AMB",
+    "APPC",
+    "ARK",
+    "ARN",
+    "BAT",
+    "BCD",
+    "BCN",
+    "BCPT",
+    "BLZ",
+    "BRD",
+    "BTG",
+    "BTS",
+    "CDT",
+    "CHAT",
+    "CLOAK",
+    "CMT",
+    "CND",
+    "CVC",
+    "DASH",
+    "DATA",
+    "DENT",
+    "DGD",
+    "DLT",
+    "EDO",
+    "ELF",
+    "ENG",
+    "ENJ",
+    "EVX",
+    "FUEL",
+    "GNT",
+    "GRS",
+    "GTO",
+    "GVT",
+    "GXS",
+    "HSR",
+    "ICX",
+    "INS",
+    "IOST",
+    "IOTX",
+    "KEY",
+    "KMD",
+    "LEND",
+    "LOOM",
+    "LRC",
+    "LSK",
+    "LUN",
+    "MANA",
+    "MDA",
+    "MFT",
+    "MOD",
+    "MTH",
+    "MTL",
+    "NANO",
+    "NAS",
+    "NAV",
+    "NCASH",
+    "NEBL",
+    "NPXS",
+    "NXS",
+    "ONT",
+    "OST",
+    "PIVX",
+    "POA",
+    "POE",
+    "POWR",
+    "PPT",
+    "QKC",
+    "QLC",
+    "QSP",
+    "RCN",
+    "RDN",
+    "REP",
+    "REQ",
+    "RLC",
+    "RPX",
+    "SC",
+    "SKY",
+    "STEEM",
+    "STORJ",
+    "STORM",
+    "SUB",
+    "SYS",
+    "THETA",
+    "TNB",
+    "TNT",
+    "TRIG",
+    "TRX",
+    "TUSD",
+    "VIA",
+    "VIB",
+    "VIBE",
+    "WABI",
+    "WAN",
+    "WAVES",
+    "WINGS",
+    "WPR",
+    "XEM",
+    "XLM",
+    "XMR",
+    "XRP",
+    "XZC",
+    "YOYO",
+    "ZEC",
+    "ZEN",
+    "ZIL"
+  ],
+  "currencies": [
+    "BNB",
+    "BTC",
+    "ETH",
+    "USDT"
+  ],
+  "markets": [
+    {
+      "pair": [
+        "BNB",
+        "NULS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "VEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BNB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NULS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NEO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NULS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LINK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SALT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "IOTA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ETC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "AST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "KNC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SNGLS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "EOS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MCO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "BTC"
+      ],
+      "maxDecimals": 6,
+	    "minimalOrder": {
+        "amount": 0.000001,
+        "price": 0.01,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "OAX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "OMG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GAS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BQX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "QTUM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ICN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SNM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SNM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SNGLS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BQX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NEO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "KNC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "STRAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ZRX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "QTUM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "FUN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LINK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ETH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XVG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "STRAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ZRX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "IOTA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BCC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "OMG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MCO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SALT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ADA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ADA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ADA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "ADA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.1,
+        "price": 0.00001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ADX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ADX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ADX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "AE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "AE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "AE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "AGI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "AGI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "AGI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "AION"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "AION"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "AION"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "AMB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "AMB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "AMB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "APPC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "APPC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "APPC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ARK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ARK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ARN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ARN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "AST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BCC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.00001,
+        "price": 0.01,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BCC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "BCC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.00001,
+        "price": 0.01,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BCD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BCD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BCPT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BCPT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BCPT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BLZ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BLZ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BLZ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BNB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BRD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BRD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BRD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BTG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BTG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "BTS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "BTS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "BTS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CDT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CDT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CHAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CHAT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CLOAK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CLOAK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "CMT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CMT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CMT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "CND"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CND"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CND"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "CVC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "CVC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "CVC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DASH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DASH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DATA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DATA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DENT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DENT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DGD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DGD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "DLT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DLT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "DLT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "DNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "EDO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "EDO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ELF"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ELF"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ENG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ENG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ENJ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ENJ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ENJ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "EOS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "EOS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "EOS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ETC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ETC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "ETC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "EVX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "EVX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "FUEL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "FUEL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "FUN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "GNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "GNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GRS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "GRS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "GTO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GTO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "GTO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GVT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "GVT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "GXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "GXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "HSR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "HSR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ICN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ICX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ICX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ICX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "ICX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "INS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "INS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "IOST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "IOST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "IOTA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "IOTA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "IOTX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "IOTX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "KEY"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "KEY"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "KMD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "KMD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LEND"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LEND"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "LOOM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LOOM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LOOM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LRC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LRC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "LSK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LSK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LSK"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "LTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.00001,
+        "price": 0.01,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "LTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.00001,
+        "price": 0.01,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "LUN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "LUN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MANA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MANA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "MCO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MDA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MDA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "MFT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MFT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MFT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MOD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MOD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MTH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MTH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "MTL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "MTL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NANO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NANO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NANO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NAS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NAS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NAS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NAV"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NAV"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NAV"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NCASH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NCASH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NCASH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NEBL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NEBL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NEBL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NEO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "NEO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NPXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NPXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "NXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "NXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "NXS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "OAX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ONT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ONT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ONT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "ONT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "OST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "OST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "OST"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "PIVX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "PIVX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "PIVX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "POA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "POA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "POA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "POE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "POE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "POWR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "POWR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "POWR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "PPT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "PPT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "QKC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "QKC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "QLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "QLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "QLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "QSP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "QSP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "QSP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "QTUM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "QTUM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "RCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "RCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "RCN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "RDN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "RDN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "RDN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "REP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "REP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "REP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "REQ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "REQ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "RLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "RLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "RLC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "RPX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "RPX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "RPX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "SC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "SKY"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SKY"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SKY"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "STEEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "STEEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "STEEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "STORJ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "STORJ"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "STORM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "STORM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "STORM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SUB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SUB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "SYS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "SYS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "SYS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "THETA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "THETA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "THETA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "TNB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "TNB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "TNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "TNT"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "TRIG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "TRIG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "TRIG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "TRX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "TRX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "TRX"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.1,
+        "price": 0.00001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "TUSD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "TUSD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "TUSD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "TUSD"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "VEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "VEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "VEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "VIA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "VIA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "VIA"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "VIB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "VIBE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "VIBE"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "VIB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "WABI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WABI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WABI"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "WAN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WAN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WAN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "WAVES"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WAVES"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 1e-7,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WAVES"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WINGS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WINGS"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-7,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "WPR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "WPR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "WTC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "XEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XEM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "XLM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XLM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XLM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "XLM"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XMR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XMR"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "XRP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.00001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XRP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XRP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "XRP"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.1,
+        "price": 0.00001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XVG"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "XZC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "XZC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "XZC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.000001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "YOYO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "YOYO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "YOYO"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ZEC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ZEC"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ZEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ZEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.000001,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ZEN"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.001,
+        "price": 0.00001,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "BNB",
+        "ZIL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 0.000001,
+        "order": 1
+      }
+    },
+    {
+      "pair": [
+        "BTC",
+        "ZIL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.001
+      }
+    },
+    {
+      "pair": [
+        "ETH",
+        "ZIL"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 1,
+        "price": 1e-8,
+        "order": 0.01
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "BNB"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.01,
+        "price": 0.0001,
+        "order": 10
+      }
+    },
+    {
+      "pair": [
+        "USDT",
+        "ETH"
+      ],
+      "maxDecimals": 6,
+		"minimalOrder": {
+        "amount": 0.00001,
+        "price": 0.01,
+        "order": 10
+      }
+    }
+  ]
+}

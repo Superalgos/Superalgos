@@ -1,0 +1,12 @@
+{
+  "name": "events-server",
+  "version": "0.0.0",
+  "description": "Events-Server",
+  "main": "app.js",
+  "author": {
+    "name": "Luis"
+  },
+  "dependencies": {
+    "node-ipc": "^9.1.1"
+  }
+}

@@ -166,7 +166,7 @@
 
                     let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName + '/bots/' + global.TASK_NODE.bot.code.repo + '/this.bot.config.json';
 
-                    fileStorage.getTextFile(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName, filePath, onFileReceived);
+                    fileStorage.getTextFile(filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 

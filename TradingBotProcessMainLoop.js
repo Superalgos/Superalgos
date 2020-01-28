@@ -56,7 +56,7 @@
             let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 
-            fileStorage.getTextFile(bot.dataMine, filePath, onBotDownloaded);
+            fileStorage.getTextFile(filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
 
@@ -75,7 +75,7 @@
                 filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
 
-                fileStorage.getTextFile(bot.dataMine, filePath, onCommonsDownloaded);
+                fileStorage.getTextFile(filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
 

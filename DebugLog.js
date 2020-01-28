@@ -92,22 +92,22 @@ exports.newDebugLog = function newDebugLog() {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
-                let fileContent = fileStorage.getTextFile(thisObject.bot.dataMine, fileToDelete, onGetFile, true) 
+                let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true) 
                 function onGetFile(err, fileContent) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         if (fileContent.indexOf("ERROR") < 0) {
                             /* Logs will only be deleted when they contain no ERROR in them. */
-                            fileStorage.deleteTextFile(thisObject.bot.dataMine, fileToDelete);
+                            fileStorage.deleteTextFile(fileToDelete);
                         } 
                     } else {
-                        fileStorage.deleteTextFile(thisObject.bot.dataMine, fileToDelete);
+                        fileStorage.deleteTextFile(fileToDelete);
                     }
                 }
             }
              
             function writeLog() {
 
-                fileStorage.createTextFile(thisObject.bot.dataMine, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+                fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
                 function onFileCreated(err) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);

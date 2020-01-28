@@ -225,7 +225,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -303,7 +303,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -373,7 +373,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -446,7 +446,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -572,7 +572,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -679,7 +679,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -767,7 +767,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -844,7 +844,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 
@@ -924,7 +924,7 @@
                         let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         function onFileCreated(err) {
 

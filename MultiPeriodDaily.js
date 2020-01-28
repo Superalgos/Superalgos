@@ -729,7 +729,7 @@
                     let fileName = '/Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
                     let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
 
-                    fileStorage.createTextFile(bot.dataMine, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 

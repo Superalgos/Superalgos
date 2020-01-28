@@ -163,7 +163,7 @@
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(statusDependencyNode.dataMine, filePath, onFileReceived);
+            fileStorage.getTextFile(filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -251,7 +251,7 @@
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(statusDependencyNode.dataMine, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 

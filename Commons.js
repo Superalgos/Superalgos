@@ -480,7 +480,7 @@
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 
-            fileStorage.createTextFile(contextSummary.dataMine, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 

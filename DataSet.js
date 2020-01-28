@@ -108,7 +108,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
-            fileStorage.getTextFile(dataDependencyNode.dataMine, filePath, onFileReceived);
+            fileStorage.getTextFile(filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -149,7 +149,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "/" + bot.exchange;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
-            fileStorage.createTextFile(dataDependencyNode.dataMine, filePath, pFileContent, onFileCreated);
+            fileStorage.createTextFile(filePath, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
 

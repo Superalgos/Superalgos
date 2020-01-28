@@ -119,11 +119,7 @@ function newFileCloud () {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> filePath = ' + filePath) }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> fileName = ' + fileName) }
 
-          let containerName
-
-          containerName = pDataMine.code.codeName.toLowerCase()
-
-          blobService.getBlobToText(containerName, filePath + '/' + fileName, undefined, onFileReceived)
+          blobService.getBlobToText(filePath + '/' + fileName, undefined, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {
@@ -146,7 +142,6 @@ function newFileCloud () {
                   return
                 }
 
-                if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> containerName = ' + containerName) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Unexpected Error Ocurred.') }
@@ -181,7 +176,6 @@ function newFileCloud () {
                   return
                 } catch (err) {
                   if (ERROR_LOG === true) { logger.write('[WARN] getFile -> getFileRecursively -> onFileReceived -> err = ' + err.stack) }
-                  if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> containerName = ' + containerName) }
                   if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
                   if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
 

@@ -6,10 +6,11 @@ function newLayer () {
 
   let thisObject = {
     container: undefined,
-    status: PRODUCT_CARD_STATUS.OFF,
+    status: LAYER_STATUS.OFF,
     fitFunction: undefined,
     payload: undefined,
     definition: undefined,
+    panels: undefined,
     physics: physics,
     draw: draw,
     turnOff: turnOff,
@@ -73,6 +74,7 @@ function newLayer () {
   thisObject.eventHandler = newEventHandler()
   let imagesLoaded = 0
   let onMouseClickEventSuscriptionId
+  let panelsVisibleButton
 
   return thisObject
 
@@ -85,6 +87,7 @@ function newLayer () {
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
     thisObject.definition = undefined
+    thisObject.panels = undefined
 
     timeFrame = undefined
     datetime = undefined
@@ -102,6 +105,8 @@ function newLayer () {
     singleFileProgressBar = undefined
     fileSequenceProgressBar = undefined
 
+    panelsVisibleButton = undefined
+
     thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
   }
 
@@ -114,7 +119,6 @@ function newLayer () {
       thisObject.container.isClickeable = true
 
        /* Lets set the basic dimensions of this thisObject. */
-
       let position = {
         x: 0,
         y: 0
@@ -173,6 +177,12 @@ function newLayer () {
   }
 
   function getContainer (point) {
+    if (panelsVisibleButton !== undefined) {
+      let container = panelsVisibleButton.getContainer(point)
+      if (container !== undefined) {
+        return container
+      }
+    }
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -242,31 +252,31 @@ function newLayer () {
   }
 
   function turnOff () {
-    if (thisObject.status !== PRODUCT_CARD_STATUS.OFF) {
+    if (thisObject.status !== LAYER_STATUS.OFF) {
       resetProgressBars()
-      changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+      changeStatusTo(LAYER_STATUS.OFF)
     }
   }
 
   function turnOn () {
-    if (thisObject.status === PRODUCT_CARD_STATUS.OFF) {
+    if (thisObject.status === LAYER_STATUS.OFF) {
       resetProgressBars()
-      changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+      changeStatusTo(LAYER_STATUS.LOADING)
     }
   }
 
   function onMouseClick (event) {
     switch (thisObject.status) {
-      case PRODUCT_CARD_STATUS.ON:
+      case LAYER_STATUS.ON:
         resetProgressBars()
-        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        changeStatusTo(LAYER_STATUS.OFF)
         break
-      case PRODUCT_CARD_STATUS.OFF:
+      case LAYER_STATUS.OFF:
         resetProgressBars()
-        changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+        changeStatusTo(LAYER_STATUS.LOADING)
         break
-      case PRODUCT_CARD_STATUS.LOADING:
-        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+      case LAYER_STATUS.LOADING:
+        changeStatusTo(LAYER_STATUS.OFF)
         break
     }
   }
@@ -294,6 +304,49 @@ function newLayer () {
   }
 
   function physics () {
+    statusPhysics()
+    childrenPhysics()
+  }
+
+  function childrenPhysics () {
+    /* Panels Visible Button Setup */
+    if (thisObject.status === LAYER_STATUS.ON) {
+      if (panelsVisibleButton === undefined) {
+        if (thisObject.panels !== undefined) {
+          if (thisObject.panels.length > 0) {
+            panelsVisibleButton = newPanelsVisibleButton()
+
+            try {
+              let code = JSON.parse(thisObject.payload.node.code)
+              if (code.showPanels !== undefined) {
+                if (code.showPanels === true || code.showPanels === false) {
+                  panelsVisibleButton.showPanels = code.showPanels
+                }
+              }
+
+              thisObject.payload.node.code = JSON.stringify(code)
+            } catch (err) {
+               // we ignore errors here since most likely they will be parsing errors.
+            }
+
+            panelsVisibleButton.initialize(thisObject.panels)
+            panelsVisibleButton.container.connectToParent(thisObject.container)
+          }
+        }
+      } else {
+        /* Saving the new status at the node config */
+        try {
+          let code = JSON.parse(thisObject.payload.node.code)
+          code.showPanels = panelsVisibleButton.showPanels
+          thisObject.payload.node.code = JSON.stringify(code)
+        } catch (err) {
+           // we ignore errors here since most likely they will be parsing errors.
+        }
+      }
+    }
+  }
+
+  function statusPhysics () {
   /* We retrieve the stored status at the config. */
     try {
       let code = JSON.parse(thisObject.payload.node.code)
@@ -301,18 +354,18 @@ function newLayer () {
 
       if (storedValue !== undefined) {
         if (storedValue !== thisObject.status) {
-          if (storedValue === PRODUCT_CARD_STATUS.ON) {
+          if (storedValue === LAYER_STATUS.ON) {
             resetProgressBars()
-            changeStatusTo(PRODUCT_CARD_STATUS.LOADING)
+            changeStatusTo(LAYER_STATUS.LOADING)
           }
-          if (storedValue === PRODUCT_CARD_STATUS.OFF) {
+          if (storedValue === LAYER_STATUS.OFF) {
             resetProgressBars()
-            changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+            changeStatusTo(LAYER_STATUS.OFF)
           }
         }
       } else {
         resetProgressBars()
-        changeStatusTo(PRODUCT_CARD_STATUS.OFF)
+        changeStatusTo(LAYER_STATUS.OFF)
       }
     } catch (err) {
    // we ignore errors here since most likely they will be parsing errors.
@@ -320,11 +373,11 @@ function newLayer () {
 
     /* Check when the loading finishes */
     if (
-      thisObject.status === PRODUCT_CARD_STATUS.LOADING &&
+      thisObject.status === LAYER_STATUS.LOADING &&
       marketFileProgressBar.value === 100 &&
       dailyFileProgressBar.value === 100
     ) {
-      changeStatusTo(PRODUCT_CARD_STATUS.ON)
+      changeStatusTo(LAYER_STATUS.ON)
     }
   }
 
@@ -332,6 +385,14 @@ function newLayer () {
     if (thisObject.status !== newStatus) {
       thisObject.status = newStatus
 
+      if (thisObject.status === LAYER_STATUS.OFF) {
+        if (panelsVisibleButton !== undefined) {
+          panelsVisibleButton.finalize()
+          panelsVisibleButton = undefined
+        }
+      }
+
+      /* Saving the new status at the node config */
       try {
         let code = JSON.parse(thisObject.payload.node.code)
         code.status = thisObject.status
@@ -347,6 +408,9 @@ function newLayer () {
 
   function draw () {
     drawLayer()
+    if (panelsVisibleButton !== undefined) {
+      panelsVisibleButton.draw()
+    }
   }
 
   function drawLayer () {

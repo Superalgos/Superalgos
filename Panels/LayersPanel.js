@@ -192,7 +192,7 @@ function newProductsPanel () {
     let onProducts = []
 
     for (let i = 0; i < thisObject.layers.length; i++) {
-      if (thisObject.layers[i].status === PRODUCT_CARD_STATUS.LOADING) {
+      if (thisObject.layers[i].status === LAYER_STATUS.LOADING) {
         onProducts.push(thisObject.layers[i])
       }
     }
@@ -409,4 +409,3 @@ function newProductsPanel () {
     }
   }
 }
-

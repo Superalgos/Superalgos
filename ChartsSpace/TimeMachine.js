@@ -468,12 +468,17 @@ function newTimeMachine () {
   }
 
   function drawBackground () {
+    drawChartsBackground()
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
         timelineChart.drawBackground()
       }
     }
+  }
+
+  function drawChartsBackground () {
+    drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
   }
 
   function draw () {

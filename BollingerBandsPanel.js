@@ -5,6 +5,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         fitFunction: undefined,
         onRecordChange: onRecordChange,
         container: undefined,
+        isVisible: true,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -24,6 +25,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
         thisObject.container.finalize()
         thisObject.container = undefined
         thisObject.fitFunction = undefined
+        thisObject.isVisible = undefined
 
         currentBand = undefined
         panelTabButton.finalize()
@@ -46,7 +48,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
     }
 
     function getContainer(point) {
-
+        if (thisObject.isVisible !== true) { return }
         let container;
 
         container = panelTabButton.getContainer(point)
@@ -76,7 +78,7 @@ function newAAMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () 
 
 
     function draw() {
-
+        if (thisObject.isVisible !== true) { return }
         thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentBandInfo();

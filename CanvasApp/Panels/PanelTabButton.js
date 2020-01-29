@@ -88,6 +88,7 @@ function newPanelTabButton () {
   }
 
   function draw () {
+    return
     if (isInitialized === false) { return }
 
     drawButton()
@@ -113,6 +114,7 @@ function newPanelTabButton () {
   }
 
   function getContainer (point) {
+    return
     let container
 
        /* First we check if thisObject point is inside thisObject space. */

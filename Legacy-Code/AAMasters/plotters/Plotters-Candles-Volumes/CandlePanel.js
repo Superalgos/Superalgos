@@ -4,6 +4,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
     let thisObject = {
         fitFunction: undefined,
         container: undefined,
+        isVisible: true,
         onRecordChange: onRecordChange,
         draw: draw,
         getContainer: getContainer,
@@ -24,6 +25,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
         thisObject.container.finalize()
         thisObject.container = undefined
         thisObject.fitFunction = undefined
+        thisObject.isVisible = undefined
 
         currentCandle = undefined
         panelTabButton.finalize()
@@ -46,7 +48,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
     }
 
     function getContainer(point) {
-
+        if (thisObject.isVisible !== true) { return }
         let container;
 
         container = panelTabButton.getContainer(point)
@@ -76,7 +78,7 @@ function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
 
     function draw() {
-
+        if (thisObject.isVisible !== true) { return }
         thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentCandleInfo();

@@ -1,10 +1,11 @@
-function newProductsPanel () {
+function newLayersPanel () {
   let thisObject = {
     name: 'Layers Panel',
     fitFunction: undefined,
     container: undefined,
     layers: [],
     payload: undefined,
+    isVisible: true,
     getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,
@@ -74,6 +75,12 @@ function newProductsPanel () {
     panelTabButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+
+    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
+    if (storedValue >= 0 && storedValue <= 20) {
+      desiredVisibleLayers = storedValue
+    }
+
     isInitialized = true
   }
 
@@ -134,6 +141,7 @@ function newProductsPanel () {
     }
     desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
     calculateVisbleLayers()
+    savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
   }
 
   function panelSizePhysics () {
@@ -192,7 +200,7 @@ function newProductsPanel () {
     let onProducts = []
 
     for (let i = 0; i < thisObject.layers.length; i++) {
-      if (thisObject.layers[i].status === PRODUCT_CARD_STATUS.LOADING) {
+      if (thisObject.layers[i].status === LAYER_STATUS.LOADING) {
         onProducts.push(thisObject.layers[i])
       }
     }
@@ -409,4 +417,3 @@ function newProductsPanel () {
     }
   }
 }
-

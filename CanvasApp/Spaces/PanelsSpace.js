@@ -8,6 +8,8 @@ function newPanelsSpace () {
   let thisObject = {
     visible: true,
     container: undefined,
+    makeVisible: makeVisible,
+    makeInvisible: makeInvisible,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
     getPanel: getPanel,
@@ -40,9 +42,10 @@ function newPanelsSpace () {
 
       case 'Layers Panel':
         {
-          panel = newProductsPanel()
+          panel = newLayersPanel()
           panel.fitFunction = canvas.chartSpace.fitFunction
           panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+          panel.type = 'Layers Panel'
           break
         }
       case 'Plotter Panel':
@@ -60,7 +63,7 @@ function newPanelsSpace () {
             panel.session = pSession
             panel.initialize()
           }
-
+          panel.type = 'Plotter Panel'
           break
         }
     }
@@ -71,6 +74,24 @@ function newPanelsSpace () {
     panel.handle = Math.floor((Math.random() * 10000000) + 1)
 
     return panel.handle
+  }
+
+  function makeVisible (owner, type) {
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
+      if (panel.owner === owner && panel.type === type) {
+        panel.isVisible = true
+      }
+    }
+  }
+
+  function makeInvisible (owner, type) {
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
+      if (panel.owner === owner && panel.type === type) {
+        panel.isVisible = false
+      }
+    }
   }
 
   function destroyPanel (pPanelHandle) {
@@ -125,15 +146,10 @@ function newPanelsSpace () {
         let panel = thisObject.panels[i]
 
         /* setting the speed of the panel */
-        let ACCELERATION = 0.1 // This is resting speed.
         if (panel.container.speed === undefined) {
           panel.container.speed = {
-            x: 1,
-            y: 1
-          }
-          panel.container.resistance = {
-            x: 0,
-            y: 0
+            x: 2,
+            y: 2
           }
         }
 
@@ -149,26 +165,29 @@ function newPanelsSpace () {
         let verticalLine = (canvas.chartSpace.viewport.visibleArea.topRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartSpace.viewport.visibleArea.topLeft.x
         let horizontalLine = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) * 2 / 3 + canvas.chartSpace.viewport.visibleArea.topRight.y
 
+        if (centerPoint.x < verticalLine && centerPoint.y < horizontalLine) {
+          panel.gravitatesTowards = 'topLeft'
+        }
+        if (centerPoint.x >= verticalLine && centerPoint.y < horizontalLine) {
+          panel.gravitatesTowards = 'topRight'
+        }
+        if (centerPoint.x < verticalLine && centerPoint.y >= horizontalLine) {
+          panel.gravitatesTowards = 'bottomLeft'
+        }
+        if (centerPoint.x >= verticalLine && centerPoint.y >= horizontalLine) {
+          panel.gravitatesTowards = 'bottomRight'
+        }
+
         /* According to the quadrant we push the panels to the sides */
         if (centerPoint.x < verticalLine) {
           panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x
-          if (isOverlapping(i, panel.container) === true) {
-            panel.container.frame.position.x = panel.container.frame.position.x + panel.container.speed.x * 3
-            accelerateOnX()
-          } else {
-            desAccelerateOnX()
-          }
+          isOverlapping(i, panel.container)
           if (panel.container.frame.position.x < 0) {
             panel.container.frame.position.x = 0
           }
         } else {
           panel.container.frame.position.x = panel.container.frame.position.x + panel.container.speed.x
-          if (isOverlapping(i, panel.container) === true) {
-            panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x * 3
-            accelerateOnX()
-          } else {
-            desAccelerateOnX()
-          }
+          isOverlapping(i, panel.container)
           if (panel.container.frame.position.x + panel.container.frame.width > browserCanvas.width) {
             panel.container.frame.position.x = browserCanvas.width - panel.container.frame.width
           }
@@ -176,70 +195,17 @@ function newPanelsSpace () {
         if (panel.container.frame.height <= canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) {
           if (centerPoint.y < horizontalLine) {
             panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
-            if (isOverlapping(i, panel.container) === true) {
-              panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y * 3
-              accelerateOnY()
-            } else {
-              desAccelerateOnY()
-            }
+            isOverlapping(i, panel.container)
             if (panel.container.frame.position.y < canvas.chartSpace.viewport.visibleArea.topLeft.y) {
               panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topLeft.y
             }
           } else {
             panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y
-            if (isOverlapping(i, panel.container) === true) {
-              panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y * 3
-              accelerateOnY()
-            } else {
-              desAccelerateOnY()
-            }
+            isOverlapping(i, panel.container)
             if (panel.container.frame.position.y + panel.container.frame.height > canvas.chartSpace.viewport.visibleArea.bottomRight.y) {
               panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
             }
           }
-        }
-
-        function accelerateOnX () {
-          panel.container.speed.x = panel.container.speed.x + ACCELERATION
-          if (panel.container.speed.x > ACCELERATION * 10) {
-            panel.container.speed.x = ACCELERATION * 10
-          }
-          panel.container.resistance.x = panel.container.resistance.x + 1
-        }
-        function desAccelerateOnX () {
-          if (panel.container.resistance.x < -3) {
-            panel.container.resistance.x = 0
-            panel.container.speed.x = ACCELERATION * 5
-            return
-          }
-          panel.container.speed.x = panel.container.speed.x - ACCELERATION
-          if (panel.container.speed.x < ACCELERATION) {
-            panel.container.speed.x = ACCELERATION * 1
-          }
-          panel.container.resistance.x = panel.container.resistance.x - 1
-        }
-        function accelerateOnY () {
-          if (panel.container.resistance.y > 5) {
-            panel.container.resistance.y = 0
-            return
-          }
-          panel.container.speed.y = panel.container.speed.y + ACCELERATION
-          if (panel.container.speed.y > ACCELERATION * 10) {
-            panel.container.speed.y = ACCELERATION * 5
-          }
-          panel.container.resistance.y = panel.container.resistance.y + 1
-        }
-        function desAccelerateOnY () {
-          if (panel.container.resistance.y < -3) {
-            panel.container.resistance.y = 0
-            panel.container.speed.y = ACCELERATION * 10
-            return
-          }
-          panel.container.speed.y = panel.container.speed.y - ACCELERATION
-          if (panel.container.speed.y < ACCELERATION) {
-            panel.container.speed.y = ACCELERATION * 1
-          }
-          panel.container.resistance.y = panel.container.resistance.y - 1
         }
       }
     }
@@ -264,11 +230,41 @@ function newPanelsSpace () {
 
       for (let i = 0; i < currentIndex; i++) {
         let panel = thisObject.panels[i]
+        if (panel.isVisible === true) {
+          if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) {
+            pushOut(currentContainer, panel.container, panel.gravitatesTowards)
+          }
+          if (isThisPointInsideThisFrame(corner2, panel.container.frame) === true) {
+            pushOut(currentContainer, panel.container, panel.gravitatesTowards)
+          }
+          if (isThisPointInsideThisFrame(corner3, panel.container.frame) === true) {
+            pushOut(currentContainer, panel.container, panel.gravitatesTowards)
+          }
+          if (isThisPointInsideThisFrame(corner4, panel.container.frame) === true) {
+            pushOut(currentContainer, panel.container, panel.gravitatesTowards)
+          }
+        }
+      }
 
-        if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner2, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner3, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner4, panel.container.frame) === true) { return true }
+      function pushOut (currentContainer, controlContainer, corner) {
+        switch (corner) {
+          case 'topLeft': {
+            currentContainer.frame.position.x = controlContainer.frame.position.x + controlContainer.frame.width
+            break
+          }
+          case 'topRight': {
+            currentContainer.frame.position.x = controlContainer.frame.position.x - currentContainer.frame.width
+            break
+          }
+          case 'bottomLeft': {
+            currentContainer.frame.position.x = controlContainer.frame.position.x + controlContainer.frame.width
+            break
+          }
+          case 'bottomRight': {
+            currentContainer.frame.position.x = controlContainer.frame.position.x - currentContainer.frame.width
+            break
+          }
+        }
       }
 
       function isThisPointInsideThisFrame (point, frame) {

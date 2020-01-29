@@ -219,6 +219,8 @@ function newPlottersManager () {
                     connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
                     connector.panels.push(plotterPanelHandle)
                   }
+
+                  connector.layer.panels = connector.panels
                 }
 
                 connectors.push(connector)
@@ -237,7 +239,7 @@ function newPlottersManager () {
   }
 
   function onLayerStatusChanged (layer) {
-    if (layer.status === PRODUCT_CARD_STATUS.LOADING) {
+    if (layer.status === LAYER_STATUS.LOADING) {
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
       let found = false
       for (let i = 0; i < connectors.length; i++) {
@@ -253,7 +255,7 @@ function newPlottersManager () {
         }
       }
     }
-    if (layer.status === PRODUCT_CARD_STATUS.OFF) {
+    if (layer.status === LAYER_STATUS.OFF) {
             /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
       for (let i = 0; i < connectors.length; i++) {
         let connector = connectors[i]

@@ -332,11 +332,11 @@ function newChartSpace () {
       }
 
       if (timeMachine.container.frame.isInViewPort()) {
-        timeMachine.physics()
         thisObject.inViewport.set(timeMachine.payload.node.id, timeMachine)
       } else {
         thisObject.inViewport.delete(timeMachine.payload.node.id)
       }
+      timeMachine.physics()
     }
   }
 

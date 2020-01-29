@@ -164,7 +164,7 @@ const BREAKPOINT_HEIGHT = 15;
 const SIDE_PANEL_WIDTH = 450
 let COCKPIT_SPACE_POSITION = browserCanvas.height - COCKPIT_SPACE_HEIGHT
 
-const PRODUCT_CARD_STATUS = {
+const LAYER_STATUS = {
     ON: 'on',
     LOADING: 'loading',
     OFF: 'off'

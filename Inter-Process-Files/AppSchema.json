@@ -5089,6 +5089,14 @@
         "type": "Layers Manager",
         "menuItems": [
             {
+                "action": "Configure Layers Manager",
+                "label": "Configure Layers Manager",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Layer",
                 "relatedUiObject": "Layer",
@@ -5105,6 +5113,12 @@
             }
         ],
         "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"visibleLayers\": 5\n}"
+        },
         "level": 3,
         "icon": "layer-manager",
         "chainAttachesTo": {

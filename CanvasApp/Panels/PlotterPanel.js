@@ -9,6 +9,7 @@ function newPlotterPanel () {
   let thisObject = {
     fitFunction: undefined,
     container: undefined,
+    isVisible: true,
     onRecordChange: onRecordChange,
     draw: draw,
     getContainer: getContainer,
@@ -30,6 +31,7 @@ function newPlotterPanel () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
+    thisObject.isVisible = undefined
 
     heightFactor = undefined
     currentRecord = undefined
@@ -56,6 +58,7 @@ function newPlotterPanel () {
   }
 
   function getContainer (point) {
+    if (thisObject.isVisible !== true) { return }
     let container
 
     container = panelTabButton.getContainer(point)
@@ -80,10 +83,10 @@ function newPlotterPanel () {
   }
 
   function draw () {
+    if (thisObject.isVisible !== true) { return }
+
     thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
-
     plotCurrentRecordData()
-
     panelTabButton.draw()
   }
 

@@ -6,6 +6,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         onRecordChange: onRecordChange,
         container: undefined,
         session: undefined,
+        isVisible: true,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -48,6 +49,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
         thisObject.container = undefined
         thisObject.fitFunction = undefined
         thisObject.onRecordChange = undefined
+        thisObject.isVisible = undefined
 
         currentRecord = undefined
         lastRecord = undefined
@@ -55,7 +57,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
     }
 
     function getContainer(point) {
-
+        if (thisObject.isVisible !== true) { return }
         let container;
 
         container = panelTabButton.getContainer(point)
@@ -86,7 +88,7 @@ function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulation
 
 
     function draw() {
-
+        if (thisObject.isVisible !== true) { return }
         thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentRecordInfo();

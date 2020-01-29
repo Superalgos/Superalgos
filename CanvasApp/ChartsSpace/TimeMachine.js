@@ -329,10 +329,21 @@ function newTimeMachine () {
   }
 
   function physics () {
-    thisObjectPhysics()
-    childrenPhysics()
-    syncWithDesigner()
-    saveFrame(thisObject.payload, thisObject.container.frame)
+    if (thisObject.container.frame.isInViewPort()) {
+      thisObjectPhysics()
+      childrenPhysics()
+      syncWithDesigner()
+      saveFrame(thisObject.payload, thisObject.container.frame)
+    }
+    panelPhysics()
+  }
+
+  function panelPhysics () {
+    if (thisObject.container.frame.isInViewPort()) {
+      canvas.panelsSpace.makeVisible(thisObject.payload.node.id, 'Layers Panel')
+    } else {
+      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id, 'Layers Panel')
+    }
   }
 
   function syncWithDesigner () {
@@ -457,12 +468,17 @@ function newTimeMachine () {
   }
 
   function drawBackground () {
+    drawChartsBackground()
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
         timelineChart.drawBackground()
       }
     }
+  }
+
+  function drawChartsBackground () {
+    drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0.5, thisObject.fitFunction)
   }
 
   function draw () {

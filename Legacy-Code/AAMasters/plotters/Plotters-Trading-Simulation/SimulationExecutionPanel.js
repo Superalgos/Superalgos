@@ -5,10 +5,12 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
     let thisObject = {
         fitFunction: undefined,
         container: undefined,
+        isVisible: true,
         onRecordChange: onRecordChange,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
     let container = newContainer();
@@ -21,6 +23,17 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
     let panelTabButton
 
     return thisObject;
+
+    function finalize() {
+        thisObject.container.finalize()
+        thisObject.container = undefined
+        thisObject.fitFunction = undefined
+        thisObject.isVisible = undefined
+
+        currentRecord = undefined
+        panelTabButton.finalize()
+        panelTabButton = undefined
+    }
 
     function initialize() {
 
@@ -38,7 +51,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
     }
 
     function getContainer(point) {
-
+        if (thisObject.isVisible !== true) { return }
         let container;
 
         container = panelTabButton.getContainer(point)
@@ -68,7 +81,7 @@ function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecu
 
 
     function draw() {
-
+        if (thisObject.isVisible !== true) { return }
         thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plot();

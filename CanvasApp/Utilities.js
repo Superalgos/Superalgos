@@ -1,3 +1,45 @@
+function drawContainerBackground (container, color, opacity, fitFunction) {
+  let fromPoint = {
+    x: 0,
+    y: 0
+  }
+
+  let toPoint = {
+    x: container.frame.width,
+    y: container.frame.height
+  }
+
+  fromPoint = transformThisPoint(fromPoint, container)
+  toPoint = transformThisPoint(toPoint, container)
+
+  fromPoint = fitFunction(fromPoint)
+  toPoint = fitFunction(toPoint)
+
+  browserCanvasContext.beginPath()
+  browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
+  browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
+  browserCanvasContext.closePath()
+  browserCanvasContext.fill()
+}
+
+function savePropertyAtNodeConfig (payload, propertyName, value) {
+  try {
+    let code = JSON.parse(payload.node.code)
+    code[propertyName] = value
+    payload.node.code = JSON.stringify(code)
+  } catch (err) {
+     // we ignore errors here since most likely they will be parsing errors.
+  }
+}
+
+function loadPropertyFromNodeConfig (payload, propertyName) {
+  try {
+    let code = JSON.parse(payload.node.code)
+    return code[propertyName]
+  } catch (err) {
+     // we ignore errors here since most likely they will be parsing errors.
+  }
+}
 
 function saveFrame (payload, frame) {
   payload.frame = {

@@ -417,34 +417,7 @@ function newTimelineChart () {
   }
 
   function drawChartsBackground () {
-       /* We will paint some transparent background here. */
-
-    let opacity = '0.0'
-
-    let fromPoint = {
-      x: 0,
-      y: 0
-    }
-
-    let toPoint = {
-      x: thisObject.container.frame.width,
-      y: thisObject.container.frame.height
-    }
-
-    fromPoint = transformThisPoint(fromPoint, thisObject.container)
-    toPoint = transformThisPoint(toPoint, thisObject.container)
-
-    fromPoint = thisObject.fitFunction(fromPoint)
-    toPoint = thisObject.fitFunction(toPoint)
-
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
-    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
-
-    browserCanvasContext.closePath()
-
-    browserCanvasContext.fill()
+    drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
   }
 
   function recalculateCoordinateSystem () {

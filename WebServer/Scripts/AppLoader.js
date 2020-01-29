@@ -59,6 +59,7 @@ function newAppLoader() {
                 'Panels/PanelTabButton.js',
                 'Panels/Layer.js',
                 'Panels/PlotterPanel.js',
+                'Panels/PanelsVisibleButton.js',
                 
                 'ControlsToolBox/SidePanel.js',
                 'ControlsToolBox/SidePanelTab.js',

@@ -5,6 +5,7 @@ function newProductsPanel () {
     container: undefined,
     layers: [],
     payload: undefined,
+    isVisible: true,
     getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,

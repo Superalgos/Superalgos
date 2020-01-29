@@ -329,10 +329,21 @@ function newTimeMachine () {
   }
 
   function physics () {
-    thisObjectPhysics()
-    childrenPhysics()
-    syncWithDesigner()
-    saveFrame(thisObject.payload, thisObject.container.frame)
+    if (thisObject.container.frame.isInViewPort()) {
+      thisObjectPhysics()
+      childrenPhysics()
+      syncWithDesigner()
+      saveFrame(thisObject.payload, thisObject.container.frame)
+    }
+    panelPhysics()
+  }
+
+  function panelPhysics () {
+    if (thisObject.container.frame.isInViewPort()) {
+      canvas.panelsSpace.makeVisible(thisObject.payload.node.id)
+    } else {
+      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id)
+    }
   }
 
   function syncWithDesigner () {

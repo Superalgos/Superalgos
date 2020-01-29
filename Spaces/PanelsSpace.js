@@ -8,6 +8,8 @@ function newPanelsSpace () {
   let thisObject = {
     visible: true,
     container: undefined,
+    makeVisible: makeVisible,
+    makeInvisible: makeInvisible,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
     getPanel: getPanel,
@@ -71,6 +73,24 @@ function newPanelsSpace () {
     panel.handle = Math.floor((Math.random() * 10000000) + 1)
 
     return panel.handle
+  }
+
+  function makeVisible (owner) {
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
+      if (panel.owner === owner) {
+        panel.isVisible = true
+      }
+    }
+  }
+
+  function makeInvisible (owner) {
+    for (let i = 0; i < thisObject.panels.length; i++) {
+      let panel = thisObject.panels[i]
+      if (panel.owner === owner) {
+        panel.isVisible = false
+      }
+    }
   }
 
   function destroyPanel (pPanelHandle) {
@@ -264,11 +284,12 @@ function newPanelsSpace () {
 
       for (let i = 0; i < currentIndex; i++) {
         let panel = thisObject.panels[i]
-
-        if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner2, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner3, panel.container.frame) === true) { return true }
-        if (isThisPointInsideThisFrame(corner4, panel.container.frame) === true) { return true }
+        if (panel.isVisible === true) {
+          if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) { return true }
+          if (isThisPointInsideThisFrame(corner2, panel.container.frame) === true) { return true }
+          if (isThisPointInsideThisFrame(corner3, panel.container.frame) === true) { return true }
+          if (isThisPointInsideThisFrame(corner4, panel.container.frame) === true) { return true }
+        }
       }
 
       function isThisPointInsideThisFrame (point, frame) {

@@ -249,7 +249,7 @@ function newTimeMachine () {
   function getContainer (point, purpose) {
     let container
 
-    if (thisObject.rateScale !== undefined) {
+    if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
       container = thisObject.rateScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
@@ -258,7 +258,7 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.timeScale !== undefined) {
+    if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) {
       container = thisObject.timeScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
@@ -267,7 +267,7 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.timeFrameScale !== undefined) {
+    if (thisObject.timeFrameScale !== undefined && thisObject.rateScale.isVisible === true) {
       container = thisObject.timeFrameScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
@@ -489,9 +489,9 @@ function newTimeMachine () {
       }
 
       if (drawScales === true) {
-        if (thisObject.timeScale !== undefined) { thisObject.timeScale.draw() }
-        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-        if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+        if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) { thisObject.timeScale.draw() }
+        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) { thisObject.timeFrameScale.draw() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
       let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
@@ -525,9 +525,9 @@ function newTimeMachine () {
       }
 
       if (drawScales === true) {
-        if (thisObject.timeScale !== undefined) { thisObject.timeScale.drawForeground() }
-        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
-        if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+        if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) { thisObject.timeScale.drawForeground() }
+        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) { thisObject.timeFrameScale.drawForeground() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawForeground() }
       }
 
       let style = {

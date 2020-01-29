@@ -10,6 +10,7 @@ function newRateScale () {
     offset: undefined,
     minValue: undefined,
     maxValue: undefined,
+    isVisible: true,
     setScale: setScale,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
@@ -371,6 +372,14 @@ function newRateScale () {
 
     thisObject.container.frame.position.y = ratePoint.y - thisObject.container.frame.height
     thisObject.container.frame.position.x = ratePoint.x - thisObject.container.frame.width
+
+    thisObject.isVisible = true
+    if (thisObject.container.frame.position.y + thisObject.container.frame.height * 2 > bottonCorner.y ||
+        thisObject.container.frame.position.y - thisObject.container.frame.height * 1 < upCorner.y ||
+        thisObject.container.frame.position.x < upCorner.x
+      ) {
+      thisObject.isVisible = false
+    }
   }
 
   function draw () {

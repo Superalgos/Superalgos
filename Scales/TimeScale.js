@@ -7,6 +7,7 @@ function newTimeScale () {
     date: undefined,
     fitFunction: undefined,
     payload: undefined,
+    isVisible: true,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -244,6 +245,12 @@ function newTimeScale () {
 
     thisObject.container.frame.position.x = timePoint.x
     thisObject.container.frame.position.y = timePoint.y
+
+    thisObject.isVisible = true
+    if (thisObject.container.frame.position.y + thisObject.container.frame.height * 4 > bottonCorner.y ||
+        thisObject.container.frame.position.y < upCorner.y) {
+      thisObject.isVisible = false
+    }
   }
 
   function draw () {

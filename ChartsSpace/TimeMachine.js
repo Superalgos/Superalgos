@@ -493,8 +493,6 @@ function newTimeMachine () {
         if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
         if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
       }
-
-      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction)
     } else {
       let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
       if (icon !== undefined) {
@@ -531,6 +529,14 @@ function newTimeMachine () {
         if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
         if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
       }
+
+      let style = {
+        color: UI_COLOR.BLACK,
+        opacity: 1,
+        lineWidth: 1,
+        lineDash: [1, 3]
+      }
+      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction, style)
     }
   }
 

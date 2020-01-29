@@ -48,7 +48,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     }
 
     function getContainer(point) {
-
+        if (thisObject.isVisible !== true) { return }
         let container;
 
         container = panelTabButton.getContainer(point)
@@ -78,7 +78,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
 
     function draw() {
-
+        if (thisObject.isVisible !== true) { return }
         thisObject.container.frame.draw(false, false, true, thisObject.fitFunction);
 
         plotCurrentVolumeInfo();

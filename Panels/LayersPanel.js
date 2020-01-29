@@ -75,6 +75,12 @@ function newLayersPanel () {
     panelTabButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+
+    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
+    if (storedValue >= 0 && storedValue <= 20) {
+      desiredVisibleLayers = storedValue
+    }
+
     isInitialized = true
   }
 
@@ -135,6 +141,7 @@ function newLayersPanel () {
     }
     desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
     calculateVisbleLayers()
+    savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
   }
 
   function panelSizePhysics () {

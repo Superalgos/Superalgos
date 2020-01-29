@@ -1,4 +1,4 @@
-function newProductsPanel () {
+function newLayersPanel () {
   let thisObject = {
     name: 'Layers Panel',
     fitFunction: undefined,

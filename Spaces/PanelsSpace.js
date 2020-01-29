@@ -42,9 +42,10 @@ function newPanelsSpace () {
 
       case 'Layers Panel':
         {
-          panel = newProductsPanel()
+          panel = newLayersPanel()
           panel.fitFunction = canvas.chartSpace.fitFunction
           panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+          panel.type = 'Layers Panel'
           break
         }
       case 'Plotter Panel':
@@ -62,7 +63,7 @@ function newPanelsSpace () {
             panel.session = pSession
             panel.initialize()
           }
-
+          panel.type = 'Plotter Panel'
           break
         }
     }
@@ -75,19 +76,19 @@ function newPanelsSpace () {
     return panel.handle
   }
 
-  function makeVisible (owner) {
+  function makeVisible (owner, type) {
     for (let i = 0; i < thisObject.panels.length; i++) {
       let panel = thisObject.panels[i]
-      if (panel.owner === owner) {
+      if (panel.owner === owner && panel.type === type) {
         panel.isVisible = true
       }
     }
   }
 
-  function makeInvisible (owner) {
+  function makeInvisible (owner, type) {
     for (let i = 0; i < thisObject.panels.length; i++) {
       let panel = thisObject.panels[i]
-      if (panel.owner === owner) {
+      if (panel.owner === owner && panel.type === type) {
         panel.isVisible = false
       }
     }

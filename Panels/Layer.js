@@ -316,17 +316,11 @@ function newLayer () {
           if (thisObject.panels.length > 0) {
             panelsVisibleButton = newPanelsVisibleButton()
 
-            try {
-              let code = JSON.parse(thisObject.payload.node.code)
-              if (code.showPanels !== undefined) {
-                if (code.showPanels === true || code.showPanels === false) {
-                  panelsVisibleButton.showPanels = code.showPanels
-                }
+            let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'showPanels')
+            if (storedValue !== undefined) {
+              if (storedValue === true || storedValue === false) {
+                panelsVisibleButton.showPanels = storedValue
               }
-
-              thisObject.payload.node.code = JSON.stringify(code)
-            } catch (err) {
-               // we ignore errors here since most likely they will be parsing errors.
             }
 
             panelsVisibleButton.initialize(thisObject.panels)
@@ -334,14 +328,7 @@ function newLayer () {
           }
         }
       } else {
-        /* Saving the new status at the node config */
-        try {
-          let code = JSON.parse(thisObject.payload.node.code)
-          code.showPanels = panelsVisibleButton.showPanels
-          thisObject.payload.node.code = JSON.stringify(code)
-        } catch (err) {
-           // we ignore errors here since most likely they will be parsing errors.
-        }
+        savePropertyAtNodeConfig(thisObject.payload, 'showPanels', panelsVisibleButton.showPanels)
       }
     }
   }
@@ -349,8 +336,7 @@ function newLayer () {
   function statusPhysics () {
   /* We retrieve the stored status at the config. */
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      let storedValue = code.status
+      let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
 
       if (storedValue !== undefined) {
         if (storedValue !== thisObject.status) {
@@ -392,15 +378,7 @@ function newLayer () {
         }
       }
 
-      /* Saving the new status at the node config */
-      try {
-        let code = JSON.parse(thisObject.payload.node.code)
-        code.status = thisObject.status
-        thisObject.payload.node.code = JSON.stringify(code)
-      } catch (err) {
-         // we ignore errors here since most likely they will be parsing errors.
-      }
-
+      savePropertyAtNodeConfig(thisObject.payload, 'status', thisObject.status)
       let eventData = thisObject
       thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
     }

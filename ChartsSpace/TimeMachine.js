@@ -340,9 +340,9 @@ function newTimeMachine () {
 
   function panelPhysics () {
     if (thisObject.container.frame.isInViewPort()) {
-      canvas.panelsSpace.makeVisible(thisObject.payload.node.id)
+      canvas.panelsSpace.makeVisible(thisObject.payload.node.id, 'Layers Panel')
     } else {
-      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id)
+      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id, 'Layers Panel')
     }
   }
 

@@ -81,6 +81,7 @@ function newLayersPanel () {
       desiredVisibleLayers = storedValue
     }
 
+    loadFrame(thisObject.payload, thisObject.container.frame)
     isInitialized = true
   }
 
@@ -257,7 +258,7 @@ function newLayersPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
-
+    saveFrame(thisObject.payload, thisObject.container.frame)
     /*
     The overall idea here is that we need to keep syncronized the panel with the layers that are
     defined at the Designer. Users can connect or disconnect any objext resulting in changes in which

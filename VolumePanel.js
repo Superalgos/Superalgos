@@ -4,6 +4,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
     let thisObject = {
         fitFunction: undefined,
         container: undefined,
+        isVisible: true,
         onRecordChange: onRecordChange,
         draw: draw,
         getContainer: getContainer,
@@ -24,6 +25,7 @@ function newAAMastersPlottersCandlesVolumesVolumesVolumePanel() {
         thisObject.container.finalize()
         thisObject.container = undefined
         thisObject.fitFunction = undefined
+        thisObject.isVisible = undefined
 
         currentVolume = undefined
         panelTabButton.finalize()

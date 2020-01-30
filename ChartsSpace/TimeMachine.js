@@ -601,6 +601,16 @@ function newTimeMachine () {
       x: MAX_PLOTABLE_DATE.valueOf(),
       y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
     }
+/*
+    if (thisObject.timeScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
+    }
+    */
+    if (thisObject.rateScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
+    }
 
     timeMachineCoordinateSystem.initialize(
           minValue,

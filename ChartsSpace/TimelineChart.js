@@ -303,11 +303,7 @@ function newTimelineChart () {
     }
 
     center = unTransformThisPoint(center, thisObject.container)
-    if (thisObject.rateScale === undefined) {
-      center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-    } else {
-      center = timelineChartCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-    }
+    center = coordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
 
     let newDate = new Date(center.x)
 

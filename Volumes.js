@@ -21,6 +21,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         recalculateScale: recalculateScale,
         draw: draw
     };
@@ -30,7 +31,7 @@
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
     let plotAreaFrame = newCoordinateSystem();  // This chart uses this extra object.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
@@ -81,13 +82,15 @@
             fileCursor = undefined;
 
             thisObject.fitFunction = undefined
+
+            coordinateSystem = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
@@ -98,6 +101,7 @@
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -234,9 +238,11 @@
     }
 
     function setDatetime(pDatetime) {
-
         datetime = pDatetime;
+    }
 
+    function setCoordinateSystem(pCoordinateSystem) {
+        coordinateSystem = pCoordinateSystem
     }
 
     function onDailyFileLoaded(event) {

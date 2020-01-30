@@ -86,14 +86,6 @@ function newPlottersManager () {
 
       /* Listen to the event of change of status */
       onLayerStatusChangedEventSuscriptionId = layersPanel.container.eventHandler.listenToEvent('Layer Status Changed', onLayerStatusChanged)
-
-      /* Lets get all the cards that needs to be loaded. */
-      let loadingLayers = layersPanel.getLoadingLayers()
-
-      for (let i = 0; i < loadingLayers.length; i++) {
-        /* For each one, we will initialize the associated plotter. */
-        initializePlotter(loadingLayers[i])
-      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }

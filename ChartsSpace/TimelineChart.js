@@ -169,7 +169,7 @@ function newTimelineChart () {
 
     thisObject.plotterManager.fitFunction = thisObject.fitFunction
     thisObject.plotterManager.payload = thisObject.payload
-    thisObject.plotterManager.initialize(thisObject.layersManager, DEFAULT_EXCHANGE, DEFAULT_MARKET)
+    thisObject.plotterManager.initialize(thisObject.layersManager)
     thisObject.plotterManager.setTimeFrame(timeFrame)
     thisObject.plotterManager.setDatetime(datetime)
   }

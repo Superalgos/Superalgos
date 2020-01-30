@@ -6,7 +6,6 @@ function newLayersPanel () {
     layers: [],
     payload: undefined,
     isVisible: true,
-    getLoadingLayers: getLoadingLayers,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -194,19 +193,6 @@ function newLayersPanel () {
 
   function onLayerStatusChanged (layer) {
     thisObject.container.eventHandler.raiseEvent('Layer Status Changed', layer)
-  }
-
-  function getLoadingLayers () {
-    /* Returns all thisObject.layers which status is LOADING */
-    let onProducts = []
-
-    for (let i = 0; i < thisObject.layers.length; i++) {
-      if (thisObject.layers[i].status === LAYER_STATUS.LOADING) {
-        onProducts.push(thisObject.layers[i])
-      }
-    }
-
-    return onProducts
   }
 
   function getContainer (point) {

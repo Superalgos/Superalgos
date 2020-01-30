@@ -177,26 +177,17 @@ function newRateScale () {
         if (thisObject.scale > MAX_SCALE) { thisObject.scale = MAX_SCALE }
       }
 
-      if (
-        thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-        thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-      ) {
-        event.scale = DEFAULT_SCALE
-      } else {
-        event.scale = thisObject.scale
-      }
-
-      event.isUserAction = true
-      thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
-
-      saveObjectState()
-      offsetTimer = 0
-      scaleTimer = 100
+      finishScaleChange(event)
     }
   }
 
   function setScale (scale) {
     thisObject.scale = scale
+    let event = {}
+    finishScaleChange(event)
+  }
+
+  function finishScaleChange (event) {
     if (
       thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
       thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE

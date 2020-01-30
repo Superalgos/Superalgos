@@ -11,6 +11,8 @@ function newCoordinateSystem () {
   let thisObject = {
     min: undefined,
     max: undefined,
+    maxHeight: undefined,
+    maxWidth: undefined,
     scale: undefined,
     recalculateScale: recalculateScale,
     transformThisPoint: transformThisPoint,
@@ -35,9 +37,6 @@ function newCoordinateSystem () {
     y: 0
   }
 
-  let maxHeight
-  let maxWidth
-
   return thisObject
 
   function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
@@ -48,23 +47,23 @@ function newCoordinateSystem () {
     thisObject.min.y = minValue.y // * 0.999; // 0.1% less
     thisObject.max.y = maxValue.y // * 1.001; // 0.1% more
 
-    maxWidth = pMaxWidth
-    maxHeight = pMaxHeight
+    thisObject.maxWidth = pMaxWidth
+    thisObject.maxHeight = pMaxHeight
 
     recalculateScale()
   }
 
   function recalculateScale () {
     /* Defines the initial Zoom level at center position. */
-    thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x)
-    thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y)
+    thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
+    thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {
     thisObject.min.x = minValue.x // * 0.999; // 0.1% less
     thisObject.max.x = maxValue.x // * 1.001; // 0.1% more
 
-    thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x)
+    thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
   }
 
   function initializeY (minValue, maxValue, pMaxHeight) {
@@ -73,7 +72,7 @@ function newCoordinateSystem () {
 
     thisObject.scale.y = pMaxHeight / (thisObject.max.y - thisObject.min.y)
 
-    maxHeight = pMaxHeight
+    thisObject.maxHeight = pMaxHeight
   }
 
   function transformThisPoint (point) {
@@ -92,7 +91,7 @@ function newCoordinateSystem () {
 
     point = {
       x: (point.x - thisObject.min.x) * thisObject.scale.x,
-      y: maxHeight - (point.y - thisObject.min.y) * thisObject.scale.y
+      y: thisObject.maxHeight - (point.y - thisObject.min.y) * thisObject.scale.y
     }
 
     return point
@@ -101,7 +100,7 @@ function newCoordinateSystem () {
   function transformThisPoint2 (point) {
     point = {
       x: (point.x - thisObject.min.x) * thisObject.scale.x,
-      y: (maxHeight - point.y - thisObject.min.y) * thisObject.scale.y
+      y: (thisObject.maxHeight - point.y - thisObject.min.y) * thisObject.scale.y
     }
 
     return point

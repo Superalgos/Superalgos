@@ -17,6 +17,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         recalculateScale: recalculateScale,
         draw: draw
     };
@@ -27,7 +28,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
 
     let timeFrame;                             // This will hold the current Time Frame the user is at.
     let datetime;                               // This will hold the current Datetime the user is at.
@@ -65,22 +66,24 @@
             plotLines = undefined;
 
             thisObject.fitFunction = undefined
+
+            coordinateSystem = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> finalize -> err = " + err.stack.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
 
             fileSequence = pStorage.fileSequences[0];
 
             recalculate();
-            recalculateScale();
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
             offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
@@ -89,7 +92,6 @@
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculate();
-                recalculateScale();
             })
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
@@ -123,8 +125,12 @@
         recalculate();
     }
 
-    function setDatetime(newDatetime) {
-        datetime = newDatetime;
+    function setDatetime(pDatetime) {
+        datetime = pDatetime;
+    }
+
+    function setCoordinateSystem(pCoordinateSystem) {
+        coordinateSystem = pCoordinateSystem
     }
 
     function onViewportPositionChanged() {

@@ -17,6 +17,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         draw: draw,
         recalculateScale: recalculateScale,
 
@@ -35,7 +36,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -93,13 +94,15 @@
             fileCursor = undefined;
 
             thisObject.fitFunction = undefined
+
+            coordinateSystem = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
@@ -110,12 +113,11 @@
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
-
-            recalculateScale();
 
             /* Now we set the right files according to current Period. */
 
@@ -137,7 +139,6 @@
             /* Ready for when dimmension changes. */
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-                recalculateScale()
                 recalculate();
             })
 
@@ -221,9 +222,11 @@
     }
 
     function setDatetime(pDatetime) {
-
         datetime = pDatetime;
+    }
 
+    function setCoordinateSystem(pCoordinateSystem) {
+        coordinateSystem = pCoordinateSystem
     }
 
     function onDailyFileLoaded(event) {

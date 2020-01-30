@@ -49,6 +49,7 @@
 
     let volumes = [];                   // Here we keep the volumes to be ploted every time the Draw() function is called by the AAWebPlatform.
 
+    let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
     let dragFinishedEventSubscriptionId
@@ -62,7 +63,7 @@
         try {
 
             /* Stop listening to the necesary events. */
-
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
@@ -119,6 +120,7 @@
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Get ready for plotting. */
 
@@ -138,6 +140,11 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function recalculateScale() {
@@ -521,9 +528,6 @@
     function plotChart() {
 
         try {
-
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
 
             if (volumes.length > 0) {
 

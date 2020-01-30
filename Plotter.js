@@ -42,7 +42,9 @@ function newPlotter () {
   let productDefinition                                               // Here we store a snapshot of the product definition which references this plotter.
 
   let records = []                                                    // We will have the information to be plotted here.
+  let userPositionDate
 
+  let onMouseOverEventSuscriptionId
   let zoomChangedEventSubscriptionId
   let offsetChangedEventSubscriptionId
   let dragFinishedEventSubscriptionId
@@ -57,6 +59,7 @@ function newPlotter () {
   function finalize () {
     try {
       /* Stop listening to the necesary events. */
+      thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
       canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId)
       canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId)
       canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId)
@@ -113,6 +116,7 @@ function newPlotter () {
       marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
       dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
       onDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
+      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
       /* Get ready for plotting. */
       recalculate()
@@ -125,6 +129,11 @@ function newPlotter () {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
+  }
+
+  function onMouseOver (event) {
+    let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+    userPositionDate = userPosition.valueOf()
   }
 
   function onMarketFilesUpdated () {
@@ -476,9 +485,6 @@ function newPlotter () {
 
   function plotChart () {
     try {
-      let userPosition = getUserPosition()
-      let userPositionDate = userPosition.point.x
-
       /* Clean the pannel at places where there is no record. */
       let currentRecord = {
         data: undefined

@@ -228,7 +228,6 @@ function newTimelineChart () {
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
-      saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
     }
   }
 
@@ -260,8 +259,6 @@ function newTimelineChart () {
 
     mouse.position.x = event.x
     mouse.position.y = event.y
-
-    saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
   }
 
   function onMouseNotOver (event) {

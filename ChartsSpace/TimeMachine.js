@@ -191,10 +191,15 @@ function newTimeMachine () {
     thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
     function timeScaleValueChanged (event) {
-      thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
-      recalculateCoordinateSystem()
       if (event.isUserAction === true) {
-        // moveToUserPosition(thisObject.container, previousCoordinateSystem, timeMachineCoordinateSystem, false, true, event.mousePosition, true)
+        let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
+        let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
+        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        recalculateCoordinateSystem()
+        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, false, true, event.mousePosition)
+      } else {
+        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        recalculateCoordinateSystem()
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
@@ -219,7 +224,7 @@ function newTimeMachine () {
 
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
         recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition, true)
+        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition)
       } else {
         thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
         recalculateCoordinateSystem()

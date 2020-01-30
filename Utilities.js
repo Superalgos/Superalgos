@@ -147,47 +147,6 @@ function getMilisecondsFromPoint (point, container, coordinateSystem) {
   return point.x
 }
 
-function saveUserPosition (container, coordinateSystem, position) {
-  if (position === undefined) {
-    position = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 2
-    }
-  }
-
-  let userPosition = {
-    date: getDateFromPoint(position, container, coordinateSystem),
-    rate: getRateFromPoint(position, container, coordinateSystem),
-    market: DEFAULT_MARKET,
-    zoom: canvas.chartSpace.viewport.zoomTargetLevel
-  }
-
-  window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
-}
-
-function getUserPosition (coordinateSystem) {
-  let savedPosition = window.localStorage.getItem('userPosition')
-  let userPosition
-
-  if (savedPosition === null) {
-    userPosition = {
-      date: (new Date()).toString(),
-      rate: coordinateSystem.max.y / 2,
-      market: DEFAULT_MARKET,
-      zoom: INITIAL_ZOOM_LEVEL
-    }
-  } else {
-    userPosition = JSON.parse(savedPosition)
-  }
-
-  userPosition.point = {
-    x: (new Date(userPosition.date)).valueOf(),
-    y: userPosition.rate
-  }
-
-  return userPosition
-}
-
 function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition) {
   let targetPoint = {
     x: currentDate.valueOf(),

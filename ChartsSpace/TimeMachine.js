@@ -92,15 +92,14 @@ function newTimeMachine () {
     }
 
     thisObject.timelineCharts = undefined
-    timelineChartsMap = undefined
-
     thisObject.fitFunction = undefined
-
     thisObject.container.finalize()
     thisObject.container = undefined
-
     thisObject.payload = undefined
+
     mouse = undefined
+    timelineChartsMap = undefined
+    timeMachineCoordinateSystem = undefined
   }
 
   function finalizeTimeScale () {

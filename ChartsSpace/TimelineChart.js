@@ -32,7 +32,6 @@ function newTimelineChart () {
   let timelineChartCoordinateSystem = newCoordinateSystem()
 
   let layersPanel
-
   let layersPanelHandle
 
   let onViewportPositionChangedEventSuscriptionId
@@ -81,13 +80,17 @@ function newTimelineChart () {
     canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
-
     thisObject.container.finalize()
     thisObject.container = undefined
-
     thisObject.payload = undefined
+
     mouse = undefined
     logger = undefined
+
+    timeMachineCoordinateSystem = undefined
+    timelineChartCoordinateSystem = undefined
+    layersPanel = undefined
+    layersPanelHandle = undefined
   }
 
   function finalizeLayersManager () {

@@ -67,6 +67,9 @@ function newTimeFrameScale () {
     thisObject.container = undefined
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
+
+    limitingContainer = undefined
+    mouse = undefined
   }
 
   function initialize (pLimitingContainer) {

@@ -12,6 +12,7 @@ function newCoordinateSystem () {
     min: undefined,
     max: undefined,
     scale: undefined,
+    recalculateScale: recalculateScale,
     transformThisPoint: transformThisPoint,
     transformThisPoint2: transformThisPoint2,
     unInverseTransform: unInverseTransform,
@@ -21,44 +22,42 @@ function newCoordinateSystem () {
     initialize: initialize
   }
 
-  var min = {
+  thisObject.min = {
     x: 0,
     y: 0
   }
-
-  var max = {
+  thisObject.max = {
     x: 0,
     y: 0
   }
-
-  var scale = {
+  thisObject.scale = {
     x: 0,
     y: 0
   }
-
-  thisObject.min = min
-  thisObject.max = max
-  thisObject.scale = scale
 
   let maxHeight
+  let maxWidth
 
   return thisObject
 
-  function initialize (minValue, maxValue, maxWidth, pMaxHeight) {
-        /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
-
+  function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
+    /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
     thisObject.min.x = minValue.x // * 0.999; // 0.1% less
     thisObject.max.x = maxValue.x // * 1.001; // 0.1% more
 
     thisObject.min.y = minValue.y // * 0.999; // 0.1% less
     thisObject.max.y = maxValue.y // * 1.001; // 0.1% more
 
-        /* Defines the initial Zoom level at center position. */
-
-    thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x)
-    thisObject.scale.y = pMaxHeight / (thisObject.max.y - thisObject.min.y)
-
+    maxWidth = pMaxWidth
     maxHeight = pMaxHeight
+
+    recalculateScale()
+  }
+
+  function recalculateScale () {
+    /* Defines the initial Zoom level at center position. */
+    thisObject.scale.x = maxWidth / (thisObject.max.x - thisObject.min.x)
+    thisObject.scale.y = maxHeight / (thisObject.max.y - thisObject.min.y)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

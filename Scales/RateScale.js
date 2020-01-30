@@ -89,6 +89,9 @@ function newRateScale () {
     limitingContainer = pLimitingContainer
     rateCalculationsContainer = pRateCalculationsContainer
 
+    thisObject.minValue = coordinateSystem.min.y
+    thisObject.maxValue = coordinateSystem.max.y
+
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -222,6 +225,8 @@ function newRateScale () {
       code.scale = thisObject.scale / MAX_SCALE * 100
       code.scale = code.scale.toFixed(0)
       code.offset = thisObject.offset
+      code.minValue = thisObject.minValue
+      code.maxValue = thisObject.maxValue
       thisObject.payload.node.code = JSON.stringify(code)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -233,67 +238,61 @@ function newRateScale () {
       let code = JSON.parse(thisObject.payload.node.code)
 
       if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
-        saveObjectState()
-        return
-      }
-
-      code.scale = code.scale / 100 * MAX_SCALE
-      if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
-      if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
-
-      if (code.scale !== thisObject.scale) {
-        thisObject.scale = code.scale
-        let event = {}
-        if (
-          thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-          thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-        ) {
-          event.scale = DEFAULT_SCALE
-        } else {
-          event.scale = thisObject.scale
-        }
-        thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
+        // not using this value
       } else {
-        saveObjectState()
-        return
+        code.scale = code.scale / 100 * MAX_SCALE
+        if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
+        if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
+
+        if (code.scale !== thisObject.scale) {
+          thisObject.scale = code.scale
+          let event = {}
+          if (
+            thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+            thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
+          ) {
+            event.scale = DEFAULT_SCALE
+          } else {
+            event.scale = thisObject.scale
+          }
+          thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
+        }
       }
 
       if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
-        saveObjectState()
-        return
-      }
-
-      if (code.offset < MIN_OFFSET) { code.offset = MIN_OFFSET }
-      if (code.offset > MAX_OFFSET) { code.offset = MAX_OFFSET }
-
-      if (code.offset !== thisObject.offset) {
-        thisObject.offset = code.offset
-        let event = {}
-        if (
-          thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
-          thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
-        ) {
-          event.offset = 0
-        } else {
-          event.offset = -thisObject.offset
-        }
-        thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
+        // not using this value
       } else {
-        saveObjectState()
-        return
+        if (code.offset < MIN_OFFSET) { code.offset = MIN_OFFSET }
+        if (code.offset > MAX_OFFSET) { code.offset = MAX_OFFSET }
+
+        if (code.offset !== thisObject.offset) {
+          thisObject.offset = code.offset
+          let event = {}
+          if (
+            thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
+            thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
+          ) {
+            event.offset = 0
+          } else {
+            event.offset = -thisObject.offset
+          }
+          thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
+        }
       }
 
-      if (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) {
-        saveObjectState()
-        return
+      if (
+      (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) ||
+      (isNaN(code.maxValue) || code.maxValue === null || code.maxValue === undefined)
+        ) {
+        // not using this value
+      } else {
+        thisObject.minValue = code.minValue
+        thisObject.maxValue = code.maxValue
+        coordinateSystem.min.y = code.minValue
+        coordinateSystem.max.y = code.maxValue
+        coordinateSystem.recalculateScale()
       }
-      if (isNaN(code.maxValue) || code.maxValue === null || code.maxValue === undefined) {
-        saveObjectState()
-        return
-      }
-
-      coordinateSystem.min.y = code.minValue
-      coordinateSystem.max.y = code.maxValue
+      saveObjectState() // this overrides any invalid value at the config.
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -401,8 +400,14 @@ function newRateScale () {
 
     let rate = thisObject.rate
 
-    if (rate < coordinateSystem.min.y) { rate = coordinateSystem.min.y }
-    if (rate > coordinateSystem.max.y) { rate = coordinateSystem.max.y }
+    if (rate < coordinateSystem.min.y) {
+      rate = coordinateSystem.min.y
+      coordinateSystem.recalculateScale()
+    }
+    if (rate > coordinateSystem.max.y) {
+      rate = coordinateSystem.max.y
+      coordinateSystem.recalculateScale()
+    }
 
     let label = (rate - Math.trunc(rate)).toFixed(2)
     let labelArray = label.split('.')

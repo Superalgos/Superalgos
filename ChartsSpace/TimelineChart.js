@@ -30,6 +30,7 @@ function newTimelineChart () {
 
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
+  let coordinateSystem
 
   let layersPanel
   let layersPanelHandle
@@ -89,6 +90,7 @@ function newTimelineChart () {
 
     timeMachineCoordinateSystem = undefined
     timelineChartCoordinateSystem = undefined
+    coordinateSystem = undefined
     layersPanel = undefined
     layersPanelHandle = undefined
   }
@@ -140,6 +142,7 @@ function newTimelineChart () {
      /* We load the logow we will need for the background. */
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
+    coordinateSystem = timeMachineCoordinateSystem
 
     timeFrame = INITIAL_TIME_PERIOD
     recalculateCurrentDatetime()
@@ -172,6 +175,7 @@ function newTimelineChart () {
     thisObject.plotterManager.initialize(thisObject.layersManager)
     thisObject.plotterManager.setTimeFrame(timeFrame)
     thisObject.plotterManager.setDatetime(datetime)
+    thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
   }
 
   function initializeRateScale () {
@@ -371,9 +375,11 @@ function newTimelineChart () {
     }
     if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
       finalizeRateScale()
+      coordinateSystem = timeMachineCoordinateSystem
     }
     if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
       initializeRateScale()
+      coordinateSystem = timelineChartCoordinateSystem
     }
     if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()

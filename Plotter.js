@@ -6,32 +6,23 @@ function newPlotter () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
-        /* Events declared outside the plotter. */
-
+    currentRecord: undefined,
+    container: undefined,
     onDailyFileLoaded: onDailyFileLoaded,
-
-        // Main functions and properties.
-
     initialize: initialize,
     finalize: finalize,
-    container: undefined,
     getContainer: getContainer,
     setTimeFrame: setTimeFrame,
     setDatetime: setDatetime,
-    recalculateScale: recalculateScale,
-    draw: draw,
-
-        // Secondary functions and properties.
-
-    currentRecord: undefined  // ---> Check Here
+    setCoordinateSystem: setCoordinateSystem,
+    draw: draw
   }
 
   let container = newContainer()
   container.initialize()
   thisObject.container = container
 
-  let coordinateSystem = newCoordinateSystem()        // Needed to be able to plot on the timeline.
+  let coordinateSystem
   let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
   let slotHeight = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
@@ -96,7 +87,7 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pDatetime, pTimeFrame, callBackFunction, pProductDefinition) {
+  function initialize (pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
@@ -104,13 +95,12 @@ function newPlotter () {
 
       datetime = pDatetime
       timeFrame = pTimeFrame
+      coordinateSystem = pCoordinateSystem
 
       productDefinition = pProductDefinition
 
       /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
       marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS)  // This file is the one processed faster.
-
-      recalculateScale()
 
       /* Now we set the right files according to current Period. */
       marketFile = marketFiles.getFile(pTimeFrame)
@@ -127,7 +117,6 @@ function newPlotter () {
       /* Get ready for plotting. */
       recalculate()
       dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-        recalculateScale()
         recalculate()
       })
 
@@ -207,6 +196,10 @@ function newPlotter () {
 
   function setDatetime (pDatetime) {
     datetime = pDatetime
+  }
+
+  function setCoordinateSystem (pCoordinateSystem) {
+    coordinateSystem = pCoordinateSystem
   }
 
   function onDailyFileLoaded (event) {

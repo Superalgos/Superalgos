@@ -45,6 +45,8 @@ function newTimeMachine () {
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
 
+  let onViewportPositionChangedEventSuscriptionId
+  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeScaleValueEventSuscriptionId
@@ -70,6 +72,9 @@ function newTimeMachine () {
   }
 
   function finalize () {
+    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+
     if (thisObject.timeScale !== undefined) {
       finalizeTimeScale()
     }
@@ -134,43 +139,46 @@ function newTimeMachine () {
     loadFrame(thisObject.payload, thisObject.container.frame)
 
     recalculateCoordinateSystem()
+    recalculateCurrentDatetime()
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-
-    function onMouseOver (event) {
-      drawScales = true
-
-      mouse.position.x = event.x
-      mouse.position.y = event.y
-
-      if (thisObject.timeScale !== undefined) {
-        thisObject.timeScale.onMouseOverSomeTimeMachineContainer(event)
-      }
-      if (thisObject.rateScale !== undefined) {
-        thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
-      }
-      if (thisObject.timeFrameScale !== undefined) {
-        thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
-      }
-    }
-
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    function onMouseNotOver (event) {
-      drawScales = false
-
-      if (thisObject.timeScale !== undefined) {
-        thisObject.timeScale.visible = false
-      }
-      if (thisObject.rateScale !== undefined) {
-        thisObject.rateScale.visible = false
-      }
-      if (thisObject.timeFrameScale !== undefined) {
-        thisObject.timeFrameScale.visible = false
-      }
-    }
+    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+  }
+
+  function onMouseOver (event) {
+    drawScales = true
+
+    mouse.position.x = event.x
+    mouse.position.y = event.y
+
+    if (thisObject.timeScale !== undefined) {
+      thisObject.timeScale.onMouseOverSomeTimeMachineContainer(event)
+    }
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.onMouseOverSomeTimeMachineContainer(event)
+    }
+    if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.onMouseOverSomeTimeMachineContainer(event)
+    }
+  }
+
+  function onMouseNotOver (event) {
+    drawScales = false
+
+    if (thisObject.timeScale !== undefined) {
+      thisObject.timeScale.visible = false
+    }
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.visible = false
+    }
+    if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.visible = false
+    }
   }
 
   function initializeTimeScale () {
@@ -288,6 +296,39 @@ function newTimeMachine () {
 
     if (thisObject.container.frame.isThisPointHere(point) === true) {
       return thisObject.container
+    }
+  }
+
+  function onViewportZoomChanged (event) {
+    if (thisObject.container.frame.isInViewPort()) {
+      recalculateCurrentDatetime()
+    }
+  }
+
+  function onViewportPositionChanged () {
+    if (thisObject.container.frame.isInViewPort()) {
+      recalculateCurrentDatetime()
+    }
+  }
+
+  function recalculateCurrentDatetime () {
+     /*
+     The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
+     must calculate.
+     */
+    let center = {
+      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
+      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
+    }
+
+    center = unTransformThisPoint(center, thisObject.container)
+    center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
+
+    datetime = new Date(center.x)
+
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let timelineChart = thisObject.timelineCharts[i]
+      timelineChart.setDatetime(datetime)
     }
   }
 

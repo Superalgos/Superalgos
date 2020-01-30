@@ -18,6 +18,7 @@ function newTimelineChart () {
     layersManager: undefined,
     plotterManager: undefined,
     upstreamTimeFrame: undefined,
+    setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
     physics: physics,
     draw: draw,
@@ -35,8 +36,6 @@ function newTimelineChart () {
   let layersPanel
   let layersPanelHandle
 
-  let onViewportPositionChangedEventSuscriptionId
-  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let rateScaleValueEventSuscriptionId
@@ -77,8 +76,6 @@ function newTimelineChart () {
       finalizeTimeFrameScale()
     }
 
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
     thisObject.container.finalize()
@@ -145,11 +142,6 @@ function newTimelineChart () {
     coordinateSystem = timeMachineCoordinateSystem
 
     timeFrame = INITIAL_TIME_PERIOD
-    recalculateCurrentDatetime()
-
-     /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
@@ -247,6 +239,13 @@ function newTimelineChart () {
     }
   }
 
+  function setDatetime (pDatetime) {
+    datetime = pDatetime
+    if (thisObject.plotterManager !== undefined) {
+      thisObject.plotterManager.setDatetime(datetime)
+    }
+  }
+
   function onMouseOver (event) {
     /* This event gets to the timelinechart container because it inherits it from the time machine container, which is the one raising Mouse Over and Mouse not Over Events to its children. */
     drawScales = true
@@ -274,43 +273,6 @@ function newTimelineChart () {
     }
     if (thisObject.timeFrameScale !== undefined) {
       thisObject.timeFrameScale.visible = false
-    }
-  }
-
-  function onViewportZoomChanged (event) {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function onViewportPositionChanged () {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function recalculateCurrentDatetime () {
-       /*
-
-       The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
-       must calculate.
-
-       */
-
-    let center = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
-    }
-
-    center = unTransformThisPoint(center, thisObject.container)
-    center = coordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-
-    let newDate = new Date(center.x)
-
-    datetime = newDate
-
-    if (thisObject.plotterManager !== undefined) {
-      thisObject.plotterManager.setDatetime(datetime)
     }
   }
 

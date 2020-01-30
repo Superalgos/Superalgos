@@ -41,6 +41,7 @@
 
     let previousNotesSetKey;
 
+    let onMouseOverEventSuscriptionId
     let offsetChangedEventSubscriptionId
     let filesUpdatedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
@@ -51,7 +52,7 @@
         try {
 
             /* Stop listening to the necesary events. */
-
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             fileSequence.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
@@ -87,6 +88,7 @@
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
             offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Ready for when dimmension changes. */
 
@@ -99,6 +101,11 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> initialize -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function getContainer(point) {
@@ -347,8 +354,6 @@
     function plotChart() {
         try {
 
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
             let currentRecord
 
             let point = {

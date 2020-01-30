@@ -226,7 +226,7 @@ function newTimeMachine () {
 
     timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Value Changed', timeFrameScaleValueChanged)
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
-    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container)
+    thisObject.timeFrameScale.initialize(thisObject.container)
 
     function timeFrameScaleValueChanged (event) {
       let currentTimeFrame = timeFrame

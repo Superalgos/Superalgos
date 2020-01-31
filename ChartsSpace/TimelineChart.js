@@ -45,6 +45,7 @@ function newTimelineChart () {
   let rateScaleUpstreamDimensionsEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
+  let scaleChangedEventSubscriptionId
 
   let drawScales = false
   let mouse = {
@@ -64,6 +65,8 @@ function newTimelineChart () {
   }
 
   function finalize () {
+    coordinateSystem.eventHandler.stopListening(timelineChartCoordinateSystem)
+
     if (thisObject.layersManager !== undefined) {
       finalizeLayersManager()
     }
@@ -141,11 +144,13 @@ function newTimelineChart () {
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
     coordinateSystem = timeMachineCoordinateSystem
+    onScaleChanged()
 
     timeFrame = INITIAL_TIME_PERIOD
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    scaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
   }
 
   function initializeLayersManager () {
@@ -230,6 +235,12 @@ function newTimelineChart () {
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
     }
+  }
+
+  function onScaleChanged () {
+    timelineChartCoordinateSystem.min.x = timeMachineCoordinateSystem.min.x
+    timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x
+    timelineChartCoordinateSystem.recalculateScale()
   }
 
   function setTimeFrame (pTimeFrame) {
@@ -387,13 +398,18 @@ function newTimelineChart () {
 
   function recalculateCoordinateSystem () {
     let minValue = {
-      x: MIN_PLOTABLE_DATE.valueOf(),
+      x: timelineChartCoordinateSystem.min.x,
       y: 0
     }
 
     let maxValue = {
-      x: MAX_PLOTABLE_DATE.valueOf(),
+      x: timelineChartCoordinateSystem.max.x,
       y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
+    }
+
+    if (thisObject.rateScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
     }
 
     timelineChartCoordinateSystem.initialize(

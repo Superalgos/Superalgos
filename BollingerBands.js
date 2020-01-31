@@ -58,7 +58,9 @@
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -86,6 +88,7 @@
 
             thisObject.fitFunction = undefined
 
+            finalizeCoordinateSystem()
             coordinateSystem = undefined
 
         } catch (err) {
@@ -106,6 +109,7 @@
             datetime = pDatetime;
             timeFrame = pTimeFrame;
             coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -139,6 +143,18 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
     }
 
     function onMouseOver(event) {
@@ -236,7 +252,9 @@
     }
 
     function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
         coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -339,7 +357,10 @@
                         band.standardDeviation = dailyFile[i][3];
                         band.deviation = dailyFile[i][4];
 
-                        if (band.begin >= farLeftDate.valueOf() && band.end <= farRightDate.valueOf()) {
+                        if (
+                            (band.begin >= farLeftDate.valueOf() && band.end <= farRightDate.valueOf()) &&
+                            (band.begin >= coordinateSystem.min.x && band.end <= coordinateSystem.max.x)
+                        ) {
 
                             bands.push(band);
 
@@ -414,7 +435,10 @@
                 band.standardDeviation = marketFile[i][3];
                 band.deviation = marketFile[i][4];
 
-                if (band.begin >= leftDate.valueOf() && band.end <= rightDate.valueOf()) {
+                if (
+                    (band.begin >= leftDate.valueOf() && band.end <= rightDate.valueOf()) &&
+                    (band.begin >= coordinateSystem.min.x && band.end <= coordinateSystem.max.x)
+                ) {
 
                     bands.push(band);
 

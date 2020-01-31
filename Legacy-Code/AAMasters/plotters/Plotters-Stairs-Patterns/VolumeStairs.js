@@ -22,7 +22,6 @@
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         setCoordinateSystem: setCoordinateSystem,
-        recalculateScale: recalculateScale, 
         draw: draw
     };
 
@@ -33,7 +32,6 @@
     thisObject.container = container;
 
     let coordinateSystem
-    let coordinateSystemFrame = newCoordinateSystem();  // This chart uses this extra object.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -129,14 +127,10 @@
 
             /* Get ready for plotting. */
 
-            recalculateScaleX();
             recalculate();
-            recalculateScaleY();
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-                recalculateScaleX();
                 recalculate();
-                recalculateScaleY();
             })
 
             callBackFunction();
@@ -158,22 +152,12 @@
     }
 
     function onScaleChanged() {
-        recalculateScaleX();
         recalculate();
-        recalculateScaleY();
     }
 
     function onMouseOver(event) {
         let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
-    }
-
-    function recalculateScale() {
-
-        recalculateScaleX();
-        recalculate();
-        recalculateScaleY();
-
     }
 
     function getContainer(point) {
@@ -280,11 +264,7 @@
             if (event.currentValue === event.totalValue) {
 
                 /* This happens only when all of the files in the cursor have been loaded. */
-
-                recalculateScaleX();
                 recalculate();
-                recalculateScaleY();
-
             }
 
         } catch (err) {
@@ -494,96 +474,6 @@
         }
     }
 
-    function recalculateScaleX() {
-
-        try {
-
-            var minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf()
-            };
-
-            var maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf()
-            };
-
-            coordinateSystem.initializeX(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width
-            );
-
-            coordinateSystemFrame.initializeX(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width
-            );
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleX -> err = " + err.stack); }
-
-        }
-    }
-
-    function recalculateScaleY() {
-
-        try {
-
-            var minValue = {
-                y: 0
-            };
-
-            var maxValue = {
-                y: 0
-            };
-
-            let timeFrameRatio = ONE_DAY_IN_MILISECONDS / timeFrame;
-
-            maxValue.y = getMaxVolume() / (timeFrameRatio / 2.5);
-
-            coordinateSystem.initializeY(
-                minValue,
-                maxValue,
-                canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
-            );
-
-            coordinateSystemFrame.initializeY(
-                minValue,
-                maxValue,
-                thisObject.container.frame.height
-            );
-
-            function getMaxVolume() {
-
-                try {
-
-                    let maxValue = 0;
-
-                    for (var i = 0; i < scaleFile.length; i++) {
-
-                        let currentMax = (scaleFile[i][5] + scaleFile[i][6]) * 8;
-
-                        if (maxValue < currentMax) {
-                            maxValue = currentMax;
-                        }
-                    }
-
-                    return maxValue;
-
-                } catch (err) {
-
-                    if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> getMaxVolume -> err = " + err.stack); }
-
-                }
-            }
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScaleY -> err = " + err.stack); }
-
-        }
-    }
-
     function plotChart() {
 
         try {
@@ -663,7 +553,7 @@
                             return true;
                         }
 
-                        if (calculateBuys(coordinateSystemFrame, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
+                        if (calculateBuys(coordinateSystem, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
                         if (volumeBarPointA1.y > canvas.chartSpace.viewport.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
@@ -720,7 +610,7 @@
 
                         }
 
-                        calculateSells(coordinateSystemFrame, thisObject.container.frame.height); // We try to see if it fits in the visible area.
+                        calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
                         if (volumeBarPointB1.y < canvas.chartSpace.viewport.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
@@ -821,33 +711,11 @@
     }
 
     function onViewportZoomChanged(event) {
-
-        try {
-
-            recalculateScaleX();
-            recalculate();
-            recalculateScaleY();
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] onViewportZoomChanged -> err = " + err.stack); }
-
-        }
+        recalculate();
     }
 
     function onDragFinished() {
-
-        try {
-
-            recalculateScaleX();
-            recalculate();
-            recalculateScaleY();
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] onDragFinished -> err = " + err.stack); }
-
-        }
+        recalculate();
     }
 
     function onViewportPositionChanged(event) {
@@ -856,16 +724,12 @@
 
             if (event !== undefined) {
                 if (event.recalculate === true) {
-                    recalculateScaleX();
                     recalculate();
-                    recalculateScaleY();
                     return
                 }
             }
             if (Math.random() * 100 > 95) {
-                recalculateScaleX();
                 recalculate();
-                recalculateScaleY();
             };
 
         } catch (err) {

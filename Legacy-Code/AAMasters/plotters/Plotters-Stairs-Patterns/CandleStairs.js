@@ -22,7 +22,6 @@
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         setCoordinateSystem: setCoordinateSystem,
-        recalculateScale: recalculateScale, 
         draw: draw,
 
         // Secondary functions and properties.
@@ -499,37 +498,6 @@
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
-
-        }
-    }
-
-    function recalculateScale() {
-
-        try {
-
-            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
-
-            let minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf(),
-                y: 0
-            };
-
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4 // TODO: This 4 is temporary
-            };
-
-
-            coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            );
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
 
         }
     }

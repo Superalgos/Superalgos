@@ -19,7 +19,6 @@
         setDatetime: setDatetime,
         setCoordinateSystem: setCoordinateSystem,
         draw: draw,
-        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
@@ -457,36 +456,6 @@
         }
     }
 
-    function recalculateScale() {
-
-        try {
-
-            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
-
-            let minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf(),
-                y: 0
-            };
-
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4 // TODO: This 4 is temporary
-            };
-
-
-            coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            );
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
-        }
-    }
-
     function plotChart() {
 
         try {
@@ -551,6 +520,26 @@
 
                     if (bandPoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || bandPoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
                         continue;
+                    }
+
+                    let diffA = bandPoint2.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
+                    if (diffA > 0) {
+                        bandPoint1.y = bandPoint1.y - diffA
+                        bandPoint2.y = bandPoint2.y - diffA
+                        bandPoint3.y = bandPoint3.y - diffA
+                        bandPoint4.y = bandPoint4.y - diffA
+                        bandPoint5.y = bandPoint5.y - diffA
+                        bandPoint6.y = bandPoint6.y - diffA
+                    }
+
+                    let diffB = bandPoint1.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
+                    if (diffB < 0) {
+                        bandPoint1.y = bandPoint1.y - diffB
+                        bandPoint2.y = bandPoint2.y - diffB
+                        bandPoint3.y = bandPoint3.y - diffB
+                        bandPoint4.y = bandPoint4.y - diffB
+                        bandPoint5.y = bandPoint5.y - diffB
+                        bandPoint6.y = bandPoint6.y - diffB
                     }
 
                     bandPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(bandPoint1);

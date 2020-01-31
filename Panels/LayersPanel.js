@@ -60,12 +60,13 @@ function newLayersPanel () {
     thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
     thisObject.container.frame.height = headerHeight
 
-    let position = {
+    let position = { // Default position
       x: canvas.chartSpace.viewport.visibleArea.topLeft.x,
-      y: canvas.chartSpace.viewport.visibleArea.topLeft.y// canvas.chartSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height
+      y: canvas.chartSpace.viewport.visibleArea.topLeft.y
     }
 
     thisObject.container.frame.position = position
+    loadFrame(thisObject.payload, thisObject.container.frame)
 
     thisObject.panelTabButton = newPanelTabButton()
     thisObject.panelTabButton.parentContainer = thisObject.container
@@ -76,7 +77,7 @@ function newLayersPanel () {
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
     readObjectState()
-    loadFrame(thisObject.payload, thisObject.container.frame)
+
     isInitialized = true
   }
 

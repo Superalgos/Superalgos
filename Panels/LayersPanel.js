@@ -28,13 +28,13 @@ function newLayersPanel () {
   let panelTabButton
 
   let visible = true
-  let heatherHeight = 40
+  let headerHeight = 40
   let footerHeight = 10
   let layerHeight = 70
   let desiredVisibleLayers = 5
   let posibleVisibleLayers = 5
-  let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
-  let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
+  let desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
+  let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight + footerHeight
 
   let onMouseWheelEventSuscriptionId
   return thisObject
@@ -58,7 +58,7 @@ function newLayersPanel () {
     thisObject.container.name = thisObject.payload.node.name
     thisObject.container.frame.containerName = thisObject.container.name
     thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
-    thisObject.container.frame.height = heatherHeight
+    thisObject.container.frame.height = headerHeight
 
     let position = {
       x: canvas.chartSpace.viewport.visibleArea.topLeft.x,
@@ -75,13 +75,34 @@ function newLayersPanel () {
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
-    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
-    if (storedValue >= 0 && storedValue <= 20) {
-      desiredVisibleLayers = storedValue
-    }
-
+    readObjectState()
     loadFrame(thisObject.payload, thisObject.container.frame)
     isInitialized = true
+  }
+
+  function saveObjectState () {
+    savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
+  }
+
+  function readObjectState () {
+    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
+
+    if (isNaN(storedValue) || storedValue === null || storedValue === undefined) {
+         // not using this value
+      saveObjectState() // this overrides any invalid value at the config.
+      return
+    } else {
+      if (storedValue < 0) { storedValue = 0 }
+      if (storedValue > thisObject.layers.length) {
+        storedValue = thisObject.layers.length
+      }
+
+      if (storedValue !== desiredVisibleLayers) {
+        desiredVisibleLayers = storedValue
+        desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
+        calculateVisbleLayers()
+      }
+    }
   }
 
   function removeLayer (id) {
@@ -132,38 +153,38 @@ function newLayersPanel () {
       delta = 1
     }
 
-    if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < heatherHeight) {
+    if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < headerHeight) { // Mouse wheel over the header, not a layer
       desiredVisibleLayers = desiredVisibleLayers + delta
       if (desiredVisibleLayers < 0) { desiredVisibleLayers = 0 }
       if (desiredVisibleLayers > thisObject.layers.length) { desiredVisibleLayers = thisObject.layers.length }
     } else {
       firstVisibleLayer = firstVisibleLayer + delta
     }
-    desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + heatherHeight + footerHeight
+    desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
     calculateVisbleLayers()
-    savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
+    saveObjectState()
   }
 
   function panelSizePhysics () {
     let viewPortHeight = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
 
-    if (viewPortHeight < heatherHeight) {
+    if (viewPortHeight < headerHeight) {
       visible = false
     } else {
       visible = true
     }
 
     if (desiredPanelHeight > viewPortHeight) {
-      posibleVisibleLayers = Math.trunc((viewPortHeight - heatherHeight - footerHeight) / (layerHeight + LAYER_SEPARATION))
+      posibleVisibleLayers = Math.trunc((viewPortHeight - headerHeight - footerHeight) / (layerHeight + LAYER_SEPARATION))
     } else {
       posibleVisibleLayers = desiredVisibleLayers
     }
     if (thisObject.layers.length < posibleVisibleLayers) { posibleVisibleLayers = thisObject.layers.length }
 
     if (posibleVisibleLayers === 0) {
-      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight
+      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight
     } else {
-      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + heatherHeight + footerHeight
+      posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight + footerHeight
     }
 
     thisObject.container.frame.height = posiblePanelHeight
@@ -183,7 +204,7 @@ function newLayersPanel () {
         let layer = thisObject.layers[i]
 
         layer.container.frame.position.x = 0
-        layer.container.frame.position.y = (layerHeight + LAYER_SEPARATION) * visibleLayers.length + heatherHeight
+        layer.container.frame.position.y = (layerHeight + LAYER_SEPARATION) * visibleLayers.length + headerHeight
 
          /* Add to Visible Product Array */
         visibleLayers.push(layer)
@@ -242,9 +263,15 @@ function newLayersPanel () {
     }
   }
 
+  function syncWithConfigPhysics () {
+    readObjectState()
+  }
+
   function physics () {
     if (isInitialized === false) { return }
     saveFrame(thisObject.payload, thisObject.container.frame)
+    syncWithConfigPhysics()
+
     /*
     The overall idea here is that we need to keep syncronized the panel with the layers that are
     defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
@@ -363,7 +390,7 @@ function newLayersPanel () {
       let xOffset = 4
       let barTopPoint = {
         x: thisObject.container.frame.width - xOffset,
-        y: heatherHeight
+        y: headerHeight
       }
       let barBottomPoint = {
         x: thisObject.container.frame.width - xOffset,
@@ -373,7 +400,7 @@ function newLayersPanel () {
       let handleHeight = (posibleVisibleLayers * (layerHeight + LAYER_SEPARATION)) * ratio
       let handleTopPoint = {
         x: thisObject.container.frame.width - xOffset,
-        y: heatherHeight + (layerHeight + LAYER_SEPARATION) * ratio * (firstVisibleLayer - 1)
+        y: headerHeight + (layerHeight + LAYER_SEPARATION) * ratio * (firstVisibleLayer - 1)
       }
       let handleBottomPoint = {
         x: thisObject.container.frame.width - xOffset,

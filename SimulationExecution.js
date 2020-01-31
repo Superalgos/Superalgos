@@ -18,7 +18,6 @@
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         setCoordinateSystem: setCoordinateSystem,
-        recalculateScale: recalculateScale,
         draw: draw
     };
 
@@ -333,35 +332,6 @@
 
         } catch (err) {
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> recalculate -> err = " + err.stack); }
-        }
-    }
-
-    function recalculateScale() {
-
-        try {
-
-            if (fileSequence === undefined) { return; } // We need the market file to be loaded to make the calculation.
-            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
-
-            let minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf(),
-                y: 0
-            };
-
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4 // TODO: This 4 is temporary
-            };
-
-            coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            );
-
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> recalculateScale -> err = " + err.stack); }
         }
     }
 

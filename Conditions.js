@@ -18,7 +18,6 @@
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
         draw: draw,
-        recalculateScale: recalculateScale,
 
         /* Events declared outside the plotter. */
 
@@ -111,8 +110,6 @@
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            recalculateScale();
-
             /* Now we set the right files according to current Period. */
 
             marketFile = marketFiles.getFile(pTimeFrame);
@@ -133,7 +130,6 @@
             /* Ready for when dimmension changes. */
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-                recalculateScale()
                 recalculate();
             })
 
@@ -441,37 +437,6 @@
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] recalculateUsingMarketFiles -> err = " + err.stack); }
-        }
-    }
-
-    function recalculateScale() {
-
-        try {
-
-
-            if (coordinateSystem.maxValue > 0) { return; } // Already calculated.
-
-            let minValue = {
-                x: MIN_PLOTABLE_DATE.valueOf(),
-                y: 0
-            };
-
-            let maxValue = {
-                x: MAX_PLOTABLE_DATE.valueOf(),
-                y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4 // TODO: This 4 is temporary
-            };
-
-
-            coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            );
-
-        } catch (err) {
-
-            if (ERROR_LOG === true) { logger.write("[ERROR] recalculateScale -> err = " + err.stack); }
         }
     }
 

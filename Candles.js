@@ -57,7 +57,9 @@
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -85,6 +87,7 @@
 
             thisObject.fitFunction = undefined
 
+            finalizeCoordinateSystem()
             coordinateSystem = undefined
         } catch (err) {
 
@@ -104,6 +107,7 @@
             datetime = pDatetime;
             timeFrame = pTimeFrame;
             coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -137,6 +141,18 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
     }
 
     function onMouseOver(event) {
@@ -226,7 +242,9 @@
     }
 
     function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
         coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -340,7 +358,11 @@
                         if (candle.open < candle.close) { candle.direction = 'up'; }
                         if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                        if (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) {
+
+                        if (
+                            (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) &&
+                            (candle.begin >= coordinateSystem.min.x && candle.end <= coordinateSystem.max.x)
+                        ) {
 
                             candles.push(candle);
 
@@ -416,7 +438,11 @@
                 if (candle.open < candle.close) { candle.direction = 'up'; }
                 if (candle.open === candle.close) { candle.direction = 'side'; }
 
-                if (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) {
+                if (
+                    (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) &&
+                    (candle.begin >= coordinateSystem.min.x && candle.end <= coordinateSystem.max.x) 
+                    )
+                {
 
                     candles.push(candle);
 

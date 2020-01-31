@@ -56,7 +56,9 @@
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -84,6 +86,7 @@
 
             thisObject.fitFunction = undefined
 
+            finalizeCoordinateSystem()
             coordinateSystem = undefined
         } catch (err) {
 
@@ -103,6 +106,7 @@
             datetime = pDatetime;
             timeFrame = pTimeFrame;
             coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -140,6 +144,20 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculateScaleX();
+        recalculate();
+        recalculateScaleY();
     }
 
     function onMouseOver(event) {
@@ -249,7 +267,9 @@
     }
 
     function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
         coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -353,7 +373,10 @@
                         volume.begin = dailyFile[i][2];
                         volume.end = dailyFile[i][3];
 
-                        if (volume.begin >= farLeftDate.valueOf() && volume.end <= farRightDate.valueOf()) {
+                        if (
+                            (volume.begin >= farLeftDate.valueOf() && volume.end <= farRightDate.valueOf()) &&
+                            (volume.begin >= coordinateSystem.min.x && volume.end <= coordinateSystem.max.x)
+                        ) {
 
                             volumes.push(volume);
 
@@ -424,7 +447,10 @@
                 volume.begin = marketFile[i][2];
                 volume.end = marketFile[i][3];
 
-                if (volume.begin >= leftDate.valueOf() && volume.end <= rightDate.valueOf()) {
+                if (
+                    (volume.begin >= leftDate.valueOf() && volume.end <= rightDate.valueOf()) &&
+                    (volume.begin >= coordinateSystem.min.x && volume.end <= coordinateSystem.max.x)
+                ) {
 
                     volumes.push(volume);
 

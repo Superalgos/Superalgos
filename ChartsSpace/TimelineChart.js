@@ -86,6 +86,7 @@ function newTimelineChart () {
     logger = undefined
 
     timeMachineCoordinateSystem = undefined
+    timelineChartCoordinateSystem.finalize()
     timelineChartCoordinateSystem = undefined
     coordinateSystem = undefined
     layersPanel = undefined

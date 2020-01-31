@@ -200,11 +200,13 @@ function newTimeScale () {
         ) {
         // not using this value
       } else {
-        thisObject.fromDate = Date.parse(code.fromDate)
-        thisObject.toDate = Date.parse(code.toDate)
-        coordinateSystem.min.x = thisObject.fromDate
-        coordinateSystem.max.x = thisObject.toDate
-        coordinateSystem.recalculateScale()
+        if (thisObject.fromDate !== Date.parse(code.fromDate) || thisObject.toDate !== Date.parse(code.toDate)) {
+          thisObject.fromDate = Date.parse(code.fromDate)
+          thisObject.toDate = Date.parse(code.toDate)
+          coordinateSystem.min.x = thisObject.fromDate
+          coordinateSystem.max.x = thisObject.toDate
+          coordinateSystem.recalculateScale()
+        }
       }
       saveObjectState() // this overrides any invalid value at the config.
     } catch (err) {

@@ -277,11 +277,13 @@ function newRateScale () {
         ) {
         // not using this value
       } else {
-        thisObject.minValue = code.minValue
-        thisObject.maxValue = code.maxValue
-        coordinateSystem.min.y = thisObject.minValue
-        coordinateSystem.max.y = thisObject.maxValue
-        coordinateSystem.recalculateScale()
+        if (thisObject.minValue !== code.minValue || thisObject.maxValue !== code.maxValue) {
+          thisObject.minValue = code.minValue
+          thisObject.maxValue = code.maxValue
+          coordinateSystem.min.y = thisObject.minValue
+          coordinateSystem.max.y = thisObject.maxValue
+          coordinateSystem.recalculateScale()
+        }
       }
       saveObjectState() // this overrides any invalid value at the config.
     } catch (err) {
@@ -393,11 +395,9 @@ function newRateScale () {
 
     if (rate < coordinateSystem.min.y) {
       rate = coordinateSystem.min.y
-      coordinateSystem.recalculateScale()
     }
     if (rate > coordinateSystem.max.y) {
       rate = coordinateSystem.max.y
-      coordinateSystem.recalculateScale()
     }
 
     let label = (rate - Math.trunc(rate)).toFixed(2)

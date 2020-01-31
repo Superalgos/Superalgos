@@ -52,6 +52,7 @@ function newPlotter () {
   let marketFilesUpdatedEventSubscriptionId
   let dailyFilesUpdatedEventSubscriptionId
   let onDisplaceEventSubscriptionId
+  let scaleChangedEventSubscriptionId
 
   let logged = false
   return thisObject
@@ -78,6 +79,7 @@ function newPlotter () {
       marketFile = undefined
       fileCursor = undefined
 
+      finalizeCoordinateSystem()
       coordinateSystem = undefined
       slotCoordinateSystem = undefined
       plotterModuleConfig = undefined
@@ -99,6 +101,7 @@ function newPlotter () {
       datetime = pDatetime
       timeFrame = pTimeFrame
       coordinateSystem = pCoordinateSystem
+      initializeCoordinateSystem()
 
       productDefinition = pProductDefinition
 
@@ -129,6 +132,19 @@ function newPlotter () {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
+  }
+
+  function initializeCoordinateSystem () {
+    scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+  }
+
+  function finalizeCoordinateSystem () {
+    coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+  }
+
+  function onScaleChanged () {
+    mustRecalculateDataPoints = true
+    recalculate()
   }
 
   function onMouseOver (event) {
@@ -208,7 +224,9 @@ function newPlotter () {
   }
 
   function setCoordinateSystem (pCoordinateSystem) {
+    finalizeCoordinateSystem()
     coordinateSystem = pCoordinateSystem
+    initializeCoordinateSystem()
   }
 
   function onDailyFileLoaded (event) {

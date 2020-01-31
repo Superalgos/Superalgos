@@ -14,6 +14,7 @@ function newCoordinateSystem () {
     maxHeight: undefined,
     maxWidth: undefined,
     scale: undefined,
+    eventHandler: undefined,
     recalculateScale: recalculateScale,
     transformThisPoint: transformThisPoint,
     transformThisPoint2: transformThisPoint2,
@@ -21,7 +22,8 @@ function newCoordinateSystem () {
     inverseTransformUncappedY: inverseTransformUncappedY,
     initializeX: initializeX,
     initializeY: initializeY,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   thisObject.min = {
@@ -37,7 +39,15 @@ function newCoordinateSystem () {
     y: 0
   }
 
+  thisObject.eventHandler = newEventHandler()
+  thisObject.eventHandler.name = 'Coordinate System'
+
   return thisObject
+
+  function finalize () {
+    thisObject.eventHandler.finalize()
+    thisObject.eventHandler = undefined
+  }
 
   function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
     /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
@@ -57,6 +67,9 @@ function newCoordinateSystem () {
     /* Defines the initial Zoom level at center position. */
     thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
+
+    thisObject.eventHandler.raiseEvent('Scale Changed')
+    console.log('Scale Changed')
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

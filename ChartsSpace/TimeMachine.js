@@ -104,6 +104,8 @@ function newTimeMachine () {
 
     mouse = undefined
     timelineChartsMap = undefined
+
+    timeMachineCoordinateSystem.finalize()
     timeMachineCoordinateSystem = undefined
   }
 

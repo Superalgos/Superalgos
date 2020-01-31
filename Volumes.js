@@ -516,17 +516,12 @@
 
                         if (calculateBuys(coordinateSystem, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
-                        if (volumePointA1.y > canvas.chartSpace.viewport.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
-
-                            if (calculateBuys(coordinateSystem, visibleHeight) === false) { continue; }  // We snap t to the view port.
-
-                            /* Now we set the real value of y. */
-
-                            volumePointA1.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y;
-                            volumePointA2.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - volume.amountBuy * coordinateSystem.scale.y;
-                            volumePointA3.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - volume.amountBuy * coordinateSystem.scale.y;
-                            volumePointA4.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y;
-
+                        let diffA = volumePointA1.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
+                        if (diffA > 0) {
+                            volumePointA1.y = volumePointA1.y - diffA
+                            volumePointA2.y = volumePointA2.y - diffA
+                            volumePointA3.y = volumePointA3.y - diffA
+                            volumePointA4.y = volumePointA4.y - diffA
                         }
 
                         let volumePointB1;
@@ -570,17 +565,12 @@
 
                         calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
-                        if (volumePointB1.y < canvas.chartSpace.viewport.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
-
-                            calculateSells(coordinateSystem, visibleHeight); // We snap it to the view port.
-
-                            /* Now we set the real value of y. */
-
-                            volumePointB1.y = canvas.chartSpace.viewport.visibleArea.topLeft.y;
-                            volumePointB2.y = canvas.chartSpace.viewport.visibleArea.topLeft.y + volume.amountSell * coordinateSystem.scale.y;
-                            volumePointB3.y = canvas.chartSpace.viewport.visibleArea.topLeft.y + volume.amountSell * coordinateSystem.scale.y;
-                            volumePointB4.y = canvas.chartSpace.viewport.visibleArea.topLeft.y;
-
+                        let diffB = volumePointB1.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
+                        if (diffB < 0) {
+                            volumePointB1.y = volumePointB1.y - diffB
+                            volumePointB2.y = volumePointB2.y - diffB
+                            volumePointB3.y = volumePointB3.y - diffB
+                            volumePointB4.y = volumePointB4.y - diffB
                         }
 
                         /* We put a wider base */

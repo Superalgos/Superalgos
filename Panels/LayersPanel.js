@@ -6,6 +6,7 @@ function newLayersPanel () {
     layers: [],
     payload: undefined,
     isVisible: true,
+    panelTabButton: undefined,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -25,7 +26,6 @@ function newLayersPanel () {
   let firstVisibleLayer = 1
 
   const LAYER_SEPARATION = 0
-  let panelTabButton
 
   let visible = true
   let headerHeight = 40
@@ -42,8 +42,8 @@ function newLayersPanel () {
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
 
-    panelTabButton.finalize()
-    panelTabButton = undefined
+    thisObject.panelTabButton.finalize()
+    thisObject.panelTabButton = undefined
     layersMap = undefined
     visibleLayers = undefined
 
@@ -67,11 +67,11 @@ function newLayersPanel () {
 
     thisObject.container.frame.position = position
 
-    panelTabButton = newPanelTabButton()
-    panelTabButton.parentContainer = thisObject.container
-    panelTabButton.container.frame.parentFrame = thisObject.container.frame
-    panelTabButton.fitFunction = thisObject.fitFunction
-    panelTabButton.initialize()
+    thisObject.panelTabButton = newPanelTabButton()
+    thisObject.panelTabButton.parentContainer = thisObject.container
+    thisObject.panelTabButton.container.frame.parentFrame = thisObject.container.frame
+    thisObject.panelTabButton.fitFunction = thisObject.fitFunction
+    thisObject.panelTabButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
@@ -80,16 +80,22 @@ function newLayersPanel () {
     isInitialized = true
   }
 
-  function saveObjectState () {
+  function saveObjectStateVisibleLayers () {
     savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
   }
 
+  function saveObjectStatePanelLocation () {
+    savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', thisObject.panelTabButton.status)
+  }
+
   function readObjectState () {
-    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
+    let storedValue
+
+    storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
 
     if (isNaN(storedValue) || storedValue === null || storedValue === undefined) {
          // not using this value
-      saveObjectState() // this overrides any invalid value at the config.
+      saveObjectStateVisibleLayers() // this overrides any invalid value at the config.
       return
     } else {
       if (storedValue < 0) { storedValue = 0 }
@@ -102,6 +108,21 @@ function newLayersPanel () {
         desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
         calculateVisbleLayers()
       }
+    }
+
+    storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'panelLocation')
+
+    if (storedValue === null || storedValue === undefined) {
+         // not using this value
+      saveObjectStatePanelLocation() // this overrides any invalid value at the config.
+      return
+    } else {
+      if (storedValue !== 'up' && storedValue !== 'down') {
+        saveObjectStatePanelLocation() // this overrides any invalid value at the config.
+        return
+      }
+      thisObject.panelTabButton.setStatus(storedValue)
+      saveObjectStatePanelLocation()
     }
   }
 
@@ -162,7 +183,7 @@ function newLayersPanel () {
     }
     desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
     calculateVisbleLayers()
-    saveObjectState()
+    saveObjectStateVisibleLayers()
   }
 
   function panelSizePhysics () {
@@ -219,7 +240,7 @@ function newLayersPanel () {
   function getContainer (point) {
     let container
 
-    container = panelTabButton.getContainer(point)
+    container = thisObject.panelTabButton.getContainer(point)
     if (container !== undefined) { return container }
 
      /* First we check if thisObject point is inside thisObject space. */
@@ -269,6 +290,7 @@ function newLayersPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
+    thisObject.panelTabButton.physics()
     saveFrame(thisObject.payload, thisObject.container.frame)
     syncWithConfigPhysics()
 
@@ -353,7 +375,7 @@ function newLayersPanel () {
       visibleLayers[i].draw()
     }
     drawScrollBar()
-    panelTabButton.draw()
+    thisObject.panelTabButton.draw()
   }
 
   function drawHeader () {

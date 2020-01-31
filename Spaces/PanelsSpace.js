@@ -163,23 +163,39 @@ function newPanelsSpace () {
 
         /* Lets see which quadrant the panel is at */
         let verticalLine = (canvas.chartSpace.viewport.visibleArea.topRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartSpace.viewport.visibleArea.topLeft.x
-        let horizontalLine = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) * 2 / 3 + canvas.chartSpace.viewport.visibleArea.topRight.y
+        let horizontalLine = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartSpace.viewport.visibleArea.topRight.y
 
-        if (centerPoint.x < verticalLine && centerPoint.y < horizontalLine) {
-          panel.gravitatesTowards = 'topLeft'
-        }
-        if (centerPoint.x >= verticalLine && centerPoint.y < horizontalLine) {
-          panel.gravitatesTowards = 'topRight'
-        }
-        if (centerPoint.x < verticalLine && centerPoint.y >= horizontalLine) {
-          panel.gravitatesTowards = 'bottomLeft'
-        }
-        if (centerPoint.x >= verticalLine && centerPoint.y >= horizontalLine) {
-          panel.gravitatesTowards = 'bottomRight'
+        if (panel.panelTabButton !== undefined) {
+          if (panel.panelTabButton.status === 'up') {
+            if (centerPoint.x < verticalLine) {
+              panel.gravitatesTowards = 'topLeft'
+            } else {
+              panel.gravitatesTowards = 'topRight'
+            }
+          } else {
+            if (centerPoint.x < verticalLine) {
+              panel.gravitatesTowards = 'bottomLeft'
+            } else {
+              panel.gravitatesTowards = 'bottomRight'
+            }
+          }
+        } else {
+          if (centerPoint.x < verticalLine && centerPoint.y < horizontalLine) {
+            panel.gravitatesTowards = 'topLeft'
+          }
+          if (centerPoint.x >= verticalLine && centerPoint.y < horizontalLine) {
+            panel.gravitatesTowards = 'topRight'
+          }
+          if (centerPoint.x < verticalLine && centerPoint.y >= horizontalLine) {
+            panel.gravitatesTowards = 'bottomLeft'
+          }
+          if (centerPoint.x >= verticalLine && centerPoint.y >= horizontalLine) {
+            panel.gravitatesTowards = 'bottomRight'
+          }
         }
 
         /* According to the quadrant we push the panels to the sides */
-        if (centerPoint.x < verticalLine) {
+        if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'bottomLeft') {
           panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x
           isOverlapping(i, panel.container)
           if (panel.container.frame.position.x < 0) {
@@ -193,7 +209,7 @@ function newPanelsSpace () {
           }
         }
         if (panel.container.frame.height <= canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) {
-          if (centerPoint.y < horizontalLine) {
+          if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'topRight') {
             panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
             isOverlapping(i, panel.container)
             if (panel.container.frame.position.y < canvas.chartSpace.viewport.visibleArea.topLeft.y) {

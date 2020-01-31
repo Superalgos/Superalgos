@@ -282,7 +282,7 @@ function newPlotter () {
 
       if (
           (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
-          (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+          (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
           ) {
         record.previous = previous
         jsonifiedArray.push(record)

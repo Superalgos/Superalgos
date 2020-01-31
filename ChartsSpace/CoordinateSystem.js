@@ -69,7 +69,6 @@ function newCoordinateSystem () {
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
 
     thisObject.eventHandler.raiseEvent('Scale Changed')
-    console.log('Scale Changed')
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

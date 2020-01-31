@@ -262,7 +262,10 @@ function newPlotter () {
         }
       }
 
-      if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+      if (
+          (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+          (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+          ) {
         record.previous = previous
         jsonifiedArray.push(record)
         previous = record
@@ -516,6 +519,12 @@ function newPlotter () {
         beginPoint = transformThisPoint(beginPoint, thisObject.container)
         endPoint = transformThisPoint(endPoint, thisObject.container)
 
+        beginPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(beginPoint)
+        endPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(endPoint)
+
+        beginPoint = thisObject.fitFunction(beginPoint)
+        endPoint = thisObject.fitFunction(endPoint)
+
         if (endPoint.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
           continue
         }
@@ -565,13 +574,9 @@ function newPlotter () {
               That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
               */
                 dataPoint = coordinateSystem.transformThisPoint(dataPoint)
-
-              /*
-              The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
-              need the points to be converted into the canvas coordinate system.
-              Next we transform again to the screen coordinate system.
-              */
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
+                dataPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(dataPoint)
+                dataPoint = thisObject.fitFunction(dataPoint)
 
               /* Store the data point at the local map */
                 dataPoints.set(point.id, dataPoint)

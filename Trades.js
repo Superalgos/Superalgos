@@ -60,7 +60,9 @@
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -90,6 +92,7 @@
 
             thisObject.fitFunction = undefined
 
+            finalizeCoordinateSystem()
             coordinateSystem = undefined
         } catch (err) {
 
@@ -111,6 +114,7 @@
             datetime = pDatetime;
             timeFrame = pTimeFrame;
             coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -146,6 +150,18 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
     }
 
     function onMouseOver(event) {
@@ -239,7 +255,9 @@
     }
 
     function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
         coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -354,7 +372,10 @@
                         record.endRate = dailyFile[i][5];
                         record.exitType = dailyFile[i][6];
 
-                        if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+                        if (
+                            (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+                            (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                        ) {
 
                             trades.push(record);
 
@@ -416,7 +437,10 @@
                 record.endRate = marketFile[i][5];
                 record.exitType = marketFile[i][6];
 
-                if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
+                if (
+                    (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
+                    (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                ) {
 
                     trades.push(record);
 

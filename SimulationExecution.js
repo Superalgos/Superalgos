@@ -45,7 +45,9 @@
     let offsetChangedEventSubscriptionId
     let filesUpdatedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -68,6 +70,7 @@
 
             thisObject.fitFunction = undefined
 
+            finalizeCoordinateSystem()
             coordinateSystem = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> finalize -> err = " + err.stack.stack); }
@@ -81,6 +84,7 @@
             datetime = pDatetime;
             timeFrame = pTimeFrame;
             coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             fileSequence = pStorage.fileSequences[0];
 
@@ -101,6 +105,18 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> initialize -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
     }
 
     function onMouseOver(event) {
@@ -137,7 +153,9 @@
     }
 
     function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
         coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onViewportPositionChanged() {

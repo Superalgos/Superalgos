@@ -195,7 +195,7 @@ function newTimelineChart () {
     }
 
     function rateScaleUpstreamChanged (event) {
-      thisObject.rateScale.setScale(event.scale)
+      // thisObject.rateScale.setScale(event.scale)
     }
 
     function rateScaleOffsetChanged (event) {

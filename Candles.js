@@ -492,16 +492,6 @@
                     candle.candlePoint3 = transformThisPoint(candle.candlePoint3, thisObject.container);
                     candle.candlePoint4 = transformThisPoint(candle.candlePoint4, thisObject.container);
 
-                    candle.candlePoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
-                    candle.candlePoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
-                    candle.candlePoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
-                    candle.candlePoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
-
-                    candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
-                    candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
-                    candle.candlePoint3 = thisObject.fitFunction(candle.candlePoint3);
-                    candle.candlePoint4 = thisObject.fitFunction(candle.candlePoint4);
-
                     candle.stickPoint1 = {
                         x: candle.begin + timeFrame / 7 * 3.2,
                         y: candle.max
@@ -531,6 +521,42 @@
                     candle.stickPoint2 = transformThisPoint(candle.stickPoint2, thisObject.container);
                     candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
                     candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
+
+                    let diffA = candle.stickPoint3.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
+                    if (diffA > 0) {
+                        candle.candlePoint1.y = candle.candlePoint1.y - diffA
+                        candle.candlePoint2.y = candle.candlePoint2.y - diffA
+                        candle.candlePoint3.y = candle.candlePoint3.y - diffA
+                        candle.candlePoint4.y = candle.candlePoint4.y - diffA
+
+                        candle.stickPoint1.y = candle.stickPoint1.y - diffA
+                        candle.stickPoint2.y = candle.stickPoint2.y - diffA
+                        candle.stickPoint3.y = candle.stickPoint3.y - diffA
+                        candle.stickPoint4.y = candle.stickPoint4.y - diffA
+                    }
+
+                    let diffB = candle.stickPoint1.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
+                    if (diffB < 0) {
+                        candle.candlePoint1.y = candle.candlePoint1.y - diffB
+                        candle.candlePoint2.y = candle.candlePoint2.y - diffB
+                        candle.candlePoint3.y = candle.candlePoint3.y - diffB
+                        candle.candlePoint4.y = candle.candlePoint4.y - diffB
+
+                        candle.stickPoint1.y = candle.stickPoint1.y - diffB
+                        candle.stickPoint2.y = candle.stickPoint2.y - diffB
+                        candle.stickPoint3.y = candle.stickPoint3.y - diffB
+                        candle.stickPoint4.y = candle.stickPoint4.y - diffB
+                    }
+
+                    candle.candlePoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
+                    candle.candlePoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
+                    candle.candlePoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
+                    candle.candlePoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
+
+                    candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
+                    candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
+                    candle.candlePoint3 = thisObject.fitFunction(candle.candlePoint3);
+                    candle.candlePoint4 = thisObject.fitFunction(candle.candlePoint4);
 
                     candle.stickPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
                     candle.stickPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);

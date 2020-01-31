@@ -287,7 +287,7 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.timeFrameScale !== undefined && thisObject.rateScale.isVisible === true) {
+    if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
       container = thisObject.timeFrameScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {

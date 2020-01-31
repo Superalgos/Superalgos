@@ -22,9 +22,9 @@
         ],
         "menuItems": [
             {
-                "action": "Edit Plotter Module",
+                "action": "Config Plotter Module",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Plotter Module",
+                "label": "Config Plotter Module",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -151,9 +151,9 @@
         ],
         "menuItems": [
             {
-                "action": "Edit Plotter Panel",
+                "action": "Config Plotter Panel",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Plotter Panel",
+                "label": "Config Plotter Panel",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -208,9 +208,9 @@
         ],
         "menuItems": [
             {
-                "action": "Edit Panel Data",
+                "action": "Config Panel Data",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Panel Data",
+                "label": "Config Panel Data",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1474,7 +1474,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Base Asset",
+                "label": "Delete Quoted Asset",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4004,9 +4004,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Telegram Bot",
+                "action": "Config Telegram Bot",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Telegram Bot",
+                "label": "Config Telegram Bot",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -4039,9 +4039,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Announcement",
+                "action": "Config Announcement",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Announcement",
+                "label": "Config Announcement",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -4158,9 +4158,9 @@
         "type": "Crypto Exchange",
         "menuItems": [
             {
-                "action": "Edit Crypto Exchange",
+                "action": "Config Crypto Exchange",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Crypto Exchange",
+                "label": "Config Crypto Exchange",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -4314,9 +4314,9 @@
         "type": "Asset",
         "menuItems": [
             {
-                "action": "Edit Asset",
+                "action": "Config Asset",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Asset",
+                "label": "Config Asset",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -4466,9 +4466,9 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Edit Market",
+                "action": "Config Market",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Market",
+                "label": "Config Market",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -4727,7 +4727,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Paste your exchange API name or label here\",\n\"secret\": \"Paste your exchange API secret key here. Exchange keys are filtered out and NOT exported when using the SHARE menu option on any node at your workspace. Exchange keys ARE downloaded when using the DOWNLOAD button or the CLONE button.\"\n}"
+            "code": "{ \n\"codeName\": \"Paste your exchange API name or label here\",\n\"secret\": \"Paste your exchange API secret key here. To keep you exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing.\"\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -4838,7 +4838,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"product\": \"Type here the codeName of the Product\"\n}"
+            "code": "{}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -4935,7 +4935,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"scale\": \"0.00\"\n}"
+            "code": "{ \n\"scale\": \"0.00\",\n\"fromDate\": \"2018-01-01\",\n\"toDate\": \"2020-12-31\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

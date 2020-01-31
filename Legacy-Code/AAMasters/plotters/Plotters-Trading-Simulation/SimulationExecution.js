@@ -17,6 +17,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         recalculateScale: recalculateScale,
         draw: draw
     };
@@ -27,7 +28,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
 
     let timeFrame;                             // This will hold the current Time Frame the user is at.
     let datetime;                               // This will hold the current Datetime the user is at.
@@ -40,17 +41,20 @@
 
     let previousNotesSetKey;
 
+    let onMouseOverEventSuscriptionId
     let offsetChangedEventSubscriptionId
     let filesUpdatedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
         try {
 
             /* Stop listening to the necesary events. */
-
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             fileSequence.eventHandler.stopListening(filesUpdatedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
@@ -65,31 +69,35 @@
             plotLines = undefined;
 
             thisObject.fitFunction = undefined
+
+            finalizeCoordinateSystem()
+            coordinateSystem = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> finalize -> err = " + err.stack.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             fileSequence = pStorage.fileSequences[0];
 
             recalculate();
-            recalculateScale();
 
             filesUpdatedEventSubscriptionId = fileSequence.eventHandler.listenToEvent("Files Updated", onFilesUpdated); // Only the first sequence is supported right now.
             offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Ready for when dimmension changes. */
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
                 recalculate();
-                recalculateScale();
             })
             callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE);
 
@@ -97,6 +105,23 @@
             if (ERROR_LOG === true) { logger.write("[ERROR] ' + MODULE_NAME + ' -> initialize -> err = " + err.stack); }
             callBackFunction(GLOBAL.CUSTOM_FAIL_RESPONSE);
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function getContainer(point) {
@@ -123,8 +148,14 @@
         recalculate();
     }
 
-    function setDatetime(newDatetime) {
-        datetime = newDatetime;
+    function setDatetime(pDatetime) {
+        datetime = pDatetime;
+    }
+
+    function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
+        coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onViewportPositionChanged() {
@@ -341,8 +372,6 @@
     function plotChart() {
         try {
 
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
             let currentRecord
 
             let point = {

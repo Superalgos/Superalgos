@@ -237,9 +237,9 @@ function newFrame () {
     }
   }
 
-  function draw (drawGrid, drawBorders, drawBackground, fitFunction) {
+  function draw (drawGrid, drawBorders, drawBackground, fitFunction, style) {
     if (drawBorders === true) {
-      borders(fitFunction)
+      borders(fitFunction, style)
     }
 
     if (drawGrid === true) {
@@ -331,7 +331,7 @@ function newFrame () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 
-  function borders (fitFunction) {
+  function borders (fitFunction, style) {
        /* Lest get the important points of the drawing so as to apply the needed transformations. */
 
     let point1
@@ -359,8 +359,7 @@ function newFrame () {
       y: thisObject.height
     }
 
-       /* Now the transformations. */
-
+     /* Now the transformations. */
     point1 = transformThisPoint(point1, thisObject.container)
     point2 = transformThisPoint(point2, thisObject.container)
     point3 = transformThisPoint(point3, thisObject.container)
@@ -373,8 +372,7 @@ function newFrame () {
       point4 = fitFunction(point4)
     }
 
-       /* Lets start the drawing. */
-
+     /* Lets start the drawing. */
     browserCanvasContext.beginPath()
     browserCanvasContext.moveTo(point1.x, point1.y)
     browserCanvasContext.lineTo(point2.x, point2.y)
@@ -383,9 +381,9 @@ function newFrame () {
     browserCanvasContext.lineTo(point1.x, point1.y)
     browserCanvasContext.closePath()
 
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 1)'
-    browserCanvasContext.lineWidth = 1
-    browserCanvasContext.setLineDash([0, 0])
+    browserCanvasContext.strokeStyle = 'rgba(' + style.color + ', ' + style.opacity + ')'
+    browserCanvasContext.lineWidth = style.lineWidth
+    browserCanvasContext.setLineDash(style.lineDash)
     browserCanvasContext.stroke()
 
     browserCanvasContext.closePath()

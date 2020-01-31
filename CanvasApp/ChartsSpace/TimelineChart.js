@@ -18,6 +18,7 @@ function newTimelineChart () {
     layersManager: undefined,
     plotterManager: undefined,
     upstreamTimeFrame: undefined,
+    setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
     physics: physics,
     draw: draw,
@@ -30,13 +31,11 @@ function newTimelineChart () {
 
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
+  let coordinateSystem
 
   let layersPanel
-
   let layersPanelHandle
 
-  let onViewportPositionChangedEventSuscriptionId
-  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let rateScaleValueEventSuscriptionId
@@ -46,6 +45,7 @@ function newTimelineChart () {
   let rateScaleUpstreamDimensionsEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
+  let scaleChangedEventSubscriptionId
 
   let drawScales = false
   let mouse = {
@@ -65,6 +65,8 @@ function newTimelineChart () {
   }
 
   function finalize () {
+    coordinateSystem.eventHandler.stopListening(timelineChartCoordinateSystem)
+
     if (thisObject.layersManager !== undefined) {
       finalizeLayersManager()
     }
@@ -77,17 +79,21 @@ function newTimelineChart () {
       finalizeTimeFrameScale()
     }
 
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSuscriptionId)
-
     thisObject.container.finalize()
     thisObject.container = undefined
-
     thisObject.payload = undefined
+
     mouse = undefined
     logger = undefined
+
+    timeMachineCoordinateSystem = undefined
+    timelineChartCoordinateSystem.finalize()
+    timelineChartCoordinateSystem = undefined
+    coordinateSystem = undefined
+    layersPanel = undefined
+    layersPanelHandle = undefined
   }
 
   function finalizeLayersManager () {
@@ -137,16 +143,14 @@ function newTimelineChart () {
      /* We load the logow we will need for the background. */
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
+    coordinateSystem = timeMachineCoordinateSystem
+    onScaleChanged()
 
     timeFrame = INITIAL_TIME_PERIOD
-    recalculateCurrentDatetime()
-
-     /* Event Subscriptions - we need this events to be fired first here and then in active Plotters. */
-    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    scaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
   }
 
   function initializeLayersManager () {
@@ -166,9 +170,10 @@ function newTimelineChart () {
 
     thisObject.plotterManager.fitFunction = thisObject.fitFunction
     thisObject.plotterManager.payload = thisObject.payload
-    thisObject.plotterManager.initialize(thisObject.layersManager, DEFAULT_EXCHANGE, DEFAULT_MARKET)
+    thisObject.plotterManager.initialize(thisObject.layersManager)
     thisObject.plotterManager.setTimeFrame(timeFrame)
     thisObject.plotterManager.setDatetime(datetime)
+    thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
   }
 
   function initializeRateScale () {
@@ -190,7 +195,7 @@ function newTimelineChart () {
     }
 
     function rateScaleUpstreamChanged (event) {
-      thisObject.rateScale.setScale(event.scale)
+      // thisObject.rateScale.setScale(event.scale)
     }
 
     function rateScaleOffsetChanged (event) {
@@ -215,7 +220,7 @@ function newTimelineChart () {
 
     timeFrameScaleEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('Time Frame Value Changed', timeFrameScaleValueChanged)
     timeFrameScaleMouseOverEventSuscriptionId = thisObject.timeFrameScale.container.eventHandler.listenToEvent('onMouseOverScale', timeFrameScaleMouseOver)
-    thisObject.timeFrameScale.initialize(timeMachineCoordinateSystem, thisObject.container.parentContainer)
+    thisObject.timeFrameScale.initialize(thisObject.container.parentContainer)
 
     function timeFrameScaleValueChanged (event) {
       let currentTimeFrame = timeFrame
@@ -229,14 +234,26 @@ function newTimelineChart () {
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
-      saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
     }
+  }
+
+  function onScaleChanged () {
+    timelineChartCoordinateSystem.min.x = timeMachineCoordinateSystem.min.x
+    timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x
+    timelineChartCoordinateSystem.recalculateScale()
   }
 
   function setTimeFrame (pTimeFrame) {
     timeFrame = pTimeFrame
     if (thisObject.plotterManager !== undefined) {
       thisObject.plotterManager.setTimeFrame(timeFrame)
+    }
+  }
+
+  function setDatetime (pDatetime) {
+    datetime = pDatetime
+    if (thisObject.plotterManager !== undefined) {
+      thisObject.plotterManager.setDatetime(datetime)
     }
   }
 
@@ -254,8 +271,6 @@ function newTimelineChart () {
 
     mouse.position.x = event.x
     mouse.position.y = event.y
-
-    saveUserPosition(thisObject.container, timeMachineCoordinateSystem, event)
   }
 
   function onMouseNotOver (event) {
@@ -270,51 +285,10 @@ function newTimelineChart () {
     }
   }
 
-  function onViewportZoomChanged (event) {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function onViewportPositionChanged () {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function recalculateCurrentDatetime () {
-       /*
-
-       The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
-       must calculate.
-
-       */
-
-    let center = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
-    }
-
-    center = unTransformThisPoint(center, thisObject.container)
-    if (thisObject.rateScale === undefined) {
-      center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-    } else {
-      center = timelineChartCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-    }
-
-    let newDate = new Date(center.x)
-
-    datetime = newDate
-
-    if (thisObject.plotterManager !== undefined) {
-      thisObject.plotterManager.setDatetime(datetime)
-    }
-  }
-
   function getContainer (point, purpose) {
     let container
 
-    if (thisObject.rateScale !== undefined) {
+    if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
       container = thisObject.rateScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
@@ -323,7 +297,7 @@ function newTimelineChart () {
       }
     }
 
-    if (thisObject.timeFrameScale !== undefined) {
+    if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
       container = thisObject.timeFrameScale.getContainer(point)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
@@ -368,9 +342,11 @@ function newTimelineChart () {
     }
     if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
       finalizeRateScale()
+      coordinateSystem = timeMachineCoordinateSystem
     }
     if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
       initializeRateScale()
+      coordinateSystem = timelineChartCoordinateSystem
     }
     if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()
@@ -401,8 +377,8 @@ function newTimelineChart () {
   function draw () {
     if (thisObject.container.frame.isInViewPort()) {
       if (drawScales === true) {
-        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.draw() }
-        if (thisObject.rateScale !== undefined) { thisObject.rateScale.draw() }
+        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) { thisObject.timeFrameScale.draw() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     }
   }
@@ -410,8 +386,8 @@ function newTimelineChart () {
   function drawForeground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (drawScales === true) {
-        if (thisObject.timeFrameScale !== undefined) { thisObject.timeFrameScale.drawForeground() }
-        if (thisObject.rateScale !== undefined) { thisObject.rateScale.drawForeground() }
+        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) { thisObject.timeFrameScale.drawForeground() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawForeground() }
       }
     }
   }
@@ -422,13 +398,18 @@ function newTimelineChart () {
 
   function recalculateCoordinateSystem () {
     let minValue = {
-      x: MIN_PLOTABLE_DATE.valueOf(),
+      x: timelineChartCoordinateSystem.min.x,
       y: 0
     }
 
     let maxValue = {
-      x: MAX_PLOTABLE_DATE.valueOf(),
+      x: timelineChartCoordinateSystem.max.x,
       y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
+    }
+
+    if (thisObject.rateScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
     }
 
     timelineChartCoordinateSystem.initialize(

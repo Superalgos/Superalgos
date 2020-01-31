@@ -7,6 +7,9 @@ function newTimeScale () {
     date: undefined,
     fitFunction: undefined,
     payload: undefined,
+    isVisible: true,
+    fromDate: undefined,
+    toDate: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -70,6 +73,9 @@ function newTimeScale () {
   function initialize (pCoordinateSystem, pLimitingContainer) {
     coordinateSystem = pCoordinateSystem
     limitingContainer = pLimitingContainer
+
+    thisObject.fromDate = coordinateSystem.min.x
+    thisObject.toDate = coordinateSystem.max.x
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -154,7 +160,9 @@ function newTimeScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.scale = thisObject.scale / MAX_SCALE * 100
       code.scale = code.scale.toFixed(0)
-      thisObject.payload.node.code = JSON.stringify(code)
+      code.fromDate = (new Date(thisObject.fromDate)).toISOString()
+      code.toDate = (new Date(thisObject.toDate)).toISOString()
+      thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -165,28 +173,42 @@ function newTimeScale () {
       let code = JSON.parse(thisObject.payload.node.code)
 
       if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
-        saveObjectState()
-        return
-      }
-      code.scale = code.scale / 100 * MAX_SCALE
-      if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
-      if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
-
-      if (code.scale !== thisObject.scale) {
-        thisObject.scale = code.scale
-        let event = {}
-        if (
-          thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-          thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-        ) {
-          event.scale = DEFAULT_SCALE
-        } else {
-          event.scale = thisObject.scale
-        }
-        thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
+         // not using this value
       } else {
-        saveObjectState()
+        code.scale = code.scale / 100 * MAX_SCALE
+        if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
+        if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
+
+        if (code.scale !== thisObject.scale) {
+          thisObject.scale = code.scale
+          let event = {}
+          if (
+            thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
+            thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
+          ) {
+            event.scale = DEFAULT_SCALE
+          } else {
+            event.scale = thisObject.scale
+          }
+          thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
+        }
       }
+
+      if (
+      (isNaN(Date.parse(code.fromDate)) || code.fromDate === null || code.fromDate === undefined) ||
+      (isNaN(Date.parse(code.toDate)) || code.toDate === null || code.toDate === undefined)
+        ) {
+        // not using this value
+      } else {
+        if (thisObject.fromDate !== Date.parse(code.fromDate) || thisObject.toDate !== Date.parse(code.toDate)) {
+          thisObject.fromDate = Date.parse(code.fromDate)
+          thisObject.toDate = Date.parse(code.toDate)
+          coordinateSystem.min.x = thisObject.fromDate
+          coordinateSystem.max.x = thisObject.toDate
+          coordinateSystem.recalculateScale()
+        }
+      }
+      saveObjectState() // this overrides any invalid value at the config.
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -244,6 +266,12 @@ function newTimeScale () {
 
     thisObject.container.frame.position.x = timePoint.x
     thisObject.container.frame.position.y = timePoint.y
+
+    thisObject.isVisible = true
+    if (thisObject.container.frame.position.y + thisObject.container.frame.height * 4 > bottonCorner.y ||
+        thisObject.container.frame.position.y < upCorner.y) {
+      thisObject.isVisible = false
+    }
   }
 
   function draw () {

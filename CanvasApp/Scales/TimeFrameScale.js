@@ -6,6 +6,7 @@ function newTimeFrameScale () {
     container: undefined,
     fitFunction: undefined,
     payload: undefined,
+    isVisible: true,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     draw: draw,
     drawForeground: drawForeground,
@@ -32,7 +33,6 @@ function newTimeFrameScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
-  let coordinateSystem
   let limitingContainer
 
   let mouse = {
@@ -67,10 +67,12 @@ function newTimeFrameScale () {
     thisObject.container = undefined
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
+
+    limitingContainer = undefined
+    mouse = undefined
   }
 
-  function initialize (pCoordinateSystem, pLimitingContainer) {
-    coordinateSystem = pCoordinateSystem
+  function initialize (pLimitingContainer) {
     limitingContainer = pLimitingContainer
 
     readObjectState()
@@ -175,6 +177,12 @@ function newTimeFrameScale () {
 
     thisObject.container.frame.position.x = timePoint.x
     thisObject.container.frame.position.y = timePoint.y - thisObject.container.frame.height
+
+    thisObject.isVisible = true
+    if (thisObject.container.frame.position.y + thisObject.container.frame.height > bottonCorner.y ||
+        thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y) {
+      thisObject.isVisible = false
+    }
   }
 
   function onViewportZoomChanged (event) {

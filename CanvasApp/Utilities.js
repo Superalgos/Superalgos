@@ -26,7 +26,7 @@ function savePropertyAtNodeConfig (payload, propertyName, value) {
   try {
     let code = JSON.parse(payload.node.code)
     code[propertyName] = value
-    payload.node.code = JSON.stringify(code)
+    payload.node.code = JSON.stringify(code, null, 4)
   } catch (err) {
      // we ignore errors here since most likely they will be parsing errors.
   }
@@ -147,117 +147,30 @@ function getMilisecondsFromPoint (point, container, coordinateSystem) {
   return point.x
 }
 
-function saveUserPosition (container, coordinateSystem, position) {
-  if (position === undefined) {
-    position = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 2
-    }
-  }
-
-  let userPosition = {
-    date: getDateFromPoint(position, container, coordinateSystem),
-    rate: getRateFromPoint(position, container, coordinateSystem),
-    market: DEFAULT_MARKET,
-    zoom: canvas.chartSpace.viewport.zoomTargetLevel
-  }
-
-  window.localStorage.setItem('userPosition', JSON.stringify(userPosition))
-}
-
-function getUserPosition (coordinateSystem) {
-  let savedPosition = window.localStorage.getItem('userPosition')
-  let userPosition
-
-  if (savedPosition === null) {
-    userPosition = {
-      date: (new Date()).toString(),
-      rate: coordinateSystem.max.y / 2,
-      market: DEFAULT_MARKET,
-      zoom: INITIAL_ZOOM_LEVEL
-    }
-  } else {
-    userPosition = JSON.parse(savedPosition)
-  }
-
-  userPosition.point = {
-    x: (new Date(userPosition.date)).valueOf(),
-    y: userPosition.rate
-  }
-
-  return userPosition
-}
-
-function moveToUserPosition (container, coordinateSystem, ignoreX, ignoreY, center, moveContainer) {
-  let userPosition = getUserPosition(coordinateSystem)
-
-  INITIAL_TIME_PERIOD = recalculatePeriod(userPosition.zoom)
-  NEW_SESSION_INITIAL_DATE = new Date(userPosition.date)
-
+function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition) {
   let targetPoint = {
-    x: (new Date(userPosition.date)).valueOf(),
-    y: userPosition.rate
+    x: currentDate.valueOf(),
+    y: currentRate
   }
 
-    /* Put this po int in the coordinate system of the canvas.chartSpace.viewport */
-
+  /* Put this point in the coordinate system of the canvas.chartSpace.viewport */
   targetPoint = coordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
 
-  let centerPoint
-  if (center !== undefined) {
-    centerPoint = {
-      x: center.x,
-      y: center.y
-    }
-  } else {
-    centerPoint = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 2
-    }
-  }
-
-  /* When we are moving the container, it needs to consider the zooming of the viewport */
-  /* Lets calculate the displace vector, from the point we want at the center, to the current center. */
-
   let displaceVector
-  if (moveContainer === true) {
-    let targetCopy = {
-      x: targetPoint.x,
-      y: targetPoint.y
-    }
 
-    let targetNoZoom
-    targetNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(targetCopy)
+  let targetNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(targetPoint)
+  let mouseNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(mousePosition)
 
-    let centerCopy = {
-      x: centerPoint.x,
-      y: centerPoint.y
-    }
-
-    let centerNoZoom
-    centerNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(centerCopy)
-
-    displaceVector = {
-      x: centerNoZoom.x - targetNoZoom.x,
-      y: centerNoZoom.y - targetNoZoom.y
-    }
-
-    if (ignoreX) { displaceVector.x = 0 }
-    if (ignoreY) { displaceVector.y = 0 }
-
-    container.displace(displaceVector)
-  } else {
-    displaceVector = {
-      x: centerPoint.x - targetPoint.x,
-      y: centerPoint.y - targetPoint.y
-    }
-
-    if (ignoreX) { displaceVector.x = 0 }
-    if (ignoreY) { displaceVector.y = 0 }
-
-    canvas.chartSpace.viewport.displace(displaceVector)
+  displaceVector = {
+    x: mouseNoZoom.x - targetNoZoom.x,
+    y: mouseNoZoom.y - targetNoZoom.y
   }
+
+  if (ignoreX) { displaceVector.x = 0 }
+  if (ignoreY) { displaceVector.y = 0 }
+
+  container.displace(displaceVector)
 }
 
 function removeTime (datetime) {

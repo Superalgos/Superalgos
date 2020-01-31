@@ -21,6 +21,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         recalculateScale: recalculateScale, 
         draw: draw
     };
@@ -31,7 +32,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
     let coordinateSystemFrame = newCoordinateSystem();  // This chart uses this extra object.
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
@@ -49,20 +50,23 @@
 
     let stairsArray = [];                   // Here we keep the stairsArray to be ploted every time the Draw() function is called by the AAWebPlatform.
 
+    let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
     let dragFinishedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
         try {
 
             /* Stop listening to the necesary events. */
-
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
@@ -82,13 +86,16 @@
             fileCursor = undefined;
 
             thisObject.fitFunction = undefined
+
+            finalizeCoordinateSystem()
+            coordinateSystem = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err.message = " + err.message); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
@@ -99,6 +106,8 @@
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -116,6 +125,7 @@
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Get ready for plotting. */
 
@@ -137,6 +147,25 @@
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE);
 
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculateScaleX();
+        recalculate();
+        recalculateScaleY();
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function recalculateScale() {
@@ -235,9 +264,13 @@
     }
 
     function setDatetime(pDatetime) {
-
         datetime = pDatetime;
+    }
 
+    function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
+        coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -353,7 +386,10 @@
                         stairs.firstAmount = dailyFile[i][5];
                         stairs.lastAmount = dailyFile[i][6];
 
-                        if (stairs.begin >= farLeftDate.valueOf() && stairs.end <= farRightDate.valueOf()) {
+                        if (
+                            (stairs.begin >= farLeftDate.valueOf() && stairs.end <= farRightDate.valueOf()) &&
+                            (stairs.begin >= coordinateSystem.min.x && stairs.end <= coordinateSystem.max.x)
+                        ) {
 
                             stairsArray.push(stairs);
 
@@ -434,7 +470,10 @@
                 stairs.firstAmount = marketFile[i][5];
                 stairs.lastAmount = marketFile[i][6];
 
-                if (stairs.begin >= leftDate.valueOf() && stairs.end <= rightDate.valueOf()) {
+                if (
+                    (stairs.begin >= leftDate.valueOf() && stairs.end <= rightDate.valueOf()) &&
+                    (stairs.begin >= coordinateSystem.min.x && stairs.end <= coordinateSystem.max.x)
+                ) {
 
                     stairsArray.push(stairs);
 
@@ -548,9 +587,6 @@
     function plotChart() {
 
         try {
-
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
 
             let opacity = '0.25';
 

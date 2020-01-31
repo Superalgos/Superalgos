@@ -117,7 +117,7 @@ const DEFAULT_CONFIG_TEXT = '// Write your config here'
 const DEFAULT_FORMULA_TEXT = '// Write your formula here'
 const DEFAULT_CODE_TEXT = '// Write your code here'
 
-const MAX_DEFAULT_RATE_SCALE_VALUE = 19900; // This is needed to know the scale of the market time line.
+const MAX_DEFAULT_RATE_SCALE_VALUE = 35000; // This is needed to know the scale of the market time line.
 
 const WIDHTER_VOLUME_BAR_BASE_FACTOR = 2.5;
 const LESS_WIDHTER_VOLUME_BAR_TOP_FACTOR = 1 / 4;

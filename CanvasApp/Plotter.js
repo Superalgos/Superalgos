@@ -6,32 +6,23 @@ function newPlotter () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-
-        /* Events declared outside the plotter. */
-
+    currentRecord: undefined,
+    container: undefined,
     onDailyFileLoaded: onDailyFileLoaded,
-
-        // Main functions and properties.
-
     initialize: initialize,
     finalize: finalize,
-    container: undefined,
     getContainer: getContainer,
     setTimeFrame: setTimeFrame,
     setDatetime: setDatetime,
-    recalculateScale: recalculateScale,
-    draw: draw,
-
-        // Secondary functions and properties.
-
-    currentRecord: undefined  // ---> Check Here
+    setCoordinateSystem: setCoordinateSystem,
+    draw: draw
   }
 
   let container = newContainer()
   container.initialize()
   thisObject.container = container
 
-  let coordinateSystem = newCoordinateSystem()        // Needed to be able to plot on the timeline.
+  let coordinateSystem
   let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
   let slotHeight = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
@@ -51,7 +42,9 @@ function newPlotter () {
   let productDefinition                                               // Here we store a snapshot of the product definition which references this plotter.
 
   let records = []                                                    // We will have the information to be plotted here.
+  let userPositionDate
 
+  let onMouseOverEventSuscriptionId
   let zoomChangedEventSubscriptionId
   let offsetChangedEventSubscriptionId
   let dragFinishedEventSubscriptionId
@@ -59,6 +52,7 @@ function newPlotter () {
   let marketFilesUpdatedEventSubscriptionId
   let dailyFilesUpdatedEventSubscriptionId
   let onDisplaceEventSubscriptionId
+  let scaleChangedEventSubscriptionId
 
   let logged = false
   return thisObject
@@ -66,6 +60,7 @@ function newPlotter () {
   function finalize () {
     try {
       /* Stop listening to the necesary events. */
+      thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
       canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId)
       canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId)
       canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId)
@@ -84,6 +79,7 @@ function newPlotter () {
       marketFile = undefined
       fileCursor = undefined
 
+      finalizeCoordinateSystem()
       coordinateSystem = undefined
       slotCoordinateSystem = undefined
       plotterModuleConfig = undefined
@@ -96,7 +92,7 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pDatetime, pTimeFrame, callBackFunction, pProductDefinition) {
+  function initialize (pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
@@ -104,13 +100,13 @@ function newPlotter () {
 
       datetime = pDatetime
       timeFrame = pTimeFrame
+      coordinateSystem = pCoordinateSystem
+      initializeCoordinateSystem()
 
       productDefinition = pProductDefinition
 
       /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
       marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS)  // This file is the one processed faster.
-
-      recalculateScale()
 
       /* Now we set the right files according to current Period. */
       marketFile = marketFiles.getFile(pTimeFrame)
@@ -123,11 +119,11 @@ function newPlotter () {
       marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent('Files Updated', onMarketFilesUpdated)
       dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent('Files Updated', onDailyFilesUpdated)
       onDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
+      onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
       /* Get ready for plotting. */
       recalculate()
       dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-        recalculateScale()
         recalculate()
       })
 
@@ -136,6 +132,24 @@ function newPlotter () {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
     }
+  }
+
+  function initializeCoordinateSystem () {
+    scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+  }
+
+  function finalizeCoordinateSystem () {
+    coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+  }
+
+  function onScaleChanged () {
+    mustRecalculateDataPoints = true
+    recalculate()
+  }
+
+  function onMouseOver (event) {
+    let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+    userPositionDate = userPosition.valueOf()
   }
 
   function onMarketFilesUpdated () {
@@ -209,6 +223,12 @@ function newPlotter () {
     datetime = pDatetime
   }
 
+  function setCoordinateSystem (pCoordinateSystem) {
+    finalizeCoordinateSystem()
+    coordinateSystem = pCoordinateSystem
+    initializeCoordinateSystem()
+  }
+
   function onDailyFileLoaded (event) {
     try {
       if (event.currentValue === event.totalValue) {
@@ -260,7 +280,10 @@ function newPlotter () {
         }
       }
 
-      if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+      if (
+          (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+          (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
+          ) {
         record.previous = previous
         jsonifiedArray.push(record)
         previous = record
@@ -483,9 +506,6 @@ function newPlotter () {
 
   function plotChart () {
     try {
-      let userPosition = getUserPosition()
-      let userPositionDate = userPosition.point.x
-
       /* Clean the pannel at places where there is no record. */
       let currentRecord = {
         data: undefined
@@ -516,6 +536,12 @@ function newPlotter () {
 
         beginPoint = transformThisPoint(beginPoint, thisObject.container)
         endPoint = transformThisPoint(endPoint, thisObject.container)
+
+        beginPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(beginPoint)
+        endPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(endPoint)
+
+        beginPoint = thisObject.fitFunction(beginPoint)
+        endPoint = thisObject.fitFunction(endPoint)
 
         if (endPoint.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || beginPoint.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
           continue
@@ -566,13 +592,9 @@ function newPlotter () {
               That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
               */
                 dataPoint = coordinateSystem.transformThisPoint(dataPoint)
-
-              /*
-              The browser canvas object does not care about our timeline and its coordinate system. In order to draw on a html canvas we
-              need the points to be converted into the canvas coordinate system.
-              Next we transform again to the screen coordinate system.
-              */
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
+                dataPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(dataPoint)
+                dataPoint = thisObject.fitFunction(dataPoint)
 
               /* Store the data point at the local map */
                 dataPoints.set(point.id, dataPoint)

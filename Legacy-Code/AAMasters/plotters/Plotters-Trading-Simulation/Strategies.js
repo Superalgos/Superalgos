@@ -18,6 +18,7 @@
         getContainer: getContainer,
         setTimeFrame: setTimeFrame,
         setDatetime: setDatetime,
+        setCoordinateSystem: setCoordinateSystem,
         draw: draw,
         recalculateScale: recalculateScale,
 
@@ -36,7 +37,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -52,13 +53,16 @@
     let strategies = [];
     let strategyImages = [];
 
+    let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
     let dragFinishedEventSubscriptionId
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {
@@ -67,7 +71,7 @@
             if (INFO_LOG === true) { logger.write("[INFO] finalize -> Entering function."); }
 
             /* Stop listening to the necesary events. */
-
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
@@ -89,13 +93,16 @@
             strategyImages = undefined;
 
             thisObject.fitFunction = undefined
+
+            finalizeCoordinateSystem()
+            coordinateSystem = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
@@ -108,12 +115,12 @@
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
-
-            recalculateScale();
 
             /* Now we set the right files according to current Period. */
 
@@ -127,6 +134,7 @@
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Get ready for plotting. */
 
@@ -135,7 +143,6 @@
             /* Ready for when dimmension changes. */
 
             dimmensionsChangedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('Dimmensions Changed', function () {
-                recalculateScale()
                 recalculate();
             })
 
@@ -150,6 +157,23 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function getContainer(point) {
@@ -234,11 +258,13 @@
     }
 
     function setDatetime(pDatetime) {
-
-        if (INFO_LOG === true) { logger.write("[INFO] setDatetime -> Entering function."); }
-
         datetime = pDatetime;
+    }
 
+    function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
+        coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -359,7 +385,10 @@
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
 
-                        if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+                        if (
+                            (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+                            (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                        ) {
 
                             strategies.push(record);
 
@@ -431,7 +460,10 @@
 
                     strategies.push(record);
 
-                    if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
+                    if (
+                        (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
+                        (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                    ) {
 
                         thisObject.currentRecord = record;
                         thisObject.container.eventHandler.raiseEvent("Current Strategy Changed", thisObject.currentRecord);
@@ -481,9 +513,6 @@
     function plotChart() {
 
         try {
-
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
 
             thisObject.container.eventHandler.raiseEvent("Current Strategy Record Changed", undefined);
 

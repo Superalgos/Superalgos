@@ -15,6 +15,7 @@ function newPlottersManager () {
     payload: undefined,
     setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
+    setCoordinateSystem: setCoordinateSystem,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
@@ -22,10 +23,9 @@ function newPlottersManager () {
   }
 
   let initializationReady = false
-
   let layersPanel
-
   let onLayerStatusChangedEventSuscriptionId
+  let coordinateSystem
 
   setupContainer()
   return thisObject
@@ -37,6 +37,7 @@ function newPlottersManager () {
 
   function finalize () {
     layersPanel.container.eventHandler.stopListening(onLayerStatusChangedEventSuscriptionId)
+    layersPanel = undefined
 
     for (let i = 0; i < connectors.length; i++) {
       let connector = connectors[i]
@@ -61,12 +62,10 @@ function newPlottersManager () {
       connector = undefined
     }
     connectors = []
-
-    layersPanel = undefined
+    coordinateSystem = undefined
 
     thisObject.container.finalize()
     thisObject.container = undefined
-
     thisObject.payload = undefined
   }
 
@@ -80,23 +79,11 @@ function newPlottersManager () {
   }
 
   function initialize (pLayersPanel) {
-    try {
-      /* Remember the Layers Panel */
-      layersPanel = pLayersPanel
+    /* Remember the Layers Panel */
+    layersPanel = pLayersPanel
 
-      /* Listen to the event of change of status */
-      onLayerStatusChangedEventSuscriptionId = layersPanel.container.eventHandler.listenToEvent('Layer Status Changed', onLayerStatusChanged)
-
-      /* Lets get all the cards that needs to be loaded. */
-      let loadingLayers = layersPanel.getLoadingLayers()
-
-      for (let i = 0; i < loadingLayers.length; i++) {
-        /* For each one, we will initialize the associated plotter. */
-        initializePlotter(loadingLayers[i])
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-    }
+    /* Listen to the event of change of status */
+    onLayerStatusChangedEventSuscriptionId = layersPanel.container.eventHandler.listenToEvent('Layer Status Changed', onLayerStatusChanged)
   }
 
   function initializePlotter (layer) {
@@ -186,7 +173,7 @@ function newPlottersManager () {
             plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
             plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
             plotter.fitFunction = thisObject.fitFunction
-            plotter.initialize(storage, datetime, timeFrame, onPlotterInizialized, product)
+            plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, product)
 
             function onPlotterInizialized () {
               try {
@@ -296,6 +283,14 @@ function newPlottersManager () {
       connector.layer.setDatetime(pDatetime)
       connector.storage.setDatetime(pDatetime)
       connector.plotter.setDatetime(pDatetime)
+    }
+  }
+
+  function setCoordinateSystem (pCoordinateSystem) {
+    coordinateSystem = pCoordinateSystem
+    for (let i = 0; i < connectors.length; i++) {
+      let connector = connectors[i]
+      connector.plotter.setCoordinateSystem(coordinateSystem)
     }
   }
 

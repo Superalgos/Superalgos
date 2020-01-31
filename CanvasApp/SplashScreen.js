@@ -125,7 +125,7 @@ function newSplashScreen () {
 
     fontSize = 15
 
-    title = 'People and Machines working together to create Superalgos'
+    title = 'Beta'
 
     titlePoint = {
       x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,

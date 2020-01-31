@@ -218,7 +218,7 @@ function newRateScale () {
       code.offset = thisObject.offset
       code.minValue = thisObject.minValue
       code.maxValue = thisObject.maxValue
-      thisObject.payload.node.code = JSON.stringify(code)
+      thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -279,8 +279,8 @@ function newRateScale () {
       } else {
         thisObject.minValue = code.minValue
         thisObject.maxValue = code.maxValue
-        coordinateSystem.min.y = code.minValue
-        coordinateSystem.max.y = code.maxValue
+        coordinateSystem.min.y = thisObject.minValue
+        coordinateSystem.max.y = thisObject.maxValue
         coordinateSystem.recalculateScale()
       }
       saveObjectState() // this overrides any invalid value at the config.

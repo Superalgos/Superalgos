@@ -24,9 +24,9 @@ situation: "A situation refers to a specific state of the market in which a cert
 
 condition: "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered."
 
-trigger-off_event: "The trigger-off event defines the set of rules that need to be met in order for the corresponding strategy to be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system."
+trigger-off_event: "The trigger-off event defines the situation in which the corresponding strategy shall be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system."
 
-take_position_event: "The take position event defines the set of rules that need to be met in order for the taking a position. "
+take_position_event: "The take position event defines the situation that needs to be met in order to enter a trade."
 
 open_stage: "The open stage deals with all the parameters that define a trade, including position rate and size as well as initial stop and take profit targets."
 
@@ -34,17 +34,17 @@ initial_definition: "The initial definition node groups the parameters that defi
 
 initial_stop: "The initial stop defines the initial target to stop a loss, before the trade gets to be managed."
 
-phase_0: "Phase 0 represents starting point for a stop or take profit target, which may be managed in subsequent phases on the manages stage."
+phase_0: "Phase 0 represents the starting point for a stop or take profit target, which may be managed in subsequent phases, on the manage stage."
 
-formula: "A formula is a mathematical expression intended to determine a numerical value to be used for a certain purpose."
+formula: "A formula is a mathematical expression intended to determine a numerical value to be applied dynamically to a certain property."
 
 next_phase_event: "The next-phase event describes a market situation upon which the management of the trade should shift from one phase to the next."
 
 initial_take_profit: "The initial take profit defines the initial target to take profit, before the trade gets to be managed."
 
-position_size: "The position size allows setting a size for the position using a formula."
+position_size: "The size of the position is the amount of capital that will go in the trade, denominated in the quoted asset. The position size node allows setting a size for the position using a formula."
 
-position_rate: "The position rate is currently overriden by the system as execution is limited to market orders until a more robust execution system is deployed."
+position_rate: "The position rate is the rate at which the position is taken, denominated in the quoted asset. The position rate node allows setting the desired position rate with a formula. However, the formula is overriden by the system as execution is currently limited to market orders until a more robust execution system is deployed. Therefore, the position rate is currently taken from the close value of the last candle."
 
 open_execution: "Open execution is the node that will eventually hold the information regarding the execution of the trade opening orders."
 

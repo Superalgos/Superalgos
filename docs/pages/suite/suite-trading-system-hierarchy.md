@@ -962,7 +962,11 @@ toc: false
 
 **{{site.data.trading_system.trading_system}}**
 
-You will use this hierarchy to define strategies, following the trading framework implemented by the Superalgos Protocol, splitting strategies in four stages.
+Think of a trading system as a framework; the low-level logic that serves to structure the processes and methods that you will use to implement your trading strategies. In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan.
+
+Therefore, you will use this hierarchy to define strategies, following the trading framework implemented by the Superalgos Protocol, splitting strategies in four stages: trigger, open, manage and close.
+
+These stages are played in a sequence. Once a strategy is *triggered* it will look to *open* a position. Once a position is open, it is time to *manage* it as the trade develops. And once a stop or take profit target is hit, it is time to *close* the position.
 
 ### Adding a Trading System
 
@@ -1042,6 +1046,13 @@ To add a trading system, select *Add Trading System* on the workspace node menu.
 
 **{{site.data.trading_system.strategy}}**
 
+The concept of describing strategies in phases is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the exact same logic, which contributes to developing scalable trading systems that may grow to any number of strategies.
+
+The definition of strategy points to the concept of *a trade*. A trade is the process that exchanges the base asset for the quoted asset and that—after some time, as the trade develops and targets are hit—exchanges back the quoted asset for the base asset. The first and foremost rule of a trade is to preserve capital and its main goal is to increase it.
+
+
+
+
 ### Adding a Strategy
 
 To add a strategy, select *Add Strategy* on the trading system node menu. The strategy node is created along with the rest of the basic structure of nodes required to define each of the strategy stages and their events.
@@ -1060,6 +1071,16 @@ To add a strategy, select *Add Strategy* on the trading system node menu. The st
 
 **{{site.data.trading_system.trigger_stage}}**
 
+A trading system may have mutiple strategies designed for the same market, with the same base asset.
+
+An important aspect of trading systems is that they are allocated a certain amount of capital (see the base asset parameter). As a consequence, strategies within a trading system have to share that capital allocation. 
+
+The logic behind the concept of the trigger stage makes the assumption that different strategies within a trding system are specialized for trading in different market conditions. The trigger stage in each strategy is, therefore, the mechanism by which any particular strategy may be selected to trade, given any particular market situation.
+
+The triggering-on of a strategy effectively blocks the selection of any other strategy in the trading system, and reserves the whole capital allocation for a potential trade, until the strategy is triggered-off.
+
+As a corolary, if certain strategies are meant to trade under the same market situations and open trades concurrently, then those strategies should be put in separate trading systems.
+
 ### Adding a Trigger Stage
 
 To add a trigger stage node, select *Add Missing Stages* on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them, and their events.
@@ -1074,9 +1095,9 @@ To add a trigger stage node, select *Add Missing Stages* on the strategy node me
 
 **{{site.data.trading_system.trigger-on_event}}**
 
-An event gets triggered when at least one of the situations under it get's validated.
+In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered.
 
-{% include important.html content="If you wish to have more than one strategy triggered at the same time, then those strategies must be put in separate trading systems. " %}
+Once a strategy is triggered-on, the system starts evaluating the take postion event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal, and that it should carefully monitor the market for the opportunity of taking a position.
 
 ### Adding a Trigger-On Event
 
@@ -1113,11 +1134,21 @@ To add a situation, select *Add Situation* on the corresponding event node menu.
 
 Therefore, conditions are used to mathematically describe what needs to happen with the market in order for a certain action to be taken.
 
-{% include note.html content="To learn how to write conditions, start with the <a href='suite-sysntax-overview.html'>Syntax Overview</a>" %}
+**For example:**
+
+**Situation 1**
+
+* Condition A: ```chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage``` &#8594; This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average.
+
+* Condition B: ```chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage``` &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.
+  
+In the example above, conditions A and B are comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true as well.
+
+{% include note.html content="To learn how to write conditions, start with the <a href='suite-sysntax-overview.html'>Syntax Overview</a>." %}
 
 ### Adding a Condition
 
-To add a condition, select *Add Condition* on the corresponding event node menu. A condition with its JavaScript code node is added.
+To add a condition, select *Add Condition* on the corresponding situation node menu. A condition with its JavaScript code node is added.
 
 
 
@@ -1128,6 +1159,12 @@ To add a condition, select *Add Condition* on the corresponding event node menu.
 <img src='images/icons/150-trigger-off-event.png' />
 
 **{{site.data.trading_system.trigger-off_event}}**
+
+In conceptual terms, the trigger-off event is the mechanism you use to define the situation in which the corresponding strategy should stop considering the trading opportunity signaled by the trigger-on event. That is, you use the trigger off event to describe the scenario for the invalidation of the trading idea behind the strategy.
+
+Once a strategy is triggered-on, only two possible scenarios may follow. Either the take position event is triggered, thus, taking a position and opening a trade, or the trigger-off event is triggered first.
+
+In the first scenario, the strategy remains *on* until the trade is closed. As the trade is closed, the strategy is triggered-off. In the second scenario, the strategy is triggered-off immediately.
 
 ### Adding a Trigger-Off Event
 
@@ -1142,7 +1179,13 @@ To add a trigger-off event node, select *Add Missing Events* on the trigger stag
 
 <img src='images/icons/150-take-position-event.png' />
 
-**{{site.data.trading_system.take_position_event}}**
+<b>{{site.data.trading_system.take_position_event}}</b>
+
+Remember that the trigger-on event merely selects a strategy to be considered for trading under the current market situation. The actual decision to enter a position may require more specific conditions to be met. For that reasons, the take position event is a separate entity in regards with the trigger-on event.
+
+Therefore, the take position event is defined with its own set of situations and conditions.
+
+Once the take position event is triggered, the decision to take a position has been made and there is nothing else to consider in that regard. Therefore, the system shifts from the trigger stage to the open stage. 
 
 ### Adding a Take Position Event
 
@@ -1158,7 +1201,11 @@ To add a take position event node, select *Add Missing Events* on the trigger st
 
 **{{site.data.trading_system.open_stage}}**
 
-open_stage: "The open stage deals with all the parameters that define a trade, including position rate and size as well as initial stop and take profit targets."
+Conceptually, the open stage deals with the details that concern the opening of a trade once the decision to take a position has been made. In this stage you deal with the aforementioned parameters, each of which is defined by a formula.
+
+Ideally, the open stage would also handle the parameters that define the execution of the trade, that is, how and which kinds of orders are to be placed, on which exchanges and so on. However, the execution side of the system is still under development. For the time being, execution is drastically simplified: a single market order is placed for each order.
+
+{% include note.html content="Learn more about the temporal <a href='suite-execution-limitation.html'>execution limitations</a>." %}
 
 ### Adding an Open Stage
 
@@ -1173,7 +1220,9 @@ To add an open stage node, select *Add Missing Stages* on the strategy node menu
 
 **{{site.data.trading_system.initial_definition}}**
 
-initial_definition: "The initial definition node groups the parameters that define the trade at the moment the position is taken."
+### Adding an Initial Definition
+
+To add an initial definition node, select *Add Initial Definition* on the open stage node menu. The initial definition node is created along with the rest of the basic structure of nodes required to define the initial state of the position.
 
 
 
@@ -1185,8 +1234,17 @@ initial_definition: "The initial definition node groups the parameters that defi
 
 **{{site.data.trading_system.initial_stop}}**
 
-initial_stop: "The initial stop defines the initial target to stop a loss, before the trade gets to be managed."
+Notice that the setting of the stop target has no relation with the execution of orders. The stop is a target, not an order to be placed. That is, the system does not place stop orders.
 
+This is a design feature which allows you to keep your cards, not allowing anyone to anticipate what your strategy may be, not even the exchange. It is a known fact that some exchanges may attempt or allow to front run stop orders.
+
+Instead, the trading bot instance monitors the market, and only once the stop target has been hit does it place the corresponding order to close the trade.
+
+The initial target is set in phase 0, that is, the departing point for the management of the trade to be handled in the manage stage.
+
+### Adding an Initial Stop
+
+To add an initial stop node, select *Add Missing Items* on the initial definitions node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
 
 
 
@@ -1197,8 +1255,11 @@ initial_stop: "The initial stop defines the initial target to stop a loss, befor
 
 **{{site.data.trading_system.phase_0}}**
 
-phase_0: "Phase 0 represents starting point for a stop or take profit target, which may be managed in subsequent phases on the manages stage."
+### Adding Phase 0
 
+To add the phase 0 node, select *Add Phase* on the initial definitions node menu. The missing phase 0 node is created along with the rest of the basic structure of nodes required to define it.
+
+{% include note.html content="Only one phase&mdash;phase 0&mdash;may exist in the initial definition of the open stage." %}
 
 
 
@@ -1209,7 +1270,19 @@ phase_0: "Phase 0 represents starting point for a stop or take profit target, wh
 
 **{{site.data.trading_system.formula}}**
 
-formula: "A formula is a mathematical expression intended to determine a numerical value to be used for a certain purpose."
+In the context of a trading system, formulas are used to determine the values for stopLoss, takeProfit, positionRate and positionSize.
+
+Formulas may use [internal variables](suite-internal-variables.html) made available by the system. In addition to the ones listed above, other variables such as balanceAssetA and balanceAssetB may be of use.
+
+**For example:**
+
+* ```positionRate - positionRate * 2.5 / 100``` &#8594; This formula may be used to define an intial stop target 2.5% below the rate at which the position was taken.
+
+{% include note.html content="To learn which variables may be used in formulas, see the page about <a href='suite-sysntax-overview.html'>internal variables</a>." %}
+
+### Adding a Formula
+
+To add a formula, select *Add Formula* on the corresponding parent node menu.
 
 
 
@@ -1221,9 +1294,11 @@ formula: "A formula is a mathematical expression intended to determine a numeric
 
 **{{site.data.trading_system.next_phase_event}}**
 
-next_phase_event: "The next-phase event describes a market situation upon which the management of the trade should shift from one phase to the next."
+The management of a trade is performed in sequential phases. Each phase may define a new formula for stop loss and take profit targets. To move from one phase to the next, a certain situation must be validated. When that happens, the next phase event is triggered and the formulas corresponding to the following phase are applied. Such situations must be defined under the next phase event.
 
+### Adding a Next Phase Event
 
+To add a next phase event, select *Add Next Phase Event* on the corresponding phase node menu. The event is added along with the basic structure of nodes to define it.
 
 
 
@@ -1235,12 +1310,13 @@ next_phase_event: "The next-phase event describes a market situation upon which 
 
 **{{site.data.trading_system.initial_take_profit}}**
 
-initial_take_profit: "The initial take profit defines the initial target to take profit, before the trade gets to be managed."
+Pretty much like with the initial stop, the initial take profit is a target, and not an order to be placed. Only when the trading bot instance detects that the target has been hit does it place an order to close the trade.
 
+The initial target is set in phase 0, which may shift to the following phase once the corresponding next phase event is validated.
 
+### Adding an Initial Take Profit
 
-
-
+To add an initial take profit node, select *Add Missing Items* on the initial definitions node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
 
 
 
@@ -1252,7 +1328,9 @@ initial_take_profit: "The initial take profit defines the initial target to take
 
 **{{site.data.trading_system.position_size}}**
 
-position_size: "The position size allows setting a size for the position using a formula."
+### Adding a Position Size
+
+To add a position size node, select *Add Missing Items* on the initial definitions node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
 
 
 
@@ -1265,7 +1343,9 @@ position_size: "The position size allows setting a size for the position using a
 
 **{{site.data.trading_system.position_rate}}**
 
-position_rate: "The position rate is currently overriden by the system as execution is limited to market orders until a more robust execution system is deployed."
+### Adding a Position Rate
+
+To add a position rate node, select *Add Missing Items* on the initial definitions node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
 
 
 
@@ -1278,7 +1358,11 @@ position_rate: "The position rate is currently overriden by the system as execut
 
 **{{site.data.trading_system.open_execution}}**
 
-open_execution: "Open execution is the node that will eventually hold the information regarding the execution of the trade opening orders."
+{% include note.html content="You don't need to do anything with this node for the time being, other than make sure its present once you are ready to trade live." %}
+
+### Adding an Open Execution Node
+
+To add an open execution node, select *Add open Execution* on the open stage node menu.
 
 
 
@@ -1290,7 +1374,19 @@ open_execution: "Open execution is the node that will eventually hold the inform
 
 **{{site.data.trading_system.manage_stage}}**
 
-manage_stage: "The manage stage is the third stage in the definition of a strategy and deals with the management of stop and take profit targets."
+The management of a trade aims to increase the efficiency of your trading system. Conceptually, a trade is not an instant event, but an event which has a opening, a period of maturation, and a closing. The management of the trade happens in that period of maturation.
+
+The concept of managing the trade means that the formulas to determine the take profit and stop may change as the trade develops. The typical situation in which you may want to change your original take profit and stop formulas is when the trade seems to be going well in your favor.
+
+It may be in your best interest to manage both stop and take profit, moving them in the direction of the trade as the market moves, allowing some leeway for a larger profit than expected and, at the same time, cutting the potential for losses.
+
+The management of the trade is handled in phases. Actually, the management of take profit and stop—while correlated—is done independently of each other, therefore, each concept has its own set of phases.
+
+When a situation defined by a set of conditions is met, the event indicates that the take profit or stop formulas shall be changed. At the moment those predefined conditions are met, you enter the next phase. Keep in mind that the trade is in constant development, so there may be as many phases as you deem appropriate for your particular strategy.
+
+The idea of having different phases comes from the notion that big market moves tend to provide clues as of what may come up next. For instance, rallies may accelerate as more traders join the move. Recognizable patterns may emerge. Signs of exhaustion may be identified.
+
+All of these considerations should feed the dynamic analysis performed as the trade develops, and may be contrasted with the predefined conditions that may push take profit or stop further, entering one phase after the next.
 
 ### Adding a Manage Stage
 
@@ -1350,7 +1446,9 @@ take_profit: "Take profit sets a new take profit target associated with the corr
 
 **{{site.data.trading_system.close_stage}}**
 
-close_stage: "Close stage is not developed yet. In the future, it will deal with the execution of the closing orders, trading log, and related matters."
+As explained earlier while discussing the open stage, the execution functionality is currently under development. Needless to say, execution of the closing orders is of the highest significance, but in the mean time some temporal <a href='suite-execution-limitation.html'>execution limitations</a> apply.
+
+Also pending development is the keeping of a formal trading log. The current functionality allows you to see each trade on the screen, along with all the corresponding details, as well as a consolidated report on the live trading panel. This information is stored as a data product, thus, is not lost. In the future, the system should incorporate a user-friendly feature to browse such logs, and even help analyze them in search for potential optimizations of your trading systems.
 
 ### Adding a Close Stage
 

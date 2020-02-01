@@ -1,5 +1,19 @@
 
-body { font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; color: #111; background-color: #fdfdfd; text-align: justify; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; display: flex; min-height: 100vh; flex-direction: column; }
+body { 
+    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #111; 
+    background-color: #fdfdfd; 
+    text-align: justify; 
+    -webkit-text-size-adjust: 100%; 
+    -webkit-font-feature-settings: "kern" 1; 
+    -moz-font-feature-settings: "kern" 1; 
+    -o-font-feature-settings: "kern" 1; 
+    font-feature-settings: "kern" 1; 
+    font-kerning: normal; 
+    display: flex; 
+    min-height: 100vh; 
+    flex-direction: column; 
+}
 
 p {
     margin: 15px 0 15px 0;
@@ -74,7 +88,7 @@ p {
 
 .breadcrumb > .active {color: #777 !important;}
 
-/* make room for the nav bar */
+/* make room for the nav bar 
 h1[id],
 h2[id],
 h3[id],
@@ -84,7 +98,7 @@ h6[id],
 dt[id]{
 padding-top: 60px;
 margin-top: -40px
-}
+}*/
 
 .post-content img {
     margin: 12px 0px 3px 0px;
@@ -647,12 +661,25 @@ a.fa.fa-envelope-o.mailto {
     font-weight: 600;
 }
 
-h2 {font-weight:700; font-size:170%;}
-h3 {font-weight:500; font-size:150%;}
+h2 {font-weight:700; font-size:170%; margin-top: 60px; padding-bottom: 5px;}
+h3 {font-weight:500; font-size:150%; margin-top: 30px;}
 h4 {font-weight:400; font-size:140%;}
 h5 {font-weight:400; font-size:130%; font-style:italic;}
 h6 {font-weight:400; font-size:120%; font-style:italic;}
 h7 {font-weight:400; font-size:110%; font-style:italic;}
+
+/* Line on main headings spanning across the screen */
+
+h2{
+    overflow:hidden;
+  }
+  h2:after{
+    content:'';
+    display:inline-block;
+    width:100%; height:100%;
+    margin-right:-100%;
+    border-bottom: 1px solid #cdd4d5;
+  }
 
 .alert, .callout {
     overflow: hidden;

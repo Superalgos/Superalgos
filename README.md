@@ -22,8 +22,8 @@ The codebase is distributed with the platform's release, and constitutes a fully
 
 ## Contributing
 
-We'd love you to join us in the Dev Team. Please see [CONTRIBUTING.md](https://github.com/Superalgos/Platform/blob/master/CONTRIBUTING.md) for the details on how to engage with it.
+We'd love you to join us in the Dev Team. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for the details on how to engage with it.
 
 ## License
 
-The Superalgos Desktop App is open-source software released under [Apache License 2.0](https://github.com/Superalgos/Platform/blob/master/LICENSE).
+The Superalgos Desktop App is open-source software released under [Apache License 2.0](LICENSE).

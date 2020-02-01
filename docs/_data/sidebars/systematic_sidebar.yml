@@ -1,0 +1,116 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Systematic Trading
+  version: 
+  folders:
+
+  - title:
+    output: pdf
+    type: frontmatter
+    folderitems:
+    - title:
+      url: /titlepage.html
+      output: pdf
+      type: frontmatter
+      
+    - title:
+      url: /tocpage.html
+      output: pdf
+      type: frontmatter
+
+  - title: Trading System
+    output: web
+    folderitems:
+
+    - title: Overview
+      url: /systematic-trading-system-overview.html
+      output: web
+
+    - title: Working with strategies
+      url: /systematic-working-with-strategies.html
+      output: web
+
+  - title: Conditions & Formulas
+    output: web
+    folderitems:
+
+    - title: Syntax Overview
+      url: /systematic-sysntax-overview.html
+      output: web
+
+    - title: Internal variables
+      url: /systematic-internal-variables.html
+      output: web
+
+    - title: Indicators included in the data release
+      url: /systematic-indicators-included-in-the-data-release.html
+      output: web
+
+    - title: Indicators not included in the release
+      url: /systematic-indicators-not-included-in-the-data-release.html
+      output: web
+
+    - title: Using indicators not included in the release
+      url: /systematic-using-indicators-not-included-in-the-data-release.html
+      output: web
+
+  - title: Backtests & Paper Trading
+    output: web
+    folderitems:
+
+    - title: Overview
+      url: /systematic-testing-overview.html
+      output: web
+
+    - title: Session parameters
+      url: /systematic-session-parameters.html
+      output: web
+
+    - title: Simulation layers
+      url: /systematic-simulation-layers.html
+      output: web
+
+    - title: Advanced backtesting
+      url: /systematic-advanced-backtesting.html
+      output: web
+
+  - title: Forward Tests & Live Trading
+    output: web
+    folderitems:
+
+    - title: Overview
+      url: /systematic-live-trading-overview.html
+      output: web
+
+    - title: Getting ready to trade live
+      url: /systematic-getting-ready-to-trade-live.html
+      output: web
+
+    - title: Live trading history layer
+      url: /systematic-live-trading-history-layer.html
+      output: web
+
+    - title: Execution limitations
+      url: /systematic-execution-limitations.html
+      output: web
+
+    - title: Multiple sessions
+      url: /systematic-multiple-forward-testing-and-live-trading-sessions.html
+      output: web
+
+  - title: API Keys
+    output: web
+    folderitems:
+
+    - title: Poloniex API keys
+      url: /systematic-poloniex-api-keys.html
+      output: web
+
+
+
+
+
+
+

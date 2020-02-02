@@ -7,6 +7,7 @@ function newTimeFrameScale () {
     fitFunction: undefined,
     payload: undefined,
     isVisible: true,
+    layersOn: undefined,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     draw: draw,
     drawForeground: drawForeground,
@@ -144,13 +145,17 @@ function newTimeFrameScale () {
     if (thisObject.payload.parentNode.type === 'Timeline Chart') {
       if (thisObject.payload.parentNode.payload.parentNode !== undefined) {
         if (thisObject.payload.parentNode.payload.parentNode.timeFrameScale !== undefined) {
-          displaceFactor++
+          if (thisObject.payload.parentNode.payload.parentNode.timeFrameScale.payload.isVisible === true) {
+            displaceFactor++
+          }
         }
         for (let i = 0; i < thisObject.payload.parentNode.payload.parentNode.timelineCharts.length; i++) {
           let timelineChart = thisObject.payload.parentNode.payload.parentNode.timelineCharts[i]
           if (timelineChart.timeFrameScale !== undefined) {
             if (thisObject.payload.node.id !== timelineChart.timeFrameScale.id) {
-              displaceFactor++
+              if (timelineChart.timeFrameScale.payload.isVisible === true) {
+                displaceFactor++
+              }
             } else {
               break
             }
@@ -179,9 +184,15 @@ function newTimeFrameScale () {
     thisObject.container.frame.position.y = timePoint.y - thisObject.container.frame.height
 
     thisObject.isVisible = true
+    thisObject.payload.isVisible = true
     if (thisObject.container.frame.position.y + thisObject.container.frame.height > bottonCorner.y ||
         thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y) {
       thisObject.isVisible = false
+      thisObject.payload.isVisible = false
+    }
+    if (thisObject.layersOn === 0) {
+      thisObject.isVisible = false
+      thisObject.payload.isVisible = false
     }
   }
 

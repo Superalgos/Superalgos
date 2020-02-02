@@ -199,7 +199,10 @@ function newTimelineChart () {
     }
 
     function rateScaleOffsetChanged (event) {
-      thisObject.container.frame.offset.y = event.offset
+      if (thisObject.container.frame.offset.y !== event.offset) {
+        thisObject.container.frame.offset.y = event.offset
+        thisObject.container.eventHandler.raiseEvent('onDisplace')
+      }
     }
 
     function rateScaleValueChanged (event) {
@@ -358,9 +361,11 @@ function newTimelineChart () {
 
   function childrenPhysics () {
     if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.layersOn = thisObject.plotterManager.connectors.length
       thisObject.rateScale.physics()
     }
     if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.layersOn = thisObject.plotterManager.connectors.length
       thisObject.timeFrameScale.physics()
     }
   }

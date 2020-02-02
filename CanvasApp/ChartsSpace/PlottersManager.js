@@ -4,8 +4,6 @@ function newPlottersManager () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  let connectors = []
-
   let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
@@ -13,6 +11,7 @@ function newPlottersManager () {
     fitFunction: undefined,
     container: undefined,
     payload: undefined,
+    connectors: [],
     setDatetime: setDatetime,
     setTimeFrame: setTimeFrame,
     setCoordinateSystem: setCoordinateSystem,
@@ -21,6 +20,8 @@ function newPlottersManager () {
     initialize: initialize,
     finalize: finalize
   }
+
+  thisObject.connectors = []
 
   let initializationReady = false
   let layersPanel
@@ -39,8 +40,8 @@ function newPlottersManager () {
     layersPanel.container.eventHandler.stopListening(onLayerStatusChangedEventSuscriptionId)
     layersPanel = undefined
 
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
       /* Then the panels. */
       for (let j = 0; j < connector.panels.length; j++) {
         canvas.panelsSpace.destroyPanel(connector.panels[j])
@@ -61,7 +62,7 @@ function newPlottersManager () {
 
       connector = undefined
     }
-    connectors = []
+    thisObject.connectors = []
     coordinateSystem = undefined
 
     thisObject.container.finalize()
@@ -210,7 +211,7 @@ function newPlottersManager () {
                   connector.layer.panels = connector.panels
                 }
 
-                connectors.push(connector)
+                thisObject.connectors.push(connector)
               } catch (err) {
                 if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
               }
@@ -229,8 +230,8 @@ function newPlottersManager () {
     if (layer.status === LAYER_STATUS.LOADING) {
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
       let found = false
-      for (let i = 0; i < connectors.length; i++) {
-        let connector = connectors[i]
+      for (let i = 0; i < thisObject.connectors.length; i++) {
+        let connector = thisObject.connectors[i]
         if (connector.layer.payload.node.id === layer.payload.node.id) {
           found = true
         }
@@ -244,8 +245,8 @@ function newPlottersManager () {
     }
     if (layer.status === LAYER_STATUS.OFF) {
             /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
-      for (let i = 0; i < connectors.length; i++) {
-        let connector = connectors[i]
+      for (let i = 0; i < thisObject.connectors.length; i++) {
+        let connector = thisObject.connectors[i]
         if (connector.layer.payload.node.id === layer.payload.node.id) {
                     /* Then the panels. */
           for (let j = 0; j < connector.panels.length; j++) {
@@ -259,7 +260,7 @@ function newPlottersManager () {
             connector.plotter.finalize()
           }
           finalizeStorage(connector.storage)
-          connectors.splice(i, 1) // Delete item from array.
+          thisObject.connectors.splice(i, 1) // Delete item from array.
           return // We already found the product woth changes and processed it.
         }
       }
@@ -268,8 +269,8 @@ function newPlottersManager () {
 
   function setTimeFrame (pTimeFrame) {
     timeFrame = pTimeFrame
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
       connector.layer.setTimeFrame(timeFrame)
       connector.storage.setTimeFrame(timeFrame)
       connector.plotter.setTimeFrame(timeFrame)
@@ -278,8 +279,8 @@ function newPlottersManager () {
 
   function setDatetime (pDatetime) {
     datetime = pDatetime
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
       connector.layer.setDatetime(pDatetime)
       connector.storage.setDatetime(pDatetime)
       connector.plotter.setDatetime(pDatetime)
@@ -288,8 +289,8 @@ function newPlottersManager () {
 
   function setCoordinateSystem (pCoordinateSystem) {
     coordinateSystem = pCoordinateSystem
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[i]
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
       connector.plotter.setCoordinateSystem(coordinateSystem)
     }
   }
@@ -298,10 +299,10 @@ function newPlottersManager () {
   }
 
   function draw () {
-    if (connectors === undefined) { return } // We need to wait
+    if (thisObject.connectors === undefined) { return } // We need to wait
         /* First the Product Plotters. */
-    for (let i = 0; i < connectors.length; i++) {
-      let connector = connectors[connectors.length - i - 1]
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
       connector.plotter.draw()
     }
   }

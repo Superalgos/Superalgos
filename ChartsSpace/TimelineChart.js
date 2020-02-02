@@ -361,9 +361,11 @@ function newTimelineChart () {
 
   function childrenPhysics () {
     if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.layersOn = thisObject.plotterManager.connectors.length
       thisObject.rateScale.physics()
     }
     if (thisObject.timeFrameScale !== undefined) {
+      thisObject.timeFrameScale.layersOn = thisObject.plotterManager.connectors.length
       thisObject.timeFrameScale.physics()
     }
   }

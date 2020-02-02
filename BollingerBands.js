@@ -522,7 +522,7 @@
                         continue;
                     }
 
-                    let diffA = bandPoint2.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
+                    let diffA = bandPoint1.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
                     if (diffA > 0) {
                         bandPoint1.y = bandPoint1.y - diffA
                         bandPoint2.y = bandPoint2.y - diffA
@@ -532,7 +532,7 @@
                         bandPoint6.y = bandPoint6.y - diffA
                     }
 
-                    let diffB = bandPoint1.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
+                    let diffB = bandPoint2.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
                     if (diffB < 0) {
                         bandPoint1.y = bandPoint1.y - diffB
                         bandPoint2.y = bandPoint2.y - diffB

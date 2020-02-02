@@ -23,7 +23,6 @@ function newPlotter () {
   thisObject.container = container
 
   let coordinateSystem
-  let slotCoordinateSystem                                            // Needed to be able to plot on a slot over the timeline.
   let plotterModuleConfig
   let slotHeight = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
   let mustRecalculateDataPoints = false
@@ -81,7 +80,6 @@ function newPlotter () {
 
       finalizeCoordinateSystem()
       coordinateSystem = undefined
-      slotCoordinateSystem = undefined
       plotterModuleConfig = undefined
       slotHeight = undefined
       mustRecalculateDataPoints = undefined
@@ -482,23 +480,6 @@ function newPlotter () {
                 thisObject.container.frame.width,
                 thisObject.container.frame.height
             )
-
-      /* In case the plotter is configured to a certain slot, we calculate the slot coordinate system too. */
-      if (productDefinition.referenceParent.code === undefined) { return }
-      plotterModuleConfig = productDefinition.referenceParent.code
-      if (plotterModuleConfig.slot === undefined) { return }
-
-      slotCoordinateSystem = newCoordinateSystem()
-
-      minValue.y = plotterModuleConfig.slot.minValue
-      maxValue.y = plotterModuleConfig.slot.maxValue
-
-      slotCoordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                slotHeight
-            )
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
     }
@@ -602,7 +583,7 @@ function newPlotter () {
                 if (plotterModuleConfig !== undefined) {
                   if (plotterModuleConfig.slot !== undefined) {
                   /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                    dataPoint.y = (-1) * y * slotCoordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + canvas.chartSpace.viewport.visibleArea.topLeft.y
+                    dataPoint.y = (-1) * y * coordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + canvas.chartSpace.viewport.visibleArea.topLeft.y
                   }
                 }
               }

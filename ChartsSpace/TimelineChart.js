@@ -199,7 +199,10 @@ function newTimelineChart () {
     }
 
     function rateScaleOffsetChanged (event) {
-      thisObject.container.frame.offset.y = event.offset
+      if (thisObject.container.frame.offset.y !== event.offset) {
+        thisObject.container.frame.offset.y = event.offset
+        thisObject.container.eventHandler.raiseEvent('onDisplace')
+      }
     }
 
     function rateScaleValueChanged (event) {

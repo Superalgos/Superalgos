@@ -24,65 +24,19 @@
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let year;
-    let month;
-
     let statusDependencies;
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, callBackFunction) {
 
-        try {
+        statusDependencies = pStatusDependencies;
 
-            year = pYear;
-            month = pMonth;
-            month = utilities.pad(month, 2); // Adding a left zero when needed.
-            statusDependencies = pStatusDependencies;
+        logger.fileName = MODULE_NAME  
+        logger.initialize();
 
-            logger.fileName = MODULE_NAME + "-" + year + "-" + month;
-            logger.initialize();
+        callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> pYear = " + year); }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> pMonth = " + month); }
-
-            /* The very first validation is about if we are not too far in the future. In those cases we will not proceed and expect this instance to be restarted later. */
-
-            let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-            let today = new Date();
-            let tomorrow = new Date(today.valueOf() + 1000 * 60 * 60 * 24);
-
-            if (processDate.valueOf() > tomorrow.valueOf()) { // This means that it should start more than a day from current time.
-                logger.write(MODULE_NAME, "[WARN] initialize -> Too far in the future.");
-
-                let customOK = {
-                    result: global.CUSTOM_OK_RESPONSE.result,
-                    message: "Too far in the future."
-                }
-                logger.write(MODULE_NAME, "[WARN] initialize -> customOK = " + customOK.message);
-                callBackFunction(customOK);
-                return;
-            }
-
-            if (processDate.valueOf() > today.valueOf()) { // This means that is should start in less than a day from current time.
-                logger.write(MODULE_NAME, "[WARN] initialize -> Not needed now, but soon.");
-
-                let customOK = {
-                    result: global.CUSTOM_OK_RESPONSE.result,
-                    message: "Not needed now, but soon."
-                }
-                logger.write(MODULE_NAME, "[WARN] initialize -> customOK = " + customOK.message);
-                callBackFunction(customOK);
-                return;
-            }
-
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
-
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
     }
 
     /*
@@ -96,26 +50,15 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
-            let processDate = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-            let lastMinuteOfMonth = new Date(year + "-" + month + "-1 00:00:00.000 GMT+0000");
-
-            lastMinuteOfMonth.setUTCMonth(lastMinuteOfMonth.getUTCMonth() + 1);             // First we go 1 month into the future.
-            lastMinuteOfMonth.setUTCSeconds(lastMinuteOfMonth.getUTCSeconds() - 30);        // Then we go back 30 seconds, or to the last minute of the original month.
+            let processDate = new Date((new Date()).getUTCFullYear() + "-" + ((new Date()).getUTCMonth() + 1) + "-1 00:00:00.000 GMT+0000");
 
             let thisDatetime = new Date();
-
-            let atHeadOfMarket;         // This tell us if we are at the month which includes the head of the market according to current datetime.
-            if ((parseInt(year) === thisDatetime.getUTCFullYear() && parseInt(month) === thisDatetime.getUTCMonth() + 1)) {
-                atHeadOfMarket = true;
-            } else {
-                atHeadOfMarket = false;
-            }
 
             let market = bot.market;
 
             let lastHoleFixedFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
-            let lastFileWithoutHoles;   // Datetime of the last verified file without holes.
+            let lastTradeFileSaved;   // Datetime of the last verified file without holes.
             let lastCandleClose;        // Value of the last candle close.
             let lastTradeFile;          // Datetime pointing to the last Trade File sucessfuly processed and included in the last file.
 
@@ -131,7 +74,6 @@
                     let reportKey;
 
                     /* First Status Report */
-
                     reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
@@ -156,95 +98,12 @@
                         return;
                     }
 
-                    if (thisReport.completeHistory === true) {  // We get from the file to know if this markets history is complete or not.
-
-                        firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
-
-                        /* Before processing this month we need to check if it is not too far in the past.*/
-
-                        if (
-                            processDate.getUTCFullYear() < firstTradeFile.getUTCFullYear()
-                            ||
-                            (processDate.getUTCFullYear() === firstTradeFile.getUTCFullYear() && processDate.getUTCMonth() < firstTradeFile.getUTCMonth())
-                        ) {
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> The current year / month is before the start of the market history for market.");
-                            let customOK = {
-                                result: global.CUSTOM_OK_RESPONSE.result,
-                                message: "Month before it is needed."
-                            }
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                            callBackFunction(customOK);
-                            return;
-                        }
-
-                    } else {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Trade History is not complete.");
-
-                        let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency not ready."
-                        }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
-                    }
-
-                    /* Next Status Report */
-
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1" 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
-
-                    if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.lastFileSaved === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the hole fixing process has not started yet for this month.");
-
-                        let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency does not exist."
-                        }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
-                    }
-
-                    if (thisReport.monthChecked === true) {
-
-                        lastFileWithoutHoles = new Date();  // We need this with a valid value.
-
-                    } else {
-
-                        /*
-                        If the hole report is incomplete, we are only interested if we are at the head of the market.
-                        Otherwise, we are not going to calculate the candles of a month which was not fully checked for holes.
-                        */
-
-                        if (atHeadOfMarket === true) {
-
-                            lastFileWithoutHoles = new Date(thisReport.lastFileSaved.year + "-" + thisReport.lastFileSaved.month + "-" + thisReport.lastFileSaved.days + " " + thisReport.lastFileSaved.hours + ":" + thisReport.lastFileSaved.minutes + GMT_SECONDS);
-
-                        } else {
-
-                            let customOK = {
-                                result: global.CUSTOM_OK_RESPONSE.result,
-                                message: "Dependency not ready."
-                            }
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                            callBackFunction(customOK);
-                            return;
-                        }
-                    }
+                    firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
+                    lastTradeFileSaved = new Date(thisReport.lastFileSaved.year + "-" + thisReport.lastFileSaved.month + "-" + thisReport.lastFileSaved.days + " " + thisReport.lastFileSaved.hours + ":" + thisReport.lastFileSaved.minutes + GMT_SECONDS);
 
                     /* Final Status Report */
 
-                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1" + "-" + year + "-" + month;
+                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
@@ -264,34 +123,16 @@
                         return;
                     }
 
-                    if (thisReport.monthCompleted === true) {
+                    lastHoleFixedFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
+                    lastCandleClose = thisReport.candleClose;
 
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> The current year / month was already fully processed.");
-
-                        let customOK = {
-                            result: global.CUSTOM_OK_RESPONSE.result,
-                            message: "Month fully processed."
-                        }
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
-
+                    if (thisReport.fileComplete === true) {
+                        buildCandlesAndVolumes();
                     } else {
-
-                        lastHoleFixedFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
-                        lastCandleClose = thisReport.candleClose;
-
-                        if (thisReport.fileComplete === true) {
-
-                            buildCandlesAndVolumes();
-
-                        } else {
-
-                            lastTradeFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + thisReport.lastTradeFile.hours + ":" + thisReport.lastTradeFile.minutes + GMT_SECONDS);
-                            findPreviousContent();
-                        }
+                        lastTradeFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + thisReport.lastTradeFile.hours + ":" + thisReport.lastTradeFile.minutes + GMT_SECONDS);
+                        findPreviousContent();
                     }
-
+                 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
@@ -436,7 +277,7 @@
                     Before going backwards, we need to be sure we are not at the begining of the market.
                     */
 
-                    if ((Number(year) === firstTradeFile.getUTCFullYear() && parseInt(month) === firstTradeFile.getUTCMonth() + 1)) {
+                    if ((Number((new Date()).getUTCFullYear()) === firstTradeFile.getUTCFullYear() && parseInt(((new Date()).getUTCMonth() + 1)) === firstTradeFile.getUTCMonth() + 1)) {
 
                         /*
                         We are at the begining of the market, so we will set everyting to build the first candle.
@@ -652,47 +493,9 @@
                                         }
                                     }
 
-                                    /* Check if we are outside the currrent Month */
-
-                                    if (date.getUTCMonth() + 1 !== parseInt(month)) {
-
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> End of the month reached at date = " + date.toUTCString()); }
-
-                                        lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                                        writeStatusReport(lastHoleFixedFile, lastTradeFile, lastCandleClose, true, true, onStatusReportWritten);
-                                        return;
-
-                                        function onStatusReportWritten(err) {
-
-                                            try {
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> Entering function."); }
-
-                                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.stack);
-                                                    callBackFunction(err);
-                                                    return;
-                                                }
-
-                                                let customOK = {
-                                                    result: global.CUSTOM_OK_RESPONSE.result,
-                                                    message: "End of the month reached."
-                                                }
-                                                logger.write(MODULE_NAME, "[WARN] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> customOK = " + customOK.message);
-                                                callBackFunction(customOK);
-
-                                                return;
-                                            } catch (err) {
-                                                logger.write(MODULE_NAME, "[ERROR] start -> buildCandlesAndVolumes -> nextFile -> nextDate -> onStatusReportWritten -> err = " + err.stack);
-                                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                                return;
-                                            }
-                                        }
-                                    }
-
                                     /* Check if we have past the most recent hole fixed file */
 
-                                    if (date.valueOf() > lastFileWithoutHoles.valueOf()) {
+                                    if (date.valueOf() > lastTradeFileSaved.valueOf()) {
 
                                         writeFiles(lastHoleFixedFile, candles, volumes, false, onFilesWritten);
                                         return;
@@ -1062,7 +865,7 @@
                         return;
                     }
 
-                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion + "-" + year + "-" + month;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + bot.process + "-" + bot.dataSetVersion
                     let statusReport = statusDependencies.statusReports.get(key);
 
                     statusReport.file = {
@@ -1079,7 +882,6 @@
                             minutes: lastTradeFile.getUTCMinutes()
                         },
                         candleClose: candleClose,
-                        monthCompleted: isMonthComplete,
                         fileComplete: isFileComplete
                     };
 

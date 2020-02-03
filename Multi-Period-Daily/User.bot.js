@@ -28,7 +28,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, callBackFunction) {
 
         try {
 
@@ -121,7 +121,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     /* Second, we get the report from Bruce, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1" + "-" +  bot.processDatetime.getUTCFullYear() + "-" + utilities.pad(bot.processDatetime.getUTCMonth() + 1,2);
+                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1"  
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);

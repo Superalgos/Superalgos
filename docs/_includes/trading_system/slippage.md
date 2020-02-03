@@ -10,11 +10,35 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
@@ -23,6 +47,8 @@ In the context of forward testing and live trading sessions, slippage does not a
 Slippage is factored both in the session reports and in the graphic representation of each trade provided by the simulation trades product of the trading bot.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 

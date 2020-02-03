@@ -10,11 +10,35 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
@@ -23,6 +47,8 @@ In the context of backtesting sessions, what time frame you decide to run the se
 In the context of live sessions, that is, paper trading, forward testing and live trading, you should run the session on the ```01-min``` time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 

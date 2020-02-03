@@ -1,9 +1,9 @@
 
 body { 
-    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
     color: #111; 
     background-color: #fdfdfd; 
-    text-align: justify; 
+    /* text-align: justify; */
     -webkit-text-size-adjust: 100%; 
     -webkit-font-feature-settings: "kern" 1; 
     -moz-font-feature-settings: "kern" 1; 
@@ -46,7 +46,7 @@ p {
     color: #777;
 }
 .bs-callout-primary {
-    border-left-color: #428bca;
+    border-left-color: #ff8c29;
 }
 .bs-callout-primary h4 {
     color: #428bca;
@@ -495,6 +495,18 @@ figcaption {
 
 .preference {
     color: red;
+}
+
+table.definitionTable {
+    min-width: 100%;
+}
+
+table.definitionTable tbody tr td {
+    background-color: transparent;
+    padding: 15px;
+    margin: 0px;
+    border: 0px;
+    vertical-align: middle;
 }
 
 table.hierarchyTable {

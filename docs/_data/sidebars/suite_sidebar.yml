@@ -113,12 +113,12 @@ entries:
     output: web
     folderitems:
 
-    - title: Overview
-      url: /suite-trading-system-overview.html
+    - title: Defining a Trading System
+      url: /suite-defining-a-trading-system.html
       output: web
 
-    - title: Strategies
-      url: /suite-strategies.html
+    - title: Defining a Strategy
+      url: /suite-defining-a-trading-strategy.html
       output: web
 
     - title: Trading Sessions

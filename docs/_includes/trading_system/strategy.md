@@ -10,17 +10,41 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
-The definition of a strategy may be analyzed in three sections.
+The definition of a strategy may be analyzed in three sections:
 
-**"A strategy is a set of actions occurring in stages"** 
+{% include callout.html type="primary" content="<strong>A strategy is a set of actions occurring in stages</strong>" %}
 
 Strategies are defined in the following steps:
 
@@ -31,15 +55,17 @@ Strategies are defined in the following steps:
 
 These stages are played in a sequence: once a strategy is *triggered* it looks to *open* a position; once a position is open, it is time to *manage* it as the trade develops; and once a stop or take profit target is hit, it is time to *close* the position.
 
-**"designed to achieve a specific goal within a broader plan"**
+{% include callout.html type="primary" content="<strong>designed to achieve a specific goal within a broader plan</strong>" %}
 
 Your investment plan or trading carrer may have any number of goals (*e.g.: accumulating bitcoin, diversifying on a basket of coins, annual profit targets, etc.*). If you attempt to achieve two different goals with a single strategy, you may run into problems. It may be doable, but the strategy would certainly be more complex. In any case, the logical thing to do is to analyze each goal separately so that you can design at least one clear, straightforward strategy for each goal.
 
-**"via executing trades"**
+{% include callout.html type="primary" content="<strong>via executing trades</strong>" %}
 
 The definition of strategy points to the concept of *a trade*. A trade is a process that exchanges the base asset for the quoted asset and that—after some time, as the trade develops and targets are hit—exchanges back the quoted asset for the base asset. The first and foremost rule of a trade is to preserve capital and its main goal is to increase it.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 

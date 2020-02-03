@@ -10,11 +10,35 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
@@ -25,6 +49,8 @@ You use a trading system to define strategies following the trading framework im
 The concept of describing strategies in phases is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same logic, which contributes to developing scalable trading systems that may grow to any number of strategies.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 

@@ -10,11 +10,35 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
@@ -29,6 +53,8 @@ Formulas may use [internal variables](suite-internal-variables.html) made availa
 {% include note.html content="To learn which variables may be used in formulas, see the page about <a href='suite-sysntax-overview.html'>internal variables</a>." %}
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 
@@ -51,5 +77,17 @@ To add a formula, select *Add Formula* on the corresponding parent node menu.
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!-- CONFIGURING ends -->
+
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!-- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!-- STARTING ends -->
 
 {% endif %}

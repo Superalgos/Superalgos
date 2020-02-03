@@ -10,9 +10,35 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
+
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 **{{ definition }}**
 
@@ -31,6 +57,8 @@ The trade hits the take profit target above the Position Rate level, however, du
 In the context of forward testing and live trading sessions, the fee structure assumptions do not affect actual transactions. However, the parameter is taken into account when creating simulation layers, which are also available during forward testing and live trading.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 
@@ -70,5 +98,17 @@ Select *Configure Fee Structure* on the menu to access the configuration.
 {% include important.html content="Remember that, for the time being, and until the new execution engine is released, all orders placed by the trading bot are *market orders*, thus, the *taker* fee applies in all cases." %}
 
 <!-- CONFIGURING ends -->
+
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!-- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!-- STARTING ends -->
 
 {% endif %}

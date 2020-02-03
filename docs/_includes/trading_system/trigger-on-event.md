@@ -10,19 +10,45 @@
 {{include.heading}} {{title}}
 {% endif %}
 
-{% if include.icon != "no" %}
-<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% if include.icon != "no" %} 
+
+{% if include.table == "y" %}
+<table class="definitionTable"><tr><td>
 {% endif %}
 
-**{{ definition }}**
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+
+{% if include.table == "y" %}
+</td><td>
+{% endif %}
+
+{% endif %}
+
+{% if include.definition != "regular" %}
+
+<strong>{{ definition }}</strong>
+
+{% else %}
+
+{{ definition }}
+
+{% endif %}
+
+{% if include.table == "y" and include.icon != "no" %}
+</td></tr></table>
+{% endif %}
+
+{% if include.content != "n" %}
 
 <!-- CONTENT starts -->
 
 In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered.
 
-Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity of taking a position.
+Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity to take a position.
 
 <!-- CONTENT ends -->
+
+{% endif %}
 
 {% if include.adding != "" %}
 

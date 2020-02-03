@@ -19,24 +19,14 @@
 
     let processThisDependsOn;                       // This is the process this process needs to wait for it to finishes in order to start.
 
-    let month;
-    let year;
     let currentProcessKey
-    let datetimeForLogs = ''
 
     return thisObject;
 
-    function initialize(pMonth, pYear, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
-            month = pMonth;
-            year = pYear;
-
-            if (month && year) {
-                datetimeForLogs = "Month: " + month + " Year: " + year 
-            }
 
             let name = 'Not Depends on any Process'
 
@@ -51,9 +41,9 @@
 
                             name = processThisDependsOn.name
                             if (processThisDependsOn.code.monthlyInstances === true) {
-                                logger.fileName = MODULE_NAME + "." + name + "." + year + "." + month;
+                                logger.fileName = MODULE_NAME + "." + name;
                             }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + datetimeForLogs + " depends on " + name); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
                         }
                     }
                 }
@@ -79,8 +69,6 @@
                 /* This forces this process to wait until the process that this one depends on, emits its event signaling that the process execution has finished. */
 
                 let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
-                if (month) { extraCallerId = extraCallerId + '-' + month }
-                if (year) { extraCallerId = extraCallerId + '-' + year }
 
                 let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id
                 let callerId = bot.dataMine + "-" + bot.codeName + "-" + bot.process + extraCallerId
@@ -92,6 +80,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
 
                 global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
+                console.log("LISTENING TO EVENT:", 'Process Execution Finished', key)
 
                 function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -120,7 +109,7 @@
                         global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + datetimeForLogs + " Finished."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key  + " Finished."); }
                     }
 
                     callBackFunction(message.event.err);
@@ -134,7 +123,7 @@
                 global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started " + datetimeForLogs); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started " ); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
@@ -157,7 +146,9 @@
 
             global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " + datetimeForLogs); }
+            console.log("RAISING EVENT:", 'Process Execution Finished', currentProcessKey)
+
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " ); }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

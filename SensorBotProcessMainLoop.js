@@ -92,7 +92,7 @@
         }
     }
 
-    function run(pMonth, pYear, callBackFunction) {
+    function run(callBackFunction) {
 
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
@@ -150,7 +150,7 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(pMonth, 2) + "/" + pad(pYear, 4)
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " "  
                         + " Entered into Main Loop # " + pad(Number(bot.loopCounter), 8) + " bot.processDatetime = " + bot.processDatetime.toISOString());
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
@@ -173,7 +173,7 @@
 
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
 
-                            processExecutionEvents.initialize(pMonth, pYear, onInizialized);
+                            processExecutionEvents.initialize(onInizialized);
 
                             function onInizialized(err) {
 
@@ -321,7 +321,7 @@
 
                             statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
-                            statusDependencies.initialize(pMonth, pYear, onInizialized);
+                            statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
 
@@ -396,7 +396,7 @@
 
                             usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, fileStorage, STATUS_REPORT, exchangeAPI);
 
-                            usertBot.initialize(statusDependencies, pMonth, pYear, onInizialized);
+                            usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {
 
@@ -430,26 +430,6 @@
                                         case global.CUSTOM_OK_RESPONSE.result: {
 
                                             switch (err.message) {
-                                                case "Too far in the future.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeUserBot -> onInizialized > Too far in the future. This Loop will enter in coma.");
-                                                    nextWaitTime = 'Coma';
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                case "Not needed now, but soon.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeUserBot -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
-                                                    nextWaitTime = 'Normal';
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
@@ -548,36 +528,6 @@
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Dependency not ready. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                case "Month before it is needed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Month before it is needed. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return;
-                                                }
-                                                case "Month fully processed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Month fully processed. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return;
-                                                }
-                                                case "End of the month reached.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > End of the month reached. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 default: {

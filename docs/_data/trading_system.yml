@@ -1,4 +1,4 @@
-trading_system: "A trading system is a hierarchy that contains definitions regarding any number of trading strategies, all sharing the same market, the same base asset, and the same initial capital."
+trading_system: "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
 
 parameters: "Parameters are user definitions over several concepts. Parameters defined at the level of a session take precedence over parameters defined at the level of the trading system, which act as a fallback instance. The behavior of parameters may vary depending on the type of session."
 
@@ -44,7 +44,7 @@ initial_take_profit: "The initial take profit defines the initial target to take
 
 position_size: "The size of the position is the amount of capital that will go in the trade, denominated in the quoted asset. The position size node allows setting a size for the position using a formula."
 
-position_rate: "The position rate is the rate at which the position is taken, denominated in the quoted asset. The position rate node allows setting the desired position rate with a formula. However, the formula is overridden by the system as execution is currently limited to market orders until a more robust execution system is deployed. Therefore, the position rate is currently taken from the close value of the last candle."
+position_rate: "The position rate is the rate at which the position is taken, denominated in the quoted asset. The position rate node allows setting the desired position rate with a formula."
 
 open_execution: "Open execution is the node that will eventually hold the information regarding the execution of the trade opening orders."
 
@@ -59,3 +59,5 @@ take_profit: "Take profit node in the manage stage groups all phases managing ta
 close_stage: "Close stage is not developed yet. In the future, it will deal with the execution of the closing orders, trading log, and related matters."
 
 close_execution: "Close execution is the node that will eventually hold the information regarding the execution of the closing orders."
+
+event: "An event is an action triggered by predefined market situations."

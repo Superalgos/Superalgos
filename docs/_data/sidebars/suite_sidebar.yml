@@ -117,8 +117,16 @@ entries:
       url: /suite-trading-system-overview.html
       output: web
 
-    - title: Working with strategies
-      url: /suite-working-with-strategies.html
+    - title: Strategies
+      url: /suite-strategies.html
+      output: web
+
+    - title: Trading Sessions
+      url: /suite-trading-sessions.html
+      output: web
+
+    - title: Parameters
+      url: /suite-parameters.html
       output: web
 
   - title: Conditions & Formulas

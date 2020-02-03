@@ -1,0 +1,59 @@
+<!-- TITLE AND DEFINITION starts -->
+
+{% assign title = "Condition" %}
+{% assign definition = site.data.trading_system.condition %}
+{% assign preposition = "a" %}
+
+<!-- TITLE AND DEFINITION ends -->
+
+{% if include.heading != "" %}
+{{include.heading}} {{title}}
+{% endif %}
+
+{% if include.icon != "no" %}
+<img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
+{% endif %}
+
+**{{ definition }}**
+
+<!-- CONTENT starts -->
+
+Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken.
+
+**For example:**
+
+**Situation 1**
+
+* Condition A: ```chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage``` &#8594; This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average.
+
+* Condition B: ```chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage``` &#8594; This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.
+  
+In the example above, conditions A and B are comparison statements that may evaluate either _true_ or _false_. In the case both would evaluate _true_ then Situation 1 would be true as well.
+
+{% include note.html content="To learn how to write conditions, start with the <a href='suite-sysntax-overview.html'>Syntax Overview</a>." %}
+
+<!-- CONTENT ends -->
+
+{% if include.adding != "" %}
+
+{{include.adding}} Adding {{preposition}} {{title}}
+
+<!-- ADDING starts -->
+
+To add a condition, select *Add Condition* on the corresponding situation node menu. A condition with its JavaScript code node is added.
+
+<!-- ADDING ends -->
+
+{% endif %}
+
+{% if include.configuring != "" %}
+
+{{include.configuring}} Configuring the {{title}}
+
+<!-- CONFIGURING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!-- CONFIGURING ends -->
+
+{% endif %}

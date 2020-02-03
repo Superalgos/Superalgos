@@ -1,6 +1,6 @@
 ---
 title:  "Hierarchies"
-summary: "There are four different types of hierarchies: Trading Systems, Data Mines, Network, and Crypto Ecosystem."
+summary: "There are five different types of hierarchies: Charting System, Crypto Ecosystem, Trading Systems, Network, and Data Mines."
 sidebar: suite_sidebar
 permalink: suite-hierarchies.html
 ---
@@ -15,20 +15,18 @@ IMAGE
 
 {{site.data.charting_system.charting_system}}
 
+## Crypto Ecosystem
+
+{{site.data.crypto_ecosystem.crypto_ecosystem}}
+
 ## Trading System
 
 {{site.data.trading_system.trading_system}}
-
-## Data Mine
-
-{{site.data.data_mine.data_mine}}
 
 ## Network
 
 {{site.data.network.network}}
 
-## Crypto Ecosystem
+## Data Mine
 
-{{site.data.crypto_ecosystem.crypto_ecosystem}}
-
-
+{{site.data.data_mine.data_mine}}

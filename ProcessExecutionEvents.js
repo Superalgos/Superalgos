@@ -32,7 +32,8 @@
 
             if (bot.processNode.referenceParent !== undefined) {
 
-                currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id
+                let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
+                currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
 
                 if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
                     if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
@@ -70,7 +71,8 @@
 
                 let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
 
-                let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id
+                let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
+                let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + bot.exchange + "-" + market
                 let callerId = bot.dataMine + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
                 let subscriptionId
@@ -80,7 +82,6 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
 
                 global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
-                console.log("LISTENING TO EVENT:", 'Process Execution Finished', key)
 
                 function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -146,7 +147,6 @@
 
             global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
-            console.log("RAISING EVENT:", 'Process Execution Finished', currentProcessKey)
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " ); }
 

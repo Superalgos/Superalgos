@@ -53,7 +53,6 @@
     function initialize(callBackFunction) {
 
         try {
-            console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
 
             /* Global control of logging. */
 
@@ -159,7 +158,6 @@
             function getBotConfigFromFile() {
 
                 try {
-                    console.log(logDisplace + "Root : [INFO] start -> getBotConfigFromFile -> Entering function. ");
 
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
@@ -196,7 +194,6 @@
             function bootingBot(processIndex) {
 
                 try {
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Entering function. "); }
 
                     botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName
                     botConfig.debug = {};
@@ -251,9 +248,6 @@
                             }
                         }
                     }
-
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> filePathRoot = " + botConfig.filePathRoot); }
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Process found at the bot configuration file. -> process = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName); }
 
                     let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.code
 
@@ -335,7 +329,6 @@
                             if (processConfig.startMode.userDefined.run === "true") {
 
                                 botConfig.startMode = "User Defined";
-                                console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
 
                                 if (processConfig.startMode.userDefined.resumeExecution === true) {
                                     botConfig.hasTheBotJustStarted = false;
@@ -393,7 +386,6 @@
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
                                             console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
@@ -404,7 +396,6 @@
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
                                             console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                                             logger.persist();
                                         }
@@ -460,7 +451,7 @@
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+
                                             console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 

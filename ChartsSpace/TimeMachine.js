@@ -382,11 +382,11 @@ function newTimeMachine () {
   }
 
   function physics () {
+    saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
       thisObjectPhysics()
       childrenPhysics()
       syncWithDesigner()
-      saveFrame(thisObject.payload, thisObject.container.frame)
     }
     panelPhysics()
   }

@@ -22,7 +22,7 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    isTensed: TENSION_LEVEL.NO_TENSION,
+    tensionLevel: TENSION_LEVEL.NO_TENSION,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -139,7 +139,7 @@ function newFloatingObject () {
   }
 
   function getTensionStatus () {
-    return thisObject.isTensed
+    return thisObject.tensionLevel
   }
 
   function freezeToggle () {
@@ -165,25 +165,25 @@ function newFloatingObject () {
   }
 
   function tensionToggle () {
-    switch (thisObject.isTensed) {
+    switch (thisObject.tensionLevel) {
       case TENSION_LEVEL.NO_TENSION:
-        thisObject.isTensed = TENSION_LEVEL.LEVEL_360
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_360
         break
       case TENSION_LEVEL.LEVEL_360:
-        thisObject.isTensed = TENSION_LEVEL.LEVEL_180
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_180
         break
       case TENSION_LEVEL.LEVEL_180:
-        thisObject.isTensed = TENSION_LEVEL.LEVEL_90
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_90
         break
       case TENSION_LEVEL.LEVEL_90:
-        thisObject.isTensed = TENSION_LEVEL.LEVEL_45
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_45
         break
       case TENSION_LEVEL.LEVEL_45:
-        thisObject.isTensed = TENSION_LEVEL.NO_TENSION
+        thisObject.tensionLevel = TENSION_LEVEL.NO_TENSION
         break
     }
 
-    return thisObject.isTensed
+    return thisObject.tensionLevel
   }
 
   function physics () {
@@ -223,7 +223,7 @@ function newFloatingObject () {
   function tensionPhysics () {
     /* Tension Effect */
 
-    if (thisObject.isTensed !== TENSION_LEVEL.NO_TENSION) {
+    if (thisObject.tensionLevel !== TENSION_LEVEL.NO_TENSION) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
       if (parent.payload === undefined) { return }

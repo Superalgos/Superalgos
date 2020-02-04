@@ -57,12 +57,12 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
         floatingObject.collapseToggle()
       }
-      floatingObject.isTensed = payload.node.savedPayload.floatingObject.isTensed
+      floatingObject.tensionLevel = payload.node.savedPayload.floatingObject.tensionLevel
     }
 
     /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
-      floatingObject.isTensed = payload.parentNode.payload.floatingObject.isTensed
+      floatingObject.tensionLevel = payload.parentNode.payload.floatingObject.tensionLevel
     }
 
     let uiObject = newUiObject()
@@ -310,7 +310,7 @@ function newUiObjectConstructor () {
     switch (payload.node.type) {
       case 'Workspace': {
         level_0()
-        floatingObject.isTensed = TENSION_LEVEL.LEVEL_360
+        floatingObject.tensionLevel = TENSION_LEVEL.LEVEL_360
         break
       }
 

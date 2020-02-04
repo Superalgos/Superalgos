@@ -148,7 +148,7 @@ function newProtocolNode () {
         isPinned: node.payload.floatingObject.isPinned,
         isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
         isCollapsed: (node.payload.floatingObject.isCollapsed && node.payload.floatingObject.collapsedManually),
-        isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
+        isTensed: (node.payload.floatingObject.isTensed)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning,

@@ -22,7 +22,7 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    isTensed: false,
+    isTensed: TENSION_LEVEL.NO_TENSION,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -165,13 +165,24 @@ function newFloatingObject () {
   }
 
   function tensionToggle () {
-    if (thisObject.isTensed !== true) {
-      thisObject.isTensed = true
-      thisObject.tensedManually = true
-    } else {
-      thisObject.isTensed = false
-      thisObject.tensedManually = false
+    switch (thisObject.isTensed) {
+      case TENSION_LEVEL.NO_TENSION:
+        thisObject.isTensed = TENSION_LEVEL.LEVEL_360
+        break
+      case TENSION_LEVEL.LEVEL_360:
+        thisObject.isTensed = TENSION_LEVEL.LEVEL_180
+        break
+      case TENSION_LEVEL.LEVEL_180:
+        thisObject.isTensed = TENSION_LEVEL.LEVEL_90
+        break
+      case TENSION_LEVEL.LEVEL_90:
+        thisObject.isTensed = TENSION_LEVEL.LEVEL_45
+        break
+      case TENSION_LEVEL.LEVEL_45:
+        thisObject.isTensed = TENSION_LEVEL.NO_TENSION
+        break
     }
+
     return thisObject.isTensed
   }
 
@@ -212,7 +223,7 @@ function newFloatingObject () {
   function tensionPhysics () {
     /* Tension Effect */
 
-    if (thisObject.isTensed === true) {
+    if (thisObject.isTensed !== TENSION_LEVEL.NO_TENSION) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
       if (parent.payload === undefined) { return }

@@ -57,16 +57,12 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
         floatingObject.collapseToggle()
       }
-      if (payload.node.savedPayload.floatingObject.isTensed === true) {
-        floatingObject.tensionToggle()
-      }
+      floatingObject.isTensed = payload.node.savedPayload.floatingObject.isTensed
     }
 
     /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
-      if (payload.parentNode.payload.floatingObject.isTensed === true) {
-        floatingObject.tensionToggle()
-      }
+      floatingObject.isTensed = payload.parentNode.payload.floatingObject.isTensed
     }
 
     let uiObject = newUiObject()
@@ -146,8 +142,7 @@ function newUiObjectConstructor () {
         currentStatus: true,
         label: undefined,
         visible: true,
-        iconPathOn: 'menu-tensor-fixed-angles',
-        iconPathOff: 'menu-tensor-free-angles',
+        icons: ['menu-tensor-free-angles', 'menu-tensor-fixed-angles', 'menu-share', 'compass', 'broken-link'],
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
@@ -315,6 +310,7 @@ function newUiObjectConstructor () {
     switch (payload.node.type) {
       case 'Workspace': {
         level_0()
+        floatingObject.isTensed = TENSION_LEVEL.LEVEL_360
         break
       }
 

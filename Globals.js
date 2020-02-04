@@ -51,6 +51,14 @@ const GET_CONTAINER_PURPOSE = {
   DRAGGING: 4
 }
 
+const TENSION_LEVEL = {
+  NO_TENSION: 0,
+  LEVEL_360: 1,
+  LEVEL_180: 2,
+  LEVEL_90: 3,
+  LEVEL_45: 4
+}
+
 /* User Interface Panels */
 
 UI_PANEL = {

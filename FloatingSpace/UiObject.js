@@ -864,7 +864,7 @@ function newUiObject () {
             /* Target Line */
 
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
-      if (thisObject.payload.floatingObject.isTensed === true) {
+      if (thisObject.payload.floatingObject.isTensed !== TENSION_LEVEL.NO_TENSION) {
         LINE_STYLE = UI_COLOR.GOLDEN_ORANGE
       }
       if (thisObject.payload.floatingObject.isFrozen === true) {

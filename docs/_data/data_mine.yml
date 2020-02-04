@@ -12,7 +12,7 @@ process_dependencies: "Process dependencies are references to various data struc
 
 status_dependency: "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
 
-data_dependency: "Data dependencies are references established with other bot's dataset definitions, determining which datasets the process establishing the reference uses as input."
+data_dependency: "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input."
 
 status_report: "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process."
 

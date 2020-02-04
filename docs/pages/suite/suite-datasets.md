@@ -9,7 +9,7 @@ Bots have two types of outputs: datasets, and status reports.
 
 ## Datasets File Formats
 
-Bots store data in the form of arrays of records, in a minimized plain text file with in the standard JSON format, although not as objects with named properties, but as arrays.
+Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays.
 
 [![image](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)
 

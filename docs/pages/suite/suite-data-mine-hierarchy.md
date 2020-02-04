@@ -1093,7 +1093,7 @@ Most bots consume data other bots have produced. Because bots need the data as i
 
 [![Indicators-Process-Dependencies-02](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)
 
-In the image above shows data dependencies in one bot referencing dataset definitions of another bot.
+The image above shows data dependencies in one bot referencing dataset definitions of another bot.
 
 ### Adding a Data Dependency
 
@@ -1160,7 +1160,7 @@ To add an execution started event, select *Add Missing Items* on the process def
 
 execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
 
-The execution finished event is responsible for triggering the execution of every processes that depends on the data a bot produces. If bot A depends on bot B, bot A will listen to the execution finished event of bot B so that it may start a new execution cycle as soon as B finishes its cycle. Bot A listens to bot B's execution finished event by establishing a reference from its execution started event.
+The execution finished event is responsible for triggering the execution of every processes that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice will listen to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event.
 
 [![Indicators-Process-Execution-Started-Finished-Events-01](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)
 
@@ -1174,8 +1174,6 @@ To add an execution finished event, select *Add Missing Items* on the process de
 
 
 
-
-
 ## Product Definition
 
 <img src='images/icons/150-product-definition.png' />
@@ -1183,6 +1181,31 @@ To add an execution finished event, select *Add Missing Items* on the process de
 **{{site.data.data_mine.product_definition}}**
 
 product_definition: "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
+
+A bot may feature multiple products, thus, there may be multiple product definitions. There are three main aspects that need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated.
+
+### Adding a Product Definition
+
+To add a product definition, select *Add Product Definition* on the bot's node menu. A product definition is created along with the basic structure of nodes required to make up a product.
+
+### Configuring a Product Definition
+
+Select *Configure Product* on the menu to access the configuration.
+
+```json
+{
+  "codeName": "New-Product-Name",
+  "singularVariableName": "newProductName",
+  "pluralVariableName": "newProductNames"
+}
+```
+
+* ```codeName``` is the name of the product as it is used within the bot's code.
+
+* ```singularVariableName``` is the singular form of the name of the variable representing the product, as it will later be used on strategies (*i.e.:* ```bollingerChannel.direction```, where *bollingerChannel* is the name of the product as defined in its configuration and *direction* is the name of the property.
+
+* ```pluralVariableName``` is the plural form of the variable.
+
 
 
 
@@ -1196,6 +1219,56 @@ product_definition: "The product definition node holds all definitions that make
 
 dataset_definition: "A dataset definition contains a configuration file that defines all aspects of the dataset. There are two types of dataset definitions: multi period market and multi period daily."
 
+A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions.
+
+### Adding a Dataset Definition
+
+To add a dataset definition, select *Add Dataset Definition* on the bot's node menu.
+
+### Configuring a Dataset Definition
+
+Select *Configure Definition* on the menu to access the configuration.
+
+**Multi-Period-Market:**
+
+```json
+{
+  "codeName": "Multi-Period-Market",
+  "type": "Market Files",
+  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+  "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Market/@Period",
+  "fileName": "@BaseAsset_@QuotedAsset.json"
+}
+```
+
+**Multi-Period-Daily:**
+
+```json
+{
+  "codeName": "Multi-Period-Daily",
+  "type": "Daily Files",
+  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+  "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+  "fileName": "@BaseAsset_@QuotedAsset.json",
+  "dataRange": {
+    "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Daily",
+    "fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+  }
+}
+```
+
+
+* ```codeName``` is the name of the dataset as used within the code.
+
+* ```type``` refers to the type of dataset; possible values are ```Market Files``` and ```Daily Files```.
+
+* ```validPeriods``` refers to the time frames handled by the dataset.
+
+* ```filePath``` sets the path on which files will be stored; make sure you replace the values corresponding to your data mine, bot and product.
+
+* ```fileName``` sets the name of the files that constitute the dataset.
+
+
 
 
 
@@ -1208,6 +1281,21 @@ dataset_definition: "A dataset definition contains a configuration file that def
 
 record_definition: "The record definition is where indicators define how many fields, what fields and in which order those fields will be stored in each record."
 
+Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays.
+
+[![image](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)
+
+The choice of plain text for storage of large volumes of information has benefits in terms of not requireing any sophisticated technology to store and serve the data (*i.e.:* no database is required).
+
+Best practice indicates that there needs to be a balance between the amount of data that is stored and calculations that may be performed at runtime.
+
+Storing objects with named properties in the JSON format would be innapropriate as labels would repeat over and over, creating ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the manipulatioon of files in the context of JavaScript and Node.JS.
+
+### Adding a Record Definition
+
+To add a record definition node, select *Add Record Definition* on the product definition node menu. A record definition node is created along with the first record property.
+
+
 
 
 
@@ -1219,6 +1307,34 @@ record_definition: "The record definition is where indicators define how many fi
 **{{site.data.data_mine.record_property}}**
 
 record: "A record is the compendium of information stored for each period of time, including the start and end datetime of the period along with the properties that provide the information the indicator is meant to generate."
+
+Records may have as many properties as required. The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record.
+
+### Adding a Record Property
+
+To add a record property, select *Add Record Property* on the bot's node menu.
+
+### Configuring a Record Property
+
+Select *Configure Property* on the menu to access the configuration.
+
+```js
+{
+  "codeName": "begin",
+  "isString": false,
+  "isCalculated": true
+}
+```
+
+* ```codeName``` is the name of the record as it is used in the bot's code. Most record definitions will have a *begin* date and an *end* date. 
+
+* ```isString``` determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the *epoch* format, which is numeric. The reason why this configuration is important is because fields which are strings need to be stored between "double quotes".
+
+* ```isCalculated``` determines if the field is stored in the dataset or if, instead, is calculated at a later stage, as explained in the *input to output cycle* earlier. A value *true* means that the record is not stored. In  the case ```isCaculated``` is not defined in the configuration, it is assumed to be false.
+
+[![Indicators-Record-Definitions-01](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)
+
+The image above shows the four different record properties defined for Paula's Bollinger Standard Channels product.
 
 
 

@@ -20,7 +20,7 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencies, callBackFunction) {
 
         try {
 

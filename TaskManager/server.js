@@ -32,7 +32,7 @@ function bootLoader() {
 }
 
 function runTask(message) {
-    console.log('[INFO] Task Manager -> server -> runTask -> Entering function.') 
+    //console.log('[INFO] Task Manager -> server -> runTask -> Entering function.') 
 
     if (message.event === undefined) {
         console.log('[WARN] Task Manager -> server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message))
@@ -49,8 +49,8 @@ function runTask(message) {
         return
     }
 
-    console.log('[INFO] Task Manager -> server -> runTask -> Task Name = ' + message.event.taskName)
-    console.log('[INFO] Task Manager -> server -> runTask -> Task Id = ' + message.event.taskId) 
+    //console.log('[INFO] Task Manager -> server -> runTask -> Task Name = ' + message.event.taskName)
+    //console.log('[INFO] Task Manager -> server -> runTask -> Task Id = ' + message.event.taskId) 
 
     let path = process.env.TASK_SERVER_PATH + '/server.js'
 
@@ -77,22 +77,22 @@ function runTask(message) {
         console.log(`[ERROR] Task Manager -> server -> runTask -> Task Manager exited with error ${err}`)
     })
     task.childProcess.on('close', (code, signal) => {
-        console.log('[INFO] Task Manager -> server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
-        console.log('[INFO] Task Manager -> server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
+        //console.log('[INFO] Task Manager -> server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
+        //console.log('[INFO] Task Manager -> server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
         tasks.delete(task.id)
     })
 
     setTimeout(sendStartingEvent, 3000)
 
     function sendStartingEvent() {
-        console.log('[INFO] Task Manager -> server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
+        //console.log('[INFO] Task Manager -> server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
         global.SYSTEM_EVENT_HANDLER.raiseEvent('Task Server - ' + task.id, 'Run Task', message.event)
     }
 }
 
 function stopTask(message) {
 
-    console.log('[INFO] Task Manager -> server -> stopTask -> Entering function.')
+    //console.log('[INFO] Task Manager -> server -> stopTask -> Entering function.')
 
     if (message.event === undefined) {
         console.log('[WARN] Task Manager -> server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message))
@@ -104,14 +104,14 @@ function stopTask(message) {
         return
     }
 
-    console.log('[INFO] Task Manager -> server -> stopTask -> Task Name = ' + message.event.taskName)
-    console.log('[INFO] Task Manager -> server -> stopTask -> Task Id = ' + message.event.taskId) 
+    //console.log('[INFO] Task Manager -> server -> stopTask -> Task Name = ' + message.event.taskName)
+    //console.log('[INFO] Task Manager -> server -> stopTask -> Task Id = ' + message.event.taskId) 
 
     let task = tasks.get(message.event.taskId)
 
     if (task) {
         task.childProcess.send('Stop this Task');
-        console.log('[INFO] Task Manager -> server -> stopTask -> Child Process instructed to finish.')
+        //console.log('[INFO] Task Manager -> server -> stopTask -> Child Process instructed to finish.')
     } else {
         console.log('[WARN] Task Manager -> server -> stopTask -> Cannot delete Task that does not exist.')
     }

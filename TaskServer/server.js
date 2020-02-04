@@ -50,7 +50,7 @@ process.on('exit', function (code) {
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
 
-    console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
+    //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
 /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
@@ -63,7 +63,8 @@ process.on('message', message => {
         There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
         In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
         */
-        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minute.')
+        let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+        console.log('[INFO] Task Server -> server -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
         setTimeout(global.EXIT_NODE_PROCESS, 60000);
     } 
 });
@@ -81,7 +82,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
-    console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
+    //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
 
     setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
 }
@@ -119,7 +120,7 @@ function preLoader() {
     if (taskId !== undefined) {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
-            console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
+            //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
             global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
             function eventReceived(message) {
                 global.TASK_NODE = message
@@ -133,7 +134,7 @@ function preLoader() {
     }
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
         try { 
-            console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
+            //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
@@ -247,7 +248,7 @@ function bootLoader() {
 
 function startRoot(processIndex) {
 
-    console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
+   // console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_MODULE = require('./Root')
     let root = ROOT_MODULE.newRoot()
@@ -255,7 +256,7 @@ function startRoot(processIndex) {
     root.initialize(onInitialized)
 
     function onInitialized() {
-        console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
+        //console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
         root.start(processIndex)
     }
 }

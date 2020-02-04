@@ -37,10 +37,12 @@ exports.newDebugLog = function newDebugLog() {
         }
     }
 
-    function newInternalLoop(pBot, pProcess) {
+    function newInternalLoop(pBot, pProcess, date) {
 
+        if (date === undefined) { date = thisObject.bot.processDatetime }
 
-        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 4) + " bot.processDatetime = " + thisObject.bot.processDatetime.toISOString());
+        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10)
+            + "      Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date.toISOString(), 30))  
 
         persist();
 

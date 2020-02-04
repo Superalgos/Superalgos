@@ -795,7 +795,7 @@ toc: false
 
 In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators and plotters, with minimal coding required.
 
-Because the hierachy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instanciated from the Network hierarchy by bot instances.
+Because the hierachy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instanciated from the Network hierarchy by bot instances. Bot instances and process instances are the ones actually running the code according to the definitions in the corresponding data mine.
 
 ### Adding a Data Mine
 
@@ -827,7 +827,7 @@ Select *Configure Data Mine* on the menu to access the configuration.
 
 indicator_bot: "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume. "
 
-The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Part of that output are data products.
+The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Part of that output are the data products the bot creates.
 
 ### Adding an Inidicator Bot
 
@@ -997,6 +997,10 @@ There are other effects of establishing a reference from the output dataset to a
 
 An example of other entities that may be listening to such events is that of plotters. Plotters read datasets and create graphical representations of this data over the charts. You surely have noticed that the charts are constantly updating the information in form of candles and indicators in realtime, syncronized with the data being extracted from the exchange by the sensor bot. That kind of automatism is possible thanks to the events processes trigger every time an execution cycle is finished, signaling to everyone listening that new data is available on each of the impacted datasets.
 
+[![Indicators-Process-Output-01](https://user-images.githubusercontent.com/13994516/68976798-f01cf400-07f6-11ea-9ffb-198b5853a220.gif)](https://user-images.githubusercontent.com/13994516/68976798-f01cf400-07f6-11ea-9ffb-198b5853a220.gif)
+
+The image above shows the typical references from output datasets to datasets definitions.
+
 ### References
 
 An output dataset must reference a dataset definition.
@@ -1021,6 +1025,13 @@ To add an output dataset, select *Add Output Dataset* on the process output node
 
 process_dependencies: "Process dependencies are references to various data structures on which the process depends to function."
 
+While processes run autonomously, most process participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce.
+
+### Adding Process Dependencies
+
+To add a process dependencies node, select *Add Missing Items* on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
+
+
 
 
 
@@ -1031,7 +1042,40 @@ process_dependencies: "Process dependencies are references to various data struc
 
 **{{site.data.data_mine.status_dependency}}**
 
-status_dependency: "Status dependencies define which other processes the process depends on."
+status_dependency: "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
+
+The reference is established so as to aquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file it processed.
+
+The status report referenced may belong to the same process&mdash;what is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process&mdash;another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types.
+
+* **Self Reference** is mandatory, as a process will always need to read it's own status report every time it weaks up.
+
+* **Market Starting Point** is a status dependency existing on Multi-Period-Daily processes so that the process establishing teh reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-Trades process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their own dataset (a single file with all market data).
+
+* **Market Ending Point** is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market.
+
+[![Indicators-Process-Dependencies-01](https://user-images.githubusercontent.com/13994516/68991956-dfa36280-0864-11ea-87ec-f0e4e3b7bf0f.gif)](https://user-images.githubusercontent.com/13994516/68991956-dfa36280-0864-11ea-87ec-f0e4e3b7bf0f.gif)
+
+The image above shows a case of a self-reference status dependency as well as a market ending point status dependency.
+
+### Adding a Status Dependency
+
+To add a status dependecy, select *Add Status Dependency* on the process dependencies node menu.
+
+{% include note.html content="Remember to configure the new status dependency, and to establish a reference to the appropriate status report." %}
+
+### Configuring a Status Dependency
+
+Select *Configure Status Dependency* on the menu to access the configuration.
+
+```json
+{ 
+"mainUtility": "Self Reference|Market Starting Point|Market Ending Point"
+}
+```
+
+* ```mainUtility``` determines the type of status dependency, with possible values being ```Self Reference```, ```Market Starting Point```, or ```Market Ending Point```.
+
 
 
 
@@ -1043,7 +1087,20 @@ status_dependency: "Status dependencies define which other processes the process
 
 **{{site.data.data_mine.data_dependency}}**
 
-data_dependency: "Data dependencies define which datasets the processes uses as input."
+data_dependency: "Data dependencies are references established with other bot's dataset definitions, determining which datasets the process establishing the reference uses as input."
+
+Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations.
+
+[![Indicators-Process-Dependencies-02](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)
+
+In the image above shows data dependencies in one bot referencing dataset definitions of another bot.
+
+### Adding a Data Dependency
+
+To add a data dependency, select *Add Data Dependency* on the process dependencies node menu.
+
+{% include note.html content="Remember to establish a reference to the appropriate dataset definition." %}
+
 
 
 
@@ -1057,6 +1114,16 @@ data_dependency: "Data dependencies define which datasets the processes uses as 
 
 status_report: "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process."
 
+Bots do not run continuosly. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record it processed.
+
+A status report may be consumed by the same bot producing it, or by other bots.
+
+### Adding a Status Report
+
+To add a status report, select *Add Missing Items* on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
+
+
+
 
 
 
@@ -1069,6 +1136,18 @@ status_report: "Status reports serve as temporal annotations that bots read ever
 
 execution_started_event: "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on."
 
+These references determine when a process is due for another run. By listening to the execution finished event of the process it depends on, it may wake up just in time to process the new batch of data the dependency has just delivered.
+
+Bots form a sort of multi-branched execution sequence with an indeterminate number of dependencies. Every time the bot further down the tree of dependencies finishes a cycle, it triggers the execution of multiple bots listening to its execution finished event.
+
+### Adding an Execution Started Event
+
+To add an execution started event, select *Add Missing Items* on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
+
+{% include note.html content="Remember to establish a reference to the appropriate execution fisnihed event." %}
+
+
+
 
 
 
@@ -1079,7 +1158,19 @@ execution_started_event: "The execution started event is the event that triggers
 
 **{{site.data.data_mine.execution_finished_event}}**
 
-execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cylce. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+
+The execution finished event is responsible for triggering the execution of every processes that depends on the data a bot produces. If bot A depends on bot B, bot A will listen to the execution finished event of bot B so that it may start a new execution cycle as soon as B finishes its cycle. Bot A listens to bot B's execution finished event by establishing a reference from its execution started event.
+
+[![Indicators-Process-Execution-Started-Finished-Events-01](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)
+
+The image above shows a reference established from the execution started event of a process to the execution finished event of another process.
+
+### Adding an Execution Finished Event
+
+To add an execution finished event, select *Add Missing Items* on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
+
+
 
 
 

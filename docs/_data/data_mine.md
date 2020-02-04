@@ -10,15 +10,15 @@ output_dataset: "The output dataset is a reference to a dataset definition. By e
 
 process_dependencies: "Process dependencies are references to various data structures on which the process depends to function."
 
-status_dependency: "Status dependencies define which other processes the process depends on."
+status_dependency: "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
 
-data_dependency: "Data dependencies define which datasets the processes uses as input."
+data_dependency: "Data dependencies are references established with other bot's dataset definitions, determining which datasets the process establishing the reference uses as input."
 
 status_report: "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process."
 
 execution_started_event: "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on."
 
-execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cylce. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
 
 product_definition: "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
 
@@ -70,4 +70,4 @@ style_condition: "A style condition is a rule that allows applying an alternativ
 
 polygon_body: "A polygon body is is the fill of a shape made out of at least 3 vertices."
 
-pending: "daily files, market files and so on, "
+pending: "daily files, market files and so on, Multi-Period-Daily, Multi-Period-Market"

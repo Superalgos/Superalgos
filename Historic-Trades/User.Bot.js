@@ -199,7 +199,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         let processingDate = new Date(since)
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit ) }
-                        //console.log("Charly -> " + MODULE_NAME + " -> start -> getTrades -> Fetching Trades from " + bot.exchange + " " + symbol + " @ " + processingDate + " collecting " + allTrades.length + " records trades so far.")
                         bot.processHeartBeat("Fetching " + allTrades.length.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         if (fetchType === "by Id") {
@@ -237,6 +236,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 }
                                 lastTradeKey = tradeKey
                             }
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
+                            bot.processHeartBeat("Fetching " + allTrades.length.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         } else {
                             break
@@ -288,14 +290,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             lastId = record[4]
                         }
 
+                        let processingDate = new Date(trade.timestamp)
+                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+
                         /* Reporting we are doing well */
                         heartBeatCounter--
                         if (heartBeatCounter <= 0) {
                             heartBeatCounter = 1000
-                            let processingDate = new Date(trade.timestamp)
-                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
-                            //console.log("Charly -> " + MODULE_NAME + " -> start -> saveTrades -> Saving Trades from " + bot.exchange + " " + symbol + " @ " + processingDate)
+                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
                             bot.processHeartBeat("Saving " + i.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                         }
 
@@ -330,6 +332,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                     createMissingEmptyFiles(currentRecordMinute, currentTimeMinute)
                                 }
                             }
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveTrades -> Saving Trades  @ " + processingDate + " -> i = " + i + " -> total = " + allTrades.length) }
+                            bot.processHeartBeat("Saving " + i.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+
                             return
                         }
                         previousRecordMinute = currentRecordMinute

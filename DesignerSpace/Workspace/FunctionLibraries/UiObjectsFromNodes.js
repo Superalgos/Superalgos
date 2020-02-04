@@ -13,7 +13,7 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function recreateWorkspace (node) {
+  function recreateWorkspace (node, replacingCurrentWorkspace) {
     mapOfNodes = new Map()
     tasksToRun = []
 
@@ -28,7 +28,11 @@ function newUiObjectsFromNodes () {
 
     tryToConnectChildrenWithReferenceParents()
 
-    setTimeout(runTasks, 70000) // We need to wait all tasks that were potentially running to stop
+    if (replacingCurrentWorkspace === true) {
+      setTimeout(runTasks, 70000) // We need to wait all tasks that were potentially running to stop
+    } else {
+      runTasks()
+    }
   }
 
   function runTasks () {

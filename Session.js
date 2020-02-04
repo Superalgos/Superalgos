@@ -44,6 +44,7 @@
             return
 
             function runSession(message) {
+                if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
                 /* We are going to run the Definition comming at the event. */
                 bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)

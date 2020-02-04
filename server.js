@@ -40,9 +40,8 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 process.on('exit', function (code) {
-
+    
     /* We send an event signaling that the Task is being terminated. */
-
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Task Stopped

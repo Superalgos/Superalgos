@@ -208,7 +208,7 @@
 
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
 
-                            processExecutionEvents.initialize(undefined, undefined, onInizialized);
+                            processExecutionEvents.initialize(onInizialized);
 
                             function onInizialized(err) {
 
@@ -356,7 +356,7 @@
 
                             statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES);
 
-                            statusDependencies.initialize(undefined, undefined, onInizialized);
+                            statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
 

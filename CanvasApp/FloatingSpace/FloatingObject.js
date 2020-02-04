@@ -22,7 +22,7 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    isTensed: false,
+    tensionLevel: TENSION_LEVEL.NO_TENSION,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -139,7 +139,7 @@ function newFloatingObject () {
   }
 
   function getTensionStatus () {
-    return thisObject.isTensed
+    return thisObject.tensionLevel
   }
 
   function freezeToggle () {
@@ -165,14 +165,25 @@ function newFloatingObject () {
   }
 
   function tensionToggle () {
-    if (thisObject.isTensed !== true) {
-      thisObject.isTensed = true
-      thisObject.tensedManually = true
-    } else {
-      thisObject.isTensed = false
-      thisObject.tensedManually = false
+    switch (thisObject.tensionLevel) {
+      case TENSION_LEVEL.NO_TENSION:
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_360
+        break
+      case TENSION_LEVEL.LEVEL_360:
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_180
+        break
+      case TENSION_LEVEL.LEVEL_180:
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_90
+        break
+      case TENSION_LEVEL.LEVEL_90:
+        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_45
+        break
+      case TENSION_LEVEL.LEVEL_45:
+        thisObject.tensionLevel = TENSION_LEVEL.NO_TENSION
+        break
     }
-    return thisObject.isTensed
+
+    return thisObject.tensionLevel
   }
 
   function physics () {
@@ -212,7 +223,7 @@ function newFloatingObject () {
   function tensionPhysics () {
     /* Tension Effect */
 
-    if (thisObject.isTensed === true) {
+    if (thisObject.tensionLevel !== TENSION_LEVEL.NO_TENSION && thisObject.isOnFocus !== true) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
       if (parent.payload === undefined) { return }
@@ -223,6 +234,22 @@ function newFloatingObject () {
       let axisCount = parentChildren.childrenCount
       let axisIndex = parentChildren.childIndex
       let baseAngle = 0
+      let tensionLevelAngle
+
+      switch (thisObject.tensionLevel) {
+        case TENSION_LEVEL.LEVEL_360:
+          tensionLevelAngle = 360
+          break
+        case TENSION_LEVEL.LEVEL_180:
+          tensionLevelAngle = 180
+          break
+        case TENSION_LEVEL.LEVEL_90:
+          tensionLevelAngle = 90
+          break
+        case TENSION_LEVEL.LEVEL_45:
+          tensionLevelAngle = 45
+          break
+      }
 
       if (axisIndex === undefined) {
         axisCount = 1
@@ -242,9 +269,10 @@ function newFloatingObject () {
         }
       }
 
-      let angleStep = 360 / axisCount
+      let separatorAngle = (360 - tensionLevelAngle) / 2
+      let angleStep = tensionLevelAngle / axisCount
 
-      thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
+      thisObject.payload.angle = baseAngle + separatorAngle + (axisIndex - 1) * angleStep
       if (thisObject.payload.angle >= 360) {
         thisObject.payload.angle = thisObject.payload.angle - 360
       }

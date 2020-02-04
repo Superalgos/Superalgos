@@ -145,7 +145,7 @@ function newNodeCloning () {
         isPinned: node.payload.floatingObject.isPinned,
         isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
         isCollapsed: (node.payload.floatingObject.isCollapsed && node.payload.floatingObject.collapsedManually),
-        isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
+        tensionLevel: (node.payload.floatingObject.tensionLevel)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning,

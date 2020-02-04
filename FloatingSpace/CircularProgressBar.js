@@ -23,13 +23,13 @@ function newCircularProgressBar () {
 
   let opacityCounters = []
 
-  let eventSubscriptionHeartbeat
+  let eventSubscriptionIdHeartbeat
 
   return thisObject
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionHeartbeat)
+    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
 
     thisObject.container = undefined
     thisObject.payload = undefined
@@ -52,6 +52,8 @@ function newCircularProgressBar () {
   }
 
   function onHeartBeat (message) {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.uiObject === undefined) { return }
     opacityCounters[message.event.seconds] = 2000
     thisObject.payload.uiObject.setValue(message.event.processingDate)
   }

@@ -94,9 +94,16 @@ function newUiObject () {
   let currentValue = 0
   let rightDragging = false
 
+  let eventSubscriptionIdHeartbeat
+  let eventSubscriptionIdOnStopped
+
   return thisObject
 
   function finalize () {
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+    systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
@@ -589,11 +596,19 @@ function newUiObject () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to the event that the execution was terminated in order to call back the menu item */
+    /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onRunning)
+    systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, 'UiObject', onResponse, onHeartBeat)
 
-    function onRunning () {
+    function onResponse (message) {
+      eventSubscriptionIdHeartbeat = message.eventSubscriptionId
+    }
+
+    function onHeartBeat () {
+      if (thisObject.payload === undefined) { return }
+      let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
@@ -621,9 +636,14 @@ function newUiObject () {
   function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onStopped)
+    systemEventHandler.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
+
+    function onResponse (message) {
+      eventSubscriptionIdOnStopped = message.eventSubscriptionId
+    }
 
     function onStopped () {
+      if (thisObject.payload === undefined) { return }
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
       }

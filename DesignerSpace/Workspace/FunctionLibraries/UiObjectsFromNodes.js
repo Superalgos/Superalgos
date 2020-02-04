@@ -9,11 +9,13 @@ function newUiObjectsFromNodes () {
 
   let mapOfReferenceChildren = new Map()
   let mapOfNodes
+  let tasksToRun
 
   return thisObject
 
   function recreateWorkspace (node) {
     mapOfNodes = new Map()
+    tasksToRun = []
 
    /* Create the workspace UI OBject and then continue with the root nodes. */
     createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
@@ -25,6 +27,16 @@ function newUiObjectsFromNodes () {
     }
 
     tryToConnectChildrenWithReferenceParents()
+
+    setTimeout(runTasks, 70000) // We need to wait all tasks that were potentially running to stop
+  }
+
+  function runTasks () {
+    for (let i = 0; i < tasksToRun.length; i++) {
+      let node = tasksToRun[i]
+      node.payload.uiObject.menu.internalClick('Run Task')
+    }
+    tasksToRun = undefined
   }
 
   function tryToConnectChildrenWithReferenceParents () {
@@ -362,5 +374,11 @@ function newUiObjectsFromNodes () {
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
     mapOfNodes.set(node.id, node)
+
+    if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
+      if (node.savedPayload.uiObject.isRunning === true) {
+        tasksToRun.push(node)
+      }
+    }
   }
 }

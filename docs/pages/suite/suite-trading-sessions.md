@@ -5,6 +5,8 @@ sidebar: suite_sidebar
 permalink: suite-trading-sessions.html
 ---
 
+{{site.data.network.session}}
+
 {% include /network/backtesting-session.md heading="##" icon="150-" adding="" configuring="" starting="" content="n" definition="regular" table="y" %}
 
 {% include /network/paper-trading-session.md heading="##" icon="150-" adding="" configuring="" starting="" content="n" definition="regular" table="y" %}

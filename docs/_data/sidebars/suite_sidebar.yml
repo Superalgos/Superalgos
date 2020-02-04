@@ -109,7 +109,7 @@ entries:
       url: /suite-references.html
       output: web
       
-  - title: Trading System
+  - title: Trading Concepts
     output: web
     folderitems:
 

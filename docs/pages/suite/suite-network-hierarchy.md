@@ -55,11 +55,11 @@ toc: false
 
 You will use the network hierarchy for three main purposes:
 
-* To control processes running sensor and indicator bots. These keep your data feeds up to date so that you may trade live.
+* To control processes running sensor and indicator bots. These keep your data feeds and analysis up to date so that you may trade live with quality information.
 
-* To control sessions.
+* To control trading sessions including backtesting, paper trading, forward testing, and live trading sessios.
 
-* To set up which data products will be made available to your strategies, and for visualization purposes on the charts.
+* To administer the physical location in which the data products produced by bots reside.
 
 
 

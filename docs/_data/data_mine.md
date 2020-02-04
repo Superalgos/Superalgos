@@ -1,12 +1,12 @@
-data_mine: "A data mine is a hierarchy that contains definitions regarding sensor bots, indicator bots, and plotters, which extract data from third-party sources, process data, and produce the visualization of data over the charts, respectively."
+data_mine: "A data mine is a hierarchy that contains definitions regarding bots, including the trading bot, sensors, indicators, and even plotters. These definitions make up the actual programs of such bots&mdash;the source code."
 
-indicator_bot: "An indicator bot is an algorithm that processes available information that other bots may have generated, and produces elaborate datasets for others to consume. The indicator bot node holds all definitions required for an indicator bot to function."
+indicator_bot: "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume. "
 
 process_definition: "The process definition node groups all definitions required for a process to function. The Multi Period Market Process deals with time frames of one hour and above. The Multi Period Daily Process deals with time frames of 45 minutes and below."
 
-process_output: "The process output defines which datasets are impacted by the process."
+process_output: "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building."
 
-output_dataset: "The output data set is a reference to a dataset definition. The effect of establishing a reference from the output dataset to a product dataset definition is that—upon execution, every time the process finishes a processing cycle—the process triggers an event that may be consumed by other entities. These events indicate that the corresponding datasets (the ones impacted by the process as per the process output definition) have been updated."
+output_dataset: "The output dataset is a reference to a dataset definition. By establishing such reference, the process acquires the definitions as of how the dataset is to be constructed."
 
 process_dependencies: "Process dependencies are references to various data structures on which the process depends to function."
 
@@ -69,3 +69,5 @@ style: "A style is a definition of color and opacity in case of a polygon body, 
 style_condition: "A style condition is a rule that allows applying an alternative style in cases where the rule validates true."
 
 polygon_body: "A polygon body is is the fill of a shape made out of at least 3 vertices."
+
+pending: "daily files, market files and so on, "

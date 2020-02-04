@@ -1,4 +1,4 @@
-data_mine: "A data mine is a hierarchy that contains definitions regarding sensor bots, indicator bots, and plotters, which extract data from third-party sources, process data, and produce the visualization of data over the charts, respectively."
+data_mine: "A data mine is a hierarchy that contains definitions regarding bots, including the trading bot, sensors, indicators, and even plotters. These definitions make up the actual programs of such bots&mdash;the source code."
 
 indicator_bot: "An indicator bot is an algorithm that processes available information that other bots may have generated, and produces elaborate datasets for others to consume. The indicator bot node holds all definitions required for an indicator bot to function."
 

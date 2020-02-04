@@ -53,7 +53,6 @@
     function initialize(callBackFunction) {
 
         try {
-            console.log(logDisplace  + "Root : [INFO] initialize -> Entering function. ");
 
             /* Global control of logging. */
 
@@ -159,7 +158,6 @@
             function getBotConfigFromFile() {
 
                 try {
-                    console.log(logDisplace + "Root : [INFO] start -> getBotConfigFromFile -> Entering function. ");
 
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
@@ -196,7 +194,6 @@
             function bootingBot(processIndex) {
 
                 try {
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Entering function. "); }
 
                     botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName
                     botConfig.debug = {};
@@ -252,9 +249,6 @@
                         }
                     }
 
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> filePathRoot = " + botConfig.filePathRoot); }
-                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Process found at the bot configuration file. -> process = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName); }
-
                     let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.code
 
                     if (processConfig.framework !== undefined) {
@@ -281,96 +275,9 @@
 
                     try {
 
-                        /* We test each type of start Mode to get what to run and how. */
-
-                        if (processConfig.startMode.allMonths !== undefined) {
-
-                            if (processConfig.startMode.allMonths.run === "true") {
-
-                                if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> allMonths start mode detected. "); }
-
-                                for (let year = processConfig.startMode.allMonths.maxYear; year >= processConfig.startMode.allMonths.minYear; year--) {
-
-                                    for (let month = 12; month > 0; month--) {
-
-                                        let padMonth = pad(month, 2)
-
-                                        let newInstanceBotConfig = JSON.parse(JSON.stringify(botConfig));
-
-                                        newInstanceBotConfig.debug = {
-                                            month: pad(month, 2),
-                                            year: pad(year, 4)
-                                        };
-
-                                        let timeDelay = Math.random() * 10 * 1000; // We introduce a short delay so as to not overload the machine.
-                                        setTimeout(startProcess, timeDelay);
-
-                                        function startProcess() {
-
-                                            if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> startProcess -> Ready to start process."); }
-
-                                            switch (botConfig.type) {
-                                                case 'Sensor Bot': {
-                                                    runSensorBot(newInstanceBotConfig, processConfig, padMonth, year);
-                                                    break;
-                                                }
-                                                case 'Indicator Bot': {
-                                                    runIndicatorBot(newInstanceBotConfig, processConfig, padMonth, year);
-                                                    break;
-                                                }
-                                                default: {
-                                                    console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        if (processConfig.startMode.oneMonth !== undefined) {
-
-                            if (processConfig.startMode.oneMonth.run === "true") {
-
-                                if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> oneMonth start mode detected. "); }
-
-                                startProcess();
-
-                                function startProcess() {
-
-                                    if (FULL_LOG === true) { console.log(logDisplace + "Root : [INFO] start -> bootingBot -> startProcess -> Ready to start process."); }
-
-                                    let month = pad(processConfig.startMode.oneMonth.month, 2);
-                                    let year = processConfig.startMode.oneMonth.year;
-
-                                    botConfig.debug = {
-                                        month: pad(month, 2),
-                                        year: pad(year, 4)
-                                    };
-
-                                    switch (botConfig.type) {
-                                        case 'Sensor Bot': {
-                                            runSensorBot(botConfig, processConfig, month, year);
-                                            break;
-                                        }
-                                        case 'Indicator Bot': {
-                                            runIndicatorBot(botConfig, processConfig, month, year);
-                                            break;
-                                        }
-                                        default: {
-                                            console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> startProcess -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
                         if (processConfig.startMode.noTime !== undefined) {
 
                             if (processConfig.startMode.noTime.run === "true") {
-
-                                let month = pad((new Date()).getUTCMonth() + 1, 2);
-                                let year = (new Date()).getUTCFullYear();
 
                                 if (processConfig.startMode.noTime.resumeExecution === true) {
                                     botConfig.hasTheBotJustStarted = false;
@@ -380,11 +287,11 @@
 
                                 switch (botConfig.type) {
                                     case 'Sensor Bot': {
-                                        runSensorBot(botConfig, processConfig, month, year);
+                                        runSensorBot(botConfig, processConfig);
                                         break;
                                     }
                                     case 'Indicator Bot': {
-                                        runIndicatorBot(botConfig, processConfig, month, year);
+                                        runIndicatorBot(botConfig, processConfig);
                                         break;
                                     }
                                     case 'Trading Bot': {
@@ -405,12 +312,9 @@
                                 botConfig.runAtFixedInterval = true;
                                 botConfig.fixedInterval = processConfig.startMode.fixedInterval.interval;
 
-                                let month = pad((new Date()).getUTCMonth() + 1, 2);
-                                let year = (new Date()).getUTCFullYear();
-
                                 switch (botConfig.type) {
                                     case 'Sensor Bot': {
-                                        runSensorBot(botConfig, processConfig, month, year);
+                                        runSensorBot(botConfig, processConfig);
                                         break;
                                     }
                                     default: {
@@ -425,10 +329,6 @@
                             if (processConfig.startMode.userDefined.run === "true") {
 
                                 botConfig.startMode = "User Defined";
-                                console.log(logDisplace + "Root : [INFO] start -> bootingBot -> Process found at the bot configuration file. -> Start Mode = " + botConfig.startMode);
-
-                                let month = pad((new Date()).getUTCMonth() + 1, 2);
-                                let year = (new Date()).getUTCFullYear();
 
                                 if (processConfig.startMode.userDefined.resumeExecution === true) {
                                     botConfig.hasTheBotJustStarted = false;
@@ -453,7 +353,7 @@
                     }
 
 
-                    function runSensorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
+                    function runSensorBot(pBotConfig, pProcessConfig) {
 
                         try {
                             global.TOTAL_PROCESS_INSTANCES_CREATED++
@@ -465,8 +365,6 @@
                             logger.bot = pBotConfig;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> pMonth = " + pMonth); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> pYear = " + pYear); }
 
                             let extractionBotMainLoop = SENSOR_BOT_MAIN_LOOP_MODULE.newSensorBotProcessMainLoop(pBotConfig, logger);
                             extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
@@ -475,25 +373,19 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    extractionBotMainLoop.run(pMonth, pYear, whenRunFinishes);
+                                    extractionBotMainLoop.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
                                         pBotConfig.loopCounter = 0;
 
-                                        let botId;
-                                        if (pYear !== undefined) {
-                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
-                                        } else {
-                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-                                        }
+                                        let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
                                             console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
@@ -504,7 +396,6 @@
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
                                             console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution was aborted.");
                                             logger.persist();
                                         }
@@ -527,7 +418,7 @@
                         }
                     }
 
-                    function runIndicatorBot(pBotConfig, pProcessConfig, pMonth, pYear) {
+                    function runIndicatorBot(pBotConfig, pProcessConfig) {
 
                         try {
                             global.TOTAL_PROCESS_INSTANCES_CREATED++
@@ -539,8 +430,6 @@
                             logger.bot = pBotConfig;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> Entering function."); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> pMonth = " + pMonth); }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> pYear = " + pYear); }
 
                             let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig, logger);
                             indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
@@ -549,25 +438,20 @@
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    indicatorBotMainLoop.run(pMonth, pYear, whenRunFinishes);
+                                    indicatorBotMainLoop.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
                                         pBotConfig.loopCounter = 0;
 
-                                        let botId;
-                                        if (pYear !== undefined) {
-                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process + "." + pYear + "." + pMonth;
-                                        } else {
-                                            botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-                                        }
-
+                                        let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
+                                     
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
+
                                             console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 

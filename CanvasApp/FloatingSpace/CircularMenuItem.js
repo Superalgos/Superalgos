@@ -9,6 +9,7 @@ function newCircularMenuItem () {
     confirmationLabel: undefined,
     iconOn: undefined,
     iconOff: undefined,
+    icons: undefined,
     currentIcon: undefined,
     disableIfPropertyIsDefined: undefined,
     propertyToCheckFor: undefined,
@@ -92,6 +93,7 @@ function newCircularMenuItem () {
     thisObject.container = undefined
     thisObject.iconOn = undefined
     thisObject.iconOff = undefined
+    thisObject.icons = undefined
     thisObject.currentIcon = undefined
     thisObject.payload = undefined
     thisObject.actionFunction = undefined
@@ -208,8 +210,13 @@ function newCircularMenuItem () {
         thisObject.iconOn = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
         thisObject.iconOff = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
       } else {
-        thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
-        thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
+        if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
+          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
+          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
+        } else {
+          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+        }
       }
     }
 

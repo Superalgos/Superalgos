@@ -161,8 +161,8 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + bot.sessionKey
-                        + " Loop # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) 
+                        + "      Entered into Main Loop     # " + pad(Number(bot.loopCounter), 8) + "  " + bot.sessionKey )
 
                     /* Checking if we need to need to emit any event */
 
@@ -791,18 +791,6 @@
                                         case global.CUSTOM_OK_RESPONSE.result: {
 
                                             switch (err.message) {
-                                                case "Too far in the future.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized > Too far in the future. This Loop will enter in coma.");
-                                                    nextWaitTime = 'Coma';
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                case "Not needed now, but soon.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized > Not needed now, but soon. This Loop will continue with Normal wait time.");
-                                                    nextWaitTime = 'Normal';
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
@@ -905,36 +893,6 @@
                                                     logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency not ready. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                case "Month before it is needed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Month before it is needed. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return;
-                                                }
-                                                case "Month fully processed.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Month fully processed. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                    return;
-                                                }
-                                                case "End of the month reached.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> End of the month reached. This Loop will be terminated.");
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return;
                                                 }
                                                 default: {

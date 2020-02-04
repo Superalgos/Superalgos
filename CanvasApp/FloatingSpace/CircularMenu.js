@@ -83,6 +83,7 @@ function newCircularMenu () {
       menuItem.disableIfPropertyIsDefined = menuItemInitialValue.disableIfPropertyIsDefined
       menuItem.propertyToCheckFor = menuItemInitialValue.propertyToCheckFor
       menuItem.ring = menuItemInitialValue.ring
+      menuItem.icons = menuItemInitialValue.icons
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'

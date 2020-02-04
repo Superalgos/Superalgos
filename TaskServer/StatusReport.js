@@ -18,8 +18,7 @@
         initialize: initialize,
         load: load,
         save: save,
-        status: undefined,
-        verifyMarketComplete: verifyMarketComplete
+        status: undefined
     };
 
     let statusDependencyNode;   
@@ -33,23 +32,17 @@
     const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
-    let month;
-    let year;
-    let timePath = '';
     let sessionPath = ''
 
     return thisObject;
 
-    function initialize(pStatusDependencyNode, pMonth, pYear, callBackFunction) {
+    function initialize(pStatusDependencyNode, callBackFunction) {
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencyNode = pStatusDependencyNode;
             logger.fileName = MODULE_NAME + "." + statusDependencyNode.type + "." + statusDependencyNode.name + "." + statusDependencyNode.id;
-
-            month = pMonth;
-            year = pYear;
 
             /* Some very basic validations that we have all the information needed. */
             if (statusDependencyNode.referenceParent === undefined) {
@@ -128,11 +121,6 @@
             if (bot.SESSION !== undefined && statusDependencyNode.bottype === "Trading Bot") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
- 
-            if (statusDependencyNode.processRunMonthly === true && month !== undefined && year !== undefined) {
-                logger.fileName = MODULE_NAME + "." + statusDependencyNode.bot + "." + statusDependencyNode.process + "." + year + "." + month;
-                timePath = "/" + year + "/" + month;
-            }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -156,9 +144,9 @@
 
             if (ownerId !== botId) {
                 let rootPath = statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + "/" + bot.exchange;
-                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
+                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process ;
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process ;
             }
 
             filePath += '/' + fileName
@@ -246,7 +234,7 @@
             }
 
             let fileName = "Status.Report." + bot.market.baseAsset + '_' + bot.market.quotedAsset + ".json";
-            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process + timePath;
+            let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
 
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
@@ -278,253 +266,4 @@
         }
     }
 
-    function verifyMarketComplete(callBackFunction) {
-
-        /*
-        The mission of this function is to update the main status report on a scheme where there are monthly sub reports.
-        This report contains the date of the last file sucessfully checked but in a consecutive way.
-
-        For example: if the market starts in March, and March, April and June are checked, then the file will be the last of June even if September is also checked.
-
-        IMPORTANT NOTE: Once executed, this function will leave thisObject in an inconsistant state, so you need to re-initialize it if you wish to use it again.
-
-        */
-
-        try {
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> Entering function."); }
-
-            let initialYear;
-            let initialMonth;
-
-            let finalYear = (new Date()).getUTCFullYear();
-            let finalMonth = (new Date()).getUTCMonth() + 1;
-
-            /* Lets load again this main status report as it might have changed since its initialization and first load. */
-
-            load(onLoad);
-
-            function onLoad(err) {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> onLoad -> Entering function."); }
-
-                    if (
-                        err.result === global.CUSTOM_FAIL_RESPONSE.result &&
-                        (err.message === 'Status Report was never created.')
-                    ) {
-                        logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> onLoad -> err = "+ err.stack);
-
-                        /* The first month of the market didnt create the main report yet. Aborting verification. */
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> onLoad -> Verification ABORTED since the main status report does not exist."); }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-
-                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err.stack);
-                        callBackFunction(err);
-                        return;
-                    }
-
-                    /* Here we get the initial month and year from where our verification process will start. */
-
-                    initialYear = thisObject.file.lastFile.year;
-                    initialMonth = thisObject.file.lastFile.month;
-
-                    loopCycle();
-
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> onLoad -> err = "+ err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-
-            function loopCycle() {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> Entering function."); }
-
-                    /* Here we read the status report file of each month / year to verify if it is complete or not. */
-
-                    let paddedInitialMonth = utilities.pad(initialMonth, 2);
-
-                    timePath = "/" + initialYear + "/" + paddedInitialMonth;
-
-                    load(onLoad);
-
-                    function onLoad(err) {
-
-                        try {
-
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Entering function."); }
-
-                            if (
-                                err.result === global.CUSTOM_FAIL_RESPONSE.result &&
-                                (err.message === 'Status Report was never created.')
-                            ) {
-                                logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
-
-                                /* The first month of the market didnt create the main report yet. Aborting verification. */
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED  since the status report for year  " + initialYear + " and month " + initialMonth + " did not exist. "); }
-
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                return;
-                            }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            if (thisObject.file.monthChecked === true) {
-
-                                readAndWriteNewReport(JSON.stringify(thisObject.file));
-
-                            } else {
-
-                                /* If any of the files says that month is not checked then it is enough to know the market continuity is broken. */
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loopCycle -> onLoad -> Verification ABORTED since the status report for year  " + initialYear + " and month " + initialMonth + " is not marked as complete."); }
-
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                return;
-                            }
-
-                        } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> onLoad -> err = "+ err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-
-            function readAndWriteNewReport(monthlyStatusReport) {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> Entering function."); }
-
-                    /* We will read the current file to preserve its data, and save it again with the new lastFile */
-
-                    monthlyStatusReport = JSON.parse(monthlyStatusReport);
-
-                    timePath = "";
-
-                    load(onLoad);
-
-                    function onLoad(err) {
-
-                        try {
-
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Entering function."); }
-
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err.stack);
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            if (monthlyStatusReport.lastTrade.id > thisObject.file.lastTrade.id) {
-
-                                thisObject.file.lastFile = monthlyStatusReport.lastFile;
-                                thisObject.file.lastTrade = monthlyStatusReport.lastTrade;
-                                thisObject.file.lastTrade.counter = undefined;
-
-                                save(onSave);
-
-                                function onSave(err) {
-
-                                    try {
-
-                                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> Entering function."); }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err.stack);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        loop();  // Lets see the next month.
-
-                                    } catch (err) {
-                                        logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> onSave -> err = "+ err.stack);
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-                                }
-
-                            } else {
-
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Main Status Report Not Updated."); }
-                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> Current Trade Id (" + monthlyStatusReport.lastTrade.id + ") is <= than Id at main status report file. (" + thisObject.file.lastTrade.id + ")"); }
-
-                                loop();  // Lets see the next month.
-                            }
-
-                        } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> readAndWriteNewReport -> onLoad -> err = "+ err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                    }
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loopCycle -> err = "+ err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-
-            function loop() {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loop -> Entering function."); }
-
-                    initialMonth++;
-
-                    if (initialMonth > 12) {
-
-                        initialMonth = 1;
-                        initialYear++;
-
-                    }
-
-                    if ((initialYear === finalYear && initialMonth > finalMonth) || (initialYear > finalYear)) {
-
-                        /* We arrived to the point where we have checked all the status reports of every month and they are all complete. */
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] verifyMarketComplete -> loop -> Verification Finished. Success."); }
-
-                        callBackFunction(global.DEFAULT_OK_RESPONSE);
-                        return;
-                    }
-
-                    loopCycle();
-
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> loop -> err = "+ err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-        }
-        catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] verifyMarketComplete -> err = "+ err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            return;
-        }
-    }
 };

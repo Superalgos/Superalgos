@@ -507,6 +507,7 @@ table.definitionTable tbody tr td {
     margin: 0px;
     border: 0px;
     vertical-align: middle;
+    min-width: 100px;
 }
 
 table.hierarchyTable {

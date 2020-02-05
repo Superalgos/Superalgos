@@ -30,7 +30,7 @@ record: "A record is the compendium of information stored for each period of tim
 
 formula: "In the context of a record definition, formulas are used to assign a value to the property, usually in the form of a variable declared in the calculation or data building procedure."
 
-calculations_procedure: "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consume by others."
+calculations_procedure: "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others."
 
 procedure_loop: "The procedure loop holds the JavaScript code that cycles through an input processing information to generate an output."
 

@@ -724,8 +724,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Charting System",
-                "relatedUiObject": "Charting System",
+                "label": "Add Charting Space",
+                "relatedUiObject": "Charting Space",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4772,7 +4772,7 @@
         "isPersonalData": true
     },
     {
-        "type": "Charting System",
+        "type": "Charting Space",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4792,7 +4792,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Charting System",
+                "label": "Delete Charting Space",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4801,7 +4801,7 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 1,
-        "icon": "charting-system",
+        "icon": "charting-space",
         "properties": [
             {
                 "name": "viewport",
@@ -4878,7 +4878,7 @@
         "isTitleAllwaysVisible": true,
         "icon": "time-machine",
         "chainAttachesTo": {
-            "compatibleTypes": "->Charting System->"
+            "compatibleTypes": "->Charting Space->"
         },
         "propertyNameAtParent": "timeMachines",
         "properties": [
@@ -4939,7 +4939,7 @@
         "level": 2,
         "icon": "viewport",
         "chainAttachesTo": {
-            "compatibleTypes": "->Charting System->"
+            "compatibleTypes": "->Charting Space->"
         },
         "propertyNameAtParent": "viewport"
     },

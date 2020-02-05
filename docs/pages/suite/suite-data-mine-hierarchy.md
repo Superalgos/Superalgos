@@ -1308,7 +1308,11 @@ To add a record definition node, select *Add Record Definition* on the product d
 
 record: "A record is the compendium of information stored for each period of time, including the start and end datetime of the period along with the properties that provide the information the indicator is meant to generate."
 
-Records may have as many properties as required. The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record.
+Records may have as many properties as required. 
+
+{% include important.html content="The order in which record properties are defined around the parent record definition node is the order in which they are stored in the actual record." %}
+
+{% include tip.html content="The first two records are usually the *begin* and *end* records, featuring the corresponding datetimes that indicate when the record starts and ends." %}
 
 ### Adding a Record Property
 
@@ -1320,21 +1324,21 @@ Select *Configure Property* on the menu to access the configuration.
 
 ```js
 {
-  "codeName": "begin",
+  "codeName": "record-name",
   "isString": false,
   "isCalculated": true
 }
 ```
 
-* ```codeName``` is the name of the record as it is used in the bot's code. Most record definitions will have a *begin* date and an *end* date. 
+* ```codeName``` is the name of the record as it is used in the bot's code. 
 
 * ```isString``` determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the *epoch* format, which is numeric. The reason why this configuration is important is because fields which are strings need to be stored between "double quotes".
 
-* ```isCalculated``` determines if the field is stored in the dataset or if, instead, is calculated at a later stage, as explained in the *input to output cycle* earlier. A value *true* means that the record is not stored. In  the case ```isCaculated``` is not defined in the configuration, it is assumed to be false.
+* ```isCalculated``` determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value *true* means that the record is not stored. In  the case ```isCaculated``` is not defined in the configuration, it is assumed to be false.
 
 [![Indicators-Record-Definitions-01](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)
 
-The image above shows the four different record properties defined for Paula's Bollinger Standard Channels product.
+The image above shows a record definition with four record properties.
 
 
 
@@ -1348,6 +1352,19 @@ The image above shows the four different record properties defined for Paula's B
 
 formula: "In the context of a record definition, formulas are used to assign a value to the property, usually in the form of a variable declared in the calculation or data building procedure."
 
+A formula may act in slightly different ways depending on the ```isCaculated``` attribute in the record property configuration:
+
+* When a property is calculated (```"isCalculated": true```), the formula assigns to the property a value that is calculated in the calculations procedure. Even if the property is not stored in the dataset, it is made available as a *calculated property* to other bots that may have the dataset as input.
+
+* When a property is not calculated (```"isCalculated": false``` or the attribute is not defined in the configuration) the formula is applied in the data building procedure.
+
+### Adding a Formula
+
+To add a formula, select *Add Formula* on the record property menu.
+
+
+
+
 
 
 
@@ -1358,7 +1375,21 @@ formula: "In the context of a record definition, formulas are used to assign a v
 
 **{{site.data.data_mine.calculations_procedure}}**
 
-calculations_procedure: "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consume by others."
+calculations_procedure: "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others."
+
+Bots store data in the minimized array format as a strategy to build the lightest possible datasets. For the same reason, a bot may chose not to store information that is easily calculable.
+
+For example, imagine an indicator that stores buy and sell volumes... does it *need* to store the total volume? Given that it is so easy to calculate, the answer is *probably* no. IT is up to the developer to decide, but it is certainly not required.
+
+{include note.html content="It may not be worthy to store information that can be easily calculated at a later stage." %}
+
+The calculations procedure calculates the properties that the developer chose not to store in the dataset.
+
+### Adding a Calculations Procedure
+
+To add a calculations procedure, select *Add Missing Items* on the product definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
+
+
 
 
 
@@ -1370,7 +1401,7 @@ calculations_procedure: "The calculations procedure processes information to be 
 
 **{{site.data.data_mine.procedure_loop}}**
 
-procedure_loop: "The procedure loop holds the JavaScript code that cycles through an input processing information to generate an output."
+procedure_loop: "The procedure loop holds the JavaScript code that cycles through reading an input processing information to generate an output."
 
 
 

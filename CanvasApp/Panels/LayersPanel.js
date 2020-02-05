@@ -299,7 +299,7 @@ function newLayersPanel () {
     The overall idea here is that we need to keep syncronized the panel with the layers that are
     defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
     are valid layers and which not at any point in time. So what we do here is trying to keep the panel
-    only with the layers that are connected to the Charting System hiriarcy.
+    only with the layers that are connected to the Charting Space hiriarcy.
 
     To achieve this, first we are going to move all session related cards to a local array. Then we are
     going to check for layers at the designer, and will move back the cards which still have layers well

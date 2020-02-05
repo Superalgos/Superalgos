@@ -87,14 +87,14 @@ function newChartSpace () {
     let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
-      if (rootNode.type === 'Charting System') {
+      if (rootNode.type === 'Charting Space') {
         thisObject.payload = rootNode.payload
       }
     }
 
     thisObject.viewport = newViewport()
     if (thisObject.payload.node.viewport === undefined) {
-      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Viewport node attached to the Charting System node in order for the Viewport save its properties. ') }
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Viewport node attached to the Charting Space node in order for the Viewport save its properties. ') }
     } else {
       thisObject.viewport.payload = thisObject.payload.node.viewport.payload
     }

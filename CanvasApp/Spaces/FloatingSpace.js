@@ -91,7 +91,7 @@ function newFloatingSpace () {
       payload.node.type === 'Trading System' ||
       payload.node.type === 'Network' ||
       payload.node.type === 'Crypto Ecosystem' ||
-      payload.node.type === 'Charting System' ||
+      payload.node.type === 'Charting Space' ||
       payload.node.type === 'Data Mine'
   ) {
       return false

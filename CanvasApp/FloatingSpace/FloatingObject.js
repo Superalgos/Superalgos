@@ -22,8 +22,8 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    tensionLevel: TENSION_LEVEL.LEVEL_90,
-    distanceToParent: DISTANCE_TO_PARENT.SAME,
+    angleToParent: ANGLE_TO_PARENT.RANGE_90,
+    distanceToParent: DISTANCE_TO_PARENT.PARENT_100X,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -31,14 +31,14 @@ function newFloatingObject () {
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
     getCollapseStatus: getCollapseStatus,
-    getTensionLevel: getTensionLevel,
+    getAngleToParent: getAngleToParent,
     getDistanceToParent: getDistanceToParent,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
     collapseToggle: collapseToggle,
-    tensionToggle: tensionToggle,
+    angleToParentToggle: angleToParentToggle,
     distanceToParentToggle: distanceToParentToggle,
     physics: physics,
     initializeMass: initializeMass,
@@ -141,8 +141,8 @@ function newFloatingObject () {
     return thisObject.isCollapsed
   }
 
-  function getTensionLevel () {
-    return thisObject.tensionLevel
+  function getAngleToParent () {
+    return thisObject.angleToParent
   }
 
   function getDistanceToParent () {
@@ -171,43 +171,46 @@ function newFloatingObject () {
     return thisObject.isCollapsed
   }
 
-  function tensionToggle () {
-    switch (thisObject.tensionLevel) {
-      case TENSION_LEVEL.NO_TENSION:
-        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_360
+  function angleToParentToggle () {
+    switch (thisObject.angleToParent) {
+      case ANGLE_TO_PARENT.NOT_FIXED:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
         break
-      case TENSION_LEVEL.LEVEL_360:
-        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_180
+      case ANGLE_TO_PARENT.RANGE_360:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         break
-      case TENSION_LEVEL.LEVEL_180:
-        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_90
+      case ANGLE_TO_PARENT.RANGE_180:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
         break
-      case TENSION_LEVEL.LEVEL_90:
-        thisObject.tensionLevel = TENSION_LEVEL.LEVEL_45
+      case ANGLE_TO_PARENT.RANGE_90:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
         break
-      case TENSION_LEVEL.LEVEL_45:
-        thisObject.tensionLevel = TENSION_LEVEL.NO_TENSION
+      case ANGLE_TO_PARENT.RANGE_45:
+        thisObject.angleToParent = ANGLE_TO_PARENT.NOT_FIXED
         break
     }
 
-    return thisObject.tensionLevel
+    return thisObject.angleToParent
   }
 
   function distanceToParentToggle () {
     switch (thisObject.distanceToParent) {
       case DISTANCE_TO_PARENT.NOT_FIXED:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.QUARTER
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
         break
-      case DISTANCE_TO_PARENT.QUARTER:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.HALF
+      case DISTANCE_TO_PARENT.PARENT_025X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
         break
-      case DISTANCE_TO_PARENT.HALF:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.SAME
+      case DISTANCE_TO_PARENT.PARENT_050X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
         break
-      case DISTANCE_TO_PARENT.SAME:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.DOUBLE
+      case DISTANCE_TO_PARENT.PARENT_100X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
         break
-      case DISTANCE_TO_PARENT.DOUBLE:
+      case DISTANCE_TO_PARENT.PARENT_150X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
+        break
+      case DISTANCE_TO_PARENT.PARENT_200X:
         thisObject.distanceToParent = DISTANCE_TO_PARENT.NOT_FIXED
         break
     }
@@ -217,11 +220,12 @@ function newFloatingObject () {
 
   function physics () {
     collapsePhysics()
+    frozenPhysics()
+    /* From here on, only if they are not too far. */
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
-    frozenPhysics()
-    tensionPhysics()
+    positionContraintsPhysics()
   }
 
   function frozenPhysics () {
@@ -249,10 +253,8 @@ function newFloatingObject () {
     }
   }
 
-  function tensionPhysics () {
-    /* Tension Effect */
-
-    if (thisObject.tensionLevel !== TENSION_LEVEL.NO_TENSION && thisObject.isOnFocus !== true) {
+  function positionContraintsPhysics () {
+    if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
       if (parent.payload === undefined) { return }
@@ -263,37 +265,40 @@ function newFloatingObject () {
       let axisCount = parentChildren.childrenCount
       let axisIndex = parentChildren.childIndex
       let baseAngle = 0
-      let tensionLevelAngle
+      let angleToParentAngle
 
       if (parent.payload.distance !== undefined) {
         switch (thisObject.distanceToParent) {
-          case DISTANCE_TO_PARENT.QUARTER:
+          case DISTANCE_TO_PARENT.PARENT_025X:
             distanceToParent = parent.payload.distance / 4
             break
-          case DISTANCE_TO_PARENT.HALF:
+          case DISTANCE_TO_PARENT.PARENT_050X:
             distanceToParent = parent.payload.distance / 2
             break
-          case DISTANCE_TO_PARENT.SAME:
+          case DISTANCE_TO_PARENT.PARENT_100X:
             distanceToParent = parent.payload.distance
             break
-          case DISTANCE_TO_PARENT.DOUBLE:
+          case DISTANCE_TO_PARENT.PARENT_150X:
+            distanceToParent = parent.payload.distance * 1.5
+            break
+          case DISTANCE_TO_PARENT.PARENT_200X:
             distanceToParent = parent.payload.distance * 2
             break
         }
       }
 
-      switch (thisObject.tensionLevel) {
-        case TENSION_LEVEL.LEVEL_360:
-          tensionLevelAngle = 360
+      switch (thisObject.angleToParent) {
+        case ANGLE_TO_PARENT.RANGE_360:
+          angleToParentAngle = 360
           break
-        case TENSION_LEVEL.LEVEL_180:
-          tensionLevelAngle = 180
+        case ANGLE_TO_PARENT.RANGE_180:
+          angleToParentAngle = 180
           break
-        case TENSION_LEVEL.LEVEL_90:
-          tensionLevelAngle = 90
+        case ANGLE_TO_PARENT.RANGE_90:
+          angleToParentAngle = 90
           break
-        case TENSION_LEVEL.LEVEL_45:
-          tensionLevelAngle = 45
+        case ANGLE_TO_PARENT.RANGE_45:
+          angleToParentAngle = 45
           break
       }
 
@@ -315,8 +320,8 @@ function newFloatingObject () {
         }
       }
 
-      let separatorAngle = (360 - tensionLevelAngle) / 2
-      let angleStep = tensionLevelAngle / axisCount
+      let separatorAngle = (360 - angleToParentAngle) / 2
+      let angleStep = angleToParentAngle / axisCount
 
       thisObject.payload.angle = baseAngle + separatorAngle + (axisIndex - 1) * angleStep
       if (thisObject.payload.angle >= 360) {

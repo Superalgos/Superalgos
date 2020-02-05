@@ -51,20 +51,21 @@ const GET_CONTAINER_PURPOSE = {
   DRAGGING: 4
 }
 
-const TENSION_LEVEL = {
-  NO_TENSION: 0,
-  LEVEL_360: 1,
-  LEVEL_180: 2,
-  LEVEL_90: 3,
-  LEVEL_45: 4
+const ANGLE_TO_PARENT = {
+  NOT_FIXED: 0,
+  RANGE_360: 1,
+  RANGE_180: 2,
+  RANGE_90: 3,
+  RANGE_45: 4
 }
 
 const DISTANCE_TO_PARENT = {
   NOT_FIXED: 0,
-  QUARTER: 1,
-  HALF: 2,
-  SAME: 3,
-  DOUBLE: 4
+  PARENT_025X: 1,
+  PARENT_050X: 2,
+  PARENT_100X: 3,
+  PARENT_150X: 4,
+  PARENT_200X: 5
 }
 
 /* User Interface Panels */

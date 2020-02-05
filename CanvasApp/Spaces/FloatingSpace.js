@@ -19,7 +19,6 @@ function newFloatingSpace () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     isThisPointVisible: isThisPointVisible,
     isItFar: isItFar,
-    warmUp: warmUp,
     makeVisible: makeVisible,
     makeInvisible: makeInvisible,
     draw: draw,
@@ -39,7 +38,6 @@ function newFloatingSpace () {
 
   let devicePixelRatio = window.devicePixelRatio
   const SPACE_SIZE = 50000
-  const WARM_UP_LIMIT = 10000
 
   thisObject.container.frame.width = SPACE_SIZE
   thisObject.container.frame.height = SPACE_SIZE
@@ -47,7 +45,6 @@ function newFloatingSpace () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
-  let warmingUpCounter = 0
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   let eventSubscriptionId
@@ -76,23 +73,9 @@ function newFloatingSpace () {
     eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
-  function warmUp () {
-    warmingUpCounter = 0
-  }
-
   function isItFar (payload, dontCheckParent) {
     /* If for any reason the paylaod is undefined we return false */
     if (payload === undefined) { return false }
-
-    /*
-    We need a warm up in order to allow all objects to stabilize into a consistant state.
-    After that we will start evaluating which ones are too far from the current user view.
-    */
-
-    if (warmingUpCounter < WARM_UP_LIMIT) {
-      warmingUpCounter++
-      return false
-    }
 
     let radarFactor = 2 // How big is the margin
 
@@ -262,7 +245,7 @@ function newFloatingSpace () {
   }
 
   function physics () {
-    if (visible === true || warmingUpCounter < WARM_UP_LIMIT) {
+    if (visible === true) {
       browserZoomPhysics()
       thisObject.floatingLayer.physics()
     }

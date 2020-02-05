@@ -57,8 +57,8 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
         floatingObject.collapseToggle()
       }
-      if (payload.node.savedPayload.floatingObject.tensionLevel !== undefined) {
-        floatingObject.tensionLevel = payload.node.savedPayload.floatingObject.tensionLevel
+      if (payload.node.savedPayload.floatingObject.angleToParent !== undefined) {
+        floatingObject.angleToParent = payload.node.savedPayload.floatingObject.angleToParent
       }
       if (payload.node.savedPayload.floatingObject.distanceToParent !== undefined) {
         floatingObject.distanceToParent = payload.node.savedPayload.floatingObject.distanceToParent
@@ -67,7 +67,7 @@ function newUiObjectConstructor () {
 
     /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
-      floatingObject.tensionLevel = payload.parentNode.payload.floatingObject.tensionLevel
+      floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
       floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
     }
 
@@ -143,8 +143,8 @@ function newUiObjectConstructor () {
     menuItemsInitialValues.push(
       {
         action: 'Change Tension Level',
-        actionFunction: floatingObject.tensionToggle,
-        actionStatus: floatingObject.getTensionLevel,
+        actionFunction: floatingObject.angleToParentToggle,
+        actionStatus: floatingObject.getAngleToParent,
         currentStatus: true,
         label: undefined,
         visible: true,
@@ -163,7 +163,7 @@ function newUiObjectConstructor () {
         currentStatus: true,
         label: undefined,
         visible: true,
-        icons: ['headphones', 'competition', 'analysis-1', 'stage-open-postion-rate', 'stop'],
+        icons: ['headphones', 'competition', 'analysis-1', 'stage-open-postion-rate', 'stop', 'pyramid'],
         rawRadius: 8,
         targetRadius: 0,
         currentRadius: 0,
@@ -331,7 +331,7 @@ function newUiObjectConstructor () {
     switch (payload.node.type) {
       case 'Workspace': {
         level_0()
-        floatingObject.tensionLevel = TENSION_LEVEL.LEVEL_360
+        floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
         break
       }
 
@@ -391,7 +391,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_2 () {
@@ -406,7 +406,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_3 () {
@@ -421,7 +421,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_4 () {
@@ -436,7 +436,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_5 () {

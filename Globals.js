@@ -61,11 +61,11 @@ const ANGLE_TO_PARENT = {
 
 const DISTANCE_TO_PARENT = {
   NOT_FIXED: 0,
-  QUARTER: 1,
-  HALF: 2,
-  SAME: 3,
-  SAME_HALF: 4,
-  DOUBLE: 5
+  PARENT_025X: 1,
+  PARENT_050X: 2,
+  PARENT_100X: 3,
+  PARENT_150X: 4,
+  PARENT_200X: 5
 }
 
 /* User Interface Panels */

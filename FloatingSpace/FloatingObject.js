@@ -23,7 +23,7 @@ function newFloatingObject () {
     isPinned: false,
     isFrozen: false,
     angleToParent: ANGLE_TO_PARENT.RANGE_90,
-    distanceToParent: DISTANCE_TO_PARENT.SAME,
+    distanceToParent: DISTANCE_TO_PARENT.PARENT_100X,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -196,21 +196,21 @@ function newFloatingObject () {
   function distanceToParentToggle () {
     switch (thisObject.distanceToParent) {
       case DISTANCE_TO_PARENT.NOT_FIXED:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.QUARTER
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
         break
-      case DISTANCE_TO_PARENT.QUARTER:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.HALF
+      case DISTANCE_TO_PARENT.PARENT_025X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
         break
-      case DISTANCE_TO_PARENT.HALF:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.SAME
+      case DISTANCE_TO_PARENT.PARENT_050X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
         break
-      case DISTANCE_TO_PARENT.SAME:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.SAME_HALF
+      case DISTANCE_TO_PARENT.PARENT_100X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
         break
-      case DISTANCE_TO_PARENT.SAME_HALF:
-        thisObject.distanceToParent = DISTANCE_TO_PARENT.DOUBLE
+      case DISTANCE_TO_PARENT.PARENT_150X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
         break
-      case DISTANCE_TO_PARENT.DOUBLE:
+      case DISTANCE_TO_PARENT.PARENT_200X:
         thisObject.distanceToParent = DISTANCE_TO_PARENT.NOT_FIXED
         break
     }
@@ -268,19 +268,19 @@ function newFloatingObject () {
 
       if (parent.payload.distance !== undefined) {
         switch (thisObject.distanceToParent) {
-          case DISTANCE_TO_PARENT.QUARTER:
+          case DISTANCE_TO_PARENT.PARENT_025X:
             distanceToParent = parent.payload.distance / 4
             break
-          case DISTANCE_TO_PARENT.HALF:
+          case DISTANCE_TO_PARENT.PARENT_050X:
             distanceToParent = parent.payload.distance / 2
             break
-          case DISTANCE_TO_PARENT.SAME:
+          case DISTANCE_TO_PARENT.PARENT_100X:
             distanceToParent = parent.payload.distance
             break
-          case DISTANCE_TO_PARENT.SAME_HALF:
+          case DISTANCE_TO_PARENT.PARENT_150X:
             distanceToParent = parent.payload.distance * 1.5
             break
-          case DISTANCE_TO_PARENT.DOUBLE:
+          case DISTANCE_TO_PARENT.PARENT_200X:
             distanceToParent = parent.payload.distance * 2
             break
         }

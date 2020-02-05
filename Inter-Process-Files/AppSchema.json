@@ -870,8 +870,26 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Task Manager",
-                "relatedUiObject": "Task Manager",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataMining",
+                "label": "Add Data Mining",
+                "relatedUiObject": "Data Mining",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "testingEnvironment",
+                "label": "Add Testing Environment",
+                "relatedUiObject": "Testing Environment",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "productionEnvironment",
+                "label": "Add Production Environment",
+                "relatedUiObject": "Production Environment",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -899,9 +917,21 @@
                 "autoAdd": true
             },
             {
-                "name": "taskManagers",
-                "type": "array",
-                "childType": "Task Manager",
+                "name": "dataMining",
+                "type": "node",
+                "childType": "Data Mining",
+                "autoAdd": true
+            },
+            {
+                "name": "testingEnvironment",
+                "type": "node",
+                "childType": "Testing Environment",
+                "autoAdd": true
+            },
+            {
+                "name": "productionEnvironment",
+                "type": "node",
+                "childType": "Production Environment",
                 "autoAdd": true
             }
         ],
@@ -944,7 +974,7 @@
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Network Node->"
+            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->"
         },
         "icon": "task",
         "properties": [
@@ -5238,6 +5268,111 @@
                 "name": "sessionBasedData",
                 "type": "node",
                 "childType": "Session Based Data",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Data Mining",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Mining",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "data-storage",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "dataMining",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Testing Environment",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Environment",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "data-storage",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "testingEnvironment",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Production Environment",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Environment",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "data-storage",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "productionEnvironment",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
                 "autoAdd": true
             }
         ]

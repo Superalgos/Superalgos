@@ -221,7 +221,17 @@ function newDesignerSpace () {
       'bitmex',
       'liquid',
       'hitbtc',
-      'us-dollar'
+      'us-dollar',
+      'distance-to-parent-200',
+      'distance-to-parent-150',
+      'distance-to-parent-100',
+      'distance-to-parent-050',
+      'distance-to-parent-025',
+      'angle-to-parent-360',
+      'angle-to-parent-180',
+      'angle-to-parent-090',
+      'angle-to-parent-045',
+      'angle-to-parent-000'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

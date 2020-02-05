@@ -140,7 +140,6 @@ function newWorkspace () {
           workingAtTask++
           break
         case 6:
-          canvas.floatingSpace.warmUp()
           workingAtTask = 0
           circularProgressBar.visible = false
           break

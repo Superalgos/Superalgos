@@ -220,10 +220,11 @@ function newFloatingObject () {
 
   function physics () {
     collapsePhysics()
+    frozenPhysics()
+    /* From here on, only if they are not too far. */
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
-    frozenPhysics()
     positionContraintsPhysics()
   }
 

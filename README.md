@@ -1,6 +1,6 @@
 # Welcome to the Canvas App
 
-The Canvas App provides a visual environment for the _Charting System_ and the _Designer_.
+The Canvas App provides a visual environment for the _Charting Space_ and the _Designer_.
 
 **Installation (for developers):** To install the Canvas App, you need to install AAWeb, following [this guide](https://github.com/Superalgos/AAWeb/blob/develop/README.md).
 

@@ -9,11 +9,15 @@ function newUiObjectsFromNodes () {
 
   let mapOfReferenceChildren = new Map()
   let mapOfNodes
+  let tasksToRun
+  let sessionsToRun
 
   return thisObject
 
-  function recreateWorkspace (node) {
+  function recreateWorkspace (node, replacingCurrentWorkspace) {
     mapOfNodes = new Map()
+    tasksToRun = []
+    sessionsToRun = []
 
    /* Create the workspace UI OBject and then continue with the root nodes. */
     createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
@@ -25,6 +29,33 @@ function newUiObjectsFromNodes () {
     }
 
     tryToConnectChildrenWithReferenceParents()
+
+    if (replacingCurrentWorkspace === true) {
+      // We need to wait all tasks that were potentially running to stop
+      setTimeout(runTasks, 70000)
+      // We give a few seconds for the tasks to start
+      setTimeout(runSessions, 80000)
+    } else {
+      runTasks()
+      // We give a few seconds for the tasks to start
+      setTimeout(runSessions, 10000)
+    }
+  }
+
+  function runTasks () {
+    for (let i = 0; i < tasksToRun.length; i++) {
+      let node = tasksToRun[i]
+      node.payload.uiObject.menu.internalClick('Run Task')
+    }
+    tasksToRun = undefined
+  }
+
+  function runSessions () {
+    for (let i = 0; i < sessionsToRun.length; i++) {
+      let node = sessionsToRun[i]
+      node.payload.uiObject.menu.internalClick('Run Session')
+    }
+    sessionsToRun = undefined
   }
 
   function tryToConnectChildrenWithReferenceParents () {
@@ -362,5 +393,21 @@ function newUiObjectsFromNodes () {
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
     mapOfNodes.set(node.id, node)
+
+    /* Check if there are tasks to run */
+    if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
+      if (node.savedPayload.uiObject.isRunning === true) {
+        tasksToRun.push(node)
+      }
+    }
+
+        /* Check if there are sessions to run */
+    if (userAddingNew === false && node.savedPayload !== undefined) {
+      if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Fordward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
+        if (node.savedPayload.uiObject.isRunning === true) {
+          sessionsToRun.push(node)
+        }
+      }
+    }
   }
 }

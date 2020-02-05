@@ -59,6 +59,14 @@ const TENSION_LEVEL = {
   LEVEL_45: 4
 }
 
+const DISTANCE_TO_PARENT = {
+  NOT_FIXED: 0,
+  QUARTER: 1,
+  HALF: 2,
+  SAME: 3,
+  DOUBLE: 4
+}
+
 /* User Interface Panels */
 
 UI_PANEL = {

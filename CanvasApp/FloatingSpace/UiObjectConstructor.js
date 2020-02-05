@@ -57,12 +57,18 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
         floatingObject.collapseToggle()
       }
-      floatingObject.tensionLevel = payload.node.savedPayload.floatingObject.tensionLevel
+      if (payload.node.savedPayload.floatingObject.tensionLevel !== undefined) {
+        floatingObject.tensionLevel = payload.node.savedPayload.floatingObject.tensionLevel
+      }
+      if (payload.node.savedPayload.floatingObject.distanceToParent !== undefined) {
+        floatingObject.distanceToParent = payload.node.savedPayload.floatingObject.distanceToParent
+      }
     }
 
     /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
       floatingObject.tensionLevel = payload.parentNode.payload.floatingObject.tensionLevel
+      floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
     }
 
     let uiObject = newUiObject()
@@ -136,9 +142,9 @@ function newUiObjectConstructor () {
       )
     menuItemsInitialValues.push(
       {
-        action: 'Tense / Untense',
+        action: 'Change Tension Level',
         actionFunction: floatingObject.tensionToggle,
-        actionStatus: floatingObject.getTensionStatus,
+        actionStatus: floatingObject.getTensionLevel,
         currentStatus: true,
         label: undefined,
         visible: true,
@@ -149,6 +155,21 @@ function newUiObjectConstructor () {
         ring: 1
       }
       )
+    menuItemsInitialValues.push(
+      {
+        action: 'change Distance to Paarent',
+        actionFunction: floatingObject.distanceToParentToggle,
+        actionStatus: floatingObject.getDistanceToParent,
+        currentStatus: true,
+        label: undefined,
+        visible: true,
+        icons: ['headphones', 'competition', 'analysis-1', 'stage-open-postion-rate', 'stop'],
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 1
+      }
+        )
     menuItemsInitialValues.push(
       {
         action: 'Freeze / Unfreeze',

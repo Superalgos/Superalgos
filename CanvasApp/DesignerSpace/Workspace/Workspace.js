@@ -132,7 +132,7 @@ function newWorkspace () {
           workingAtTask++
           break
         case 4:
-          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, true)
           workingAtTask++
           break
         case 5:

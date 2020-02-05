@@ -49,6 +49,10 @@ function runTask(message) {
         return
     }
 
+    if (tasks.get(message.event.taskId) !== undefined) {
+        //console.log('[WARN] Task Manager -> server -> runTask -> Task Already Running -> taskId = ' + message.event.taskId)
+        return
+    }
     //console.log('[INFO] Task Manager -> server -> runTask -> Task Name = ' + message.event.taskName)
     //console.log('[INFO] Task Manager -> server -> runTask -> Task Id = ' + message.event.taskId) 
 

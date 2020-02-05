@@ -3448,7 +3448,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 2,
+        "level": 1,
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->"
         },
@@ -3540,7 +3540,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 1,
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
@@ -3627,7 +3627,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 1,
         "chainedToSameType": true,
         "chainAttachesTo": {
             "compatibleTypes": "->Stop->Take Profit->Initial Stop->Initial Take Profit->Phase->"
@@ -3719,7 +3719,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 3,
+        "level": 1,
         "chainAttachesTo": {
             "compatibleTypes": "->Manage Stage->Initial Definition->"
         },
@@ -3883,7 +3883,7 @@
             }
         ],
         "addLeftIcons": true,
-        "level": 2,
+        "level": 1,
         "chainAttachesTo": {
             "compatibleTypes": "->Strategy->"
         },

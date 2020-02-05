@@ -22,7 +22,8 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    tensionLevel: TENSION_LEVEL.NO_TENSION,
+    tensionLevel: TENSION_LEVEL.LEVEL_90,
+    distanceToParent: DISTANCE_TO_PARENT.SAME,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -30,13 +31,15 @@ function newFloatingObject () {
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
     getCollapseStatus: getCollapseStatus,
-    getTensionStatus: getTensionStatus,
+    getTensionLevel: getTensionLevel,
+    getDistanceToParent: getDistanceToParent,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
     collapseToggle: collapseToggle,
     tensionToggle: tensionToggle,
+    distanceToParentToggle: distanceToParentToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -138,8 +141,12 @@ function newFloatingObject () {
     return thisObject.isCollapsed
   }
 
-  function getTensionStatus () {
+  function getTensionLevel () {
     return thisObject.tensionLevel
+  }
+
+  function getDistanceToParent () {
+    return thisObject.distanceToParent
   }
 
   function freezeToggle () {
@@ -186,6 +193,28 @@ function newFloatingObject () {
     return thisObject.tensionLevel
   }
 
+  function distanceToParentToggle () {
+    switch (thisObject.distanceToParent) {
+      case DISTANCE_TO_PARENT.NOT_FIXED:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.QUARTER
+        break
+      case DISTANCE_TO_PARENT.QUARTER:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.HALF
+        break
+      case DISTANCE_TO_PARENT.HALF:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.SAME
+        break
+      case DISTANCE_TO_PARENT.SAME:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.DOUBLE
+        break
+      case DISTANCE_TO_PARENT.DOUBLE:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.NOT_FIXED
+        break
+    }
+
+    return thisObject.distanceToParent
+  }
+
   function physics () {
     collapsePhysics()
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
@@ -229,12 +258,29 @@ function newFloatingObject () {
       if (parent.payload === undefined) { return }
       if (parent.payload.position === undefined) { return }
 
-      let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+      let distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
       let parentChildren = canvas.designerSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
       let axisCount = parentChildren.childrenCount
       let axisIndex = parentChildren.childIndex
       let baseAngle = 0
       let tensionLevelAngle
+
+      if (parent.payload.distance !== undefined) {
+        switch (thisObject.distanceToParent) {
+          case DISTANCE_TO_PARENT.QUARTER:
+            distanceToParent = parent.payload.distance / 4
+            break
+          case DISTANCE_TO_PARENT.HALF:
+            distanceToParent = parent.payload.distance / 2
+            break
+          case DISTANCE_TO_PARENT.SAME:
+            distanceToParent = parent.payload.distance
+            break
+          case DISTANCE_TO_PARENT.DOUBLE:
+            distanceToParent = parent.payload.distance * 2
+            break
+        }
+      }
 
       switch (thisObject.tensionLevel) {
         case TENSION_LEVEL.LEVEL_360:
@@ -277,11 +323,13 @@ function newFloatingObject () {
         thisObject.payload.angle = thisObject.payload.angle - 360
       }
 
-      if (distanceToChainParent > 2000) { return } // this is introduced to avoid edges cases when importing workspaces.
+      thisObject.payload.distance = distanceToParent
+
+      if (distanceToParent > 2000) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
-        x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
-        y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
+        x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),
+        y: parent.payload.position.y + distanceToParent * Math.sin(toRadians(thisObject.payload.angle))
       }
       if (isNaN(newPosition.x) === false) {
         thisObject.container.frame.position.x = newPosition.x

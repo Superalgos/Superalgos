@@ -8,9 +8,9 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 The [Users Manual](https://github.com/Superalgos/Platform/wiki) in this repository's wiki features the documentation corresponding to the latest release.
 
-The ```docs``` folder in this branch features the source files for a new [Jekyll](https://jekyllrb.com/) documentation site to be deployed along with the next release. The new version of the documentation is undergoing a massive restructuring, therefore, it may currently be inconsistent or hard to follow. 
+A [new documentation site](https://superalgos.github.io/Documentation/suite-crypto-ecosystem-hierarchy.html) is in the making. Bear in mind the new version of the documentation is undergoing a massive restructuring, therefore, it may currently be inconsistent or hard to follow.
 
-To deploy the new documentation site in your local machine, run [Jekyll](https://jekyllrb.com/docs/) from the ```docs``` folder.
+> The specific page linked above and the rest of the pages in the Hierarchies Directory are virtually up to date. The rest of the site is currently unreliable.
 
 ## Codebase and Development Environment
 

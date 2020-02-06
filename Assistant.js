@@ -419,12 +419,12 @@
 
                     }
 
-                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
+                    function getPositionTradesAtExchange(pOrderId, innerCallBack) {
 
                         try {
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pOrderId = " + pOrderId); }
 
                             /*
 
@@ -437,7 +437,7 @@
                                 case "Live": {
 
                                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
-                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                    exchangeAPI.getOrder(pOrderId, bot.market, onResponse);
                                     return;
 
                                 }
@@ -452,18 +452,18 @@
 
                                     for (let i = 0; i < context.executionContext.positions.length; i++) {
 
-                                        let thisPosition = context.executionContext.positions[i];
+                                        let thisOrder = context.executionContext.positions[i];
 
-                                        if (thisPosition.id === pPositionId) {
+                                        if (thisOrder.id === pOrderId) {
 
                                             let feeRate = 0.002; 		// Default backtesting fee simulation
 
                                             let trade = {
                                                 id: Math.trunc(Math.random(1) * 1000000),
-                                                type: thisPosition.type,
-                                                rate: thisPosition.rate.toString(),
-                                                amountA: thisObject.truncDecimals(thisPosition.amountA).toString(),
-                                                amountB: thisObject.truncDecimals(thisPosition.amountB).toString(),
+                                                type: thisOrder.type,
+                                                rate: thisOrder.rate.toString(),
+                                                amountA: thisObject.truncDecimals(thisOrder.amountA).toString(),
+                                                amountB: thisObject.truncDecimals(thisOrder.amountB).toString(),
                                                 fee: thisObject.truncDecimals(feeRate).toString(),
                                                 date: (new Date()).valueOf()
                                             }
@@ -890,11 +890,11 @@
                 }
             }
 
-            function onResponse(err, pPositionId) {
+            function onResponse(err, pOrderId) {
 
                 try {
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> pPositionId = " + pPositionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> pOrderId = " + pOrderId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
@@ -902,7 +902,7 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well."); }
 
                             let position = {
-                                id: pPositionId,
+                                id: pOrderId,
                                 type: pType,
                                 rate: pRate,
                                 amountA: pAmountA,
@@ -1010,11 +1010,11 @@
                 }
             }
 
-            function onResponse(err, pPositionId) {
+            function onResponse(err, pOrderId) {
 
                 try {
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> pPositionId = " + pPositionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> pOrderId = " + pOrderId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
@@ -1022,7 +1022,7 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well."); }
 
                             let newPosition = {
-                                id: pPositionId,
+                                id: pOrderId,
                                 type: pPosition.type,
                                 rate: pNewRate,
                                 amountA: pPosition.amountA,

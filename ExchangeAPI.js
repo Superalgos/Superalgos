@@ -9,7 +9,7 @@
         initialize: initialize,
         getTicker: getTicker,
         getOpenOrders: getOpenOrders,
-        getExecutedTrades: getExecutedTrades,
+        getOrder: getOrder,
         putPosition: putPosition,
         movePosition: movePosition,
         getMaxDecimalPositions: getMaxDecimalPositions
@@ -101,7 +101,7 @@
                 openOrders = await(exchange.fetchOpenOrders (symbol))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, openOrders)
             } else {
-                logError("getTicker -> Exchange does not support fetchOpenOrders command.");
+                logError("getOpenOrders -> Exchange does not support fetchOpenOrders command.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 
@@ -115,12 +115,22 @@
      * Returns the trades for a given order number.
      * The object returned is an array of trades
      */
-    function getExecutedTrades(pPositionId, callBackFunction) {
+    function getOrder(orderId, market, callBackFunction) {
         try {
-            logInfo("getExecutedTrades -> Entering function. pPositionId = " + pPositionId);
-            apiClient.getExecutedTrades(pPositionId, callBackFunction);
+            logInfo("getOrder -> Entering function. orderId = " + orderId);
+
+            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+            let order
+
+            if (exchange.has['fetchOrder']) {
+                order = await(exchange.fetchOpenOrders(orderId, symbol))
+                callBackFunction(global.DEFAULT_OK_RESPONSE, order)
+            } else {
+                logError("getOrder -> Exchange does not support fetchOrder command.");
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            }
         } catch (err) {
-            logError("getExecutedTrades -> Error = " + err.message);
+            logError("getOrder -> Error = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

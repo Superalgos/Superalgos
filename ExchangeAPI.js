@@ -11,59 +11,18 @@
         getExecutedTrades: getExecutedTrades,
         putPosition: putPosition,
         movePosition: movePosition,
-        getPublicTradeHistory: getPublicTradeHistory,
-        getExchangeProperties: getExchangeProperties,
         getMaxDecimalPositions: getMaxDecimalPositions
     };
 
     return thisObject;
 
     function initialize(callBackFunction) {
-        try {
-            logInfo("Initialize -> Entering function.");
 
- 
-
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
-        } catch (err) {
-            logError("Initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
+        callBackFunction(global.DEFAULT_OK_RESPONSE);
     }
 
-    /*
-     *  Fixing decimal positions to exchange configuration.
-     */
-    function truncDecimals(pFloatValue) {
-        let decimals = getMaxDecimalPositions();
-        return parseFloat(parseFloat(pFloatValue).toFixed(decimals));
-    }
-
-    /*
-     * Return number of decimals for the current market
-     */
     function getMaxDecimalPositions() {
-        return getMarketConfig().maxDecimals;
-    }
 
-    /*
-     * Return number of decimals for the current market
-     */
-    function getMarketConfig() {
-        let markets = getExchangeProperties().markets
-        for (let i = 0; i < markets.length; i++) {
-            const market = markets[i];
-            if (market.pair[0] === global.MARKET.assetA.toUpperCase() && market.pair[1] === global.MARKET.assetB.toUpperCase()) {
-                return market;
-            }
-        }
-    }
-
-    /*
-     * Return number of decimals for the current market
-     */
-    function getExchangeProperties() {
-        return apiClient.getExchangeProperties();
     }
 
     /*
@@ -163,29 +122,6 @@
         }
     }
 
-    /*
-     * Returns all the trade history from the Exchange since startTime to endTime orderd by tradeId.
-     * It's possible that the exchange doesn't support this method.
-     * The object returned is an array of trades:
-     * trade = {
-     *           tradeID,       String
-     *           globalTradeID, String
-     *           type,          String
-     *           rate,          Number
-     *           amountA,       Number
-     *           amountB,       Number
-     *           date       Date
-     *       };
-     */
-    function getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack) {
-        try {
-            logInfo("getTradeHistory -> Entering function.");
-            apiClient.getPublicTradeHistory(assetA, assetB, startTime, endTime, callBack);
-        } catch (err) {
-            logError("getTradeHistory -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
 
     function logInfo(message) {
         if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] ' + message) }

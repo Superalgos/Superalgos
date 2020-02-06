@@ -32,7 +32,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IndicatorBot.js" />
-    <Compile Include="Integrations\Ecosystem.js" />
     <Compile Include="FileStorage.js" />
     <Compile Include="MultiPeriod.js">
       <SubType>Code</SubType>
@@ -92,9 +91,6 @@
   <ItemGroup>
     <Content Include=".env" />
     <Content Include=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Integrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

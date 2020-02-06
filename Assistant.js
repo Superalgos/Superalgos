@@ -68,11 +68,6 @@
                     break;
                 }
 
-                case 'Competition': {
-                    getMarketRateFromExchange();
-                    break;
-                }
-
                 default: {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> Unexpected bot.startMode.");
                     logger.write(MODULE_NAME, "[ERROR] initialize -> bot.startMode = " + bot.startMode);
@@ -357,13 +352,6 @@
                     break;
                 }
 
-                case "Competition": {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
-                    exchangeAPI.getOpenPositions(bot.market, onResponse);
-                    break;
-                }
-
                 default: {
                     logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> Unexpected bot.startMode.");
                     logger.write(MODULE_NAME, "[ERROR] getPositionsAtExchange -> bot.startMode = " + bot.startMode);
@@ -584,13 +572,6 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-
-                                case "Competition": {
-
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Competition Mode Detected."); }
-                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
                                     return;
                                 }
 
@@ -995,12 +976,6 @@
                     return;
                 }
 
-                case "Competition": {
-
-                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
-                    return;
-                }
-
                 default: {
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> Unexpected bot.startMode.");
                     logger.write(MODULE_NAME, "[ERROR] putPosition -> bot.startMode = " + bot.startMode);
@@ -1118,12 +1093,6 @@
                     let positionId = Math.trunc(Math.random(1) * 1000000);
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
-                    return;
-                }
-
-                case "Competition": {
-
-                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
                     return;
                 }
 

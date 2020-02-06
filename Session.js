@@ -323,10 +323,18 @@
  
                                 let code = tradingSystem.parameters.timeRange.code
                                 if (code.initialDatetime !== undefined) {
-                                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    if (isNaN(Date.parse(code.initialDatetime)) === true) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Trading System Parameters because it is not a valid Date.");
+                                    } else {
+                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    }
                                 }
                                 if (code.finalDatetime !== undefined) {
-                                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                    if (isNaN(Date.parse(code.finalDatetime)) === true) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Trading System Parameters because it is not a valid Date.");
+                                    } else {
+                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                    }
                                 }
                             }
                         }
@@ -424,10 +432,18 @@
 
                                     let code = bot.SESSION.parameters.timeRange.code
                                     if (code.initialDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                        if (isNaN(Date.parse(code.initialDatetime)) === true) {
+                                            parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Session Parameters because it is not a valid Date.");
+                                        } else {
+                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                        }
                                     }
                                     if (code.finalDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                        if (isNaN(Date.parse(code.finalDatetime)) === true) {
+                                            parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Session Parameters because it is not a valid Date.");
+                                        } else {
+                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                        }
                                     }
                                 }
                             }

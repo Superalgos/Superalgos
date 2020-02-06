@@ -145,7 +145,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const EXCHANGE_API = require('ExchangeAPI');
+                    const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
@@ -581,7 +581,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI ->  Entering function."); }
 
-                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot.exchange);
+                            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
 
                             exchangeAPI.initialize(onInizialized);
 

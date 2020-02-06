@@ -63,7 +63,6 @@
                 }
 
                 case 'Backtest': {
-                    // getMarketRateFromIndicator(); NOTE: This path is disabled since for now we do not allow ticker in simulation. Also it allow us to ship a dataset without bruce
                     validateExchangeSyncronicity();
                     break;
                 }
@@ -115,99 +114,6 @@
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function getMarketRateFromIndicator() {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> Entering function."); }
-
-                    /* Procedure to get the current market rate. */
-
-                    let key =
-                        bot.marketRateProvider.dataMine + "-" +
-                        bot.marketRateProvider.bot + "-" +
-                        bot.marketRateProvider.product + "-" +
-                        bot.marketRateProvider.dataSet + "-" +
-                        bot.marketRateProvider.dataSetVersion;
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
-
-                    let dataSet = thisObject.dataDependencies.dataSets.get(key);
-
-                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                    let fileName = '' + bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json';
-                    let filePath = bot.marketRateProvider.product + "/" + bot.marketRateProvider.dataSet + "/" + dateForPath;
-
-                    dataSet.getTextFile(filePath, fileName, onFileReceived);
-
-                    function onFileReceived(err, text) {
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> Entering function."); }
-                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> text = " + text); }
-
-                        let candleArray;
-
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
-
-                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-
-                        }
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                            try {
-                                candleArray = JSON.parse(text);
-
-                                /* We need to find the candle at which the process is currently running. */
-
-                                for (let i = 0; i < candleArray.length; i++) {
-
-                                    let candle = {
-                                        open: candleArray[i][2],
-                                        close: candleArray[i][3],
-                                        min: candleArray[i][0],
-                                        max: candleArray[i][1],
-                                        begin: candleArray[i][4],
-                                        end: candleArray[i][5]
-                                    };
-
-                                    // TODO condition added for when there is no market rate available.
-                                    if ((bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end)
-                                        || (i + 1) === candleArray.length) {
-
-                                        marketRate = (candle.open + candle.close) / 2;
-                                        marketRate = thisObject.truncDecimals(marketRate);
-                                        context.newHistoryRecord.marketRate = marketRate;
-
-                                        ticker = {
-                                            bid: marketRate,
-                                            ask: marketRate,
-                                            last: marketRate
-                                        };
-
-                                        validateExchangeSyncronicity();
-                                        return;
-                                    }
-                                }
-                            } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            }
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                            callBackFunction(err);
-                        }
-                    }
-
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

@@ -92,9 +92,15 @@ function newChartSpace () {
       }
     }
 
+    if (thisObject.payload === undefined) {
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Designer Space in order to enable Charts. PLease create one and refreash your browser. ') }
+      return
+    }
+
     thisObject.viewport = newViewport()
     if (thisObject.payload.node.viewport === undefined) {
       if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Viewport node attached to the Charting Space node in order for the Viewport save its properties. ') }
+      return
     } else {
       thisObject.viewport.payload = thisObject.payload.node.viewport.payload
     }

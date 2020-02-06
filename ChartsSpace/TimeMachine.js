@@ -384,7 +384,6 @@ function newTimeMachine () {
   function physics () {
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
-      thisObjectPhysics()
       childrenPhysics()
       syncWithDesigner()
     }
@@ -488,19 +487,6 @@ function newTimeMachine () {
         thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
       }
     }
-  }
-
-  function thisObjectPhysics () {
-    /* Screen Corner Date Calculation */
-
-    let point = {
-      x: 0,
-      y: 0
-    }
-
-    let cornerDate = getDateFromPoint(point, thisObject.container, timeMachineCoordinateSystem)
-    cornerDate = new Date(cornerDate)
-    window.localStorage.setItem('Date @ Screen Corner', cornerDate.toUTCString())
   }
 
   function childrenPhysics () {

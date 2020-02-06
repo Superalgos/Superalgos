@@ -668,7 +668,7 @@
 
                 let imagePosition = {
                     x: recordPoint4.x + imageOffset.x,
-                    y: recordPoint4.y + imageOffset.y
+                    y: 0
                 }
 
                 imagePosition = canvas.chartSpace.viewport.fitIntoVisibleArea(imagePosition)

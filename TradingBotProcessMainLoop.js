@@ -145,7 +145,7 @@
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const EXCHANGE_API = require('@superalgos/exchange-gateway');
+                    const EXCHANGE_API = require('ExchangeAPI');
                     const CONTEXT = require(ROOT_DIR + 'Context');
                     const ASSISTANT = require(ROOT_DIR + 'Assistant');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');

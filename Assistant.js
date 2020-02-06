@@ -11,7 +11,7 @@
     let thisObject = {
         dataDependencies: undefined,
         initialize: initialize,
-        putPosition: putPosition,
+        createOrder: createOrder,
         movePosition: movePosition,
         getPositions: getPositions,
         getBalance: getBalance,
@@ -804,10 +804,10 @@
         }
     }
 
-    function putPosition(pType, pRate, pAmountA, pAmountB, callBackFunction) {
+    function createOrder(pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> Entering function."); }
 
             /* Removing extra decimals. */
 
@@ -815,10 +815,10 @@
             pAmountA = thisObject.truncDecimals(pAmountA);
             pAmountB = thisObject.truncDecimals(pAmountB);
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pAmountB = " + pAmountB); }
 
             /* Validations that the limits are not surpassed. */
 
@@ -826,9 +826,9 @@
 
                 if (pAmountA > thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset)) {
 
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset));
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountA is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -844,9 +844,9 @@
 
                 if (pAmountB > thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset)) {
 
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset));
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountB is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -864,7 +864,7 @@
 
                 case "Live": {
 
-                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
+                    exchangeAPI.createOrder(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
                     return;
                 }
 
@@ -872,19 +872,19 @@
 
                     if (pRate !== marketRate) {
 
-                        logger.write(MODULE_NAME, "[WARNING] putPosition -> Input Validations -> putPosition Rate can is different to marketRate while in Backtesting Mode. ");
+                        logger.write(MODULE_NAME, "[WARNING] createOrder -> Input Validations -> createOrder Rate can is different to marketRate while in Backtesting Mode. ");
                         //onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
                     }
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
                     return;
                 }
 
                 default: {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Unexpected bot.startMode.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
@@ -893,13 +893,13 @@
             function onResponse(err, pOrderId) {
 
                 try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> pOrderId = " + pOrderId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> pOrderId = " + pOrderId); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> onResponse -> Execution finished well."); }
 
                             let position = {
                                 id: pOrderId,
@@ -944,25 +944,25 @@
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = " + err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.stack);
+            logger.write(MODULE_NAME, "[ERROR] createOrder -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -997,7 +997,7 @@
                 case "Backtest": {
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
                     return;
                 }

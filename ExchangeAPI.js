@@ -10,7 +10,7 @@
         getTicker: getTicker,
         getOpenOrders: getOpenOrders,
         getOrder: getOrder,
-        putPosition: putPosition,
+        createOrder: createOrder,
         movePosition: movePosition,
         getMaxDecimalPositions: getMaxDecimalPositions
     };
@@ -139,30 +139,30 @@
      * Creates a new buy or sell order.
      * The orderNumber is returned. String
      */
-    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
+    function createOrder(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
         try {
-            logInfo("putPosition -> Entering function.");
+            logInfo("createOrder -> Entering function.");
 
             let rate = truncDecimals(pRate);
             let amountA = truncDecimals(pAmountA);
             let amountB = truncDecimals(pAmountB);
 
-            logInfo("putPosition -> pMarket = " + pMarket.assetA + "_" + pMarket.assetB);
-            logInfo("putPosition -> pType = " + pType);
-            logInfo("putPosition -> pRate = " + rate);
-            logInfo("putPosition -> pAmountA = " + amountA);
-            logInfo("putPosition -> pAmountB = " + amountB);
+            logInfo("createOrder -> pMarket = " + pMarket.assetA + "_" + pMarket.assetB);
+            logInfo("createOrder -> pType = " + pType);
+            logInfo("createOrder -> pRate = " + rate);
+            logInfo("createOrder -> pAmountA = " + amountA);
+            logInfo("createOrder -> pAmountB = " + amountB);
 
             if (pType === "buy") {
                 apiClient.buy(pMarket.assetA, pMarket.assetB, rate, amountB, callBackFunction);
             } else if (pType === "sell") {
                 apiClient.sell(pMarket.assetA, pMarket.assetB, rate, amountB, callBackFunction);
             } else {
-                logError("putPosition -> pType must be either 'buy' or 'sell'.");
+                logError("createOrder -> pType must be either 'buy' or 'sell'.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         } catch (err) {
-            logError("putPosition -> err = " + JSON.stringify(err.stack) || err.message);
+            logError("createOrder -> err = " + JSON.stringify(err.stack) || err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -2066,7 +2066,7 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
-                        assistant.putPosition(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
+                        assistant.createOrder(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Entering function."); }
@@ -2284,7 +2284,7 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
-                        assistant.putPosition(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
+                        assistant.createOrder(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Entering function."); }

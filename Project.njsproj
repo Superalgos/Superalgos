@@ -19,14 +19,10 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Compile Include="Historic-Trades\User.Bot.js" />
-    <Compile Include="Hole-Fixing\User.Bot.js" />
-    <Compile Include="Live-Trades\User.Bot.js" />
     <Content Include="this.bot.config.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Historic-Trades\" />
-    <Folder Include="Hole-Fixing\" />
-    <Folder Include="Live-Trades\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

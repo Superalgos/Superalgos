@@ -299,7 +299,6 @@ function newTimeFrameScale () {
     let event = {}
     event.timeFrame = thisObject.timeFrame
     thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
-    window.localStorage.setItem('Current Time Frame', JSON.stringify({filePeriodIndex: filePeriodIndex, timeFrameIndex: timeFrameIndex}))
   }
 
   function draw () {

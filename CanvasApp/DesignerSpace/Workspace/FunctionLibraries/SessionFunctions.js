@@ -58,28 +58,10 @@ function newSessionFunctions () {
     /* Raise event to run the session */
     let event = {
       session: JSON.stringify(session),
-      tradingSystem: JSON.stringify(tradingSystem),
-      uiCurrentValues: getUICurrentValues()
+      tradingSystem: JSON.stringify(tradingSystem)
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
-
-    function getUICurrentValues () {
-      let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
-      let currentTimeFrame = JSON.parse(window.localStorage.getItem('Current Time Frame'))
-
-      let timeFramesMasterArray = [marketFilesPeriods, dailyFilePeriods]
-      let timeFrameArray = timeFramesMasterArray[currentTimeFrame.filePeriodIndex]
-      let timeFrame = timeFrameArray[currentTimeFrame.timeFrameIndex][1]
-
-      let uiCurrentValues = {
-        initialDatetime: dateAtScreenCorner,
-        timeFrame: timeFrame,
-        timestamp: (new Date()).valueOf()
-      }
-
-      return uiCurrentValues
-    }
   }
 
   function stopSession (node, functionLibraryProtocolNode, callBackFunction) {

@@ -2,6 +2,7 @@
 
     const MODULE_NAME = "Session"
     const FULL_LOG = true;
+    const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 
     let thisObject = {
         initialize: initialize 
@@ -97,6 +98,17 @@
                 bot.STOP_SESSION = true
             }
 
+            function checkDatetimes() {
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
+                if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
+                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
+                }
+            }
+
             function startBackTesting(message) {
                 bot.startMode = "Backtest"
                 if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() > (new Date()).valueOf()) {
@@ -117,9 +129,7 @@
                 }
 
                 bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
@@ -135,9 +145,7 @@
                 }
 
                 bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
@@ -164,9 +172,7 @@
             function startPaperTrading(message) {
                 bot.startMode = "Backtest"
                 
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
@@ -204,7 +210,7 @@
                 }
 
                 /* Session Type Dependant Default Values */
-                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
+
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
                         bot.VALUES_TO_USE.timeRange.initialDatetime = new Date((new Date()).valueOf() - ONE_YEAR_IN_MILISECONDS)
@@ -246,6 +252,8 @@
                                         if (code.codeName !== undefined) {
                                             bot.VALUES_TO_USE.baseAsset = code.codeName;
                                         }
+
+                                        code = tradingSystem.parameters.baseAsset.code
 
                                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                             if (code.initialBalance !== undefined) {
@@ -347,14 +355,16 @@
                             /* Base Asset and Initial Balances. */
                             {
                                 if (bot.SESSION.parameters.baseAsset !== undefined) {
-                                    if (tradingSystem.parameters.baseAsset.referenceParent !== undefined) {
-                                        if (tradingSystem.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
+                                    if (bot.SESSION.parameters.baseAsset.referenceParent !== undefined) {
+                                        if (bot.SESSION.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                            let code = tradingSystem.parameters.baseAsset.referenceParent.referenceParent.code
+                                            let code = bot.SESSION.parameters.baseAsset.referenceParent.referenceParent.code
 
                                             if (code.codeName !== undefined) {
                                                 bot.VALUES_TO_USE.baseAsset = code.codeName;
                                             }
+
+                                            code = bot.SESSION.parameters.baseAsset.code
 
                                             if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                                                 if (code.initialBalance !== undefined) {

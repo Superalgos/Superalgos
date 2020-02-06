@@ -469,7 +469,10 @@
 
                                             trades.push(trade);
 
-                                            onResponse(global.DEFAULT_OK_RESPONSE, trades);
+                                            let order = {
+                                                trades: trades
+                                            }
+                                            onResponse(global.DEFAULT_OK_RESPONSE, order);
 
                                             return;
                                         }
@@ -488,7 +491,7 @@
                                 }
                             }
 
-                            function onResponse(err, pTrades) {
+                            function onResponse(err, order) {
 
                                 try {
                                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
@@ -496,7 +499,7 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well."); }
-                                            innerCallBack(pTrades);
+                                            innerCallBack(order);
                                         }
                                             break;
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -523,13 +526,14 @@
                         }
                     }
 
-                    function confirmOrderWasExecuted(pTrades) {
+                    function confirmOrderWasExecuted(order) {
 
                         try {
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> trades = " + JSON.stringify(trades)); }
 
+                            let trades = order.trades
                             /*
 
                             To confirm everything is ok, we will add all the amounts on trades asociated to the order and
@@ -542,8 +546,8 @@
                             let sumQuotedAsset = 0;
                             let sumRate = 0;
 
-                            for (let k = 0; k < pTrades.length; k++) {
-                                let trade = pTrades[k];
+                            for (let k = 0; k < trades.length; k++) {
+                                let trade = trades[k];
                                 sumBaseAsset = sumBaseAsset + thisObject.truncDecimals(trade.amountA);
                                 sumQuotedAsset = sumQuotedAsset + thisObject.truncDecimals(trade.amountB);
                                 sumRate = sumRate + thisObject.truncDecimals(trade.rate);
@@ -572,12 +576,12 @@
                             position.status = "executed";
 
                             if (position.type === "sell") {
-                                context.newHistoryRecord.sellExecRate = sumRate / pTrades.length;
+                                context.newHistoryRecord.sellExecRate = sumRate / trades.length;
                             } else {
-                                context.newHistoryRecord.buyExecRate = sumRate / pTrades.length;
+                                context.newHistoryRecord.buyExecRate = sumRate / trades.length;
                             }
 
-                            applyTradesToContext(pTrades);
+                            applyTradesToContext(trades);
 
                             let newTransaction = {
                                 type: position.type + " executed",
@@ -597,10 +601,12 @@
                         }
                     }
 
-                    function confirmOrderWasPartiallyExecuted(pTrades) {
+                    function confirmOrderWasPartiallyExecuted(trades) {
 
                         try {
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
+
+                            let trades = order.trades
 
                             /*
 
@@ -613,8 +619,8 @@
                             let sumBaseAsset = 0;
                             let sumQuotedAsset = 0;
 
-                            for (let k = 0; k < pTrades.length; k++) {
-                                let trade = pTrades[k];
+                            for (let k = 0; k < trades.length; k++) {
+                                let trade = trades[k];
                                 sumBaseAsset = sumBaseAsset + thisObject.truncDecimals(trade.amountA);
                                 sumQuotedAsset = sumQuotedAsset + thisObject.truncDecimals(trade.amountB);
                             }
@@ -663,7 +669,7 @@
                             position.amountB = exchangePosition.amountB;
                             position.date = (new Date(exchangePosition.date)).valueOf();
 
-                            applyTradesToContext(pTrades);
+                            applyTradesToContext(trades);
 
                             let newTransaction = {
                                 type: position.type + "  partially executed",
@@ -683,7 +689,7 @@
                         }
                     }
 
-                    function applyTradesToContext(pTrades) {
+                    function applyTradesToContext(trades) {
 
                         try {
 
@@ -691,9 +697,9 @@
 
                             /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
 
-                            for (k = 0; k < pTrades.length; k++) {
+                            for (k = 0; k < trades.length; k++) {
 
-                                let trade = pTrades[k];
+                                let trade = trades[k];
 
                                 position.trades.push(trade);
 

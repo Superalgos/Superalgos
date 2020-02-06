@@ -96,7 +96,7 @@
         }
     }
 
-    function getOrder(orderId, market, callBackFunction) {
+    async function getOrder(orderId, market, callBackFunction) {
         try {
             logInfo("getOrder -> Entering function. orderId = " + orderId);
 
@@ -116,7 +116,7 @@
         }
     }
 
-    function createOrder(market, side, pRate, amount, price, callBackFunction) {
+    async function createOrder(market, side,  price,  cost,  amount, callBackFunction) {
         try {
             logInfo("createOrder -> Entering function.");
 
@@ -124,7 +124,7 @@
 
             logInfo("createOrder -> market = " + market.assetA + "_" + market.assetB);
             logInfo("createOrder -> side = " + side);
-            logInfo("createOrder -> pRate = " + rate);
+            logInfo("createOrder -> cost = " + cost);
             logInfo("createOrder -> amount = " + amount);
             logInfo("createOrder -> price = " + price);
 
@@ -137,7 +137,7 @@
             let order
 
             if (exchange.has['createOrder']) {
-                order = await(exchange.createOrder(symbol, type, side, amount, price))
+                order = await(exchange.createOrder(symbol, type, side, amount))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, order)
             } else {
                 logError("createOrder -> Exchange does not support createOrder command.");

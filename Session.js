@@ -49,7 +49,6 @@
                 /* We are going to run the Definition comming at the event. */
                 bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                 bot.SESSION = JSON.parse(message.event.session)
-                bot.UI_CURRENT_VALUES = message.event.uiCurrentValues
     
                 /* Set the folderName for logging, reports, context and data output */
                 let code
@@ -189,7 +188,6 @@
                     minimumBalanceB: 0,
                     maximumBalanceA: 0.002,
                     maximumBalanceB: 0,
-                    timeFrame: bot.UI_CURRENT_VALUES.timeFrame,
                     slippage: {
                         positionRate: 0,
                         stopLoss: 0,
@@ -209,7 +207,7 @@
                 const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(bot.UI_CURRENT_VALUES.initialDatetime)
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date((new Date()).valueOf() - ONE_YEAR_IN_MILISECONDS)
                         bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
                         break
                     }

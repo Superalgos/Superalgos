@@ -254,6 +254,7 @@ function newChartSpace () {
   }
 
   function syncWithDesigner () {
+    if (thisObject.payload === undefined) { return }
     if (thisObject.payload.node === undefined) { return }
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 

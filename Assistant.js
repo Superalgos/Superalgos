@@ -12,7 +12,6 @@
         dataDependencies: undefined,
         initialize: initialize,
         createOrder: createOrder,
-        movePosition: movePosition,
         getPositions: getPositions,
         getBalance: getBalance,
         getAvailableBalance: getAvailableBalance,
@@ -890,11 +889,11 @@
                 }
             }
 
-            function onResponse(err, pOrderId) {
+            function onResponse(err, order) {
 
                 try {
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> pOrderId = " + pOrderId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> order.id = " + order.id); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
@@ -902,7 +901,7 @@
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> onResponse -> Execution finished well."); }
 
                             let position = {
-                                id: pOrderId,
+                                id: order.id,
                                 type: pType,
                                 rate: pRate,
                                 amountA: pAmountA,
@@ -963,124 +962,6 @@
             }
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] createOrder -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function movePosition(pPosition, pNewRate, callBackFunction) {
-
-        try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
-
-            /* Removing extra decimals. */
-            pNewRate = thisObject.truncDecimals(pNewRate);
-
-            let newAmountB;
-            if (pPosition.type === "buy") {
-                newAmountB = thisObject.truncDecimals(pPosition.amountA / pNewRate);
-            } else {
-                newAmountB = pPosition.amountB;
-            }
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmountB = " + newAmountB); }
-
-            switch (bot.startMode) {
-
-                case "Live": {
-
-                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
-                    return;
-                }
-
-                case "Backtest": {
-
-                    let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  Simulating Exchange Response -> orderId = " + positionId); }
-                    onResponse(global.DEFAULT_OK_RESPONSE, positionId);
-                    return;
-                }
-
-                default: {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> Unexpected bot.startMode.");
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> bot.startMode = " + bot.startMode);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-
-            function onResponse(err, pOrderId) {
-
-                try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> pOrderId = " + pOrderId); }
-
-                    switch (err.result) {
-                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well."); }
-
-                            let newPosition = {
-                                id: pOrderId,
-                                type: pPosition.type,
-                                rate: pNewRate,
-                                amountA: pPosition.amountA,
-                                amountB: newAmountB,
-                                date: (bot.processDatetime.valueOf()),
-                                status: "open",
-                                trades: []
-                            };
-
-                            let oldPosition = JSON.parse(JSON.stringify(pPosition));
-
-                            /* We need to update the position we have on file. */
-
-                            for (let i = 0; i < context.executionContext.positions.length; i++) {
-
-                                if (context.executionContext.positions[i].id === pPosition.id) {
-
-                                    context.executionContext.positions[i] = newPosition;
-
-                                    break;
-                                }
-                            }
-
-                            let newTransaction = {
-                                type: "movePosition",
-                                oldPosition: oldPosition,
-                                newPosition: newPosition
-                            };
-
-                            context.executionContext.transactions.push(newTransaction);
-
-                            context.newHistoryRecord.movedPositions++;
-
-                            recalculateRateAverages();
-
-                            callBackFunction(global.DEFAULT_OK_RESPONSE, newPosition);
-                        }
-                            break;
-                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-                            break;
-                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                            break;
-                    }
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

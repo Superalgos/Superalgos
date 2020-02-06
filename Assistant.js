@@ -32,7 +32,7 @@
 
     let utilities = UTILITIES.newCloudUtilities(logger);
 
-    let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
+    let openOrders = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself.
 
     let context;
@@ -246,15 +246,15 @@
                 case "Live": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Live Mode Detected."); }
-                    exchangeAPI.getOpenPositions(bot.market, onResponse);
+                    exchangeAPI.getOpenOrders(bot.market, onResponse);
                     break;
                 }
 
                 case "Backtest": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
-                    let exchangePositions = [];  // We simulate all positions were executed.
-                    onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
+                    let openOrders = [];  // We simulate all positions were executed.
+                    onResponse(global.DEFAULT_OK_RESPONSE, openOrders);
                     break;
                 }
 
@@ -266,15 +266,15 @@
                 }
             }
 
-            function onResponse(err, pExchangePositions) {
+            function onResponse(err, pOpenOrders) {
 
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + JSON.stringify(pExchangePositions)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> pOpenOrders = " + JSON.stringify(pOpenOrders)); }
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> onResponse -> Execution finished well."); }
-                        exchangePositions = pExchangePositions;
+                        openOrders = pOpenOrders;
                         ordersExecutionCheck(callBack);
                         return;
                     }
@@ -365,11 +365,11 @@
                     let position = context.executionContext.positions[i];
                     let exchangePosition;
 
-                    for (let j = 0; j < exchangePositions.length; j++) {
+                    for (let j = 0; j < openOrders.length; j++) {
 
-                        if (position.id === exchangePositions[j].id) {
+                        if (position.id === openOrders[j].id) {
 
-                            exchangePosition = exchangePositions[j];
+                            exchangePosition = openOrders[j];
                             positionFound();
                             return;
                         }

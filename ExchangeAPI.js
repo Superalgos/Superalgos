@@ -8,7 +8,7 @@
     let thisObject = {
         initialize: initialize,
         getTicker: getTicker,
-        getOpenPositions: getOpenPositions,
+        getOpenOrders: getOpenOrders,
         getExecutedTrades: getExecutedTrades,
         putPosition: putPosition,
         movePosition: movePosition,
@@ -18,7 +18,7 @@
     let exchangeId
     let options = {}
     let exchange
-    const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+
     const ccxt = require('ccxt')
 
     return thisObject;
@@ -65,9 +65,10 @@
      *           last Number
      *       };
      */
-    async function getTicker(pMarket, callBackFunction) {
+    async function getTicker(market, callBackFunction) {
         try {
             logInfo("getTicker -> Entering function.");
+            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
             let ticker
 
             if (exchange.has['fetchTicker']) {
@@ -89,27 +90,38 @@
      * The object returned is an array of positions
      *
      */
-    function getOpenPositions(pMarket, callBack) {
+    async function getOpenOrders(market, callBackFunction) {
         try {
-            logInfo("getOpenPositions -> Entering function. pMarket = " + JSON.stringify(pMarket));
-            apiClient.getOpenPositions(pMarket, callBack);
+            logInfo("getOpenOrders -> Entering function. market = " + JSON.stringify(market));
+
+            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+            let openOrders
+
+            if (exchange.has['fetchOpenOrders']) {
+                openOrders = await(exchange.fetchOpenOrders (symbol))
+                callBackFunction(global.DEFAULT_OK_RESPONSE, openOrders)
+            } else {
+                logError("getTicker -> Exchange does not support fetchOpenOrders command.");
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            }
+
         } catch (err) {
-            logError("getOpenPositions -> Error = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            logError("getOpenOrders -> Error = " + err.message);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
     /*
      * Returns the trades for a given order number.
-     * The object returned is an array of positions
+     * The object returned is an array of trades
      */
-    function getExecutedTrades(pPositionId, callBack) {
+    function getExecutedTrades(pPositionId, callBackFunction) {
         try {
             logInfo("getExecutedTrades -> Entering function. pPositionId = " + pPositionId);
-            apiClient.getExecutedTrades(pPositionId, callBack);
+            apiClient.getExecutedTrades(pPositionId, callBackFunction);
         } catch (err) {
             logError("getExecutedTrades -> Error = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -117,7 +129,7 @@
      * Creates a new buy or sell order.
      * The orderNumber is returned. String
      */
-    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBack) {
+    function putPosition(pMarket, pType, pRate, pAmountA, pAmountB, callBackFunction) {
         try {
             logInfo("putPosition -> Entering function.");
 
@@ -132,16 +144,16 @@
             logInfo("putPosition -> pAmountB = " + amountB);
 
             if (pType === "buy") {
-                apiClient.buy(pMarket.assetA, pMarket.assetB, rate, amountB, callBack);
+                apiClient.buy(pMarket.assetA, pMarket.assetB, rate, amountB, callBackFunction);
             } else if (pType === "sell") {
-                apiClient.sell(pMarket.assetA, pMarket.assetB, rate, amountB, callBack);
+                apiClient.sell(pMarket.assetA, pMarket.assetB, rate, amountB, callBackFunction);
             } else {
                 logError("putPosition -> pType must be either 'buy' or 'sell'.");
-                callBack(global.DEFAULT_FAIL_RESPONSE);
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
         } catch (err) {
             logError("putPosition -> err = " + JSON.stringify(err.stack) || err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -149,16 +161,16 @@
      * Move an existing position to the new rate.
      * The new orderNumber is returned.
      */
-    function movePosition(pPosition, pNewRate, pNewAmountB, callBack) {
+    function movePosition(pPosition, pNewRate, pNewAmountB, callBackFunction) {
         try {
             logInfo("movePosition -> Entering function.");
             logInfo("movePosition -> pPosition = " + JSON.stringify(pPosition));
             logInfo("movePosition -> pNewRate = " + truncDecimals(pNewRate));
 
-            apiClient.movePosition(pPosition, truncDecimals(pNewRate), truncDecimals(pNewAmountB), callBack);
+            apiClient.movePosition(pPosition, truncDecimals(pNewRate), truncDecimals(pNewAmountB), callBackFunction);
         } catch (err) {
             logError("movePosition -> err = " + err.message);
-            callBack(global.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 

@@ -219,7 +219,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched to " + endDate) }
                         }
 
-                        if (trades.length > 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                        if (trades.length > 1) {
                             previousSince = since
                             since = trades[trades.length - 1]['timestamp']
                             if (since === previousSince) { 
@@ -240,10 +240,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                             bot.processHeartBeat("Fetching " + allTrades.length.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
-                        } else {
-                            break
                         }
-                        if (global.STOP_TASK_GRACEFULLY === true) {
+
+                        if (
+                            trades.length < limit - 1 ||
+                            global.STOP_TASK_GRACEFULLY === true ||
+                            allTrades.length >= MAX_TRADES_PER_EXECUTION
+                            ) {
                             break
                         }
                     }

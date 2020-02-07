@@ -45,7 +45,8 @@ function newSessionFunctions () {
     'Stop->Take Profit->' +
     'Phase->Formula->Next Phase Event->' +
     'Situation->Condition->Javascript Code->' +
-    'Announcement->Telegram Bot->'
+    'Announcement->Telegram Bot->' +
+    'Close Stage->Close Execution->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 

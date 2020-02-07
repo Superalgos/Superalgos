@@ -704,7 +704,7 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             positionSize = balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
@@ -727,13 +727,13 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                                 positionSize = balanceBaseAsset;
                                             } else {
                                                 positionSize = balanceQuotedAsset;
                                             }
                                         } else {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                                 if (positionSize > balanceBaseAsset) { positionSize = balanceBaseAsset }
                                             } else {
                                                 if (positionSize > balanceQuotedAsset) { positionSize = balanceQuotedAsset }
@@ -754,7 +754,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -1091,7 +1091,7 @@
                     let maximumBalance
                     let balance
 
-                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                         balance = balanceBaseAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
@@ -1673,7 +1673,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.min <= stopLoss)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.min <= stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1683,7 +1683,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             if (stopLoss < candle.min) {
                                 stopLoss = candle.min
                                 if (processingDailyFiles) {
@@ -1708,7 +1708,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1718,7 +1718,7 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             strategy.positionSize = balanceQuotedAsset / finalStopLoss;
                             strategy.positionRate = finalStopLoss;
 
@@ -1770,7 +1770,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.max >= takeProfit)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.max >= takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1780,7 +1780,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             if (takeProfit > candle.max) {
                                 takeProfit = candle.max
                                 if (processingDailyFiles) {
@@ -1804,7 +1804,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1814,7 +1814,7 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             strategy.positionSize = balanceQuotedAsset / finalTakeProfit;
                             strategy.positionRate = finalTakeProfit;
 
@@ -1893,7 +1893,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                         tradePositionRate = tradePositionRate - slippageAmount
                     } else {
                         tradePositionRate = tradePositionRate + slippageAmount
@@ -2027,34 +2027,28 @@
                             }
                         }
 
-                        let openPositionRate
+                        let orderPrice
                         let amountA
                         let amountB
-                        let positionDirection
-                        let availableBalance = exchangeAPI.getAvailableBalance()
+                        let orderSide
+ 
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionDirection = "sell"
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            orderSide = "sell"
 
-                            openPositionRate = tradePositionRate - 100 // 100 is Provisional since we do have management of orders yet
+                            orderPrice = tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
 
-                            amountA = tradePositionSize * openPositionRate
+                            amountA = tradePositionSize * orderPrice
                             amountB = tradePositionSize
-
-                            if (amountB > availableBalance.quotedAsset) { // The exchangeAPI know what fees were paid.
-                                amountB = availableBalance.quotedAsset
-                            }
+ 
                         } else {
-                            positionDirection = "buy"
+                            orderSide = "buy"
 
-                            openPositionRate = tradePositionRate + 100 // 100 is Provisional since we do have management of orders yet
+                            orderPrice = tradePositionRate // This is going to be ingnored at the Exchange API for now since we only put market orders.
 
                             amountA = tradePositionSize
-                            amountB = tradePositionSize / openPositionRate
+                            amountB = tradePositionSize / orderPrice
 
-                            if (amountA > availableBalance.baseAsset) { // The exchangeAPI know what fees were paid.
-                                amountA = availableBalance.baseAsset
-                            }
                         }
 
                         interExecutionMemory.executionContext = {
@@ -2062,46 +2056,47 @@
                             periods: periods,
                         }
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
-                        exchangeAPI.createOrder(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order."); }
+                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
 
-                        function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Entering function."); }
+                        function onOrderCreated(err, order) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "In a Position",
                                             periods: periods,
                                             amountA: amountA,
-                                            amountB: amountB
+                                            amountB: amountB,
+                                            orderId: order.id
                                         }
                                         takePositionAtSimulation()
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderCreated ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -2132,7 +2127,7 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
 
                             feePaid = tradePositionSize * tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
@@ -2251,27 +2246,27 @@
                             }
                         }
 
-                        let closePositionRate
+                        let orderPrice
                         let amountA
                         let amountB
-                        let positionDirection
+                        let orderSide
                         let availableBalance = exchangeAPI.getAvailableBalance()
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionDirection = "buy"
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            orderSide = "buy"
 
-                            closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+                            orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.baseAsset
-                            amountB = availableBalance.baseAsset / closePositionRate
+                            amountA = balanceBaseAsset
+                            amountB = balanceBaseAsset / orderPrice
 
                         } else {
-                            positionDirection = "sell"
+                            orderSide = "sell"
 
-                            closePositionRate = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+                            orderPrice = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.quotedAsset * closePositionRate
-                            amountB = availableBalance.quotedAsset
+                            amountA = balanceQuotedAsset * orderPrice
+                            amountB = balanceQuotedAsset
 
                         }
 
@@ -2281,44 +2276,45 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
-                        exchangeAPI.createOrder(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
+                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
 
-                        function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Entering function."); }
+                        function onOrderCreated(err) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "Position Closed",
                                             periods: periods,
                                             amountA: amountA,
-                                            amountB: amountB
+                                            amountB: amountB,
+                                            orderId: order.id
                                         }
                                         closePositionAtSimulation()
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE "); }
                                         /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE "); }
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderCreated ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -2336,7 +2332,7 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             lastTradeProfitLoss = balanceBaseAsset - previousBalanceBaseAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
@@ -2383,7 +2379,7 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             ROI = (bot.VALUES_TO_USE.initialBalanceA + profit) / bot.VALUES_TO_USE.initialBalanceA - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
@@ -2649,7 +2645,7 @@
                         currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing ROI */
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
                         } else {
                             currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100

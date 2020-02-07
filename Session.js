@@ -255,7 +255,7 @@
 
                                         code = tradingSystem.parameters.baseAsset.code
 
-                                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                             if (code.initialBalance !== undefined) {
                                                 bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
                                                 bot.VALUES_TO_USE.initialBalanceB = 0
@@ -366,7 +366,7 @@
 
                                             code = bot.SESSION.parameters.baseAsset.code
 
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                                 if (code.initialBalance !== undefined) {
                                                     bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
                                                     bot.VALUES_TO_USE.initialBalanceB = 0

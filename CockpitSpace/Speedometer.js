@@ -51,13 +51,13 @@ function newSpeedometer () {
   }
 
   function drawAssetCircle () {
-    const RED_LINE_HIGHT = 5
+    const RED_LINE_HIGHT = 2
     const RADIUS = 50
     const OPACITY = 1
 
     let centerPoint = {
       x: thisObject.params.LEFT_OFFSET,
-      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2
+      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2 - 9
     }
 
     browserCanvasContext.beginPath()

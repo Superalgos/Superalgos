@@ -37,9 +37,6 @@ function newQuotedAssetalances () {
     for (let i = 0; i < 2; i++) {
       let speedometer = newSpeedometer()
 
-      speedometer.container.frame.position.x = thisObject.container.frame.width / 2 - speedometer.container.frame.width / 2
-      speedometer.container.frame.position.y = thisObject.container.frame.height / 2 - speedometer.container.frame.height / 2
-
       speedometer.initialize()
       thisObject.speedometers.push(speedometer)
     }
@@ -109,7 +106,7 @@ function newQuotedAssetalances () {
     label = 'ASSET BALANCES'
 
     xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-    yOffset = -45
+    yOffset = -45 + 9
 
     labelPoint = {
       x: 0 - xOffset + (thisObject.paramsArray[1].LEFT_OFFSET - thisObject.paramsArray[0].LEFT_OFFSET) / 2 + thisObject.paramsArray[0].LEFT_OFFSET - 20,
@@ -120,3 +117,4 @@ function newQuotedAssetalances () {
     browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
   }
 }
+

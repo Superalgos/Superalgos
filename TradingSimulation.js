@@ -167,6 +167,8 @@
             let periods = 0;
             let positionPeriods = 0;
 
+            let closeRate
+
             /* Usefull counters for conditions and formulas */
 
             let distanceToLast = {
@@ -1714,36 +1716,9 @@
                             slippedStopLoss = slippedStopLoss - slippageAmount
                         }
 
-                        let finalStopLoss = slippedStopLoss;
+                        closeRate = slippedStopLoss;
 
-                        let feePaid = 0
-
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
-                            strategy.positionSize = balanceQuotedAsset / finalStopLoss;
-                            strategy.positionRate = finalStopLoss;
-
-                            feePaid = balanceQuotedAsset / finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / finalStopLoss - feePaid;
-                            balanceQuotedAsset = 0;
-                        } else {
-                            strategy.positionSize = balanceBaseAsset * finalStopLoss;
-                            strategy.positionRate = finalStopLoss;
-
-                            feePaid = balanceBaseAsset * finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * finalStopLoss - feePaid;
-                            balanceBaseAsset = 0;
-                        }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceBaseAsset = balanceBaseAsset;
-                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
-                            }
-                        }
-
-                        marketRate = finalStopLoss;
+                        marketRate = closeRate;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1751,7 +1726,7 @@
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
-                        currentTrade.endRate = finalStopLoss;
+                        currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
 
@@ -1810,37 +1785,9 @@
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
                         }
 
-                        let finalTakeProfit = slippedTakeProfit;
+                        closeRate = slippedTakeProfit;
 
-                        let feePaid = 0
-
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
-                            strategy.positionSize = balanceQuotedAsset / finalTakeProfit;
-                            strategy.positionRate = finalTakeProfit;
-
-                            feePaid = balanceQuotedAsset / finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / finalTakeProfit - feePaid;
-                            balanceQuotedAsset = 0;
-                        } else {
-                            strategy.positionSize = balanceBaseAsset * finalTakeProfit;
-                            strategy.positionRate = finalTakeProfit;
-
-                            feePaid = balanceBaseAsset * finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * finalTakeProfit - feePaid;
-                            balanceBaseAsset = 0;
-                        }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceBaseAsset = balanceBaseAsset;
-                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
-
-                            }
-                        }
-
-                        marketRate = finalTakeProfit;
+                        marketRate = closeRate;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1849,7 +1796,7 @@
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = finalTakeProfit;
+                        currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
 
@@ -1988,18 +1935,6 @@
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
                                 takePositionAtSimulation()
                                 return;
-                            }
-                        }
-
-
-                        /* Checking the status of current positions */
-                        let positions = exchangeAPI.getPositions();
-                        if (positions.length > 0) {
-                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
-                            if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the last position is still open. "); }
-                                afterLoop();
-                                return
                             }
                         }
 
@@ -2223,19 +2158,7 @@
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
 
-                        /* Checking the status of current positions */
-                        let positions = exchangeAPI.getPositions();
-                        if (positions.length > 0) {
-                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
-                            if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because status of last position is Open."); }
-                                afterLoop();
-                                return
-                            }
-                        }
-
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
@@ -2250,23 +2173,22 @@
                         let amountA
                         let amountB
                         let orderSide
-                        let availableBalance = exchangeAPI.getAvailableBalance()
 
                         if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             orderSide = "buy"
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = balanceBaseAsset
-                            amountB = balanceBaseAsset / orderPrice
+                            amountA =  balanceQuotedAsset 
+                            amountB = balanceQuotedAsset / orderPrice
 
                         } else {
                             orderSide = "sell"
 
                             orderPrice = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = balanceQuotedAsset * orderPrice
-                            amountB = balanceQuotedAsset
+                            amountA = balanceBaseAsset * orderPrice
+                            amountB = balanceBaseAsset
 
                         }
 
@@ -2278,7 +2200,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
                         exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
 
-                        function onOrderCreated(err) {
+                        function onOrderCreated(err, order) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Entering function."); }
 
                             try {
@@ -2329,6 +2251,34 @@
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
                                 yesterday.roundtrips = roundtrips
+                            }
+                        }
+
+                        let feePaid = 0
+
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            strategy.positionSize = balanceQuotedAsset / closeRate;
+                            strategy.positionRate = closeRate;
+
+                            feePaid = balanceQuotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+
+                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / closeRate - feePaid;
+                            balanceQuotedAsset = 0;
+                        } else {
+                            strategy.positionSize = balanceBaseAsset * closeRate;
+                            strategy.positionRate = closeRate;
+
+                            feePaid = balanceBaseAsset * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+
+                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * closeRate - feePaid;
+                            balanceBaseAsset = 0;
+                        }
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
+
                             }
                         }
 

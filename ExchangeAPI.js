@@ -104,7 +104,7 @@
             let order
 
             if (exchange.has['fetchOrder']) {
-                order = await(exchange.fetchOpenOrders(orderId, symbol))
+                order = await (exchange.fetchOrder(orderId, symbol))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, order)
             } else {
                 logError("getOrder -> Exchange does not support fetchOrder command.");

@@ -256,12 +256,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> err = " + err.stack);
-                    if (err.message.indexOf('exchange is down or offline') >= 0) {
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                    } else {
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> Retrying Later -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                   
                 }
             }
 

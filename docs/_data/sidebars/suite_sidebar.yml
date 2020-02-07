@@ -6,108 +6,108 @@ entries:
   version: 0.0.6
   folders:
 
-  - title:
-    output: pdf
-    type: frontmatter
-    folderitems:
-    - title:
-      url: /titlepage.html
-      output: pdf
-      type: frontmatter
-    - title:
-      url: /tocpage.html
-      output: pdf
-      type: frontmatter
+#  - title:
+#    output: pdf
+#    type: frontmatter
+#    folderitems:
+#    - title:
+#      url: /titlepage.html
+#      output: pdf
+#      type: frontmatter
+#    - title:
+#      url: /tocpage.html
+#      output: pdf
+#      type: frontmatter
 
-  - title: Before you Begin
-    output: web
-    folderitems:
+#  - title: Before you Begin
+#    output: web
+#    folderitems:
 
-    - title: Welcome!
-      url: /index.html
-      output: web
-      type: homepage
+#    - title: Welcome!
+#      url: /index.html
+#      output: web
+#      type: homepage
 
-    - title: What to expect
-      url: /suite-what-to-expect.html
-      output: web
+#    - title: What to expect
+#      url: /suite-what-to-expect.html
+#      output: web
 
-    - title: System requirements
-      url: /suite-system-requirements.html
-      output: web
+#    - title: System requirements
+#      url: /suite-system-requirements.html
+#      output: web
 
-  - title: Getting Started
-    output: web
-    folderitems:
+#  - title: Getting Started
+#    output: web
+#    folderitems:
 
-    - title: Download and set up
-      url: /suite-download-and-set-up.html
-      output: web
+#    - title: Download and set up
+#      url: /suite-download-and-set-up.html
+#      output: web
 
-    - title: Run the suite
-      url: /suite-run-the-suite.html
-      output: web
+#    - title: Run the suite
+#      url: /suite-run-the-suite.html
+#      output: web
 
-    - title: Quick overview
-      url: /suite-quick-overview.html
-      output: web
+#    - title: Quick overview
+#      url: /suite-quick-overview.html
+#      output: web
 
-    - title: Run your first backtest
-      url: /suite-run-your-first-backtest.html
-      output: web
+#    - title: Run your first backtest
+#      url: /suite-run-your-first-backtest.html
+#      output: web
 
-    - title: Update datasets
-      url: /suite-update-datasets.html
-      output: web
+#    - title: Update datasets
+#      url: /suite-update-datasets.html
+#      output: web
 
-    - title: Trade with an open-source strategy
-      url: /suite-trade-live-with-an-open-source-strategy.html
-      output: web
+#    - title: Trade with an open-source strategy
+#      url: /suite-trade-live-with-an-open-source-strategy.html
+#      output: web
 
-    - title: What's next?
-      url: /suite-what-is-next.html
-      output: web
+#    - title: What's next?
+#      url: /suite-what-is-next.html
+#      output: web
 
 
-  - title: Charts
-    output: web
-    folderitems:
+#  - title: Charts
+#    output: web
+#    folderitems:
 
-    - title: Overview
-      url: /suite-charts-overview.html
-      output: web
+#    - title: Overview
+#      url: /suite-charts-overview.html
+#      output: web
 
-    - title: Interface
-      url: /suite-charts-interface.html
-      output: web
+#    - title: Interface
+#      url: /suite-charts-interface.html
+#      output: web
 
-    - title: Layers panel
-      url: /suite-layers-panel.html
-      output: web
+#    - title: Layers panel
+#      url: /suite-layers-panel.html
+#      output: web
 
-  - title: Designer
-    output: web
-    folderitems:
+#  - title: Designer
+#    output: web
+#    folderitems:
 
-    - title: Intro, workspace and data structures
-      url: /suite-designer-workspace-and-data-structures.html
-      output: web
+#    - title: Intro, workspace and data structures
+#      url: /suite-designer-workspace-and-data-structures.html
+#      output: web
 
-    - title: Hierarchies
-      url: /suite-hierarchies.html
-      output: web
+#    - title: Hierarchies
+#      url: /suite-hierarchies.html
+#      output: web
 
-    - title: Interface
-      url: /suite-designer-interface.html
-      output: web
+#    - title: Interface
+#      url: /suite-designer-interface.html
+#      output: web
 
-    - title: Atachment and detachment of nodes
-      url: /suite-detachment-and-attachment-of-nodes.html
-      output: web
+#    - title: Atachment and detachment of nodes
+#      url: /suite-detachment-and-attachment-of-nodes.html
+#      output: web
 
-    - title: References
-      url: /suite-references.html
-      output: web
+#    - title: References
+#      url: /suite-references.html
+#      output: web
       
   - title: Trading Concepts
     output: web
@@ -129,149 +129,149 @@ entries:
       url: /suite-parameters.html
       output: web
 
-  - title: Conditions & Formulas
-    output: web
-    folderitems:
+#  - title: Conditions & Formulas
+#    output: web
+#    folderitems:
 
-    - title: Syntax Overview
-      url: /suite-sysntax-overview.html
-      output: web
+#    - title: Syntax Overview
+#      url: /suite-sysntax-overview.html
+#      output: web
 
-    - title: Internal variables
-      url: /suite-internal-variables.html
-      output: web
+#    - title: Internal variables
+#      url: /suite-internal-variables.html
+#      output: web
 
-    - title: Indicators included in the data release
-      url: /suite-indicators-included-in-the-data-release.html
-      output: web
+#    - title: Indicators included in the data release
+#      url: /suite-indicators-included-in-the-data-release.html
+#      output: web
 
-    - title: Indicators not included in the release
-      url: /suite-indicators-not-included-in-the-data-release.html
-      output: web
+#    - title: Indicators not included in the release
+#      url: /suite-indicators-not-included-in-the-data-release.html
+#      output: web
 
-    - title: Using non-included indicators
-      url: /suite-using-non-included-indicators.html
-      output: web
+#    - title: Using non-included indicators
+#      url: /suite-using-non-included-indicators.html
+#      output: web
 
-  - title: Network
-    output: web
-    folderitems:
+#  - title: Network
+#    output: web
+#    folderitems:
 
-    - title: Overview
-      url: /suite-network-overview.html
-      output: web
+#    - title: Overview
+#      url: /suite-network-overview.html
+#      output: web
 
-    - title: Managing processes
-      url: /suite-managing-processes.html
-      output: web
+#    - title: Managing processes
+#      url: /suite-managing-processes.html
+#      output: web
 
-  - title: Backtests & Paper Trading
-    output: web
-    folderitems:
+#  - title: Backtests & Paper Trading
+#    output: web
+#    folderitems:
 
-    - title: Overview
-      url: /suite-testing-overview.html
-      output: web
+#    - title: Overview
+#      url: /suite-testing-overview.html
+#      output: web
 
-    - title: Session parameters
-      url: /suite-session-parameters.html
-      output: web
+#    - title: Session parameters
+#      url: /suite-session-parameters.html
+#      output: web
 
-    - title: Simulation layers
-      url: /suite-simulation-layers.html
-      output: web
+#    - title: Simulation layers
+#      url: /suite-simulation-layers.html
+#      output: web
 
-    - title: Advanced backtesting
-      url: /suite-advanced-backtesting.html
-      output: web
+#    - title: Advanced backtesting
+#      url: /suite-advanced-backtesting.html
+#      output: web
 
-  - title: Forward Tests & Live Trading
-    output: web
-    folderitems:
+#  - title: Forward Tests & Live Trading
+#    output: web
+#    folderitems:
 
-    - title: Overview
-      url: /suite-live-trading-overview.html
-      output: web
+#    - title: Overview
+#      url: /suite-live-trading-overview.html
+#      output: web
 
-    - title: Getting ready to trade live
-      url: /suite-getting-ready-to-trade-live.html
-      output: web
+#    - title: Getting ready to trade live
+#      url: /suite-getting-ready-to-trade-live.html
+#      output: web
 
-    - title: Live trading history layer
-      url: /suite-live-trading-history-layer.html
-      output: web
+#    - title: Live trading history layer
+#      url: /suite-live-trading-history-layer.html
+#      output: web
 
-    - title: Execution limitations
-      url: /suite-execution-limitations.html
-      output: web
+#    - title: Execution limitations
+#      url: /suite-execution-limitations.html
+#      output: web
 
-    - title: Multiple sessions
-      url: /suite-multiple-forward-testing-and-live-trading-sessions.html
-      output: web
+#    - title: Multiple sessions
+#      url: /suite-multiple-forward-testing-and-live-trading-sessions.html
+#      output: web
 
-  - title: Data Mining & Research
-    output: web
-    folderitems:
+#  - title: Data Mining & Research
+#    output: web
+#    folderitems:
 
-    - title: Data Mining Overview
-      url: /suite-data-mining-overview.html
-      output: web
+#    - title: Data Mining Overview
+#      url: /suite-data-mining-overview.html
+#      output: web
 
-    - title: Bots
-      url: /suite-bots.html
-      output: web
+#    - title: Bots
+#      url: /suite-bots.html
+#      output: web
 
-    - title: Anatomy of an indicator
-      url: /suite-anatomy-of-an-indicator.html
-      output: web
+#    - title: Anatomy of an indicator
+#      url: /suite-anatomy-of-an-indicator.html
+#      output: web
 
-    - title: ":: Process definition"
-      url: /suite-process-definition.html
-      output: web
+#    - title: ":: Process definition"
+#      url: /suite-process-definition.html
+#      output: web
 
-    - title: ":: Product definition"
-      url: /suite-product-definition.html
-      output: web
+#    - title: ":: Product definition"
+#      url: /suite-product-definition.html
+#      output: web
 
-    - title: Input-to-output cycle
-      url: /suite-input-to-output-cycle.html
-      output: web
+#    - title: Input-to-output cycle
+#      url: /suite-input-to-output-cycle.html
+#      output: web
 
-    - title: Datasets
-      url: /suite-datasets.html
-      output: web
+#    - title: Datasets
+#      url: /suite-datasets.html
+#      output: web
 
-    - title: Dependencies
-      url: /suite-dependencies.html
-      output: web
+#    - title: Dependencies
+#      url: /suite-dependencies.html
+#      output: web
 
-    - title: Build an indicator
-      url: /suite-build-an-indicator.html
-      output: web
+#    - title: Build an indicator
+#      url: /suite-build-an-indicator.html
+#      output: web
 
-    - title: Build a plotter
-      url: /suite-build-a-plotter.html
-      output: web
+#    - title: Build a plotter
+#      url: /suite-build-a-plotter.html
+#      output: web
 
-  - title: Productivity Tools
-    output: web
-    folderitems:
+#  - title: Productivity Tools
+#    output: web
+#    folderitems:
 
-    - title: Backups
-      url: /suite-backups.html
-      output: web
+#    - title: Backups
+#      url: /suite-backups.html
+#      output: web
 
-    - title: Clones
-      url: /suite-clones.html
-      output: web
+#    - title: Clones
+#      url: /suite-clones.html
+#      output: web
 
-    - title: Shares
-      url: /suite-shares.html
-      output: web
+#    - title: Shares
+#      url: /suite-shares.html
+#      output: web
 
-    - title: Telegram Announcements
-      url: /suite-telegram-announcements.html
-      output: web
+#    - title: Telegram Announcements
+#      url: /suite-telegram-announcements.html
+#      output: web
 
   - title: Hierarchies Directory
     output: web
@@ -281,8 +281,8 @@ entries:
       url: /suite-crypto-ecosystem-hierarchy.html
       output: web
 
-    - title: Charting system
-      url: /suite-charting-system-hierarchy.html
+    - title: Charting Space
+      url: /suite-charting-space-hierarchy.html
       output: web
 
     - title: Trading system
@@ -297,33 +297,33 @@ entries:
       url: /suite-data-mine-hierarchy.html
       output: web
 
-  - title: Troubleshooting
-    output: web
-    folderitems:
+#  - title: Troubleshooting
+#    output: web
+#    folderitems:
 
-    - title: Upgrading your existing installation
-      url: /suite-upgrading-your-existing-instalation.html
-      output: web
+#    - title: Upgrading your existing installation
+#      url: /suite-upgrading-your-existing-instalation.html
+#      output: web
 
-    - title: My system gets slow
-      url: /suite-my-system-gets-slow.html
-      output: web
+#    - title: My system gets slow
+#      url: /suite-my-system-gets-slow.html
+#      output: web
 
-    - title: On-screen errors and warnings
-      url: /suite-on-screen-errors-and-warnings.html
-      output: web
+#    - title: On-screen errors and warnings
+#      url: /suite-on-screen-errors-and-warnings.html
+#      output: web
 
-    - title: Market data seems to be outdated
-      url: /suite-market-data-indicators-seem-to-be-outdated.html
-      output: web
+#    - title: Market data seems to be outdated
+#      url: /suite-market-data-indicators-seem-to-be-outdated.html
+#      output: web
 
-    - title: Reporting bugs
-      url: /suite-reporting-bugs.html
-      output: web
+#    - title: Reporting bugs
+#      url: /suite-reporting-bugs.html
+#      output: web
 
-    - title: Consulting logs
-      url: /suite-consulting-logs.html
-      output: web
+#    - title: Consulting logs
+#      url: /suite-consulting-logs.html
+#      output: web
 
 
 

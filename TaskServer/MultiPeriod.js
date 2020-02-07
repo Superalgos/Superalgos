@@ -29,7 +29,7 @@
 
     return thisObject;
 
-    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, pAssistant, callBackFunction) {
+    function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, exchangeAPI, callBackFunction) {
 
         try {
 
@@ -63,7 +63,7 @@
             let USER_BOT_MODULE = require("./TradingBot")
 
             botInstance = USER_BOT_MODULE.newTradingBot(bot, logger, UTILITIES, FILE_STORAGE);
-            botInstance.initialize(pAssistant, callBackFunction);
+            botInstance.initialize(exchangeAPI, callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);

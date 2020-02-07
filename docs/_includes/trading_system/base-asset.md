@@ -89,14 +89,3 @@ Select *Configure Base Asset* on the menu to access the configuration.
 
 {% endif %}
 
-{% if include.starting != "" %}
-
-{{include.starting}} Starting {{preposition}} {{title}}
-
-<!-- STARTING starts -->
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-<!-- STARTING ends -->
-
-{% endif %}

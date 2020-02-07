@@ -11,24 +11,24 @@ topnav:
       url: index.html
 
 #Topnav dropdowns
-topnav_dropdowns:
-- title: Topnav dropdowns
-  folders:
-    - title: Product Docs
-      folderitems:
-        - title: Systematic Trading
-          url: /systematic-trading-system-overview.html
-        - title: Algorithmic Trading
-          url: /algorithmic-trading-system-overview.html
-        - title: Discretionary Trading
-          url: /discretionary-introduction.html
-        - title: Smart Holding
-          url: /smart-introduction.html
-        - title: Trading Coach
-          url: /coach-introduction_page.html
-        - title: Signals Broadcast
-          url: /signal-introduction.html         
-        - title: Markets Research
-          url: /market-introduction_page.html
-        - title: Data Mining
-          url: /mine-introduction.html
+#topnav_dropdowns:
+#- title: Topnav dropdowns
+#  folders:
+#    - title: Product Docs
+#      folderitems:
+#        - title: Systematic Trading
+#          url: /systematic-trading-system-overview.html
+#        - title: Algorithmic Trading
+#          url: /algorithmic-trading-system-overview.html
+#        - title: Discretionary Trading
+#          url: /discretionary-introduction.html
+#        - title: Smart Holding
+#          url: /smart-introduction.html
+#        - title: Trading Coach
+#          url: /coach-introduction_page.html
+#        - title: Signals Broadcast
+#          url: /signal-introduction.html         
+#        - title: Markets Research
+#          url: /market-introduction_page.html
+#        - title: Data Mining
+#          url: /mine-introduction.html

@@ -1,10 +1,12 @@
 ---
 title:  Crypto Ecosystem Hierarchy
-summary: "Hover your mouse over a node for a quick definition, and click for the details."
+summary: "The crypto ecosystem provides the tools to define which exchanges, which assets and which markets you wish to work with."
 sidebar: suite_sidebar
 permalink: suite-crypto-ecosystem-hierarchy.html
 toc: false
 ---
+
+{% include note.html content="Hover your mouse over a node for a tooltip definition, and click to get all the details." %}
 
 <table class='hierarchyTable'>
     <thead>
@@ -444,7 +446,7 @@ To add an exchange accounts node, select *Add Exchange Account* on the crypto ex
 
 ### Adding a User Account
 
-To add user account, select *Add User Account* on the exchange accounts node menu. The user account node is created along with the basic structure of nodes used to define keys and user assets with the exchange.
+To add a user account, select *Add User Account* on the exchange accounts node menu. The user account node is created along with the basic structure of nodes used to define keys and user assets with the exchange.
 
 {% include tip.html content="You may add and administer as many user accounts as you wish." %}
 

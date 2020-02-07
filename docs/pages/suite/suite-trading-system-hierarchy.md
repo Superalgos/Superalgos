@@ -1,11 +1,12 @@
 ---
 title:  Trading System Hierarchy
-summary: "Hover your mouse over a node for a quick definition, and click for the details."
+summary: "A trading system provides the tools to build, test and depoy trading strategies from within a visual environment, with no coding requirements."
 sidebar: suite_sidebar
 permalink: suite-trading-system-hierarchy.html
 toc: false
 ---
 
+{% include note.html content="Hover your mouse over a node for a tooltip definition, and click to get all the details." %}
 
 <table class='hierarchyTable'>
     <thead>

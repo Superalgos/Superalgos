@@ -320,7 +320,7 @@ function newCircularMenuItem () {
             }
           } else {
             if (thisObject.workFailedLabel != undefined) {
-              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_PRIMARY_WORK_FAILED)
             }
           }
         } else {
@@ -331,7 +331,7 @@ function newCircularMenuItem () {
             }
           } else {
             if (thisObject.workFailedLabel != undefined) {
-              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_PRIMARY_WORK_FAILED)
             }
           }
         }
@@ -343,7 +343,7 @@ function newCircularMenuItem () {
           }
         } else {
           if (thisObject.secondaryWorkFailedLabel != undefined) {
-            setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_SECONDARY_WORK_FAILED)
+            setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_SECONDARY_WORK_FAILED)
           }
         }
       }

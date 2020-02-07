@@ -1,7 +1,7 @@
 <!-- TITLE AND DEFINITION starts -->
 
 {% assign title = "Slippage" %}
-{% assign definition = site.data.trading_system.slipage %}
+{% assign definition = site.data.trading_system.slippage %}
 {% assign preposition = "a" %}
 
 <!-- TITLE AND DEFINITION ends -->

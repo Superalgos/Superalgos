@@ -17,7 +17,7 @@ This page explains the concepts that deal with the structuring and managing of t
 
 In practical terms, is the portion of the system you access when you pull up the sliding panel, hidding the charts in the process.
 
-IMAGE
+
 
 ## Workspace
 
@@ -45,7 +45,7 @@ IMAGE
 
 As a concequence, structures of nodes are hierarchical structures, and a logical representation of how the concepts embodied by each node relate to each other.
 
-IMAGE
+
 
 ## Parent-Offspring Relationships
 

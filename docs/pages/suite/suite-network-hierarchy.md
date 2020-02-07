@@ -1,10 +1,12 @@
 ---
 title:  Network Hierarchy
-summary: "Hover your mouse over a node for a quick definition, and click for the details."
+summary: "The network provides the tools to set up your testing and live-trading environments, as well as the definitions on where on the network processes run, and where data is stored."
 sidebar: suite_sidebar
 permalink: suite-network-hierarchy.html
 toc: false
 ---
+
+{% include note.html content="Hover your mouse over a node for a tooltip definition, and click to get all the details." %}
 
 <table class='hierarchyTable'><thead><tr><th><a href='#network' data-toggle='tooltip' data-original-title='{{site.data.network.network}}'><img src='images/icons/network.png' /><br />Network</a></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody>
 <tr><td><img src='images/icons/tree-connector-elbow.png' /></td><td><a href='#network-node' data-toggle='tooltip' data-original-title='{{site.data.network.network_node}}'><img src='images/icons/network-node.png' /><br />Network Node</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -119,7 +121,7 @@ To add a task, select *Add Task* on the task manager node menu.
 
 Select *Run* on the menu to start a task. When a task is started, the process instance of the bot instance attached to the task is started. Also, a visual indication that both the task and the process instance are running appear surrounding the corresponding nodes, in the form of a progress ring.
 
-[IMAGE]
+
 
 To stop a task, select *Stop* on the menu.
 

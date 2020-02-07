@@ -10,7 +10,7 @@ parent-offspring_relationships: "Nodes in structures of nodes are chained to eac
 
 chain: "Nodes in the workspace may be unchained or detached from its parent, carrying all offspring with it. When a node is left unchained, it is no longer taken into account in the logic of the hierarchy, as it no longer belongs to it. When a node is chained back or reattached to the hierarchy, it goes back to being functional."
 
-hierarchy: "A hierarchy is the representation of an overarching, top-level concept resulting in a long chain of nodes, usually with many ramifications. Currently, the system manages five different types of hierarchies: Charting System, Crypto Ecosystem, Trading Systems, Network, and Data Mines."
+hierarchy: "A hierarchy is the representation of an overarching, top-level concept resulting in a long chain of nodes, usually with many ramifications. Currently, the system manages five different types of hierarchies: Charting Space, Crypto Ecosystem, Trading Systems, Network, and Data Mines."
 
 reference: "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one."
 

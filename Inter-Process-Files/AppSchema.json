@@ -976,7 +976,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->"
         },
-        "icon": "task",
+        "icon": "task-manager",
         "properties": [
             {
                 "name": "tasks",
@@ -3523,7 +3523,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Open Stage->"
         },
-        "icon": "task",
+        "icon": "initial-definition",
         "properties": [
             {
                 "name": "stopLoss",
@@ -3713,7 +3713,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Phase->"
         },
-        "icon": "pantone",
+        "icon": "next-phase-event",
         "properties": [
             {
                 "name": "situations",
@@ -5293,7 +5293,7 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "data-storage",
+        "icon": "data-mining",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -5328,7 +5328,7 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "data-storage",
+        "icon": "testing-environment",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },
@@ -5363,7 +5363,7 @@
         ],
         "addLeftIcons": true,
         "level": 2,
-        "icon": "data-storage",
+        "icon": "production-environment",
         "chainAttachesTo": {
             "compatibleTypes": "->Network Node->"
         },

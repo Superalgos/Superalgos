@@ -1,4 +1,4 @@
-network: "The network hierarchy contains definitions regarding the physical location in which certain nodes live or function. For instance, a certain process my run and store data in your local machine, or in some other machine in the network."
+network: "The network hierarchy contains definitions regarding the physical location in which certain nodes live or function. For instance, a certain process my run and store data in your local machine or some other machine in the network."
 
 network_node: "A network node represents a machine in the network on which processes run or data is stored."
 

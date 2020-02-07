@@ -34,6 +34,7 @@ function newSessionFunctions () {
     'Trading System->' +
     'Parameters->' +
     'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Exchange Account Asset->Asset->' +
     'Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
     'Announcement->Telegram Bot->' +
@@ -44,14 +45,16 @@ function newSessionFunctions () {
     'Stop->Take Profit->' +
     'Phase->Formula->Next Phase Event->' +
     'Situation->Condition->Javascript Code->' +
-    'Announcement->Telegram Bot->'
+    'Announcement->Telegram Bot->' +
+    'Close Stage->Close Execution->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 
     lightingPath = '' +
     'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
     'Parameters->' +
-    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->'
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Exchange Account Asset->Asset->'
 
     let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
@@ -62,6 +65,11 @@ function newSessionFunctions () {
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
   }
 
   function stopSession (node, functionLibraryProtocolNode, callBackFunction) {

@@ -18,7 +18,7 @@
     const COMMONS = require('./Commons.js');
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE);
 
-    let assistant;
+    let exchangeAPI;
 
     return thisObject;
 
@@ -29,7 +29,7 @@
         commons = undefined
     }
 
-    function initialize(pAssistant, callBackFunction) {
+    function initialize(pExchangeAPI, callBackFunction) {
 
         try {
 
@@ -38,7 +38,7 @@
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            assistant = pAssistant;
+            exchangeAPI = pExchangeAPI;
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
@@ -130,7 +130,7 @@
                 timeFrameLabel,
                 currentDay,
                 interExecutionMemory,
-                assistant,
+                exchangeAPI,
                 writeFiles,
                 callBackFunction)
 

@@ -11,8 +11,7 @@
     let thisObject = {
         dataDependencies: undefined,
         initialize: initialize,
-        putPosition: putPosition,
-        movePosition: movePosition,
+        createOrder: createOrder,
         getPositions: getPositions,
         getBalance: getBalance,
         getAvailableBalance: getAvailableBalance,
@@ -32,7 +31,7 @@
 
     let utilities = UTILITIES.newCloudUtilities(logger);
 
-    let exchangePositions = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
+    let openOrders = [];     // These are the open positions at the exchange at the account the bot is authorized to use.
     let openPositions = [];         // These are the open positions the bot knows it made by itself.
 
     let context;
@@ -63,13 +62,7 @@
                 }
 
                 case 'Backtest': {
-                    // getMarketRateFromIndicator(); NOTE: This path is disabled since for now we do not allow ticker in simulation. Also it allow us to ship a dataset without bruce
                     validateExchangeSyncronicity();
-                    break;
-                }
-
-                case 'Competition': {
-                    getMarketRateFromExchange();
                     break;
                 }
 
@@ -120,99 +113,6 @@
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromExchange -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function getMarketRateFromIndicator() {
-
-                try {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> Entering function."); }
-
-                    /* Procedure to get the current market rate. */
-
-                    let key =
-                        bot.marketRateProvider.dataMine + "-" +
-                        bot.marketRateProvider.bot + "-" +
-                        bot.marketRateProvider.product + "-" +
-                        bot.marketRateProvider.dataSet + "-" +
-                        bot.marketRateProvider.dataSetVersion;
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> key = " + key); }
-
-                    let dataSet = thisObject.dataDependencies.dataSets.get(key);
-
-                    let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                    let fileName = '' + bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json';
-                    let filePath = bot.marketRateProvider.product + "/" + bot.marketRateProvider.dataSet + "/" + dateForPath;
-
-                    dataSet.getTextFile(filePath, fileName, onFileReceived);
-
-                    function onFileReceived(err, text) {
-
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> Entering function."); }
-                        if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getMarketRateFromIndicator -> onFileReceived -> text = " + text); }
-
-                        let candleArray;
-
-                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result || err.code === "The specified key does not exist." || err.message === "File does not exist.") {  // Just past midnight, this file will not exist for a couple of minutes.
-
-                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                            logger.write(MODULE_NAME, "[WARN] initialize -> getMarketRateFromIndicator -> This could happen when there are still holes on trades and the process needs to catch up. ");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-
-                        }
-
-                        if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-                            try {
-                                candleArray = JSON.parse(text);
-
-                                /* We need to find the candle at which the process is currently running. */
-
-                                for (let i = 0; i < candleArray.length; i++) {
-
-                                    let candle = {
-                                        open: candleArray[i][2],
-                                        close: candleArray[i][3],
-                                        min: candleArray[i][0],
-                                        max: candleArray[i][1],
-                                        begin: candleArray[i][4],
-                                        end: candleArray[i][5]
-                                    };
-
-                                    // TODO condition added for when there is no market rate available.
-                                    if ((bot.processDatetime.valueOf() >= candle.begin && bot.processDatetime.valueOf() < candle.end)
-                                        || (i + 1) === candleArray.length) {
-
-                                        marketRate = (candle.open + candle.close) / 2;
-                                        marketRate = thisObject.truncDecimals(marketRate);
-                                        context.newHistoryRecord.marketRate = marketRate;
-
-                                        ticker = {
-                                            bid: marketRate,
-                                            ask: marketRate,
-                                            last: marketRate
-                                        };
-
-                                        validateExchangeSyncronicity();
-                                        return;
-                                    }
-                                }
-                            } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                                logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            }
-                        } else {
-                            logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> onFileReceived -> err = " + JSON.stringify(err));
-                            callBackFunction(err);
-                        }
-                    }
-
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] initialize -> getMarketRateFromIndicator -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -345,22 +245,15 @@
                 case "Live": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Live Mode Detected."); }
-                    exchangeAPI.getOpenPositions(bot.market, onResponse);
+                    exchangeAPI.getOpenOrders(bot.market, onResponse);
                     break;
                 }
 
                 case "Backtest": {
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Backtest Mode Detected."); }
-                    let exchangePositions = [];  // We simulate all positions were executed.
-                    onResponse(global.DEFAULT_OK_RESPONSE, exchangePositions);
-                    break;
-                }
-
-                case "Competition": {
-
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> Competition Mode Detected."); }
-                    exchangeAPI.getOpenPositions(bot.market, onResponse);
+                    let openOrders = [];  // We simulate all positions were executed.
+                    onResponse(global.DEFAULT_OK_RESPONSE, openOrders);
                     break;
                 }
 
@@ -372,15 +265,15 @@
                 }
             }
 
-            function onResponse(err, pExchangePositions) {
+            function onResponse(err, pOpenOrders) {
 
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> Entering function."); }
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> pExchangePositions = " + JSON.stringify(pExchangePositions)); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange ->  onResponse -> pOpenOrders = " + JSON.stringify(pOpenOrders)); }
 
                 switch (err.result) {
                     case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getPositionsAtExchange -> onResponse -> Execution finished well."); }
-                        exchangePositions = pExchangePositions;
+                        openOrders = pOpenOrders;
                         ordersExecutionCheck(callBack);
                         return;
                     }
@@ -471,11 +364,11 @@
                     let position = context.executionContext.positions[i];
                     let exchangePosition;
 
-                    for (let j = 0; j < exchangePositions.length; j++) {
+                    for (let j = 0; j < openOrders.length; j++) {
 
-                        if (position.id === exchangePositions[j].id) {
+                        if (position.id === openOrders[j].id) {
 
-                            exchangePosition = exchangePositions[j];
+                            exchangePosition = openOrders[j];
                             positionFound();
                             return;
                         }
@@ -525,12 +418,12 @@
 
                     }
 
-                    function getPositionTradesAtExchange(pPositionId, innerCallBack) {
+                    function getPositionTradesAtExchange(pOrderId, innerCallBack) {
 
                         try {
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pPositionId = " + pPositionId); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> pOrderId = " + pOrderId); }
 
                             /*
 
@@ -543,7 +436,7 @@
                                 case "Live": {
 
                                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Live Mode Detected."); }
-                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
+                                    exchangeAPI.getOrder(pOrderId, bot.market, onResponse);
                                     return;
 
                                 }
@@ -558,25 +451,28 @@
 
                                     for (let i = 0; i < context.executionContext.positions.length; i++) {
 
-                                        let thisPosition = context.executionContext.positions[i];
+                                        let thisOrder = context.executionContext.positions[i];
 
-                                        if (thisPosition.id === pPositionId) {
+                                        if (thisOrder.id === pOrderId) {
 
                                             let feeRate = 0.002; 		// Default backtesting fee simulation
 
                                             let trade = {
                                                 id: Math.trunc(Math.random(1) * 1000000),
-                                                type: thisPosition.type,
-                                                rate: thisPosition.rate.toString(),
-                                                amountA: thisObject.truncDecimals(thisPosition.amountA).toString(),
-                                                amountB: thisObject.truncDecimals(thisPosition.amountB).toString(),
+                                                type: thisOrder.type,
+                                                rate: thisOrder.rate.toString(),
+                                                amountA: thisObject.truncDecimals(thisOrder.amountA).toString(),
+                                                amountB: thisObject.truncDecimals(thisOrder.amountB).toString(),
                                                 fee: thisObject.truncDecimals(feeRate).toString(),
                                                 date: (new Date()).valueOf()
                                             }
 
                                             trades.push(trade);
 
-                                            onResponse(global.DEFAULT_OK_RESPONSE, trades);
+                                            let order = {
+                                                trades: trades
+                                            }
+                                            onResponse(global.DEFAULT_OK_RESPONSE, order);
 
                                             return;
                                         }
@@ -584,13 +480,6 @@
 
                                     logger.write(MODULE_NAME, "[ERROR] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Position not found at Executioin Context.");
                                     callBack(global.DEFAULT_FAIL_RESPONSE);
-                                    return;
-                                }
-
-                                case "Competition": {
-
-                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> Competition Mode Detected."); }
-                                    exchangeAPI.getExecutedTrades(pPositionId, onResponse);
                                     return;
                                 }
 
@@ -602,7 +491,7 @@
                                 }
                             }
 
-                            function onResponse(err, pTrades) {
+                            function onResponse(err, order) {
 
                                 try {
                                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Entering function."); }
@@ -610,7 +499,7 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
                                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> getPositionTradesAtExchange -> onResponse -> Execution finished well."); }
-                                            innerCallBack(pTrades);
+                                            innerCallBack(order);
                                         }
                                             break;
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -637,13 +526,14 @@
                         }
                     }
 
-                    function confirmOrderWasExecuted(pTrades) {
+                    function confirmOrderWasExecuted(order) {
 
                         try {
 
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> Entering function."); }
-                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> pTrades = " + JSON.stringify(pTrades)); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasExecuted -> trades = " + JSON.stringify(trades)); }
 
+                            let trades = order.trades
                             /*
 
                             To confirm everything is ok, we will add all the amounts on trades asociated to the order and
@@ -656,8 +546,8 @@
                             let sumQuotedAsset = 0;
                             let sumRate = 0;
 
-                            for (let k = 0; k < pTrades.length; k++) {
-                                let trade = pTrades[k];
+                            for (let k = 0; k < trades.length; k++) {
+                                let trade = trades[k];
                                 sumBaseAsset = sumBaseAsset + thisObject.truncDecimals(trade.amountA);
                                 sumQuotedAsset = sumQuotedAsset + thisObject.truncDecimals(trade.amountB);
                                 sumRate = sumRate + thisObject.truncDecimals(trade.rate);
@@ -686,12 +576,12 @@
                             position.status = "executed";
 
                             if (position.type === "sell") {
-                                context.newHistoryRecord.sellExecRate = sumRate / pTrades.length;
+                                context.newHistoryRecord.sellExecRate = sumRate / trades.length;
                             } else {
-                                context.newHistoryRecord.buyExecRate = sumRate / pTrades.length;
+                                context.newHistoryRecord.buyExecRate = sumRate / trades.length;
                             }
 
-                            applyTradesToContext(pTrades);
+                            applyTradesToContext(trades);
 
                             let newTransaction = {
                                 type: position.type + " executed",
@@ -711,10 +601,12 @@
                         }
                     }
 
-                    function confirmOrderWasPartiallyExecuted(pTrades) {
+                    function confirmOrderWasPartiallyExecuted(trades) {
 
                         try {
                             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] ordersExecutionCheck -> loopBody -> confirmOrderWasPartiallyExecuted -> Entering function."); }
+
+                            let trades = order.trades
 
                             /*
 
@@ -727,8 +619,8 @@
                             let sumBaseAsset = 0;
                             let sumQuotedAsset = 0;
 
-                            for (let k = 0; k < pTrades.length; k++) {
-                                let trade = pTrades[k];
+                            for (let k = 0; k < trades.length; k++) {
+                                let trade = trades[k];
                                 sumBaseAsset = sumBaseAsset + thisObject.truncDecimals(trade.amountA);
                                 sumQuotedAsset = sumQuotedAsset + thisObject.truncDecimals(trade.amountB);
                             }
@@ -777,7 +669,7 @@
                             position.amountB = exchangePosition.amountB;
                             position.date = (new Date(exchangePosition.date)).valueOf();
 
-                            applyTradesToContext(pTrades);
+                            applyTradesToContext(trades);
 
                             let newTransaction = {
                                 type: position.type + "  partially executed",
@@ -797,7 +689,7 @@
                         }
                     }
 
-                    function applyTradesToContext(pTrades) {
+                    function applyTradesToContext(trades) {
 
                         try {
 
@@ -805,9 +697,9 @@
 
                             /* Here we apply the trades that already happened at the exchange to the balance and available balance of the bot. We also calculate its profits. */
 
-                            for (k = 0; k < pTrades.length; k++) {
+                            for (k = 0; k < trades.length; k++) {
 
-                                let trade = pTrades[k];
+                                let trade = trades[k];
 
                                 position.trades.push(trade);
 
@@ -917,10 +809,10 @@
         }
     }
 
-    function putPosition(pType, pRate, pAmountA, pAmountB, callBackFunction) {
+    function createOrder(pType, pRate, pAmountA, pAmountB, callBackFunction) {
 
         try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> Entering function."); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> Entering function."); }
 
             /* Removing extra decimals. */
 
@@ -928,10 +820,10 @@
             pAmountA = thisObject.truncDecimals(pAmountA);
             pAmountB = thisObject.truncDecimals(pAmountB);
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pType = " + pType); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pRate = " + pRate); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountA = " + pAmountA); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> pAmountB = " + pAmountB); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pType = " + pType); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pRate = " + pRate); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pAmountA = " + pAmountA); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> pAmountB = " + pAmountB); }
 
             /* Validations that the limits are not surpassed. */
 
@@ -939,9 +831,9 @@
 
                 if (pAmountA > thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset)) {
 
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA is grater than the Available Balance.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountA = " + pAmountA);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset));
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountA is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountA = " + pAmountA);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.baseAsset));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -957,9 +849,9 @@
 
                 if (pAmountB > thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset)) {
 
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB is grater than the Available Balance.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> pAmountB = " + pAmountB);
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset));
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountB is grater than the Available Balance.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> pAmountB = " + pAmountB);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Input Validations -> Available Balance = " + thisObject.truncDecimals(context.executionContext.availableBalance.quotedAsset));
 
                     let err = {
                         result: global.DEFAULT_FAIL_RESPONSE.result,
@@ -977,7 +869,7 @@
 
                 case "Live": {
 
-                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
+                    exchangeAPI.createOrder(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
                     return;
                 }
 
@@ -985,43 +877,37 @@
 
                     if (pRate !== marketRate) {
 
-                        logger.write(MODULE_NAME, "[WARNING] putPosition -> Input Validations -> putPosition Rate can is different to marketRate while in Backtesting Mode. ");
+                        logger.write(MODULE_NAME, "[WARNING] createOrder -> Input Validations -> createOrder Rate can is different to marketRate while in Backtesting Mode. ");
                         //onResponse(global.DEFAULT_FAIL_RESPONSE, positionId);
                     }
 
                     let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  Simulating Exchange Response -> orderId = " + positionId); }
                     onResponse(global.DEFAULT_OK_RESPONSE, positionId);
                     return;
                 }
 
-                case "Competition": {
-
-                    exchangeAPI.putPosition(bot.market, pType, pRate, pAmountA, pAmountB, onResponse);
-                    return;
-                }
-
                 default: {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> Unexpected bot.startMode.");
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> bot.startMode = " + bot.startMode);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> Unexpected bot.startMode.");
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> bot.startMode = " + bot.startMode);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
             }
 
-            function onResponse(err, pPositionId) {
+            function onResponse(err, order) {
 
                 try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  onResponse -> pPositionId = " + pPositionId); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> Entering function."); }
+                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder ->  onResponse -> order.id = " + order.id); }
 
                     switch (err.result) {
                         case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
 
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition -> onResponse -> Execution finished well."); }
+                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createOrder -> onResponse -> Execution finished well."); }
 
                             let position = {
-                                id: pPositionId,
+                                id: order.id,
                                 type: pType,
                                 rate: pRate,
                                 amountA: pAmountA,
@@ -1063,149 +949,25 @@
                         }
                             break;
                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Retry Later. Requesting Execution Retry.");
+                            logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> Retry Later. Requesting Execution Retry.");
                             callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
                             break;
                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> Operation Failed. Aborting the process.");
+                            logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> Operation Failed. Aborting the process.");
                             callBackFunction(err);
                             return;
                         }
                             break;
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] putPosition -> onResponse -> err = " + err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] createOrder -> onResponse -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] putPosition -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function movePosition(pPosition, pNewRate, callBackFunction) {
-
-        try {
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> Entering function."); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pPosition = " + JSON.stringify(pPosition)); }
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> pNewRate = " + pNewRate); }
-
-            /* Removing extra decimals. */
-            pNewRate = thisObject.truncDecimals(pNewRate);
-
-            let newAmountB;
-            if (pPosition.type === "buy") {
-                newAmountB = thisObject.truncDecimals(pPosition.amountA / pNewRate);
-            } else {
-                newAmountB = pPosition.amountB;
-            }
-
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> newAmountB = " + newAmountB); }
-
-            switch (bot.startMode) {
-
-                case "Live": {
-
-                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
-                    return;
-                }
-
-                case "Backtest": {
-
-                    let positionId = Math.trunc(Math.random(1) * 1000000);
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] putPosition ->  Simulating Exchange Response -> orderId = " + positionId); }
-                    onResponse(global.DEFAULT_OK_RESPONSE, positionId);
-                    return;
-                }
-
-                case "Competition": {
-
-                    exchangeAPI.movePosition(pPosition, pNewRate, newAmountB, onResponse);
-                    return;
-                }
-
-                default: {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> Unexpected bot.startMode.");
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> bot.startMode = " + bot.startMode);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    return;
-                }
-            }
-
-            function onResponse(err, pPositionId) {
-
-                try {
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Entering function."); }
-                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> pPositionId = " + pPositionId); }
-
-                    switch (err.result) {
-                        case global.DEFAULT_OK_RESPONSE.result: {            // Everything went well, we have the information requested.
-
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] movePosition -> onResponse -> Execution finished well."); }
-
-                            let newPosition = {
-                                id: pPositionId,
-                                type: pPosition.type,
-                                rate: pNewRate,
-                                amountA: pPosition.amountA,
-                                amountB: newAmountB,
-                                date: (bot.processDatetime.valueOf()),
-                                status: "open",
-                                trades: []
-                            };
-
-                            let oldPosition = JSON.parse(JSON.stringify(pPosition));
-
-                            /* We need to update the position we have on file. */
-
-                            for (let i = 0; i < context.executionContext.positions.length; i++) {
-
-                                if (context.executionContext.positions[i].id === pPosition.id) {
-
-                                    context.executionContext.positions[i] = newPosition;
-
-                                    break;
-                                }
-                            }
-
-                            let newTransaction = {
-                                type: "movePosition",
-                                oldPosition: oldPosition,
-                                newPosition: newPosition
-                            };
-
-                            context.executionContext.transactions.push(newTransaction);
-
-                            context.newHistoryRecord.movedPositions++;
-
-                            recalculateRateAverages();
-
-                            callBackFunction(global.DEFAULT_OK_RESPONSE, newPosition);
-                        }
-                            break;
-                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Retry Later. Requesting Execution Retry.");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-                            break;
-                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                            logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> Operation Failed. Aborting the process.");
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
-                        }
-                            break;
-                    }
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] movePosition -> onResponse -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] movePosition -> err = " + err.stack);
+            logger.write(MODULE_NAME, "[ERROR] createOrder -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -1,7 +1,7 @@
 <!-- TITLE AND DEFINITION starts -->
 
 {% assign title = "Quoted Asset" %}
-{% assign definition = site.data.trading_system.quote_asset %}
+{% assign definition = site.data.trading_system.quoted_asset %}
 {% assign preposition = "a" %}
 
 <!-- TITLE AND DEFINITION ends -->

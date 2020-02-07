@@ -1,7 +1,7 @@
 <!-- TITLE AND DEFINITION starts -->
 
 {% assign title = "Fee Structure" %}
-{% assign definition = site.data.trading_system.free_structure %}
+{% assign definition = site.data.trading_system.fee_structure %}
 {% assign preposition = "a" %}
 
 <!-- TITLE AND DEFINITION ends -->
@@ -39,8 +39,6 @@
 {% endif %}
 
 {% if include.content != "n" %}
-
-**{{ definition }}**
 
 <!-- CONTENT starts -->
 
@@ -101,14 +99,3 @@ Select *Configure Fee Structure* on the menu to access the configuration.
 
 {% endif %}
 
-{% if include.starting != "" %}
-
-{{include.starting}} Starting {{preposition}} {{title}}
-
-<!-- STARTING starts -->
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-<!-- STARTING ends -->
-
-{% endif %}

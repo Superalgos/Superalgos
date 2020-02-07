@@ -232,7 +232,13 @@ function newDesignerSpace () {
       'angle-to-parent-180',
       'angle-to-parent-090',
       'angle-to-parent-045',
-      'angle-to-parent-000'
+      'angle-to-parent-000',
+      'data-mining',
+      'initial-definition',
+      'next-phase-event',
+      'testing-environment',
+      'production-environment',
+      'task-manager'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

@@ -27,6 +27,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let initialProcessTimestamp
     let beginingOfMarket
     let lastFileSaved
+    let exchangeId 
+    let options = {}
+    let fetchType = "by Time"
+    let lastId
+    let firstId
+    let exchange
+
+    const limit = 1000
 
     return thisObject;
 
@@ -37,27 +45,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             logger.initialize();
 
             statusDependencies = pStatusDependencies;
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
 
-        } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    function start(callBackFunction) {
-        try {
-
-            if (global.STOP_TASK_GRACEFULLY === true) {
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                return
-            }
-
-            let exchangeId = bot.exchange.toLowerCase()
-            let options = {}
-            let fetchType = "by Time"
-            let lastId
-            let firstId
+            exchangeId = bot.exchange.toLowerCase()
 
             /* Applying the parameters defined by the user at the Exchange node */
             if (bot.exchangeNode.code.API !== undefined) {
@@ -87,7 +76,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             if (key === "undefined") { key = undefined }
             if (secret === "undefined") { secret = undefined }
 
-            const limit = 1000
+            
             const exchangeClass = ccxt[exchangeId]
             const exchangeConstructorParams = {
                 'apiKey': key,
@@ -98,7 +87,23 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 options: options
             }
 
-            const exchange = new exchangeClass(exchangeConstructorParams)
+            exchange = new exchangeClass(exchangeConstructorParams)
+
+            callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function start(callBackFunction) {
+        try {
+
+            if (global.STOP_TASK_GRACEFULLY === true) {
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                return
+            }
 
             begin()
 
@@ -219,7 +224,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Trades Fetched to " + endDate) }
                         }
 
-                        if (trades.length > 1 && allTrades.length < MAX_TRADES_PER_EXECUTION) {
+                        if (trades.length > 1) {
                             previousSince = since
                             since = trades[trades.length - 1]['timestamp']
                             if (since === previousSince) { 
@@ -240,20 +245,20 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getTrades -> Fetching Trades  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                             bot.processHeartBeat("Fetching " + allTrades.length.toFixed(0) + " trades from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
-                        } else {
-                            break
                         }
-                        if (global.STOP_TASK_GRACEFULLY === true) {
+
+                        if (
+                            trades.length < limit - 1 ||
+                            global.STOP_TASK_GRACEFULLY === true ||
+                            allTrades.length >= MAX_TRADES_PER_EXECUTION
+                            ) {
                             break
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> err = " + err.stack);
-                    if (err.message.indexOf('exchange is down or offline') >= 0) {
-                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                    } else {
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                    }
+                    logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> Retrying Later -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                   
                 }
             }
 

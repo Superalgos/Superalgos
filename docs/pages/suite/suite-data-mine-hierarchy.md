@@ -1,11 +1,12 @@
 ---
 title:  Data Mine Hierarchy
-summary: "Hover your mouse over a node for a quick definition, and click for the details."
+summary: "A data mine provides the tools to build indicators, produce data visualization plotters, and process markets data, with minimal coding requirements."
 sidebar: suite_sidebar
 permalink: suite-data-mine-hierarchy.html
 toc: false
 ---
 
+{% include note.html content="Hover your mouse over a node for a tooltip definition, and click to get all the details." %}
 
 <table class='hierarchyTable'>
     <thead>
@@ -793,9 +794,9 @@ toc: false
 
 **{{site.data.data_mine.data_mine}}**
 
-In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators and plotters, with minimal coding required.
+In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators, and plotters, with minimal coding required.
 
-Because the hierachy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instanciated from the Network hierarchy by bot instances. Bot instances and process instances are the ones actually running the code according to the definitions in the corresponding data mine.
+Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the Network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine.
 
 ### Adding a Data Mine
 
@@ -825,11 +826,9 @@ Select *Configure Data Mine* on the menu to access the configuration.
 
 **{{site.data.data_mine.indicator_bot}}**
 
-indicator_bot: "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume. "
+The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Part of that output is the data products the bot creates.
 
-The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Part of that output are the data products the bot creates.
-
-### Adding an Inidicator Bot
+### Adding an Indicator Bot
 
 To add an indicator bot, select *Add Indicator Bot* on the data mine node menu. An indicator bot is created along with the basic structure of nodes required to define it.
 
@@ -858,13 +857,11 @@ Select *Configure Bot* on the menu to access the configuration.
 
 **{{site.data.data_mine.process_definition}}**
 
-process_definition: "The process definition node groups all definitions required for a process to function. The Multi Period Market Process deals with time frames of one hour and above. The Multi Period Daily Process deals with time frames of 45 minutes and below."
-
-As hinted above, most bots, in particular indicators, have two different processes. The reason is that different data structures need be handled in different manners. The Multi Period Daily process handles daily files, while the Multi Period Market process handles market files.
+As hinted above, most bots, in particular indicators, have two different processes. The reason is that different data structures need to be handled in different manners. The Multi-Period-Daily process handles daily files, while the Multi-Period-Market process handles market files.
 
 ### Adding a Process Definition
 
-To add a process definition, select *Add Process Definition* on the bot's menu. A process definition node is created along with the basic structure of nodes comprissing the definition.
+To add a process definition, select *Add Process Definition* on the bot's menu. A process definition node is created along with the basic structure of nodes comprising the definition.
 
 ### Configuring a Process Definition
 
@@ -952,7 +949,7 @@ Select *Configure Process* on the menu to access the configuration.
 }
 ```
 
-Both configurations deal with certain aspects of the internal workings of these kinds of processes. These are the ones you should adjust when creating a new bot:
+Both configurations deal with certain aspects of the internal workings of these kinds of processes. These are the ones to be adjusted when creating a new bot:
 
 * ```codeName``` is the name of the process as used within the code of the system; for consistency, always use ```Multi-Period-Market``` and ```Multi-Period-Daily``` accordingly.
 
@@ -970,8 +967,6 @@ Both configurations deal with certain aspects of the internal workings of these 
 <img src='images/icons/150-process-output.png' />
 
 **{{site.data.data_mine.process_output}}**
-
-process_output: "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building."
 
 ### Adding a Process Output
 
@@ -991,11 +986,9 @@ To add a process output node, select *Add Missing Items* on the process definiti
 
 **{{site.data.data_mine.output_dataset}}**
 
-output_dataset: "The output dataset is a reference to a dataset definition. By establishing such a reference, the process acquires the definitions as of how the dataset is to be constructed."
-
 There are other effects of establishing a reference from the output dataset to a product dataset definition. Upon execution, every time a process finishes a processing cycle, it triggers an event that may be consumed by other entities. This event indicates that the datasets impacted by the process have been updated.
 
-An example of other entities that may be listening to such events is that of plotters. Plotters read datasets and create graphical representations of this data over the charts. You surely have noticed that the charts are constantly updating the information in form of candles and indicators in realtime, syncronized with the data being extracted from the exchange by the sensor bot. That kind of automatism is possible thanks to the events processes trigger every time an execution cycle is finished, signaling to everyone listening that new data is available on each of the impacted datasets.
+An example of other entities that may be listening to such events is that of plotters. Plotters read datasets and create graphical representations of this data over the charts. Charts are constantly updating the information in the form of candles and indicators in realtime, synchronized with the data being extracted from the exchange by the sensor bot. That kind of automatism is possible thanks to the events that processes trigger every time an execution cycle is finished, signaling to everyone listening that new data is available on each of the impacted datasets.
 
 [![Indicators-Process-Output-01](https://user-images.githubusercontent.com/13994516/68976798-f01cf400-07f6-11ea-9ffb-198b5853a220.gif)](https://user-images.githubusercontent.com/13994516/68976798-f01cf400-07f6-11ea-9ffb-198b5853a220.gif)
 
@@ -1009,7 +1002,7 @@ An output dataset must reference a dataset definition.
 
 To add an output dataset, select *Add Output Dataset* on the process output node menu.
 
-{% include note.html content="Remember to establish a reference to a valid dataset definition after creating the output dataset." %}
+{% include tip.html content="Remember that an output dataset must reference a valid dataset definition after creating the output dataset." %}
 
 
 
@@ -1023,9 +1016,7 @@ To add an output dataset, select *Add Output Dataset* on the process output node
 
 **{{site.data.data_mine.process_dependencies}}**
 
-process_dependencies: "Process dependencies are references to various data structures on which the process depends to function."
-
-While processes run autonomously, most process participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce.
+While processes run autonomously, most processes participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce.
 
 ### Adding Process Dependencies
 
@@ -1042,15 +1033,13 @@ To add a process dependencies node, select *Add Missing Items* on the process de
 
 **{{site.data.data_mine.status_dependency}}**
 
-status_dependency: "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
+The reference is established to acquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file processed.
 
-The reference is established so as to aquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file it processed.
+The status report referenced may belong to the same process&mdash; which is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process&mdash;another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types.
 
-The status report referenced may belong to the same process&mdash;what is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process&mdash;another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types.
+* **Self Reference** is mandatory, as a process needs to read it's own status report every time it wakes up.
 
-* **Self Reference** is mandatory, as a process will always need to read it's own status report every time it weaks up.
-
-* **Market Starting Point** is a status dependency existing on Multi-Period-Daily processes so that the process establishing teh reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-Trades process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their own dataset (a single file with all market data).
+* **Market Starting Point** is a status dependency existing on Multi-Period-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-Trades process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).
 
 * **Market Ending Point** is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market.
 
@@ -1060,9 +1049,9 @@ The image above shows a case of a self-reference status dependency as well as a 
 
 ### Adding a Status Dependency
 
-To add a status dependecy, select *Add Status Dependency* on the process dependencies node menu.
+To add a status dependency, select *Add Status Dependency* on the process dependencies node menu.
 
-{% include note.html content="Remember to configure the new status dependency, and to establish a reference to the appropriate status report." %}
+{% include tip.html content="Remember that a status dependency must be configured, and must establish a reference to the appropriate status report." %}
 
 ### Configuring a Status Dependency
 
@@ -1087,8 +1076,6 @@ Select *Configure Status Dependency* on the menu to access the configuration.
 
 **{{site.data.data_mine.data_dependency}}**
 
-data_dependency: "Data dependencies are references established with other bot's dataset definitions, determining which datasets the process establishing the reference uses as input."
-
 Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations.
 
 [![Indicators-Process-Dependencies-02](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)](https://user-images.githubusercontent.com/13994516/68993034-7840df00-0873-11ea-804d-d24e88ce25f7.gif)
@@ -1099,7 +1086,7 @@ The image above shows data dependencies in one bot referencing dataset definitio
 
 To add a data dependency, select *Add Data Dependency* on the process dependencies node menu.
 
-{% include note.html content="Remember to establish a reference to the appropriate dataset definition." %}
+{% include tip.html content="Remember that a data dependency must establish a reference to the appropriate dataset definition." %}
 
 
 
@@ -1112,9 +1099,7 @@ To add a data dependency, select *Add Data Dependency* on the process dependenci
 
 **{{site.data.data_mine.status_report}}**
 
-status_report: "Status reports serve as temporal annotations that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. Status reports are dynamic, and they change constantly, with updates after every cycle of the associated process."
-
-Bots do not run continuosly. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record it processed.
+Bots do not run continuously. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record processed.
 
 A status report may be consumed by the same bot producing it, or by other bots.
 
@@ -1134,8 +1119,6 @@ To add a status report, select *Add Missing Items* on the process definition nod
 
 **{{site.data.data_mine.execution_started_event}}**
 
-execution_started_event: "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on."
-
 These references determine when a process is due for another run. By listening to the execution finished event of the process it depends on, it may wake up just in time to process the new batch of data the dependency has just delivered.
 
 Bots form a sort of multi-branched execution sequence with an indeterminate number of dependencies. Every time the bot further down the tree of dependencies finishes a cycle, it triggers the execution of multiple bots listening to its execution finished event.
@@ -1144,7 +1127,7 @@ Bots form a sort of multi-branched execution sequence with an indeterminate numb
 
 To add an execution started event, select *Add Missing Items* on the process definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
 
-{% include note.html content="Remember to establish a reference to the appropriate execution fisnihed event." %}
+{% include tip.html content="Remember that an execution started event must establish a reference to the appropriate execution finished event." %}
 
 
 
@@ -1158,9 +1141,7 @@ To add an execution started event, select *Add Missing Items* on the process def
 
 **{{site.data.data_mine.execution_finished_event}}**
 
-execution_finished_event: "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
-
-The execution finished event is responsible for triggering the execution of every processes that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice will listen to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event.
+The execution finished event is responsible for triggering the execution of every process that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice listens to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event.
 
 [![Indicators-Process-Execution-Started-Finished-Events-01](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)](https://user-images.githubusercontent.com/13994516/68993254-39605880-0876-11ea-9ee7-9f49976bd2dc.gif)
 
@@ -1180,9 +1161,9 @@ To add an execution finished event, select *Add Missing Items* on the process de
 
 **{{site.data.data_mine.product_definition}}**
 
-product_definition: "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
+A bot may feature multiple products, thus, there may be multiple product definitions. Three main aspects need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated.
 
-A bot may feature multiple products, thus, there may be multiple product definitions. There are three main aspects that need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated.
+{% include note.html content="A product definition usually references a plotter module, which provides a graphic representation of the underlying dataset" %}
 
 ### Adding a Product Definition
 
@@ -1202,7 +1183,7 @@ Select *Configure Product* on the menu to access the configuration.
 
 * ```codeName``` is the name of the product as it is used within the bot's code.
 
-* ```singularVariableName``` is the singular form of the name of the variable representing the product, as it will later be used on strategies (*i.e.:* ```bollingerChannel.direction```, where *bollingerChannel* is the name of the product as defined in its configuration and *direction* is the name of the property.
+* ```singularVariableName``` is the singular form of the name of the variable representing the product, as is used on strategies (*i.e.:* ```bollingerChannel.direction```, where *bollingerChannel* is the name of the product as defined in its configuration and *direction* is the name of the property.
 
 * ```pluralVariableName``` is the plural form of the variable.
 
@@ -1216,8 +1197,6 @@ Select *Configure Product* on the menu to access the configuration.
 <img src='images/icons/150-dataset-definition.png' />
 
 **{{site.data.data_mine.dataset_definition}}**
-
-dataset_definition: "A dataset definition contains a configuration file that defines all aspects of the dataset. There are two types of dataset definitions: multi period market and multi period daily."
 
 A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions.
 
@@ -1236,7 +1215,7 @@ Select *Configure Definition* on the menu to access the configuration.
   "codeName": "Multi-Period-Market",
   "type": "Market Files",
   "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-  "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Market/@Period",
+  "filePath": "Data-Mine-Name/Bot-Name/@Exchange/Output/Product-Name/Multi-Period-Market/@Period",
   "fileName": "@BaseAsset_@QuotedAsset.json"
 }
 ```
@@ -1248,10 +1227,10 @@ Select *Configure Definition* on the menu to access the configuration.
   "codeName": "Multi-Period-Daily",
   "type": "Daily Files",
   "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-  "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+  "filePath": "Data-Mine-Name/Bot-Name/@Exchange/Output/Product-Name/Multi-Period-Daily/@Period/@Year/@Month/@Day",
   "fileName": "@BaseAsset_@QuotedAsset.json",
   "dataRange": {
-    "filePath": "Your-Data-Mine-Name/Your-Bot-Name/@Exchange/Output/Your-Product-Name/Multi-Period-Daily",
+    "filePath": "Data-Mine-Name/Bot-Name/@Exchange/Output/Product-Name/Multi-Period-Daily",
     "fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
   }
 }
@@ -1264,7 +1243,7 @@ Select *Configure Definition* on the menu to access the configuration.
 
 * ```validPeriods``` refers to the time frames handled by the dataset.
 
-* ```filePath``` sets the path on which files will be stored; make sure you replace the values corresponding to your data mine, bot and product.
+* ```filePath``` sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered.
 
 * ```fileName``` sets the name of the files that constitute the dataset.
 
@@ -1279,17 +1258,15 @@ Select *Configure Definition* on the menu to access the configuration.
 
 **{{site.data.data_mine.record_definition}}**
 
-record_definition: "The record definition is where indicators define how many fields, what fields and in which order those fields will be stored in each record."
-
 Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays.
 
 [![image](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)](https://user-images.githubusercontent.com/13994516/68998023-303eae00-08ad-11ea-9baa-ddea801c7d6d.png)
 
-The choice of plain text for storage of large volumes of information has benefits in terms of not requireing any sophisticated technology to store and serve the data (*i.e.:* no database is required).
+The choice of plain text for storage of large volumes of information has benefits in terms of not requiring any sophisticated technology to store and serve the data (*i.e.:* no database is required).
 
 Best practice indicates that there needs to be a balance between the amount of data that is stored and calculations that may be performed at runtime.
 
-Storing objects with named properties in the JSON format would be innapropriate as labels would repeat over and over, creating ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the manipulatioon of files in the context of JavaScript and Node.JS.
+Storing objects with named properties in the JSON format would be inappropriate as labels would repeat over and over, creating a ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the handling of files in the context of JavaScript and Node.JS.
 
 ### Adding a Record Definition
 
@@ -1305,8 +1282,6 @@ To add a record definition node, select *Add Record Definition* on the product d
 <img src='images/icons/150-record-property.png' />
 
 **{{site.data.data_mine.record_property}}**
-
-record: "A record is the compendium of information stored for each period of time, including the start and end datetime of the period along with the properties that provide the information the indicator is meant to generate."
 
 Records may have as many properties as required. 
 
@@ -1332,9 +1307,9 @@ Select *Configure Property* on the menu to access the configuration.
 
 * ```codeName``` is the name of the record as it is used in the bot's code. 
 
-* ```isString``` determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the *epoch* format, which is numeric. The reason why this configuration is important is because fields which are strings need to be stored between "double quotes".
+* ```isString``` determines if the field is a text string or if, in turn, is a numeric field. Dates are stored in the *epoch* format, which is numeric. The reason why this configuration is important is that fields that are strings need to be stored between "double quotes".
 
-* ```isCalculated``` determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value *true* means that the record is not stored. In  the case ```isCaculated``` is not defined in the configuration, it is assumed to be false.
+* ```isCalculated``` determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value *true* means that the record is not stored. In the case ```isCaculated``` is not defined in the configuration, it is assumed to be false.
 
 [![Indicators-Record-Definitions-01](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)](https://user-images.githubusercontent.com/13994516/69139160-3ce72000-0ac0-11ea-9566-a259c9ea6194.gif)
 
@@ -1349,8 +1324,6 @@ The image above shows a record definition with four record properties.
 <img src='images/icons/150-formula.png' />
 
 **{{site.data.data_mine.formula}}**
-
-formula: "In the context of a record definition, formulas are used to assign a value to the property, usually in the form of a variable declared in the calculation or data building procedure."
 
 A formula may act in slightly different ways depending on the ```isCaculated``` attribute in the record property configuration:
 
@@ -1375,13 +1348,11 @@ To add a formula, select *Add Formula* on the record property menu.
 
 **{{site.data.data_mine.calculations_procedure}}**
 
-calculations_procedure: "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others."
-
-Bots store data in the minimized array format as a strategy to build the lightest possible datasets. For the same reason, a bot may chose not to store information that is easily calculable.
+Bots store data in the minimized array format as a strategy to build the lightest possible datasets. For the same reason, a bot may choose not to store easily calculable information.
 
 For example, imagine an indicator that stores buy and sell volumes... does it *need* to store the total volume? Given that it is so easy to calculate, the answer is *probably* no. IT is up to the developer to decide, but it is certainly not required.
 
-{include note.html content="It may not be worthy to store information that can be easily calculated at a later stage." %}
+{% include note.html content="It may not be worthy to store information that can be easily calculated at a later stage." %}
 
 The calculations procedure calculates the properties that the developer chose not to store in the dataset.
 
@@ -1401,8 +1372,41 @@ To add a calculations procedure, select *Add Missing Items* on the product defin
 
 **{{site.data.data_mine.procedure_loop}}**
 
-procedure_loop: "The procedure loop holds the JavaScript code that cycles through reading an input processing information to generate an output."
+This is an example of a procedure loop code snippet, in particular, the code that calculates the Popular SMAs product of the Simple Moving Average (SMA) indicator.
 
+{% include important.html content="Calculation procedures may only access data up to 48 hours in the past counting from the datetime of the record being processed. For that reason, the calculation of a moving average requires temporarily storing data in an array." %}
+
+```js
+/* Loop Code. */
+
+let candle = record.current // Our main dependencies are candles 
+variable.last200.push(candle.close) // Add the current close value to the last 200 array.
+
+if (variable.last200.length > 200) {
+    variable.last200.splice(0, 1) // Remove the first element of the array to keep it at a maximun of 200 elements.
+}
+
+variable.sma20 = calculateSMA(20)
+variable.sma50 = calculateSMA(50)
+variable.sma100 = calculateSMA(100)
+variable.sma200 = calculateSMA(200)
+
+function calculateSMA(periods) {  // Having a function saves us from duplicating code.
+    /* We check we have enough values to make the calculation */
+    if (variable.last200.length < periods) { return 0 } // If we dont, we define the value is zero.
+
+    let sum = 0 // Initialize sum variable. 
+    for (let i = variable.last200.length - periods; i < variable.last200.length; i++) { // Iterate through the last periods
+        sum = sum + variable.last200[i]
+    }
+    let sma = sum / periods
+    return sma
+}
+```
+
+### Adding a Procedure Loop
+
+To add a procedure loop, select *Add Procedure loop* on the corresponding procedure node menu. A procedure loop node is created along with the corresponding JavaScript node.
 
 
 
@@ -1413,7 +1417,14 @@ procedure_loop: "The procedure loop holds the JavaScript code that cycles throug
 
 **{{site.data.data_mine.javascript_code}}**
 
-javascript_code: "The JavaScript code node may hold any snippet of valid JavaScript."
+The platform allows developers great flexibility as all valid JavaScript code is allowed. 
+
+{% include important.html content="Until a robust JavaScript editor is implemented on the UI, it is recommended to write code on an external editor and paste it in the UI code bubble to ensure consistency." %}
+
+### Adding a JavaScript Code
+
+To add a JavaScript code node, select *Add Code* on the corresponding parent node menu. 
+
 
 
 
@@ -1427,6 +1438,22 @@ javascript_code: "The JavaScript code node may hold any snippet of valid JavaScr
 
 procedure_initialization: "The procedure initialization is used to initialize variables used by the procedure loop."
 
+This is an example of a procedure loop code snippet, in particular, the code that initializes the array used in the calculation of the Popular SMAs product of the Simple Moving Average (SMA) indicator.
+
+```js
+/* Initialization Code. */
+variable.last200 = []
+```
+
+### Adding a Procedure Initialization
+
+To add a procedure initialization, select *Add Procedure Initialization* on the corresponding procedure node menu. A procedure initialization node is created along with the corresponding JavaScript node.
+
+
+
+
+
+
 
 
 
@@ -1438,8 +1465,11 @@ procedure_initialization: "The procedure initialization is used to initialize va
 
 **{{site.data.data_mine.data_building_procedure}}**
 
-data_building_procedure: "The data building procedure processes information to be fed to properties that are stored in the output dataset."
+This procedure holds the core logic of the bot, as it features the code that performs the calculations required to produce the new data set. The code is split between a procedure initialization and a procedure loop.
 
+### Adding a Data Building Procedure
+
+To add a data buildings procedure, select *Add Missing Items* on the product definition node menu. Items that may be missing are created along with the basic structure of nodes required to define them.
 
 
 
@@ -1454,7 +1484,17 @@ data_building_procedure: "The data building procedure processes information to b
 
 **{{site.data.data_mine.plotter}}**
 
-plotter: "A plotter is a device used to produce a graphic representation of the data generated by indicators."
+Plotters usually have a one-to-one relationship with bots, as they are often created as a customized solution. However, in practice, there is no constraint to creating any number of plotters for a single bot or a single plotter for multiple bots.
+
+The overall workflow of a plotter, while reading a dataset, consists in:
+
+* Applying a set of rules to identify certain data points;
+
+* Use those points to form lines and polygons;
+
+* Apply graphical styles to those lines and polygons.
+
+Those actions are performed recursively for each record, and the graphics are plotted on the charts in real-time as data is processed.
 
 
 
@@ -1466,7 +1506,57 @@ plotter: "A plotter is a device used to produce a graphic representation of the 
 
 **{{site.data.data_mine.plotter_module}}**
 
-plotter_module: "A plotter module is a device within a plotter that contains the definitions to create the visualization, often times, for a particular product definition."
+A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern.
+
+[![Plotter-Module-01](https://user-images.githubusercontent.com/13994516/71016077-eab41180-20f4-11ea-87e7-7262ff10a1ab.gif)](https://user-images.githubusercontent.com/13994516/71016077-eab41180-20f4-11ea-87e7-7262ff10a1ab.gif)
+
+{% include important.html content="For a bot to use a plotter, the corresponding product definition must establish a reference with the plotter module built to interpret the dataset." %}
+
+[![Plotter-Module-02-Product-Link](https://user-images.githubusercontent.com/13994516/71016079-eab41180-20f4-11ea-8afb-96321f9c68d8.gif)](https://user-images.githubusercontent.com/13994516/71016079-eab41180-20f4-11ea-8afb-96321f9c68d8.gif)
+
+### Adding a Plotter Module
+
+To add a plotter module, select *Add Plotter Module* on the plotter node menu.
+
+### Configuring a Plotter Module
+
+Select *Configure Plotter Module* on the menu to access the configuration.
+
+```json
+{
+    "codeName": "Module Name",
+    "isLegacy": true,
+        "icon": "histogram"
+}
+```
+
+* ```codeName``` is the name used in the code to refer to the module.
+
+* ```isLegacy``` is ```true``` for plotters modules developed entirely in JavaScript, and is ```false``` or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy.
+
+* ```icon``` is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the banner is not specified, the *default banner* is used. Current possible values are:
+
+
+| Value | Image|
+| :---: | :---: |
+| ```Default``` | ![Default-Banner](https://user-images.githubusercontent.com/13994516/70896073-5bbdd100-1ff0-11ea-84e3-5bd90475976f.png) |
+| ```Histogram``` | ![Histogram-Banner](https://user-images.githubusercontent.com/13994516/70896074-5bbdd100-1ff0-11ea-8dad-ccc6cfe64beb.png) |
+| ```Band``` | ![Bands-Banner](https://user-images.githubusercontent.com/13994516/70896072-5bbdd100-1ff0-11ea-8626-61c36bd22a3c.png) |
+| ```Moving Average``` | ![Moving-Average-Banner](https://user-images.githubusercontent.com/13994516/70896075-5bbdd100-1ff0-11ea-9909-dae33e57f65f.png) |
+| ```Oscillator``` | ![Oscillator-Banner](https://user-images.githubusercontent.com/13994516/70896076-5c566780-1ff0-11ea-8a5b-20077257c560.png) |
+| ```Trend``` | ![trends-banner](https://user-images.githubusercontent.com/13994516/70989177-744aeb80-20c3-11ea-88f5-d10473fa79b9.png) |
+
+Custom images may be added too. To do that:
+
+1. name the image in the following format: ```The-Image-Name-Icon.png```;
+
+1. place images in the ```WebServer\Images\``` folder;
+
+1. in the configuration of the module, use the name without the *-Icon* ending (e.g.: ```"icon": "The-Image-Name"```)
+
+
+
+
 
 
 
@@ -1478,7 +1568,14 @@ plotter_module: "A plotter module is a device within a plotter that contains the
 
 **{{site.data.data_mine.plotter_panel}}**
 
-plotter_panel: "A plotter panel usually shows numerical representations of data over the charts on a small window or panel. The plotter panel node features definitions to make that possible."
+Beyond the graphic representation of data over the charts, plotters may also feature a *data panel*, that is, a numerical representation of the data showing the exact figures corresponding to the column or period that is in focus (the point of the charts where the mouse pointer is at any point).
+
+### Adding a Plotter Panel
+
+To add a plotter panel, select *Add Plotter Panel* on the plotter module node menu.
+
+
+
 
 
 
@@ -1490,7 +1587,37 @@ plotter_panel: "A plotter panel usually shows numerical representations of data 
 
 **{{site.data.data_mine.panel_data}}**
 
-panel_data: "A panel data node represents a data field to be plotted on the plotter panel."
+The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node.
+
+### Adding a Panel Data
+
+To add a panel data node, select *Add Panel Data* on the plotter panel menu.
+
+### Configuring a Panel Data
+
+Select *Configure Panel Data* on the menu to access the configuration.
+
+```json
+{
+    "valueDecimals": 2
+}
+```
+
+* ```valueDecimals``` sets the number of decimals to be shown on the corresponding data field.
+
+To override the default manner in which the data is assembled on the panel, the following properties may be included and defined:
+
+```json
+{
+    "labelText": "The Label",
+    "labelPosition": 15,
+    "valuePosition": 20,
+    "valueDecimals": 2
+}
+```
+
+* ```labelPosition``` and ```valuePosition``` represent the vertical distance of the corresponding fields to the top margin of the panel.
+
 
 
 
@@ -1502,8 +1629,9 @@ panel_data: "A panel data node represents a data field to be plotted on the plot
 
 **{{site.data.data_mine.data_formula}}**
 
-data_formula: "A data formula is the device used to assign a value to the panel data, usually in the form of the name of the corresponding record property."
+### Adding a Data Formula
 
+To add a data formula, select *Add Data Formula* on the plotter panel menu.
 
 
 
@@ -1514,7 +1642,21 @@ data_formula: "A data formula is the device used to assign a value to the panel 
 
 **{{site.data.data_mine.shapes}}**
 
-shapes: "The shapes node contains definitions that define polygons and styles to be rendered on a per period basis over the charts."
+A plotter recursively renders graphics for each period or candle. This means that a definition of what shapes need to be drawn for a single period is required. The plotter does the same thing for every period or candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available.
+
+[![Shapes-01-show-off](https://user-images.githubusercontent.com/13994516/71016080-eab41180-20f4-11ea-84c6-a514b87d568f.gif)](https://user-images.githubusercontent.com/13994516/71016080-eab41180-20f4-11ea-84c6-a514b87d568f.gif)
+
+In general terms, the process of defining what is going to be rendered on the screen consist of the following four steps:
+
+ 1. Identifying points defined by ```[x,y]``` coordinates
+ 2. Defining polygons
+ 3. Defining default styles
+ 4. Defining conditional styles
+
+### Adding Shapes
+
+To add a shapes node, select *Add Shapes* on the plotter module menu.
+
 
 
 
@@ -1526,7 +1668,11 @@ shapes: "The shapes node contains definitions that define polygons and styles to
 
 **{{site.data.data_mine.chart_points}}**
 
-chart_points: "The chart points node groups definitions of points."
+The definition of a point consists of the name of the point and the corresponding values for the ```x``` and ```y``` coordinates. To create such definitions, point and point formulas are used.
+
+### Adding a Chart Points
+
+To add a chart points node, select *Add Chart Points* on the shapes menu.
 
 
 
@@ -1538,7 +1684,14 @@ chart_points: "The chart points node groups definitions of points."
 
 **{{site.data.data_mine.point}}**
 
-point: "A point is a definition of an [x,y] coordinate where x is usually a datetime and y is usually a value that refers to a price, as output by the indicator."
+These coordinate points are used to define polygons. Values for ```[x,y]```coordinates are entered with a point formula.
+
+{% include tip.html content="Each point should be given a significant name so that it is easier to identify them at the time of establishing references with polygon vertices." %}
+
+### Adding a Point
+
+To add a point, select *Add Point* on the chart points node menu.
+
 
 
 
@@ -1550,7 +1703,84 @@ point: "A point is a definition of an [x,y] coordinate where x is usually a date
 
 **{{site.data.data_mine.point_formula}}**
 
-point_formula: "A point formula is the node used to input the coordinates of a point."
+To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: ```x = datetime``` and ```y = rate```.
+
+For example:
+
+**Point *SMA 20 Begin***
+```js
+x = record.begin
+y = record.previous.sma20
+```
+
+The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, ```x = record.begin``` is the starting datetime of the period and ```y = record.previous.sma20``` is the rate of the 20-periods SMA of the previous period.
+
+{% include note.html content="The above variables are constructed with information originating at the product definition that references the corresponding plotter module." %}
+
+To complete the line segment corresponding to a single period, the closing datetime of the period and the closing rate for the 20-periods SMA are required:
+
+**Point *SMA 20 End***
+```js
+x = record.end
+y = record.sma20
+```
+
+The above system works very well for plotting all sorts of information over the candles, on the charts.
+
+An oscillator like RSI too needs the definition of the starting and ending datetime of the period as the value for the *x-axis*. However, the value for *axis y* fits a different scale.
+
+Anyway, the points definition is just as straight forward, for example:
+
+**Point *RSI Begin***
+```js
+x = record.begin
+y = record.previous.value
+```
+
+**Point *RSI End***
+```js
+x = record.end
+y = record.value
+```
+
+Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the *y-axis* may be used to describe fixed graphical elements, for instance, a horizontal line, or a box.
+
+**Point *Begin 20***
+```js
+x = record.begin
+y = 20
+```
+
+**Point *End 20***
+```js
+x = record.end
+y = 20
+```
+
+**Point *Begin 30***
+```js
+x = record.begin
+y = 30
+```
+
+**Point *End 30***
+```js
+x = record.end
+y = 30
+```
+
+The above four points are used to paint the background of the 20 to 30 value range of the RSI chart. The first two points are also used to draw the dotted line signaling the 20-value mark, and the last two are used for the dotted line indicating the 30-value mark.
+
+{% include note.html content="The reason from separating the definition of points from the definition of polygons is that any point may be used by one or more polygons." %}
+
+### Adding a Point Formula
+
+To add a point formula, select *Add Point Formula* on the point node menu.
+
+
+
+
+
 
 
 
@@ -1562,7 +1792,13 @@ point_formula: "A point formula is the node used to input the coordinates of a p
 
 **{{site.data.data_mine.polygon}}**
 
-polygon: "A polygon features definitions that make up shapes and their styles."
+Polygons are defined by two or more vertices, which map points in a charts point. The graphic representation of polygons originates in styles applied to either or both polygon bodies and polygon borders. 
+
+{% include note.html content="The order in which polygons are ordered around the parent shapes node determines the order in which they are drawn on the screen. In cases on which polygons intersect, those drawn last are drawn on top of those drawn first." %}
+
+### Adding a Polygon
+
+To add a polygon, select *Add Polygon* on the shapes node menu.
 
 
 
@@ -1574,7 +1810,21 @@ polygon: "A polygon features definitions that make up shapes and their styles."
 
 **{{site.data.data_mine.polygon_vertex}}**
 
-polygon_vertex: "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as vertex of a shape."
+polygon_vertex: "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape."
+
+Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point.
+
+[![Vertex-01-add-and-link](https://user-images.githubusercontent.com/13994516/71016081-eb4ca800-20f4-11ea-8fee-4d38ecfb0596.gif)](https://user-images.githubusercontent.com/13994516/71016081-eb4ca800-20f4-11ea-8fee-4d38ecfb0596.gif)
+
+Drawing curves requires two vertices. Painting areas, such as the background of a chart, likely requires four vertices. Note that vertices are not capable of featuring a style. Instead, styles are applied to polygon borders and polygon bodies.
+
+{% include important.html content="Bear in mind that the order in which vertices in a polygon are arranged around the parent polygon node when their *rotational symmetry* property is selected, is the order in which the plotter computes the points. This means that points need to be in the correct order, for example, when drawing a box. Imagine drawing a box on a piece of paper without lifting the pencil... that is how the plotter does it." %}
+
+### Adding a Polygon Vertex
+
+To add a polygon vertex, select *Add Polygon Vertex* on the polygon node menu.
+
+{% include tip.html content="Remember that a vertex must establish a reference to a point in the charts point to be properly defined" %}
 
 
 
@@ -1586,9 +1836,11 @@ polygon_vertex: "A polygon vertex is a reference to a point defined in the chart
 
 **{{site.data.data_mine.polygon_border}}**
 
-polygon_border: "A polygon border is a shape defined by at least two vertices used to draw lines or to apply a style to the stroke of a closed shape."
+A polygon border needs at least two vertices to be defined. A border serves to create a *stroke* for the outlines of any sort of polygon, either closed or open, by giving it a style.
 
+### Adding a Polygon Border
 
+To add a polygon border, select *Add Polygon Border* on the polygon node menu.
 
 
 
@@ -1598,7 +1850,85 @@ polygon_border: "A polygon border is a shape defined by at least two vertices us
 
 **{{site.data.data_mine.style}}**
 
-style: "A style is a definition of color and opacity in case of a polygon body, and of color, opacity and line thickness in case of polygon borders."
+A style applied to a polygon body or a polygon border node acts as the default style.
+
+### Adding a Style
+
+To add a style, select *Add Style* on a polygon border or polygon body node menu.
+
+### Configuring a Style
+
+Select *Configure Style* on the menu to access the configuration.
+
+A typical definition for a polygon body style looks like this:
+
+```json
+{
+    "default": {
+        "opacity": 0.2,
+        "paletteColor": "UI_COLOR.DARK_TURQUOISE"
+    },
+    "atMousePosition": {
+        "opacity": 0.3,
+        "paletteColor": "UI_COLOR.DARK_TURQUOISE"
+    }
+}
+```
+
+A typical definition for a polygon border style has a couple more properties:
+
+```json
+{
+    "default": {
+        "opacity": 0.2,
+        "lineWidth": 1,
+        "lineDash": [0,0],
+        "paletteColor": "UI_COLOR.DARK_TURQUOISE"
+    },
+    "atMousePosition": {
+        "opacity": 0.3,
+        "lineWidth": 2,
+        "lineDash": [0,0],
+        "paletteColor": "UI_COLOR.RUSTED_RED"
+    }
+}
+```
+
+The first section of the definition refers, as explicitly stated, to the default state of the style.
+
+The second section refers to the style assigned to the column or period on which the mouse pointer is located. This is very useful for highlighting the specific zone of interest as the user browses the charts.
+
+* ```opacity``` is probably self-explanatory: it may range from ```0``` for a fully transparent object to ```1``` for a solid object.
+
+* ```paletteColor``` sets the color for the *fill* or *stroke* in cases of polygon bodies and polygon borders respectively. Use the variable ```UI_COLOR``` followed by a ```.``` and any of the properties in the following list for a selection of currently available colors:
+
+| Variable Value | RGB Value | Color Sample |
+| :--- | :---: | :------------------- |
+| ```DARK``` | 48, 48, 54 | <span style="display: block; background: RGB(48, 48, 54); border: 1px solid black;">&nbsp;</span> |
+| ```LIGHT``` | 234, 226, 222 | <span style="display: block; background: RGB(234, 226, 222); border: 1px black; border: 1px solid black;">&nbsp;</span> |
+| ```GREY``` | 150, 150, 150 | <span style="display: block; background: RGB(150, 150, 150); border: 1px solid black;">&nbsp;</span> |
+| ```LIGHT_GREY``` | 247, 247, 247 | <span style="display: block; background: RGB(247, 247, 247); border: 1px solid black;">&nbsp;</span> |
+| ```WHITE``` | 255, 255, 255 | <span style="display: block; background: RGB(255, 255, 255); border: 1px solid black;">&nbsp;</span> |
+| ```BLACK``` | 0, 0, 0 | <span style="display: block; background: RGB(0, 0, 0); border: 1px solid black;">&nbsp;</span> |
+| ```GOLDEN_ORANGE``` | 240, 162, 2 | <span style="display: block; background: RGB(240, 162, 2); border: 1px solid black;">&nbsp;</span> |
+| ```RUSTED_RED``` | 204, 88, 53 | <span style="display: block; background: RGB(204, 88, 53); border: 1px solid black;">&nbsp;</span> |
+| ```GREEN``` | 188, 214, 67 | <span style="display: block; background: RGB(188, 214, 67); border: 1px solid black;">&nbsp;</span> |
+| ```RED``` | 223, 70, 60 | <span style="display: block; background: RGB(223, 70, 60); border: 1px solid black;">&nbsp;</span> |
+| ```PATINATED_TURQUOISE``` | 27, 153, 139 | <span style="display: block; background: RGB(27, 153, 139); border: 1px solid black;">&nbsp;</span> |
+| ```TITANIUM_YELLOW``` | 244, 228, 9 | <span style="display: block; background: RGB(244, 228, 9); border: 1px solid black;">&nbsp;</span> |
+| ```MANGANESE_PURPLE``` | 91,80, 122 | <span style="display: block; background: RGB(91,80, 122); border: 1px solid black;">&nbsp;</span> |
+| ```TURQUOISE``` | 74, 207, 217 | <span style="display: block; background: RGB(74, 207, 217); border: 1px solid black;">&nbsp;</span> |
+| ```DARK_TURQUOISE``` | 2, 149, 170 | <span style="display: block; background: RGB(2, 149, 170); border: 1px solid black;">&nbsp;</span> |
+
+* ```lineWidth``` is the width of the border line, which should be greater than 0.
+
+* ```lineDash``` is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space.
+
+{% include note.html content="When using dashed lines, bear in mind that the drawing from one column or period is independent of the next. Big values for dashes and spaces may not work well for lines that span several columns." %}
+
+
+
+
 
 
 
@@ -1610,7 +1940,47 @@ style: "A style is a definition of color and opacity in case of a polygon body, 
 
 **{{site.data.data_mine.style_condition}}**
 
-style_condition: "A style condition is a rule that allows applying an alternative style in cases where the rule validates true."
+Style conditions offer a way to introduce additional intelligence on the visual representation of data by using styles that respond to certain conditions.
+
+For example, the *Percentage Bandwidth* plotter module assigns a different color to the Moving Average line when it's going up or down.
+
+To do that, a style condition features it's own style so that, when the condition validates true, the new style is applied.
+
+Style conditions me be created in a sequence so that the style may continue changing upon the validation of a series of style conditions. The system evaluates all style conditions in a sequential order determined by their position in the rotational symmetry around the parent node. Each condition that is met may modify or add up to the resulting style that is rendered on screen. That is, the final style is the result of the sequential application of the styles defined for each condition that is met, on top of the default style.
+
+### Adding a Style Condition
+
+To add a style condition, select *Add Style Condition* on a polygon border or polygon body node menu.
+
+### Editing a Style Condition
+
+Select *Edit Condition* on the menu to access the configuration.
+
+Style conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module.
+
+To continue the example of the Percentage Bandwidth plotter, the following is the condition that determines the newly added styles:
+
+```js
+record.previous.movingAverage > record.movingAverage
+```
+
+As hinted earlier, when the condition is met, the default style is modified by a second style that may be created on the menu of the style condition node.
+
+The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the ```atMousePosition``` property may no longer be defined:
+
+```js
+{
+    "opacity": 0.55,
+    "lineWidth": 1,
+    "lineDash": [0,0],
+    "paletteColor": "UI_COLOR.RED"
+}
+```
+
+
+
+
+
 
 
 
@@ -1623,6 +1993,8 @@ style_condition: "A style condition is a rule that allows applying an alternativ
 
 **{{site.data.data_mine.polygon_body}}**
 
-polygon_body: "A polygon body is is the fill of a shape made out of at least 3 vertices."
+A polygon body needs at least three vertices to be defined. A body serves to create a *fill* for the outlines of any sort of polygon, either closed or open, by giving it a style.
 
+### Adding a Polygon Body
 
+To add a polygon body, select *Add Polygon Body* on the polygon node menu.

@@ -39,7 +39,7 @@
         timeFrameLabel,
         currentDay,
         interExecutionMemory,
-        assistant,
+        exchangeAPI,
         callback,
         callBackFunction) {
 
@@ -553,8 +553,6 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle Begin @ " + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle End @ " + (new Date(candle.end)).toLocaleString()) }
-
-                /* Assistant Info */
 
                 let ticker = {
                     bid: candle.close,
@@ -1995,7 +1993,7 @@
 
 
                         /* Checking the status of current positions */
-                        let positions = assistant.getPositions();
+                        let positions = exchangeAPI.getPositions();
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
                             if (position.status === 'open') {
@@ -2006,7 +2004,6 @@
                         }
 
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
@@ -2034,7 +2031,7 @@
                         let amountA
                         let amountB
                         let positionDirection
-                        let availableBalance = assistant.getAvailableBalance()
+                        let availableBalance = exchangeAPI.getAvailableBalance()
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             positionDirection = "sell"
@@ -2044,7 +2041,7 @@
                             amountA = tradePositionSize * openPositionRate
                             amountB = tradePositionSize
 
-                            if (amountB > availableBalance.quotedAsset) { // The assistant know what fees were paid.
+                            if (amountB > availableBalance.quotedAsset) { // The exchangeAPI know what fees were paid.
                                 amountB = availableBalance.quotedAsset
                             }
                         } else {
@@ -2055,7 +2052,7 @@
                             amountA = tradePositionSize
                             amountB = tradePositionSize / openPositionRate
 
-                            if (amountA > availableBalance.baseAsset) { // The assistant know what fees were paid.
+                            if (amountA > availableBalance.baseAsset) { // The exchangeAPI know what fees were paid.
                                 amountA = availableBalance.baseAsset
                             }
                         }
@@ -2066,7 +2063,7 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
-                        assistant.createOrder(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
+                        exchangeAPI.createOrder(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Entering function."); }
@@ -2232,7 +2229,7 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
 
                         /* Checking the status of current positions */
-                        let positions = assistant.getPositions();
+                        let positions = exchangeAPI.getPositions();
                         if (positions.length > 0) {
                             let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
                             if (position.status === 'open') {
@@ -2258,7 +2255,7 @@
                         let amountA
                         let amountB
                         let positionDirection
-                        let availableBalance = assistant.getAvailableBalance()
+                        let availableBalance = exchangeAPI.getAvailableBalance()
 
                         if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
                             positionDirection = "buy"
@@ -2284,7 +2281,7 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
-                        assistant.createOrder(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
+                        exchangeAPI.createOrder(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
 
                         function onOrderPut(err) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Entering function."); }

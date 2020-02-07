@@ -8,9 +8,7 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 The [Users Manual](https://github.com/Superalgos/Platform/wiki) in this repository's wiki features the documentation corresponding to the latest release.
 
-A [new documentation site](https://superalgos.github.io/Documentation/suite-crypto-ecosystem-hierarchy.html) is in the making. Bear in mind the new version of the documentation is undergoing a massive restructuring, therefore, it may currently be inconsistent or hard to follow.
-
-> The specific page linked above and the rest of the pages in the Hierarchies Directory are virtually up to date. The rest of the site is currently unreliable.
+A [new documentation site](https://superalgos.github.io/Documentation/) is in the making. Bear in mind the new version of the documentation is undergoing a massive restructuring, therefore, it is incomplete and should be complemented with the current User Manual.
 
 ## Codebase and Development Environment
 

@@ -35,7 +35,7 @@ The ```develop``` branch in this repository now features the latest codebase and
 
 The codebase is distributed with the platform's release, and constitutes a fully functional development environment right out of the package. The platform runs uncompilled on the actual code (```node run``` from the root folder).
 
-If you are testing the version in development, you need to use the workspace in the root directory. Workspaces of older versions do not work in the new one.
+> If you are testing the version in development, you need to use the workspace in the root directory. Workspaces of older versions do not work in the new one.
 
 ## Contributing
 

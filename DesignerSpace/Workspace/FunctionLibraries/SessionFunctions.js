@@ -64,6 +64,11 @@ function newSessionFunctions () {
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
   }
 
   function stopSession (node, functionLibraryProtocolNode, callBackFunction) {

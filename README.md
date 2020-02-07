@@ -4,6 +4,23 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
+## Testing Exchanges
+
+The version in development opens up the door to working with multiple exchanges and multiple markets. For your reference, this is a quick report on the progress of our tests:
+
+| Exchange | Historic Data Capability [*] | Trading Capability [**] |
+| :--- | :---: | :---: | 
+| Binance | &#x2611; | &#x2611; |
+| Bitfinex | &#x2611; | &#x2610; |
+| Bitmex | &#x2611; | &#x2610; |
+| HitBTC | &#x2610; | &#x2610; |
+| Kraken | &#x2611; | &#x2610; |
+| Poloniex | &#x2610; | &#x2610; |
+
+[*] The ability to fetch historic data for backtesting purposes has been verified.
+
+[**] The ability to run strategies in live-trading mode has been verified.
+
 ## Documentation
 
 The [Users Manual](https://github.com/Superalgos/Platform/wiki) in this repository's wiki features the documentation corresponding to the latest release.
@@ -17,6 +34,8 @@ To build each release, the Superalgos Platform used to draw code from several re
 The ```develop``` branch in this repository now features the latest codebase and development environment.  
 
 The codebase is distributed with the platform's release, and constitutes a fully functional development environment right out of the package. The platform runs uncompilled on the actual code (```node run``` from the root folder).
+
+If you are testing the version in development, you need to use the workspace in the root directory. Workspaces of older versions do not work in the new one.
 
 ## Contributing
 

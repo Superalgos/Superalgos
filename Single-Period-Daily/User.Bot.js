@@ -119,7 +119,7 @@
                         logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
 
                         lastCandleClose = 0;
-                        lastTradeFileProcessed = new Date(firstTradeFile.valueOf())
+                        lastTradeFileProcessed = new Date(firstTradeFile.valueOf() - ONE_DAY_IN_MILISECONDS)
                         beginingOfMarket = new Date(firstTradeFile.valueOf())
 
                         buildCandlesAndVolumes();
@@ -132,8 +132,10 @@
                         beginingOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
                         if (beginingOfMarket.valueOf() !== firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+
                             beginingOfMarket = new Date(firstTradeFile.valueOf())
-                            lastTradeFileProcessed = new Date(firstTradeFile.valueOf())
+                            lastTradeFileProcessed = new Date(firstTradeFile.valueOf() - ONE_DAY_IN_MILISECONDS)
                             lastCandleClose = 0
                             buildCandlesAndVolumes()
                             return

@@ -25,6 +25,7 @@
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
+    let beginingOfMarket
 
     return thisObject;
 
@@ -176,6 +177,20 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
                     if (thisReport.lastFile !== undefined) {
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey);
+
+                        beginingOfMarket = new Date(thisReport.beginingOfMarket);
+
+                        if (beginingOfMarket.valueOf() !== contextVariables.firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+
+                            beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                            contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                            contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+
+                            buildCandles();
+                            return;
+                        }
 
                         contextVariables.lastCandleFile = new Date(thisReport.lastFile);
 
@@ -190,7 +205,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
                         return;
 
                     } else {
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
 
+                        beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastCandleFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
@@ -756,6 +773,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.file.lastFile = lastFileDate;
+                    thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
                 }

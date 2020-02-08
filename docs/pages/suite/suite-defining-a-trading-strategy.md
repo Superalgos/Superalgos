@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-defining-a-trading-strategy.html
 ---
 
-{% include /trading_system/strategy.md heading="" icon="150-" adding="##" configuring="" starting="" content="yes" definition="bold" table="yes" more="yes"%}
+{% include /trading_system/strategy.md heading="" icon="150-" adding="####" configuring="" starting="" content="yes" definition="bold" table="yes" more="yes"%}
 
 {% include /trading_system/trigger-stage.md heading="##" icon="150-" adding="" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 

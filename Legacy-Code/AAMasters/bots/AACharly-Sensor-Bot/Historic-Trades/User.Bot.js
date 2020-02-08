@@ -33,6 +33,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let lastId
     let firstId
     let exchange
+    let uiStartDate = new Date(bot.uiStartDate)
 
     const limit = 1000
 
@@ -110,8 +111,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             async function begin() {
 
                 getContextVariables()
-                defineSince()
-
+                
                 await getFirstId()
                 await getTrades()
                 if (global.STOP_TASK_GRACEFULLY === true) {
@@ -144,6 +144,25 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     } else {  // This means this is the first time this process run.
                         beginingOfMarket = new Date()
                     }
+
+                    defineSince()
+                    function defineSince() {
+                        if (thisReport.file.uiStartDate === undefined) {
+                            thisReport.file.uiStartDate = uiStartDate
+                        } else {
+                            thisReport.file.uiStartDate = new Date(thisReport.file.uiStartDate)
+                        }
+
+                        if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
+                            since = uiStartDate.valueOf()
+                            initialProcessTimestamp = since
+                            beginingOfMarket = new Date(uiStartDate.valueOf())
+                        } else {
+                            since = lastFileSaved.valueOf()
+                            initialProcessTimestamp = lastFileSaved.valueOf()
+                        }
+                    }
+
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
@@ -151,20 +170,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function defineSince() {
-
-                let uiStartDate = new Date(bot.uiStartDate)
-
-                if (uiStartDate.valueOf() < beginingOfMarket.valueOf()) {
-                    since = (new Date(bot.uiStartDate)).valueOf()
-                    initialProcessTimestamp = since 
-                    beginingOfMarket = new Date(uiStartDate.valueOf())
-                } else {
-                    since = lastFileSaved.valueOf()
-                    initialProcessTimestamp = lastFileSaved.valueOf()
                 }
             }
 
@@ -367,6 +372,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                         function createMissingEmptyFiles(begin, end) {
 
+                            /*
+                            If this range is too wide, we will consider this means that the begin is before the begining of this market at this exchange.
+                            In that case we will change the begin and the beginingOfMarket
+                            */
+
+                            if ((end - begin) / 60 / 24 > 7) {
+                                begin = end
+                                beginingOfMarket = new Date(end * ONE_MINUTE)
+                            }
+
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                                 filesToCreate++
@@ -436,7 +451,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             days: beginingOfMarket.getUTCDate(),
                             hours: beginingOfMarket.getUTCHours(),
                             minutes: beginingOfMarket.getUTCMinutes()
-                        }
+                        },
+                        uiStartDate: uiStartDate.toUTCString()
                     };
 
                     if (fetchType === "by Id") {

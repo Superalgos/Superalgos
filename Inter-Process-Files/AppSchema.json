@@ -5398,7 +5398,7 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "dataset-definition",
+        "icon": "session-independent-data",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
@@ -5433,7 +5433,7 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "output-dataset",
+        "icon": "session-based-data",
         "chainAttachesTo": {
             "compatibleTypes": "->Data Storage->"
         },
@@ -5472,7 +5472,7 @@
         ],
         "addLeftIcons": true,
         "level": 3,
-        "icon": "data-dependency",
+        "icon": "session-reference",
         "alternativeIcons": "Use Reference Parent",
         "referenceAttachesTo": {
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->"

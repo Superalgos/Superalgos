@@ -26,6 +26,7 @@
     let bootstrappingTheProcess = false 
 
     let processConfig;
+    let beginingOfMarket
 
     return thisObject;
 
@@ -223,6 +224,16 @@
 
                     if (thisReport.lastFile !== undefined) {
 
+                        beginingOfMarket = new Date(thisReport.beginingOfMarket);
+
+                        if (beginingOfMarket.valueOf() !== contextVariables.dateBeginOfMarket.valueOf()) { // Reset Mechanism for Begining of the Market
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+
+                            beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf());
+                            startFromBegining();
+                            return;
+                        }
+
                         if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
@@ -242,6 +253,7 @@
                         In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
                         */
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined."); }
+                        beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf());
                         startFromBegining();
                         return;
                     }
@@ -765,6 +777,7 @@
                     thisReport.file.lastExecution = bot.currentDaytime;
                     thisReport.file.lastFile = lastFileDate;
                     thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
+                    thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;

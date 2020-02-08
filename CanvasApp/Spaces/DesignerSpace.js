@@ -238,7 +238,10 @@ function newDesignerSpace () {
       'next-phase-event',
       'testing-environment',
       'production-environment',
-      'task-manager'
+      'task-manager',
+      'session-based-data',
+      'session-independent-data',
+      'session-reference'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

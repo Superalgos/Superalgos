@@ -75,7 +75,7 @@ To add a parameter that may be missing, select *Add Missing Params* on the param
 
 {% if include.configuring != "" %}
 
-{{include.adding}} Configuring the {{title}}
+{{include.configuring}} Configuring the {{title}}
 
 <!-- CONFIGURING starts -->
 

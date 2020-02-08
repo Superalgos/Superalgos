@@ -3,8 +3,9 @@
 {% assign title = "Live Trading Session" %}
 {% assign definition = site.data.network.live_trading_session %}
 {% assign preposition = "a" %}
+{% assign plural = "s" %}
 
-<!-- TITLE AND DEFINITION ends -->
+<!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.heading != "" %}
 {{include.heading}} {{title}}
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,25 +35,35 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
 
-<!-- CONTENT starts -->
+{% if include.content != "no" %}
+
+<!--------------------------------------------- CONTENT starts -->
 
 A live trading session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it.
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add a live trading session, select *Add Live Trading Session* on the trading process instance node menu. When a session is added, it is created with the full set of parameters.
 
@@ -92,6 +103,10 @@ Before you start a live trading session, the corresponding task needs to be runn
 
 To stop a backtesting session, select *Stop* on the menu.
 
-<!-- STARTING ends -->
+<!--------------------------------------------- STARTING ends -->
 
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

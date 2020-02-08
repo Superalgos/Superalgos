@@ -23,6 +23,7 @@
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
     let statusDependencies;
+    let beginingOfMarket
 
     return thisObject;
 
@@ -178,6 +179,19 @@
 
                     if (thisReport.lastFile !== undefined) {
 
+                        beginingOfMarket = new Date(thisReport.beginingOfMarket);
+
+                        if (beginingOfMarket.valueOf() !== contextVariables.firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                            logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+
+                            beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                            contextVariables.lastBandFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                            contextVariables.lastBandFile = new Date(contextVariables.lastBandFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+
+                            buildBands();
+                            return;
+                        }
+
                         contextVariables.lastBandFile = new Date(thisReport.lastFile);
 
                         /*
@@ -204,6 +218,8 @@
 
                         contextVariables.lastBandFile = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
                         contextVariables.lastBandFile = new Date(contextVariables.lastBandFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+
+                        beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> thisReport.lastFile === undefined"); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> contextVariables.lastBandFile = " + contextVariables.lastBandFile); }
@@ -852,6 +868,7 @@
 
                     thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.file.lastFile = lastFileDate;
+                    thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
                 }

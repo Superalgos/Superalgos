@@ -78,11 +78,11 @@ function newCircularProgressBar () {
     }
   }
 
-  function drawBackground (pFloatingObject) {
+  function drawForeground (pFloatingObject) {
 
   }
 
-  function drawForeground (pFloatingObject) {
+  function drawBackground (pFloatingObject) {
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {

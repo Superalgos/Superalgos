@@ -4,7 +4,6 @@ function newContainer () {
     id: Math.trunc(Math.random() * 10000000),
     type: 'Rectangle',
     frame: undefined,
-    displacement: undefined,
     eventHandler: undefined,
     parentContainer: undefined,
     isDraggeable: true,
@@ -62,6 +61,8 @@ function newContainer () {
 
       thisObject.parentContainer = undefined
       thisObject.eventHandler.finalize()
+
+      thisObject.frame.finalize()
     }
   }
 
@@ -71,15 +72,13 @@ function newContainer () {
 
     thisObject.frame = newFrame()
     thisObject.frame.initialize(pType)
-    thisObject.frame.containerName = pName
+    if (pName !== undefined) {
+      thisObject.frame.containerName = pName
+    }
     thisObject.frame.container = thisObject
 
     thisObject.eventHandler = newEventHandler()
     thisObject.eventHandler.name = pName
-
-    thisObject.displacement = newDisplacement()
-    thisObject.displacement.container = thisObject
-    thisObject.displacement.containerName = pName
   }
 
   function connectToParent (
@@ -111,7 +110,6 @@ function newContainer () {
 
     isConnectedToParent = true
 
-    thisObject.displacement.parentDisplacement = parentContainer.displacement
     thisObject.frame.parentFrame = parentContainer.frame
     thisObject.parentContainer = parentContainer
 
@@ -214,6 +212,11 @@ function newContainer () {
           break
         case GET_CONTAINER_PURPOSE.MOUSE_CLICK:
           if (thisObject.isClickeable === true) {
+            return true
+          }
+          break
+        case GET_CONTAINER_PURPOSE.DRAGGING:
+          if (thisObject.isDraggeable === true) {
             return true
           }
           break

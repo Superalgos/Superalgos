@@ -34,6 +34,7 @@ function newConfigEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
+  let SIZE_FACTOR = 0.6
 
   return thisObject
 
@@ -135,8 +136,8 @@ function newConfigEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 2
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * SIZE_FACTOR
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * SIZE_FACTOR
 
     let textAreaPosition = {
       x: 0 - thisObject.container.frame.width / 2,
@@ -168,7 +169,7 @@ function newConfigEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 2
+      let radius = thisObject.container.frame.radius * SIZE_FACTOR
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()

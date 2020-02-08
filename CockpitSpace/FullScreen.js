@@ -28,7 +28,7 @@ function newFullScreen () {
   let isMouseOver = false
   let counterTillNextState = 0
 
-  let productCardsToTurnOn = []
+  let layersToTurnOn = []
   return thisObject
 
   function finalize () {

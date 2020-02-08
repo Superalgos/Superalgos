@@ -62,10 +62,10 @@
        thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
      }
 
-     canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
      selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
-     thisObject.assetBalances = newAssetBalances()
+     thisObject.assetBalances = newQuotedAssetalances()
      thisObject.assetBalances.initialize()
 
      thisObject.fullscreen = newFullScreen()
@@ -150,14 +150,16 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     viewPort.resize()
+     if (canvas.chartSpace.viewport !== undefined) {
+       canvas.chartSpace.viewport.resize()
+     }
    }
 
    function getContainer (point) {
      let container
 
-     container = thisObject.fullscreen.getContainer(point)
-     if (container !== undefined) { return container }
+     // container = thisObject.fullscreen.getContainer(point)
+     // if (container !== undefined) { return container }
 
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
        return thisObject.container
@@ -172,7 +174,7 @@
      drawBackground()
 
      thisObject.assetBalances.draw()
-     thisObject.fullscreen.draw()
+     // thisObject.fullscreen.draw()
    }
 
    function drawBackground () {
@@ -183,7 +185,7 @@
        y: 0
      }
 
-     const RED_LINE_HIGHT = 5
+     const RED_LINE_HIGHT = 2
 
      zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 

@@ -31,14 +31,20 @@ function newUiObjectConstructor () {
     floatingObject.initialize('UI Object', payload)
     payload.floatingObject = floatingObject
 
-    if (payload.node.savedPayload !== undefined) {
+    /*
+    When this object is created based on a backup, share or clone, we will have a savedPayload that we will use to set the initial properties.
+    If it is a new object being created out of the user interface, we jusst continue with the construction process.
+    */
+    if (userAddingNew === false && payload.node.type !== 'Workspace') {
+      let position = {
+        x: 0,
+        y: 0
+      }
+
       position = {
         x: payload.node.savedPayload.position.x,
         y: payload.node.savedPayload.position.y
       }
-
-      if (position.x === null) { position.x = spawnPosition.x }
-      if (position.y === null) { position.y = spawnPosition.y }
 
       floatingObject.setPosition(position)
       payload.node.savedPayload.position = undefined
@@ -51,16 +57,18 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.isCollapsed === true) {
         floatingObject.collapseToggle()
       }
-      if (payload.node.savedPayload.floatingObject.isTensed === true) {
-        floatingObject.tensionToggle()
+      if (payload.node.savedPayload.floatingObject.angleToParent !== undefined) {
+        floatingObject.angleToParent = payload.node.savedPayload.floatingObject.angleToParent
+      }
+      if (payload.node.savedPayload.floatingObject.distanceToParent !== undefined) {
+        floatingObject.distanceToParent = payload.node.savedPayload.floatingObject.distanceToParent
       }
     }
 
+    /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
     if (userAddingNew === true) {
-      /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
-      if (payload.parentNode.payload.floatingObject.isTensed === true) {
-        floatingObject.tensionToggle()
-      }
+      floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
+      floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
     }
 
     let uiObject = newUiObject()
@@ -76,8 +84,8 @@ function newUiObjectConstructor () {
         for (let j = 0; j < menuItems.length; j++) {
           let item = menuItems[j]
           item.angle = undefined
-          if (item.action.indexOf('Add ') >= 0) {
-            // item.action = 'Add UI Object'
+          if (item.action.indexOf('Add ') >= 0 && item.action.indexOf('Missing') >= 0) {
+            item.action = 'Add Missing Children'
           }
           if (item.action.indexOf('Delete ') >= 0) {
             // item.action = 'Delete UI Object'
@@ -128,24 +136,40 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-fix-unpinned',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
       {
-        action: 'Tense / Untense',
-        actionFunction: floatingObject.tensionToggle,
-        actionStatus: floatingObject.getTensionStatus,
+        action: 'Change Tension Level',
+        actionFunction: floatingObject.angleToParentToggle,
+        actionStatus: floatingObject.getAngleToParent,
         currentStatus: true,
         label: undefined,
         visible: true,
-        iconPathOn: 'menu-tensor-fixed-angles',
-        iconPathOff: 'menu-tensor-free-angles',
+        icons: ['angle-to-parent-000', 'angle-to-parent-360', 'angle-to-parent-180', 'angle-to-parent-090', 'angle-to-parent-045'],
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
+    menuItemsInitialValues.push(
+      {
+        action: 'change Distance to Paarent',
+        actionFunction: floatingObject.distanceToParentToggle,
+        actionStatus: floatingObject.getDistanceToParent,
+        currentStatus: true,
+        label: undefined,
+        visible: true,
+        icons: ['distance-to-parent-000', 'distance-to-parent-025', 'distance-to-parent-050', 'distance-to-parent-100', 'distance-to-parent-150', 'distance-to-parent-200'],
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 1
+      }
+        )
     menuItemsInitialValues.push(
       {
         action: 'Freeze / Unfreeze',
@@ -158,7 +182,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-mobility-freeze',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -173,7 +198,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-tree-minus',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 1
       }
       )
     menuItemsInitialValues.push(
@@ -186,7 +212,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'menu-backup',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 2
       }
       )
     menuItemsInitialValues.push(
@@ -199,7 +226,8 @@ function newUiObjectConstructor () {
         iconPathOff: 'clone',
         rawRadius: 8,
         targetRadius: 0,
-        currentRadius: 0
+        currentRadius: 0,
+        ring: 2
       }
         )
     if (isPersonalData !== true) {
@@ -213,9 +241,10 @@ function newUiObjectConstructor () {
           iconPathOff: 'menu-share',
           rawRadius: 8,
           targetRadius: 0,
-          currentRadius: 0
+          currentRadius: 0,
+          ring: 2
         }
-                  )
+      )
     }
   }
 
@@ -302,6 +331,7 @@ function newUiObjectConstructor () {
     switch (payload.node.type) {
       case 'Workspace': {
         level_0()
+        floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
         break
       }
 
@@ -361,7 +391,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_2 () {
@@ -376,7 +406,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_3 () {
@@ -391,7 +421,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_4 () {
@@ -406,7 +436,7 @@ function newUiObjectConstructor () {
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
 
       if (payload.node.savedPayload === undefined) {
-        // floatingObject.tensionToggle()
+        // floatingObject.angleToParentToggle()
       }
     }
     function level_5 () {

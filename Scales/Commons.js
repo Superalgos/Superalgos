@@ -1,56 +1,45 @@
 
-function drawScaleDisplay (label1, label2, xExtraOffSet1, xExtraOffSet2, container, fitFunction) {
-  let fontSize1 = 20
-  let fontSize2 = 10
-
-  const RED_LINE_HIGHT = 5
+function drawScaleDisplay (label1, label2, label3, xExtraOffSet1, xExtraOffSet2, xExtraOffSet3, icon1, icon2, container, backgroundColor) {
+  const RED_LINE_HIGHT = 4
   const OPACITY = 1
 
   let params = {
-    cornerRadius: 3,
-    lineWidth: RED_LINE_HIGHT,
+    cornerRadius: 5,
+    lineWidth: 1,
     container: container,
     borderColor: UI_COLOR.RUSTED_RED,
     castShadow: false,
-    backgroundColor: UI_COLOR.DARK,
-    opacity: OPACITY,
-    fitFunction: fitFunction
+    backgroundColor: backgroundColor,
+    opacity: OPACITY
   }
 
   roundedCornersBackground(params)
 
   /* Place the Text */
 
-  let xOffset1 = label1.length * fontSize1 * FONT_ASPECT_RATIO
+  label1 = label1.substring(0, 18)
+  label2 = label2.substring(0, 20)
+  label3 = label3.substring(0, 20)
 
-  let labelPoint1 = {
-    x: container.frame.width / 2 - xOffset1 + xExtraOffSet1,
-    y: container.frame.height / 2 + 6
+  drawLabel(label1, 1 / 2, 92 / 100, 0, 0, 9, container)
+  drawLabel(label2, 1 / 2, 42 / 100, 0, 0, 17, container)
+  drawLabel(label3, 1 / 2, 67 / 100, 0, 0, 9, container)
+
+  drawIcon(icon1, 1 / 8, 1 / 2, 0, 0, 28, container)
+  drawIcon(icon2, 7 / 8, 1 / 2, 0, 0, 28, container)
+}
+
+function drawScaleDisplayCover (container) {
+  let params = {
+    cornerRadius: 5,
+    lineWidth: 1,
+    container: container,
+    borderColor: UI_COLOR.WHITE,
+    castShadow: false,
+    backgroundColor: UI_COLOR.WHITE,
+    opacity: '0.25'
   }
 
-  labelPoint1 = container.frame.frameThisPoint(labelPoint1)
-  let x = labelPoint1.x
-  labelPoint1 = fitFunction(labelPoint1)
-  labelPoint1.x = x
-
-  browserCanvasContext.font = fontSize1 + 'px ' + UI_FONT.PRIMARY
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-  browserCanvasContext.fillText(label1, labelPoint1.x, labelPoint1.y)
-
-  let xOffset2 = label2.length * fontSize2 * FONT_ASPECT_RATIO
-
-  let labelPoint2 = {
-    x: container.frame.width / 2 - xOffset2 / 2 - 3 + xExtraOffSet2,
-    y: container.frame.height / 2 + 6
-  }
-
-  labelPoint2 = container.frame.frameThisPoint(labelPoint2)
-  labelPoint2 = fitFunction(labelPoint2)
-
-  browserCanvasContext.font = fontSize2 + 'px ' + UI_FONT.PRIMARY
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-  browserCanvasContext.fillText(label2, labelPoint2.x, labelPoint2.y)
+  roundedCornersBackground(params)
 }
 

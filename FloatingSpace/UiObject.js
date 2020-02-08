@@ -94,9 +94,16 @@ function newUiObject () {
   let currentValue = 0
   let rightDragging = false
 
+  let eventSubscriptionIdHeartbeat
+  let eventSubscriptionIdOnStopped
+
   return thisObject
 
   function finalize () {
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+    systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
@@ -189,8 +196,33 @@ function newUiObject () {
         if (container !== undefined) { return container }
       }
 
-      container = thisObject.uiObjectTitle.getContainer(point)
-      if (container !== undefined) { return container }
+      let getitle = true
+
+      if (thisObject.codeEditor !== undefined) {
+        if (thisObject.codeEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.configEditor !== undefined) {
+        if (thisObject.configEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.conditionEditor !== undefined) {
+        if (thisObject.conditionEditor.visible === true) {
+          getitle = false
+        }
+      }
+      if (thisObject.formulaEditor !== undefined) {
+        if (thisObject.formulaEditor.visible === true) {
+          getitle = false
+        }
+      }
+
+      if (getitle === true) {
+        container = thisObject.uiObjectTitle.getContainer(point)
+        if (container !== undefined) { return container }
+      }
 
       container = thisObject.menu.getContainer(point)
       if (container !== undefined) { return container }
@@ -227,8 +259,10 @@ function newUiObject () {
       thisObject.payload.targetPosition.x = thisObject.payload.position.x,
       thisObject.payload.targetPosition.y = thisObject.payload.position.y
     } else {
-      thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
-      thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
+      if (thisObject.payload.chainParent.payload.position !== undefined) {
+        thisObject.payload.targetPosition.x = thisObject.payload.chainParent.payload.position.x
+        thisObject.payload.targetPosition.y = thisObject.payload.chainParent.payload.position.y
+      }
     }
 
     if (thisObject.circularProgressBar !== undefined) {
@@ -255,314 +289,18 @@ function newUiObject () {
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
-    let compatibleSubTypes
-    switch (thisObject.payload.node.type) {
-      case 'Sensor Bot':
-        compatibleTypes = '->' + 'Team' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Indicator Bot':
-        compatibleTypes = '->' + 'Team' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trading Bot':
-        compatibleTypes = '->' + 'Team' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Definition':
-        compatibleTypes = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Output':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Dependencies':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Status Report':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Execution Started Event':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Execution Finished Event':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Calculations Procedure':
-        compatibleTypes = '->' + 'Product Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Data Building Procedure':
-        compatibleTypes = '->' + 'Product Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Procedure Initialization':
-        compatibleTypes = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Procedure Loop':
-        compatibleTypes = '->' + 'Calculations Procedure' + '->' + 'Data Building Procedure' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Output Dataset':
-        compatibleTypes = '->' + 'Process Output' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Status Dependency':
-        compatibleTypes = '->' + 'Process Dependencies' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Data Dependency':
-        compatibleTypes = '->' + 'Process Dependencies' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Product Definition':
-        compatibleTypes = '->' + 'Sensor Bot' + '->' + 'Indicator Bot' + '->' + 'Trading Bot' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Record Definition':
-        compatibleTypes = '->' + 'Product Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Record Property':
-        compatibleTypes = '->' + 'Record Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Dataset Definition':
-        compatibleTypes = '->' + 'Product Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Plotter':
-        compatibleTypes = '->' + 'Team' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Plotter Module':
-        compatibleTypes = '->' + 'Plotter' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trading System':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Personal Data':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Network Node':
-        compatibleTypes = '->' + 'Network' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Exchange Account':
-        compatibleTypes = '->' + 'Personal Data' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Exchange Account Asset':
-        compatibleTypes = '->' + 'Exchange Account' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Exchange Account Key':
-        compatibleTypes = '->' + 'Exchange Account' + '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Parameters':
-        compatibleTypes = '->' + 'Trading System' + '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
-        break
-      case 'Backtesting Session':
-        compatibleTypes = '->' + 'Process Instance' + '->'
-        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
-        break
-      case 'Live Trading Session':
-        compatibleTypes = '->' + 'Process Instance' + '->'
-        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
-        break
-      case 'Paper Trading Session':
-        compatibleTypes = '->' + 'Process Instance' + '->'
-        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
-        break
-      case 'Fordward Testing Session':
-        compatibleTypes = '->' + 'Process Instance' + '->'
-        compatibleSubTypes = '->' + 'Trading Process Instance' + '->'
-        break
-      case 'Base Asset':
-        compatibleTypes = '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Time Range':
-        compatibleTypes = '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Time Period':
-        compatibleTypes = '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Slippage':
-        compatibleTypes = '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Fee Structure':
-        compatibleTypes = '->' + 'Parameters' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Layer Manager':
-        compatibleTypes = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Layer':
-        compatibleTypes = '->' + 'Layer Manager' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Social Bots':
-        compatibleTypes = '->' + 'Backtesting Session' + '->' + 'Live Trading Session' + '->' + 'Paper Trading Session' + '->' + 'Fordward Testing Session' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Telegram Bot':
-        compatibleTypes = '->' + 'Social Bots' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Announcement':
-        compatibleTypes = '->' + 'Telegram Bot' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Take Position Event' + '->' + 'Next Phase Event' + '->' + '->' + 'Phase' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Task Manager':
-        compatibleTypes = '->' + 'Network Node' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Task':
-        compatibleTypes = '->' + 'Task Manager' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Sensor Bot Instance':
-        compatibleTypes = '->' + 'Task' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Indicator Bot Instance':
-        compatibleTypes = '->' + 'Task' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trading Bot Instance':
-        compatibleTypes = '->' + 'Task' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Instance':
-        switch (thisObject.payload.node.subType) {
-          case 'Sensor Process Instance': {
-            compatibleTypes = '->' + 'Sensor Bot Instance' + '->'
-            break
-          }
-          case 'Indicator Process Instance': {
-            compatibleTypes = '->' + 'Indicator Bot Instance' + '->'
-            break
-          }
-          case 'Trading Process Instance': {
-            compatibleTypes = '->' + 'Trading Bot Instance' + '->'
-            break
-          }
-        }
-        compatibleSubTypes = undefined
-        break
-      case 'Strategy':
-        compatibleTypes = '->' + 'Trading System' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trigger Stage':
-        compatibleTypes = '->' + 'Strategy' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Open Stage':
-        compatibleTypes = '->' + 'Strategy' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Manage Stage':
-        compatibleTypes = '->' + 'Strategy' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Close Stage':
-        compatibleTypes = '->' + 'Strategy' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Position Size':
-        compatibleTypes = '->' + 'Initial Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Position Rate':
-        compatibleTypes = '->' + 'Initial Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Take Position Event':
-        compatibleTypes = '->' + 'Trigger Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trigger Off Event':
-        compatibleTypes = '->' + 'Trigger Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Trigger On Event':
-        compatibleTypes = '->' + 'Trigger Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Initial Definition':
-        compatibleTypes = '->' + 'Open Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Open Execution':
-        compatibleTypes = '->' + 'Open Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Close Execution':
-        compatibleTypes = '->' + 'Close Stage' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Stop':
-        compatibleTypes = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Take Profit':
-        compatibleTypes = '->' + 'Manage Stage' + '->' + 'Initial Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Phase':
-        compatibleTypes = '->' + 'Stop' + '->' + 'Take Profit' + '->' + 'Phase' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Formula':
-        compatibleTypes = '->' + 'Position Size' + '->' + 'Position Rate' + '->' + 'Phase' + '->' + 'Announcement' + '->' + 'Record Property' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Next Phase Event':
-        compatibleTypes = '->' + 'Phase' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Situation':
-        compatibleTypes = '->' + 'Take Position Event' + '->' + 'Trigger On Event' + '->' + 'Trigger Off Event' + '->' + 'Next Phase Event' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Condition':
-        compatibleTypes = '->' + 'Situation' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Javascript Code':
-        compatibleTypes = '->' + 'Condition' + '->' + 'Procedure Initialization' + '->' + 'Procedure Loop' + '->' + 'Plotter Module' + '->' + 'Plotter Panel' + '->'
-        compatibleSubTypes = undefined
-        break
-      default:
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.chainAttachesTo !== undefined) {
-            compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
-            compatibleSubTypes = nodeDefinition.chainAttachesTo.compatibleSubTypes
-          } else {
-            return
-          }
-        } else {
-          return
-        }
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.chainAttachesTo !== undefined) {
+        compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
+      } else {
+        return
+      }
+    } else {
+      return
     }
+
     let foundCompatible = false
     chainAttachToNode = undefined
     isChainAttaching = false
@@ -574,7 +312,7 @@ function newUiObject () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard App Schema defined objects with busy coonection ports */
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
         if (nodeDefinition !== undefined) {
           let mustContinue = false
           let parentNodeDefinition = APP_SCHEMA_MAP.get(nearbyNode.type)
@@ -601,55 +339,7 @@ function newUiObject () {
           }
           if (mustContinue === true) { continue }
         }
-        /* Discard legacy objects with busy coonection ports */
-        if (thisObject.payload.node.type === 'Status Report' && nearbyNode.statusReport !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Execution Started Event' && nearbyNode.executionStartedEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Execution Finished Event' && nearbyNode.executionFinishedEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Calculations Procedure' && nearbyNode.calculations !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Data Building Procedure' && nearbyNode.dataBuilding !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Procedure Initialization' && nearbyNode.initialization !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Procedure Loop' && nearbyNode.loop !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Record Definition' && nearbyNode.record !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Task' && nearbyNode.task !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Sensor Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Indicator Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trading Bot Instance' && nearbyNode.bot !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Process Instance' && nearbyNode.process !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trading System' && nearbyNode.tradingSystem !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Personal Data' && nearbyNode.personalData !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Parameters' && nearbyNode.parameters !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Backtesting Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Live Trading Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Fordward Testing Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Paper Trading Session' && nearbyNode.session !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Base Asset' && nearbyNode.baseAsset !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Time Range' && nearbyNode.timeRange !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Time Period' && nearbyNode.timePeriod !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Slippage' && nearbyNode.slippage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Fee Structure' && nearbyNode.feeStructure !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger Stage' && nearbyNode.triggerStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Open Stage' && nearbyNode.openStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Manage Stage' && nearbyNode.manageStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Close Stage' && nearbyNode.closeStage !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Position Size' && nearbyNode.positionSize !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Position Rate' && nearbyNode.positionRate !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Position Event' && nearbyNode.takePosition !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger Off Event' && nearbyNode.triggerOff !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Trigger On Event' && nearbyNode.triggerOn !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Initial Definition' && nearbyNode.initialDefinition !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Open Execution' && nearbyNode.openExecution !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Close Execution' && nearbyNode.closeExecution !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Stop' && nearbyNode.stopLoss !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Take Profit' && nearbyNode.takeProfit !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Formula' && nearbyNode.formula !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Next Phase Event' && nearbyNode.nextPhaseEvent !== undefined) { continue }
-        if (thisObject.payload.node.type === 'Javascript Code' && nearbyNode.javascriptCode !== undefined) { continue }
-        /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
-          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
-            continue
-          }
-        }
+
         /* Discard Phases without partent */
         if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
         /* Control maxPhases */
@@ -752,61 +442,18 @@ function newUiObject () {
 
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
-    let compatibleSubTypes
-    switch (thisObject.payload.node.type) {
-      case 'Backtesting Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Live Trading Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Paper Trading Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Fordward Testing Session':
-        compatibleTypes = '->' + 'Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Output Dataset':
-        compatibleTypes = '->' + 'Dataset Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Data Dependency':
-        compatibleTypes = '->' + 'Dataset Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Status Dependency':
-        compatibleTypes = '->' + 'Status Report' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Execution Started Event':
-        compatibleTypes = '->' + 'Execution Finished Event' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Process Instance':
-        compatibleTypes = '->' + 'Process Definition' + '->'
-        compatibleSubTypes = undefined
-        break
-      case 'Product Definition':
-        compatibleTypes = '->' + 'Plotter Module' + '->'
-        compatibleSubTypes = undefined
-        break
-      default:
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.referenceAttachesTo !== undefined) {
-            compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
-            compatibleSubTypes = nodeDefinition.referenceAttachesTo.compatibleSubTypes
-          } else {
-            return
-          }
-        } else {
-          return
-        }
+
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.referenceAttachesTo !== undefined) {
+        compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
+      } else {
+        return
+      }
+    } else {
+      return
     }
+
     let foundCompatible = false
     referenceAttachToNode = undefined
     isReferenceAttaching = false
@@ -817,13 +464,6 @@ function newUiObject () {
       let floatingObject = nearby[1]
       let nearbyNode = floatingObject.payload.node
       if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
-        /* Here we check if the subtypes are compatible. */
-        if (nearbyNode.subType !== undefined && compatibleSubTypes !== undefined) {
-          if (compatibleSubTypes.indexOf('->' + nearbyNode.subType + '->') < 0) {
-            continue
-          }
-        }
-
         if (foundCompatible === false) {
           if (distance < thisObject.container.frame.radius * 1.5 + floatingObject.container.frame.radius * 1.5) {
             nearbyNode.payload.uiObject.getReadyToReferenceAttach()
@@ -956,11 +596,19 @@ function newUiObject () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to the event that the execution was terminated in order to call back the menu item */
+    /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, key, undefined, onRunning)
+    systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, 'UiObject', onResponse, onHeartBeat)
 
-    function onRunning () {
+    function onResponse (message) {
+      eventSubscriptionIdHeartbeat = message.eventSubscriptionId
+    }
+
+    function onHeartBeat () {
+      if (thisObject.payload === undefined) { return }
+      let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
@@ -988,9 +636,14 @@ function newUiObject () {
   function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Stopped', undefined, key, undefined, onStopped)
+    systemEventHandler.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
+
+    function onResponse (message) {
+      eventSubscriptionIdOnStopped = message.eventSubscriptionId
+    }
 
     function onStopped () {
+      if (thisObject.payload === undefined) { return }
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
       }
@@ -1005,6 +658,42 @@ function newUiObject () {
 
   function iconPhysics () {
     icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.alternativeIcons !== undefined) {
+      let nodeToUse = thisObject.payload.node
+      if (nodeDefinition.alternativeIcons === 'Use Reference Parent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          nodeToUse = thisObject.payload.node.payload.referenceParent
+        }
+      }
+      if (nodeDefinition.alternativeIcons === 'Use Reference Grandparent') {
+        if (thisObject.payload.node.payload.referenceParent !== undefined) {
+          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
+            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+          }
+        }
+      }
+      nodeDefinition = APP_SCHEMA_MAP.get(nodeToUse.type)
+      let code = nodeToUse.code
+      try {
+        code = JSON.parse(code)
+        let alternativeIcon
+        let iconName
+        for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+          alternativeIcon = nodeDefinition.alternativeIcons[i]
+          if (alternativeIcon.codeName === code.codeName) {
+            iconName = alternativeIcon.iconName
+          }
+        }
+        let newIcon = canvas.designerSpace.iconCollection.get(iconName)
+        if (newIcon !== undefined) {
+          icon = newIcon
+        }
+      } catch (err) {
+          // Nothing to do if JSON is baddly formated.
+      }
+    }
+
     executingIcon = canvas.designerSpace.iconCollection.get('attractive')
   }
 
@@ -1130,25 +819,30 @@ function newUiObject () {
       }
 
       let drawMenu = true
+      let drawTitle = true
 
       if (thisObject.codeEditor !== undefined) {
         if (thisObject.codeEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.configEditor !== undefined) {
         if (thisObject.configEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.conditionEditor !== undefined) {
         if (thisObject.conditionEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
       if (thisObject.formulaEditor !== undefined) {
         if (thisObject.formulaEditor.visible === true) {
           drawMenu = false
+          drawTitle = false
         }
       }
 
@@ -1163,7 +857,10 @@ function newUiObject () {
       drawErrorMessage()
       drawValue()
       drawText()
-      thisObject.uiObjectTitle.draw()
+
+      if (drawTitle === true) {
+        thisObject.uiObjectTitle.draw()
+      }
     }
   }
 
@@ -1171,8 +868,8 @@ function newUiObject () {
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
-      x: thisObject.payload.targetPosition.x,
-      y: thisObject.payload.targetPosition.y
+      x: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.x,
+      y: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.y
     }
 
     let position = {
@@ -1184,10 +881,8 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (thisObject.container.frame.radius > 1) {
-            /* Target Line */
-
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
-      if (thisObject.payload.floatingObject.isTensed === true) {
+      if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
         LINE_STYLE = UI_COLOR.GOLDEN_ORANGE
       }
       if (thisObject.payload.floatingObject.isFrozen === true) {
@@ -1214,8 +909,6 @@ function newUiObject () {
     }
 
     if (thisObject.container.frame.radius > 0.5) {
-            /* Target Spot */
-
       let radius = 1
 
       browserCanvasContext.beginPath()
@@ -1248,8 +941,6 @@ function newUiObject () {
     let LINE_STYLE = UI_COLOR.GREY
 
     if (thisObject.container.frame.radius > 1) {
-            /* Target Line */
-
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
@@ -1270,8 +961,6 @@ function newUiObject () {
     }
 
     if (thisObject.container.frame.radius > 0.5) {
-            /* Target Spot */
-
       let radius = 1
 
       browserCanvasContext.beginPath()
@@ -1377,11 +1066,13 @@ function newUiObject () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 30
+      const MAX_LABEL_LENGTH = 65
 
       label = currentValue
       if (!isNaN(label)) {
-        label = currentValue.toFixed(2)
+        if (currentValue.toFixed !== undefined) {
+          label = currentValue.toFixed(2)
+        }
       }
 
       if (label !== undefined) {
@@ -1500,25 +1191,28 @@ function newUiObject () {
 
       browserCanvasContext.fill()
 
-      if (thisObject.payload.node.type === 'Definition' || thisObject.payload.node.type === 'Network' || thisObject.payload.node.type === 'Team') {
-        VISIBLE_RADIUS = thisObject.container.frame.radius * 2
-        let OPACITY = 1
+      let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+      if (nodeDefinition !== undefined) {
+        if (nodeDefinition.isHierarchyHead === true) {
+          VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+          let OPACITY = 1
 
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([4, 16])
-        browserCanvasContext.stroke()
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+          browserCanvasContext.closePath()
+          browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+          browserCanvasContext.lineWidth = 10
+          browserCanvasContext.setLineDash([4, 16])
+          browserCanvasContext.stroke()
 
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
-        browserCanvasContext.lineWidth = 1
-        browserCanvasContext.setLineDash([20, 20])
-        browserCanvasContext.stroke()
+          browserCanvasContext.beginPath()
+          browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
+          browserCanvasContext.closePath()
+          browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+          browserCanvasContext.lineWidth = 1
+          browserCanvasContext.setLineDash([20, 20])
+          browserCanvasContext.stroke()
+        }
       }
 
       if (thisObject.isOnFocus === true) {
@@ -1619,7 +1313,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([10, 90])
         browserCanvasContext.stroke()
@@ -1627,7 +1321,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 5
         browserCanvasContext.setLineDash([5, 45])
         browserCanvasContext.stroke()
@@ -1635,7 +1329,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 1
         browserCanvasContext.setLineDash([2, 8])
         browserCanvasContext.stroke()
@@ -1668,7 +1362,7 @@ function newUiObject () {
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         let additionalImageSize = 0
-        if (thisObject.isExecuting === true) { additionalImageSize = 20 }
+        if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
 
         browserCanvasContext.drawImage(

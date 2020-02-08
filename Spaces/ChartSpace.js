@@ -13,17 +13,20 @@ function newChartSpace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    visible: true,
+    visible: undefined,
     container: undefined,
-    timeMachines: [],
+    inViewport: undefined,
+    timeMachines: undefined,
+    viewport: undefined,
+    payload: undefined,
+    reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
     oneScreenRight: oneScreenRight,
-    fitIntoVisibleArea: fitIntoVisibleArea,
+    fitFunction: fitFunction,
     isThisPointVisible: isThisPointVisible,
     physics: physics,
-    drawBackground: drawBackground,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
@@ -31,13 +34,27 @@ function newChartSpace () {
   }
 
   let canvasBrowserResizedEventSubscriptionId
+  let timeMachinesMap
+  let syncWithDesignerLoop
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
 
-  setupContainer()
+  initialSetup()
   return thisObject
 
-  function setupContainer () {
+  function reset () {
+    finalize()
+    initialSetup()
+    initialize()
+  }
+
+  function initialSetup () {
+    thisObject.timeMachines = []
+    thisObject.visible = true
+    timeMachinesMap = new Map()
+    syncWithDesignerLoop = 0
+    thisObject.inViewport = new Map()
+
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
@@ -51,45 +68,46 @@ function newChartSpace () {
       timeMachine.finalize()
     }
 
+    thisObject.inViewport = undefined
+    thisObject.timeMachines = undefined
+    timeMachinesMap = undefined
+
     thisObject.container.eventHandler.stopListening(canvasBrowserResizedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
+
+    thisObject.viewport.finalize()
+    thisObject.viewport = undefined
+
+    thisObject.payload = undefined
   }
 
   function initialize () {
-    let initializedCounter = 0
-    let toInitialize = 1
-
-    canvasBrowserResizedEventSubscriptionId = window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
-
-       /* We create the first of many possible time machines that could live at the Chart Space. */
-
-    let timeMachine = newTimeMachine()
-
-       /* We make the time machine a little bit smaller than the current space. */
-
-    timeMachine.container.frame.position.x = thisObject.container.frame.width / 2 - timeMachine.container.frame.width / 2
-    timeMachine.container.frame.position.y = thisObject.container.frame.height / 2 - timeMachine.container.frame.height / 2
-    timeMachine.container.fitFunction = fitIntoVisibleArea
-    timeMachine.fitFunction = fitIntoVisibleArea
-    timeMachine.initialize(onTimeMachineInitialized)
-
-    function onTimeMachineInitialized (err) {
-      initializedCounter++
-
-      if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> Initialization Failed. -> Err ' + err.message) }
-        return
-      }
-
-      thisObject.timeMachines.push(timeMachine)
-
-      if (initializedCounter === toInitialize) {
-        viewPort.raiseEvents() // These events will impacts on objects just initialized.
+    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    for (let i = 0; i < rootNodes.length; i++) {
+      let rootNode = rootNodes[i]
+      if (rootNode.type === 'Charting Space') {
+        thisObject.payload = rootNode.payload
       }
     }
+
+    if (thisObject.payload === undefined) {
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Designer Space in order to enable Charts. PLease create one and refreash your browser. ') }
+      return
+    }
+
+    thisObject.viewport = newViewport()
+    if (thisObject.payload.node.viewport === undefined) {
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Viewport node attached to the Charting Space node in order for the Viewport save its properties. ') }
+      return
+    } else {
+      thisObject.viewport.payload = thisObject.payload.node.viewport.payload
+    }
+
+    thisObject.viewport.initialize()
+
+    canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
   function getContainer (point, purpose) {
@@ -97,12 +115,25 @@ function newChartSpace () {
 
     let container
 
-       /* Now we see which is the inner most container that has it */
+    /* This first step is not actually to get the container but to allow things to be turned off in case there is a switch of focus from one time machine to another */
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      container = thisObject.timeMachines[i].container
+      if (purpose === GET_CONTAINER_PURPOSE.MOUSE_OVER) {
+        container.eventHandler.raiseEvent('onMouseNotOver')
+      }
+    }
 
+    /* Now we see which is the inner most container that has it */
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
-        if (container.isForThisPurpose(purpose)) {
+        if (purpose !== undefined) {
+          if (container.isForThisPurpose(purpose)) {
+            if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+              return container
+            }
+          }
+        } else {
           if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return container
           }
@@ -118,6 +149,7 @@ function newChartSpace () {
   }
 
   function resize () {
+    thisObject.viewport.resize()
     thisObject.container.frame.width = browserCanvas.width
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
   }
@@ -125,10 +157,10 @@ function newChartSpace () {
   function oneScreenUp () {
     let displaceVector = {
       x: 0,
-      y: +browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
+      y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    viewPort.displace(displaceVector)
+    canvas.chartSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenDown () {
@@ -137,7 +169,7 @@ function newChartSpace () {
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    viewPort.displace(displaceVector)
+    canvas.chartSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenLeft () {
@@ -146,7 +178,7 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector, true)
+    canvas.chartSpace.viewport.displace(displaceVector, true)
   }
 
   function oneScreenRight () {
@@ -155,10 +187,10 @@ function newChartSpace () {
       y: 0
     }
 
-    viewPort.displace(displaceVector, true)
+    canvas.chartSpace.viewport.displace(displaceVector, true)
   }
 
-  function fitIntoVisibleArea (point) {
+  function fitFunction (point, fullVisible) {
        /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
 
     let returnPoint = {
@@ -174,12 +206,18 @@ function newChartSpace () {
       returnPoint.x = 0
     }
 
-    if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
-      returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+    if (fullVisible === true) {
+      if (point.y > COCKPIT_SPACE_POSITION) {
+        returnPoint.y = COCKPIT_SPACE_POSITION
+      }
+    } else {
+      if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+        returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+      }
     }
 
-    if (point.y < 0) {
-      returnPoint.y = 0
+    if (point.y < TOP_SPACE_HEIGHT) {
+      returnPoint.y = TOP_SPACE_HEIGHT
     }
 
     return returnPoint
@@ -206,8 +244,77 @@ function newChartSpace () {
   }
 
   function physics () {
+    if (thisObject.viewport !== undefined) {
+      thisObject.viewport.physics()
+    }
+
     thisObjectPhysics()
     childrenPhysics()
+    syncWithDesigner()
+  }
+
+  function syncWithDesigner () {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
+    syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
+
+    if (thisObject.payload.node.timeMachines !== undefined) {
+      for (let j = 0; j < thisObject.payload.node.timeMachines.length; j++) {
+        let node = thisObject.payload.node.timeMachines[j]
+        let timeMachine = timeMachinesMap.get(node.id)
+        if (timeMachine === undefined) {
+              /* The time machine node is new, thus we need to initialize a new timeMachine */
+          initializeTimeMachine(node, syncWithDesignerLoop)
+        } else {
+              /* The time machine already exists, we tag it as existing at the current loop. */
+          timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+        }
+      }
+    }
+
+    /* We check all the timeMachines we have to see if we need to remove any of them */
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[i]
+      if (timeMachine.syncWithDesignerLoop < syncWithDesignerLoop) {
+        /* Must be removed */
+        timeMachine.finalize()
+        timeMachinesMap.delete(timeMachine.nodeId)
+        thisObject.timeMachines.splice(i, 1)
+        /* We remove one at the time */
+        return
+      }
+    }
+
+    function initializeTimeMachine (node, syncWithDesignerLoop) {
+      if (node.payload === undefined) { return } // not ready to consider this Time Machine
+      if (node.payload.uiObject === undefined) { return }
+
+      let timeMachine = newTimeMachine()
+      timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+      timeMachine.payload = node.payload
+      timeMachine.nodeId = node.id
+
+      timeMachinesMap.set(node.id, timeMachine)
+      timeMachine.payload.uiObject.setValue('Loading...')
+
+      /* Setting up the new time machine. */
+      timeMachine.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
+      timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
+      timeMachine.initialize(onTimeMachineInitialized)
+
+      function onTimeMachineInitialized (err) {
+        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimeMachine -> Initialization Failed. -> Err ' + err.message) }
+          return
+        }
+
+        thisObject.timeMachines.push(timeMachine)
+        timeMachine.payload.uiObject.setValue('')
+        if (canvas.chartSpace.viewport !== undefined) {
+          canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+        }
+      }
+    }
   }
 
   function thisObjectPhysics () {
@@ -219,24 +326,52 @@ function newChartSpace () {
       thisObject.visible = true
     }
 
-    viewPort.resize()
+    if (canvas.chartSpace.viewport !== undefined) {
+      canvas.chartSpace.viewport.resize()
+    }
   }
 
   function childrenPhysics () {
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       let timeMachine = thisObject.timeMachines[i]
+      if (timeMachine.payload.node === undefined) {
+        continue
+      }
+
+      if (timeMachine.container.frame.isInViewPort()) {
+        thisObject.inViewport.set(timeMachine.payload.node.id, timeMachine)
+      } else {
+        thisObject.inViewport.delete(timeMachine.payload.node.id)
+      }
       timeMachine.physics()
     }
   }
 
   function drawBackground () {
-    if (thisObject.visible !== true) { return }
-
     drawSpaceBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[i]
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
       timeMachine.drawBackground()
+    }
+  }
+
+  function draw () {
+    if (thisObject.visible !== true) { return }
+    drawBackground()
+
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
+      timeMachine.draw()
+    }
+
+    drawForeground()
+  }
+
+  function drawForeground () {
+    for (let i = 0; i < thisObject.timeMachines.length; i++) {
+      let timeMachine = thisObject.timeMachines[thisObject.timeMachines.length - i - 1]
+      timeMachine.drawForeground()
     }
   }
 
@@ -257,14 +392,5 @@ function newChartSpace () {
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
     browserCanvasContext.closePath()
     browserCanvasContext.fill()
-  }
-
-  function draw () {
-    if (thisObject.visible !== true) { return }
-
-    for (let i = 0; i < thisObject.timeMachines.length; i++) {
-      let timeMachine = thisObject.timeMachines[i]
-      timeMachine.draw()
-    }
   }
 }

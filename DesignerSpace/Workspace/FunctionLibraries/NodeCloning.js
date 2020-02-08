@@ -23,20 +23,23 @@ function newNodeCloning () {
       if (nodeDefinition !== undefined) {
         let object = {
           type: node.type,
-          subType: node.subType,
           name: node.name,
           code: node.code
         }
 
       /* Children Nodes */
         if (nodeDefinition.properties !== undefined) {
+          let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
           for (let i = 0; i < nodeDefinition.properties.length; i++) {
             let property = nodeDefinition.properties[i]
 
             switch (property.type) {
               case 'node': {
-                if (node[property.name] !== undefined) {
-                  object[property.name] = cloneNode(node[property.name])
+                if (property.name !== previousPropertyName) {
+                  if (node[property.name] !== undefined) {
+                    object[property.name] = cloneNode(node[property.name])
+                  }
+                  previousPropertyName = property.name
                 }
                 break
               }
@@ -72,20 +75,23 @@ function newNodeCloning () {
       if (nodeDefinition !== undefined) {
         let object = {
           type: node.type,
-          subType: node.subType,
           name: node.name,
           code: node.code
         }
 
       /* Children Nodes */
         if (nodeDefinition.properties !== undefined) {
+          let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
           for (let i = 0; i < nodeDefinition.properties.length; i++) {
             let property = nodeDefinition.properties[i]
 
             switch (property.type) {
               case 'node': {
-                if (node[property.name] !== undefined) {
-                  object[property.name] = redirectReferenceParents(node[property.name])
+                if (property.name !== previousPropertyName) {
+                  if (node[property.name] !== undefined) {
+                    object[property.name] = redirectReferenceParents(node[property.name])
+                  }
+                  previousPropertyName = property.name
                 }
                 break
               }
@@ -139,7 +145,8 @@ function newNodeCloning () {
         isPinned: node.payload.floatingObject.isPinned,
         isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
         isCollapsed: (node.payload.floatingObject.isCollapsed && node.payload.floatingObject.collapsedManually),
-        isTensed: (node.payload.floatingObject.isTensed && node.payload.floatingObject.tensedManually)
+        angleToParent: (node.payload.floatingObject.angleToParent),
+        distanceToParent: (node.payload.floatingObject.distanceToParent)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning,
@@ -151,7 +158,6 @@ function newNodeCloning () {
     if (node.payload.referenceParent !== undefined) {
       savedPayload.referenceParent = {
         type: node.payload.referenceParent.type,
-        subType: node.payload.referenceParent.subType,
         name: node.payload.referenceParent.name,
         id: node.payload.referenceParent.id
       }

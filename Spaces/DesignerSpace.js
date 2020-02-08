@@ -35,14 +35,6 @@ function newDesignerSpace () {
   }
 
   function buildIconByUiObjectTypeMap () {
-    const relationshipArray = []
-
-    for (let i = 0; i < relationshipArray.length; i++) {
-      let record = relationshipArray[i]
-      let icon = thisObject.iconCollection.get(record[1])
-      thisObject.iconByUiObjectType.set(record[0], icon)
-    }
-
     /* Take types-icons relationships defined at the schema */
     for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
       let nodeDefinition = APP_SCHEMA_ARRAY[i]
@@ -139,7 +131,7 @@ function newDesignerSpace () {
       'bot-indicator',
       'bot-sensor',
       'time-period',
-      'team',
+      'data-mine',
       'procedure-loop',
       'calculations-procedure',
       'data-building-procedure',
@@ -173,7 +165,83 @@ function newDesignerSpace () {
       'shapes-polygon',
       'data-entry',
       'data-formula',
-      'clone'
+      'clone',
+      'exchange-account-asset',
+      'exchange-account-key',
+      'user-keys',
+      'user-assets',
+      'asset',
+      'exchange-accounts',
+      'user-account',
+      'market',
+      'exchange-assets',
+      'crypto-exchanges',
+      'crypto-exchange',
+      'exchange-markets',
+      'charting-space',
+      'time-line-chart',
+      'time-frame-scale',
+      'time-scale',
+      'rate-scale',
+      'time-machine',
+      'data-product',
+      'single-market-data',
+      'data-storage',
+      'dataset',
+      'viewport',
+      'bitfinex',
+      'binance',
+      'kucoin',
+      'bittrex',
+      'kraken',
+      'poloniex',
+      'upbit',
+      'monero',
+      'tether',
+      'tron',
+      'stellar',
+      'qtum',
+      'neo',
+      'litecoin',
+      'ethereum-classic',
+      'ethereum',
+      'eos',
+      'dash',
+      'cardano',
+      'bitcoin-cash',
+      'bitcoin',
+      'binance-coin',
+      'trend',
+      'oscillator',
+      'moving-average',
+      'histogram',
+      'band',
+      'volume',
+      'candles',
+      'bitmex',
+      'liquid',
+      'hitbtc',
+      'us-dollar',
+      'distance-to-parent-200',
+      'distance-to-parent-150',
+      'distance-to-parent-100',
+      'distance-to-parent-050',
+      'distance-to-parent-025',
+      'distance-to-parent-000',
+      'angle-to-parent-360',
+      'angle-to-parent-180',
+      'angle-to-parent-090',
+      'angle-to-parent-045',
+      'angle-to-parent-000',
+      'data-mining',
+      'initial-definition',
+      'next-phase-event',
+      'testing-environment',
+      'production-environment',
+      'task-manager',
+      'session-based-data',
+      'session-independent-data',
+      'session-reference'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {
@@ -196,7 +264,6 @@ function newDesignerSpace () {
   }
 
   function physics () {
-    if (visible !== true) { return }
     thisObject.workspace.physics()
   }
 

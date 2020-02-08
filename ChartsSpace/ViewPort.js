@@ -1,20 +1,17 @@
 
-function newViewPort () {
+function newViewport () {
   const MODULE_NAME = 'Viewport'
-  const INFO_LOG = false
-  const INTENSIVE_LOG = false
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
 
-  const CONSOLE_LOG = true
+  const MIN_ZOOM_LEVEL = 0
+  const MAX_ZOOM_LEVEL = 500
 
   let ANIMATION_INCREMENT = 0.25
+  let ANIMATION_STEPS = 5
 
-  let TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
-  let BOTTOM_MARGIN = 30 + COCKPIT_SPACE_HEIGHT
-  let LEFT_MARGIN = 50
-  let RIGHT_MARGIN = 50
+  let TOP_MARGIN = 40 + TOP_SPACE_HEIGHT
+  let BOTTOM_MARGIN = 42 + COCKPIT_SPACE_HEIGHT
+  let LEFT_MARGIN = 0
+  let RIGHT_MARGIN = 0
   let MARGINS = {
     TOP: TOP_MARGIN,
     BOTTOM: BOTTOM_MARGIN,
@@ -31,60 +28,78 @@ function newViewPort () {
     zoomLevel: undefined,
     mousePosition: undefined,
     margins: MARGINS,
-    getDisplacement: getDisplacement,
-    newZoomLevel: newZoomLevel,
-    applyZoom: applyZoom,
-    isMinZoom: isMinZoom,
-    zoomFontSize: zoomFontSize,
-    zoomThisPoint: zoomThisPoint,
-    unzoomThisPoint: unzoomThisPoint,
+    payload: undefined,
+    changeZoom: changeZoom,
+    onMouseWheel: onMouseWheel,
+    transformThisPoint: transformThisPoint,
+    unTransformThisPoint: unTransformThisPoint,
     isThisPointVisible: isThisPointVisible,
     fitIntoVisibleArea: fitIntoVisibleArea,
     displace: displace,
-    displaceTarget: displaceTarget,
-    animate: animate,
-    draw: draw,
+    physics: physics,
     raiseEvents: raiseEvents,
     resize: resize,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
-
   let increment = 0.035
-
-  let offset = {
+  let position = {
     x: 0,
     y: 0
   }
-
-  var targetOffset = {
+  let targetPosition = {
     x: 0,
     y: 0
   }
-
-  let offsetIncrement = {
+  let positionIncrement = {
     x: 0,
     y: 0
   }
-
   thisObject.mousePosition = {
     x: 0,
     y: 0
   }
-
   thisObject.eventHandler = newEventHandler()
 
-  let objectStorage = {}
+/* Initial default value */
+  thisObject.zoomLevel = MIN_ZOOM_LEVEL
+  thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+  INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
 
   return thisObject
 
+  function finalize () {
+    thisObject.eventHandler.finalize()
+    thisObject.payload = undefined
+    thisObject = undefined
+  }
+
   function initialize () {
+    if (thisObject.payload !== undefined) {
+      /* Read the position from the frame structure */
+
+      let frame = {
+        position: {
+          x: 0,
+          y: 0
+        }
+      }
+      loadFrame(thisObject.payload, frame)
+      if (!isNaN(frame.position.x)) {
+        position.x = frame.position.x
+      }
+      if (!isNaN(frame.position.y)) {
+        position.y = frame.position.y
+      }
+    }
+
     resize()
     readObjectState()
   }
 
   function resize () {
-    TOP_MARGIN = 30 + TOP_SPACE_HEIGHT
-    BOTTOM_MARGIN = 30 + browserCanvas.height - COCKPIT_SPACE_POSITION
+    TOP_MARGIN = 40 + TOP_SPACE_HEIGHT
+    BOTTOM_MARGIN = 42 + browserCanvas.height - COCKPIT_SPACE_POSITION
     LEFT_MARGIN = 0
     RIGHT_MARGIN = 0
     MARGINS = {
@@ -103,25 +118,36 @@ function newViewPort () {
 
     thisObject.width = thisObject.visibleArea.topRight.x - thisObject.visibleArea.topLeft.x
     thisObject.height = thisObject.visibleArea.bottomRight.y - thisObject.visibleArea.topLeft.y
-  }
 
-  function getDisplacement () {
-    let displacement = {
-      x: offset.x,
-      y: offset.y
+    thisObject.center = {
+      x: LEFT_MARGIN + thisObject.width / 2,
+      y: TOP_MARGIN + thisObject.height / 2
     }
-    return displacement
   }
 
   function raiseEvents () {
     let event = {
-      newOffset: offset
+      newPosition: position
     }
 
-    thisObject.eventHandler.raiseEvent('Offset Changed', event)
+    thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
-  function animate () {
+  function physics () {
+    animationPhysics()
+    positioningPhysics()
+    readObjectState()
+  }
+
+  function positioningPhysics () {
+    if (thisObject.payload === undefined) { return }
+    /* Save the position at the frame lavel */
+    let frame = {}
+    frame.position = position
+    saveFrame(thisObject.payload, frame)
+  }
+
+  function animationPhysics () {
     if (thisObject.zoomLevel < thisObject.zoomTargetLevel) {
       if (thisObject.zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
         ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
@@ -138,172 +164,58 @@ function newViewPort () {
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
-    if (offsetIncrement.y !== 0) {
-      if (Math.trunc(Math.abs(targetOffset.y - offset.y) * 1000) >= Math.trunc(Math.abs(offsetIncrement.y) * 1000)) {
-        offset.y = offset.y + offsetIncrement.y
-
-              // console.log("offset.y changed to " + offset.y)
+    if (positionIncrement.y !== 0) {
+      if (Math.trunc(Math.abs(targetPosition.y - position.y) * 1000) >= Math.trunc(Math.abs(positionIncrement.y) * 1000)) {
+        position.y = position.y + positionIncrement.y
       } else {
-        offsetIncrement.y = 0
+        positionIncrement.y = 0
       }
     }
   }
 
-  function displace (displaceVector, recalculate) {
-    offset.x = offset.x + displaceVector.x
-    offset.y = offset.y + displaceVector.y
-
-    saveObjectState()
-
-    let event = {
-      newOffset: offset,
-      recalculate: recalculate
-    }
-
-    thisObject.eventHandler.raiseEvent('Offset Changed', event)
-
-      // console.log("displace produced new Offset x = " + offset.x + " y = " + offset.y);
-  }
-
-  function displaceTarget (displaceVector) {
-    targetOffset.x = targetOffset.x + displaceVector.x
-    targetOffset.y = targetOffset.y + displaceVector.y
-
-    offsetIncrement = {
-      x: (targetOffset.x - offset.x) / 10,
-      y: (targetOffset.y - offset.y) / 10
-    }
-
-      // console.log("displaceTarget x = " + targetOffset.x + " y = " + targetOffset.y);
-  }
-
-  function newZoomLevel (level) {
-    thisObject.zoomTargetLevel = level
-    thisObject.zoomLevel = level
-
-    saveObjectState()
-
-    ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3
-
-    let event = {
-      newLevel: thisObject.zoomTargetLevel,
-      newOffset: offset,
-      type: undefined
-    }
-
-    thisObject.eventHandler.raiseEvent('Zoom Changed', event)
-
-    return true
-  }
-
-  function isMinZoom () {
-      /* returns true is we are currently at the min zoom level. */
-
-    if (thisObject.zoomTargetLevel === MIN_ZOOM_LEVEL) { return true } else { return false }
-  }
-
-  function applyZoom (amount) {
-       // console.log("applyZoom amount: " + amount);
-
+  function onMouseWheel (event) {
+    let morePower = 1
+    let amount = event.delta
+    if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
     let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
     if (isMac) { amount = amount / 5 }
 
-    if (amount > 0) {
-      if (thisObject.zoomTargetLevel > -5) {
-        amount = amount * 2
-      }
-
-      if (thisObject.zoomTargetLevel > 10) {
-        amount = amount * 3
-      }
-
-      if (thisObject.zoomTargetLevel > 15) {
-        amount = amount * 4
-      }
+    if (thisObject.zoomTargetLevel > 10) {
+      amount = amount * 2
+    }
+    if (thisObject.zoomTargetLevel > 25) {
+      amount = amount * 3
+    }
+    if (thisObject.zoomTargetLevel > 50) {
+      amount = amount * 3.5
     }
 
-    if (amount < 0) {
-      if (thisObject.zoomTargetLevel > -4) {
-        amount = amount * 2
-      }
-
-      if (thisObject.zoomTargetLevel > 13) {
-        amount = amount * 3
-      }
-
-      if (thisObject.zoomTargetLevel > 19) {
-        amount = amount * 4
-      }
-    }
-
-    if (thisObject.zoomTargetLevel + amount > 1000) {
+    if (thisObject.zoomTargetLevel + amount * morePower > MAX_ZOOM_LEVEL) {
       return false
     }
-
-    if (thisObject.zoomTargetLevel <= -27 && amount < 0) {
-      amount = amount / 4
-    }
-
-    if (thisObject.zoomTargetLevel < -27 && amount > 0) {
-      amount = amount / 4
-    }
-
-    if (thisObject.zoomTargetLevel + amount < MIN_ZOOM_LEVEL) {
+    if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
+    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount * morePower
 
-    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount
+    ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS
 
-    ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / 3
-
-    let event = {
+    let newEvent = {
       newLevel: thisObject.zoomTargetLevel,
-      newOffset: offset,
-      type: undefined
+      newPosition: position,
+      type: undefined,
+      shiftKey: event.shiftKey
     }
 
     if (amount > 0) {
-      event.type = 'Zoom In'
+      newEvent.type = 'Zoom In'
     } else {
-      event.type = 'Zoom Out'
+      newEvent.type = 'Zoom Out'
     }
 
-    thisObject.eventHandler.raiseEvent('Zoom Changed', event)
-
+    thisObject.eventHandler.raiseEvent('Zoom Changed', newEvent)
     return true
-  }
-
-  function changeZoom (oldLevel, newLevel) {
-    let mouseNoZoom = unzoomThisPoint(thisObject.mousePosition, oldLevel)
-    let newMouse = zoomThisPoint(mouseNoZoom, newLevel)
-
-    offset.x = offset.x - newMouse.x + thisObject.mousePosition.x
-    offset.y = offset.y - newMouse.y + thisObject.mousePosition.y
-
-    saveObjectState()
-
-    targetOffset.x = offset.x
-    targetOffset.y = offset.y
-
-    offsetIncrement = {
-      x: 0,
-      y: 0
-    }
-
-    thisObject.eventHandler.raiseEvent('Zoom Changed')
-  }
-
-  function zoomFontSize (baseSize, level) {
-    let zoomFactor = increment // + increment * thisObject.zoomLevel / 100;
-
-    if (level === undefined) {
-      baseSize = baseSize * (1 + zoomFactor * thisObject.zoomLevel)
-    } else {
-      baseSize = baseSize * (1 + zoomFactor * level)
-    }
-
-    return baseSize
   }
 
   function fitIntoVisibleArea (point) {
@@ -328,35 +240,72 @@ function newViewPort () {
     return point
   }
 
-  function zoomThisPoint (point, level) {
-    let zoomFactor = increment // + increment * thisObject.zoomLevel / 100;
+  function displace (displaceVector, recalculate) {
+    position.x = position.x + displaceVector.x
+    position.y = position.y + displaceVector.y
 
-    if (level === undefined) {
-      point.x = point.x * (1 + zoomFactor * thisObject.zoomLevel) + offset.x
-      point.y = point.y * (1 + zoomFactor * thisObject.zoomLevel) + offset.y
-    } else {
-      point.x = point.x * (1 + zoomFactor * level) + offset.x
-      point.y = point.y * (1 + zoomFactor * level) + offset.y
+    saveObjectState()
+
+    let event = {
+      newPosition: position,
+      recalculate: recalculate
     }
 
-    return point
+    thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
-  function unzoomThisPoint (pointWithZoom, level) {
-    let pointWithoutZoom
-    let zoomFactor = increment // + increment * thisObject.zoomLevel / 100;
+  function changeZoom (oldLevel, newLevel) {
+    let oldMouse = unTransformThisPoint(thisObject.mousePosition, oldLevel)
+    let newMouse = transformThisPoint(oldMouse, newLevel)
+
+    position.x = position.x - newMouse.x + thisObject.mousePosition.x
+    position.y = position.y - newMouse.y + thisObject.mousePosition.y
+
+    let testPoint = unTransformThisPoint(thisObject.mousePosition, newLevel)
+
+    saveObjectState()
+
+    targetPosition.x = position.x
+    targetPosition.y = position.y
+
+    positionIncrement = {
+      x: 0,
+      y: 0
+    }
+
+    thisObject.eventHandler.raiseEvent('Zoom Changed')
+  }
+
+  function transformThisPoint (point, level) {
+    let transformedPoint = {
+      x: 0,
+      y: 0
+    }
 
     if (level === undefined) {
-      pointWithoutZoom = {
-        x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * thisObject.zoomLevel),
-        y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * thisObject.zoomLevel)
-      }
+      transformedPoint.x = point.x * (1 + thisObject.zoomLevel) + position.x
+      transformedPoint.y = point.y * (1 + thisObject.zoomLevel) + position.y
     } else {
-      pointWithoutZoom = {
-        x: (pointWithZoom.x - offset.x) / (1 + zoomFactor * level),
-        y: (pointWithZoom.y - offset.y) / (1 + zoomFactor * level)
-      }
+      transformedPoint.x = point.x * (1 + level) + position.x
+      transformedPoint.y = point.y * (1 + level) + position.y
     }
+
+    return transformedPoint
+  }
+
+  function unTransformThisPoint (point, level) {
+    let pointWithoutZoom = {
+      x: 0,
+      y: 0
+    }
+    if (level === undefined) {
+      pointWithoutZoom.x = (point.x - position.x) / (1 + thisObject.zoomLevel)
+      pointWithoutZoom.y = (point.y - position.y) / (1 + thisObject.zoomLevel)
+    } else {
+      pointWithoutZoom.x = (point.x - position.x) / (1 + level)
+      pointWithoutZoom.y = (point.y - position.y) / (1 + level)
+    }
+
     return pointWithoutZoom
   }
 
@@ -372,92 +321,58 @@ function newViewPort () {
     }
   }
 
-  function draw () {
-    drawGrid(0.1)
-  }
-
-  function drawGrid (step) {
-    if (thisObject.zoomLevel > -17) { return }
-
-    let squareWidth = (thisObject.visibleArea.bottomRight.x - thisObject.visibleArea.bottomLeft.x) / step
-    squareWidth = squareWidth + squareWidth * increment * thisObject.zoomLevel
-
-    let startingX = offset.x - Math.trunc(offset.x / squareWidth) * squareWidth
-    let startingY = offset.y - Math.trunc(offset.y / squareWidth) * squareWidth
-    let lineWidth = 0.4 + thisObject.zoomLevel / 100
-    lineWidth = lineWidth.toFixed(2)
-
-    if (lineWidth < 0.1) {
-      return
-    }
-
-    if (lineWidth > 2) {
-      lineWidth = 2
-    }
-
-    browserCanvasContext.beginPath()
-
-    let CROSS_SIZE = 4
-
-    for (var i = startingX; i < thisObject.visibleArea.bottomRight.x + RIGHT_MARGIN; i = i + squareWidth) {
-      for (var j = startingY; j < thisObject.visibleArea.bottomRight.y + BOTTOM_MARGIN; j = j + squareWidth) {
-        let point1 = {
-          x: Math.trunc(i - CROSS_SIZE),
-          y: Math.trunc(j)
-        }
-
-        let point2 = {
-          x: Math.trunc(i + CROSS_SIZE),
-          y: Math.trunc(j)
-        }
-
-        browserCanvasContext.moveTo(point1.x, point1.y)
-        browserCanvasContext.lineTo(point2.x, point2.y)
-
-        let point3 = {
-          x: Math.trunc(i),
-          y: Math.trunc(j - CROSS_SIZE)
-        }
-
-        let point4 = {
-          x: Math.trunc(i),
-          y: Math.trunc(j + CROSS_SIZE)
-        }
-
-        browserCanvasContext.moveTo(point3.x, point3.y)
-        browserCanvasContext.lineTo(point4.x, point4.y)
-      }
-    }
-    browserCanvasContext.closePath()
-    browserCanvasContext.strokeStyle = 'rgba(150, 150, 150, 0.5)'
-
-    browserCanvasContext.lineWidth = 1
-
-    browserCanvasContext.stroke()
-  }
-
   function saveObjectState () {
-    objectStorage.offset = offset
-    objectStorage.zoomLevel = thisObject.zoomLevel
-    window.localStorage.setItem(MODULE_NAME, JSON.stringify(objectStorage))
+    if (thisObject.payload === undefined) { return }
+
+    /* Save the zoom at the node config, so that the user can change it if he wishes to. */
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+      code.zoom = (thisObject.zoomTargetLevel - MIN_ZOOM_LEVEL) / (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) * 100
+      code.zoom = code.zoom.toFixed(2)
+      thisObject.payload.node.code = JSON.stringify(code)
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
   }
 
   function readObjectState () {
-    let objectStorageString = window.localStorage.getItem(MODULE_NAME)
-    if (objectStorageString !== null && objectStorageString !== '') {
-      objectStorage = JSON.parse(objectStorageString)
-      offset = objectStorage.offset
-      thisObject.zoomLevel = objectStorage.zoomLevel
-      thisObject.zoomTargetLevel = objectStorage.zoomLevel
-      INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
-    } else { // Setting default values for first session
-      offset = {
-        x: 0,
-        y: 0
+    if (thisObject.payload === undefined) { return }
+
+    /* Read the zoom level from the node config */
+    try {
+      let code = JSON.parse(thisObject.payload.node.code)
+
+      if (isNaN(code.zoom) || code.zoom === null || code.zoom === undefined) {
+        saveObjectState()
+        return
       }
-      thisObject.zoomLevel = MIN_ZOOM_LEVEL
-      thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+      code.zoom = code.zoom / 100 * (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) + MIN_ZOOM_LEVEL
+      if (code.zoom < MIN_ZOOM_LEVEL) { code.zoom = MIN_ZOOM_LEVEL }
+      if (code.zoom > MAX_ZOOM_LEVEL) { code.zoom = MAX_ZOOM_LEVEL }
+
+      if (code.zoom.toFixed(2) !== thisObject.zoomTargetLevel.toFixed(2)) {
+        newZoomLevel(code.zoom)
+      } else {
+        saveObjectState()
+      }
+    } catch (err) {
+       // we ignore errors here since most likely they will be parsing errors.
+    }
+
+    function newZoomLevel (level) {
+      thisObject.zoomLevel = level
+      thisObject.zoomTargetLevel = level
+      INITIAL_TIME_PERIOD = recalculatePeriod(level)
+      saveObjectState()
+      ANIMATION_INCREMENT = 0
+
+      let event = {
+        newLevel: thisObject.zoomTargetLevel,
+        newPosition: position,
+        type: undefined
+      }
+      thisObject.eventHandler.raiseEvent('Zoom Changed', event)
+      return true
     }
   }
 }
-

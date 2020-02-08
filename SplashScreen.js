@@ -19,7 +19,6 @@ function newSplashScreen () {
 
   resize()
 
-  container.displacement.containerName = 'Splash Screen'
   container.frame.containerName = 'Splash Screen'
 
   container.frame.position.x = 0
@@ -46,7 +45,7 @@ function newSplashScreen () {
 
     logo.src = window.canvasApp.urlPrefix + 'Images/Superalgos-logo-horz-sm-t.png'
 
-    window.canvasApp.eventHandler.listenToEvent('Browser Resized', resize)
+    canvas.eventHandler.listenToEvent('Browser Resized', resize)
   }
 
   function resize () {
@@ -126,7 +125,7 @@ function newSplashScreen () {
 
     fontSize = 15
 
-    title = 'Trading Automation System'
+    title = 'Beta'
 
     titlePoint = {
       x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,
@@ -134,7 +133,7 @@ function newSplashScreen () {
     }
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-    browserCanvasContext.font = 'Saira'
+    browserCanvasContext.font = 'Saira Condensed'
     browserCanvasContext.fillStyle = 'rgba(0, 0, 0,  ' + opacity + ')'
     browserCanvasContext.fillText(title, titlePoint.x, titlePoint.y)
   }
@@ -144,14 +143,14 @@ function newSplashScreen () {
 
         /* First we check if this point is inside this space. */
 
-    if (this.container.frame.isThisPointHere(point) === true) {
+    if (thisObject.container.frame.isThisPointHere(point) === true) {
             /* Now we see which is the inner most container that has it */
 
             // add validation of inner most containers here.
 
             /* The point does not belong to any inner container, so we return the current container. */
 
-      return this.container
+      return thisObject.container
     } else {
             /* This point does not belong to this space. */
 

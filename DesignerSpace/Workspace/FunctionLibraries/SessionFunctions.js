@@ -30,32 +30,45 @@ function newSessionFunctions () {
 
     let key = node.name + '-' + node.type + '-' + node.id
 
-    let thisNodeDefinition = node.payload.referenceParent
+    let lightingPath = '' +
+    'Trading System->' +
+    'Parameters->' +
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Exchange Account Asset->Asset->' +
+    'Strategy->' +
+    'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
+    'Announcement->Telegram Bot->' +
+    'Open Stage->Initial Definition->Open Execution->' +
+    'Position Size->Position Rate->Formula->' +
+    'Initial Stop->Initial Take Profit->' +
+    'Manage Stage->' +
+    'Stop->Take Profit->' +
+    'Phase->Formula->Next Phase Event->' +
+    'Situation->Condition->Javascript Code->' +
+    'Announcement->Telegram Bot->' +
+    'Close Stage->Close Execution->'
+
+    let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
+
+    lightingPath = '' +
+    'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+    'Parameters->' +
+    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Exchange Account Asset->Asset->'
+
+    let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
     /* Raise event to run the session */
     let event = {
-      session: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true)),
-      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(thisNodeDefinition, false, true, true)),
-      uiCurrentValues: getUICurrentValues()
+      session: JSON.stringify(session),
+      tradingSystem: JSON.stringify(tradingSystem)
     }
 
     systemEventHandler.raiseEvent(key, 'Run Session', event)
 
-    function getUICurrentValues () {
-      let dateAtScreenCorner = new Date(window.localStorage.getItem('Date @ Screen Corner'))
-      let currentTimePeriod = JSON.parse(window.localStorage.getItem('Current Time Period'))
-
-      let timePeriodsMasterArray = [marketFilesPeriods, dailyFilePeriods]
-      let timePeriodArray = timePeriodsMasterArray[currentTimePeriod.filePeriodIndex]
-      let timePeriod = timePeriodArray[currentTimePeriod.timePeriodIndex][1]
-
-      let uiCurrentValues = {
-        initialDatetime: dateAtScreenCorner,
-        timePeriod: timePeriod,
-        timestamp: (new Date()).valueOf()
-      }
-
-      return uiCurrentValues
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
     }
   }
 

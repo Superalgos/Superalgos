@@ -120,18 +120,16 @@ function newCanvas () {
       animation.addCallBackFunction('System Event Handler Physics', systemEventHandler.physics)
 
       /* Spcaces Physics */
+      animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
-      animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
-      animation.addCallBackFunction('Chart Space Background', thisObject.chartSpace.drawBackground)
       animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
-      animation.addCallBackFunction('ViewPort Animate', viewPort.animate)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
@@ -145,9 +143,7 @@ function newCanvas () {
   function initializeBrowserCanvas () {
     try {
       browserCanvasContext = browserCanvas.getContext('2d')
-      browserCanvasContext.font = 'Saira'
-
-      viewPort.initialize()
+      browserCanvasContext.font = 'Saira Condensed'
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initializeBrowserCanvas -> err = ' + err.stack) }
     }
@@ -155,11 +151,12 @@ function newCanvas () {
 
   function addCanvasEvents () {
     try {
+      canvas.eventHandler.listenToEvent('Browser Resized', browserResized)
+
       /* Keyboard events */
       window.addEventListener('keydown', onKeyDown, true)
 
       /* Mouse Events */
-
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
       browserCanvas.addEventListener('mouseup', onMouseUp, false)
       browserCanvas.addEventListener('mousemove', onMouseMove, false)
@@ -172,7 +169,6 @@ function newCanvas () {
       } else browserCanvas.attachEvent('onmousewheel', onMouseWheel)// IE 6/7/8
 
       /* Dragging Files Over the Canvas */
-
       browserCanvas.addEventListener('dragenter', onDragEnter, false)
       browserCanvas.addEventListener('dragleave', onDragLeave, false)
       browserCanvas.addEventListener('dragover', onDragOver, false)
@@ -184,6 +180,17 @@ function newCanvas () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] addCanvasEvents -> err = ' + err.stack) }
+    }
+  }
+
+  function browserResized () {
+    try {
+      browserCanvas = document.getElementById('canvas')
+
+      browserCanvas.width = window.innerWidth
+      browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+    } catch (err) {
+      if (ERROR_LOG === true) { logger.write('[ERROR] browserResized -> err = ' + err.stack) }
     }
   }
 
@@ -501,7 +508,7 @@ function newCanvas () {
       container = thisObject.chartSpace.getContainer(point)
 
       if (container !== undefined) {
-        if (container.isDraggeable === true) {
+        if (container.isDraggeable === true && event.button === 2) {
           containerBeingDragged = container
           containerDragStarted = true
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -624,8 +631,10 @@ function newCanvas () {
         y: event.pageY - CURRENT_TOP_MARGIN
       }
 
-      viewPort.mousePosition.x = point.x
-      viewPort.mousePosition.y = point.y
+      if (canvas.chartSpace.viewport !== undefined) {
+        canvas.chartSpace.viewport.mousePosition.x = point.x
+        canvas.chartSpace.viewport.mousePosition.y = point.y
+      }
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
         if (floatingObjectDragStarted === true) {
@@ -655,9 +664,8 @@ function newCanvas () {
         dragVector.upY = point.y
 
         checkDrag(event)
-      } else {
-        onMouseOver(event)
       }
+      onMouseOver(event)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] onMouseMove -> err = ' + err.stack) }
     }
@@ -665,8 +673,16 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
-           /* Then we check who is the current object underneeth the mounse. */
+      if (containerDragStarted === true) {
+        let point = {
+          x: event.pageX,
+          y: event.pageY - CURRENT_TOP_MARGIN
+        }
+        containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
+        return
+      }
 
+       /* Then we check who is the current object underneeth the mounse. */
       let point = {
         x: event.pageX,
         y: event.pageY - CURRENT_TOP_MARGIN
@@ -674,8 +690,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
-
+      /* We check if the mouse is over an element of the Strategy Space / */
       if (thisObject.designerSpace !== undefined) {
         container = thisObject.designerSpace.getContainer(point)
 
@@ -685,8 +700,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over an element of the Top Space / */
-
+       /* We check if the mouse is over an element of the Top Space / */
       if (thisObject.topSpace !== undefined) {
         container = thisObject.topSpace.getContainer(point)
 
@@ -696,8 +710,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over an element of the CockpitSpace / */
-
+       /* We check if the mouse is over an element of the CockpitSpace / */
       if (thisObject.cockpitSpace !== undefined) {
         container = thisObject.cockpitSpace.getContainer(point)
 
@@ -707,8 +720,7 @@ function newCanvas () {
         }
       }
 
-           /* We check if the mouse is over a panel/ */
-
+       /* We check if the mouse is over a panel/ */
       if (thisObject.panelsSpace !== undefined) {
         container = thisObject.panelsSpace.getContainer(point)
 
@@ -718,8 +730,7 @@ function newCanvas () {
         }
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
-
+       /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
       if (thisObject.chartSpace !== undefined) {
         container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
@@ -745,7 +756,6 @@ function newCanvas () {
             lastContainerMouseOver.eventHandler.raiseEvent('onMouseNotOver', point)
           }
         }
-
         container.eventHandler.raiseEvent('onMouseOver', point)
         lastContainerMouseOver = container
       }
@@ -758,7 +768,7 @@ function newCanvas () {
     try {
            // cross-browser wheel delta
       var event = window.event || event // old IE support
-      let delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
+      event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
 
            /* We try first with panels. */
 
@@ -794,7 +804,7 @@ function newCanvas () {
       }
 
       if (container !== undefined) {
-        viewPort.applyZoom(delta)
+        canvas.chartSpace.viewport.onMouseWheel(event)
         return false
       }
 
@@ -850,32 +860,36 @@ function newCanvas () {
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
         if (containerDragStarted || viewPortBeingDragged) {
-                   /* The parameters received have been captured with zoom applied. We must remove the zoom in order to correctly modify the displacement. */
-
-          let downCopy = {
-            x: dragVector.downX,
-            y: dragVector.downY
-          }
-
-          let downCopyNoTransf
-          downCopyNoTransf = viewPort.unzoomThisPoint(downCopy)
-                   // downCopyNoTransf = containerBeingDragged.zoom.unzoomThisPoint(downCopyNoTransf);
-
-          let upCopy = {
-            x: dragVector.upX,
-            y: dragVector.upY
-          }
-
-          let upCopyNoTranf
-          upCopyNoTranf = viewPort.unzoomThisPoint(upCopy)
-
           let displaceVector = {
             x: dragVector.upX - dragVector.downX,
             y: dragVector.upY - dragVector.downY
           }
 
+          if (containerBeingDragged !== undefined && containerBeingDragged.insideViewport === true) {
+            let downCopy = {
+              x: dragVector.downX,
+              y: dragVector.downY
+            }
+
+            let downNoZoom
+            downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
+
+            let upCopy = {
+              x: dragVector.upX,
+              y: dragVector.upY
+            }
+
+            let upNoZoom
+            upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
+
+            displaceVector = {
+              x: upNoZoom.x - downNoZoom.x,
+              y: upNoZoom.y - downNoZoom.y
+            }
+          }
+
           if (viewPortBeingDragged) {
-            viewPort.displace(displaceVector)
+            canvas.chartSpace.viewport.displace(displaceVector)
           }
 
           if (containerBeingDragged !== undefined) {

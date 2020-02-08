@@ -24,10 +24,42 @@ function newTaskFunctions () {
       process.payload.uiObject.run()
     }
 
+    let lightingPath = '->Task->' +
+    'Sensor Bot Instance->' +
+    'Indicator Bot Instance->' +
+    'Trading Bot Instance->' +
+    'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
+    'Market Reference->' +
+    'Key Instance->Exchange Account Key->' +
+    'Market->Exchange Markets->Crypto Exchange->' +
+    'Market Base Asset->Market Quoted Asset->Asset->' +
+    'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +
+    'Process Definition->' +
+    'Process Output->Output Dataset->Dataset Definition->Product Definition->' +
+    'Process Dependencies->' +
+    'Status Dependency->Status Report->Process Definition->' +
+    'Data Dependency->Dataset Definition->Product Definition->' +
+    'Record Definition->Record Property->Formula->' +
+    'Data Building Procedure->' +
+    'Procedure Initialization->Javascript Code->' +
+    'Procedure Loop->Javascript Code->' +
+    'Calculations Procedure->' +
+    'Procedure Initialization->Javascript Code->' +
+    'Procedure Loop->Javascript Code->' +
+    'Status Report->' +
+    'Execution Finished Event->' +
+    'Execution Started Event->Execution Finished Event->Process Definition->' +
+    'Sensor Bot->' +
+    'Indicator Bot->' +
+    'Trading Bot->' +
+    'Data Mine->'
+
+    let definition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+
     let event = {
       taskId: node.id,
       taskName: node.name,
-      definition: JSON.stringify(functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, true, true)) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
+      definition: JSON.stringify(definition) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
     }
 
     if (node.payload.parentNode === undefined) {

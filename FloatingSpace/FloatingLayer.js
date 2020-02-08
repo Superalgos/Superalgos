@@ -263,7 +263,9 @@ function newFloatingLayer () {
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
+            floatingObject.physics()
 
+            /* From here on, only if they are not too far. */
             if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
 
             if (floatingObject.positionLocked === false) {
@@ -286,18 +288,6 @@ function newFloatingLayer () {
             }
 
             switch (floatingObject.type) {
-
-              case 'Profile Ball': {
-                payload.targetPosition = floatingObject.payload.profile.position
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              case 'Note': {
-                payload.targetPosition = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
-                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-
-                break
-              }
               case 'UI Object': {
                 payload.targetPosition = floatingObject.payload.targetPosition
                 payload.visible = floatingObject.payload.visible
@@ -340,8 +330,6 @@ function newFloatingLayer () {
 
                         // We let the Floating Object animate the physics loops by itself.
             checkBoundaries(floatingObject)
-
-            floatingObject.physics()
 
                         /* Collision Control */
 
@@ -559,15 +547,6 @@ function newFloatingLayer () {
         }
 
         switch (floatingObject2.type) {
-
-          case 'Profile Ball': {
-            payload.targetPosition = floatingObject2.payload.profile.position
-            break
-          }
-          case 'Note': {
-            payload.targetPosition = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
-            break
-          }
           case 'UI Object': {
             payload.targetPosition = floatingObject2.payload.targetPosition
             break

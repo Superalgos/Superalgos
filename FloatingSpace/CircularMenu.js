@@ -48,7 +48,8 @@ function newCircularMenu () {
 /* Create the array of Menu Items */
 
     let iconAndTextArray = []
-    let iconOnlyArray = []
+    let iconOnlyArray
+    let ringsArray = [[], [], []]
 
     for (let i = 0; i < menuItemsInitialValues.length; i++) {
       let menuItem = newCircularMenuItem()
@@ -81,9 +82,16 @@ function newCircularMenu () {
       menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel
       menuItem.disableIfPropertyIsDefined = menuItemInitialValue.disableIfPropertyIsDefined
       menuItem.propertyToCheckFor = menuItemInitialValue.propertyToCheckFor
+      menuItem.ring = menuItemInitialValue.ring
+      menuItem.icons = menuItemInitialValue.icons
 
       if (menuItem.label === undefined) {
         menuItem.type = 'Icon Only'
+
+        if (menuItem.ring === undefined) {
+          menutItem.ring = 1
+        }
+        iconOnlyArray = ringsArray[menuItem.ring - 1]
         iconOnlyArray.push(menuItem)
       } else {
         menuItem.type = 'Icon & Text'
@@ -95,22 +103,28 @@ function newCircularMenu () {
       menuItems.push(menuItem)
     }
 
-    /* Here we calculate the angles for each menu item, and then apply it if it was not previously defined. */
-    let amplitud = 100
-    let initialAngle = 230
-    let step = amplitud / (iconOnlyArray.length - 1)
+    /* There are 3 possible rings of icons, we will go through each of them here. */
+    let amplitudeArray = [80, 50, 40]
+    let initialAngleArray = [220, 205, 200]
+    for (let j = 1; j < 4; j++) {
+      let iconOnlyArray = ringsArray[j - 1]
+      /* Here we calculate the angles for each menu item, and then apply it if it was not previously defined. */
+      let amplitude = amplitudeArray[j - 1]
+      let initialAngle = initialAngleArray[j - 1]
+      let step = amplitude / (iconOnlyArray.length - 1)
 
-    for (let i = 0; i < iconOnlyArray.length; i++) {
-      let menuItem = iconOnlyArray[i]
-      let angle = initialAngle - step * i
-      if (menuItem.angle === undefined) {
-        menuItem.angle = angle
+      for (let i = 0; i < iconOnlyArray.length; i++) {
+        let menuItem = iconOnlyArray[i]
+        let angle = initialAngle - step * i
+        if (menuItem.angle === undefined) {
+          menuItem.angle = angle
+        }
       }
     }
-
-    amplitud = 140
-    initialAngle = -70
-    step = amplitud / 7
+    /* Text and Icon */
+    let amplitude = 140
+    let initialAngle = -70
+    step = amplitude / 7
     let currentItem = (7 - iconAndTextArray.length) / 2 + 1
     for (let i = 0; i < iconAndTextArray.length; i++) {
       let menuItem = iconAndTextArray[i]

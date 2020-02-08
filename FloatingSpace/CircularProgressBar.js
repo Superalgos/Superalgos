@@ -23,13 +23,13 @@ function newCircularProgressBar () {
 
   let opacityCounters = []
 
-  let eventSubscriptionHeartbeat
+  let eventSubscriptionIdHeartbeat
 
   return thisObject
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionHeartbeat)
+    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
 
     thisObject.container = undefined
     thisObject.payload = undefined
@@ -52,6 +52,8 @@ function newCircularProgressBar () {
   }
 
   function onHeartBeat (message) {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.uiObject === undefined) { return }
     opacityCounters[message.event.seconds] = 2000
     thisObject.payload.uiObject.setValue(message.event.processingDate)
   }
@@ -76,11 +78,11 @@ function newCircularProgressBar () {
     }
   }
 
-  function drawBackground (pFloatingObject) {
+  function drawForeground (pFloatingObject) {
 
   }
 
-  function drawForeground (pFloatingObject) {
+  function drawBackground (pFloatingObject) {
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {
@@ -104,12 +106,12 @@ function newCircularProgressBar () {
       browserCanvasContext.closePath()
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY * 2 + ')'
-      browserCanvasContext.lineWidth = 6 + opacityCounters[i] / 100
+      browserCanvasContext.lineWidth = 6 + opacityCounters[i] / 100 / 2
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.stroke()
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
-      browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100
+      browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100 / 2
       browserCanvasContext.setLineDash([3, 4])
       browserCanvasContext.stroke()
     }

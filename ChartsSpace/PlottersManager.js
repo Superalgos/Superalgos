@@ -4,28 +4,29 @@ function newPlottersManager () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  let productPlotters = []
-
-  let timePeriod = INITIAL_TIME_PERIOD
+  let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
   let thisObject = {
     fitFunction: undefined,
     container: undefined,
+    payload: undefined,
+    connectors: [],
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
-    positionAtDatetime: positionAtDatetime,
+    setTimeFrame: setTimeFrame,
+    setCoordinateSystem: setCoordinateSystem,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
     finalize: finalize
   }
 
-  let initializationReady = false
+  thisObject.connectors = []
 
-  let productsPanel
-  let exchange
-  let market
+  let initializationReady = false
+  let layersPanel
+  let onLayerStatusChangedEventSuscriptionId
+  let coordinateSystem
 
   setupContainer()
   return thisObject
@@ -36,304 +37,261 @@ function newPlottersManager () {
   }
 
   function finalize () {
-    for (let i = 0; i < productPlotters.length; i++) {
+    layersPanel.container.eventHandler.stopListening(onLayerStatusChangedEventSuscriptionId)
+    layersPanel = undefined
+
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
       /* Then the panels. */
-      for (let j = 0; j < productPlotters[i].panels.length; j++) {
-        canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
-        productPlotters[i].panels[j] = undefined
+      for (let j = 0; j < connector.panels.length; j++) {
+        canvas.panelsSpace.destroyPanel(connector.panels[j])
+        connector.panels[j] = undefined
       }
-      productPlotters[i].panels = undefined
+      connector.panels = undefined
 
       /* Finalize the plotters */
-      if (productPlotters[i].plotter.finalize !== undefined) {
-        productPlotters[i].plotter.finalize()
+      if (connector.plotter.finalize !== undefined) {
+        connector.plotter.container.eventHandler.stopListening(connector.plotter.onRecordChangeEventsSubscriptionId)
+        connector.plotter.finalize()
       }
-      productPlotters[i].plotter = undefined
+      connector.plotter = undefined
 
       /* Finally the Storage Objects */
-      productPlotters[i].storage.finalize()
-      productPlotters[i].storage = undefined
+      finalizeStorage(connector.storage)
+      connector.storage = undefined
 
-      productPlotters[i] = undefined
+      connector = undefined
     }
-    productPlotters = []
-
-    productsPanel = undefined
+    thisObject.connectors = []
+    coordinateSystem = undefined
 
     thisObject.container.finalize()
     thisObject.container = undefined
-    setupContainer()
+    thisObject.payload = undefined
   }
 
-  function initialize (pProductsPanel, pExchange, pMarket, callBackFunction) {
-    try {
-            /* Remember the Products Panel */
-      productsPanel = pProductsPanel
-      exchange = pExchange
-      market = pMarket
-            /* Listen to the event of change of status */
-      productsPanel.container.eventHandler.listenToEvent('Product Card Status Changed', onProductCardStatusChanged)
-
-      /* Lets get all the cards that needs to be loaded. */
-
-      let initializationCounter = 0
-      let loadingProductCards = productsPanel.getLoadingProductCards()
-      let okCounter = 0
-      let failCounter = 0
-
-      if (loadingProductCards.length === 0) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-        return
-      }
-      for (let i = 0; i < loadingProductCards.length; i++) {
-          /* For each one, we will initialize the associated plotter. */
-        initializeProductPlotter(loadingProductCards[i], onProductPlotterInitialized)
-
-        function onProductPlotterInitialized (err) {
-          initializationCounter++
-
-          switch (err.result) {
-            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              okCounter++
-              break
-            }
-            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              failCounter++
-              break
-            }
-            default: {
-              failCounter++
-              break
-            }
-          }
-          if (initializationCounter === loadingProductCards.length) {
-      // This was the last one.
-      /* If less than 50% of plotters are initialized then we return FAIL. */
-            if (okCounter >= 1) {
-              initializationReady = true
-              callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-            } else {
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
-          }
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-    }
+  function finalizeStorage (storage) {
+    storage.eventHandler.stopListening(storage.onMarketFileLoadedLayerEventsSubscriptionId)
+    storage.eventHandler.stopListening(storage.onDailyFileLoadedLayerEventsSubscriptionId)
+    storage.eventHandler.stopListening(storage.onSingleFileLoadedLayerEventsSubscriptionId)
+    storage.eventHandler.stopListening(storage.onFileSequenceLoadedLayerEventsSubscriptionId)
+    storage.eventHandler.stopListening(storage.onDailyFileLoadedPlotterEventsSubscriptionId)
+    storage.finalize()
   }
 
-  function initializeProductPlotter (pProductCard, callBack) {
+  function initialize (pLayersPanel) {
+    /* Remember the Layers Panel */
+    layersPanel = pLayersPanel
+
+    /* Listen to the event of change of status */
+    onLayerStatusChangedEventSuscriptionId = layersPanel.container.eventHandler.listenToEvent('Layer Status Changed', onLayerStatusChanged)
+  }
+
+  function initializePlotter (layer) {
     try {
-            /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
-      let objName = pProductCard.devTeam.codeName + '-' + pProductCard.bot.codeName + '-' + pProductCard.product.codeName
-      let storage = newProductStorage(objName)
-            /*
+      /* Before Initializing a Plotter, we need the Storage it will use, loaded with the files it will initially need. */
+      let storage = newProductStorage(layer.payload.node.id)
 
-            Before Initializing the Storage, we will put the Product Card to listen to the events the storage will raise every time a file is loaded,
-            so that the UI can somehow show this. There are different types of events.
+      /*
+      Before Initializing the Storage, we will put the Layer to listen to the events the storage will raise every time a file is loaded,
+      so that the UI can somehow show this. There are different types of events.
+      */
+      for (let i = 0; i < layer.definition.referenceParent.referenceParent.datasets.length; i++) {
+        let dataset = layer.definition.referenceParent.referenceParent.datasets[i]
 
-            */
-      for (let i = 0; i < pProductCard.product.dataSets.length; i++) {
-        let thisSet = pProductCard.product.dataSets[i]
-
-        switch (thisSet.type) {
+        switch (dataset.code.type) {
           case 'Market Files': {
-            storage.eventHandler.listenToEvent('Market File Loaded', pProductCard.onMarketFileLoaded)
+            storage.onMarketFileLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('Market File Loaded', layer.onMarketFileLoaded)
           }
             break
           case 'Daily Files': {
-            storage.eventHandler.listenToEvent('Daily File Loaded', pProductCard.onDailyFileLoaded)
+            storage.onDailyFileLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('Daily File Loaded', layer.onDailyFileLoaded)
           }
             break
           case 'Single File': {
-            storage.eventHandler.listenToEvent('Single File Loaded', pProductCard.onSingleFileLoaded)
+            storage.onSingleFileLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('Single File Loaded', layer.onSingleFileLoaded)
           }
             break
           case 'File Sequence': {
-            storage.eventHandler.listenToEvent('File Sequence Loaded', pProductCard.onFileSequenceLoaded)
+            storage.onFileSequenceLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('File Sequence Loaded', layer.onFileSequenceLoaded)
           }
             break
+          default: {
+            if (ERROR_LOG === true) {
+              logger.write('[ERROR] initializePlotter -> Dataset Type Incorrect or Undefined -> dataset.type = ' + dataset.type)
+            }
+            return
+          }
         }
       }
 
-      storage.initialize(pProductCard.devTeam, pProductCard.bot, pProductCard.session, pProductCard.product, exchange, market, datetime, timePeriod, onProductStorageInitialized)
+      let baseAsset = layer.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.code.codeName
+      let quotedAsset = layer.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.code.codeName
+      let market = {
+        baseAsset: baseAsset,
+        quotedAsset: quotedAsset
+      }
+      let product = layer.definition.referenceParent.referenceParent
+      let bot = layer.definition.referenceParent.referenceParent.parentNode
+      let dataMine = layer.definition.referenceParent.referenceParent.parentNode.parentNode
+      let exchange = layer.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
+      let plotterModule = layer.definition.referenceParent.referenceParent.referenceParent
+      let session
+
+      if (layer.definition.referenceParent.parentNode.parentNode !== undefined) {
+        if (layer.definition.referenceParent.parentNode.parentNode.type === 'Session Reference') {
+          if (layer.definition.referenceParent.parentNode.parentNode.referenceParent !== undefined) {
+            session = layer.definition.referenceParent.parentNode.parentNode.referenceParent
+          }
+        }
+      }
+
+      storage.initialize(
+        dataMine,
+        bot,
+        session,
+        product,
+        exchange,
+        market,
+        datetime,
+        timeFrame,
+        onProductStorageInitialized
+      )
 
       function onProductStorageInitialized (err) {
         try {
-          switch (err.result) {
-            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-              break
+          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
+            let plotter
+
+            if (plotterModule.code.isLegacy !== true) {
+              plotter = newPlotter()
+            } else {
+              plotter = getNewPlotter(dataMine.code.codeName, plotterModule.parentNode.code.codeName, plotterModule.code.codeName)
             }
-            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-              return
-            }
-            default: {
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
-              return
-            }
-          }
-                    /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-          let plotter
-          let productDefinition
 
-          if (pProductCard.product.plotter.legacy === false) {
-            plotter = newPlotter()
+            plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
+            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
+            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
+            plotter.fitFunction = thisObject.fitFunction
+            plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, product)
 
-            /* We take a snapwhot of the current product definition to be used by the plotter. */
-            let functionLibraryProtocolNode = newProtocolNode()
-            productDefinition = functionLibraryProtocolNode.getProtocolNode(pProductCard.product.node, false, true, true, false, false, true)
-          } else {
-            plotter = getNewPlotter(pProductCard.product.plotter.devTeam, pProductCard.product.plotter.codeName, pProductCard.product.plotter.moduleName)
-          }
-
-          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true)
-          plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
-          plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
-          plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, exchange, market, datetime, timePeriod, onPlotterInizialized, productDefinition)
-
-          function onPlotterInizialized () {
-            try {
-              let productPlotter = {
-                productCard: pProductCard,
-                plotter: plotter,
-                storage: storage,
-                profile: undefined,
-                notes: undefined
-              }
-                            /* Let the Plotter listen to the event of Cursor Files loaded, so that it can react recalculating if needed. */
-              storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded)
-                            /* Lets load now this plotter panels. */
-              productPlotter.panels = []
-
-              /* Here is where we instantiate the legacy panels */
-              for (let i = 0; i < pProductCard.product.plotter.module.panels.length; i++) {
-                let panelConfig = pProductCard.product.plotter.module.panels[i]
-
-                let parameters = {
-                  devTeam: pProductCard.product.plotter.devTeam,
-                  plotterCodeName: pProductCard.product.plotter.codeName,
-                  moduleCodeName: pProductCard.product.plotter.moduleName,
-                  panelCodeName: panelConfig.codeName
+            function onPlotterInizialized () {
+              try {
+                let connector = {
+                  layer: layer,
+                  plotter: plotter,
+                  storage: storage
                 }
-                let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
-                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session)
-                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
-                                /* Connect Panel to the Plotter via an Event. */
-                if (panelConfig.event !== undefined) {
-                  productPlotter.plotter.container.eventHandler.listenToEvent(panelConfig.event, plotterPanel.onEventRaised)
-                }
-                productPlotter.panels.push(plotterPanelHandle)
-              }
+                /* Let the Plotter listen to the event of Cursor Files loaded, so that it can react recalculating if needed. */
+                plotter.onDailyFileLoadedPlotterEventsSubscriptionId = storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded)
+                /* Lets load now this plotter panels. */
+                connector.panels = []
 
-              /* Here we instantiate the UI Defined Panels. */
-              if (productDefinition !== undefined) {
-                for (let i = 0; i < productDefinition.referenceParent.panels.length; i++) {
-                  let panel = productDefinition.referenceParent.panels[i]
+                if (product !== undefined) {
+                  for (let i = 0; i < plotterModule.panels.length; i++) {
+                    let panel = plotterModule.panels[i]
 
-                  let parameters = {
-                    devTeam: pProductCard.product.plotter.devTeam,
-                    plotterCodeName: pProductCard.product.plotter.codeName,
-                    moduleCodeName: pProductCard.product.plotter.moduleName,
-                    panelCodeName: panel.id
+                    let parameters = {
+                      dataMine: dataMine.code.codeName,
+                      plotterCodeName: plotterModule.parentNode.code.codeName,
+                      moduleCodeName: plotterModule.code.codeName,
+                      panelNode: panel
+                    }
+
+                    let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.
+                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
+                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
+
+                    /* Connect Panel to the Plotter via an Event. */
+                    connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
+                    connector.panels.push(plotterPanelHandle)
                   }
-                  let panelOwner = exchange + ' ' + market.assetB + '/' + market.assetA
-                  let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, panelOwner, pProductCard.session, panel)
-                  let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle, panelOwner)
 
-                  /* Connect Panel to the Plotter via an Event. */
-                  productPlotter.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
-                  productPlotter.panels.push(plotterPanelHandle)
+                  connector.layer.panels = connector.panels
                 }
-              }
 
-              productPlotters.push(productPlotter)
-              callBack(GLOBAL.DEFAULT_OK_RESPONSE)
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
-              callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                thisObject.connectors.push(connector)
+              } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
+              }
             }
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> onProductStorageInitialized -> err = ' + err.stack) }
-          callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
+          if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> onProductStorageInitialized -> err = ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] initializeProductPlotter -> err = ' + err.stack) }
-      callBack(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> err = ' + err.stack) }
     }
   }
 
-  function onProductCardStatusChanged (pProductCard) {
-    if (pProductCard.status === PRODUCT_CARD_STATUS.LOADING) {
+  function onLayerStatusChanged (layer) {
+    if (layer.status === LAYER_STATUS.LOADING) {
             /* Lets see if we can find the Plotter of this card on our Active Plotters list, other wise we will initialize it */
       let found = false
-      for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].productCard.code === pProductCard.code) {
+      for (let i = 0; i < thisObject.connectors.length; i++) {
+        let connector = thisObject.connectors[i]
+        if (connector.layer.payload.node.id === layer.payload.node.id) {
           found = true
         }
       }
       if (found === false) {
-        initializeProductPlotter(pProductCard, onProductPlotterInitialized)
+        initializePlotter(layer, onProductPlotterInitialized)
         function onProductPlotterInitialized (err) {
                     /* There is no policy yet of what to do if this fails. */
         }
       }
     }
-    if (pProductCard.status === PRODUCT_CARD_STATUS.OFF) {
+    if (layer.status === LAYER_STATUS.OFF) {
             /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
-      for (let i = 0; i < productPlotters.length; i++) {
-        if (productPlotters[i].productCard.code === pProductCard.code) {
+      for (let i = 0; i < thisObject.connectors.length; i++) {
+        let connector = thisObject.connectors[i]
+        if (connector.layer.payload.node.id === layer.payload.node.id) {
                     /* Then the panels. */
-          for (let j = 0; j < productPlotters[i].panels.length; j++) {
-            canvas.panelsSpace.destroyPanel(productPlotters[i].panels[j])
+          for (let j = 0; j < connector.panels.length; j++) {
+            canvas.panelsSpace.destroyPanel(connector.panels[j])
           }
                     /* Finally the Storage Objects */
 
-          if (productPlotters[i].plotter.finalize !== undefined) {
-            productPlotters[i].plotter.container.finalize()
-            productPlotters[i].plotter.finalize()
+          if (connector.plotter.finalize !== undefined) {
+            connector.plotter.container.eventHandler.stopListening(connector.plotter.onRecordChangeEventsSubscriptionId)
+            connector.plotter.container.finalize()
+            connector.plotter.finalize()
           }
-          productPlotters[i].storage.finalize()
-          productPlotters.splice(i, 1) // Delete item from array.
+          finalizeStorage(connector.storage)
+          thisObject.connectors.splice(i, 1) // Delete item from array.
           return // We already found the product woth changes and processed it.
         }
       }
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
-    timePeriod = pTimePeriod
-    if (initializationReady === true) {
-      for (let i = 0; i < productPlotters.length; i++) {
-        let productPlotter = productPlotters[i]
-        productPlotter.productCard.setTimePeriod(timePeriod)
-        productPlotter.storage.setTimePeriod(timePeriod)
-        productPlotter.plotter.setTimePeriod(timePeriod)
-      }
+  function setTimeFrame (pTimeFrame) {
+    timeFrame = pTimeFrame
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
+      connector.layer.setTimeFrame(timeFrame)
+      connector.storage.setTimeFrame(timeFrame)
+      connector.plotter.setTimeFrame(timeFrame)
     }
   }
 
   function setDatetime (pDatetime) {
     datetime = pDatetime
-    for (let i = 0; i < productPlotters.length; i++) {
-      let productPlotter = productPlotters[i]
-      productPlotter.productCard.setDatetime(pDatetime)
-      productPlotter.storage.setDatetime(pDatetime)
-      productPlotter.plotter.setDatetime(pDatetime)
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
+      connector.layer.setDatetime(pDatetime)
+      connector.storage.setDatetime(pDatetime)
+      connector.plotter.setDatetime(pDatetime)
     }
   }
 
-  function positionAtDatetime (pDatetime) {
-    for (let i = 0; i < productPlotters.length; i++) {
-      let productPlotter = productPlotters[i]
-      if (productPlotter.plotter.positionAtDatetime !== undefined) {
-        productPlotter.plotter.positionAtDatetime(pDatetime)
-      }
+  function setCoordinateSystem (pCoordinateSystem) {
+    coordinateSystem = pCoordinateSystem
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[i]
+      connector.plotter.setCoordinateSystem(coordinateSystem)
     }
   }
 
@@ -341,11 +299,11 @@ function newPlottersManager () {
   }
 
   function draw () {
-    if (productPlotters === undefined) { return } // We need to wait
+    if (thisObject.connectors === undefined) { return } // We need to wait
         /* First the Product Plotters. */
-    for (let i = 0; i < productPlotters.length; i++) {
-      let productPlotter = productPlotters[i]
-      productPlotter.plotter.draw()
+    for (let i = 0; i < thisObject.connectors.length; i++) {
+      let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
+      connector.plotter.draw()
     }
   }
 }

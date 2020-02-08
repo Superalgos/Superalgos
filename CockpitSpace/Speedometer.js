@@ -51,24 +51,24 @@ function newSpeedometer () {
   }
 
   function drawAssetCircle () {
-    const RED_LINE_HIGHT = 5
-    const RADIOUS = 50
+    const RED_LINE_HIGHT = 2
+    const RADIUS = 50
     const OPACITY = 1
 
     let centerPoint = {
       x: thisObject.params.LEFT_OFFSET,
-      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2
+      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2 - 9
     }
 
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS + RED_LINE_HIGHT, 0.85 * Math.PI, 2.15 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0.85 * Math.PI, 2.15 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
     browserCanvasContext.fill()
 
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIOUS, 0.0 * Math.PI, 2.0 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS, 0.0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
@@ -79,7 +79,7 @@ function newSpeedometer () {
     const DEFAULT_THICKNESS = 2
     const VALUE_THICKNESS = 8
     const VALUE_BG_THICKNESS = 1
-    const BAR_RADIOUS = RADIOUS * 0.85
+    const BAR_RADIUS = RADIUS * 0.85
 
     let BAR_START_ANGLE = 0.85 * Math.PI
     let BAR_END_ANGLE = 2.15 * Math.PI
@@ -100,7 +100,7 @@ function newSpeedometer () {
       browserCanvasContext.setLineDash([0, 0])
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
@@ -108,7 +108,7 @@ function newSpeedometer () {
       browserCanvasContext.closePath()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, MIN_VALUE_ANGLE, CURRENT_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, MIN_VALUE_ANGLE, CURRENT_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
@@ -116,7 +116,7 @@ function newSpeedometer () {
       browserCanvasContext.closePath()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
@@ -125,7 +125,7 @@ function newSpeedometer () {
 
       if (PROFIT_VALUE_ANGLE > INIT_VALUE_ANGLE) {
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
+        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = VALUE_BG_THICKNESS
@@ -136,7 +136,7 @@ function newSpeedometer () {
       browserCanvasContext.setLineDash([2, 3])
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, BAR_START_ANGLE, MIN_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_THICKNESS
@@ -144,7 +144,7 @@ function newSpeedometer () {
       browserCanvasContext.closePath()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, MIN_VALUE_ANGLE, CURRENT_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, MIN_VALUE_ANGLE, CURRENT_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_THICKNESS
@@ -152,7 +152,7 @@ function newSpeedometer () {
       browserCanvasContext.closePath()
 
       browserCanvasContext.beginPath()
-      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
+      browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, CURRENT_VALUE_ANGLE, INIT_VALUE_ANGLE)
 
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
       browserCanvasContext.lineWidth = VALUE_THICKNESS
@@ -161,7 +161,7 @@ function newSpeedometer () {
 
       if (PROFIT_VALUE_ANGLE > INIT_VALUE_ANGLE) {
         browserCanvasContext.beginPath()
-        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIOUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
+        browserCanvasContext.arc(centerPoint.x, centerPoint.y, BAR_RADIUS, INIT_VALUE_ANGLE, PROFIT_VALUE_ANGLE)
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = VALUE_THICKNESS

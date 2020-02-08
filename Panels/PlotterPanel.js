@@ -8,18 +8,17 @@ function newPlotterPanel () {
 
   let thisObject = {
     fitFunction: undefined,
-    onRecordChange: onRecordChange,
     container: undefined,
+    isVisible: true,
+    onRecordChange: onRecordChange,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
-
-  container.frame.containerName = 'Plotter Panel'
+  thisObject.container = newContainer()
+  thisObject.container.initialize('Plotter Panel')
 
   let heightFactor = 1
   let currentRecord
@@ -28,15 +27,28 @@ function newPlotterPanel () {
 
   return thisObject
 
+  function finalize () {
+    thisObject.container.finalize()
+    thisObject.container = undefined
+    thisObject.fitFunction = undefined
+    thisObject.isVisible = undefined
+
+    heightFactor = undefined
+    currentRecord = undefined
+    panelTabButton.finalize()
+    panelTabButton = undefined
+    panelNode = undefined
+  }
+
   function initialize (pPanelNode) {
     panelNode = pPanelNode
-    container.frame.containerName = panelNode.name
+    thisObject.container.frame.containerName = panelNode.name
 
     thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
     thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL
 
-    thisObject.container.frame.position.x = viewPort.visibleArea.topRight.x - thisObject.container.frame.width - thisObject.container.frame.width * Math.random() * 8
-    thisObject.container.frame.position.y = viewPort.visibleArea.bottomLeft.y - thisObject.container.frame.height - thisObject.container.frame.height * Math.random() * 1.5
+    thisObject.container.frame.position.x = canvas.chartSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width - thisObject.container.frame.width * Math.random() * 8
+    thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height - thisObject.container.frame.height * Math.random() * 1.5
 
     panelTabButton = newPanelTabButton()
     panelTabButton.parentContainer = thisObject.container
@@ -46,6 +58,7 @@ function newPlotterPanel () {
   }
 
   function getContainer (point) {
+    if (thisObject.isVisible !== true) { return }
     let container
 
     container = panelTabButton.getContainer(point)
@@ -70,10 +83,10 @@ function newPlotterPanel () {
   }
 
   function draw () {
+    if (thisObject.isVisible !== true) { return }
+
     thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
-
     plotCurrentRecordData()
-
     panelTabButton.draw()
   }
 

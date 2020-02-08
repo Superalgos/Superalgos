@@ -22,7 +22,8 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    isTensed: false,
+    angleToParent: ANGLE_TO_PARENT.RANGE_90,
+    distanceToParent: DISTANCE_TO_PARENT.PARENT_100X,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -30,13 +31,15 @@ function newFloatingObject () {
     getPinStatus: getPinStatus,
     getFreezeStatus: getFreezeStatus,
     getCollapseStatus: getCollapseStatus,
-    getTensionStatus: getTensionStatus,
+    getAngleToParent: getAngleToParent,
+    getDistanceToParent: getDistanceToParent,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
     freezeToggle: freezeToggle,
     collapseToggle: collapseToggle,
-    tensionToggle: tensionToggle,
+    angleToParentToggle: angleToParentToggle,
+    distanceToParentToggle: distanceToParentToggle,
     physics: physics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
@@ -138,8 +141,12 @@ function newFloatingObject () {
     return thisObject.isCollapsed
   }
 
-  function getTensionStatus () {
-    return thisObject.isTensed
+  function getAngleToParent () {
+    return thisObject.angleToParent
+  }
+
+  function getDistanceToParent () {
+    return thisObject.distanceToParent
   }
 
   function freezeToggle () {
@@ -164,32 +171,73 @@ function newFloatingObject () {
     return thisObject.isCollapsed
   }
 
-  function tensionToggle () {
-    if (thisObject.isTensed !== true) {
-      thisObject.isTensed = true
-      thisObject.tensedManually = true
-    } else {
-      thisObject.isTensed = false
-      thisObject.tensedManually = false
+  function angleToParentToggle () {
+    switch (thisObject.angleToParent) {
+      case ANGLE_TO_PARENT.NOT_FIXED:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
+        break
+      case ANGLE_TO_PARENT.RANGE_360:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+        break
+      case ANGLE_TO_PARENT.RANGE_180:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+        break
+      case ANGLE_TO_PARENT.RANGE_90:
+        thisObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+        break
+      case ANGLE_TO_PARENT.RANGE_45:
+        thisObject.angleToParent = ANGLE_TO_PARENT.NOT_FIXED
+        break
     }
-    return thisObject.isTensed
+
+    return thisObject.angleToParent
+  }
+
+  function distanceToParentToggle () {
+    switch (thisObject.distanceToParent) {
+      case DISTANCE_TO_PARENT.NOT_FIXED:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
+        break
+      case DISTANCE_TO_PARENT.PARENT_025X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+        break
+      case DISTANCE_TO_PARENT.PARENT_050X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+        break
+      case DISTANCE_TO_PARENT.PARENT_100X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
+        break
+      case DISTANCE_TO_PARENT.PARENT_150X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
+        break
+      case DISTANCE_TO_PARENT.PARENT_200X:
+        thisObject.distanceToParent = DISTANCE_TO_PARENT.NOT_FIXED
+        break
+    }
+
+    return thisObject.distanceToParent
   }
 
   function physics () {
     collapsePhysics()
+    frozenPhysics()
+    /* From here on, only if they are not too far. */
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
     thisObject.payload.uiObject.physics()
-    frozenPhysics()
-    tensionPhysics()
+    positionContraintsPhysics()
   }
 
   function frozenPhysics () {
     if (thisObject.frozenManually !== false) { return }
     if (thisObject.payload === undefined) { return }
     let parent = thisObject.payload.chainParent
-    if (parent !== undefined && parent.payload !== undefined) {
-      thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+    if (parent !== undefined) {
+      if (parent.payload !== undefined) {
+        if (parent.payload.floatingObject !== undefined) {
+          thisObject.isFrozen = parent.payload.floatingObject.isFrozen
+        }
+      }
     }
   }
 
@@ -205,20 +253,54 @@ function newFloatingObject () {
     }
   }
 
-  function tensionPhysics () {
-    /* Tension Effect */
-
-    if (thisObject.isTensed === true) {
+  function positionContraintsPhysics () {
+    if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
       let parent = thisObject.payload.chainParent
       if (parent === undefined) { return }
       if (parent.payload === undefined) { return }
       if (parent.payload.position === undefined) { return }
 
-      let distanceToChainParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+      let distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
       let parentChildren = canvas.designerSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
       let axisCount = parentChildren.childrenCount
       let axisIndex = parentChildren.childIndex
       let baseAngle = 0
+      let angleToParentAngle
+
+      if (parent.payload.distance !== undefined) {
+        switch (thisObject.distanceToParent) {
+          case DISTANCE_TO_PARENT.PARENT_025X:
+            distanceToParent = parent.payload.distance / 4
+            break
+          case DISTANCE_TO_PARENT.PARENT_050X:
+            distanceToParent = parent.payload.distance / 2
+            break
+          case DISTANCE_TO_PARENT.PARENT_100X:
+            distanceToParent = parent.payload.distance
+            break
+          case DISTANCE_TO_PARENT.PARENT_150X:
+            distanceToParent = parent.payload.distance * 1.5
+            break
+          case DISTANCE_TO_PARENT.PARENT_200X:
+            distanceToParent = parent.payload.distance * 2
+            break
+        }
+      }
+
+      switch (thisObject.angleToParent) {
+        case ANGLE_TO_PARENT.RANGE_360:
+          angleToParentAngle = 360
+          break
+        case ANGLE_TO_PARENT.RANGE_180:
+          angleToParentAngle = 180
+          break
+        case ANGLE_TO_PARENT.RANGE_90:
+          angleToParentAngle = 90
+          break
+        case ANGLE_TO_PARENT.RANGE_45:
+          angleToParentAngle = 45
+          break
+      }
 
       if (axisIndex === undefined) {
         axisCount = 1
@@ -238,18 +320,21 @@ function newFloatingObject () {
         }
       }
 
-      let angleStep = 360 / axisCount
+      let separatorAngle = (360 - angleToParentAngle) / 2
+      let angleStep = angleToParentAngle / axisCount
 
-      thisObject.payload.angle = baseAngle + (axisIndex - 1) * angleStep
+      thisObject.payload.angle = baseAngle + separatorAngle + (axisIndex - 1) * angleStep
       if (thisObject.payload.angle >= 360) {
         thisObject.payload.angle = thisObject.payload.angle - 360
       }
 
-      if (distanceToChainParent > 2000) { return } // this is introduced to avoid edges cases when importing workspaces.
+      thisObject.payload.distance = distanceToParent
+
+      if (distanceToParent > 2000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
-        x: parent.payload.position.x + distanceToChainParent * Math.cos(toRadians(thisObject.payload.angle)),
-        y: parent.payload.position.y + distanceToChainParent * Math.sin(toRadians(thisObject.payload.angle))
+        x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),
+        y: parent.payload.position.y + distanceToParent * Math.sin(toRadians(thisObject.payload.angle))
       }
       if (isNaN(newPosition.x) === false) {
         thisObject.container.frame.position.x = newPosition.x
@@ -330,6 +415,7 @@ function newFloatingObject () {
   }
 
   function removeFocus () {
+    if (thisObject.payload === undefined) { return }
     if (thisObject.isOnFocus === true) {
       thisObject.targetRadius = thisObject.rawRadius * 1
       thisObject.targetImageSize = thisObject.rawImageSize * 1
@@ -478,4 +564,3 @@ function newFloatingObject () {
   function updateRadius () {
   }
 }
-

@@ -48,106 +48,10 @@ function newUiObjectTitle () {
     thisObject.payload = payload
 
     thisObject.allwaysVisible = false // Default value
-    switch (payload.node.type) {
-      case 'Definition': {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.isTitleAllwaysVisible === true) {
         thisObject.allwaysVisible = true
-        break
-      }
-      case 'Team': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Sensor Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Indicator Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading Bot': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Process Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Product Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Dataset Definition': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Record Property': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Plotter': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Plotter Module': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Network': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Announcement': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Layer': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Sensor Bot Instance': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Indicator Bot Instance': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Backtesting Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Live Trading Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Fordward Testing Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Paper Trading Session': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Workspace': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Trading System': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      case 'Strategy': {
-        thisObject.allwaysVisible = true
-        break
-      }
-      default: {
-        let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
-        if (nodeDefinition !== undefined) {
-          if (nodeDefinition.isTitleAllwaysVisible === true) {
-            thisObject.allwaysVisible = true
-          }
-        }
       }
     }
 
@@ -178,12 +82,73 @@ function newUiObjectTitle () {
 
   function physics () {
     if (thisObject.payload.title === undefined) { return }
+
+    /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.title !== undefined) {
+      thisObject.payload.title = ''
+      thisObject.payload.node.name = ''
+      let separator = ''
+      for (let i = 0; i < nodeDefinition.title.length; i++) {
+        let titleReference = nodeDefinition.title[i]
+        switch (titleReference) {
+          case 'Use Reference Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+              thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+              thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+            }
+            break
+          }
+          case 'Use Reference Grandparent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+              if (nodeToUse !== undefined) {
+                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+              }
+            }
+            break
+          }
+          case 'Use Reference Parent Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+              if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+              }
+            }
+            break
+          }
+          case 'Use Reference Parent Parent Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+              if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
+                if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                  thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                  thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                }
+              }
+            }
+            break
+          }
+        }
+        separator = ' '
+      }
+    }
+
     let title = trimTitle(thisObject.payload.title)
 
+    /* Here we set the dimensions and position of this object */
     const FRAME_HEIGHT = 25
-    const FRAME_WIDTH = title.length / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
+    const Y_OFFSET = -20
+    const FRAME_WIDTH = (title.length + 2) / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
     thisObject.container.frame.position.x = 0 - FRAME_WIDTH / 2
-    thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO - 20 - FRAME_HEIGHT
+    thisObject.container.frame.position.y = 0 - thisObject.container.frame.radius * 1 / 2 - thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO + Y_OFFSET - FRAME_HEIGHT
 
     thisObject.container.frame.width = FRAME_WIDTH
     thisObject.container.frame.height = FRAME_HEIGHT
@@ -191,7 +156,7 @@ function newUiObjectTitle () {
     if (thisObject.editMode === true) {
       let inputPosition = {
         x: 0,
-        y: 0 + CURRENT_TOP_MARGIN
+        y: 0 + CURRENT_TOP_MARGIN + Y_OFFSET
       }
 
       inputPosition = thisObject.container.frame.frameThisPoint(inputPosition)
@@ -213,6 +178,9 @@ function newUiObjectTitle () {
   }
 
   function onMouseClick (event) {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.title !== undefined) { return }
+
     let checkPoint = {
       x: 0,
       y: 0
@@ -252,7 +220,7 @@ function newUiObjectTitle () {
       }
     }
 
-    input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira; font-size: ' + fontSize + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + WIDTH + 'px; height: ' + HEIGHT + 'px'
+    input.style = 'resize: none; border: none; outline: none; box-shadow: none; overflow:hidden; font-family: Saira Condensed; font-size: ' + fontSize + 'px; background-color: rgb(' + backgroundColor + ');color:rgb(255, 255, 255); width: ' + WIDTH + 'px; height: ' + HEIGHT + 'px'
     input.style.display = 'block'
     input.focus()
   }

@@ -1,5 +1,5 @@
  ﻿
-function newProductStorage (pName) {
+function newProductStorage (name) {
   const MODULE_NAME = 'Product Storage'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -31,7 +31,7 @@ function newProductStorage (pName) {
     singleFile: [],
     fileSequences: [],
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     initialize: initialize,
     finalize: finalize
   }
@@ -40,10 +40,10 @@ function newProductStorage (pName) {
 
     /* We name the event Handler to easy debugging. */
 
-  thisObject.eventHandler.name = 'Storage-' + pName
+  thisObject.eventHandler.name = 'Storage-' + name
 
   let datetime
-  let timePeriod
+  let timeFrame
 
   return thisObject
 
@@ -74,23 +74,23 @@ function newProductStorage (pName) {
     }
   }
 
-  function initialize (pDevTeam, pBot, pSession, pProduct, pExchange, pMarket, pDatetime, pTimePeriod, callBackFunction) {
+  function initialize (dataMine, bot, session, product, exchange, market, pDatetime, pTimeFrame, callBackFunction) {
     try {
       datetime = pDatetime
-      timePeriod = pTimePeriod
+      timeFrame = pTimeFrame
 
       let dataSetsToLoad = 0
       let dataSetsLoaded = 0
 
-      for (let i = 0; i < pProduct.dataSets.length; i++) {
-        let thisSet = pProduct.dataSets[i]
+      for (let i = 0; i < product.datasets.length; i++) {
+        let dataset = product.datasets[i]
 
-        switch (thisSet.type) {
+        switch (dataset.code.type) {
           case 'Market Files': {
             dataSetsToLoad++
 
             let marketFiles = newMarketFiles()
-            marketFiles.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onMarketFileReady)
+            marketFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, onMarketFileReady)
             thisObject.marketFiles.push(marketFiles)
           }
             break
@@ -99,7 +99,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let dailyFiles = newDailyFiles()
-            dailyFiles.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, pDatetime, pTimePeriod, onDailyFileReady)
+            dailyFiles.initialize(dataMine, bot, session, product, dataset, exchange, market, pDatetime, pTimeFrame, onDailyFileReady)
             thisObject.dailyFiles.push(dailyFiles)
           }
             break
@@ -108,7 +108,7 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let singleFile = newSingleFile()
-            singleFile.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onSingleFileReady)
+            singleFile.initialize(dataMine, bot, session, product, dataset, exchange, market, onSingleFileReady)
             thisObject.singleFile.push(singleFile)
           }
             break
@@ -117,12 +117,12 @@ function newProductStorage (pName) {
             dataSetsToLoad++
 
             let fileSequences = newFileSequence()
-            fileSequences.initialize(pDevTeam, pBot, pSession, pProduct, thisSet, pExchange, pMarket, onFileSequenceReady)
+            fileSequences.initialize(dataMine, bot, session, product, dataset, exchange, market, onFileSequenceReady)
             thisObject.fileSequences.push(fileSequences)
           }
             break
           default:
-            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> initialize -> dataset with no type defined. Data can not be retrieved. -> codeName = ' + thisSet.codeName) }
+            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> dataset with no type defined or type not supported -> dataset.code.type = ' + dataset.code.type) }
         }
 
         function onMarketFileReady (err, pCaller) {
@@ -309,7 +309,7 @@ function newProductStorage (pName) {
     datetime = new Date(pDatetime)
 
     if (currentDate !== newDate) {
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         for (let i = 0; i < thisObject.dailyFiles.length; i++) {
           thisObject.dailyFiles[i].setDatetime(pDatetime)
         }
@@ -317,15 +317,15 @@ function newProductStorage (pName) {
     }
   }
 
-  function setTimePeriod (pTimePeriod) {
-        /* We are going to filter out the cases in which the timePeriod received is the same that the one we already know. */
+  function setTimeFrame (pTimeFrame) {
+        /* We are going to filter out the cases in which the timeFrame received is the same that the one we already know. */
 
-    if (timePeriod !== pTimePeriod) {
-      timePeriod = pTimePeriod
+    if (timeFrame !== pTimeFrame) {
+      timeFrame = pTimeFrame
 
-      if (timePeriod <= _1_HOUR_IN_MILISECONDS) {
+      if (timeFrame <= _1_HOUR_IN_MILISECONDS) {
         for (let i = 0; i < thisObject.dailyFiles.length; i++) {
-          thisObject.dailyFiles[i].setTimePeriod(pTimePeriod, datetime)
+          thisObject.dailyFiles[i].setTimeFrame(pTimeFrame, datetime)
         }
       }
     }

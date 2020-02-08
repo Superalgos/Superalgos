@@ -9,6 +9,7 @@ function newCircularMenuItem () {
     confirmationLabel: undefined,
     iconOn: undefined,
     iconOff: undefined,
+    icons: undefined,
     currentIcon: undefined,
     disableIfPropertyIsDefined: undefined,
     propertyToCheckFor: undefined,
@@ -92,6 +93,7 @@ function newCircularMenuItem () {
     thisObject.container = undefined
     thisObject.iconOn = undefined
     thisObject.iconOff = undefined
+    thisObject.icons = undefined
     thisObject.currentIcon = undefined
     thisObject.payload = undefined
     thisObject.actionFunction = undefined
@@ -110,7 +112,7 @@ function newCircularMenuItem () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (thisObject.type === 'Icon & Text') {
-      thisObject.container.frame.width = 185
+      thisObject.container.frame.width = 150
     } else {
       thisObject.container.frame.width = 50
     }
@@ -144,15 +146,28 @@ function newCircularMenuItem () {
       }
     }
 
-    let radiousGrowthFactor
+    let radiusGrowthFactor
     if (thisObject.type === 'Icon Only') {
-      radiousGrowthFactor = 5
+      switch (thisObject.ring) {
+        case 1: {
+          radiusGrowthFactor = 5
+          break
+        }
+        case 2: {
+          radiusGrowthFactor = 3.5
+          break
+        }
+        case 3: {
+          radiusGrowthFactor = 2
+          break
+        }
+      }
     } else {
-      radiousGrowthFactor = 4
+      radiusGrowthFactor = 4
     }
 
-    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiousGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
+    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
     /* Temporary Status impacts on the label to use and the background of that label */
     if (temporaryStatusCounter > 0) {
@@ -195,8 +210,13 @@ function newCircularMenuItem () {
         thisObject.iconOn = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
         thisObject.iconOff = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
       } else {
-        thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
-        thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
+        if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
+          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
+          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
+        } else {
+          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+        }
       }
     }
 
@@ -300,7 +320,7 @@ function newCircularMenuItem () {
             }
           } else {
             if (thisObject.workFailedLabel != undefined) {
-              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_PRIMARY_WORK_FAILED)
             }
           }
         } else {
@@ -311,7 +331,7 @@ function newCircularMenuItem () {
             }
           } else {
             if (thisObject.workFailedLabel != undefined) {
-              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_PRIMARY_WORK_FAILED)
+              setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_PRIMARY_WORK_FAILED)
             }
           }
         }
@@ -323,7 +343,7 @@ function newCircularMenuItem () {
           }
         } else {
           if (thisObject.secondaryWorkFailedLabel != undefined) {
-            setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 500, STATUS_SECONDARY_WORK_FAILED)
+            setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 250, STATUS_SECONDARY_WORK_FAILED)
           }
         }
       }

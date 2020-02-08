@@ -872,8 +872,6 @@ function newUiObject () {
       y: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.y
     }
 
-    targetPoint = thisObject.container.frame.frameThisPoint(targetPoint)
-
     let position = {
       x: 0,
       y: 0

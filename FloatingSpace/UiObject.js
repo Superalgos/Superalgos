@@ -868,9 +868,11 @@ function newUiObject () {
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
-      x: thisObject.payload.targetPosition.x,
-      y: thisObject.payload.targetPosition.y
+      x: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.x,
+      y: thisObject.payload.chainParent.payload.floatingObject.container.frame.position.y
     }
+
+    targetPoint = thisObject.container.frame.frameThisPoint(targetPoint)
 
     let position = {
       x: 0,
@@ -881,8 +883,6 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (thisObject.container.frame.radius > 1) {
-            /* Target Line */
-
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
       if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
         LINE_STYLE = UI_COLOR.GOLDEN_ORANGE
@@ -911,8 +911,6 @@ function newUiObject () {
     }
 
     if (thisObject.container.frame.radius > 0.5) {
-            /* Target Spot */
-
       let radius = 1
 
       browserCanvasContext.beginPath()
@@ -945,8 +943,6 @@ function newUiObject () {
     let LINE_STYLE = UI_COLOR.GREY
 
     if (thisObject.container.frame.radius > 1) {
-            /* Target Line */
-
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
@@ -967,8 +963,6 @@ function newUiObject () {
     }
 
     if (thisObject.container.frame.radius > 0.5) {
-            /* Target Spot */
-
       let radius = 1
 
       browserCanvasContext.beginPath()

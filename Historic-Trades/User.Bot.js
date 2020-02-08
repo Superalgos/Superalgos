@@ -17,7 +17,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let statusDependencies
 
     const ONE_MINUTE = 60000
-    const MAX_TRADES_PER_EXECUTION = 100000
+    const MAX_TRADES_PER_EXECUTION = 10000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -366,6 +366,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                         }
                         function createMissingEmptyFiles(begin, end) {
+
+                            /*
+                            If this range is too wide, we will consider this means that the begin is before the begining of this market at this exchange.
+                            In that case we will change the begin and the beginingOfMarket
+                            */
+
+                            if ((end - begin) / 60 / 24 > 7) {
+                                begin = end
+                                beginingOfMarket = new Date(end * ONE_MINUTE)
+                            }
 
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'

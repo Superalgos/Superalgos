@@ -12,7 +12,7 @@ function newFileCursor () {
     eventHandler: undefined, // received from parent
     reload: reload,
     setDatetime: setDatetime,
-    setTimePeriod: setTimePeriod,
+    setTimeFrame: setTimeFrame,
     files: new Map(),
     getExpectedFiles: getExpectedFiles,
     initialize: initialize,
@@ -25,13 +25,13 @@ function newFileCursor () {
   let market
   let exchange
   let fileCloud
-  let devTeam
+  let dataMine
   let bot
   let session
   let product
-  let thisSet
+  let dataset
   let periodName
-  let timePeriod
+  let timeFrame
   let beginDateRange
   let endDateRange
 
@@ -52,13 +52,13 @@ function newFileCursor () {
       market = undefined
       exchange = undefined
       fileCloud = undefined
-      devTeam = undefined
+      dataMine = undefined
       bot = undefined
       session = undefined
       product = undefined
-      thisSet = undefined
+      dataset = undefined
       periodName = undefined
-      timePeriod = undefined
+      timeFrame = undefined
       beginDateRange = undefined
       endDateRange = undefined
 
@@ -66,33 +66,33 @@ function newFileCursor () {
       cursorDate = undefined
       fileCloud = undefined
       periodName = undefined
-      timePeriod = undefined
+      timeFrame = undefined
       finalized = true
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
   }
 
-  function initialize (pFileCloud, pDevTeam, pBot, pSession, pProduct, pSet, pExchange, pMarket, pPeriodName, pTimePeriod, pCursorDate, pCurrentTimePeriod, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (pFileCloud, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pTimeFrame, pCursorDate, pCurrentTimeFrame, pBeginDateRange, pEndDateRange, callBackFunction) {
     try {
       market = pMarket
       exchange = pExchange
       fileCloud = pFileCloud
-      devTeam = pDevTeam
+      dataMine = pDataMine
       bot = pBot
       session = pSession
       product = pProduct
-      thisSet = pSet
+      dataset = pDataset
       periodName = pPeriodName
       cursorDate = removeTime(pCursorDate)
-      timePeriod = pTimePeriod
+      timeFrame = pTimeFrame
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
 
-      let key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + thisSet.codeName
+      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName
       systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponseDataSet, updateFiles)
 
-      key = devTeam.codeName + '-' + bot.codeName + '-' + product.codeName + '-' + pPeriodName
+      key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + pPeriodName
       systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
@@ -147,7 +147,7 @@ function newFileCursor () {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+      fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, file) {
         try {
@@ -167,7 +167,7 @@ function newFileCursor () {
     }
   }
 
-  function setTimePeriod (pTimePeriod, pDatetime) {
+  function setTimeFrame (pTimeFrame, pDatetime) {
     try {
       if (finalized === true) { return }
 
@@ -177,7 +177,7 @@ function newFileCursor () {
       We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
       is set, then it should exit the saving mode and go to its actual size.
 
-      To do this we are going to measure the distance from the Time Period received to the one the cursors was initialized with.
+      To do this we are going to measure the distance from the Time Frame received to the one the cursors was initialized with.
       If these periods are consecutive, it means that the cursor should exit saving mode and load its full size.
 
       */
@@ -189,11 +189,11 @@ function newFileCursor () {
       for (let i = 0; i < dailyFilePeriods.length; i++) {
         let period = dailyFilePeriods[i]
 
-        if (period[0] === pTimePeriod) {
+        if (period[0] === pTimeFrame) {
           positionA = i
         }
 
-        if (period[0] === timePeriod) {
+        if (period[0] === timeFrame) {
           positionB = i
         }
       }
@@ -206,7 +206,7 @@ function newFileCursor () {
 
       function enterSavingMode () {
         try {
-          switch (timePeriod) {
+          switch (timeFrame) {
 
             case _45_MINUTES_IN_MILISECONDS:
               {
@@ -277,13 +277,13 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> enterSavingMode -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> enterSavingMode -> err = ' + err.stack) }
         }
       }
 
       function exitSavingMode () {
         try {
-          switch (timePeriod) {
+          switch (timeFrame) {
 
             case _45_MINUTES_IN_MILISECONDS:
               {
@@ -354,11 +354,11 @@ function newFileCursor () {
             default:
           }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> exitSavingMode -> err = ' + err.stack) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> exitSavingMode -> err = ' + err.stack) }
         }
       }
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] setTimePeriod -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] setTimeFrame -> err = ' + err.stack) }
     }
   }
 
@@ -447,7 +447,7 @@ function newFileCursor () {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(devTeam, bot, session, thisSet, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+              fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }

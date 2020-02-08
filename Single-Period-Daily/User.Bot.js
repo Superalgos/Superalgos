@@ -56,11 +56,12 @@
 
             let market = bot.market;
 
-            let lastTradeFileAvailable;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
+            let lastTradeFileProcessed;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let lastTradeFileSaved;   // Datetime of the last verified file without holes.
             let lastCandleClose;        // Value of the last candle close.
             let lastTradeFile;          // Datetime pointing to the last Trade File sucessfuly processed and included in the last file.
+            let beginingOfMarket
 
             getContextVariables();
 
@@ -114,25 +115,37 @@
 
                     thisReport = statusDependencies.statusReports.get(reportKey).file;
 
-                    if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
+                    if (thisReport.lastFile === undefined) { // Means this is the first time ever this process runs.
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
 
-                        lastTradeFileAvailable = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
-                        findLastCandleCloseValue();
-                        return;
-                    }
+                        lastCandleClose = 0;
+                        lastTradeFileProcessed = new Date(firstTradeFile.valueOf())
+                        beginingOfMarket = new Date(firstTradeFile.valueOf())
 
-                    lastTradeFileAvailable = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
-                    lastCandleClose = thisReport.candleClose;
-
-                    if (thisReport.fileComplete === true) {
                         buildCandlesAndVolumes();
+
                     } else {
-                        lastTradeFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + thisReport.lastTradeFile.hours + ":" + thisReport.lastTradeFile.minutes + GMT_SECONDS);
-                        findPreviousContent();
-                    }
-                 
+                        logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey);
+
+                        lastTradeFileProcessed = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
+                        lastCandleClose = thisReport.candleClose;
+                        beginingOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
+
+                        if (beginingOfMarket.valueOf() !== firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                            beginingOfMarket = new Date(firstTradeFile.valueOf())
+                            lastTradeFileProcessed = new Date(firstTradeFile.valueOf())
+                            lastCandleClose = 0
+                            buildCandlesAndVolumes()
+                            return
+                        }
+
+                        if (thisReport.fileComplete === true) {
+                            buildCandlesAndVolumes();
+                        } else {
+                            lastTradeFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + thisReport.lastTradeFile.hours + ":" + thisReport.lastTradeFile.minutes + GMT_SECONDS);
+                            findPreviousContent();
+                        }
+                    }                                           
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
@@ -161,7 +174,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-                            let dateForPath = lastTradeFileAvailable.getUTCFullYear() + '/' + utilities.pad(lastTradeFileAvailable.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileAvailable.getUTCDate(), 2);
+                            let dateForPath = lastTradeFileProcessed.getUTCFullYear() + '/' + utilities.pad(lastTradeFileProcessed.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileProcessed.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
@@ -212,7 +225,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-                            let dateForPath = lastTradeFileAvailable.getUTCFullYear() + '/' + utilities.pad(lastTradeFileAvailable.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileAvailable.getUTCDate(), 2);
+                            let dateForPath = lastTradeFileProcessed.getUTCFullYear() + '/' + utilities.pad(lastTradeFileProcessed.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileProcessed.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
@@ -241,7 +254,7 @@
 
                                     volumesFile = JSON.parse(text);
                                     previousVolumes = volumesFile;
-                                    lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+                                    lastTradeFileProcessed = new Date(lastTradeFileProcessed.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
                                     buildCandlesAndVolumes(previousCandles, previousVolumes);
 
                                 } catch (err) {
@@ -262,131 +275,6 @@
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                }
-            }
-
-            function findLastCandleCloseValue() {
-
-                try {
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering function."); }
-
-                    /*
-                    We will search and find for the last trade before the begining of the current candle and that will give us the last close value.
-                    Before going backwards, we need to be sure we are not at the begining of the market.
-                    */
-
-                    if ((Number((new Date()).getUTCFullYear()) === firstTradeFile.getUTCFullYear() && parseInt(((new Date()).getUTCMonth() + 1)) === firstTradeFile.getUTCMonth() + 1)) {
-
-                        /*
-                        We are at the begining of the market, so we will set everyting to build the first candle.
-                        */
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Begining of the market detected."); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
-
-                        lastTradeFileAvailable = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                        lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() - ONE_DAY_IN_MILISECONDS);
-
-                        lastCandleClose = 0;
-                        buildCandlesAndVolumes();
-
-                    } else {
-
-                        /*
-                        We are not at the begining of the market, so we need scan backwards the trade files until we find a non empty one and get the last trade.
-                        */
-
-                        let date = new Date(processDate.valueOf());
-
-                        loopStart();
-
-                        function loopStart() {
-
-                            try {
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> Entering function."); }
-
-                                date = new Date(date.valueOf() - 60 * 1000);
-
-                                let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                                let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
-                                let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
-                                filePath += '/' + fileName
-
-                                fileStorage.getTextFile(filePath, onFileReceived);
-
-                                logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopStart -> reading file at dateForPath = " + dateForPath);
-
-                                function onFileReceived(err, text) {
-
-                                    let tradesFile;
-
-                                    try {
-
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Entering function."); }
-
-                                        /*
-                                        There is a situation at the end of each month where the process might have been started at the new month before dependent processes have
-                                        created the expected file. For those cases we will retry instead of just aborting the process.
-                                        */
-                                        if (err.result === global.CUSTOM_FAIL_RESPONSE.result && err.message === 'File does not exist.') {
-                                            logger.write(MODULE_NAME, "[WARN] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err received = " + err.stack);
-                                            logger.write(MODULE_NAME, "[WARN] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text received = " + text);
-                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                            return;
-                                        }
-
-                                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err received = " + err.stack);
-                                            logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text received = " + text);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-
-                                        if (LOG_FILE_CONTENT === true) {
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
-                                        }
-
-                                        tradesFile = JSON.parse(text);
-
-                                        if (tradesFile.length > 0) {
-
-                                            lastCandleClose = tradesFile[tradesFile.length - 1][2]; // Position 2 is the rate at which the trade was executed.
-
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Trades found at " + filePath + " for market " + market.baseAsset + '_' + market.quotedAsset + ".");
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> lastCandleClose = " + lastCandleClose);
-
-                                            buildCandlesAndVolumes();
-
-                                        } else {
-
-                                            logger.write(MODULE_NAME, "[INFO] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> NO Trades found at " + filePath + " for market " + market.baseAsset + '_' + market.quotedAsset + ".");
-
-                                            loopStart();
-                                        }
-
-                                    } catch (err) {
-
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> err = " + err.stack);
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> filePath = " + filePath);
-                                        logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> onFileReceived ->  text = " + text);
-                                        logger.write(MODULE_NAME, "[HINT] start -> findLastCandleCloseValue -> loopStart -> onFileReceived -> Empty or corrupt volume file found.");
-                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        return;
-                                    }
-                                }
-                            } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> loopStart -> err = " + err.stack);
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            }
-                        }
-                    }
-                } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> findLastCandleCloseValue -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -412,9 +300,9 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> Entering function."); }
 
-                            lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            lastTradeFileProcessed = new Date(lastTradeFileProcessed.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                            let date = new Date(lastTradeFileAvailable.valueOf() - 60 * 1000);
+                            let date = new Date(lastTradeFileProcessed.valueOf() - 60 * 1000);
 
                             if (date.valueOf() < firstTradeFile.valueOf()) {  // At the special case where we are at the begining of the market, this might be true.
                                 date = new Date(firstTradeFile.valueOf() - 60 * 1000);
@@ -481,9 +369,9 @@
 
                                     /* Check if we are outside the current Day / File */
 
-                                    if (date.getUTCDate() !== lastTradeFileAvailable.getUTCDate()) {
+                                    if (date.getUTCDate() !== lastTradeFileProcessed.getUTCDate()) {
 
-                                        writeFiles(lastTradeFileAvailable, candles, volumes, true, onFilesWritten);
+                                        writeFiles(lastTradeFileProcessed, candles, volumes, true, onFilesWritten);
 
                                         return;
 
@@ -497,7 +385,7 @@
 
                                     if (date.valueOf() > lastTradeFileSaved.valueOf()) {
 
-                                        writeFiles(lastTradeFileAvailable, candles, volumes, false, onFilesWritten);
+                                        writeFiles(lastTradeFileProcessed, candles, volumes, false, onFilesWritten);
                                         return;
 
                                         function onFilesWritten() {
@@ -880,6 +768,13 @@
                             days: lastTradeFile.getUTCDate(),
                             hours: lastTradeFile.getUTCHours(),
                             minutes: lastTradeFile.getUTCMinutes()
+                        },
+                        beginingOfMarket: {
+                            year: beginingOfMarket.getUTCFullYear(),
+                            month: (beginingOfMarket.getUTCMonth() + 1),
+                            days: beginingOfMarket.getUTCDate(),
+                            hours: beginingOfMarket.getUTCHours(),
+                            minutes: beginingOfMarket.getUTCMinutes()
                         },
                         candleClose: candleClose,
                         fileComplete: isFileComplete

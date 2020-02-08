@@ -11,7 +11,7 @@ The version in development opens up the door to working with multiple exchanges 
 | Exchange | Historic Data Capability [*] | Trading Capability [**] |
 | :--- | :---: | :---: | 
 | Binance | &#x2611; | &#x2611; |
-| Bitfinex | &#x2611; | &#x2610; |
+| Bitfinex | &#x2611; | &#x2611; |
 | Bitmex | &#x2611; | &#x2610; |
 | HitBTC | &#x2610; | &#x2610; |
 | Kraken | &#x2611; | &#x2610; |

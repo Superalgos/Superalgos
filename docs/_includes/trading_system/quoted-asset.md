@@ -3,8 +3,9 @@
 {% assign title = "Quoted Asset" %}
 {% assign definition = site.data.trading_system.quoted_asset %}
 {% assign preposition = "a" %}
+{% assign plural = "s" %}
 
-<!-- TITLE AND DEFINITION ends -->
+<!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.heading != "" %}
 {{include.heading}} {{title}}
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,25 +35,35 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
 
-<!-- CONTENT starts -->
+{% if include.content != "no" %}
+
+<!--------------------------------------------- CONTENT starts -->
 
 The quoted asset must reference the second asset in the same market of the same exchange as the reference established with the base asset.
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add a parameter that may be missing, select *Add Missing Params* on the parameters node menu. 
 
@@ -70,6 +81,22 @@ To add a parameter that may be missing, select *Add Missing Params* on the param
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<!-- CONFIGURING ends -->
+<!--------------------------------------------- CONFIGURING ends -->
 
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!--------------------------------------------- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- STARTING ends -->
+
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

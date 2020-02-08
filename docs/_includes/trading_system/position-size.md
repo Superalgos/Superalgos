@@ -3,8 +3,9 @@
 {% assign title = "Position Size" %}
 {% assign definition = site.data.trading_system.position_size %}
 {% assign preposition = "the" %}
+{% assign plural = "s" %}
 
-<!-- TITLE AND DEFINITION ends -->
+<!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.heading != "" %}
 {{include.heading}} {{title}}
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,25 +35,35 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
 
-<!-- CONTENT starts -->
+{% if include.content != "no" %}
+
+<!--------------------------------------------- CONTENT starts -->
 
 
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add a position size node, select *Add Missing Items* on the initial definitions node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
 
@@ -68,6 +79,22 @@ To add a position size node, select *Add Missing Items* on the initial definitio
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<!-- CONFIGURING ends -->
+<!--------------------------------------------- CONFIGURING ends -->
 
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!--------------------------------------------- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- STARTING ends -->
+
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

@@ -3,6 +3,7 @@
 {% assign title = "XXXXXXXXXXXXXXXX" %}
 {% assign definition = site.data.network.XXXXXXXXXXXXXXXX %}
 {% assign preposition = "XXXXXXXXXXXXXXXX" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,11 +35,16 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.content != "no" %}
 
 <!--------------------------------------------- CONTENT starts -->
 
@@ -46,6 +52,11 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
@@ -82,4 +93,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- STARTING ends -->
 
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

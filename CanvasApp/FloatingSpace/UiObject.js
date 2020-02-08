@@ -1321,7 +1321,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([10, 90])
         browserCanvasContext.stroke()
@@ -1329,7 +1329,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 5
         browserCanvasContext.setLineDash([5, 45])
         browserCanvasContext.stroke()
@@ -1337,7 +1337,7 @@ function newUiObject () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
+        browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 1
         browserCanvasContext.setLineDash([2, 8])
         browserCanvasContext.stroke()
@@ -1370,7 +1370,7 @@ function newUiObject () {
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         let additionalImageSize = 0
-        if (thisObject.isExecuting === true) { additionalImageSize = 20 }
+        if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
 
         browserCanvasContext.drawImage(

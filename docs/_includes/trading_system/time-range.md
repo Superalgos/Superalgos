@@ -3,8 +3,9 @@
 {% assign title = "Time Range" %}
 {% assign definition = site.data.trading_system.time_range %}
 {% assign preposition = "a" %}
+{% assign plural = "s" %}
 
-<!-- TITLE AND DEFINITION ends -->
+<!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.heading != "" %}
 {{include.heading}} {{title}}
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,25 +35,35 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
 
-<!-- CONTENT starts -->
+{% if include.content != "no" %}
+
+<!--------------------------------------------- CONTENT starts -->
 
 
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add a parameter that may be missing, select *Add Missing Params* on the parameters node menu. 
 
@@ -93,6 +104,22 @@ These sessions always start at the datetime the session is run, therefore, there
 
 * ```finalDatetime``` is the datetime the session finishes at. If you don't set a *finalDatetime* at the level of the testing session or the trading system, then the session runs for one year.
 
-<!-- CONFIGURING ends -->
+<!--------------------------------------------- CONFIGURING ends -->
 
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!--------------------------------------------- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- STARTING ends -->
+
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

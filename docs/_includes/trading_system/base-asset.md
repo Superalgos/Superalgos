@@ -3,6 +3,7 @@
 {% assign title = "Base Asset" %}
 {% assign definition = site.data.trading_system.base_asset %}
 {% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!-- TITLE AND DEFINITION ends -->
 
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,25 +35,35 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.content != "no" %}
 
 <!-- CONTENT starts -->
 
 The basse asset must reference an asset in a specific market of a specific exchange in the Crypto Ecosystem hierarchy.
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add a parameter that may be missing, select *Add Missing Params* on the parameters node menu. 
 
@@ -89,3 +100,6 @@ Select *Configure Base Asset* on the menu to access the configuration.
 
 {% endif %}
 
+{% if include.more == "yes" %}
+</details>
+{% endif %}

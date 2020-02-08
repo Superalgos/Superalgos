@@ -3,8 +3,9 @@
 {% assign title = "Open Stage" %}
 {% assign definition = site.data.trading_system.open_stage %}
 {% assign preposition = "the" %}
+{% assign plural = "s" %}
 
-<!-- TITLE AND DEFINITION ends -->
+<!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.heading != "" %}
 {{include.heading}} {{title}}
@@ -12,19 +13,19 @@
 
 {% if include.icon != "no" %} 
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 <table class="definitionTable"><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
 
-{% if include.table == "y" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td><td>
 {% endif %}
 
 {% endif %}
 
-{% if include.definition != "regular" %}
+{% if include.definition == "bold" %}
 
 <strong>{{ definition }}</strong>
 
@@ -34,13 +35,18 @@
 
 {% endif %}
 
-{% if include.table == "y" and include.icon != "no" %}
+{% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.content != "n" %}
+{% if include.more == "yes" and include.content == "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
 
-<!-- CONTENT starts -->
+{% if include.content != "no" %}
+
+<!--------------------------------------------- CONTENT starts -->
 
 Conceptually, the open stage deals with the details that concern the opening of a trade once the decision to take a position has been made. In this stage, you deal with the aforementioned parameters, each of which is defined by a formula.
 
@@ -48,15 +54,20 @@ Ideally, the open stage would also handle the parameters that define the executi
 
 {% include note.html content="Learn more about the temporal <a href='suite-execution-limitation.html'>execution limitations</a>." %}
 
-<!-- CONTENT ends -->
+<!--------------------------------------------- CONTENT ends -->
 
+{% endif %}
+
+{% if include.more == "yes" and include.content != "more" %}
+<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
 {{include.adding}} Adding {{preposition}} {{title}}
 
-<!-- ADDING starts -->
+<!--------------------------------------------- ADDING starts -->
 
 To add an open stage node, select *Add Missing Stages* on the strategy node menu. All stages that may be missing are created along with the rest of the basic structure of nodes required to define each of them and their events.
 
@@ -74,6 +85,22 @@ To add an open stage node, select *Add Missing Stages* on the strategy node menu
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<!-- CONFIGURING ends -->
+<!--------------------------------------------- CONFIGURING ends -->
 
+{% endif %}
+
+{% if include.starting != "" %}
+
+{{include.starting}} Starting {{preposition}} {{title}}
+
+<!--------------------------------------------- STARTING starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- STARTING ends -->
+
+{% endif %}
+
+{% if include.more == "yes" %}
+</details>
 {% endif %}

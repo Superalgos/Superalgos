@@ -325,19 +325,19 @@ You do not start or stop a trading process instance directly. Instead, you start
 
 
 
-{% include /trading_system/parameters.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/parameters.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/base-asset.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/base-asset.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/quoted-asset.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/quoted-asset.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/time-frame.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/time-frame.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/time-range.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/time-range.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/slippage.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/slippage.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/fee-structure.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/fee-structure.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 

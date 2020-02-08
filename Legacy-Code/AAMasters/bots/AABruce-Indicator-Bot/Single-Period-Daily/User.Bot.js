@@ -56,7 +56,7 @@
 
             let market = bot.market;
 
-            let lastHoleFixedFile;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
+            let lastTradeFileAvailable;         // Datetime of the last file certified by the Hole Fixing process as without permanent holes.
             let firstTradeFile;         // Datetime of the first trade file in the whole market history.
             let lastTradeFileSaved;   // Datetime of the last verified file without holes.
             let lastCandleClose;        // Value of the last candle close.
@@ -118,12 +118,12 @@
                         logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> If the status report does not exist we will point the lasCandleFile to the last day of the previous month.");
 
-                        lastHoleFixedFile = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        lastTradeFileAvailable = new Date(processDate.valueOf() - ONE_DAY_IN_MILISECONDS);
                         findLastCandleCloseValue();
                         return;
                     }
 
-                    lastHoleFixedFile = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
+                    lastTradeFileAvailable = new Date(thisReport.lastTradeFile.year + "-" + thisReport.lastTradeFile.month + "-" + thisReport.lastTradeFile.days + " " + "00:00" + GMT_SECONDS);
                     lastCandleClose = thisReport.candleClose;
 
                     if (thisReport.fileComplete === true) {
@@ -161,7 +161,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
                             let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-                            let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
+                            let dateForPath = lastTradeFileAvailable.getUTCFullYear() + '/' + utilities.pad(lastTradeFileAvailable.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileAvailable.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
@@ -212,7 +212,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
                             let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-                            let dateForPath = lastHoleFixedFile.getUTCFullYear() + '/' + utilities.pad(lastHoleFixedFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastHoleFixedFile.getUTCDate(), 2);
+                            let dateForPath = lastTradeFileAvailable.getUTCFullYear() + '/' + utilities.pad(lastTradeFileAvailable.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileAvailable.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
 
@@ -241,7 +241,7 @@
 
                                     volumesFile = JSON.parse(text);
                                     previousVolumes = volumesFile;
-                                    lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
+                                    lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() - ONE_DAY_IN_MILISECONDS);  // We know that after the next call a new day will be added.
                                     buildCandlesAndVolumes(previousCandles, previousVolumes);
 
                                 } catch (err) {
@@ -287,8 +287,8 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> Entering market = " + JSON.stringify(market)); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> lastCandleClose = " + lastCandleClose); }
 
-                        lastHoleFixedFile = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
-                        lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() - ONE_DAY_IN_MILISECONDS);
+                        lastTradeFileAvailable = new Date(firstTradeFile.getUTCFullYear() + "-" + (firstTradeFile.getUTCMonth() + 1) + "-" + firstTradeFile.getUTCDate() + " " + "00:00" + GMT_SECONDS);
+                        lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() - ONE_DAY_IN_MILISECONDS);
 
                         lastCandleClose = 0;
                         buildCandlesAndVolumes();
@@ -412,9 +412,9 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandlesAndVolumes -> nextFile -> Entering function."); }
 
-                            lastHoleFixedFile = new Date(lastHoleFixedFile.valueOf() + ONE_DAY_IN_MILISECONDS);
+                            lastTradeFileAvailable = new Date(lastTradeFileAvailable.valueOf() + ONE_DAY_IN_MILISECONDS);
 
-                            let date = new Date(lastHoleFixedFile.valueOf() - 60 * 1000);
+                            let date = new Date(lastTradeFileAvailable.valueOf() - 60 * 1000);
 
                             if (date.valueOf() < firstTradeFile.valueOf()) {  // At the special case where we are at the begining of the market, this might be true.
                                 date = new Date(firstTradeFile.valueOf() - 60 * 1000);
@@ -481,9 +481,9 @@
 
                                     /* Check if we are outside the current Day / File */
 
-                                    if (date.getUTCDate() !== lastHoleFixedFile.getUTCDate()) {
+                                    if (date.getUTCDate() !== lastTradeFileAvailable.getUTCDate()) {
 
-                                        writeFiles(lastHoleFixedFile, candles, volumes, true, onFilesWritten);
+                                        writeFiles(lastTradeFileAvailable, candles, volumes, true, onFilesWritten);
 
                                         return;
 
@@ -497,7 +497,7 @@
 
                                     if (date.valueOf() > lastTradeFileSaved.valueOf()) {
 
-                                        writeFiles(lastHoleFixedFile, candles, volumes, false, onFilesWritten);
+                                        writeFiles(lastTradeFileAvailable, candles, volumes, false, onFilesWritten);
                                         return;
 
                                         function onFilesWritten() {

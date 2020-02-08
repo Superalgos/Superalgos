@@ -955,38 +955,37 @@ toc: false
 
 
 
+{% include /trading_system/trading-system.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/trading-system.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/parameters.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/parameters.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/base-asset.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/base-asset.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/quoted-asset.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/quoted-asset.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/time-frame.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/time-frame.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/time-range.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/time-range.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/slippage.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/slippage.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/fee-structure.md heading="##" icon="150-" adding="###" configuring="###" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/fee-structure.md heading="##" icon="150-" adding="###" configuring="###" %}
+{% include /trading_system/strategy.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/strategy.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/trigger-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/trigger-stage.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/trigger-on-event.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/trigger-on-event.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/situation.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/situation.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/condition.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/condition.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/trigger-off-event.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/trigger-off-event.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/take-position-event.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/take-position-event.md heading="##" icon="150-" adding="###" configuring="" %}
-
-{% include /trading_system/open-stage.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/open-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 
@@ -1005,7 +1004,7 @@ To add an initial definition node, select *Add Initial Definition* on the open s
 
 
 
-{% include /trading_system/initial-stop.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/initial-stop.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 
@@ -1029,7 +1028,7 @@ To add the phase 0 node, select *Add Phase* on the initial definitions node menu
 
 
 
-{% include /trading_system/formula.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/formula.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 
@@ -1054,11 +1053,11 @@ To add a next phase event, select *Add Next Phase Event* on the corresponding ph
 
 
 
-{% include /trading_system/initial-take-profit.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/initial-take-profit.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/position-size.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/position-size.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include /trading_system/position-rate.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/position-rate.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 
@@ -1083,7 +1082,7 @@ To add an open execution node, select *Add Open Execution* on the open stage nod
 
 
 
-{% include /trading_system/manage-stage.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/manage-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 
@@ -1141,7 +1140,7 @@ To add a take profit node, select *Add Missing Items* on the manage stage node m
 
 
 
-{% include /trading_system/close-stage.md heading="##" icon="150-" adding="###" configuring="" %}
+{% include /trading_system/close-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 
 

@@ -213,7 +213,7 @@ function newViewport () {
     } else {
       newEvent.type = 'Zoom Out'
     }
-    console.log(thisObject.zoomTargetLevel)
+
     thisObject.eventHandler.raiseEvent('Zoom Changed', newEvent)
     return true
   }

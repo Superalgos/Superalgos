@@ -32,6 +32,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let fetchType = "by Time"
     let lastId
     let firstId
+    let rateLimit
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
 
@@ -67,6 +68,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (bot.exchangeNode.code.API[i].firstId !== undefined) {
                             firstId = bot.exchangeNode.code.API[i].firstId
                         }
+                        if (bot.exchangeNode.code.API[i].rateLimit !== undefined) {
+                            rateLimit = bot.exchangeNode.code.API[i].rateLimit
+                        }
                     }
                 }
             }
@@ -87,6 +91,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 verbose: false,
                 options: options
             }
+            if (rateLimit !== undefined) {
+                exchangeConstructorParams.rateLimit = rateLimit
+            }
 
             exchange = new exchangeClass(exchangeConstructorParams)
 
@@ -106,14 +113,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 return
             }
 
+            let abort = false
             begin()
 
             async function begin() {
 
                 getContextVariables()
-                
+                if (abort === true) { return }
                 await getFirstId()
                 await getTrades()
+                if (abort === true) { return}
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                     return
@@ -142,7 +151,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         lastFileSaved = new Date(thisReport.file.lastFileSaved.year + "-" + thisReport.file.lastFileSaved.month + "-" + thisReport.file.lastFileSaved.days + " " + thisReport.file.lastFileSaved.hours + ":" + thisReport.file.lastFileSaved.minutes + GMT_SECONDS);
                         lastId = thisReport.file.lastId
                     } else {  // This means this is the first time this process run.
-                        beginingOfMarket = new Date()
+                        beginingOfMarket = new Date(uiStartDate.valueOf())
                     }
 
                     defineSince()
@@ -158,8 +167,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             initialProcessTimestamp = since
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
-                            since = lastFileSaved.valueOf()
-                            initialProcessTimestamp = lastFileSaved.valueOf()
+                            if (lastFileSaved !== undefined) {
+                                since = lastFileSaved.valueOf()
+                                initialProcessTimestamp = lastFileSaved.valueOf()
+                            } else {
+                                since = uiStartDate.valueOf()
+                                initialProcessTimestamp = uiStartDate.valueOf()
+                            }                            
                         }
                     }
 
@@ -170,6 +184,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    abort = true
                 }
             }
 
@@ -263,7 +278,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getTrades -> Retrying Later -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                   
+                    abort = true
                 }
             }
 
@@ -431,6 +446,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> saveTrades -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    abort = true
                 }
             }
 

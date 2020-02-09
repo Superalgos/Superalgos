@@ -987,71 +987,15 @@ toc: false
 
 {% include /trading_system/open-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-## Initial Definition
-
-<img src='images/icons/150-initial-definition.png' />
-
-**{{site.data.trading_system.initial_definition}}**
-
-### Adding an Initial Definition
-
-To add an initial definition node, select *Add Initial Definition* on the open stage node menu. The initial definition node is created along with the rest of the basic structure of nodes required to define the initial state of the position.
-
-
-
-
+{% include /trading_system/initial-definition.md heading="##" icon="150-" adding="###" configuring="" starting="" content="no" definition="bold" table="yes" more="no"%}
 
 {% include /trading_system/initial-stop.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-
-
-## Phase 0
-
-<img src='images/icons/150-phase-0.png' />
-
-**{{site.data.trading_system.phase_0}}**
-
-### Adding Phase 0
-
-To add the phase 0 node, select *Add Phase* on the initial definitions node menu. The missing phase 0 node is created along with the rest of the basic structure of nodes required to define it.
-
-{% include note.html content="Only one phase&mdash;phase 0&mdash;may exist in the initial definition of the open stage." %}
-
-
-
-
-
+{% include /trading_system/phase-0.md heading="##" icon="150-" adding="###" configuring="" starting="" content="no" definition="bold" table="yes" more="no"%}
 
 {% include /trading_system/formula.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-
-
-
-## Next Phase Event
-
-<img src='images/icons/150-next-phase-event.png' />
-
-**{{site.data.trading_system.next_phase_event}}**
-
-The management of a trade is performed in sequential phases. Each phase may define a new formula for stop loss and take profit targets. To move from one phase to the next, a certain situation must be validated. When that happens, the next phase event is triggered and the formulas corresponding to the following phase are applied. Such situations must be defined under the next phase event.
-
-### Adding a Next Phase Event
-
-To add a next phase event, select *Add Next Phase Event* on the corresponding phase node menu. The event is added along with the basic structure of nodes to define it.
-
-
-
-
-
+{% include /trading_system/next-phase-event.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 {% include /trading_system/initial-take-profit.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
@@ -1059,102 +1003,16 @@ To add a next phase event, select *Add Next Phase Event* on the corresponding ph
 
 {% include /trading_system/position-rate.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-
-
-
-
-## Open Execution
-
-<img src='images/icons/150-open-execution.png' />
-
-**{{site.data.trading_system.open_execution}}**
-
-{% include note.html content="You don't need to do anything with this node for the time being, other than make sure it is present once you are ready to trade live." %}
-
-### Adding an Open Execution Node
-
-To add an open execution node, select *Add Open Execution* on the open stage node menu.
-
-
-
-
+{% include /trading_system/open-execution.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
 {% include /trading_system/manage-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
+{% include /trading_system/stop.md heading="##" icon="150-" adding="###" configuring="" starting="" content="no" definition="bold" table="yes" more="no"%}
 
+{% include /trading_system/phase-1.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-## Stop
-
-<img src='images/icons/150-stop.png' />
-
-**{{site.data.trading_system.stop}}**
-
-### Adding a Stop Node
-
-To add a stop node, select *Add Missing Items* on the manage stage node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
-
-
-
-## Phase 1
-
-<img src='images/icons/150-phase-1.png' />
-
-**{{site.data.trading_system.phase_1}}**
-
-The management of phases happens in a sequence. Phase 1 comes after phase 0, which holds the initial definitions for stop and take profit targets. You may continue adding phase 2, phase 3 and so on. Once the next phase event is triggered in one phase, the system applies the targets of the following phase and starts monitoring the situations defined in the corresponding next phase event.
-
-{% include note.html content="Notice that stop loss and take profit phases are independent and defined separately from each other, each below the corresponding stop and take-profit branch of the manage stage." %}
-
-### Adding a New Phase
-
-To add a new phase, select *Add Phase* on the stop or take-profit node menu. A new phase is added along with the basic structure of nodes required to define each of them and their events.
-
-
-
-
-
-
-
-## Take Profit
-
-<img src='images/icons/150-take-profit.png' />
-
-**{{site.data.trading_system.take_profit}}**
-
-### Adding a Take Profit Node
-
-To add a take profit node, select *Add Missing Items* on the manage stage node menu. All items that may be missing are created along with the rest of the basic structure of nodes required to define each of them.
-
-
-
-
-
-
-
-
-
+{% include /trading_system/take-profit.md heading="##" icon="150-" adding="###" configuring="" starting="" content="no" definition="bold" table="yes" more="no"%}
 
 {% include /trading_system/close-stage.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-
-
-
-
-
-## Close Execution
-
-<img src='images/icons/150-close-execution.png' />
-
-**{{site.data.trading_system.close_execution}}**
-
-{% include note.html content="You don't need to do anything with this node for the time being, other than make sure it is present once you are ready to trade live." %}
-
-### Adding a Close Execution Node
-
-To add a close execution node, select *Add Close Execution* on the open stage node menu.
+{% include /trading_system/close-execution.md heading="##" icon="150-" adding="###" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}

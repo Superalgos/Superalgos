@@ -38,7 +38,7 @@
             'secret': secret,
             'timeout': 30000,
             'enableRateLimit': true,
-            verbose: false,
+            verbose: true,
             options: options
         }
 

@@ -48,7 +48,7 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The management of a trade aims to increase the efficiency of your trading system. Conceptually, a trade is not an instant event, but an event which has an opening, a period of maturation, and a closing. The management of the trade happens in that period of maturation.
+The management of a trade aims to increase the efficiency of your trading system. Conceptually, a trade is not an instantaneous event, but an event which has an opening, a period of maturation, and a closing. The management of the trade happens in that period of maturation.
 
 The concept of managing the trade means that the formulas to determine the take profit and stop may change as the trade develops. The typical situation in which you may want to change your original take profit and stop formulas is when the trade seems to be going well in your favor.
 

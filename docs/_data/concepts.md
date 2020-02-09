@@ -22,4 +22,6 @@ indicator_bot: "An indicator bot processes data to produce more elaborate datase
 
 trading_bot: "Based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots), a trading bot applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session."
 
+superalgos_protocol: "In conceptual terms, the Superalgos Protocol determines the structure in which the information decribing a trading system is stored and provides guidance on how traders shall create and automate strategies. In practical terms, the protocol results in a file with a specific format capable of holding all the information concerning any number and variety of strategies. In its current early version, the protocol is the description of a JSON object which defines the desired automation."
+
 pending: "balanceAssetA, balanceAssetB, overfitting, supported assets, supported exchanges, supported markets"

@@ -8,8 +8,8 @@ function newPanelsSpace () {
   let thisObject = {
     visible: true,
     container: undefined,
-    makeVisible: makeVisible,
-    makeInvisible: makeInvisible,
+    unHide: unHide,
+    hide: hide,
     createNewPanel: createNewPanel,
     destroyPanel: destroyPanel,
     getPanel: getPanel,
@@ -76,20 +76,20 @@ function newPanelsSpace () {
     return panel.handle
   }
 
-  function makeVisible (owner, type) {
+  function unHide (owner, type) {
     for (let i = 0; i < thisObject.panels.length; i++) {
       let panel = thisObject.panels[i]
       if (panel.owner === owner && panel.type === type) {
-        panel.isVisible = true
+        panel.isHidden = false
       }
     }
   }
 
-  function makeInvisible (owner, type) {
+  function hide (owner, type) {
     for (let i = 0; i < thisObject.panels.length; i++) {
       let panel = thisObject.panels[i]
       if (panel.owner === owner && panel.type === type) {
-        panel.isVisible = false
+        panel.isHidden = true
       }
     }
   }
@@ -144,7 +144,7 @@ function newPanelsSpace () {
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
-        if (panel.isVisible === false) { continue }
+        if (panel.isVisible === false || panel.isHidden === true) { continue }
         /* setting the speed of the panel */
         if (panel.container.speed === undefined) {
           panel.container.speed = {
@@ -246,7 +246,7 @@ function newPanelsSpace () {
 
       for (let i = 0; i < currentIndex; i++) {
         let panel = thisObject.panels[i]
-        if (panel.isVisible === true) {
+        if (panel.isVisible === true && panel.isHidden === false) {
           if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) {
             pushOut(currentContainer, panel.container, panel.gravitatesTowards)
           }
@@ -319,7 +319,7 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
       let owner = canvas.chartSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
-        if (panel.isVisible === true) {
+        if (panel.isVisible === true && panel.isHidden === false) {
           panel.draw()
         }
       }
@@ -338,7 +338,7 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
       let owner = canvas.chartSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
-        if (panel.isVisible === true) {
+        if (panel.isVisible === true && panel.isHidden === false) {
           container = panel.getContainer(point)
         }
       }

@@ -131,6 +131,7 @@ function drawIcon (icon, xFactor, yFactor, xOffset, yOffset, imageSize, containe
       }
 
       imagePosition = container.frame.frameThisPoint(imagePosition)
+
       browserCanvasContext.drawImage(
         icon, imagePosition.x,
         imagePosition.y,

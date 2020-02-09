@@ -194,7 +194,24 @@ function newCanvas () {
     }
   }
 
+  function checkGifRecording (event) {
+    if (event.keyCode === 121) { //  F10
+      if (areWeRecording === false) {
+        mediaRecorder = new CCapture({ format: 'webm', framerate: 12, name: 'Superalgos.video' })
+        mediaRecorder.start()
+        areWeRecording = true
+        console.log('RECORDING')
+      } else {
+        console.log('SAVING')
+        areWeRecording = false
+        mediaRecorder.stop()
+        mediaRecorder.save()
+      }
+    }
+  }
   function onKeyDown (event) {
+    checkGifRecording(event)
+
     let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
@@ -229,19 +246,6 @@ function newCanvas () {
         console.log(nodeOnFocus)
         return
       }
-    }
-
-    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Regenerates APP SCHEMA FILE
-      /*
-      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-        let schemaNode = APP_SCHEMA_ARRAY[i]
-        schemaNode.addLeftIcons = true
-      }
-      */
-      let text = JSON.stringify(APP_SCHEMA_ARRAY)
-      let fileName = 'AppSchema.json'
-      download(fileName, text)
-      return
     }
 
     if (event.altKey === true && event.code === 'ArrowUp') {

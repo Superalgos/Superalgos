@@ -41,6 +41,7 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const ZOOM_OUT_THRESHOLD = 10 // This regulates some behavious changes that happens when the user zoom out below this level.
 let FONT_ASPECT_RATIO = 0.32;
 
 

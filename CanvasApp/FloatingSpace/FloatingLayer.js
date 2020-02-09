@@ -288,18 +288,6 @@ function newFloatingLayer () {
             }
 
             switch (floatingObject.type) {
-
-              case 'Profile Ball': {
-                payload.targetPosition = floatingObject.payload.profile.position
-                payload.visible = floatingObject.payload.profile.visible
-                break
-              }
-              case 'Note': {
-                payload.targetPosition = floatingObject.payload.notes[floatingObject.payloadNoteIndex].position
-                payload.visible = floatingObject.payload.notes[floatingObject.payloadNoteIndex].visible
-
-                break
-              }
               case 'UI Object': {
                 payload.targetPosition = floatingObject.payload.targetPosition
                 payload.visible = floatingObject.payload.visible
@@ -559,15 +547,6 @@ function newFloatingLayer () {
         }
 
         switch (floatingObject2.type) {
-
-          case 'Profile Ball': {
-            payload.targetPosition = floatingObject2.payload.profile.position
-            break
-          }
-          case 'Note': {
-            payload.targetPosition = floatingObject2.payload.notes[floatingObject2.payloadNoteIndex].position
-            break
-          }
           case 'UI Object': {
             payload.targetPosition = floatingObject2.payload.targetPosition
             break

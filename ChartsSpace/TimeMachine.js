@@ -578,6 +578,32 @@ function newTimeMachine () {
         lineDash: [1, 3]
       }
       thisObject.container.frame.draw(false, true, false, thisObject.fitFunction, style)
+      drawLabel()
+    }
+  }
+
+  function drawLabel () {
+  /* Draw Title Above the Container */
+    let position = {
+      x: 0,
+      y: 0
+    }
+    let imageSize = 25
+    let fontSize = 25
+    let opacity = 1
+    let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    position = transformThisPoint(position, thisObject.container)
+    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)
+
+    if (icon !== undefined) {
+      if (icon.canDrawIcon === true) {
+        browserCanvasContext.drawImage(
+        icon, position.x - 0,
+        position.y - 30,
+        imageSize,
+        imageSize)
+      }
     }
   }
 

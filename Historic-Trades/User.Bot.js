@@ -158,8 +158,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             initialProcessTimestamp = since
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
-                            since = lastFileSaved.valueOf()
-                            initialProcessTimestamp = lastFileSaved.valueOf()
+                            if (lastFileSaved !== undefined) {
+                                since = lastFileSaved.valueOf()
+                                initialProcessTimestamp = lastFileSaved.valueOf()
+                            } else {
+                                since = uiStartDate.valueOf()
+                                initialProcessTimestamp = uiStartDate.valueOf()
+                            }                            
                         }
                     }
 

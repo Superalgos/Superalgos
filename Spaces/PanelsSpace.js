@@ -144,7 +144,7 @@ function newPanelsSpace () {
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
-
+        if (panel.isVisible === false) { continue }
         /* setting the speed of the panel */
         if (panel.container.speed === undefined) {
           panel.container.speed = {
@@ -319,7 +319,9 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
       let owner = canvas.chartSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
-        panel.draw()
+        if (panel.isVisible === true) {
+          panel.draw()
+        }
       }
     }
   }
@@ -336,7 +338,9 @@ function newPanelsSpace () {
       let panel = thisObject.panels[i]
       let owner = canvas.chartSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
-        container = panel.getContainer(point)
+        if (panel.isVisible === true) {
+          container = panel.getContainer(point)
+        }
       }
       if (container !== undefined) {
         return container

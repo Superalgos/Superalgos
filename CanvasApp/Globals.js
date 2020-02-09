@@ -41,6 +41,9 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 10 // This regulates some behavious changes that happens when the user zoom out below this level.
+const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 5  // This help regulate when to change the Time Frame base on the level of zoom out. 
+
 let FONT_ASPECT_RATIO = 0.32;
 
 

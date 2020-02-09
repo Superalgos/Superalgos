@@ -21,7 +21,8 @@ function newTimeFrameScale () {
   const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
-  let visible = true
+  let previousIsVisible = true
+  let greyOutCoverLayer = false
   let isMouseOver
 
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
@@ -88,12 +89,12 @@ function newTimeFrameScale () {
   function onMouseOverSomeTimeMachineContainer (event) {
     if (event.containerId === undefined) {
       /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
-      visible = true
+      greyOutCoverLayer = false
     } else {
       if (event.containerId === thisObject.container.id) {
-        visible = true
+        greyOutCoverLayer = false
       } else {
-        visible = false
+        greyOutCoverLayer = true
         turnOnCounter = 0
       }
     }
@@ -118,6 +119,22 @@ function newTimeFrameScale () {
   function physics () {
     readObjectState()
     positioningPhysics()
+    zoomOutPhysics()
+  }
+
+  function zoomOutPhysics () {
+    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+      let event = {}
+      event.timeFrame = thisObject.timeFrame
+      thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
+      previousIsVisible = true
+    }
+    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+      let event = {}
+      event.timeFrame = ONE_DAY_IN_MILISECONDS
+      thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
+      previousIsVisible = false
+    }
   }
 
   function positioningPhysics () {
@@ -303,7 +320,7 @@ function newTimeFrameScale () {
 
   function draw () {
     drawScaleBox()
-    if (visible === false) {
+    if (greyOutCoverLayer === true) {
       drawScaleDisplayCover(thisObject.container)
     }
   }

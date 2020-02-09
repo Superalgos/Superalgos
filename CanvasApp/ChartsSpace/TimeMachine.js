@@ -391,10 +391,12 @@ function newTimeMachine () {
   }
 
   function panelPhysics () {
-    if (thisObject.container.frame.isInViewPort() && canvas.chartSpace.viewport.zoomTargetLevel > 10) {
+    if (thisObject.container.frame.isInViewPort() && canvas.chartSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
       canvas.panelsSpace.makeVisible(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.makeVisible(thisObject.payload.node.id, 'Plotter Panel')
     } else {
       canvas.panelsSpace.makeInvisible(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id, 'Plotter Panel')
     }
   }
 

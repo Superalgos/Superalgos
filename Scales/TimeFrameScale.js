@@ -123,13 +123,13 @@ function newTimeFrameScale () {
   }
 
   function zoomOutPhysics () {
-    if (thisObject.isVisible === true && previousIsVisible === false) {
+    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
       let event = {}
       event.timeFrame = thisObject.timeFrame
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
       previousIsVisible = true
     }
-    if (thisObject.isVisible === false && previousIsVisible === true) {
+    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
       let event = {}
       event.timeFrame = ONE_DAY_IN_MILISECONDS
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)

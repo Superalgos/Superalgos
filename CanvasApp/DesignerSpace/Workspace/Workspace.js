@@ -260,14 +260,14 @@ function newWorkspace () {
         {
           let text = stringifyWorkspace(true)
           let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
         break
       case 'Backup Workspace':
         {
           let text = stringifyWorkspace(false)
           let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
         break
       case 'Edit Code':
@@ -284,7 +284,7 @@ function newWorkspace () {
             nodeName = '.' + nodeName
           }
           let fileName = 'Share - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break
@@ -299,7 +299,7 @@ function newWorkspace () {
             nodeName = ' ' + nodeName
           }
           let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break
@@ -314,7 +314,7 @@ function newWorkspace () {
             nodeName = ' ' + nodeName
           }
           let fileName = 'Clone - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break

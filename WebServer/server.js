@@ -273,6 +273,12 @@ function onBrowserRequest (request, response) {
       }
       break
 
+    case 'externalScripts': // This means the Scripts folder.
+        {
+              respondWithFile(process.env.PATH_TO_WEB_SERVER + 'externalScripts/' + requestParameters[2], response)
+        }
+        break
+
     case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
       {
         let dataMine = requestParameters[2]

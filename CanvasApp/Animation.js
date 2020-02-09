@@ -121,6 +121,13 @@ function newAnimation () {
         browserCanvas.height = 1
       }
 
+      /* Gif Recording */
+
+      if (areWeRecording === true) {
+        console.log('ADDING FRAME')
+        mediaRecorder.capture(browserCanvas)
+      }
+
       /* We request the next frame to be drawn, and stablishing a loop */
 
       /* Use this code for full animation speed. */
@@ -148,4 +155,3 @@ function newAnimation () {
     browserCanvasContext.fill()
   }
 }
-

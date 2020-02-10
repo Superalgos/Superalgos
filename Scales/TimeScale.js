@@ -269,7 +269,8 @@ function newTimeScale () {
 
     thisObject.isVisible = true
     if (thisObject.container.frame.position.y + thisObject.container.frame.height * 4 > bottonCorner.y ||
-        thisObject.container.frame.position.y < upCorner.y) {
+        thisObject.container.frame.position.y < upCorner.y ||
+      thisObject.container.frame.position.x < upCorner.x) {
       thisObject.isVisible = false
     }
   }

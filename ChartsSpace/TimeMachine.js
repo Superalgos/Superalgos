@@ -21,6 +21,7 @@ function newTimeMachine () {
     timeScale: undefined,
     rateScale: undefined,
     payload: undefined,
+    edgeEditor: undefined,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -101,6 +102,7 @@ function newTimeMachine () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
+    thisObject.edgeEditor = undefined
 
     mouse = undefined
     timelineChartsMap = undefined
@@ -148,6 +150,10 @@ function newTimeMachine () {
 
     onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
     onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+
+    thisObject.edgeEditor = newEdgeEditor()
+    thisObject.edgeEditor.initialize()
+    thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true)
 
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
@@ -268,6 +274,13 @@ function newTimeMachine () {
 
   function getContainer (point, purpose) {
     let container
+
+    container = thisObject.edgeEditor.getContainer(point)
+    if (container !== undefined) {
+      if (container.isForThisPurpose(purpose)) {
+        return container
+      }
+    }
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
       container = thisObject.rateScale.getContainer(point)
@@ -571,14 +584,8 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawForeground() }
       }
 
-      let style = {
-        color: UI_COLOR.BLACK,
-        opacity: 1,
-        lineWidth: 1,
-        lineDash: [1, 3]
-      }
-      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction, style)
       drawLabel()
+      thisObject.edgeEditor.drawForeground()
     }
   }
 

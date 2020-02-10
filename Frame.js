@@ -160,11 +160,13 @@ function newFrame () {
     return point
   }
 
-  function isThisPointHere (point, outsideViewPort, dontTransform) {
- // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+  function isThisPointHere (point, outsideViewPort, dontTransform, padding) {
+    // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+    // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the cointainer size) or positive (inside to decrease the cointainer size)
+
+    if (padding === undefined) { padding = 0 }
 
        /* We need not to modify the point received, so me make a copy of it. */
-
     let checkPoint = {
       x: point.x,
       y: point.y
@@ -193,7 +195,7 @@ function newFrame () {
     }
 
     if (thisObject.type === 'Rectangle') {
-      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+      if (checkPoint.x < 0 + padding || checkPoint.y < 0 + padding || checkPoint.x > thisObject.width + padding || checkPoint.y > thisObject.height + padding) {
         return false
       } else {
         return true

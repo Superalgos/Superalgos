@@ -405,6 +405,8 @@ function newTimeScale () {
       browserCanvasContext.lineTo(point8.x, point8.y)
       browserCanvasContext.lineTo(point9.x, point9.y)
 
+      browserCanvasContext.closePath()
+
       browserCanvasContext.lineWidth = LINE_WIDTH
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
       browserCanvasContext.stroke()

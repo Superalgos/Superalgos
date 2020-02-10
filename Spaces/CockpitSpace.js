@@ -106,14 +106,14 @@
    }
 
    function moveUp () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y - browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y - COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y < 0) {
        thisObject.container.frame.position.y = 0
      }
    }
 
    function moveDown () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y + browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y + COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y > browserCanvas.height - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
      }

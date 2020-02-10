@@ -198,13 +198,9 @@ function newCanvas () {
     if ((event.ctrlKey === true || event.metaKey === true)) {
       let constructorParams
       switch (event.keyCode) {
-        case 118: { //  F7
+        case 119: { //  F8
           downloadCanvas('Superalgos.image.capture')
           return
-          break
-        }
-        case 119: { //  F8
-          constructorParams = { format: 'png', name: 'Superalgos.image.capture' }
           break
         }
         case 120: { //  F9

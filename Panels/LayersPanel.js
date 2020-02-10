@@ -27,7 +27,6 @@ function newLayersPanel () {
 
   const LAYER_SEPARATION = 0
 
-  let visible = true
   let headerHeight = 40
   let footerHeight = 10
   let layerHeight = 70
@@ -188,12 +187,14 @@ function newLayersPanel () {
   }
 
   function panelSizePhysics () {
+    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
+
     let viewPortHeight = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
 
     if (viewPortHeight < headerHeight) {
-      visible = false
+      thisObject.visible = false
     } else {
-      visible = true
+      thisObject.visible = true
     }
 
     if (desiredPanelHeight > viewPortHeight) {
@@ -239,6 +240,7 @@ function newLayersPanel () {
   }
 
   function getContainer (point) {
+    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
     let container
 
     container = thisObject.panelTabButton.getContainer(point)
@@ -367,7 +369,7 @@ function newLayersPanel () {
   }
 
   function draw () {
-    if (isInitialized === false || visible === false) { return }
+    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
 
     // thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 

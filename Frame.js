@@ -195,7 +195,7 @@ function newFrame () {
     }
 
     if (thisObject.type === 'Rectangle') {
-      if (checkPoint.x < 0 + padding || checkPoint.y < 0 + padding || checkPoint.x > thisObject.width + padding || checkPoint.y > thisObject.height + padding) {
+      if (checkPoint.x < 0 + padding || checkPoint.y < 0 + padding || checkPoint.x > thisObject.width - padding || checkPoint.y > thisObject.height - padding) {
         return false
       } else {
         return true

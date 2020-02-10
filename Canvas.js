@@ -267,27 +267,22 @@ function newCanvas () {
       }
     }
 
-    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
 
-    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft' || event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
-      thisObject.cockpitSpace.toMiddle()
-      return
-    }
-
-    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
       thisObject.cockpitSpace.moveUp()
       return
     }
 
-    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       thisObject.cockpitSpace.moveDown()
       return
     }

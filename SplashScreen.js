@@ -71,12 +71,9 @@ function newSplashScreen () {
         /* Set the background. */
 
     browserCanvasContext.beginPath()
-
     browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height)
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ')'
-
     browserCanvasContext.closePath()
-
     browserCanvasContext.fill()
 
     if (canDrawLogo === false) { return }
@@ -100,18 +97,18 @@ function newSplashScreen () {
         /* Second the % of Advance. */
 
     let label = '' + Math.trunc(stepsInitializationCounter) + ' %'
-    stepsInitializationCounter = stepsInitializationCounter + 5.0
+    stepsInitializationCounter = stepsInitializationCounter + 2.0
 
     if (stepsInitializationCounter > 99) {
       splashScreenNeeded = false
       stepsInitializationCounter = 99
     }
 
-    let fontSize = 10
+    let fontSize = 15
 
     let labelPoint = {
-      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 25,
-      y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 80 + yDisplacement
+      x: thisObject.container.frame.width / 2 - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 22,
+      y: thisObject.container.frame.height / 2 + fontSize / 2 + fontSize * 0.1 + 90 + yDisplacement
     }
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -123,13 +120,13 @@ function newSplashScreen () {
 
         /* Algo Bots Competitions Sub Title */
 
-    fontSize = 15
+    fontSize = 35
 
     title = 'Beta'
 
     titlePoint = {
       x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,
-      y: thisObject.container.frame.height / 2 - fontSize * 2 + 80 + yDisplacement
+      y: thisObject.container.frame.height / 2 + 70 + yDisplacement
     }
 
     browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

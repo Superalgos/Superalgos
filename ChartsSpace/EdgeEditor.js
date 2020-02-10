@@ -28,13 +28,6 @@ function newEdgeEditor () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
 
-  let mouse = {
-    position: {
-      x: 0,
-      y: 0
-    }
-  }
-
   return thisObject
 
   function finalize () {
@@ -44,8 +37,6 @@ function newEdgeEditor () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
-
-    mouse = undefined
   }
 
   function initialize () {
@@ -99,7 +90,39 @@ function newEdgeEditor () {
   }
 
   function physics () {
-
+    if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
+    switch (whereIsMouseOver) {
+      case 'top' : {
+        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + thisObject.container.frame.position.y
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - thisObject.container.frame.position.y
+        thisObject.container.frame.position.x = 0
+        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+        break
+      }
+      case 'bottom' : {
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + thisObject.container.frame.position.y
+        thisObject.container.frame.position.x = 0
+        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+        break
+      }
+      case 'left' : {
+        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + thisObject.container.frame.position.x
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - thisObject.container.frame.position.x
+        thisObject.container.frame.position.x = 0
+        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+        break
+      }
+      case 'right' : {
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + thisObject.container.frame.position.x
+        thisObject.container.frame.position.x = 0
+        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+        break
+      }
+    }
   }
 
   function drawForeground () {

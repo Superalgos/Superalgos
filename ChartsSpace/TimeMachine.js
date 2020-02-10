@@ -202,11 +202,11 @@ function newTimeMachine () {
       if (event.isUserAction === true) {
         let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
         let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
         recalculateCoordinateSystem()
         moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, false, true, event.mousePosition)
       } else {
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
         recalculateCoordinateSystem()
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -277,9 +277,7 @@ function newTimeMachine () {
 
     container = thisObject.edgeEditor.getContainer(point)
     if (container !== undefined) {
-      if (container.isForThisPurpose(purpose)) {
-        return container
-      }
+      return container
     }
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
@@ -395,6 +393,8 @@ function newTimeMachine () {
   }
 
   function physics () {
+    thisObject.edgeEditor.physics()
+
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
       childrenPhysics()

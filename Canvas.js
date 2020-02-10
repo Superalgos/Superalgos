@@ -204,11 +204,11 @@ function newCanvas () {
           break
         }
         case 120: { //  F9
-          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 12, name: 'Superalgos.video.capture'}
+          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.video.capture'}
           break
         }
         case 121: { //  F10
-          constructorParams = { format: 'webm', framerate: 12, name: 'Superalgos.video.capture' }
+          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.video.capture' }
           break
         }
         default: return

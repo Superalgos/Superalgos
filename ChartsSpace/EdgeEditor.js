@@ -91,8 +91,17 @@ function newEdgeEditor () {
 
   function physics () {
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
+
+    const MIN_WIDTH = 100
+    const MIN_HEIGHT = 50
+
     switch (whereIsMouseOver) {
       case 'top' : {
+        if (thisObject.container.parentContainer.frame.height - thisObject.container.frame.position.y < MIN_HEIGHT) {
+          thisObject.container.frame.position.x = 0
+          thisObject.container.frame.position.y = 0
+          return
+        }
         thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + thisObject.container.frame.position.y
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - thisObject.container.frame.position.y
         thisObject.container.frame.position.x = 0
@@ -101,6 +110,11 @@ function newEdgeEditor () {
         break
       }
       case 'bottom' : {
+        if (thisObject.container.parentContainer.frame.height + thisObject.container.frame.position.y < MIN_HEIGHT) {
+          thisObject.container.frame.position.x = 0
+          thisObject.container.frame.position.y = 0
+          return
+        }
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + thisObject.container.frame.position.y
         thisObject.container.frame.position.x = 0
         thisObject.container.frame.position.y = 0
@@ -108,6 +122,11 @@ function newEdgeEditor () {
         break
       }
       case 'left' : {
+        if (thisObject.container.parentContainer.frame.width - thisObject.container.frame.position.x < MIN_WIDTH) {
+          thisObject.container.frame.position.x = 0
+          thisObject.container.frame.position.y = 0
+          return
+        }
         thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + thisObject.container.frame.position.x
         thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - thisObject.container.frame.position.x
         thisObject.container.frame.position.x = 0
@@ -116,6 +135,11 @@ function newEdgeEditor () {
         break
       }
       case 'right' : {
+        if (thisObject.container.parentContainer.frame.width + thisObject.container.frame.position.x < MIN_WIDTH) {
+          thisObject.container.frame.position.x = 0
+          thisObject.container.frame.position.y = 0
+          return
+        }
         thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + thisObject.container.frame.position.x
         thisObject.container.frame.position.x = 0
         thisObject.container.frame.position.y = 0

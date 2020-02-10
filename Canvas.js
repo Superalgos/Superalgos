@@ -227,6 +227,7 @@ function newCanvas () {
       }
     }
   }
+
   function onKeyDown (event) {
     checkMediaRecording(event)
 
@@ -266,27 +267,27 @@ function newCanvas () {
       }
     }
 
-    if (event.altKey === true && event.code === 'ArrowUp') {
+    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowDown') {
+    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowLeft' || event.altKey === true && event.code === 'ArrowRight') {
+    if (event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft' || event.altKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       thisObject.cockpitSpace.toMiddle()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.moveUp()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.moveDown()
       return
     }

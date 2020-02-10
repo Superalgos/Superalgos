@@ -19,6 +19,7 @@
     <script type="text/javascript" src="Scripts/require.js"></script>
     <script type="text/javascript" src="Scripts/AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
+    
 
     <script type="text/javascript">
         function loadCanvas() {
@@ -27,7 +28,7 @@
                     version: '',  // This is used to avoid catching problems at the browser level.
                     sessionToken: '',
                     visible: true,
-                    topMargin: 50,
+                    topMargin: 0,
                     urlPrefix: 'http://localhost:WEB_SERVER_PORT/',
                     graphQL: {
                         masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql',
@@ -54,7 +55,7 @@
 <body id="body" onload="loadCanvas()"
       style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
       onresize="onResize()">
-    <div id="header"><img src="Images/Superalgos-logo-dark-bg-horz.png" width="165px" height="40px" style="padding-left: 15px;"></div>
+     
     <div id="masterApp"></div>
     <div id="canvasApp"></div>
     <div id="textAreaDiv"></div>

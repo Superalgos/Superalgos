@@ -92,6 +92,23 @@ function downloadText (filename, text) {
   document.body.removeChild(element)
 }
 
+function downloadCanvas (filename) {
+  let data = browserCanvas.toDataURL('image/png', 1)
+  /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+  data = data.replace(/^data:image\/[^;]*/, 'data:application/octet-stream')
+
+  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+  data = data.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=' + filename + '.png')
+
+  let element = document.createElement('a')
+  element.setAttribute('href', data)
+  element.setAttribute('download', filename + '.PNG')
+  element.style.display = 'none'
+  document.body.appendChild(element)
+  element.click()
+  document.body.removeChild(element)
+};
+
 function transformThisPoint (point, container) {
     /* We make the point relative to the current frame */
 

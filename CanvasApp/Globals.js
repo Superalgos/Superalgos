@@ -178,7 +178,7 @@ maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that proj
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;
 
-const TOP_SPACE_HEIGHT = 2
+const TOP_SPACE_HEIGHT = 40
 const COCKPIT_SPACE_HEIGHT = 30;
 const BREAKPOINT_HEIGHT = 15;
 const SIDE_PANEL_WIDTH = 450

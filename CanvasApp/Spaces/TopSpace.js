@@ -7,27 +7,45 @@ function newTopSpace () {
     initialize: initialize
   }
 
-  let container = newContainer()
-  container.initialize()
-  thisObject.container = container
+  thisObject.container = newContainer()
+  thisObject.container.initialize()
 
   resize()
 
-  container.isDraggeable = false
-
+  thisObject.container.isDraggeable = false
+  let backgroundImage
+  let logoImage
   return thisObject
 
   function initialize () {
     canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    backgroundImage = new Image()
+    logoImage = new Image()
+
+    loadImage('superalgos-header-background', backgroundImage)
+    loadImage('superalgos-logo-for-color-background', logoImage)
+
+    function loadImage (name, image) {
+      const PATH = 'Images/'
+
+      image.onload = onImageLoad
+      image.fileName = name
+
+      function onImageLoad () {
+        image.canDraw = true
+      }
+      image.src = window.canvasApp.urlPrefix + PATH + name + '.png'
+    }
   }
 
   function resize () {
     thisObject.container.frame.width = browserCanvas.width
     thisObject.container.frame.height = TOP_SPACE_HEIGHT
 
-    container.frame.position.x = 0
+    thisObject.container.frame.position.x = 0
     try {
-      container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomLeft.y
+      thisObject.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomLeft.y
     } catch (e) { }
   }
 
@@ -54,19 +72,48 @@ function newTopSpace () {
   }
 
   function drawBackground () {
+    /* Solid Color */
     let opacity = 1
-
     browserCanvasContext.beginPath()
-
     browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height)
     if (areWeRecording === true) {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
     } else {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')'
     }
-
     browserCanvasContext.closePath()
-
     browserCanvasContext.fill()
+
+    /* Background Image */
+    if (backgroundImage !== undefined) {
+      if (backgroundImage.canDraw === true) {
+        let imagePosition = {
+          x: 0,
+          y: 0
+        }
+
+        browserCanvasContext.drawImage(
+          backgroundImage, imagePosition.x,
+          imagePosition.y,
+          browserCanvas.width,
+          TOP_SPACE_HEIGHT - 2)
+      }
+    }
+
+    /* Logo Image */
+    if (logoImage !== undefined) {
+      if (logoImage.canDraw === true) {
+        let imagePosition = {
+          x: 10,
+          y: 0
+        }
+
+        browserCanvasContext.drawImage(
+          logoImage, imagePosition.x,
+          imagePosition.y,
+          150,
+          TOP_SPACE_HEIGHT - 2)
+      }
+    }
   }
 }

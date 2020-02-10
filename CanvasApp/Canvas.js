@@ -194,15 +194,33 @@ function newCanvas () {
     }
   }
 
-  function checkGifRecording (event) {
-    if (event.keyCode === 121) { //  F10
+  function checkMediaRecording (event) {
+    if ((event.ctrlKey === true || event.metaKey === true)) {
+      let constructorParams
+      switch (event.keyCode) {
+        case 119: { //  F8
+          downloadCanvas('Superalgos.image.capture')
+          return
+          break
+        }
+        case 120: { //  F9
+          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.video.capture'}
+          break
+        }
+        case 121: { //  F10
+          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.video.capture' }
+          break
+        }
+        default: return
+      }
+
       if (areWeRecording === false) {
-        mediaRecorder = new CCapture({ format: 'webm', framerate: 12, name: 'Superalgos.video' })
+        console.log('RECORDING', constructorParams.format)
+        mediaRecorder = new CCapture(constructorParams)
         mediaRecorder.start()
         areWeRecording = true
-        console.log('RECORDING')
       } else {
-        console.log('SAVING')
+        console.log('SAVING', constructorParams.format)
         areWeRecording = false
         mediaRecorder.stop()
         mediaRecorder.save()
@@ -210,7 +228,7 @@ function newCanvas () {
     }
   }
   function onKeyDown (event) {
-    checkGifRecording(event)
+    checkMediaRecording(event)
 
     let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {

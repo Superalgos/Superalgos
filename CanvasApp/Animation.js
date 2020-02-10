@@ -121,10 +121,8 @@ function newAnimation () {
         browserCanvas.height = 1
       }
 
-      /* Gif Recording */
-
+      /* Media Recording */
       if (areWeRecording === true) {
-        console.log('ADDING FRAME')
         mediaRecorder.capture(browserCanvas)
       }
 

@@ -174,6 +174,7 @@ function newViewport () {
   }
 
   function onMouseWheel (event) {
+    if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
     let amount = event.delta
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.

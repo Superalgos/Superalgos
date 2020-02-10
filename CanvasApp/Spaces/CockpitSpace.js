@@ -80,6 +80,17 @@
    function resize () {
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
+
+     switch (thisObject.status) {
+       case 'BOTTOM': {
+         thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+         break
+       }
+       case 'TOP': {
+         thisObject.container.frame.position.y = 0
+         break
+       }
+     }
    }
 
    function toTop () {

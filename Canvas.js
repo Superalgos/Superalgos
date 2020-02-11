@@ -455,7 +455,6 @@ function newCanvas () {
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
-      point.button = event.button
 
       dragVector.downX = point.x
       dragVector.downY = point.y
@@ -564,7 +563,6 @@ function newCanvas () {
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
-      point.button = event.button
 
       let container
 
@@ -646,7 +644,6 @@ function newCanvas () {
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
-      point.button = event.button
 
       if (canvas.chartSpace.viewport !== undefined) {
         canvas.chartSpace.viewport.mousePosition.x = point.x
@@ -693,7 +690,7 @@ function newCanvas () {
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
-      point.button = event.button
+
       if (containerDragStarted === true) {
         containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
         return

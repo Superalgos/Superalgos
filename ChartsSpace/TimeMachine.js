@@ -152,7 +152,7 @@ function newTimeMachine () {
     onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
-    thisObject.edgeEditor.initialize()
+    thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)

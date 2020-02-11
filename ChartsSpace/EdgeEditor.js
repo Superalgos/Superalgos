@@ -26,10 +26,18 @@ function newEdgeEditor () {
   let isMouseOver
   let whereIsMouseOver = 'outside'
 
+  let coordinateSystem
+
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
   let onDragStartedEventSubscriptionId
 
+  let mouse = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
   return thisObject
 
   function finalize () {
@@ -40,9 +48,12 @@ function newEdgeEditor () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
+    mouse = undefined
   }
 
-  function initialize () {
+  function initialize (pCoordinateSystem) {
+    coordinateSystem = pCoordinateSystem
+
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
@@ -50,6 +61,12 @@ function newEdgeEditor () {
 
   function onMouseOver (event) {
     isMouseOver = true
+    mouse = {
+      position: {
+        x: event.x,
+        y: event.y
+      }
+    }
   }
 
   function onMouseNotOver () {
@@ -57,7 +74,7 @@ function newEdgeEditor () {
   }
 
   function onDragStarted (event) {
-    switch (event.button) {
+    switch (event.buttons) {
       case 1: {
         buttonUsedForDragging = 'left'
         break
@@ -71,8 +88,6 @@ function newEdgeEditor () {
 
   function getContainer (event, purpose) {
     if (thisObject.container.frame.isThisPointHere(event, undefined, undefined, -EDGE_SIZE) === true && event.shiftKey !== true) {
-      console.log('isThisPointHere ', true)
-
       let point = {
         x: event.x,
         y: event.y
@@ -114,60 +129,84 @@ function newEdgeEditor () {
   function physics () {
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
+    let dragVector = {
+      x: thisObject.container.frame.position.x,
+      y: thisObject.container.frame.position.y
+    }
+
+    thisObject.container.frame.position.x = 0 - dragVector.x / 2
+    thisObject.container.frame.position.y = 0 - dragVector.y / 2
+
     let newPosition = {
       x: thisObject.container.frame.position.x,
       y: thisObject.container.frame.position.y
     }
 
+    newPosition = transformThisPoint(newPosition, thisObject.container)
+
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
-
-    // newPosition = thisObject.container.frame.frameThisPoint(newPosition)
 
     const MIN_WIDTH = 100
     const MIN_HEIGHT = 50
 
     switch (whereIsMouseOver) {
       case 'center': {
-        /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
-        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + newPosition.x
-        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + newPosition.y
+        switch (buttonUsedForDragging) {
+          case 'left': {
+            /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
+            thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
+            thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
+            break
+          }
+          case 'right': {
+            let newMinDate = getDateFromPoint(newPosition, thisObject.container.parentContainer, coordinateSystem)
+            let newMaxRate = getRateFromPoint(newPosition, thisObject.container.parentContainer, coordinateSystem)
+            let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
+            let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+            coordinateSystem.min.x = newMinDate.valueOf()
+            coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
+            coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
+            coordinateSystem.max.y = newMaxRate
+            coordinateSystem.recalculateScale()
+          }
+        }
         break
       }
       case 'top' : {
-        if (thisObject.container.parentContainer.frame.height - newPosition.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT) {
           return
         }
-        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + newPosition.y
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - newPosition.y
+        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - dragVector.y
 
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'bottom' : {
-        if (thisObject.container.parentContainer.frame.height + newPosition.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT) {
           return
         }
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + newPosition.y
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + dragVector.y
 
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'left' : {
-        if (thisObject.container.parentContainer.frame.width - newPosition.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH) {
           return
         }
-        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + newPosition.x
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - newPosition.x
+        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - dragVector.x
 
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'right' : {
-        if (thisObject.container.parentContainer.frame.width + newPosition.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH) {
           return
         }
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + newPosition.x
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + dragVector.x
 
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
@@ -188,8 +227,6 @@ function newEdgeEditor () {
     }
 
     const OPACITY = 1
-
-    console.log('whereIsMouseOver ', whereIsMouseOver, 'isMouseOver ' + isMouseOver)
 
     pointA1 = {
       x: 0,

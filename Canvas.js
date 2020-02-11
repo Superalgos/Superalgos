@@ -522,7 +522,7 @@ function newCanvas () {
 
            /*  we check if it is over any of the existing containers at the Chart Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined) {
         if (container.isDraggeable === true) {

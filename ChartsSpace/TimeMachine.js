@@ -64,7 +64,7 @@ function newTimeMachine () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.fitFunction = thisObject.fitFunction
-    thisObject.container.isDraggeable = true
+    thisObject.container.isDraggeable = false
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
@@ -317,7 +317,7 @@ function newTimeMachine () {
     if (container !== undefined) {
       return container
     } else {
-      if (thisObject.container.isForThisPurpose(purpose) === true) {
+      if (thisObject.container.isForThisPurpose(purpose)) {
         if (thisObject.container.frame.isThisPointHere(point) === true) {
           return thisObject.container
         }

@@ -171,6 +171,7 @@ function newEdgeEditor () {
             coordinateSystem.recalculateScale()
           }
         }
+        thisObject.container.parentContainer.eventHandler.raiseEvent('onMouseOver', mouse.position)
         break
       }
       case 'top' : {

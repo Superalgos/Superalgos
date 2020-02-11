@@ -310,6 +310,7 @@ function newEdgeEditor () {
   }
 
   function drawForeground () {
+    let MARGIN = 1
     let edgeSize
     let lineWidth
 
@@ -372,6 +373,26 @@ function newEdgeEditor () {
     pointB2 = transformThisPoint(pointB2, thisObject.container)
     pointB3 = transformThisPoint(pointB3, thisObject.container)
     pointB4 = transformThisPoint(pointB4, thisObject.container)
+
+    pointA1 = {
+      x: pointA1.x - MARGIN,
+      y: pointA1.y - MARGIN
+    }
+
+    pointA2 = {
+      x: pointA2.x + MARGIN,
+      y: pointA2.y - MARGIN
+    }
+
+    pointA3 = {
+      x: pointA3.x + MARGIN,
+      y: pointA3.y + MARGIN
+    }
+
+    pointA4 = {
+      x: pointA4.x - MARGIN,
+      y: pointA4.y + MARGIN
+    }
 
     pointB1 = {
       x: pointB1.x - edgeSize,

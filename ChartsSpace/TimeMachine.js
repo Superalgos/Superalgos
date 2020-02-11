@@ -153,7 +153,7 @@ function newTimeMachine () {
 
     thisObject.edgeEditor = newEdgeEditor()
     thisObject.edgeEditor.initialize()
-    thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true)
+    thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
@@ -313,9 +313,15 @@ function newTimeMachine () {
       }
     }
 
-    container = thisObject.edgeEditor.getContainer(point)
+    container = thisObject.edgeEditor.getContainer(point, purpose)
     if (container !== undefined) {
       return container
+    } else {
+      if (thisObject.container.isForThisPurpose(purpose) === true) {
+        if (thisObject.container.frame.isThisPointHere(point) === true) {
+          return thisObject.container
+        }
+      }
     }
   }
 

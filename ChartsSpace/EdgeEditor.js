@@ -20,7 +20,7 @@ function newEdgeEditor () {
   thisObject.container.isDraggeable = true
   thisObject.container.isClickeable = false
   thisObject.container.isWheelable = false
-  thisObject.container.detectMouseOver = true
+  thisObject.container.detectMouseOver = false // The mouse over event will be detected by the Time Machine, and this container will get it because is connected to its parent.
 
   let buttonUsedForDragging
   let isMouseOver
@@ -69,7 +69,7 @@ function newEdgeEditor () {
     }
   }
 
-  function getContainer (event) {
+  function getContainer (event, purpose) {
     if (thisObject.container.frame.isThisPointHere(event, undefined, undefined, -EDGE_SIZE) === true && event.shiftKey !== true) {
       console.log('isThisPointHere ', true)
 
@@ -100,11 +100,12 @@ function newEdgeEditor () {
       }
 
       whereIsMouseOver = 'center'
-      return thisObject.container
-    } else {
-      isMouseOver = false
-      whereIsMouseOver = 'outside'
+      if (thisObject.container.isForThisPurpose(purpose) === true) {
+        return thisObject.container
+      }
     }
+    isMouseOver = false
+    whereIsMouseOver = 'outside'
   }
 
   function physics () {

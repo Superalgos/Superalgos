@@ -275,11 +275,6 @@ function newTimeMachine () {
   function getContainer (point, purpose) {
     let container
 
-    container = thisObject.edgeEditor.getContainer(point)
-    if (container !== undefined) {
-      return container
-    }
-
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
       container = thisObject.rateScale.getContainer(point)
       if (container !== undefined) {
@@ -318,8 +313,9 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.container.frame.isThisPointHere(point) === true) {
-      return thisObject.container
+    container = thisObject.edgeEditor.getContainer(point)
+    if (container !== undefined) {
+      return container
     }
   }
 

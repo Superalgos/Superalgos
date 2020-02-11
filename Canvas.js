@@ -452,11 +452,10 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN,
-        button: event.button
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+      point.button = event.button
 
       dragVector.downX = point.x
       dragVector.downY = point.y
@@ -509,7 +508,7 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isDraggeable === true && event.button === 2) {
+      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
         containerBeingDragged = container
         containerDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -526,7 +525,7 @@ function newCanvas () {
       container = thisObject.chartSpace.getContainer(point)
 
       if (container !== undefined) {
-        if (container.isDraggeable === true && event.button === 2) {
+        if (container.isDraggeable === true) {
           containerBeingDragged = container
           containerDragStarted = true
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -562,10 +561,10 @@ function newCanvas () {
         ignoreNextClick = false
         return
       }
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+      point.button = event.button
 
       let container
 
@@ -644,10 +643,10 @@ function newCanvas () {
   function onMouseMove (event) {
     try {
       /* Processing the event */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+      point.button = event.button
 
       if (canvas.chartSpace.viewport !== undefined) {
         canvas.chartSpace.viewport.mousePosition.x = point.x
@@ -691,20 +690,16 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+      point.button = event.button
       if (containerDragStarted === true) {
-        let point = {
-          x: event.pageX,
-          y: event.pageY - CURRENT_TOP_MARGIN
-        }
         containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
 
        /* Then we check who is the current object underneeth the mounse. */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
 
       let container
 

@@ -22,17 +22,20 @@ function newEdgeEditor () {
   thisObject.container.isWheelable = false
   thisObject.container.detectMouseOver = true
 
+  let buttonUsedForDragging
   let isMouseOver
   let whereIsMouseOver = 'outside'
 
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
+  let onDragStartedEventSubscriptionId
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -42,6 +45,7 @@ function newEdgeEditor () {
   function initialize () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
   }
 
   function onMouseOver (event) {
@@ -52,13 +56,26 @@ function newEdgeEditor () {
     isMouseOver = false
   }
 
-  function getContainer (mousePoint) {
-    if (thisObject.container.frame.isThisPointHere(mousePoint, undefined, undefined, -EDGE_SIZE) === true) {
+  function onDragStarted (event) {
+    switch (event.button) {
+      case 1: {
+        buttonUsedForDragging = 'left'
+        break
+      }
+      case 2: {
+        buttonUsedForDragging = 'right'
+        break
+      }
+    }
+  }
+
+  function getContainer (event) {
+    if (thisObject.container.frame.isThisPointHere(event, undefined, undefined, -EDGE_SIZE) === true && event.shiftKey !== true) {
       console.log('isThisPointHere ', true)
 
       let point = {
-        x: mousePoint.x,
-        y: mousePoint.y
+        x: event.x,
+        y: event.y
       }
       point = unTransformThisPoint(point, thisObject.container)
 
@@ -83,6 +100,7 @@ function newEdgeEditor () {
       }
 
       whereIsMouseOver = 'center'
+      return thisObject.container
     } else {
       isMouseOver = false
       whereIsMouseOver = 'outside'
@@ -92,57 +110,61 @@ function newEdgeEditor () {
   function physics () {
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
+    let newPosition = {
+      x: thisObject.container.frame.position.x,
+      y: thisObject.container.frame.position.y
+    }
+
+    thisObject.container.frame.position.x = 0
+    thisObject.container.frame.position.y = 0
+
+    // newPosition = transformThisPoint(newPosition, thisObject.container)
+
     const MIN_WIDTH = 100
     const MIN_HEIGHT = 50
 
     switch (whereIsMouseOver) {
+      case 'center': {
+        /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
+        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + newPosition.x
+        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + newPosition.y
+        break
+      }
       case 'top' : {
-        if (thisObject.container.parentContainer.frame.height - thisObject.container.frame.position.y < MIN_HEIGHT) {
-          thisObject.container.frame.position.x = 0
-          thisObject.container.frame.position.y = 0
+        if (thisObject.container.parentContainer.frame.height - newPosition.y < MIN_HEIGHT) {
           return
         }
-        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + thisObject.container.frame.position.y
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - thisObject.container.frame.position.y
-        thisObject.container.frame.position.x = 0
-        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + newPosition.y
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - newPosition.y
+
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'bottom' : {
-        if (thisObject.container.parentContainer.frame.height + thisObject.container.frame.position.y < MIN_HEIGHT) {
-          thisObject.container.frame.position.x = 0
-          thisObject.container.frame.position.y = 0
+        if (thisObject.container.parentContainer.frame.height + newPosition.y < MIN_HEIGHT) {
           return
         }
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + thisObject.container.frame.position.y
-        thisObject.container.frame.position.x = 0
-        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + newPosition.y
+
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'left' : {
-        if (thisObject.container.parentContainer.frame.width - thisObject.container.frame.position.x < MIN_WIDTH) {
-          thisObject.container.frame.position.x = 0
-          thisObject.container.frame.position.y = 0
+        if (thisObject.container.parentContainer.frame.width - newPosition.x < MIN_WIDTH) {
           return
         }
-        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + thisObject.container.frame.position.x
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - thisObject.container.frame.position.x
-        thisObject.container.frame.position.x = 0
-        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + newPosition.x
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - newPosition.x
+
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'right' : {
-        if (thisObject.container.parentContainer.frame.width + thisObject.container.frame.position.x < MIN_WIDTH) {
-          thisObject.container.frame.position.x = 0
-          thisObject.container.frame.position.y = 0
+        if (thisObject.container.parentContainer.frame.width + newPosition.x < MIN_WIDTH) {
           return
         }
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + thisObject.container.frame.position.x
-        thisObject.container.frame.position.x = 0
-        thisObject.container.frame.position.y = 0
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + newPosition.x
+
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }

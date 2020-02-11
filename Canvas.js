@@ -872,13 +872,18 @@ function newCanvas () {
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
-        if (containerDragStarted || viewPortBeingDragged) {
+        if (viewPortBeingDragged) {
           let displaceVector = {
             x: dragVector.upX - dragVector.downX,
             y: dragVector.upY - dragVector.downY
           }
 
-          if (containerBeingDragged !== undefined && containerBeingDragged.insideViewport === true) {
+          if (viewPortBeingDragged) {
+            canvas.chartSpace.viewport.displace(displaceVector)
+          }
+        }
+        if (containerDragStarted) {
+          if (containerBeingDragged !== undefined) {
             let downCopy = {
               x: dragVector.downX,
               y: dragVector.downY
@@ -899,13 +904,7 @@ function newCanvas () {
               x: upNoZoom.x - downNoZoom.x,
               y: upNoZoom.y - downNoZoom.y
             }
-          }
 
-          if (viewPortBeingDragged) {
-            canvas.chartSpace.viewport.displace(displaceVector)
-          }
-
-          if (containerBeingDragged !== undefined) {
             let moveSucceed = containerBeingDragged.displace(displaceVector)
             if (moveSucceed === false) {
               deactivateDragging(event)
@@ -913,8 +912,7 @@ function newCanvas () {
           }
         }
 
-               /* Finally we set the starting point of the new dragVector at this current point. */
-
+        /* Finally we set the starting point of the new dragVector at this current point. */
         dragVector.downX = dragVector.upX
         dragVector.downY = dragVector.upY
       }

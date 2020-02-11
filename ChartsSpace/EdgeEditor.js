@@ -118,7 +118,7 @@ function newEdgeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    // newPosition = transformThisPoint(newPosition, thisObject.container)
+    // newPosition = thisObject.container.frame.frameThisPoint(newPosition)
 
     const MIN_WIDTH = 100
     const MIN_HEIGHT = 50

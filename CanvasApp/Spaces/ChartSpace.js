@@ -123,23 +123,25 @@ function newChartSpace () {
       }
     }
 
-    /* Now we see which is the inner most container that has it */
+    /*
+    Now we see which is the inner most container that has it.
+    In this case we will ask all the time machines even if one of them already returned a matching container.
+    This will help the others know they are not on ofcus
+    */
+    let containerFound
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (purpose !== undefined) {
-          if (container.isForThisPurpose(purpose)) {
-            if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-              return container
-            }
-          }
+          containerFound = container
         } else {
           if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            return container
+            containerFound = container
           }
         }
       }
     }
+    if (containerFound !== undefined) { return containerFound }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container

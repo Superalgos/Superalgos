@@ -269,7 +269,8 @@ function newTimeScale () {
 
     thisObject.isVisible = true
     if (thisObject.container.frame.position.y + thisObject.container.frame.height * 4 > bottonCorner.y ||
-        thisObject.container.frame.position.y < upCorner.y) {
+        thisObject.container.frame.position.y < upCorner.y ||
+      thisObject.container.frame.position.x < upCorner.x) {
       thisObject.isVisible = false
     }
   }
@@ -404,6 +405,8 @@ function newTimeScale () {
       browserCanvasContext.moveTo(point7.x, point7.y)
       browserCanvasContext.lineTo(point8.x, point8.y)
       browserCanvasContext.lineTo(point9.x, point9.y)
+
+      browserCanvasContext.closePath()
 
       browserCanvasContext.lineWidth = LINE_WIDTH
       browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'

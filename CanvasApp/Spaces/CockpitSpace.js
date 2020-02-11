@@ -87,14 +87,14 @@
          break
        }
        case 'TOP': {
-         thisObject.container.frame.position.y = 0
+         thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
          break
        }
      }
    }
 
    function toTop () {
-     thisObject.container.frame.position.y = 0
+     thisObject.container.frame.position.y = COCKPIT_SPACE_HEIGHT
    }
 
    function toBottom () {
@@ -106,14 +106,14 @@
    }
 
    function moveUp () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y - browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y - COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y < 0) {
        thisObject.container.frame.position.y = 0
      }
    }
 
    function moveDown () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y + browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y + COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y > browserCanvas.height - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
      }
@@ -148,8 +148,8 @@
        canvas.floatingSpace.makeVisible()
      }
 
-     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {
-       thisObject.container.frame.position.y = 0
+     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100 + TOP_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
        thisObject.status = 'TOP'
        canvas.panelsSpace.visible = false
      } else {

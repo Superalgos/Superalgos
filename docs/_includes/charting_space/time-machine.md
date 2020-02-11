@@ -1,9 +1,9 @@
-<!-- TITLE AND DEFINITION starts -->
+<!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "Parameters" %}
-{% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
-{% assign plural = "" %}
+{% assign title = "Time Machine" %}
+{% assign definition = site.data.charting_space.time_machine %}
+{% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -48,9 +48,9 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The behavior of parameters may vary depending on the type of session.
+Think of a time machine as an aide that helps you keep any number of pieces of information synchronized on the same time scale. Every data structure that you set up within the same time machine, will always be synchronized in time. Put in other words, the open and closing datetime of each dataset will always be aligned on the vertical axis.
 
-Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.
+On the other hand, when you arrange charts on different time machines, they are completely independent of one another.
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -67,11 +67,9 @@ Each testing session has its own set of parameters. This allows you to configure
 
 <!--------------------------------------------- ADDING starts -->
 
-To add a parameters node, select *Add Parameters* on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it.
+To add a time machine, select *Add Time Machine* on the Charting Space node menu.
 
-If you already have a parameters node but are missing some of the parameters, then select *Add Missing Params* on the menu.
-
-<!-- ADDING ends -->
+<!--------------------------------------------- ADDING ends -->
 
 {% endif %}
 
@@ -79,7 +77,7 @@ If you already have a parameters node but are missing some of the parameters, th
 
 {{include.configuring}} Configuring the {{title}}
 
-<!-- CONFIGURING starts -->
+<!--------------------------------------------- CONFIGURING starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -87,19 +85,18 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 {% endif %}
 
-{% if include.starting != "" %}
+{% if include.charts != "" %}
 
-{{include.starting}} Starting {{preposition}} {{title}}
+{{include.charts}} Controlling the {{title}} from the Charts
 
-<!--------------------------------------------- STARTING starts -->
+<!--------------------------------------------- CHARTS starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<!--------------------------------------------- STARTING ends -->
+<!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
 {% if include.more == "yes" %}
 </details>
 {% endif %}
-

@@ -1,9 +1,9 @@
-<!-- TITLE AND DEFINITION starts -->
+<!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "Parameters" %}
-{% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
-{% assign plural = "" %}
+{% assign title = "User Account" %}
+{% assign definition = site.data.crypto_ecosystem.user_account %}
+{% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -48,9 +48,7 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The behavior of parameters may vary depending on the type of session.
-
-Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -67,11 +65,11 @@ Each testing session has its own set of parameters. This allows you to configure
 
 <!--------------------------------------------- ADDING starts -->
 
-To add a parameters node, select *Add Parameters* on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it.
+To add a user account, select *Add User Account* on the exchange accounts node menu. The user account node is created along with the basic structure of nodes used to define keys and user assets with the exchange.
 
-If you already have a parameters node but are missing some of the parameters, then select *Add Missing Params* on the menu.
+{% include tip.html content="You may add and administer as many user accounts as you wish." %}
 
-<!-- ADDING ends -->
+<!--------------------------------------------- ADDING ends -->
 
 {% endif %}
 
@@ -79,7 +77,7 @@ If you already have a parameters node but are missing some of the parameters, th
 
 {{include.configuring}} Configuring the {{title}}
 
-<!-- CONFIGURING starts -->
+<!--------------------------------------------- CONFIGURING starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -102,4 +100,3 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 {% if include.more == "yes" %}
 </details>
 {% endif %}
-

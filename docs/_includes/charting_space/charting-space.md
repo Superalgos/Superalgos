@@ -1,9 +1,9 @@
-<!-- TITLE AND DEFINITION starts -->
+<!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "Parameters" %}
-{% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
-{% assign plural = "" %}
+{% assign title = "Charting Space" %}
+{% assign definition = site.data.charting_space.charting_space %}
+{% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -48,9 +48,7 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The behavior of parameters may vary depending on the type of session.
-
-Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.
+There is only one Charting Space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as the scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -67,11 +65,9 @@ Each testing session has its own set of parameters. This allows you to configure
 
 <!--------------------------------------------- ADDING starts -->
 
-To add a parameters node, select *Add Parameters* on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-If you already have a parameters node but are missing some of the parameters, then select *Add Missing Params* on the menu.
-
-<!-- ADDING ends -->
+<!--------------------------------------------- ADDING ends -->
 
 {% endif %}
 
@@ -79,7 +75,7 @@ If you already have a parameters node but are missing some of the parameters, th
 
 {{include.configuring}} Configuring the {{title}}
 
-<!-- CONFIGURING starts -->
+<!--------------------------------------------- CONFIGURING starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -87,19 +83,18 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 {% endif %}
 
-{% if include.starting != "" %}
+{% if include.charts != "" %}
 
-{{include.starting}} Starting {{preposition}} {{title}}
+{{include.charts}} Controlling the {{title}} from the Charts
 
-<!--------------------------------------------- STARTING starts -->
+<!--------------------------------------------- CHARTS starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-<!--------------------------------------------- STARTING ends -->
+<!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
 {% if include.more == "yes" %}
 </details>
 {% endif %}
-

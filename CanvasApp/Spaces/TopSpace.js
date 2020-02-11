@@ -77,9 +77,9 @@ function newTopSpace () {
     browserCanvasContext.beginPath()
     browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height)
     if (areWeRecording === true) {
-      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
-    } else {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')'
+    } else {
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'
     }
     browserCanvasContext.closePath()
     browserCanvasContext.fill()

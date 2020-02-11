@@ -21,6 +21,7 @@ function newTimeMachine () {
     timeScale: undefined,
     rateScale: undefined,
     payload: undefined,
+    edgeEditor: undefined,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -63,7 +64,7 @@ function newTimeMachine () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.fitFunction = thisObject.fitFunction
-    thisObject.container.isDraggeable = true
+    thisObject.container.isDraggeable = false
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
@@ -101,6 +102,7 @@ function newTimeMachine () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
+    thisObject.edgeEditor = undefined
 
     mouse = undefined
     timelineChartsMap = undefined
@@ -149,6 +151,10 @@ function newTimeMachine () {
     onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
     onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
+    thisObject.edgeEditor = newEdgeEditor()
+    thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
+    thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
+
     callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
   }
 
@@ -196,11 +202,11 @@ function newTimeMachine () {
       if (event.isUserAction === true) {
         let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
         let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
         recalculateCoordinateSystem()
         moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, false, true, event.mousePosition)
       } else {
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
+        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
         recalculateCoordinateSystem()
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -224,11 +230,11 @@ function newTimeMachine () {
         let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
         let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
 
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
+        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
         recalculateCoordinateSystem()
         moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition)
       } else {
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
+        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
         recalculateCoordinateSystem()
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
@@ -307,8 +313,15 @@ function newTimeMachine () {
       }
     }
 
-    if (thisObject.container.frame.isThisPointHere(point) === true) {
-      return thisObject.container
+    container = thisObject.edgeEditor.getContainer(point, purpose)
+    if (container !== undefined) {
+      return container
+    } else {
+      if (thisObject.container.isForThisPurpose(purpose)) {
+        if (thisObject.container.frame.isThisPointHere(point) === true) {
+          return thisObject.container
+        }
+      }
     }
   }
 
@@ -382,6 +395,8 @@ function newTimeMachine () {
   }
 
   function physics () {
+    thisObject.edgeEditor.physics()
+
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
       childrenPhysics()
@@ -571,14 +586,8 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawForeground() }
       }
 
-      let style = {
-        color: UI_COLOR.BLACK,
-        opacity: 1,
-        lineWidth: 1,
-        lineDash: [1, 3]
-      }
-      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction, style)
       drawLabel()
+      thisObject.edgeEditor.drawForeground()
     }
   }
 

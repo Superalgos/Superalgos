@@ -1,8 +1,8 @@
 <!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "XXXXXXXXXXXXXXXX" %}
-{% assign definition = site.data.crypto_ecosystem.XXXXXXXXXXXXXXXX %}
-{% assign preposition = "XXXXXXXXXXXXXXXX" %}
+{% assign title = "Layer" %}
+{% assign definition = site.data.charting_space.layer %}
+{% assign preposition = "a" %}
 {% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -48,9 +48,21 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To set up a layer, you need to establish a <a href="suite-references.html" data-toggle="tooltip" data-original-title="{{site.data.concepts.reference}}">reference</a> with the <a href="suite-network-hierarchy.html#data-product" data-toggle="tooltip" data-original-title="{{site.data.network.data_product}}">data product</a> of your choice.
 
 <!--------------------------------------------- CONTENT ends -->
+
+{% endif %}
+
+{% if include.charts != "" %}
+
+{{include.charts}} Controlling the {{title}} from the Charts
+
+<!--------------------------------------------- CHARTS starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
@@ -65,7 +77,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- ADDING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To add a layer, select *Add Layer* on the layer manager node menu. 
 
 <!--------------------------------------------- ADDING ends -->
 
@@ -77,21 +89,20 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- CONFIGURING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Select *Configure Layer* on the menu to access the configuration.
+
+```json
+{
+    "status":"on", 
+    "showPanels":true
+}
+```
+
+* ```status``` may be *on* or *off* and refers to the layer being visible or not on the charts.
+
+* ```showPanels``` may be *true* or *false*; *true* shows the plotter panel that may be associated with the data product as per the plotter module definitions; *false* makes panels invisible.
 
 <!--------------------------------------------- CONFIGURING ends -->
-
-{% endif %}
-
-{% if include.starting != "" %}
-
-{{include.starting}} Starting {{preposition}} {{title}}
-
-<!--------------------------------------------- STARTING starts -->
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-<!--------------------------------------------- STARTING ends -->
 
 {% endif %}
 

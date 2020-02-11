@@ -1,8 +1,8 @@
 <!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "XXXXXXXXXXXXXXXX" %}
-{% assign definition = site.data.crypto_ecosystem.XXXXXXXXXXXXXXXX %}
-{% assign preposition = "XXXXXXXXXXXXXXXX" %}
+{% assign title = "Time Scale" %}
+{% assign definition = site.data.charting_space.time_scale %}
+{% assign preposition = "a" %}
 {% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -48,9 +48,23 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+The time scale is represented by a numerical value between 0 and 100. When the scale is set to zero, the horizontal span of the time machine and charts within it is the smallest possible. When the scale is set to 100, it is the largest possible. In other words, the charts are compressed on the horizontal axis with low scale numbers and expanded as the scale increases.
 
 <!--------------------------------------------- CONTENT ends -->
+
+{% endif %}
+
+{% if include.charts != "" %}
+
+{{include.charts}} Controlling the {{title}} from the Charts
+
+<!--------------------------------------------- CHARTS starts -->
+
+You may set a scale value from within the charts by placing the mouse pointer over the corresponding time machine datetime box and scrolling the mouse wheel.
+
+{% include tip.html content="Pressing the mouse wheel while scrolling accelerates the process." %}
+
+<!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
@@ -65,7 +79,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- ADDING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To add a time scale, select *Add Time Scale* on the time machine node menu.
 
 <!--------------------------------------------- ADDING ends -->
 
@@ -77,21 +91,19 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- CONFIGURING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Select *Configure Time Scale* on the menu to access the configuration.
+
+```json
+{
+    "scale":"0"
+}
+```
+
+* ```scale``` is a numerical value between 0 and 100. 
+
+{% include note.html content="The value may be entered via the designer and the charts. Both input methods are synchronized and the resulting values are stored in the node." %}
 
 <!--------------------------------------------- CONFIGURING ends -->
-
-{% endif %}
-
-{% if include.starting != "" %}
-
-{{include.starting}} Starting {{preposition}} {{title}}
-
-<!--------------------------------------------- STARTING starts -->
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-<!--------------------------------------------- STARTING ends -->
 
 {% endif %}
 

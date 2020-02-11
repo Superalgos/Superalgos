@@ -1,6 +1,6 @@
 trading_system: "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
 
-parameters: "Parameters are user definitions over several concepts. Parameters defined at the level of a session take precedence over parameters defined at the level of the trading system, which act as a fallback instance. The behavior of parameters may vary depending on the type of session."
+parameters: "Parameters are user definitions over several concepts that influence the behavior of trading sessions and improve the quality of simulations. When defined at the level of a session, parameters take precedence over those defined at the level of the trading system, which acts as a fallback instance."
 
 base_asset: "In the context of a trading system or a session, the base asset is the asset in the pair on which capital stands when out of a trade."
 

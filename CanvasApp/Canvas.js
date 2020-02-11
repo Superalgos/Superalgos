@@ -227,6 +227,7 @@ function newCanvas () {
       }
     }
   }
+
   function onKeyDown (event) {
     checkMediaRecording(event)
 
@@ -266,27 +267,22 @@ function newCanvas () {
       }
     }
 
-    if (event.altKey === true && event.code === 'ArrowUp') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowDown') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowLeft' || event.altKey === true && event.code === 'ArrowRight') {
-      thisObject.cockpitSpace.toMiddle()
-      return
-    }
-
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
       thisObject.cockpitSpace.moveUp()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       thisObject.cockpitSpace.moveDown()
       return
     }
@@ -456,11 +452,9 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN,
-        button: event.button
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
 
       dragVector.downX = point.x
       dragVector.downY = point.y
@@ -513,7 +507,7 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isDraggeable === true && event.button === 2) {
+      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
         containerBeingDragged = container
         containerDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -527,10 +521,10 @@ function newCanvas () {
 
            /*  we check if it is over any of the existing containers at the Chart Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined) {
-        if (container.isDraggeable === true && event.button === 2) {
+        if (container.isDraggeable === true) {
           containerBeingDragged = container
           containerDragStarted = true
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -566,10 +560,9 @@ function newCanvas () {
         ignoreNextClick = false
         return
       }
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
 
       let container
 
@@ -648,10 +641,9 @@ function newCanvas () {
   function onMouseMove (event) {
     try {
       /* Processing the event */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
 
       if (canvas.chartSpace.viewport !== undefined) {
         canvas.chartSpace.viewport.mousePosition.x = point.x
@@ -695,20 +687,16 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+
       if (containerDragStarted === true) {
-        let point = {
-          x: event.pageX,
-          y: event.pageY - CURRENT_TOP_MARGIN
-        }
         containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
 
        /* Then we check who is the current object underneeth the mounse. */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
 
       let container
 
@@ -881,13 +869,18 @@ function newCanvas () {
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
-        if (containerDragStarted || viewPortBeingDragged) {
+        if (viewPortBeingDragged) {
           let displaceVector = {
             x: dragVector.upX - dragVector.downX,
             y: dragVector.upY - dragVector.downY
           }
 
-          if (containerBeingDragged !== undefined && containerBeingDragged.insideViewport === true) {
+          if (viewPortBeingDragged) {
+            canvas.chartSpace.viewport.displace(displaceVector)
+          }
+        }
+        if (containerDragStarted) {
+          if (containerBeingDragged !== undefined) {
             let downCopy = {
               x: dragVector.downX,
               y: dragVector.downY
@@ -908,13 +901,7 @@ function newCanvas () {
               x: upNoZoom.x - downNoZoom.x,
               y: upNoZoom.y - downNoZoom.y
             }
-          }
 
-          if (viewPortBeingDragged) {
-            canvas.chartSpace.viewport.displace(displaceVector)
-          }
-
-          if (containerBeingDragged !== undefined) {
             let moveSucceed = containerBeingDragged.displace(displaceVector)
             if (moveSucceed === false) {
               deactivateDragging(event)
@@ -922,8 +909,7 @@ function newCanvas () {
           }
         }
 
-               /* Finally we set the starting point of the new dragVector at this current point. */
-
+        /* Finally we set the starting point of the new dragVector at this current point. */
         dragVector.downX = dragVector.upX
         dragVector.downY = dragVector.upY
       }

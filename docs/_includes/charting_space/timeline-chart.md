@@ -1,9 +1,9 @@
-<!-- TITLE AND DEFINITION starts -->
+<!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "Parameters" %}
-{% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
-{% assign plural = "" %}
+{% assign title = "Timeline Chart" %}
+{% assign definition = site.data.charting_space.timeline_chart %}
+{% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -48,11 +48,25 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The behavior of parameters may vary depending on the type of session.
+In other words, a timeline chart is a set of information to be displayed over a timeline. The information may include candles&mdash;the main and foremost resource&mdash;as well as any other indicator, study or&mdash;in general&mdash;data product that may be available.
 
-Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.
+You may add as many charts as you wish. Charts within the same time machine are synchronized in the y-axis, that is, at the datetime level. Charts in different time machines are independent of each other concerning the datetime. In either case, you may also add rate scales and time frame scales at the timeline charts level.
+
+The information that each timeline chart makes available on the screen is given by the layers set up in the corresponding layers manager.
 
 <!--------------------------------------------- CONTENT ends -->
+
+{% endif %}
+
+{% if include.charts != "" %}
+
+{{include.charts}} Controlling the {{title}} from the Charts
+
+<!--------------------------------------------- CHARTS starts -->
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
@@ -67,11 +81,9 @@ Each testing session has its own set of parameters. This allows you to configure
 
 <!--------------------------------------------- ADDING starts -->
 
-To add a parameters node, select *Add Parameters* on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it.
+To add a timeline chart, select *Add Timeline Chart* on the preferred time machine node menu.
 
-If you already have a parameters node but are missing some of the parameters, then select *Add Missing Params* on the menu.
-
-<!-- ADDING ends -->
+<!--------------------------------------------- ADDING ends -->
 
 {% endif %}
 
@@ -79,7 +91,7 @@ If you already have a parameters node but are missing some of the parameters, th
 
 {{include.configuring}} Configuring the {{title}}
 
-<!-- CONFIGURING starts -->
+<!--------------------------------------------- CONFIGURING starts -->
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -87,19 +99,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 {% endif %}
 
-{% if include.starting != "" %}
-
-{{include.starting}} Starting {{preposition}} {{title}}
-
-<!--------------------------------------------- STARTING starts -->
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-<!--------------------------------------------- STARTING ends -->
-
-{% endif %}
-
 {% if include.more == "yes" %}
 </details>
 {% endif %}
-

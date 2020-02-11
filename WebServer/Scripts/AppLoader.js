@@ -34,6 +34,7 @@ function newAppLoader() {
                 'AppSchema.js',
                 'MQService',
 
+                'ChartsSpace/EdgeEditor.js',
                 'ChartsSpace/ChartUtilities.js',
                 'ChartsSpace/PlottersManager.js',
                 'ChartsSpace/TimelineChart.js',

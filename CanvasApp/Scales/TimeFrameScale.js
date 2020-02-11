@@ -203,7 +203,8 @@ function newTimeFrameScale () {
     thisObject.isVisible = true
     thisObject.payload.isVisible = true
     if (thisObject.container.frame.position.y + thisObject.container.frame.height > bottonCorner.y ||
-        thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y) {
+        thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y ||
+      thisObject.container.frame.position.x < upCorner.x) {
       thisObject.isVisible = false
       thisObject.payload.isVisible = false
     }

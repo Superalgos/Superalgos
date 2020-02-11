@@ -1,9 +1,9 @@
-<!-- TITLE AND DEFINITION starts -->
+<!--------------------------------------------- TITLE AND DEFINITION starts -->
 
-{% assign title = "Parameters" %}
-{% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
-{% assign plural = "" %}
+{% assign title = "Crypto Exchange" %}
+{% assign definition = site.data.crypto_ecosystem.crypto_exchange %}
+{% assign preposition = "a" %}
+{% assign plural = "s" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
@@ -48,9 +48,7 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The behavior of parameters may vary depending on the type of session.
-
-Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -67,11 +65,9 @@ Each testing session has its own set of parameters. This allows you to configure
 
 <!--------------------------------------------- ADDING starts -->
 
-To add a parameters node, select *Add Parameters* on the session or the trading system menu, depending on the context. When a parameters node is added, the full set of parameters are created with it.
+To add a crypto exchange, select *Add Crypto Exchange* on the crypto exchanges node menu. The crypto exchange node is created along with the rest of the basic structure of nodes required to define assets, markets and user accounts.
 
-If you already have a parameters node but are missing some of the parameters, then select *Add Missing Params* on the menu.
-
-<!-- ADDING ends -->
+<!--------------------------------------------- ADDING ends -->
 
 {% endif %}
 
@@ -79,9 +75,19 @@ If you already have a parameters node but are missing some of the parameters, th
 
 {{include.configuring}} Configuring the {{title}}
 
-<!-- CONFIGURING starts -->
+<!--------------------------------------------- CONFIGURING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Select *Configure Crypto Exchange* on the menu to access the configuration.
+
+```json
+{ 
+"codeName": "Poloniex"
+}
+```
+
+* codeName is the name of the exchange as handled in the code of the system. 
+
+{% include note.html content="Consult the list of supported exchanges for the list of possible values for the ```codeName``` field. When a supported exchange is successfully configured, the standard crypto exchange icon is replaced with the logotype of the corresponding exchange." %}
 
 <!--------------------------------------------- CONFIGURING ends -->
 
@@ -102,4 +108,3 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 {% if include.more == "yes" %}
 </details>
 {% endif %}
-

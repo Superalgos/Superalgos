@@ -138,12 +138,10 @@ function newRateScale () {
   }
 
   function onMouseWheel (event) {
-    let morePower = 1
-    let delta
-
     if (event.shiftKey === true) {
+      let morePower = 1
       if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
-      delta = event.wheelDelta
+      let delta = event.wheelDelta
       if (delta < 0) {
         thisObject.offset = thisObject.offset - STEP_OFFSET * morePower
         if (thisObject.offset < MIN_OFFSET) { thisObject.offset = STEP_OFFSET }
@@ -168,6 +166,20 @@ function newRateScale () {
       offsetTimer = 100
       scaleTimer = 0
     } else {
+      let factor
+      let morePower = 1
+      if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
+
+      let delta = event.wheelDelta
+      if (delta < 0) {
+        factor = -0.01 * morePower
+      } else {
+        factor = 0.01 * morePower
+      }
+
+      coordinateSystem.zoomY(factor, event, limitingContainer)
+
+      return
       if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
       delta = event.wheelDelta
       if (delta < 0) {

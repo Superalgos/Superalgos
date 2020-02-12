@@ -121,18 +121,20 @@ function newTimeScale () {
   }
 
   function onMouseWheel (event) {
+    let factor
     let morePower = 1
-    if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
+    if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
 
-    delta = event.wheelDelta
+    let delta = event.wheelDelta
     if (delta < 0) {
-      thisObject.scale = thisObject.scale - STEP_SCALE * morePower
-      if (thisObject.scale < MIN_SCALE) { thisObject.scale = MIN_SCALE }
+      factor = -0.01 * morePower
     } else {
-      thisObject.scale = thisObject.scale + STEP_SCALE * morePower
-      if (thisObject.scale > MAX_SCALE) { thisObject.scale = MAX_SCALE }
+      factor = 0.01 * morePower
     }
 
+    coordinateSystem.zoomX(factor, event, limitingContainer)
+
+    return
     if (
       thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
       thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE

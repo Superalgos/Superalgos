@@ -15,6 +15,8 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
+    zoomX: zoomX,
+    zoomY: zoomY,
     recalculateScale: recalculateScale,
     transformThisPoint: transformThisPoint,
     transformThisPoint2: transformThisPoint2,
@@ -61,6 +63,36 @@ function newCoordinateSystem () {
     thisObject.maxHeight = pMaxHeight
 
     recalculateScale()
+  }
+
+  function zoomX (factor, mousePosition, container) {
+    let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+    let leftDistance = mouseAtCointainer.x
+    let rightDistance = container.frame.width - mouseAtCointainer.x
+    let diff = thisObject.max.x - thisObject.min.x
+    let min = thisObject.min.x + diff * factor * leftDistance / (container.frame.width / 2)
+    let max = thisObject.max.x - diff * factor * rightDistance / (container.frame.width / 2)
+
+    if (min < max) {
+      thisObject.min.x = min
+      thisObject.max.x = max
+      thisObject.recalculateScale()
+    }
+  }
+
+  function zoomY (factor, mousePosition, container) {
+    let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+    let topDistance = mouseAtCointainer.y
+    let bottomDistance = container.frame.height - mouseAtCointainer.y
+    let diff = thisObject.max.y - thisObject.min.y
+    let min = thisObject.min.y + diff * factor * bottomDistance / (container.frame.height / 2)
+    let max = thisObject.max.y - diff * factor * topDistance / (container.frame.height / 2)
+
+    if (min < max) {
+      thisObject.min.y = min
+      thisObject.max.y = max
+      thisObject.recalculateScale()
+    }
   }
 
   function recalculateScale () {

@@ -34,6 +34,7 @@ function newViewport () {
     transformThisPoint: transformThisPoint,
     unTransformThisPoint: unTransformThisPoint,
     isThisPointVisible: isThisPointVisible,
+    isThisPointInViewport: isThisPointInViewport,
     fitIntoVisibleArea: fitIntoVisibleArea,
     displace: displace,
     physics: physics,
@@ -311,11 +312,15 @@ function newViewport () {
   }
 
   function isThisPointVisible (point) {
-    if (visibleArea === undefined) {
-      getVisibleArea()
+    if (point.x < thisObject.visibleArea.topLeft.x || point.x > thisObject.visibleArea.bottomRight.x || point.y < thisObject.visibleArea.topLeft.y || point.y > thisObject.visibleArea.bottomRight.y) {
+      return false
+    } else {
+      return true
     }
+  }
 
-    if (point.x < visibleArea.topLeft.x || point.x > visibleArea.bottomRight.x || point.y < visibleArea.topLeft.y || point.y > visibleArea.bottomRight.y) {
+  function isThisPointInViewport (point) {
+    if (point.y > browserCanvas.height - COCKPIT_SPACE_POSITION) {
       return false
     } else {
       return true

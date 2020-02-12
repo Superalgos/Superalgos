@@ -397,7 +397,7 @@ That's it! You are now ready to run the *Indicator Bot Instance*.
 
 > **NOTE:** Remember that the bot has dependencies that need to be running for it to start. Click *Run All Tasks* in the *Masters Datasets* task manager.
 
-If everything works well, the bot should start logging the typical progress messages in the console, create the folders structure as specified before and start pilling files for each of the time periods.
+If everything works well, the bot should start logging the typical progress messages in the console, create the folders structure as specified before and start pilling files for each of the time frames.
 
 ## Debugging
 

@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the Superalgos Suite Documentation"
+title: "Welcome to the Superalgos Documentation"
 sidebar: suite_sidebar
 permalink: index.html
 ---
@@ -8,7 +8,7 @@ permalink: index.html
 
 This documentation is currently work in progress and corresponds to an unreleased version of the Superalgos Suite, still in development. The system has experienced a major shift on multiple fronts, and changes are currently being documented.
 
-The Hierarchies Directory feature extensive information about all the data structures handled by the designer, including the new, unreleased ones.
+The <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.hierarchies_directory}}">hierarchies directory</a> features extensive information about all the data structures handled by the design space, including the new, unreleased ones.
 
 ## Beta Stage Notice
 

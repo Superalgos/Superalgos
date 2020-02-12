@@ -10,7 +10,7 @@ toc: false
 
 This feature may be handy when testing different configurations, rules or parameters, as it allows to keep alternatives handy in the workspace.
 
-[![Designer-Attach-Detach](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)
+[![Design-Space-Attach-Detach](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)](https://user-images.githubusercontent.com/13994516/63227849-6d7e9b80-c1eb-11e9-9a02-6f760f383751.gif)
 
 {% include note.html content="The verbs *to chain* and *to attach* may be used interchangeably, as synonyms. Similarly, *to unchain* and *to detach* are both valid." %}
 

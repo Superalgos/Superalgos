@@ -61,3 +61,5 @@ close_stage: "Close stage is not developed yet. In the future, it will deal with
 close_execution: "Close execution is the node that will eventually hold the information regarding the execution of the closing orders."
 
 event: "An event is an action triggered by predefined market situations."
+
+javascript_code: "The JavaScript code node may hold any snippet of valid JavaScript."

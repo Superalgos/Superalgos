@@ -280,7 +280,10 @@ function newDesignerSpace () {
 
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)
-      if (container !== undefined) { return container }
+      if (container !== undefined) {
+        container.space = 'Designer Space'
+        return container
+      }
     }
 
     return

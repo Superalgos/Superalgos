@@ -2,7 +2,7 @@
 
 {% assign title = "Crypto Exchanges" %}
 {% assign definition = site.data.crypto_ecosystem.crypto_exchanges %}
-{% assign preposition = "" %}
+{% assign preposition = "a" %}
 {% assign plural = "" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -61,7 +61,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

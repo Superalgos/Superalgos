@@ -119,7 +119,7 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-window.AT_BREAKPOINT = false;
+SHOW_ANIMATION_PERFORMACE = false;
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY

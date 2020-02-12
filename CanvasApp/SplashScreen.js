@@ -97,7 +97,7 @@ function newSplashScreen () {
         /* Second the % of Advance. */
 
     let label = '' + Math.trunc(stepsInitializationCounter) + ' %'
-    stepsInitializationCounter = stepsInitializationCounter + 2.0
+    stepsInitializationCounter = stepsInitializationCounter + 5.0
 
     if (stepsInitializationCounter > 99) {
       splashScreenNeeded = false

@@ -237,9 +237,13 @@ function newFloatingSpace () {
     let container
 
     container = thisObject.floatingLayer.getContainer(point)
-    if (container !== undefined) { return container }
+    if (container !== undefined) {
+      container.space = 'Floating Space'
+      return container
+    }
 
     if (visible === true) {
+      thisObject.container.space = 'Floating Space'
       return thisObject.container
     }
   }

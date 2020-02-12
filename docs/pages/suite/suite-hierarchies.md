@@ -5,28 +5,16 @@ sidebar: suite_sidebar
 permalink: suite-hierarchies.html
 ---
 
-{{site.data.concepts.hierarchy}}
+**{{site.data.concepts.hierarchy}}**
 
-On the designer, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.
+{% include note.html content="On the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace." %}
 
+{% include /crypto_ecosystem/crypto-ecosystem.md heading="##" icon="150-" adding="" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
+{% include /charting_space/charting-space.md heading="##" icon="150-" adding="" configuring="" charts="" content="yes" definition="bold" table="yes" more="no"%}
 
-## Charting Space
+{% include /trading_system/trading-system.md heading="##" icon="150-" adding="####" configuring="" starting="" content="yes" definition="bold" table="yes" more="yes"%}
 
-{{site.data.charting_space.charting_space}}
+{% include /network/network.md heading="##" icon="150-" adding="" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-## Crypto Ecosystem
-
-{{site.data.crypto_ecosystem.crypto_ecosystem}}
-
-## Trading System
-
-{{site.data.trading_system.trading_system}}
-
-## Network
-
-{{site.data.network.network}}
-
-## Data Mine
-
-{{site.data.data_mine.data_mine}}
+{% include /data_mine/data-mine.md heading="##" icon="150-" adding="####" configuring="####" starting="" content="yes" definition="bold" table="yes" more="yes"%}

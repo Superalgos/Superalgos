@@ -73,7 +73,7 @@ You may set a time frame value from within the charts by placing the mouse point
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 
@@ -103,7 +103,7 @@ Select *Configure Frame Scale* on the menu to access the configuration.
 
   * ```01-hs```, ```02-hs```, ```03-hs```, ```04-hs```, ```06-hs```, ```08-hs```, ```12-hs```, and ```24-hs```.
 
-  {% include note.html content="The values entered via the designer and the charts are synchronized and stored in the node." %}
+  {% include note.html content="The values entered via the design space and the charts are synchronized and stored in the node." %}
 
 <!--------------------------------------------- CONFIGURING ends -->
 

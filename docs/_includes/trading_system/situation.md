@@ -52,7 +52,7 @@ In other words, you define situations in which you wish a certain event to happe
 
 A situation gets validated when all conditions under it are true. 
 
-An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, it triggers the event. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered.
+An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, the event gets triggered. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered.
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -65,7 +65,7 @@ An event may have more than one situation attached to it. In such a case, when a
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

@@ -29,7 +29,7 @@ For instance, writting a single file with all historic trades in a market spanni
 
 Let's look into a specific example... 
 
-The Charts offer the possibility to navigate market data in the form of candles over different time periods. It is reasonable to keep candles in time periods of 1 hour and above (up to the 24-hour time period) in a single file. A market spanning 5 years would have less than 44 thousand records ```(5 * 365 * 24)``` of 1-hour candles. It seems reasonable for the Charts to load a single file so as to allow the user to seamlessly navigate large sections of the market in this time period, for instance, several days or weeks.
+The Charts offer the possibility to navigate market data in the form of candles over different time frames. It is reasonable to keep candles in time frames of 1 hour and above (up to the 24-hour time frame) in a single file. A market spanning 5 years would have less than 44 thousand records ```(5 * 365 * 24)``` of 1-hour candles. It seems reasonable for the Charts to load a single file so as to allow the user to seamlessly navigate large sections of the market in this time frame, for instance, several days or weeks.
 
 However, if the user wishes to browse 1 minute candles it is obvious his or her focus does not span days or weeks, let alone the whole market. The person is surely interested in analyzing a very specific point in time. Therefore, loading a single file with over 2.5 million records ```(5 * 365 * 24 * 60)``` would be unreasonable.
 
@@ -64,7 +64,7 @@ _e.g.:_
 The format in which bots store their output is standardized. In an attempt to make data highly accessible, a tree-like folder structure is built following this pattern (which may slightly differ from bot to bot, depending on the specific dataset):
 
 ```
-Dataset Name > Process Name > Time Period > Year > Month > Day > Hour
+Dataset Name > Process Name > Time Frame > Year > Month > Day > Hour
 ```
 
 _e.g.:_

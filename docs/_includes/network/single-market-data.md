@@ -2,7 +2,7 @@
 
 {% assign title = "Single Market Data" %}
 {% assign definition = site.data.network.single_market_data %}
-{% assign preposition = "" %}
+{% assign preposition = "a" %}
 {% assign plural = "" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -61,7 +61,7 @@ The single market data node must establish a reference with a specific market de
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

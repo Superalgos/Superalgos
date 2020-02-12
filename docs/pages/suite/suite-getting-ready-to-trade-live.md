@@ -20,8 +20,8 @@ As soon as you click *Run* in your session, your bot will be forward testing or 
 
 The difference is that orders will now go to the exchange.
 
-**For maximum efficiency, we recommend you run live trading sessions on the 01-min time period. Your bot will then be executed every 60 seconds to evaluate your strategy rules and decide if any action needs to be taken.**
+**For maximum efficiency, we recommend you run live trading sessions on the 01-min time frame. Your bot will then be executed every 60 seconds to evaluate your strategy rules and decide if any action needs to be taken.**
 
- This is important even if your strategy operates at a lower frequency, as running the live session at the 01-min time period guarantees that the trading bot will exit trades as soon as the one-minute candle closes tagging your stop or take profit target. On the contrary, if you run the live trading session at a time period higher than 01-min, slippage when closing the position may be considerably greater.
+ This is important even if your strategy operates at a lower frequency, as running the live session at the 01-min time frame guarantees that the trading bot will exit trades as soon as the one-minute candle closes tagging your stop or take profit target. On the contrary, if you run the live trading session at a time frame higher than 01-min, slippage when closing the position may be considerably greater.
 
 > **WARNING:** The Superalgos Platform is at a very early stage of development. As such, errors may occur at any point, including errors that can cause you to lose money. You are responsible for taking all precautions before starting trading live. Make sure you test with small amounts of money, the kind you can afford losing. Also, make sure you understand the [Execution Limitations](Execution-Limitations). Trade live at your own risk.

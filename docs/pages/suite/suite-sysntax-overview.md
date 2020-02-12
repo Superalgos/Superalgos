@@ -1,6 +1,6 @@
 ---
 title:  Syntax Overview
-summary: ""
+summary: "The syntax for writing conditions and formulas combine references to the data product name, the name of the property, and the time frame."
 sidebar: suite_sidebar
 permalink: suite-sysntax-overview.html
 ---
@@ -15,19 +15,19 @@ To do that, you will use the following syntax: ```.productName``` + ```.property
 
 The above syntax returns the value of the property of the declared product at the latest closed candle. This is common throughout all available datasets.
 
-## Specifying the Time Period
+## Specifying the Time Frame
 
-When building conditions and formulas, you may want to use analysis concerning different time periods. This is perfectly possible.
+When building conditions and formulas, you may want to use analysis concerning different time frames. This is perfectly possible.
 
-The variables explained further down this section, written as described for each indicator, are not valid unless they are preceeded by the declaration of the time period they refer to.
+The variables explained further down this section, written as described for each indicator, are not valid unless they are preceeded by the declaration of the time frame they refer to.
 
 To do that, you need to preceed the above syntax with the following:
 
-```chart.at``` + ```timeperiod```
+```chart.at``` + ```time frame```
 
 Therefore, the complete syntax to build a valid statement is:
 
-```chart.at``` + ```timeperiod``` + ```.productName``` + ```.propertyName```
+```chart.at``` + ```time frame``` + ```.productName``` + ```.propertyName```
 
 For example:
 
@@ -35,9 +35,9 @@ For example:
 
 The above statement compares the current 4 hours candle to the previous 4 hours candle.
 
-The complete list of time periods available is:
+The complete list of time frames available is:
 
-| Time Period | Syntax |
+| Time Frame | Syntax |
 | :---: | :---: |
 | 1 min | ```chart.at01min``` |
 | 2 min | ```chart.at02min``` |
@@ -59,15 +59,13 @@ The complete list of time periods available is:
 | 12 hs | ```chart.at12hs``` |
 | 24 hs | ```chart.at24hs``` |
 
-> **NOTE:** For brevity's sake, when discussing indicators further down this document, the declaration of the time period may sometimes be ommited. However, do remember the statement is only valid with the proper declaration of the time period.
-
 ## Previous Property
 
 The ```previous``` property is a property common to all products that allows you to retrieve the value of the candle that closed previous to the last one. 
 
-The property is used with the following syntax: ```chart.at``` + ```timeperiod``` + ```.productName``` + ```.previous``` + ```.propertyName```. You may use the property on any of the indicators in a similar way. 
+The property is used with the following syntax: ```chart.at``` + ```time frame``` + ```.productName``` + ```.previous``` + ```.propertyName```. You may use the property on any of the indicators in a similar way. 
 
-In addition, you may use the ```previous``` property more than once, to retrieve values further in the past: ```chart.at``` + ```timeperiod``` + ```.productName``` + ```.previous.previous... ...previous``` + ```.propertyName```
+In addition, you may use the ```previous``` property more than once, to retrieve values further in the past: ```chart.at``` + ```time frame``` + ```.productName``` + ```.previous.previous... ...previous``` + ```.propertyName```
 
 For example, ```chart.at1hs.candle.previous.previous.max``` returns the maximum value of two candles before the last closed candle at the 1-hour chart.
 
@@ -79,7 +77,7 @@ The syntax is ```productName.[currentCandleIndex-n].propertyName``` where *curre
 
 For example, ```chart.at1hs.candle.[currentCandleIndex-5].max``` retrieves the maximum value of the fifth candle previous to the last closed candle at the 1-hour chart.
 
-> **NOTE:** There is a technical limitation by which you may retrieve the value of a  property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time period you may be working on. For instance, if you are working on the 1 hour time period, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time period, you may retrieve 1439 candles. 
+{% include note.html content="There is a technical limitation by which you may retrieve the value of a  property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time frame you may be working on. For instance, if you are working on the 1 hour time frame, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time frame, you may retrieve 1439 candles." %}
 
 ## Comparison and Logical Operators
 

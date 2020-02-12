@@ -75,7 +75,7 @@ You may set a scale value from within the charts by placing the mouse pointer ov
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 
@@ -101,7 +101,7 @@ Select *Configure Time Scale* on the menu to access the configuration.
 
 * ```scale``` is a numerical value between 0 and 100. 
 
-{% include note.html content="The value may be entered via the designer and the charts. Both input methods are synchronized and the resulting values are stored in the node." %}
+{% include note.html content="The value may be entered via the design space and the charts. Both input methods are synchronized and the resulting values are stored in the node." %}
 
 <!--------------------------------------------- CONFIGURING ends -->
 

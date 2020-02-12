@@ -63,7 +63,7 @@ The indicator bot instance holds no definitions as to what the bot does. Instead
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

@@ -1,9 +1,11 @@
 ---
-title:  Indicators Not Included in the Data Release
-summary: ""
+title:  Sparta indicators
+summary: "A set of indicators built in the Sparta data mine including Simple Moving Average (SMA), Exponential Moving Averege (EMA), Relative Strenght Index (RSI), and Moving Average convergence Divergence (MACD)."
 sidebar: suite_sidebar
-permalink: suite-indicators-not-included-in-the-data-release.html
+permalink: suite-sparta-indicators.html
 ---
+
+{% include note.html content="The following indicators are available under the Sparta task managers in the data mining section of the network hierarchy." %}
 
 ## Simple Moving Average (SMA)
 

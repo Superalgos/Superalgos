@@ -83,7 +83,7 @@ For the time being, the chart is fixed on the screen and the user may not move i
 
 ### Simple Moving Average (SMA)
 
-[According to Investopedia](https://www.investopedia.com/terms/e/ema.asp), "A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time periods in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react."
+[According to Investopedia](https://www.investopedia.com/terms/e/ema.asp), "A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react."
 
 [![Layers-01-SMA](https://user-images.githubusercontent.com/13994516/71260423-217b6900-233b-11ea-9229-d838f8a071da.gif)](https://user-images.githubusercontent.com/13994516/71260423-217b6900-233b-11ea-9229-d838f8a071da.gif)
 

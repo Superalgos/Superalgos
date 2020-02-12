@@ -2,7 +2,7 @@
 
 {% assign title = "Data Mining" %}
 {% assign definition = site.data.network.data_mining %}
-{% assign preposition = "" %}
+{% assign preposition = "a" %}
 {% assign plural = "" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -61,7 +61,7 @@ Users may have access to several data mines. For organizational purposes, it is 
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

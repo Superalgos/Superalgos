@@ -9,6 +9,6 @@ It may happen that your simulation or live trading is not working as expected. T
 
 [![On-screen-errors](https://user-images.githubusercontent.com/13994516/63213696-b52ff500-c10f-11e9-9bc1-741ecb0858ef.gif)](https://user-images.githubusercontent.com/13994516/63213696-b52ff500-c10f-11e9-9bc1-741ecb0858ef.gif)
 
-Bear in mind that when the split tab is fully closed, errors will no longer show up in the Designer, as shown in the below video:
+Bear in mind that when the split tab is fully closed, errors will no longer show up in the design space, as shown in the below video:
 
 [![Error](https://user-images.githubusercontent.com/13994516/63213579-528a2980-c10e-11e9-8464-76cb4b369db4.gif)](https://user-images.githubusercontent.com/13994516/63213579-528a2980-c10e-11e9-8464-76cb4b369db4.gif)

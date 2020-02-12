@@ -26,7 +26,7 @@ Becoming familiar with the Superalgos Trading Protocol will significantly increa
 
 * [Superalgos Trading Protocol V0.1 - the Long Version, for Beginner Traders](https://medium.com/superalgos/superalgos-protocol-v0-1-the-long-version-for-beginner-traders-f293f1cc6c13).
 
-The Designer provides a graphic user interface (GUI) for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
+The design space provides a graphic user interface (GUI) for traders to input the _rules_ and _formulas_ that determine the behavior of strategies. Traders need to define the rules to _trigger on_ and _trigger off_ each strategy, to _take a position_, to manage _take profit_ targets and _stops_.
 
 ## Situations and Conditions
 
@@ -38,7 +38,7 @@ The protocol calls these sets of rules _situations_, in the sense that you are t
 
 In other words, you define _situations_ in which you wish a certain _event_ to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of _conditions_ that need to be met for the _event_ to be triggered.
 
-[![Designer-Situation-Condition-Code](https://user-images.githubusercontent.com/13994516/63052184-fe4d3280-bede-11e9-87b0-7fb67964450c.gif)](https://user-images.githubusercontent.com/13994516/63052184-fe4d3280-bede-11e9-87b0-7fb67964450c.gif)
+[![Design-Space-Situation-Condition-Code](https://user-images.githubusercontent.com/13994516/63052184-fe4d3280-bede-11e9-87b0-7fb67964450c.gif)](https://user-images.githubusercontent.com/13994516/63052184-fe4d3280-bede-11e9-87b0-7fb67964450c.gif)
 
 The type of _statements_ you will use to define _conditions_ need to evaluate to _true_ or _false_.
 
@@ -58,7 +58,7 @@ Thanks to the implementation of the Superalgos Trading Protocol, all strategies 
 
 You may import any node—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems, and even complete workspaces—simply by dragging and dropping them on the workspace.
 
-[![Designer-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)
+[![Design-Space-01-Drop-Workspace](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)](https://user-images.githubusercontent.com/13994516/67271115-34e49200-f4ba-11e9-9309-e9e7046384a0.gif)
 
 ## Working with Multiple Strategies
 

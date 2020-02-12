@@ -50,7 +50,7 @@
 
 In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan. The hierarchy contains definitions regarding any number of trading strategies, all sharing the same market, the same base asset, and the same initial capital.
 
-You use a trading system to define strategies following the trading framework implemented by the Superalgos Protocol, splitting strategies into four stages: trigger, open, manage, and close.
+You use a trading system to define strategies following the <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.superalgos_protocol}}">Superalgos Protocol</a>, splitting strategies into four stages: trigger, open, manage, and close.
 
 The concept of describing strategies in phases is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same logic, which contributes to developing scalable trading systems that may grow to any number of strategies.
 
@@ -65,7 +65,7 @@ The concept of describing strategies in phases is fundamental to the methodical 
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

@@ -13,7 +13,7 @@ permalink: suite-simulation-layers.html
 
 The layers manager allows you to determine which visualization layers will be available at the Layers Panel to plot the results of testing sessions over the charts.
 
-The layers manager and its offspring nodes must be visible in the Designer
+The layers manager and its offspring nodes must be visible in the design space
 
 Back on the charts, the following layers plot strategies' actions over the market data, providing a comprehensive set of visual clues showing how strategies would behave when trading.
 

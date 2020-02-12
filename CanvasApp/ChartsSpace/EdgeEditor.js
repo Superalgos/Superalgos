@@ -134,50 +134,6 @@ function newEdgeEditor () {
       y: thisObject.container.frame.position.y
     }
 
-    /* Calculating the Direct Position, that will be needed to manipulate the coordinate system */
-    thisObject.container.frame.position.x = 0 + dragVector.x
-    thisObject.container.frame.position.y = 0 + dragVector.y
-
-    let directPositionA = {
-      x: thisObject.container.frame.position.x,
-      y: thisObject.container.frame.position.y
-    }
-
-    directPositionA = transformThisPoint(directPositionA, thisObject.container)
-
-    thisObject.container.frame.position.x = 0 + dragVector.x / 2
-    thisObject.container.frame.position.y = 0 + dragVector.y / 2
-
-    let directPositionB = {
-      x: thisObject.container.frame.position.x,
-      y: thisObject.container.frame.position.y
-    }
-
-    directPositionB = transformThisPoint(directPositionB, thisObject.container)
-
-    /* Calculating the Inverted Position, that will be needed to manipulate the coordinate system */
-    thisObject.container.frame.position.x = 0 - dragVector.x
-    thisObject.container.frame.position.y = 0 - dragVector.y
-
-    let invertedPositionA = {
-      x: thisObject.container.frame.position.x,
-      y: thisObject.container.frame.position.y
-    }
-
-    invertedPositionA = transformThisPoint(invertedPositionA, thisObject.container)
-
-    /* Calculating the Inverted Position, that will be needed to manipulate the coordinate system */
-    thisObject.container.frame.position.x = 0 - dragVector.x / 2
-    thisObject.container.frame.position.y = 0 - dragVector.y / 2
-
-    let invertedPositionB = {
-      x: thisObject.container.frame.position.x,
-      y: thisObject.container.frame.position.y
-    }
-
-    invertedPositionB = transformThisPoint(invertedPositionB, thisObject.container)
-
-    /* Finally we reset this */
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
@@ -194,8 +150,12 @@ function newEdgeEditor () {
             break
           }
           case 'right mouse button': {
-            let newMinDate = getDateFromPoint(invertedPositionB, thisObject.container.parentContainer, coordinateSystem)
-            let newMaxRate = getRateFromPoint(invertedPositionB, thisObject.container.parentContainer, coordinateSystem)
+            let point = {
+              x: -dragVector.x,
+              y: -dragVector.y
+            }
+            let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+            let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
             let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
             let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
             coordinateSystem.min.x = newMinDate.valueOf()
@@ -209,16 +169,21 @@ function newEdgeEditor () {
         break
       }
       case 'top' : {
-        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT && dragVector.y > 0) {
           return
         }
+
+        let point = {
+          x: dragVector.x,
+          y: dragVector.y
+        }
+        let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+
         thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - dragVector.y
-        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
 
         switch (buttonUsedForDragging) {
           case 'left mouse button': {
-            let newMaxRate = getRateFromPoint(directPositionB, thisObject.container.parentContainer, coordinateSystem)
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             coordinateSystem.recalculateScale()
@@ -230,19 +195,25 @@ function newEdgeEditor () {
             break
           }
         }
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'bottom' : {
-        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT && dragVector.y < 0) {
           return
         }
+
+        let point = {
+          x: dragVector.x,
+          y: dragVector.y + thisObject.container.frame.height
+        }
+        let newMinRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + dragVector.y
-        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
 
         switch (buttonUsedForDragging) {
           case 'left mouse button': {
-            let newMaxRate = getRateFromPoint(directPositionA, thisObject.container.parentContainer, coordinateSystem)
-            coordinateSystem.min.y = coordinateSystem.min.y - (coordinateSystem.max.y - newMaxRate)
+            coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             coordinateSystem.recalculateScale()
             break
@@ -253,47 +224,54 @@ function newEdgeEditor () {
             break
           }
         }
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'left' : {
-        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH && dragVector.x > 0) {
           return
         }
+        let point = {
+          x: dragVector.x,
+          y: dragVector.y
+        }
+        let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+
         thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
         thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - dragVector.x
-        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
 
         switch (buttonUsedForDragging) {
           case 'left mouse button': {
-            let newMinDate = getDateFromPoint(directPositionA, thisObject.container.parentContainer, coordinateSystem)
             coordinateSystem.min.x = newMinDate.valueOf()
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
             coordinateSystem.recalculateScale()
             break
           }
           case 'right mouse button': {
-            let newMinDate = getDateFromPoint(directPositionB, thisObject.container.parentContainer, coordinateSystem)
-            coordinateSystem.min.x = newMinDate.valueOf()
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
             coordinateSystem.recalculateScale()
             break
           }
         }
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
       case 'right' : {
-        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH && dragVector.x < 0) {
           return
         }
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + dragVector.x
 
-        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+        let point = {
+          x: dragVector.x + thisObject.container.frame.width,
+          y: dragVector.y
+        }
+        let newMaxDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+
+        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + dragVector.x
 
         switch (buttonUsedForDragging) {
           case 'left mouse button': {
-            let newMinDate = getDateFromPoint(invertedPositionB, thisObject.container.parentContainer, coordinateSystem)
-            let xDifferenceMaxMin = coordinateSystem.min.x - newMinDate.valueOf()
-            coordinateSystem.max.x = coordinateSystem.max.x + xDifferenceMaxMin
+            coordinateSystem.max.x = newMaxDate.valueOf()
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
             coordinateSystem.recalculateScale()
             break
@@ -304,6 +282,7 @@ function newEdgeEditor () {
             break
           }
         }
+        thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
     }
@@ -413,6 +392,16 @@ function newEdgeEditor () {
       x: pointB4.x - edgeSize,
       y: pointB4.y + edgeSize
     }
+
+    pointA1 = canvas.chartSpace.viewport.fitIntoViewport(pointA1)
+    pointA2 = canvas.chartSpace.viewport.fitIntoViewport(pointA2)
+    pointA3 = canvas.chartSpace.viewport.fitIntoViewport(pointA3)
+    pointA4 = canvas.chartSpace.viewport.fitIntoViewport(pointA4)
+
+    pointB1 = canvas.chartSpace.viewport.fitIntoViewport(pointB1)
+    pointB2 = canvas.chartSpace.viewport.fitIntoViewport(pointB2)
+    pointB3 = canvas.chartSpace.viewport.fitIntoViewport(pointB3)
+    pointB4 = canvas.chartSpace.viewport.fitIntoViewport(pointB4)
 
     browserCanvasContext.setLineDash([0, 0])
 

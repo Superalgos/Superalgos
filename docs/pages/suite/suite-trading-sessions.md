@@ -1,6 +1,6 @@
 ---
 title:  Trading Sessions
-summary: "Strategies are defined in a sequence of stages."
+summary: "Trading sessions enabling using the trading bot to perform tests, simulations, and live trading."
 sidebar: suite_sidebar
 permalink: suite-trading-sessions.html
 ---

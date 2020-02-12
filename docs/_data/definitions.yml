@@ -8,5 +8,5 @@ football: "No doubt the most fun sport to watch, football also manages to accrue
 
 soccer: "If there's one sport that dominates the world landscape, it's soccer. However, US soccer fans are few and far between. Apart from the popularity of soccer during the World Cup, most people don't even know the name of the professional soccer organization in their area."
 
-workspace: "The workspace is a concept that refers to the visual environment that contains all hierarchies with all of their nodes, nodes that may be floating around detached from hierarchies, and the information regarding the physical position and status of all nodes within the Designer, even those detached from the hierarchies. You may think of the workspace as your desktop. It is not part of any of the hierarchies; instead, it contains them."
+workspace: "The workspace is a concept that refers to the visual environment that contains all hierarchies with all of their nodes, nodes that may be floating around detached from hierarchies, and the information regarding the physical position and status of all nodes within the design space, even those detached from the hierarchies. You may think of the workspace as your desktop. It is not part of any of the hierarchies; instead, it contains them."
 

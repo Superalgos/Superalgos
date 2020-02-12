@@ -123,7 +123,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
+      animation.addCallBackFunction('Designer Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
@@ -267,12 +267,21 @@ function newCanvas () {
       }
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Dev Tool when used with F11
+      if (SHOW_ANIMATION_PERFORMACE === false) {
+        SHOW_ANIMATION_PERFORMACE = true
+      } else {
+        SHOW_ANIMATION_PERFORMACE = false
+      }
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
@@ -461,7 +470,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Designer Space / */
 
       container = thisObject.designerSpace.getContainer(point)
 
@@ -566,7 +575,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Designer Space / */
 
       container = thisObject.designerSpace.getContainer(point)
 
@@ -875,36 +884,45 @@ function newCanvas () {
             y: dragVector.upY - dragVector.downY
           }
 
-          if (viewPortBeingDragged) {
-            canvas.chartSpace.viewport.displace(displaceVector)
-          }
+          canvas.chartSpace.viewport.displace(displaceVector)
         }
         if (containerDragStarted) {
           if (containerBeingDragged !== undefined) {
-            let downCopy = {
-              x: dragVector.downX,
-              y: dragVector.downY
-            }
+            if (containerBeingDragged.space === 'Charting Space') {
+              let downCopy = {
+                x: dragVector.downX,
+                y: dragVector.downY
+              }
 
-            let downNoZoom
-            downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
+              let downNoZoom
+              downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
 
-            let upCopy = {
-              x: dragVector.upX,
-              y: dragVector.upY
-            }
+              let upCopy = {
+                x: dragVector.upX,
+                y: dragVector.upY
+              }
 
-            let upNoZoom
-            upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
+              let upNoZoom
+              upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
 
-            displaceVector = {
-              x: upNoZoom.x - downNoZoom.x,
-              y: upNoZoom.y - downNoZoom.y
-            }
+              displaceVector = {
+                x: upNoZoom.x - downNoZoom.x,
+                y: upNoZoom.y - downNoZoom.y
+              }
 
-            let moveSucceed = containerBeingDragged.displace(displaceVector)
-            if (moveSucceed === false) {
-              deactivateDragging(event)
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
+            } else {
+              let displaceVector = {
+                x: dragVector.upX - dragVector.downX,
+                y: dragVector.upY - dragVector.downY
+              }
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
             }
           }
         }

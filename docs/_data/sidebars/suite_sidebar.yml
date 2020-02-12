@@ -2,7 +2,7 @@
 
 entries:
 - title: sidebar
-  product: Superalgos Suite
+  product: Superalgos
   version: 0.0.6
   folders:
 
@@ -85,43 +85,43 @@ entries:
 #      url: /suite-layers-panel.html
 #      output: web
 
-#  - title: Designer
-#    output: web
-#    folderitems:
-
-#    - title: Intro, workspace and data structures
-#      url: /suite-designer-workspace-and-data-structures.html
-#      output: web
-
-#    - title: Hierarchies
-#      url: /suite-hierarchies.html
-#      output: web
-
-#    - title: Interface
-#      url: /suite-designer-interface.html
-#      output: web
-
-#    - title: Atachment and detachment of nodes
-#      url: /suite-detachment-and-attachment-of-nodes.html
-#      output: web
-
-#    - title: References
-#      url: /suite-references.html
-#      output: web
-      
-  - title: Trading Concepts
+  - title: Design space
     output: web
     folderitems:
 
-    - title: Defining a Trading System
-      url: /suite-defining-a-trading-system.html
+    - title: Design space, workspace, and nodes
+      url: /suite-design-space-workspace-and-data-structures.html
       output: web
 
-    - title: Defining a Strategy
-      url: /suite-defining-a-trading-strategy.html
+    - title: Hierarchies
+      url: /suite-hierarchies.html
       output: web
 
-    - title: Trading Sessions
+    - title: References
+      url: /suite-references.html
+      output: web
+
+    - title: Interface
+      url: /suite-design-space-interface.html
+      output: web
+    
+  - title: Trading concepts
+    output: web
+    folderitems:
+
+    - title: Trading systems
+      url: /suite-trading-systems.html
+      output: web
+
+    - title: Strategies
+      url: /suite-strategies.html
+      output: web
+
+    - title: Situations, conditions and formulas
+      url: /suite-situations-conditions-formulas.html
+      output: web
+
+    - title: Trading sessions
       url: /suite-trading-sessions.html
       output: web
 
@@ -129,25 +129,25 @@ entries:
       url: /suite-parameters.html
       output: web
 
-#  - title: Conditions & Formulas
-#    output: web
-#    folderitems:
+  - title: Writing conditions & formulas
+    output: web
+    folderitems:
 
-#    - title: Syntax Overview
-#      url: /suite-sysntax-overview.html
-#      output: web
+    - title: Syntax overview
+      url: /suite-sysntax-overview.html
+      output: web
 
-#    - title: Internal variables
-#      url: /suite-internal-variables.html
-#      output: web
+    - title: Internal variables
+      url: /suite-internal-variables.html
+      output: web
 
-#    - title: Indicators included in the data release
-#      url: /suite-indicators-included-in-the-data-release.html
-#      output: web
+    - title: Masters indicators
+      url: /suite-masters-indicators.html
+      output: web
 
-#    - title: Indicators not included in the release
-#      url: /suite-indicators-not-included-in-the-data-release.html
-#      output: web
+    - title: Sparta indicators
+      url: /suite-sparta-indicators.html
+      output: web
 
 #    - title: Using non-included indicators
 #      url: /suite-using-non-included-indicators.html
@@ -273,7 +273,7 @@ entries:
 #      url: /suite-telegram-announcements.html
 #      output: web
 
-  - title: Hierarchies Directory
+  - title: Hierarchies directory
     output: web
     folderitems:
 

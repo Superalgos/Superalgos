@@ -50,9 +50,7 @@ function newTimeMachine () {
   let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
-  let timeScaleValueEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
-  let rateScaleValueEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
@@ -114,7 +112,6 @@ function newTimeMachine () {
   function finalizeTimeScale () {
     if (thisObject.timeScale === undefined) { return }
 
-    thisObject.timeScale.container.eventHandler.stopListening(timeScaleValueEventSuscriptionId)
     thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
     thisObject.timeScale.finalize()
     thisObject.timeScale = undefined
@@ -123,7 +120,6 @@ function newTimeMachine () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
@@ -141,6 +137,9 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
     loadFrame(thisObject.payload, thisObject.container.frame)
+
+    // thisObject.container.frame.position.x = 0
+    // thisObject.container.frame.position.y = 0
 
     recalculateCoordinateSystem()
     recalculateCurrentDatetime()
@@ -194,23 +193,9 @@ function newTimeMachine () {
     thisObject.timeScale.fitFunction = thisObject.fitFunction
     thisObject.timeScale.payload = thisObject.payload.node.timeScale.payload
 
-    timeScaleValueEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Time Scale Value Changed', timeScaleValueChanged)
     timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOverScale', timeScaleMouseOver)
     thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
-    function timeScaleValueChanged (event) {
-      if (event.isUserAction === true) {
-        let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
-        recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, false, true, event.mousePosition)
-      } else {
-        // thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
-        recalculateCoordinateSystem()
-      }
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    }
     function timeScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -221,25 +206,9 @@ function newTimeMachine () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container, thisObject.container)
 
-    function rateScaleValueChanged (event) {
-      if (event.isUserAction === true) {
-        let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-
-        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition)
-      } else {
-        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-      }
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      thisObject.container.eventHandler.raiseEvent('Upstream Rate Scale Value Changed', event)
-    }
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -625,16 +594,6 @@ function newTimeMachine () {
     let maxValue = {
       x: MAX_PLOTABLE_DATE.valueOf(),
       y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
-    }
-
-    if (thisObject.timeScale !== undefined) {
-      minValue.x = thisObject.timeScale.fromDate
-      maxValue.x = thisObject.timeScale.toDate
-    }
-
-    if (thisObject.rateScale !== undefined) {
-      minValue.y = thisObject.rateScale.minValue
-      maxValue.y = thisObject.rateScale.maxValue
     }
 
     timeMachineCoordinateSystem.initialize(

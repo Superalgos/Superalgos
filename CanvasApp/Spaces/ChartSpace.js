@@ -112,6 +112,7 @@ function newChartSpace () {
 
   function getContainer (point, purpose) {
     if (thisObject.visible !== true) { return }
+    if (thisObject.viewport.isThisPointInViewport(point) === false) { return }
 
     let container
 
@@ -141,9 +142,13 @@ function newChartSpace () {
         }
       }
     }
-    if (containerFound !== undefined) { return containerFound }
+    if (containerFound !== undefined) {
+      containerFound.space = 'Charting Space'
+      return containerFound
+    }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      thisObject.container.space = 'Charting Space'
       return thisObject.container
     } else {
       return undefined

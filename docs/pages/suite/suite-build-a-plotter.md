@@ -102,7 +102,7 @@ Beyond the module's configuration, the most important aspect of a module's behav
 
 The *shapes* node contains all of the definitions required to render graphics on the screen.
 
-A plotter recursively renders graphics for each period (or candle). This means that you will define—in generic terms—what shapes need to be drawn for a single period, and the plotter will do the same thing for every candle that is visible on the screen at any point in time, for any time period, as long as the corresponding data is available.
+A plotter recursively renders graphics for each period (or candle). This means that you will define—in generic terms—what shapes need to be drawn for a single period, and the plotter will do the same thing for every candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available.
 
 [![Shapes-01-show-off](https://user-images.githubusercontent.com/13994516/71016080-eab41180-20f4-11ea-84c6-a514b87d568f.gif)](https://user-images.githubusercontent.com/13994516/71016080-eab41180-20f4-11ea-84c6-a514b87d568f.gif)
 

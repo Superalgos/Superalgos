@@ -1,11 +1,11 @@
 ---
-title:  Indicators Included in the Data Release
-summary: ""
+title:  Masters indicators
+summary: "A set of indicators built in the Masters data mine including candles, Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels, and Bollinger Subchannels."
 sidebar: suite_sidebar
-permalink: suite-indicators-included-in-the-data-release.html
+permalink: suite-masters-indicators.html
 ---
 
-The following indicators are those readily available as soon as you fire up the platform, as the corresponding datasets are included in the data release.
+{% include note.html content="The following indicators are available under the Masters task managers in the data mining section of the network hierarchy." %}
 
 ## Candles
 

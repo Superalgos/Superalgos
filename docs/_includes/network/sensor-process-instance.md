@@ -61,7 +61,7 @@ For example, in the case of an instance of the Masters data mine Charly sensor b
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

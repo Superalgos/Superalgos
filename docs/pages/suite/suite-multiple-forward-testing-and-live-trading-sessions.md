@@ -9,7 +9,7 @@ The platform allows running multiple forward testing and live trading sessions a
 
 The one thing you need to be aware of is that—due to restrictions on API use imposed by exchanges—you may not use the same exchange API key with different processes.
 
-If you ever need to create a new trading session, you will create a copy of an existing one by cloning the whole task. Once you drop the clone back on the Designer, the new task will have all of the nodes required for trading, including an *exchange account key*. 
+If you ever need to create a new trading session, you will create a copy of an existing one by cloning the whole task. Once you drop the clone back on the design space, the new task will have all of the nodes required for trading, including an *exchange account key*. 
 
 Just make sure you don't use the same key on more than one session: you need to get a new API key from the exchange and edit the *exchange account key** accordingly.
 

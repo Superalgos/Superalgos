@@ -2,7 +2,7 @@
 
 {% assign title = "Slippage" %}
 {% assign definition = site.data.trading_system.slippage %}
-{% assign preposition = "" %}
+{% assign preposition = "a" %}
 {% assign plural = "" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -63,7 +63,7 @@ Slippage is factored both in the session reports and in the graphic representati
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

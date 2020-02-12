@@ -63,7 +63,7 @@ The management of phases happens in a sequence. Phase 1 comes after phase 0, whi
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

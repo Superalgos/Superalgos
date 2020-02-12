@@ -48,7 +48,7 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-There is only one Charting Space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as the scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.
+There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as the scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.
 
 <!--------------------------------------------- CONTENT ends -->
 
@@ -61,7 +61,7 @@ There is only one Charting Space hierarchy, thus all charts are configured here.
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

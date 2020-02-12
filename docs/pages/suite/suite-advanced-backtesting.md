@@ -17,7 +17,7 @@ A process running under its own task may not be affected by errors occurring on 
 
 For the reasons above, you may choose to run each testing session on separate tasks.
 
-The easiest way to create sessions under this configuration is by cloning an existing task and dropping the cloned file back on the Designer. Once the new task is on the Designer, you may chain it to your preferred task manager.
+The easiest way to create sessions under this configuration is by cloning an existing task and dropping the cloned file back on the design space. Once the new task is on the design space, you may chain it to your preferred task manager.
 
 [![Sessions-01-Duplicate](https://user-images.githubusercontent.com/13994516/70354911-23d8c000-1871-11ea-8a6c-552ab6e206ce.gif)](https://user-images.githubusercontent.com/13994516/70354911-23d8c000-1871-11ea-8a6c-552ab6e206ce.gif)
 
@@ -27,7 +27,7 @@ The easiest way to create sessions under this configuration is by cloning an exi
 
 You may decide that you don't need independent tasks for each of your backtesting sessions or prefer to handle multiple sessions under one task.
 
-To create new sessions under such configuration you need to clone the process that runs one of the existing sessions, and drop the clone on to the Designer. Then, structure of nodes the process to the trading bot instance and give the session a new name.
+To create new sessions under such configuration you need to clone the process that runs one of the existing sessions, and drop the clone on to the design space. Then, structure of nodes the process to the trading bot instance and give the session a new name.
 
 [![Network-05-Multiple-Backtests](https://user-images.githubusercontent.com/13994516/67272829-90644f00-f4bd-11e9-9559-3f01233ecee8.gif)](https://user-images.githubusercontent.com/13994516/67272829-90644f00-f4bd-11e9-9559-3f01233ecee8.gif)
 
@@ -83,7 +83,7 @@ Being able to run multiple backtesting sessions allows you to speed up the strat
 
 For instance, you may want to check how different variations of a condition in the *take position event* affect the results. To tests all variations at the same time, you would:
 
-**1.** Replicate a backtesting session by cloning the corresponding *process* node (along with its offspring) and dropping the clone back on your workspace, as many times as you require, [attaching it](Designer-Interface#detachment-and-attachment-of-nodes) to an available trading bot.
+**1.** Replicate a backtesting session by cloning the corresponding *process* node (along with its offspring) and dropping the clone back on your workspace, as many times as you require, [attaching it](Design-Space-Interface#detachment-and-attachment-of-nodes) to an available trading bot.
 
 **2.** Rename each backtesting session with a significant name that is related to the different variations of the condition you wish to test.
 

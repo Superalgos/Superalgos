@@ -63,7 +63,7 @@ Also, a task manager allows starting and stopping all tasks under it at once, wi
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

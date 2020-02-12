@@ -69,7 +69,7 @@ Formulas may use [internal variables](suite-internal-variables.html) made availa
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

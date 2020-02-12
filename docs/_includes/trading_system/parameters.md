@@ -2,7 +2,7 @@
 
 {% assign title = "Parameters" %}
 {% assign definition = site.data.trading_system.parameters %}
-{% assign preposition = "" %}
+{% assign preposition = "a" %}
 {% assign plural = "" %}
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
@@ -63,7 +63,7 @@ Each testing session has its own set of parameters. This allows you to configure
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

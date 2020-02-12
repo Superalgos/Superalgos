@@ -74,13 +74,13 @@ The definition of strategy points to the concept of *a trade*. A trade is a proc
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details><summary class="nobr">Click to learn more about strategies
 </summary>
 {% endif %}
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

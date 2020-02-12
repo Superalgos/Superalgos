@@ -103,13 +103,13 @@ Paper trading sessions only require a *finalDatetime*. If you do not set one eit
 }
 ```
 
-## Time Period
+## Time Frame
 
-| Time Period |
+| Time Frame |
 | :---: |
 | ![time-period](https://user-images.githubusercontent.com/13994516/67087015-597ef800-f1a2-11e9-8a5e-712a13ef99d4.png) |
 
-Testing sessions run in the time period specified in this parameter. 
+Testing sessions run in the time frame specified in this parameter. 
 
 ```js
 {
@@ -132,7 +132,7 @@ Available options at the sub-hour level are:
 45-min
 ```
 
-Available options at larger time periods are:
+Available options at larger time frames are:
 
 ```
 01-hs
@@ -145,6 +145,6 @@ Available options at larger time periods are:
 24-hs
 ```
 
-In the context of backtesting sessions, what time period you decide to run the session on depends on the strategies being tested. If strategies make decisions based on the 1 hour candle and above, then ```01-hs``` may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time periods accordingly.
+In the context of backtesting sessions, what time frame you decide to run the session on depends on the strategies being tested. If strategies make decisions based on the 1 hour candle and above, then ```01-hs``` may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frames accordingly.
 
->**NOTE:** In the context of live sessions, that is, paper trading, forward testing and live trading, you should run the session on the ```01-min``` time period so that the trading bot reacts fast when the price tags the take profit or stop loss targets.
+>**NOTE:** In the context of live sessions, that is, paper trading, forward testing and live trading, you should run the session on the ```01-min``` time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets.

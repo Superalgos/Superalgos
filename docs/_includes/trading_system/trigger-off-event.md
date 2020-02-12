@@ -65,7 +65,7 @@ In the first scenario, the strategy remains *on* until the trade is closed. As t
 
 {% if include.adding != "" %}
 
-{{include.adding}} Adding {{preposition}} {{title}}
+{{include.adding}} Adding {{preposition}} {{title}} Node
 
 <!--------------------------------------------- ADDING starts -->
 

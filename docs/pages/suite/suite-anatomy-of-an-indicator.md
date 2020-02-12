@@ -43,5 +43,5 @@ An indicator may have several several processes and several products. In the cas
 
 The reason why Paula has two processes is related to the products Paula creates and the way each dataset is structured. 
 
-The Multi-Period-Market process stores data in *market files* while the Multi-Period-Daily process stores files in the *daily file* type of dataset. This is a common occurence in most indicators. The reason is that this is the desired behavior so that data may be consumed efficiently both in the lower and higher frequency time periods.
+The Multi-Period-Market process stores data in *market files* while the Multi-Period-Daily process stores files in the *daily file* type of dataset. This is a common occurence in most indicators. The reason is that this is the desired behavior so that data may be consumed efficiently both in the lower and higher frequency time frames.
 

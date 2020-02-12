@@ -85,7 +85,7 @@ function convertTimeFrameToName (pTimeFrame) {
 function downloadText (filename, text) {
   let element = document.createElement('a')
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
-  element.setAttribute('downloadText', filename)
+  element.setAttribute('download', filename)
   element.style.display = 'none'
   document.body.appendChild(element)
   element.click()
@@ -141,7 +141,7 @@ function pad (str, max) {
   return str.length < max ? pad('0' + str, max) : str
 }
 
-function getDateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
@@ -150,8 +150,38 @@ function getDateFromPoint (point, container, coordinateSystem) {
   return date
 }
 
-function getRateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtChartsSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getDateFromPointAtContainer (point, container, coordinateSystem) {
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getRateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtChartSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtContainer (point, container, coordinateSystem) {
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   return point.y
@@ -198,16 +228,14 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function printLabel (labelToPrint, x, y, opacity, fontSize) {
+function printLabel (labelToPrint, x, y, opacity, fontSize, color) {
   let labelPoint
+  if (color === undefined) { color = UI_COLOR.DARK }
 
   browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
   let label = '' + labelToPrint
-
   let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+  browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
   browserCanvasContext.fillText(label, x, y)
 }
 

@@ -181,7 +181,6 @@ function newRateScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.scale = undefined
       code.offset = thisObject.offset
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y

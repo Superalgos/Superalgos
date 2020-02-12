@@ -414,6 +414,16 @@ function newEdgeEditor () {
       y: pointB4.y + edgeSize
     }
 
+    pointA1 = canvas.chartSpace.viewport.fitIntoViewport(pointA1)
+    pointA2 = canvas.chartSpace.viewport.fitIntoViewport(pointA2)
+    pointA3 = canvas.chartSpace.viewport.fitIntoViewport(pointA3)
+    pointA4 = canvas.chartSpace.viewport.fitIntoViewport(pointA4)
+
+    pointB1 = canvas.chartSpace.viewport.fitIntoViewport(pointB1)
+    pointB2 = canvas.chartSpace.viewport.fitIntoViewport(pointB2)
+    pointB3 = canvas.chartSpace.viewport.fitIntoViewport(pointB3)
+    pointB4 = canvas.chartSpace.viewport.fitIntoViewport(pointB4)
+
     browserCanvasContext.setLineDash([0, 0])
 
     browserCanvasContext.beginPath()

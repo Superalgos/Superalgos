@@ -167,8 +167,8 @@ function newRateScale () {
       scaleTimer = 0
     } else {
       let factor
-      let morePower = 1
-      if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
+      let morePower = 10
+      if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
 
       let delta = event.wheelDelta
       if (delta < 0) {
@@ -407,7 +407,6 @@ function newRateScale () {
   function drawForeground () {
     if (isMouseOver === true) {
       drawScaleBox()
-      drawArrows()
     }
   }
 
@@ -445,106 +444,5 @@ function newRateScale () {
     }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
-  }
-
-  function drawArrows () {
-    if (visible === false || thisObject.rate === undefined) { return }
-
-    const X_OFFSET = thisObject.container.frame.width / 2
-    const Y_OFFSET = thisObject.container.frame.height / 2
-    const HEIGHT = 6
-    const WIDTH = 18
-    const LINE_WIDTH = 3
-    const OPACITY = 0.2
-    const DISTANCE_BETWEEN_ARROWS = 10
-    const MIN_DISTANCE_FROM_CENTER = 30
-    const CURRENT_SCALE_DISTANCE = MIN_DISTANCE_FROM_CENTER + thisObject.scale
-    const MAX_DISTANCE_FROM_CENTER = MIN_DISTANCE_FROM_CENTER + 215 + DISTANCE_BETWEEN_ARROWS
-
-    let ARROW_DIRECTION = 0
-
-    ARROW_DIRECTION = -1
-    drawTwoArrows()
-    ARROW_DIRECTION = 1
-    drawTwoArrows()
-
-    function drawTwoArrows () {
-      point1 = {
-        x: X_OFFSET - WIDTH / 2,
-        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point2 = {
-        x: X_OFFSET,
-        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point3 = {
-        x: X_OFFSET + WIDTH / 2,
-        y: Y_OFFSET + DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point1 = thisObject.container.frame.frameThisPoint(point1)
-      point2 = thisObject.container.frame.frameThisPoint(point2)
-      point3 = thisObject.container.frame.frameThisPoint(point3)
-
-      point4 = {
-        x: X_OFFSET - WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point5 = {
-        x: X_OFFSET,
-        y: Y_OFFSET + HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point6 = {
-        x: X_OFFSET + WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + CURRENT_SCALE_DISTANCE * ARROW_DIRECTION
-      }
-
-      point4 = thisObject.container.frame.frameThisPoint(point4)
-      point5 = thisObject.container.frame.frameThisPoint(point5)
-      point6 = thisObject.container.frame.frameThisPoint(point6)
-
-      point7 = {
-        x: X_OFFSET - WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
-      }
-
-      point8 = {
-        x: X_OFFSET,
-        y: Y_OFFSET - HEIGHT * ARROW_DIRECTION - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
-      }
-
-      point9 = {
-        x: X_OFFSET + WIDTH / 2,
-        y: Y_OFFSET - DISTANCE_BETWEEN_ARROWS / 2 * ARROW_DIRECTION + MAX_DISTANCE_FROM_CENTER * ARROW_DIRECTION
-      }
-
-      point7 = thisObject.container.frame.frameThisPoint(point7)
-      point8 = thisObject.container.frame.frameThisPoint(point8)
-      point9 = thisObject.container.frame.frameThisPoint(point9)
-
-      browserCanvasContext.setLineDash([0, 0])
-
-      browserCanvasContext.beginPath()
-
-      browserCanvasContext.moveTo(point1.x, point1.y)
-      browserCanvasContext.lineTo(point2.x, point2.y)
-      browserCanvasContext.lineTo(point3.x, point3.y)
-
-      browserCanvasContext.moveTo(point4.x, point4.y)
-      browserCanvasContext.lineTo(point5.x, point5.y)
-      browserCanvasContext.lineTo(point6.x, point6.y)
-
-      browserCanvasContext.moveTo(point7.x, point7.y)
-      browserCanvasContext.lineTo(point8.x, point8.y)
-      browserCanvasContext.lineTo(point9.x, point9.y)
-
-      browserCanvasContext.lineWidth = LINE_WIDTH
-      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', ' + OPACITY + ')'
-      browserCanvasContext.stroke()
-    }
   }
 }

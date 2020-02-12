@@ -276,12 +276,12 @@ function newCanvas () {
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }

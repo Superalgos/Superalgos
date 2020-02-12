@@ -86,7 +86,6 @@ function newTimeScale () {
 
     let event = {}
     event.scale = thisObject.scale
-    thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -133,7 +132,7 @@ function newTimeScale () {
     }
 
     coordinateSystem.zoomX(factor, event, limitingContainer)
-
+    saveObjectState()
     return
     if (
       thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
@@ -145,7 +144,6 @@ function newTimeScale () {
     }
 
     event.isUserAction = true
-    thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
 
     saveObjectState()
     scaleTimer = 100
@@ -162,8 +160,8 @@ function newTimeScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.scale = thisObject.scale / MAX_SCALE * 100
       code.scale = code.scale.toFixed(0)
-      code.fromDate = (new Date(thisObject.fromDate)).toISOString()
-      code.toDate = (new Date(thisObject.toDate)).toISOString()
+      code.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
+      code.toDate = (new Date(coordinateSystem.max.x)).toISOString()
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -171,6 +169,7 @@ function newTimeScale () {
   }
 
   function readObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
@@ -192,7 +191,6 @@ function newTimeScale () {
           } else {
             event.scale = thisObject.scale
           }
-          thisObject.container.eventHandler.raiseEvent('Time Scale Value Changed', event)
         }
       }
 
@@ -247,7 +245,7 @@ function newTimeScale () {
       y: 0
     }
 
-    let mouseDate = getDateFromPoint(timePoint, limitingContainer, coordinateSystem)
+    let mouseDate = getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
 
     thisObject.date = new Date(mouseDate)
 

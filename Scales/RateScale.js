@@ -362,7 +362,7 @@ function newRateScale () {
       y: mouse.position.y + thisObject.offset
     }
 
-    thisObject.rate = getRateFromPoint(ratePoint, rateCalculationsContainer, coordinateSystem)
+    thisObject.rate = getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)
 
     /* rateScale Positioning */
     ratePoint = {

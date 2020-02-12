@@ -141,7 +141,7 @@ function pad (str, max) {
   return str.length < max ? pad('0' + str, max) : str
 }
 
-function getDateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
@@ -150,8 +150,38 @@ function getDateFromPoint (point, container, coordinateSystem) {
   return date
 }
 
-function getRateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtChartsSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getDateFromPointAtContainer (point, container, coordinateSystem) {
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getRateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtChartSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtContainer (point, container, coordinateSystem) {
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   return point.y

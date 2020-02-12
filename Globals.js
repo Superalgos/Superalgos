@@ -209,7 +209,7 @@ We define here the size of the chartSpace. It has to bee enough big in order to 
 */
 
 const TIME_MACHINE_WIDTH = 250;
-const TIME_MACHINE_HEIGHT = 250 / 50;
+const TIME_MACHINE_HEIGHT = 50;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false

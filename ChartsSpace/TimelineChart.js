@@ -63,7 +63,7 @@ function newTimelineChart () {
   }
 
   function finalize () {
-    coordinateSystem.eventHandler.stopListening(timelineChartCoordinateSystem)
+    coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
 
     if (thisObject.layersManager !== undefined) {
       finalizeLayersManager()
@@ -131,8 +131,8 @@ function newTimelineChart () {
     /* Resets the local container with the dimessions of its parent, the Time Machine */
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
-    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
-    thisObject.container.frame.width = TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = thisObject.container.parentContainer.frame.height
+    thisObject.container.frame.width = thisObject.container.parentContainer.frame.width
   }
 
   function initialize (pTimeMachineCoordinateSystem) {
@@ -140,13 +140,37 @@ function newTimelineChart () {
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
     coordinateSystem = timeMachineCoordinateSystem
-    onScaleChanged()
+    initializeCoordinateSystem()
 
     timeFrame = INITIAL_TIME_PERIOD
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     scaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+  }
+
+  function initializeCoordinateSystem () {
+    let minValue = {
+      x: timeMachineCoordinateSystem.min.x,
+      y: 0
+    }
+
+    let maxValue = {
+      x: timeMachineCoordinateSystem.max.x,
+      y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
+    }
+
+    if (thisObject.rateScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
+    }
+
+    timelineChartCoordinateSystem.initialize(
+          minValue,
+          maxValue,
+          thisObject.container.frame.width,
+          thisObject.container.frame.height
+      )
   }
 
   function initializeLayersManager () {
@@ -376,29 +400,5 @@ function newTimelineChart () {
 
   function drawChartsBackground () {
     drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
-  }
-
-  function recalculateCoordinateSystem () {
-    let minValue = {
-      x: timelineChartCoordinateSystem.min.x,
-      y: 0
-    }
-
-    let maxValue = {
-      x: timelineChartCoordinateSystem.max.x,
-      y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
-    }
-
-    if (thisObject.rateScale !== undefined) {
-      minValue.y = thisObject.rateScale.minValue
-      maxValue.y = thisObject.rateScale.maxValue
-    }
-
-    timelineChartCoordinateSystem.initialize(
-          minValue,
-          maxValue,
-          thisObject.container.frame.width,
-          thisObject.container.frame.height
-      )
   }
 }

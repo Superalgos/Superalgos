@@ -342,6 +342,8 @@ function newRateScale () {
 
   function drawScaleBox () {
     if (thisObject.rate === undefined) { return }
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
 
     let rate = thisObject.rate
 
@@ -357,6 +359,7 @@ function newRateScale () {
     let label1 = thisObject.payload.node.payload.parentNode.name
     let label2 = (Math.trunc(rate)).toLocaleString()
     let label3 = labelArray[1]
+    if (label3 === undefined) { label3 = '00' }
 
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)

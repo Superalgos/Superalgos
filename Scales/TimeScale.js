@@ -2,7 +2,6 @@ function newTimeScale () {
   const MODULE_NAME = 'Time Scale'
 
   let thisObject = {
-    scale: undefined,
     container: undefined,
     date: undefined,
     fitFunction: undefined,
@@ -18,12 +17,6 @@ function newTimeScale () {
     initialize: initialize,
     finalize: finalize
   }
-
-  const DEFAULT_SCALE = 0
-  const STEP_SCALE = 2.5
-  const MIN_SCALE = 0
-  const MAX_SCALE = 250
-  const SNAP_THRESHOLD_SCALE = 0
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -42,6 +35,7 @@ function newTimeScale () {
   let onMouseWheelEventSubscriptionId
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
+  let onScaleChangedEventSubscriptionId
 
   let coordinateSystem
   let limitingContainer
@@ -52,13 +46,14 @@ function newTimeScale () {
       y: 0
     }
   }
-  let scaleTimer = 0
+
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    coordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -74,18 +69,12 @@ function newTimeScale () {
     coordinateSystem = pCoordinateSystem
     limitingContainer = pLimitingContainer
 
-    thisObject.fromDate = coordinateSystem.min.x
-    thisObject.toDate = coordinateSystem.max.x
-
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
-    thisObject.scale = DEFAULT_SCALE
     readObjectState()
-
-    let event = {}
-    event.scale = thisObject.scale
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -116,7 +105,6 @@ function newTimeScale () {
 
   function onMouseNotOver () {
     isMouseOver = false
-    scaleTimer = 0
   }
 
   function onMouseWheel (event) {
@@ -131,22 +119,11 @@ function newTimeScale () {
       factor = 0.01 * morePower
     }
 
-    coordinateSystem.zoomX(factor, event, limitingContainer)
-    saveObjectState()
-    return
-    if (
-      thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-      thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-    ) {
-      event.scale = DEFAULT_SCALE
-    } else {
-      event.scale = thisObject.scale
-    }
+    coordinateSystem.zoomX(factor, event, limitingContainer, MODULE_NAME)
+  }
 
-    event.isUserAction = true
-
+  function onScaleChanged () {
     saveObjectState()
-    scaleTimer = 100
   }
 
   function getContainer (point) {
@@ -158,8 +135,6 @@ function newTimeScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.scale = thisObject.scale / MAX_SCALE * 100
-      code.scale = code.scale.toFixed(0)
       code.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
       code.toDate = (new Date(coordinateSystem.max.x)).toISOString()
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
@@ -172,27 +147,6 @@ function newTimeScale () {
     return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-
-      if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
-         // not using this value
-      } else {
-        code.scale = code.scale / 100 * MAX_SCALE
-        if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
-        if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
-
-        if (code.scale !== thisObject.scale) {
-          thisObject.scale = code.scale
-          let event = {}
-          if (
-            thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-            thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-          ) {
-            event.scale = DEFAULT_SCALE
-          } else {
-            event.scale = thisObject.scale
-          }
-        }
-      }
 
       if (
       (isNaN(Date.parse(code.fromDate)) || code.fromDate === null || code.fromDate === undefined) ||
@@ -215,7 +169,6 @@ function newTimeScale () {
   }
 
   function physics () {
-    scaleTimer--
     readObjectState()
     positioningPhysics()
   }
@@ -301,11 +254,6 @@ function newTimeScale () {
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
-
-    if (scaleTimer > 0) {
-      label2 = (thisObject.scale / MAX_SCALE * 100).toFixed(0)
-      label3 = 'SCALE'
-    }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }

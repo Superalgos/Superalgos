@@ -134,6 +134,9 @@ function newEdgeEditor () {
       y: thisObject.container.frame.position.y
     }
 
+    thisObject.container.frame.position.x = 0
+    thisObject.container.frame.position.y = 0
+
     const MIN_WIDTH = 100
     const MIN_HEIGHT = 50
 
@@ -148,8 +151,8 @@ function newEdgeEditor () {
           }
           case 'right mouse button': {
             let point = {
-              x: -thisObject.container.frame.position.x,
-              y: -thisObject.container.frame.position.y
+              x: -dragVector.x,
+              y: -dragVector.y
             }
             let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
             let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
@@ -171,8 +174,8 @@ function newEdgeEditor () {
         }
 
         let point = {
-          x: thisObject.container.frame.position.x,
-          y: thisObject.container.frame.position.y
+          x: dragVector.x,
+          y: dragVector.y
         }
         let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
@@ -201,8 +204,8 @@ function newEdgeEditor () {
         }
 
         let point = {
-          x: thisObject.container.frame.position.x,
-          y: thisObject.container.frame.position.y + thisObject.container.frame.height
+          x: dragVector.x,
+          y: dragVector.y + thisObject.container.frame.height
         }
         let newMinRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
@@ -229,8 +232,8 @@ function newEdgeEditor () {
           return
         }
         let point = {
-          x: thisObject.container.frame.position.x,
-          y: thisObject.container.frame.position.y
+          x: dragVector.x,
+          y: dragVector.y
         }
         let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
@@ -259,8 +262,8 @@ function newEdgeEditor () {
         }
 
         let point = {
-          x: thisObject.container.frame.position.x + thisObject.container.frame.width,
-          y: thisObject.container.frame.position.y
+          x: dragVector.x + thisObject.container.frame.width,
+          y: dragVector.y
         }
         let newMaxDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
@@ -283,10 +286,6 @@ function newEdgeEditor () {
         break
       }
     }
-
-    /* Finally we reset this */
-    thisObject.container.frame.position.x = 0
-    thisObject.container.frame.position.y = 0
   }
 
   function drawForeground () {

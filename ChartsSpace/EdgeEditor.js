@@ -169,7 +169,7 @@ function newEdgeEditor () {
         break
       }
       case 'top' : {
-        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT && dragVector.y > 0) {
           return
         }
 
@@ -199,7 +199,7 @@ function newEdgeEditor () {
         break
       }
       case 'bottom' : {
-        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT) {
+        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT && dragVector.y < 0) {
           return
         }
 
@@ -228,7 +228,7 @@ function newEdgeEditor () {
         break
       }
       case 'left' : {
-        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH && dragVector.x > 0) {
           return
         }
         let point = {
@@ -257,7 +257,7 @@ function newEdgeEditor () {
         break
       }
       case 'right' : {
-        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH) {
+        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH && dragVector.x < 0) {
           return
         }
 

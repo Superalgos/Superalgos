@@ -6,13 +6,11 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    scale: undefined,
     offset: undefined,
     minValue: undefined,
     maxValue: undefined,
     isVisible: true,
     layersOn: undefined,
-    setScale: setScale,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -21,12 +19,6 @@ function newRateScale () {
     initialize: initialize,
     finalize: finalize
   }
-
-  const DEFAULT_SCALE = 50
-  const STEP_SCALE = 1
-  const MIN_SCALE = 0
-  const MAX_SCALE = 100
-  const SNAP_THRESHOLD_SCALE = 1
 
   const DEFAULT_OFFSET = 0
   const STEP_OFFSET = 1
@@ -53,6 +45,7 @@ function newRateScale () {
   let onMouseWheelEventSubscriptionId
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
+  let onScaleChangedEventSubscriptionId
 
   let coordinateSystem
   let limitingContainer
@@ -66,13 +59,13 @@ function newRateScale () {
   }
 
   let offsetTimer = 0
-  let scaleTimer = 0
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    coordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -96,13 +89,9 @@ function newRateScale () {
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
-    thisObject.scale = DEFAULT_SCALE
     readObjectState()
-
-    let event = {}
-    event.scale = thisObject.scale
-    thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -125,6 +114,10 @@ function newRateScale () {
     }
   }
 
+  function onScaleChanged () {
+    saveObjectState()
+  }
+
   function onMouseOver (event) {
     isMouseOver = true
     event.containerId = thisObject.container.id
@@ -134,7 +127,6 @@ function newRateScale () {
   function onMouseNotOver () {
     isMouseOver = false
     offsetTimer = 0
-    scaleTimer = 0
   }
 
   function onMouseWheel (event) {
@@ -164,7 +156,6 @@ function newRateScale () {
 
       saveObjectState()
       offsetTimer = 100
-      scaleTimer = 0
     } else {
       let factor
       let morePower = 10
@@ -178,43 +169,7 @@ function newRateScale () {
       }
 
       coordinateSystem.zoomY(factor, event, limitingContainer)
-
-      return
-      if (event.buttons === 4) { morePower = 5 } // Mouse wheel pressed.
-      delta = event.wheelDelta
-      if (delta < 0) {
-        thisObject.scale = thisObject.scale - STEP_SCALE * morePower
-        if (thisObject.scale < MIN_SCALE) { thisObject.scale = MIN_SCALE }
-      } else {
-        thisObject.scale = thisObject.scale + STEP_SCALE * morePower
-        if (thisObject.scale > MAX_SCALE) { thisObject.scale = MAX_SCALE }
-      }
-
-      finishScaleChange(event)
     }
-  }
-
-  function setScale (scale) {
-    thisObject.scale = scale
-    let event = {}
-    finishScaleChange(event)
-  }
-
-  function finishScaleChange (event) {
-    if (
-      thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-      thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-    ) {
-      event.scale = DEFAULT_SCALE
-    } else {
-      event.scale = thisObject.scale
-    }
-    event.isUserAction = true
-    thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
-
-    saveObjectState()
-    offsetTimer = 0
-    scaleTimer = 100
   }
 
   function getContainer (point) {
@@ -226,11 +181,10 @@ function newRateScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.scale = thisObject.scale / MAX_SCALE * 100
-      code.scale = code.scale.toFixed(0)
+      code.scale = undefined
       code.offset = thisObject.offset
-      code.minValue = thisObject.minValue
-      code.maxValue = thisObject.maxValue
+      code.minValue = coordinateSystem.min.y
+      code.maxValue = coordinateSystem.max.y
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -240,28 +194,6 @@ function newRateScale () {
   function readObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-
-      if (isNaN(code.scale) || code.scale === null || code.scale === undefined) {
-        // not using this value
-      } else {
-        code.scale = code.scale / 100 * MAX_SCALE
-        if (code.scale < MIN_SCALE) { code.scale = MIN_SCALE }
-        if (code.scale > MAX_SCALE) { code.scale = MAX_SCALE }
-
-        if (code.scale !== thisObject.scale) {
-          thisObject.scale = code.scale
-          let event = {}
-          if (
-            thisObject.scale <= DEFAULT_SCALE + SNAP_THRESHOLD_SCALE &&
-            thisObject.scale >= DEFAULT_SCALE - SNAP_THRESHOLD_SCALE
-          ) {
-            event.scale = DEFAULT_SCALE
-          } else {
-            event.scale = thisObject.scale
-          }
-          thisObject.container.eventHandler.raiseEvent('Rate Scale Value Changed', event)
-        }
-      }
 
       if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
         // not using this value
@@ -306,7 +238,6 @@ function newRateScale () {
 
   function physics () {
     offsetTimer--
-    scaleTimer--
     readObjectState()
     positioningPhysics()
   }
@@ -436,11 +367,6 @@ function newRateScale () {
     if (offsetTimer > 0) {
       label2 = thisObject.offset.toFixed(0)
       label3 = 'OFFSET'
-    }
-
-    if (scaleTimer > 0) {
-      label2 = (thisObject.scale / MAX_SCALE * 100).toFixed(0)
-      label3 = 'SCALE'
     }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)

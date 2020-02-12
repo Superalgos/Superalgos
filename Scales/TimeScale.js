@@ -135,6 +135,7 @@ function newTimeScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
+      code.scale = undefined
       code.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
       code.toDate = (new Date(coordinateSystem.max.x)).toISOString()
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
@@ -144,7 +145,6 @@ function newTimeScale () {
   }
 
   function readObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 

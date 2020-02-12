@@ -51,7 +51,6 @@ function newTimeMachine () {
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
-  let rateScaleValueEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
@@ -121,7 +120,6 @@ function newTimeMachine () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
@@ -208,25 +206,9 @@ function newTimeMachine () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container, thisObject.container)
 
-    function rateScaleValueChanged (event) {
-      if (event.isUserAction === true) {
-        let currentDate = getDateFromPointAtBrowserCanvas(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        let currentRate = getRateFromPointAtBrowserCanvas(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-
-        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition)
-      } else {
-        // thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-      }
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      thisObject.container.eventHandler.raiseEvent('Upstream Rate Scale Value Changed', event)
-    }
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }

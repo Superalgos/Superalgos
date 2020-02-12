@@ -38,11 +38,9 @@ function newTimelineChart () {
 
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
-  let rateScaleValueEventSuscriptionId
   let rateScaleUpstreamEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let rateScaleOffsetEventSuscriptionId
-  let rateScaleUpstreamDimensionsEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
   let scaleChangedEventSubscriptionId
@@ -125,10 +123,8 @@ function newTimelineChart () {
     if (thisObject.rateScale === undefined) { return }
 
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleOffsetEventSuscriptionId)
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamEventSuscriptionId)
-    thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamDimensionsEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
 
@@ -182,33 +178,14 @@ function newTimelineChart () {
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
     rateScaleOffsetEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Offset Changed', rateScaleOffsetChanged)
-    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
-    rateScaleUpstreamEventSuscriptionId = thisObject.container.parentContainer.eventHandler.listenToEvent('Upstream Rate Scale Value Changed', rateScaleUpstreamChanged)
-    rateScaleUpstreamDimensionsEventSuscriptionId = thisObject.container.parentContainer.eventHandler.listenToEvent('Dimmensions Changed', rateScaleUpstreamDimensioinsChanged)
     thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer, thisObject.container)
-
-    function rateScaleUpstreamDimensioinsChanged () {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * thisObject.rateScale.scale
-      recalculateCoordinateSystem()
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    }
-
-    function rateScaleUpstreamChanged (event) {
-      // thisObject.rateScale.setScale(event.scale)
-    }
 
     function rateScaleOffsetChanged (event) {
       if (thisObject.container.frame.offset.y !== event.offset) {
         thisObject.container.frame.offset.y = event.offset
         thisObject.container.eventHandler.raiseEvent('onDisplace')
       }
-    }
-
-    function rateScaleValueChanged (event) {
-      thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-      recalculateCoordinateSystem()
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
 
     function rateScaleMouseOver (event) {

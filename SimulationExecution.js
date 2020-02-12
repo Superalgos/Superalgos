@@ -119,7 +119,7 @@
     }
 
     function onMouseOver(event) {
-        let userPosition = getDateFromPoint(event, thisObject.container, coordinateSystem)
+        let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
     }
 

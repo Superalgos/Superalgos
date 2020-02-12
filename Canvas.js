@@ -123,7 +123,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
+      animation.addCallBackFunction('Designer Space Physics', thisObject.designerSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
@@ -265,6 +265,15 @@ function newCanvas () {
         console.log(nodeOnFocus)
         return
       }
+    }
+
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Dev Tool when used with F11
+      if (SHOW_ANIMATION_PERFORMACE === false) {
+        SHOW_ANIMATION_PERFORMACE = true
+      } else {
+        SHOW_ANIMATION_PERFORMACE = false
+      }
+      return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
@@ -461,7 +470,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Designer Space / */
 
       container = thisObject.designerSpace.getContainer(point)
 
@@ -566,7 +575,7 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Designer Space / */
 
       container = thisObject.designerSpace.getContainer(point)
 

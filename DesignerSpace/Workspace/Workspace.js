@@ -87,6 +87,8 @@ function newWorkspace () {
       }
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
+
+      setInterval(saveWorkspace, 5000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -108,11 +110,13 @@ function newWorkspace () {
     functionLibraryReferenceAttachDetach.referenceAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
   }
 
-  function physics () {
-    if (thisObject.enabled !== true) { return }
-
+  function saveWorkspace () {
     let textToSave = stringifyWorkspace()
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+  }
+
+  function physics () {
+    if (thisObject.enabled !== true) { return }
 
     if (workingAtTask > 0) {
       circularProgressBar.physics()

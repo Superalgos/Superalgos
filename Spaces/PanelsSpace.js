@@ -343,9 +343,11 @@ function newPanelsSpace () {
         }
       }
       if (container !== undefined) {
+        container.space = 'Panels Space'
         return container
       }
     }
+    thisObject.container.space = 'Panels Space'
     return thisObject.container
   }
 }

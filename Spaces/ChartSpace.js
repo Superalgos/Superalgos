@@ -142,9 +142,13 @@ function newChartSpace () {
         }
       }
     }
-    if (containerFound !== undefined) { return containerFound }
+    if (containerFound !== undefined) {
+      containerFound.space = 'Charting Space'
+      return containerFound
+    }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      thisObject.container.space = 'Charting Space'
       return thisObject.container
     } else {
       return undefined

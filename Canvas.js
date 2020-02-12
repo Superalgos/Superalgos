@@ -884,36 +884,45 @@ function newCanvas () {
             y: dragVector.upY - dragVector.downY
           }
 
-          if (viewPortBeingDragged) {
-            canvas.chartSpace.viewport.displace(displaceVector)
-          }
+          canvas.chartSpace.viewport.displace(displaceVector)
         }
         if (containerDragStarted) {
           if (containerBeingDragged !== undefined) {
-            let downCopy = {
-              x: dragVector.downX,
-              y: dragVector.downY
-            }
+            if (containerBeingDragged.space === 'Charting Space') {
+              let downCopy = {
+                x: dragVector.downX,
+                y: dragVector.downY
+              }
 
-            let downNoZoom
-            downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
+              let downNoZoom
+              downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
 
-            let upCopy = {
-              x: dragVector.upX,
-              y: dragVector.upY
-            }
+              let upCopy = {
+                x: dragVector.upX,
+                y: dragVector.upY
+              }
 
-            let upNoZoom
-            upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
+              let upNoZoom
+              upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
 
-            displaceVector = {
-              x: upNoZoom.x - downNoZoom.x,
-              y: upNoZoom.y - downNoZoom.y
-            }
+              displaceVector = {
+                x: upNoZoom.x - downNoZoom.x,
+                y: upNoZoom.y - downNoZoom.y
+              }
 
-            let moveSucceed = containerBeingDragged.displace(displaceVector)
-            if (moveSucceed === false) {
-              deactivateDragging(event)
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
+            } else {
+              let displaceVector = {
+                x: dragVector.upX - dragVector.downX,
+                y: dragVector.upY - dragVector.downY
+              }
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
             }
           }
         }

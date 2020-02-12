@@ -50,18 +50,7 @@ function newTopSpace () {
   }
 
   function getContainer (point) {
-    let container
-    return
 
-    container = thisObject.currentEvent.getContainer(point)
-    if (container !== undefined) { return container }
-
-    container = thisObject.login.getContainer(point)
-    if (container !== undefined) { return container }
-
-        /* The point does not belong to any inner container, so we return the current container. */
-
-    return thisObject.container
   }
 
   function draw () {

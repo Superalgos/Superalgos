@@ -6,7 +6,6 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    offset: undefined,
     minValue: undefined,
     maxValue: undefined,
     isVisible: true,
@@ -20,12 +19,6 @@ function newRateScale () {
     finalize: finalize
   }
 
-  const DEFAULT_OFFSET = 0
-  const STEP_OFFSET = 1
-  const MIN_OFFSET = -1000
-  const MAX_OFFSET = 1000
-  const SNAP_THRESHOLD_OFFSET = 3
-
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
 
@@ -36,8 +29,6 @@ function newRateScale () {
 
   thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
   thisObject.container.frame.height = 40
-
-  thisObject.offset = DEFAULT_OFFSET
 
   let draggeableContainer = newContainer()
   draggeableContainer.initialize(MODULE_NAME + ' Draggeable')
@@ -162,7 +153,6 @@ function newRateScale () {
   function saveObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.offset = thisObject.offset
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
@@ -174,27 +164,6 @@ function newRateScale () {
   function readObjectState () {
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-
-      if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
-        // not using this value
-      } else {
-        if (code.offset < MIN_OFFSET) { code.offset = MIN_OFFSET }
-        if (code.offset > MAX_OFFSET) { code.offset = MAX_OFFSET }
-
-        if (code.offset !== thisObject.offset) {
-          thisObject.offset = code.offset
-          let event = {}
-          if (
-            thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
-            thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
-          ) {
-            event.offset = 0
-          } else {
-            event.offset = -thisObject.offset
-          }
-          thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
-        }
-      }
 
       if (
       (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) ||
@@ -295,7 +264,7 @@ function newRateScale () {
     /* Mouse Position Rate Calculation */
     let ratePoint = {
       x: 0,
-      y: mouse.position.y + thisObject.offset
+      y: mouse.position.y
     }
 
     thisObject.rate = getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)

@@ -135,14 +135,14 @@ function newTimelineChart () {
     thisObject.container.frame.width = thisObject.container.parentContainer.frame.width
   }
 
-  function initialize (pTimeMachineCoordinateSystem) {
+  function initialize (pTimeMachineCoordinateSystem, pTimeFrame) {
      /* We load the logow we will need for the background. */
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
     coordinateSystem = timeMachineCoordinateSystem
     initializeCoordinateSystem()
 
-    timeFrame = INITIAL_TIME_PERIOD
+    timeFrame = pTimeFrame
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)

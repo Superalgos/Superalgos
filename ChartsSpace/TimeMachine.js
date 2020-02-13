@@ -461,7 +461,7 @@ function newTimeMachine () {
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = 0
       timelineChart.container.frame.position.y = 0
-      timelineChart.initialize(timeMachineCoordinateSystem)
+      timelineChart.initialize(timeMachineCoordinateSystem, timeFrame)
 
       /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
       timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)

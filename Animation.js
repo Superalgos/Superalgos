@@ -129,7 +129,6 @@ function newAnimation () {
           printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
           row++
           printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          console.log(DEBUG.variable4)
         }
       } else {
         browserCanvas.width = 1

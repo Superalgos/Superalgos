@@ -152,6 +152,7 @@ function newRateScale () {
   }
 
   function saveObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
       code.minValue = coordinateSystem.min.y
@@ -165,6 +166,7 @@ function newRateScale () {
   }
 
   function readObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 

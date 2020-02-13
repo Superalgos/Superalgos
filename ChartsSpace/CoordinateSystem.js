@@ -79,14 +79,21 @@ function newCoordinateSystem () {
 
       if (thisObject.autoMaxScale === true && thisObject.max.y !== newMax) {
         thisObject.max.y = newMax
-        newMax = -VERY_LARGE_NUMBER
         mustRecalculate = true
+      }
+
+      if (thisObject.autoMaxScale === true) {
+        newMax = -VERY_LARGE_NUMBER
       }
 
       if (thisObject.autoMinScale === true && thisObject.min.y !== newMin) {
         thisObject.min.y = newMin
         newMin = VERY_LARGE_NUMBER
         mustRecalculate = true
+      }
+
+      if (thisObject.autoMinScale === true) {
+        newMin = VERY_LARGE_NUMBER
       }
 
       if (mustRecalculate === true) {

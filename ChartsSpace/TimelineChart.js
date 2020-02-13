@@ -316,7 +316,7 @@ function newTimelineChart () {
   }
 
   function thisObjectPhysics () {
-
+    timelineChartCoordinateSystem.physics()
   }
 
   function syncWithDesignerLayersManager () {

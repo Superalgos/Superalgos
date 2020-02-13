@@ -95,12 +95,12 @@ function newCoordinateSystem () {
     }
   }
 
-  function recalculateScale () {
+  function recalculateScale (event) {
     /* Defines the initial Zoom level at center position. */
     thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
 
-    thisObject.eventHandler.raiseEvent('Scale Changed')
+    thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

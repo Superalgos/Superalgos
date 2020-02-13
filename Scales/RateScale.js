@@ -10,6 +10,7 @@ function newRateScale () {
     maxValue: undefined,
     isVisible: true,
     layersOn: undefined,
+    onBorderChanged: onBorderChanged,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -214,6 +215,32 @@ function newRateScale () {
     coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
     coordinateSystem.max.y = newMaxRate
     coordinateSystem.recalculateScale()
+  }
+
+  function onBorderChanged (event) {
+    if (event === undefined) { return }
+    if (event.border === 'top') {
+      let point = {
+        x: event.dragVector.x,
+        y: event.dragVector.y
+      }
+      let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+
+      coordinateSystem.max.y = newMaxRate
+      coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
+      coordinateSystem.recalculateScale()
+    }
+    if (event.border === 'bottom') {
+      let point = {
+        x: event.dragVector.x,
+        y: event.dragVector.y + rateCalculationsContainer.frame.height
+      }
+      let newMinRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+
+      coordinateSystem.min.y = newMinRate
+      coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
+      coordinateSystem.recalculateScale()
+    }
   }
 
   function positioningPhysics () {

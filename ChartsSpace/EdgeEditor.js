@@ -187,7 +187,11 @@ function newEdgeEditor () {
           case 'left mouse button': {
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
-            coordinateSystem.recalculateScale()
+            let event = {
+              border: 'top',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
             break
           }
           case 'right mouse button': {
@@ -216,7 +220,11 @@ function newEdgeEditor () {
           case 'left mouse button': {
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
-            coordinateSystem.recalculateScale()
+            let event = {
+              border: 'bottom',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
             break
           }
           case 'right mouse button': {

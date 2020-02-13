@@ -62,7 +62,7 @@ function newRateScale () {
     }
   }
 
-  let offsetTimer = 0
+  let scaleDisplayTimer = 0
   return thisObject
 
   function finalize () {
@@ -130,50 +130,23 @@ function newRateScale () {
 
   function onMouseNotOver () {
     isMouseOver = false
-    offsetTimer = 0
+    scaleDisplayTimer = 0
   }
 
   function onMouseWheel (event) {
-    if (event.shiftKey === true) {
-      let morePower = 1
-      if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
-      let delta = event.wheelDelta
-      if (delta < 0) {
-        thisObject.offset = thisObject.offset - STEP_OFFSET * morePower
-        if (thisObject.offset < MIN_OFFSET) { thisObject.offset = STEP_OFFSET }
-      } else {
-        thisObject.offset = thisObject.offset + STEP_OFFSET * morePower
-        if (thisObject.offset > MAX_OFFSET) { thisObject.offset = MAX_OFFSET }
-      }
+    let factor
+    let morePower = 10
+    if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
 
-      if (
-        thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
-        thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
-      ) {
-        event.offset = 0
-      } else {
-        event.offset = -thisObject.offset
-      }
-
-      event.isUserAction = true
-      thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
-
-      saveObjectState()
-      offsetTimer = 100
+    let delta = event.wheelDelta
+    if (delta < 0) {
+      factor = -0.01 * morePower
     } else {
-      let factor
-      let morePower = 10
-      if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
-
-      let delta = event.wheelDelta
-      if (delta < 0) {
-        factor = -0.01 * morePower
-      } else {
-        factor = 0.01 * morePower
-      }
-
-      coordinateSystem.zoomY(factor, event, limitingContainer)
+      factor = 0.01 * morePower
     }
+
+    coordinateSystem.zoomY(factor, event, limitingContainer)
+    scaleDisplayTimer = 100
   }
 
   function getContainer (point, purpose) {
@@ -244,7 +217,7 @@ function newRateScale () {
   }
 
   function physics () {
-    offsetTimer--
+    scaleDisplayTimer--
     readObjectState()
     positioningPhysics()
     draggingPhysics()
@@ -399,9 +372,9 @@ function newRateScale () {
 
     let backgroundColor = UI_COLOR.BLACK
 
-    if (offsetTimer > 0) {
-      label2 = thisObject.offset.toFixed(0)
-      label3 = 'OFFSET'
+    if (scaleDisplayTimer > 0) {
+      label2 = (coordinateSystem.scale.y * 10000).toFixed(2)
+      label3 = 'SCALE'
     }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)

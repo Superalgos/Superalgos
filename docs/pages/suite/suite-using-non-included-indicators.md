@@ -13,7 +13,7 @@ This means that you may need to be mindful of which indicators you will set up t
 
 If you have plenty of disk space and a machine with plenty of processing power and memory, you are free to set up all of the indicators at once. If that is not the case, then you will be better off setting up only the indicators that you intend to use.
 
-> **NOTE:** The setup process described below is a temporary solution to the early stage limitations that characterize an beta stage product. We expect the experience to improve significantly in upcoming releases. That said, rest assured that—while the setup guide may seem long—it is actually quite easy to follow and takes only 3 minutes to execute.
+{% include note.html content="The setup process described below is a temporary solution to the early stage limitations that characterize a beta stage product. We expect the experience to improve significantly in upcoming releases. That said, rest assured that—while the setup guide may seem long—it is actually quite easy to follow and takes only 3 minutes to execute." %}
 
 **Let's say you wish to set yourself up to use the standard setting of the MACD indicator, that is, the (12, 26, 9) setting. This is what you need to do:**
 

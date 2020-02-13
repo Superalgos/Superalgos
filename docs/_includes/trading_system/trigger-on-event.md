@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -57,7 +57,7 @@ Once a strategy is triggered-on, the system starts evaluating the take position 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

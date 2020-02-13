@@ -41,7 +41,8 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 10 // This regulates some behavious changes that happens when the user zoom out below this level.
+const DEBUG = {}
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 5 // This regulates some behavious changes that happens when the user zoom out below this level.
 const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 5  // This help regulate when to change the Time Frame base on the level of zoom out.
 
 let FONT_ASPECT_RATIO = 0.32;
@@ -209,7 +210,7 @@ We define here the size of the chartSpace. It has to bee enough big in order to 
 */
 
 const TIME_MACHINE_WIDTH = 250;
-const TIME_MACHINE_HEIGHT = 250 / 50;
+const TIME_MACHINE_HEIGHT = 50;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false

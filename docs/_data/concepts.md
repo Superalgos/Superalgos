@@ -1,4 +1,4 @@
-design_space: "The design space is the visual environment that features all the information available and that enables users to exert control over the whole system. You may think of the design space as your desktop."
+design_space: "The design space is the visual environment that features all the information available to the system and the user, and that enables users to exert control over the whole system. You may think of the design space as your desktop."
 
 workspace: "The workspace refers to the body of information managed by the system. Every data structure in the form of strategies, the configuration of different parts of the system, operational settings, and the relationships among them live within the workspace."
 
@@ -16,15 +16,21 @@ reference: "A reference is a mechanism by which information in a node is related
 
 session: "A session refers to a backtesting, paper trading, forward testing or live trading session. When the term is used without specifying the type of session, then it refers to the overall concept by which a trading bot instance&mdash;based on datasets exposed as products by other bots&mdash;applies the trading logic defined on a trading system in any of the aforementioned modes."
 
-sensor_bot: "A sensor bot extracts raw data from external sources (*i.e.: exchanges, Twitter, etc.*)."
+sensor_bot: "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume."
 
-indicator_bot: "An indicator bot processes data to produce more elaborate datasets."
+indicator_bot: "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume."
 
 trading_bot: "Based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots), a trading bot applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session."
 
 superalgos_protocol: "In conceptual terms, the Superalgos Protocol determines the structure in which the information describing a trading system is stored and guides how traders shall create and automate strategies. In practical terms, the protocol results in a file with a specific format capable of holding all the information concerning any number and variety of strategies. In its current early version, the protocol is the description of a JSON object which defines the desired automation."
 
 hierarchies_directory: "The hierarchies directory is the part of the documentation that features a description of the complete catalog of nodes of each hierachy"
+
+data_product: "A data product is a collection of datasets that bots output for others to consume."
+
+dataset: "A dataset is a collection of plain-text files storing information in the form of arrays of records in the standard JSON format, although not as objects with named properties, but as arrays."
+
+process: "A process is an algorithm defined in the process definition structure of nodes of the corresponding bot and data mine."
 
 pending: "balanceAssetA, balanceAssetB, overfitting, supported assets, supported exchanges, supported markets"
 

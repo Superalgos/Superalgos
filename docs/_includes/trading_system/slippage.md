@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -57,7 +57,7 @@ Slippage is factored both in the session reports and in the graphic representati
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

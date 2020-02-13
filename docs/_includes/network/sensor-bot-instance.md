@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -57,7 +57,7 @@ The sensor bot instance holds no definitions as to what the bot does. Instead, i
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

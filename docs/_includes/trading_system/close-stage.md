@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -57,7 +57,7 @@ Also pending development is the keeping of a formal trading log. The current fun
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

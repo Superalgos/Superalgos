@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -48,14 +48,16 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-If you work with multiple markets, multiple exchanges of multiple trading systems, it is recommended to organize your live trading sessions below the production environment node.
+Superalgos aims to provide a flexible and robust strategy-deployment toolbox.
+
+If you work with multiple markets, multiple exchanges, or multiple trading systems, it is recommended to organize your forward testing and live trading sessions below the production environment node.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

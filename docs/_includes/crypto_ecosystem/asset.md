@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -55,7 +55,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -85,9 +85,9 @@ Select *Configure Asset* on the menu to access the configuration.
 }
 ```
 
-* codeName is the ticker of the asset as listed by the exchange (*i.e.:* BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)
+* ```codeName``` is the ticker of the asset as listed by the exchange (*i.e.:* BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)
 
-{% include note.html content="Consult the list of supported assets for the list of possible values for the ```codeName``` field. When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset." %}
+{% include note.html content="When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset." %}
 
 <!--------------------------------------------- CONFIGURING ends -->
 

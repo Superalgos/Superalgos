@@ -147,6 +147,7 @@ function newEdgeEditor () {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
             thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
             thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
+            thisObject.container.parentContainer.eventHandler.raiseEvent('onDisplace')
             break
           }
           case 'right mouse button': {
@@ -186,7 +187,11 @@ function newEdgeEditor () {
           case 'left mouse button': {
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
-            coordinateSystem.recalculateScale()
+            let event = {
+              border: 'top',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
             break
           }
           case 'right mouse button': {
@@ -215,7 +220,11 @@ function newEdgeEditor () {
           case 'left mouse button': {
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
-            coordinateSystem.recalculateScale()
+            let event = {
+              border: 'bottom',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
             break
           }
           case 'right mouse button': {

@@ -40,7 +40,6 @@ function newTimelineChart () {
   let onMouseNotOverEventSuscriptionId
   let rateScaleUpstreamEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
-  let rateScaleOffsetEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
   let scaleChangedEventSubscriptionId
@@ -63,7 +62,7 @@ function newTimelineChart () {
   }
 
   function finalize () {
-    coordinateSystem.eventHandler.stopListening(timelineChartCoordinateSystem)
+    coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
 
     if (thisObject.layersManager !== undefined) {
       finalizeLayersManager()
@@ -122,7 +121,6 @@ function newTimelineChart () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleOffsetEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamEventSuscriptionId)
     thisObject.rateScale.finalize()
@@ -131,22 +129,46 @@ function newTimelineChart () {
     /* Resets the local container with the dimessions of its parent, the Time Machine */
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
-    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
-    thisObject.container.frame.width = TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = thisObject.container.parentContainer.frame.height
+    thisObject.container.frame.width = thisObject.container.parentContainer.frame.width
   }
 
-  function initialize (pTimeMachineCoordinateSystem) {
+  function initialize (pTimeMachineCoordinateSystem, pTimeFrame) {
      /* We load the logow we will need for the background. */
 
     timeMachineCoordinateSystem = pTimeMachineCoordinateSystem
     coordinateSystem = timeMachineCoordinateSystem
-    onScaleChanged()
+    initializeCoordinateSystem()
 
-    timeFrame = INITIAL_TIME_PERIOD
+    timeFrame = pTimeFrame
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     scaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+  }
+
+  function initializeCoordinateSystem () {
+    let minValue = {
+      x: timeMachineCoordinateSystem.min.x,
+      y: 0
+    }
+
+    let maxValue = {
+      x: timeMachineCoordinateSystem.max.x,
+      y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
+    }
+
+    if (thisObject.rateScale !== undefined) {
+      minValue.y = thisObject.rateScale.minValue
+      maxValue.y = thisObject.rateScale.maxValue
+    }
+
+    timelineChartCoordinateSystem.initialize(
+          minValue,
+          maxValue,
+          thisObject.container.frame.width,
+          thisObject.container.frame.height
+      )
   }
 
   function initializeLayersManager () {
@@ -177,16 +199,8 @@ function newTimelineChart () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleOffsetEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Offset Changed', rateScaleOffsetChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer, thisObject.container)
-
-    function rateScaleOffsetChanged (event) {
-      if (thisObject.container.frame.offset.y !== event.offset) {
-        thisObject.container.frame.offset.y = event.offset
-        thisObject.container.eventHandler.raiseEvent('onDisplace')
-      }
-    }
 
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
@@ -217,9 +231,14 @@ function newTimelineChart () {
     }
   }
 
-  function onScaleChanged () {
+  function onScaleChanged (event) {
+    if (thisObject.rateScale !== undefined) {
+      thisObject.rateScale.onBorderChanged(event)
+    }
     timelineChartCoordinateSystem.min.x = timeMachineCoordinateSystem.min.x
     timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x
+    timelineChartCoordinateSystem.maxHeight = timeMachineCoordinateSystem.maxHeight
+    timelineChartCoordinateSystem.maxWidth = timeMachineCoordinateSystem.maxWidth
     timelineChartCoordinateSystem.recalculateScale()
   }
 
@@ -269,7 +288,7 @@ function newTimelineChart () {
     let container
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
-      container = thisObject.rateScale.getContainer(point)
+      container = thisObject.rateScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -278,7 +297,7 @@ function newTimelineChart () {
     }
 
     if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
-      container = thisObject.timeFrameScale.getContainer(point)
+      container = thisObject.timeFrameScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -297,7 +316,7 @@ function newTimelineChart () {
   }
 
   function thisObjectPhysics () {
-
+    timelineChartCoordinateSystem.physics()
   }
 
   function syncWithDesignerLayersManager () {
@@ -323,10 +342,16 @@ function newTimelineChart () {
     if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
       finalizeRateScale()
       coordinateSystem = timeMachineCoordinateSystem
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
+      }
     }
     if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
       initializeRateScale()
       coordinateSystem = timelineChartCoordinateSystem
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
+      }
     }
     if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()
@@ -376,29 +401,5 @@ function newTimelineChart () {
 
   function drawChartsBackground () {
     drawContainerBackground(thisObject.container, UI_COLOR.WHITE, 0, thisObject.fitFunction)
-  }
-
-  function recalculateCoordinateSystem () {
-    let minValue = {
-      x: timelineChartCoordinateSystem.min.x,
-      y: 0
-    }
-
-    let maxValue = {
-      x: timelineChartCoordinateSystem.max.x,
-      y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
-    }
-
-    if (thisObject.rateScale !== undefined) {
-      minValue.y = thisObject.rateScale.minValue
-      maxValue.y = thisObject.rateScale.maxValue
-    }
-
-    timelineChartCoordinateSystem.initialize(
-          minValue,
-          maxValue,
-          thisObject.container.frame.width,
-          thisObject.container.frame.height
-      )
   }
 }

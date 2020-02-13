@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -48,14 +48,14 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-In other words, a market reference is the piece of information that let's the process instance know which market of which exchange it needs to process.
+In other words, a market reference is the piece of information that lets the process instance know which market of which exchange it needs to process.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

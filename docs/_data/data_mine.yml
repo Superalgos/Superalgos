@@ -1,6 +1,10 @@
 data_mine: "A data mine is a hierarchy that contains definitions regarding bots, including the trading bot, sensors, indicators, and even plotters. These definitions make up the actual programs of such bots&mdash;the source code."
 
+sensor_bot: "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume."
+
 indicator_bot: "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume."
+
+trading_bot: "Based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots), a trading bot applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session."
 
 process_definition: "The process definition node groups all definitions required for a process to function. The Multi-Period-Market Process deals with time frames of one hour and above. The Multi-Period-Daily Process deals with time frames of 45 minutes and below."
 

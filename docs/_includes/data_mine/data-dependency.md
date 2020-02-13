@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about data dependencies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about data dependencies
 </summary>
 {% endif %}
 
@@ -59,7 +59,7 @@ The image above shows data dependencies in one bot referencing dataset definitio
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about data dependencies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about data dependencies
 </summary>
 {% endif %}
 

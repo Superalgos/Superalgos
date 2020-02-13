@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -48,14 +48,14 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-Each task may control a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots.
+Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

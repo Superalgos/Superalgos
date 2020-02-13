@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -52,9 +52,9 @@ You will use the network hierarchy for the following purposes:
 
 * To control your data mining, that is, processes running <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.sensor_bot}}">sensor</a> and <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.sensor_bot}}">indicator bots</a>. These keep your data feeds up to date so that you may trade live with quality information.
 
-* To control testing environment, that is trading sessions including <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.backtesting_session}}">backtesting</a> and <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.paper_trading_session}}">paper trading</a>.
+* To control your testing environment, that is trading sessions including <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.backtesting_session}}">backtesting</a> and <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.paper_trading_session}}">paper trading</a>.
 
-* To control your production environment, that is, <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.forward_testing_session}}">forward testing</a>, and <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.live_trading_session}}">live trading sessions</a>.
+* To control your production environment, that is, <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.forward_testing_session}}">forward testing</a>, and <a href="" data-toggle="tooltip" data-original-title="{{site.data.network.live_trading_session}}">live trading sessions</a> running the <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.trading_bot}}">trading bot</a>.
 
 * To control your data storage, that is, to administer the physical location in which the data products produced by bots reside.
 
@@ -63,7 +63,7 @@ You will use the network hierarchy for the following purposes:
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

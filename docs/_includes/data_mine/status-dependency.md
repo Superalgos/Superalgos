@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about status dependencies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about status dependencies
 </summary>
 {% endif %}
 
@@ -67,7 +67,7 @@ The image above shows a case of a self-reference status dependency as well as a 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about status dependencies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about status dependencies
 </summary>
 {% endif %}
 

@@ -8,6 +8,7 @@ function newPlotter () {
   let thisObject = {
     currentRecord: undefined,
     container: undefined,
+    fitFunction: undefined,
     onDailyFileLoaded: onDailyFileLoaded,
     initialize: initialize,
     finalize: finalize,
@@ -67,6 +68,7 @@ function newPlotter () {
       marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId)
       dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId)
       thisObject.container.eventHandler.stopListening(onDisplaceEventSubscriptionId)
+      thisObject.fitFunction = undefined
 
       /* Clear References */
       marketFiles = undefined
@@ -545,7 +547,6 @@ function newPlotter () {
 
         if (productDefinition.referenceParent.shapes === undefined) { continue }
         if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
-
         let dataPoints = new Map()
         if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
           /* We use the datapoints already calculated. */
@@ -567,6 +568,8 @@ function newPlotter () {
                   x: x,
                   y: y
                 }
+                /* Contributing to Auto-Scale */
+                coordinateSystem.reportValue(dataPoint.y)
 
               /*
               The information we store in files is independent from the charing system and its coordinate systems.
@@ -724,6 +727,7 @@ function newPlotter () {
               }
               /* We make sure the points do not fall outside the viewport visible area. This step allways need to be done.  */
               dataPoint = canvas.chartSpace.viewport.fitIntoVisibleArea(dataPoint)
+              dataPoint = thisObject.fitFunction(dataPoint)
               if (k === 0) {
                 browserCanvasContext.moveTo(dataPoint.x, dataPoint.y)
               } else {
@@ -765,7 +769,12 @@ function newPlotter () {
         }
       }
 
-      mustRecalculateDataPoints = false
+      if (coordinateSystem.autoMinScale === true || coordinateSystem.autosMaxScale === true) {
+        mustRecalculateDataPoints = true
+      } else {
+        mustRecalculateDataPoints = false
+      }
+
       logged = false
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }

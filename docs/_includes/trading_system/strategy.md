@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about strategies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about strategies
 </summary>
 {% endif %}
 
@@ -74,7 +74,7 @@ The definition of strategy points to the concept of *a trade*. A trade is a proc
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about strategies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about strategies
 </summary>
 {% endif %}
 

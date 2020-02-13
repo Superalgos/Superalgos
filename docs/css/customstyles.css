@@ -19,13 +19,42 @@ p {
     margin: 15px 0 15px 0;
 }
 
+/* Custom additions STARTS */
+
+
+.childItem {
+    padding-left: 15px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #eee!important;
+    color: black;
+}
+
+.nav .childItem a:hover {
+    background-color: transparent;
+    color: #ff8c29;
+}
+
+.nav li.active.childItem > a {
+    background-color: transparent;
+    color: #ff8c29;
+}
+
 .nobr {
     color: #0295aa;
+    font-size: 80%;
 }
 
 .nobr p {
-    margin: -25px 0 0 20px;
+    margin: -19px 0 0 15px;
 }
+
+.detailsCollapsible {
+    margin-left: 0px;
+    border-left: 1px solid #f0f0f0;
+    padding-left: 30px;
+}
+
+/* Custom additions ENDS */
 
 .bs-callout {
     padding: 20px;
@@ -358,6 +387,7 @@ a.accordion-toggle, a.accordion-collapsed {
 
 .nav > li li {
     margin: 2px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .nav a {
@@ -524,7 +554,7 @@ table.hierarchyTable {
 
 table.hierarchyTable thead tr th {
     background-color: transparent;
-    padding: 0px;
+    padding: 0 0 0 8px;
     margin: 0px;
     border: 0px;
     text-align: center;

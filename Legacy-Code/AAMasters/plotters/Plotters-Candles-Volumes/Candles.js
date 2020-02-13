@@ -582,6 +582,11 @@
                         continue
                     }
 
+                    /* Contributing to Auto-Scale*/
+                    coordinateSystem.reportValue(candle.max)
+                    coordinateSystem.reportValue(candle.min)
+
+
                     //if (onScreenCandles.length < 15000) {
                         onScreenCandles.push(candle)
                     //}

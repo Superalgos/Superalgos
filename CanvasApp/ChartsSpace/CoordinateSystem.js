@@ -15,6 +15,10 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
+    autoMinScale: true,
+    autoMaxScale: true,
+    physics: physics,
+    reportValue: reportValue,
     zoomX: zoomX,
     zoomY: zoomY,
     recalculateScale: recalculateScale,
@@ -44,6 +48,10 @@ function newCoordinateSystem () {
   thisObject.eventHandler = newEventHandler()
   thisObject.eventHandler.name = 'Coordinate System'
 
+  let newMax = -VERY_LARGE_NUMBER
+  let newMin = VERY_LARGE_NUMBER
+  let notValueReported = true
+
   return thisObject
 
   function finalize () {
@@ -53,16 +61,60 @@ function newCoordinateSystem () {
 
   function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
     /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
-    thisObject.min.x = minValue.x // * 0.999; // 0.1% less
-    thisObject.max.x = maxValue.x // * 1.001; // 0.1% more
+    thisObject.min.x = minValue.x
+    thisObject.max.x = maxValue.x
 
-    thisObject.min.y = minValue.y // * 0.999; // 0.1% less
-    thisObject.max.y = maxValue.y // * 1.001; // 0.1% more
+    thisObject.min.y = minValue.y
+    thisObject.max.y = maxValue.y
 
     thisObject.maxWidth = pMaxWidth
     thisObject.maxHeight = pMaxHeight
 
     recalculateScale()
+  }
+
+  function physics () {
+    if ((thisObject.autoMinScale === true || thisObject.autoMaxScale === true) && notValueReported === false) {
+      let mustRecalculate = false
+
+      if (thisObject.autoMaxScale === true && thisObject.max.y !== newMax) {
+        thisObject.max.y = newMax
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMaxScale === true) {
+        newMax = -VERY_LARGE_NUMBER
+      }
+
+      if (thisObject.autoMinScale === true && thisObject.min.y !== newMin) {
+        thisObject.min.y = newMin
+        newMin = VERY_LARGE_NUMBER
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMinScale === true) {
+        newMin = VERY_LARGE_NUMBER
+      }
+
+      if (mustRecalculate === true) {
+        recalculateScale()
+      }
+
+      /* Reseting this to start over at each cycle. */
+
+      notValueReported = true
+    }
+  }
+
+  function reportValue (value) {
+    if (thisObject.autoMinScale === true) {
+      if (value < newMin) { newMin = value }
+      notValueReported = false
+    }
+    if (thisObject.autoMaxScale === true) {
+      if (value > newMax) { newMax = value }
+      notValueReported = false
+    }
   }
 
   function zoomX (factor, mousePosition, container) {
@@ -95,12 +147,11 @@ function newCoordinateSystem () {
     }
   }
 
-  function recalculateScale () {
-    /* Defines the initial Zoom level at center position. */
+  function recalculateScale (event) {
     thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
 
-    thisObject.eventHandler.raiseEvent('Scale Changed')
+    thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

@@ -2,15 +2,15 @@ network: "The network hierarchy contains definitions regarding the physical loca
 
 network_node: "A network node represents a machine in the network on which processes run or data is stored."
 
-data_mining: "Data mining is the activity of processing data. In the context of the network hierarchy, the node groups the task managers handling sensors and indicators."
+data_mining: "Data mining is the activity of processing data. You need to process data so that the trading bot may make decisions based on quality information. In the context of the network hierarchy, the data-mining node groups the task managers handling sensor and indicator bots instances."
 
 testing_environment: "The testing environment node organizes trading sessions involving testing of trading systems."
 
 production_environment: "The production environment node organizes trading sessions involving live trading."
 
-task_manager: "A task manager is a device used to organize and control any number of tasks."
+task_manager: "A task manager is a device used to organize and control any number of tasks, which, in turn, control bot instances. You use a task manager to start or stop several tasks at the same time."
 
-task: "A task is a device used to control bot instances."
+task: "A task is the device used to control bot instances, that is, to start and stop bots, including sensors, indicators and the trading bot."
 
 indicator_bot_instance: "An indicator bot instance is a reference to an indicator bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products."
 

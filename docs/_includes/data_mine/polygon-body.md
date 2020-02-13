@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about polygon bodies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about polygon bodies
 </summary>
 {% endif %}
 
@@ -55,7 +55,7 @@ A polygon body needs at least three vertices to be defined. A body serves to cre
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about polygon bodies
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about polygon bodies
 </summary>
 {% endif %}
 

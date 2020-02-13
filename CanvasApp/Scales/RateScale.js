@@ -6,11 +6,11 @@ function newRateScale () {
     rate: undefined,
     fitFunction: undefined,
     payload: undefined,
-    offset: undefined,
     minValue: undefined,
     maxValue: undefined,
     isVisible: true,
     layersOn: undefined,
+    onBorderChanged: onBorderChanged,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -19,12 +19,6 @@ function newRateScale () {
     initialize: initialize,
     finalize: finalize
   }
-
-  const DEFAULT_OFFSET = 0
-  const STEP_OFFSET = 1
-  const MIN_OFFSET = -1000
-  const MAX_OFFSET = 1000
-  const SNAP_THRESHOLD_OFFSET = 3
 
   thisObject.container = newContainer()
   thisObject.container.initialize(MODULE_NAME)
@@ -37,7 +31,9 @@ function newRateScale () {
   thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL
   thisObject.container.frame.height = 40
 
-  thisObject.offset = DEFAULT_OFFSET
+  let draggeableContainer = newContainer()
+  draggeableContainer.initialize(MODULE_NAME + ' Draggeable')
+  draggeableContainer.isDraggeable = true
 
   let visible = true
   let isMouseOver
@@ -58,7 +54,7 @@ function newRateScale () {
     }
   }
 
-  let offsetTimer = 0
+  let scaleDisplayTimer = 0
   return thisObject
 
   function finalize () {
@@ -126,64 +122,43 @@ function newRateScale () {
 
   function onMouseNotOver () {
     isMouseOver = false
-    offsetTimer = 0
+    scaleDisplayTimer = 0
   }
 
   function onMouseWheel (event) {
-    if (event.shiftKey === true) {
-      let morePower = 1
-      if (event.buttons === 4) { morePower = 10 } // Mouse wheel pressed.
-      let delta = event.wheelDelta
-      if (delta < 0) {
-        thisObject.offset = thisObject.offset - STEP_OFFSET * morePower
-        if (thisObject.offset < MIN_OFFSET) { thisObject.offset = STEP_OFFSET }
-      } else {
-        thisObject.offset = thisObject.offset + STEP_OFFSET * morePower
-        if (thisObject.offset > MAX_OFFSET) { thisObject.offset = MAX_OFFSET }
-      }
+    let factor
+    let morePower = 10
+    if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
 
-      if (
-        thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
-        thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
-      ) {
-        event.offset = 0
-      } else {
-        event.offset = -thisObject.offset
-      }
-
-      event.isUserAction = true
-      thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
-
-      saveObjectState()
-      offsetTimer = 100
+    let delta = event.wheelDelta
+    if (delta < 0) {
+      factor = -0.01 * morePower
     } else {
-      let factor
-      let morePower = 10
-      if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
-
-      let delta = event.wheelDelta
-      if (delta < 0) {
-        factor = -0.01 * morePower
-      } else {
-        factor = 0.01 * morePower
-      }
-
-      coordinateSystem.zoomY(factor, event, limitingContainer)
+      factor = 0.01 * morePower
     }
+
+    coordinateSystem.zoomY(factor, event, limitingContainer)
+    scaleDisplayTimer = 100
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
+        return draggeableContainer
+      }
+
       return thisObject.container
     }
   }
 
   function saveObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-      code.offset = thisObject.offset
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y
+      code.autoMinScale = coordinateSystem.autoMinScale
+      code.autoMaxScale = coordinateSystem.autoMaxScale
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -191,29 +166,9 @@ function newRateScale () {
   }
 
   function readObjectState () {
+    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
-
-      if (isNaN(code.offset) || code.offset === null || code.offset === undefined) {
-        // not using this value
-      } else {
-        if (code.offset < MIN_OFFSET) { code.offset = MIN_OFFSET }
-        if (code.offset > MAX_OFFSET) { code.offset = MAX_OFFSET }
-
-        if (code.offset !== thisObject.offset) {
-          thisObject.offset = code.offset
-          let event = {}
-          if (
-            thisObject.offset <= DEFAULT_OFFSET + SNAP_THRESHOLD_OFFSET &&
-            thisObject.offset >= DEFAULT_OFFSET - SNAP_THRESHOLD_OFFSET
-          ) {
-            event.offset = 0
-          } else {
-            event.offset = -thisObject.offset
-          }
-          thisObject.container.eventHandler.raiseEvent('Rate Scale Offset Changed', event)
-        }
-      }
 
       if (
       (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) ||
@@ -221,11 +176,22 @@ function newRateScale () {
         ) {
         // not using this value
       } else {
-        if (thisObject.minValue !== code.minValue || thisObject.maxValue !== code.maxValue) {
+        if (
+          thisObject.minValue !== code.minValue ||
+          thisObject.maxValue !== code.maxValue ||
+          coordinateSystem.autoMinScale !== code.autoMinScale ||
+          coordinateSystem.autoMaxScale !== code.autoMaxScale
+        ) {
           thisObject.minValue = code.minValue
           thisObject.maxValue = code.maxValue
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
+            coordinateSystem.autoMinScale = code.autoMinScale
+          }
+          if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
+            coordinateSystem.autoMaxScale = code.autoMaxScale
+          }
           coordinateSystem.recalculateScale()
         }
       }
@@ -236,9 +202,60 @@ function newRateScale () {
   }
 
   function physics () {
-    offsetTimer--
+    scaleDisplayTimer--
     readObjectState()
     positioningPhysics()
+    draggingPhysics()
+  }
+
+  function draggingPhysics () {
+    if (draggeableContainer.frame.position.y === 0) { return }
+
+    let dragVector = {
+      x: draggeableContainer.frame.position.x,
+      y: draggeableContainer.frame.position.y
+    }
+
+    draggeableContainer.frame.position.x = 0
+    draggeableContainer.frame.position.y = 0
+
+    let point = {
+      x: 0,
+      y: -dragVector.y
+    }
+
+    let newMaxRate = getRateFromPointAtContainer(point, limitingContainer, coordinateSystem)
+    let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+
+    coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
+    coordinateSystem.max.y = newMaxRate
+    coordinateSystem.recalculateScale()
+  }
+
+  function onBorderChanged (event) {
+    if (event === undefined) { return }
+    if (event.border === 'top') {
+      let point = {
+        x: event.dragVector.x,
+        y: event.dragVector.y
+      }
+      let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+
+      coordinateSystem.max.y = newMaxRate
+      coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
+      coordinateSystem.recalculateScale()
+    }
+    if (event.border === 'bottom') {
+      let point = {
+        x: event.dragVector.x,
+        y: event.dragVector.y + rateCalculationsContainer.frame.height
+      }
+      let newMinRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+
+      coordinateSystem.min.y = newMinRate
+      coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
+      coordinateSystem.recalculateScale()
+    }
   }
 
   function positioningPhysics () {
@@ -289,7 +306,7 @@ function newRateScale () {
     /* Mouse Position Rate Calculation */
     let ratePoint = {
       x: 0,
-      y: mouse.position.y + thisObject.offset
+      y: mouse.position.y
     }
 
     thisObject.rate = getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)
@@ -342,6 +359,8 @@ function newRateScale () {
 
   function drawScaleBox () {
     if (thisObject.rate === undefined) { return }
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
 
     let rate = thisObject.rate
 
@@ -357,15 +376,16 @@ function newRateScale () {
     let label1 = thisObject.payload.node.payload.parentNode.name
     let label2 = (Math.trunc(rate)).toLocaleString()
     let label3 = labelArray[1]
+    if (label3 === undefined) { label3 = '00' }
 
     let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 
-    if (offsetTimer > 0) {
-      label2 = thisObject.offset.toFixed(0)
-      label3 = 'OFFSET'
+    if (scaleDisplayTimer > 0) {
+      label2 = (coordinateSystem.scale.y * 10000).toFixed(2)
+      label3 = 'SCALE'
     }
 
     drawScaleDisplay(label1, label2, label3, 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)

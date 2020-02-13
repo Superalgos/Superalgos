@@ -586,6 +586,12 @@
                     stairsPoint3 = thisObject.fitFunction(stairsPoint3);
                     stairsPoint4 = thisObject.fitFunction(stairsPoint4);
 
+                    /* Contributing to Auto-Scale*/
+                    coordinateSystem.reportValue(stairs.firstMin)
+                    coordinateSystem.reportValue(stairs.firstMax)
+                    coordinateSystem.reportValue(stairs.lastMin)
+                    coordinateSystem.reportValue(stairs.lastMax)
+
                     browserCanvasContext.beginPath();
 
                     browserCanvasContext.moveTo(stairsPoint1.x, stairsPoint1.y);

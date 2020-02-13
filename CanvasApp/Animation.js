@@ -119,6 +119,16 @@ function newAnimation () {
             labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
             printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
           }
+
+          /* Other Variables */
+          row++
+          printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
         }
       } else {
         browserCanvas.width = 1

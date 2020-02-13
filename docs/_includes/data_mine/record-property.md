@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about record properties
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about record properties
 </summary>
 {% endif %}
 
@@ -59,7 +59,7 @@ Records may have as many properties as required.
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about record properties
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about record properties
 </summary>
 {% endif %}
 

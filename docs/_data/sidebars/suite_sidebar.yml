@@ -85,13 +85,18 @@ entries:
 #      url: /suite-layers-panel.html
 #      output: web
 
-  - title: Design space
+  - title: General concepts
     output: web
     folderitems:
 
     - title: Design space, workspace, and nodes
       url: /suite-design-space-workspace-and-data-structures.html
       output: web
+
+    - title: Interface
+      url: /suite-design-space-interface.html
+      output: web
+      class: childItem
 
     - title: Hierarchies
       url: /suite-hierarchies.html
@@ -101,10 +106,6 @@ entries:
       url: /suite-references.html
       output: web
 
-    - title: Interface
-      url: /suite-design-space-interface.html
-      output: web
-    
   - title: Trading concepts
     output: web
     folderitems:
@@ -121,6 +122,30 @@ entries:
       url: /suite-situations-conditions-formulas.html
       output: web
 
+    - title: Syntax overview
+      url: /suite-sysntax-overview.html
+      output: web
+      class: childItem
+
+    - title: Internal variables
+      url: /suite-internal-variables.html
+      output: web
+      class: childItem
+
+    - title: Masters indicators
+      url: /suite-masters-indicators.html
+      output: web
+      class: childItem
+
+    - title: Sparta indicators
+      url: /suite-sparta-indicators.html
+      output: web
+      class: childItem
+
+#    - title: Using non-included indicators
+#      url: /suite-using-non-included-indicators.html
+#      output: web
+
     - title: Trading sessions
       url: /suite-trading-sessions.html
       output: web
@@ -128,38 +153,58 @@ entries:
     - title: Parameters
       url: /suite-parameters.html
       output: web
+      class: childItem
 
-  - title: Writing conditions & formulas
+  - title: Infrastructure concepts
     output: web
     folderitems:
 
-    - title: Syntax overview
-      url: /suite-sysntax-overview.html
+    - title: How bots work
+      url: /suite-how-bots-work.html
       output: web
 
-    - title: Internal variables
-      url: /suite-internal-variables.html
+    - title: Crypto ecosystem
+      url: /suite-crypto-ecosystem.html
       output: web
 
-    - title: Masters indicators
-      url: /suite-masters-indicators.html
+    - title: Exchange assets
+      url: /suite-exchange-assets.html
+      output: web
+      class: childItem
+
+    - title: Exchange markets
+      url: /suite-exchange-markets.html
+      output: web
+      class: childItem
+
+    - title: Exchange accounts
+      url: /suite-exchange-accounts.html
+      output: web
+      class: childItem
+
+    - title: Network
+      url: /suite-network.html
       output: web
 
-    - title: Sparta indicators
-      url: /suite-sparta-indicators.html
+    - title: Data storage
+      url: /suite-data-storage.html
       output: web
+      class: childItem
 
-#    - title: Using non-included indicators
-#      url: /suite-using-non-included-indicators.html
-#      output: web
+    - title: Data mining
+      url: /suite-data-mining.html
+      output: web
+      class: childItem
 
-#  - title: Network
-#    output: web
-#    folderitems:
+    - title: Testing environment
+      url: /suite-testing-environment.html
+      output: web
+      class: childItem
 
-#    - title: Overview
-#      url: /suite-network-overview.html
-#      output: web
+    - title: Production environment
+      url: /suite-production-environment.html
+      output: web
+      class: childItem
 
 #    - title: Managing processes
 #      url: /suite-managing-processes.html
@@ -209,29 +254,27 @@ entries:
 #      url: /suite-multiple-forward-testing-and-live-trading-sessions.html
 #      output: web
 
-#  - title: Data Mining & Research
-#    output: web
-#    folderitems:
+  - title: Data mining concepts
+    output: web
+    folderitems:
 
-#    - title: Data Mining Overview
-#      url: /suite-data-mining-overview.html
-#      output: web
+    - title: Data mines
+      url: /suite-data-mines.html
+      output: web
 
-#    - title: Bots
-#      url: /suite-bots.html
-#      output: web
+    - title: Indicator bots
+      url: /suite-indicator-bots.html
+      output: web
 
-#    - title: Anatomy of an indicator
-#      url: /suite-anatomy-of-an-indicator.html
-#      output: web
+    - title: Process definition
+      url: /suite-process-definition.html
+      output: web
+      class: childItem
 
-#    - title: ":: Process definition"
-#      url: /suite-process-definition.html
-#      output: web
-
-#    - title: ":: Product definition"
+#    - title: Product definition
 #      url: /suite-product-definition.html
 #      output: web
+#      class: childItem
 
 #    - title: Input-to-output cycle
 #      url: /suite-input-to-output-cycle.html

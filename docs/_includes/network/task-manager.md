@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -50,14 +50,16 @@
 
 A task manager facilitates the organization of tasks. For example, you may wish to set up a task manager to handle tasks related to a particular set of indicators you use with a certain strategy. Or, for example, to organize multiple backtesting sessions.
 
-Also, a task manager allows starting and stopping all tasks under it at once, with a single click.
+{% include tip.html content="The key aspect of a task manager is that it allows starting and stopping all tasks at once." %}
+
+{% include note.html content="Users may have access to several data mines, each offering different indicators and studies. For organizational purposes, it is recommended each data mine has its task manager. However, the system allows any form of organization." %}
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

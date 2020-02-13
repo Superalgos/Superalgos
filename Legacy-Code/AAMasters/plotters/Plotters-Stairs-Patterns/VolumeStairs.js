@@ -515,6 +515,10 @@
 
                         function calculateBuys(plot, height) {
 
+                            /* Contributing to Auto-Scale*/
+                            coordinateSystem.reportValue(stairs.firstAmount * 2)
+                            coordinateSystem.reportValue(stairs.lastAmount * 2)
+
                             volumeBarPointA1 = {
                                 x: stairs.begin + timeFrame / 2,
                                 y: 0
@@ -577,6 +581,10 @@
                     if (stairs.type === 'sell') {
 
                         function calculateSells(plot, height) {
+
+                            /* Contributing to Auto-Scale*/
+                            coordinateSystem.reportValue(stairs.firstAmount * 2)
+                            coordinateSystem.reportValue(stairs.lastAmount * 2)
 
                             volumeBarPointB1 = {
                                 x: stairs.begin + timeFrame / 2,
@@ -700,6 +708,8 @@
                         browserCanvasContext.stroke();
 
                     }
+
+
                 }
             }
 

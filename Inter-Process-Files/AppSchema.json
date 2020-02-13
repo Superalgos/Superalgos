@@ -5000,7 +5000,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"offset\": \"0\",\n\"minValue\": 0,\n\"maxValue\": 25000\n}"
+            "code": "{ \n\"autoMinScale\": true,\n\"autoMaxScale\": true,\n\"minValue\": 0,\n\"maxValue\": 25000\n}"
         },
         "addLeftIcons": true,
         "editors": {

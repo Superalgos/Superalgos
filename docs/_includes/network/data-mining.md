@@ -40,7 +40,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -48,14 +48,14 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-Users may have access to several data mines. For organizational purposes, it is recommended each data mine has its task manager. However, the system allows any form of organization.
+Having access to quality information is a crucial element of trading. For that reason, Superalgos strives to give users full control over how, where and when data is processed. You will use this section of the network hierarchy to exert that control.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" %}
-<details><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

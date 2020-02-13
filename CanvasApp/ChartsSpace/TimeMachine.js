@@ -245,7 +245,7 @@ function newTimeMachine () {
     let container
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
-      container = thisObject.rateScale.getContainer(point)
+      container = thisObject.rateScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -254,7 +254,7 @@ function newTimeMachine () {
     }
 
     if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) {
-      container = thisObject.timeScale.getContainer(point)
+      container = thisObject.timeScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -263,7 +263,7 @@ function newTimeMachine () {
     }
 
     if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
-      container = thisObject.timeFrameScale.getContainer(point)
+      container = thisObject.timeFrameScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -365,6 +365,7 @@ function newTimeMachine () {
 
   function physics () {
     thisObject.edgeEditor.physics()
+    timeMachineCoordinateSystem.physics()
 
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
@@ -461,7 +462,7 @@ function newTimeMachine () {
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = 0
       timelineChart.container.frame.position.y = 0
-      timelineChart.initialize(timeMachineCoordinateSystem)
+      timelineChart.initialize(timeMachineCoordinateSystem, timeFrame)
 
       /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
       timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)

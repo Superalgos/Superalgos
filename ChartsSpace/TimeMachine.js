@@ -365,6 +365,7 @@ function newTimeMachine () {
 
   function physics () {
     thisObject.edgeEditor.physics()
+    timeMachineCoordinateSystem.physics()
 
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {

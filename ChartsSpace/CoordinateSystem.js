@@ -15,6 +15,9 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
+    autosScale: true,
+    physics: physics,
+    reportValue: reportValue,
     zoomX: zoomX,
     zoomY: zoomY,
     recalculateScale: recalculateScale,
@@ -44,6 +47,9 @@ function newCoordinateSystem () {
   thisObject.eventHandler = newEventHandler()
   thisObject.eventHandler.name = 'Coordinate System'
 
+  let newMax = -VERY_LARGE_NUMBER
+  let newMin = VERY_LARGE_NUMBER
+
   return thisObject
 
   function finalize () {
@@ -63,6 +69,28 @@ function newCoordinateSystem () {
     thisObject.maxHeight = pMaxHeight
 
     recalculateScale()
+  }
+
+  function physics () {
+    if (thisObject.autosScale === true) {
+      if (thisObject.max.y !== newMax || thisObject.min.y !== newMin) {
+        thisObject.min.y = newMin
+        thisObject.max.y = newMax
+
+        thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
+        thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
+      }
+
+      newMax = -VERY_LARGE_NUMBER
+      newMin = VERY_LARGE_NUMBER
+    }
+  }
+
+  function reportValue (value) {
+    if (thisObject.autosScale === true) {
+      if (value > newMax) { newMax = value }
+      if (value < newMin) { newMin = value }
+    }
   }
 
   function zoomX (factor, mousePosition, container) {
@@ -96,7 +124,6 @@ function newCoordinateSystem () {
   }
 
   function recalculateScale (event) {
-    /* Defines the initial Zoom level at center position. */
     thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
 

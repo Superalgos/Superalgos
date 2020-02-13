@@ -156,6 +156,8 @@ function newRateScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y
+      code.autoMinScale = coordinateSystem.autoMinScale
+      code.autoMaxScale = coordinateSystem.autoMaxScale
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -163,7 +165,6 @@ function newRateScale () {
   }
 
   function readObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
@@ -173,11 +174,22 @@ function newRateScale () {
         ) {
         // not using this value
       } else {
-        if (thisObject.minValue !== code.minValue || thisObject.maxValue !== code.maxValue) {
+        if (
+          thisObject.minValue !== code.minValue ||
+          thisObject.maxValue !== code.maxValue ||
+          coordinateSystem.autoMinScale !== code.autoMinScale ||
+          coordinateSystem.autoMaxScale !== code.autoMaxScale
+        ) {
           thisObject.minValue = code.minValue
           thisObject.maxValue = code.maxValue
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
+            coordinateSystem.autoMinScale = code.autoMinScale
+          }
+          if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
+            coordinateSystem.autoMaxScale = code.autoMaxScale
+          }
           coordinateSystem.recalculateScale()
         }
       }

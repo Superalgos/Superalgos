@@ -547,7 +547,6 @@ function newPlotter () {
 
         if (productDefinition.referenceParent.shapes === undefined) { continue }
         if (productDefinition.referenceParent.shapes.chartPoints === undefined) { continue }
-
         let dataPoints = new Map()
         if (record.dataPoints !== undefined && mustRecalculateDataPoints === false) {
           /* We use the datapoints already calculated. */
@@ -569,6 +568,8 @@ function newPlotter () {
                   x: x,
                   y: y
                 }
+                /* Contributing to Auto-Scale */
+                coordinateSystem.reportValue(dataPoint.y)
 
               /*
               The information we store in files is independent from the charing system and its coordinate systems.
@@ -768,7 +769,12 @@ function newPlotter () {
         }
       }
 
-      mustRecalculateDataPoints = false
+      if (coordinateSystem.autoMinScale === true || coordinateSystem.autosMaxScale === true) {
+        mustRecalculateDataPoints = true
+      } else {
+        mustRecalculateDataPoints = false
+      }
+
       logged = false
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }

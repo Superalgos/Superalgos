@@ -15,7 +15,8 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
-    autosScale: true,
+    autoMinScale: true,
+    autoMaxScale: true,
     physics: physics,
     reportValue: reportValue,
     zoomX: zoomX,
@@ -49,6 +50,7 @@ function newCoordinateSystem () {
 
   let newMax = -VERY_LARGE_NUMBER
   let newMin = VERY_LARGE_NUMBER
+  let notValueReported = true
 
   return thisObject
 
@@ -59,11 +61,11 @@ function newCoordinateSystem () {
 
   function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
     /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
-    thisObject.min.x = minValue.x // * 0.999; // 0.1% less
-    thisObject.max.x = maxValue.x // * 1.001; // 0.1% more
+    thisObject.min.x = minValue.x
+    thisObject.max.x = maxValue.x
 
-    thisObject.min.y = minValue.y // * 0.999; // 0.1% less
-    thisObject.max.y = maxValue.y // * 1.001; // 0.1% more
+    thisObject.min.y = minValue.y
+    thisObject.max.y = maxValue.y
 
     thisObject.maxWidth = pMaxWidth
     thisObject.maxHeight = pMaxHeight
@@ -72,24 +74,39 @@ function newCoordinateSystem () {
   }
 
   function physics () {
-    if (thisObject.autosScale === true) {
-      if (thisObject.max.y !== newMax || thisObject.min.y !== newMin) {
-        thisObject.min.y = newMin
-        thisObject.max.y = newMax
+    if ((thisObject.autoMinScale === true || thisObject.autoMaxScale === true) && notValueReported === false) {
+      let mustRecalculate = false
 
-        thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
-        thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
+      if (thisObject.autoMaxScale === true && thisObject.max.y !== newMax) {
+        thisObject.max.y = newMax
+        newMax = -VERY_LARGE_NUMBER
+        mustRecalculate = true
       }
 
-      newMax = -VERY_LARGE_NUMBER
-      newMin = VERY_LARGE_NUMBER
+      if (thisObject.autoMinScale === true && thisObject.min.y !== newMin) {
+        thisObject.min.y = newMin
+        newMin = VERY_LARGE_NUMBER
+        mustRecalculate = true
+      }
+
+      if (mustRecalculate === true) {
+        recalculateScale()
+      }
+
+      /* Reseting this to start over at each cycle. */
+
+      notValueReported = true
     }
   }
 
   function reportValue (value) {
-    if (thisObject.autosScale === true) {
-      if (value > newMax) { newMax = value }
+    if (thisObject.autoMinScale === true) {
       if (value < newMin) { newMin = value }
+      notValueReported = false
+    }
+    if (thisObject.autoMaxScale === true) {
+      if (value > newMax) { newMax = value }
+      notValueReported = false
     }
   }
 

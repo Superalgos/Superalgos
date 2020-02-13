@@ -39,6 +39,10 @@ function newRateScale () {
 
   thisObject.offset = DEFAULT_OFFSET
 
+  let draggeableContainer = newContainer()
+  draggeableContainer.initialize(MODULE_NAME + ' Draggeable')
+  draggeableContainer.isDraggeable = true
+
   let visible = true
   let isMouseOver
 
@@ -172,8 +176,12 @@ function newRateScale () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
+        return draggeableContainer
+      }
+
       return thisObject.container
     }
   }
@@ -239,6 +247,31 @@ function newRateScale () {
     offsetTimer--
     readObjectState()
     positioningPhysics()
+    draggingPhysics()
+  }
+
+  function draggingPhysics () {
+    if (draggeableContainer.frame.position.y === 0) { return }
+
+    let dragVector = {
+      x: draggeableContainer.frame.position.x,
+      y: draggeableContainer.frame.position.y
+    }
+
+    draggeableContainer.frame.position.x = 0
+    draggeableContainer.frame.position.y = 0
+
+    let point = {
+      x: 0,
+      y: -dragVector.y
+    }
+
+    let newMaxRate = getRateFromPointAtContainer(point, limitingContainer, coordinateSystem)
+    let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+
+    coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
+    coordinateSystem.max.y = newMaxRate
+    coordinateSystem.recalculateScale()
   }
 
   function positioningPhysics () {

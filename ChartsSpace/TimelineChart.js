@@ -293,7 +293,7 @@ function newTimelineChart () {
     let container
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
-      container = thisObject.rateScale.getContainer(point)
+      container = thisObject.rateScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -302,7 +302,7 @@ function newTimelineChart () {
     }
 
     if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
-      container = thisObject.timeFrameScale.getContainer(point)
+      container = thisObject.timeFrameScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container

@@ -40,7 +40,6 @@ function newTimelineChart () {
   let onMouseNotOverEventSuscriptionId
   let rateScaleUpstreamEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
-  let rateScaleOffsetEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
   let scaleChangedEventSubscriptionId
@@ -122,7 +121,6 @@ function newTimelineChart () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleOffsetEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.container.parentContainer.eventHandler.stopListening(rateScaleUpstreamEventSuscriptionId)
     thisObject.rateScale.finalize()
@@ -201,16 +199,8 @@ function newTimelineChart () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleOffsetEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Offset Changed', rateScaleOffsetChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     thisObject.rateScale.initialize(timelineChartCoordinateSystem, thisObject.container.parentContainer, thisObject.container)
-
-    function rateScaleOffsetChanged (event) {
-      if (thisObject.container.frame.offset.y !== event.offset) {
-        thisObject.container.frame.offset.y = event.offset
-        thisObject.container.eventHandler.raiseEvent('onDisplace')
-      }
-    }
 
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
@@ -244,6 +234,8 @@ function newTimelineChart () {
   function onScaleChanged () {
     timelineChartCoordinateSystem.min.x = timeMachineCoordinateSystem.min.x
     timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x
+    timelineChartCoordinateSystem.maxHeight = timeMachineCoordinateSystem.maxHeight
+    timelineChartCoordinateSystem.maxWidth = timeMachineCoordinateSystem.maxWidth
     timelineChartCoordinateSystem.recalculateScale()
   }
 

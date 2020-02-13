@@ -347,10 +347,16 @@ function newTimelineChart () {
     if (thisObject.payload.node.rateScale === undefined && thisObject.rateScale !== undefined) {
       finalizeRateScale()
       coordinateSystem = timeMachineCoordinateSystem
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
+      }
     }
     if (thisObject.payload.node.rateScale !== undefined && thisObject.rateScale === undefined) {
       initializeRateScale()
       coordinateSystem = timelineChartCoordinateSystem
+      if (thisObject.plotterManager !== undefined) {
+        thisObject.plotterManager.setCoordinateSystem(coordinateSystem)
+      }
     }
     if (thisObject.payload.node.timeFrameScale === undefined && thisObject.timeFrameScale !== undefined) {
       finalizeTimeFrameScale()

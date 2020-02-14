@@ -55,6 +55,7 @@ function newRateScale () {
   }
 
   let scaleDisplayTimer = 0
+  let autoScaleButton
   return thisObject
 
   function finalize () {
@@ -72,6 +73,9 @@ function newRateScale () {
     limitingContainer = undefined
     rateCalculationsContainer = undefined
     mouse = undefined
+
+    autoScaleButton.finalize()
+    autoScaleButton = undefined
   }
 
   function initialize (pCoordinateSystem, pLimitingContainer, pRateCalculationsContainer) {
@@ -88,6 +92,10 @@ function newRateScale () {
     onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
     readObjectState()
+
+    autoScaleButton = newAutoScaleButton()
+    autoScaleButton.container.connectToParent(thisObject.container)
+    autoScaleButton.initialize(coordinateSystem)
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -142,7 +150,15 @@ function newRateScale () {
   }
 
   function getContainer (point, purpose) {
+    console.log(purpose, point.x, point.y)
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+      console.log('INSIDE')
+      let container = autoScaleButton.getContainer(point, purpose)
+      if (container !== undefined) {
+        console.log('RETURNING BUTTON FROM SCALE')
+        return container
+      }
+
       if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
         return draggeableContainer
       }
@@ -152,7 +168,6 @@ function newRateScale () {
   }
 
   function saveObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
       code.minValue = coordinateSystem.min.y
@@ -166,7 +181,6 @@ function newRateScale () {
   }
 
   function readObjectState () {
-    return
     try {
       let code = JSON.parse(thisObject.payload.node.code)
 
@@ -346,6 +360,7 @@ function newRateScale () {
 
   function draw () {
     drawScaleBox()
+    autoScaleButton.draw()
     if (visible === false) {
       drawScaleDisplayCover(thisObject.container)
     }
@@ -354,6 +369,7 @@ function newRateScale () {
   function drawForeground () {
     if (isMouseOver === true) {
       drawScaleBox()
+      autoScaleButton.draw()
     }
   }
 

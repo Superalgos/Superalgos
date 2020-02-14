@@ -539,7 +539,9 @@ function newCanvas () {
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
           return
         } else {
-          viewPortBeingDragged = true
+          if (container.isClickeable === false) {
+            viewPortBeingDragged = true
+          }
           return
         }
       }
@@ -565,6 +567,7 @@ function newCanvas () {
 
   function onMouseClick (event) {
     try {
+      console.log('ignoreNextClick', ignoreNextClick)
       if (ignoreNextClick === true) {
         ignoreNextClick = false
         return
@@ -613,7 +616,7 @@ function newCanvas () {
 
            /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)

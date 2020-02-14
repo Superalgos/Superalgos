@@ -241,7 +241,13 @@ function newDesignerSpace () {
       'task-manager',
       'session-based-data',
       'session-independent-data',
-      'session-reference'
+      'session-reference',
+      'cluster',
+      'toggle-auto-scale-manual',
+      'toggle-auto-scale-auto-min-max',
+      'toggle-auto-scale-auto-max',
+      'toggle-auto-scale-auto-min',
+      'toggle-panel-off'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

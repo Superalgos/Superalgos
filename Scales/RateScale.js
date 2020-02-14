@@ -134,6 +134,11 @@ function newRateScale () {
   }
 
   function onMouseWheel (event) {
+    if (event.shiftKey === true) {
+      autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
+      return
+    }
+
     let factor
     let morePower = 10
     if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
@@ -151,11 +156,6 @@ function newRateScale () {
 
   function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      let container = autoScaleButton.getContainer(point, purpose)
-      if (container !== undefined) {
-        return container
-      }
-
       if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
         return draggeableContainer
       }
@@ -198,14 +198,12 @@ function newRateScale () {
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
 
-          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
             coordinateSystem.autoMinYScale = code.autoMinScale
-            autoScaleButton.autoMinScale = code.autoMinScale
-          }
-          if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
             coordinateSystem.autoMaxYScale = code.autoMaxScale
-            autoScaleButton.autoMaxScale = code.autoMaxScale
+            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
           }
+
           coordinateSystem.recalculateScale()
         }
       }

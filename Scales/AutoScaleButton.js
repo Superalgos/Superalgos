@@ -5,6 +5,7 @@ function newAutoScaleButton () {
     parentContainer: undefined,
     autoMinScale: undefined,
     autoMaxScale: undefined,
+    setStatus: setStatus,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
@@ -19,13 +20,14 @@ function newAutoScaleButton () {
   thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Auto Scale Button'
 
-  let onMouseClickEventSuscriptionId
+  let onMouseWheelEventSubscriptionId
   let coordinateSystem
   let axis
+  let currentStatus
   return thisObject
 
   function finalize () {
-    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
@@ -68,35 +70,63 @@ function newAutoScaleButton () {
         break
       }
     }
-
-    /* Lets listen to our own events to react when we have a Mouse Click */
-    onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
-  function onMouseClick (event) {
+  function setStatus (autoMinScale, autoMaxScale) {
+    thisObject.autoMinScale = autoMinScale
+    thisObject.autoMaxScale = autoMaxScale
+
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-      thisObject.autoMinScale = true
-      thisObject.autoMaxScale = false
-      update()
-      return
+      currentStatus = 1
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-      thisObject.autoMinScale = false
-      thisObject.autoMaxScale = true
-      update()
-      return
+      currentStatus = 2
     }
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      thisObject.autoMinScale = true
-      thisObject.autoMaxScale = true
-      update()
-      return
+      currentStatus = 3
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      thisObject.autoMinScale = false
-      thisObject.autoMaxScale = false
-      update()
-      return
+      currentStatus = 4
+    }
+  }
+  function onMouseWheel (event) {
+    let factor
+    let delta = event.wheelDelta
+    if (delta < 0) {
+      delta = -1
+    } else {
+      delta = 1
+    }
+    currentStatus = currentStatus + delta
+    if (currentStatus === 5) { currentStatus = 1 }
+    if (currentStatus === 0) { currentStatus = 4 }
+
+    switch (currentStatus) {
+      case 1: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = false
+        update()
+        return
+      }
+      case 2: {
+        thisObject.autoMinScale = true
+        thisObject.autoMaxScale = false
+        update()
+        return
+      }
+      case 3: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = true
+        update()
+        return
+      }
+      case 4: {
+        thisObject.autoMinScale = true
+        thisObject.autoMaxScale = true
+        update()
+        return
+      }
     }
 
     function update () {

@@ -116,6 +116,10 @@ function newTimeScale () {
   }
 
   function onMouseWheel (event) {
+    if (event.shiftKey === true) {
+      autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
+      return
+    }
     let factor
     let morePower = 10
     if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
@@ -136,10 +140,6 @@ function newTimeScale () {
 
   function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      let container = autoScaleButton.getContainer(point, purpose)
-      if (container !== undefined) {
-        return container
-      }
       return thisObject.container
     }
   }
@@ -173,13 +173,10 @@ function newTimeScale () {
           coordinateSystem.min.x = thisObject.fromDate
           coordinateSystem.max.x = thisObject.toDate
 
-          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
             coordinateSystem.autoMinXScale = code.autoMinScale
-            autoScaleButton.autoMinScale = code.autoMinScale
-          }
-          if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
             coordinateSystem.autoMaxXScale = code.autoMaxScale
-            autoScaleButton.autoMaxScale = code.autoMaxScale
+            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
           }
           coordinateSystem.recalculateScale()
         }

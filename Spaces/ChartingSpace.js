@@ -265,12 +265,12 @@ function newChartingSpace () {
     if (thisObject.payload.node === undefined) { return }
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-    if (thisObject.payload.node.clusters !== undefined) {
-      for (let i = 0; i < thisObject.payload.node.clusters.length; i++) {
-        let cluster = thisObject.payload.node.clusters[i]
-        if (cluster.timeMachines !== undefined) {
-          for (let j = 0; j < cluster.timeMachines.length; j++) {
-            let node = cluster.timeMachines[j]
+    if (thisObject.payload.node.dashboards !== undefined) {
+      for (let i = 0; i < thisObject.payload.node.dashboards.length; i++) {
+        let dashboard = thisObject.payload.node.dashboards[i]
+        if (dashboard.timeMachines !== undefined) {
+          for (let j = 0; j < dashboard.timeMachines.length; j++) {
+            let node = dashboard.timeMachines[j]
             let timeMachine = timeMachinesMap.get(node.id)
             if (timeMachine === undefined) {
               /* The time machine node is new, thus we need to initialize a new timeMachine */

@@ -242,7 +242,7 @@ function newDesignSpace () {
       'session-based-data',
       'session-independent-data',
       'session-reference',
-      'cluster',
+      'dashboard',
       'toggle-auto-scale-manual',
       'toggle-auto-scale-auto-min-max',
       'toggle-auto-scale-auto-max',

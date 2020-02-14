@@ -239,6 +239,8 @@ function newTimelineChart () {
     timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x
     timelineChartCoordinateSystem.maxHeight = timeMachineCoordinateSystem.maxHeight
     timelineChartCoordinateSystem.maxWidth = timeMachineCoordinateSystem.maxWidth
+    timelineChartCoordinateSystem.autoMinXScale = timeMachineCoordinateSystem.autoMinXScale
+    timelineChartCoordinateSystem.autoMaxXScale = timeMachineCoordinateSystem.autoMaxXScale
     timelineChartCoordinateSystem.recalculateScale()
   }
 

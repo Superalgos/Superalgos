@@ -699,6 +699,10 @@
                             thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentVolume);
 
                         }
+                        /* Contributing to Auto-Scale*/
+                        coordinateSystem.reportValue(volume.amountBuy * 5)
+                        coordinateSystem.reportValue(volume.amountSell * 5)
+                        coordinateSystem.reportValue(0)
                     }
                 }
             }

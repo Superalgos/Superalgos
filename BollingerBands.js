@@ -649,6 +649,10 @@
                     browserCanvasContext.lineWidth = 0.2;
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
+
+                    /* Contributing to Auto-Scale*/
+                    coordinateSystem.reportValue(band.movingAverage + band.deviation)
+                    coordinateSystem.reportValue(band.movingAverage - band.deviation)
                 }
             }
 

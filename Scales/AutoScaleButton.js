@@ -88,9 +88,7 @@ function newAutoScaleButton () {
   }
 
   function getContainer (point, purpose) {
-    console.log('INSIDE BUTTON')
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      console.log('RETURNING BUTTON FROM BUTTON')
       return thisObject.container
     }
   }

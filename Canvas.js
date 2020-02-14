@@ -567,7 +567,6 @@ function newCanvas () {
 
   function onMouseClick (event) {
     try {
-      console.log('ignoreNextClick', ignoreNextClick)
       if (ignoreNextClick === true) {
         ignoreNextClick = false
         return

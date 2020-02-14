@@ -150,12 +150,9 @@ function newRateScale () {
   }
 
   function getContainer (point, purpose) {
-    console.log(purpose, point.x, point.y)
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      console.log('INSIDE')
       let container = autoScaleButton.getContainer(point, purpose)
       if (container !== undefined) {
-        console.log('RETURNING BUTTON FROM SCALE')
         return container
       }
 

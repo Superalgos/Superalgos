@@ -54,6 +54,7 @@ function newTimeMachine () {
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
+  let onScaleChangedEventSubscriptionId
 
   setupContainer()
   return thisObject
@@ -73,6 +74,7 @@ function newTimeMachine () {
   function finalize () {
     canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
     canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    timeMachineCoordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     if (thisObject.timeScale !== undefined) {
       finalizeTimeScale()
@@ -146,9 +148,9 @@ function newTimeMachine () {
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-
     onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
     onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onScaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
     thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
@@ -262,6 +264,10 @@ function newTimeMachine () {
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
+        } else {
+          if (purpose === GET_CONTAINER_PURPOSE.DRAGGING && container.isClickeable === true) {
+            return container
+          }
         }
       }
     }
@@ -314,6 +320,10 @@ function newTimeMachine () {
     if (thisObject.container.frame.isInViewPort()) {
       recalculateCurrentDatetime()
     }
+  }
+
+  function onScaleChanged () {
+    recalculateCurrentDatetime()
   }
 
   function recalculateCurrentDatetime () {

@@ -21,7 +21,7 @@ function newAutoScaleButton () {
 
   let onMouseClickEventSuscriptionId
   let coordinateSystem
-
+  let axis
   return thisObject
 
   function finalize () {
@@ -33,22 +33,41 @@ function newAutoScaleButton () {
     thisObject.panels = undefined
 
     coordinateSystem = undefined
+    axis = undefined
   }
 
-  function initialize (pCoordinateSystem) {
+  function initialize (pAxis, pCoordinateSystem) {
+    axis = pAxis
     coordinateSystem = pCoordinateSystem
     thisObject.autoMinScale = coordinateSystem.autoMinYScale
     thisObject.autoMaxScale = coordinateSystem.autoMaxYScale
 
-    thisObject.container.frame.width = 25
-    thisObject.container.frame.height = 25
+    switch (axis) {
+      case 'X': {
+        thisObject.container.frame.width = 20
+        thisObject.container.frame.height = 20
 
-    let position = {
-      x: thisObject.container.parentContainer.frame.width * 5 / 8,
-      y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+        let position = {
+          x: thisObject.container.parentContainer.frame.width / 2 - thisObject.container.frame.width / 2,
+          y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+        }
+
+        thisObject.container.frame.position = position
+        break
+      }
+      case 'Y': {
+        thisObject.container.frame.width = 20
+        thisObject.container.frame.height = 20
+
+        let position = {
+          x: thisObject.container.parentContainer.frame.width / 2 - thisObject.container.frame.width / 2,
+          y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+        }
+
+        thisObject.container.frame.position = position
+        break
+      }
     }
-
-    thisObject.container.frame.position = position
 
     /* Lets listen to our own events to react when we have a Mouse Click */
     onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -81,8 +100,19 @@ function newAutoScaleButton () {
     }
 
     function update () {
-      coordinateSystem.autoMinYScale = thisObject.autoMinScale
-      coordinateSystem.autoMaxYScale = thisObject.autoMaxScale
+      switch (axis) {
+        case 'X': {
+          coordinateSystem.autoMinXScale = thisObject.autoMinScale
+          coordinateSystem.autoMaxXScale = thisObject.autoMaxScale
+          break
+        }
+        case 'Y': {
+          coordinateSystem.autoMinYScale = thisObject.autoMinScale
+          coordinateSystem.autoMaxYScale = thisObject.autoMaxScale
+          break
+        }
+      }
+
       coordinateSystem.recalculateScale()
     }
   }
@@ -95,19 +125,39 @@ function newAutoScaleButton () {
 
   function draw () {
     let icon
-    if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-manual')
+    switch (axis) {
+      case 'X': {
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-manual')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-min')
+        }
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-max')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-min-max')
+        }
+        drawIcon(icon, 6 / 8, 0, 0, 28, 12, thisObject.container.parentContainer)
+        break
+      }
+      case 'Y': {
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-manual')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min')
+        }
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-max')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
+        }
+        drawIcon(icon, 6 / 8, 0, 0, 28, 12, thisObject.container.parentContainer)
+        break
+      }
     }
-    if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min')
-    }
-    if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-max')
-    }
-    if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
-    }
-
-    drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)
   }
 }

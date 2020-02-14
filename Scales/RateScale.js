@@ -91,11 +91,11 @@ function newRateScale () {
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
-    readObjectState()
-
     autoScaleButton = newAutoScaleButton()
     autoScaleButton.container.connectToParent(thisObject.container)
-    autoScaleButton.initialize(coordinateSystem)
+    autoScaleButton.initialize('Y', coordinateSystem)
+
+    readObjectState()
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {

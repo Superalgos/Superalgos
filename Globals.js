@@ -167,7 +167,7 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
 let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
-let VERY_LARGE_NUMBER = 100000000000
+let VERY_LARGE_NUMBER = 100000000000000
 
 let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
 let AT_FULL_SCREEN_MODE = false

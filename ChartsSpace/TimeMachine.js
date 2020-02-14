@@ -154,7 +154,7 @@ function newTimeMachine () {
     thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
-    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    callBackFunction()
   }
 
   function onMouseOver (event) {

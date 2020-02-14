@@ -265,16 +265,21 @@ function newChartSpace () {
     if (thisObject.payload.node === undefined) { return }
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-    if (thisObject.payload.node.timeMachines !== undefined) {
-      for (let j = 0; j < thisObject.payload.node.timeMachines.length; j++) {
-        let node = thisObject.payload.node.timeMachines[j]
-        let timeMachine = timeMachinesMap.get(node.id)
-        if (timeMachine === undefined) {
+    if (thisObject.payload.node.clusters !== undefined) {
+      for (let i = 0; i < thisObject.payload.node.clusters.length; i++) {
+        let cluster = thisObject.payload.node.clusters[i]
+        if (cluster.timeMachines !== undefined) {
+          for (let j = 0; j < cluster.timeMachines.length; j++) {
+            let node = cluster.timeMachines[j]
+            let timeMachine = timeMachinesMap.get(node.id)
+            if (timeMachine === undefined) {
               /* The time machine node is new, thus we need to initialize a new timeMachine */
-          initializeTimeMachine(node, syncWithDesignerLoop)
-        } else {
+              initializeTimeMachine(node, syncWithDesignerLoop)
+            } else {
               /* The time machine already exists, we tag it as existing at the current loop. */
-          timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+              timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+            }
+          }
         }
       }
     }
@@ -309,12 +314,7 @@ function newChartSpace () {
       timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
       timeMachine.initialize(onTimeMachineInitialized)
 
-      function onTimeMachineInitialized (err) {
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimeMachine -> Initialization Failed. -> Err ' + err.message) }
-          return
-        }
-
+      function onTimeMachineInitialized () {
         thisObject.timeMachines.push(timeMachine)
         timeMachine.payload.uiObject.setValue('')
         if (canvas.chartSpace.viewport !== undefined) {

@@ -197,11 +197,14 @@ function newRateScale () {
           thisObject.maxValue = code.maxValue
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
+
           if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
             coordinateSystem.autoMinScale = code.autoMinScale
+            autoScaleButton.autoMinScale = code.autoMinScale
           }
           if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
             coordinateSystem.autoMaxScale = code.autoMaxScale
+            autoScaleButton.autoMaxScale = code.autoMaxScale
           }
           coordinateSystem.recalculateScale()
         }

@@ -16,6 +16,7 @@ function newPanelsVisibleButton () {
   thisObject.container.name = 'Panels Visible Button'
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Panels Visible Button'
 
   let onMouseClickEventSuscriptionId

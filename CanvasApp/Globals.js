@@ -209,8 +209,8 @@ const PERIOD_01_MIN = "01-min";
 We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const TIME_MACHINE_WIDTH = 250;
-const TIME_MACHINE_HEIGHT = 50;
+const TIME_MACHINE_WIDTH = 320;
+const TIME_MACHINE_HEIGHT = 120;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false

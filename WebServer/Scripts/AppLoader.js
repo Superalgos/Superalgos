@@ -98,7 +98,8 @@ function newAppLoader() {
                 'Scales/TimeScale.js',
                 'Scales/TimeFrameScale.js',
                 'Scales/Commons.js',
-
+                'Scales/AutoScaleButton.js',
+                
                 'CockpitSpace/AssetBalances.js',
                 'CockpitSpace/Speedometer.js',
                 'CockpitSpace/FullScreen.js',

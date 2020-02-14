@@ -57,8 +57,8 @@
 
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -110,8 +110,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -303,8 +303,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -348,6 +348,13 @@
                         if (candle.open < candle.close) { candle.direction = 'up'; }
                         if (candle.open === candle.close) { candle.direction = 'side'; }
 
+                        /* Contributing to Auto-Scale*/
+                        if (i === 0) {
+                            coordinateSystem.reportXValue(candle.begin)
+                        }
+                        if (i === dailyFile.length - 1) {
+                            coordinateSystem.reportXValue(candle.end)
+                        }
 
                         if (
                             (candle.begin >= farLeftDate.valueOf() && candle.end <= farRightDate.valueOf()) &&
@@ -393,8 +400,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -427,6 +434,14 @@
                 if (candle.open > candle.close) { candle.direction = 'down'; }
                 if (candle.open < candle.close) { candle.direction = 'up'; }
                 if (candle.open === candle.close) { candle.direction = 'side'; }
+
+                /* Contributing to Auto-Scale*/
+                if (i === 0) {
+                    coordinateSystem.reportXValue(candle.begin)
+                }
+                if (i === marketFile.length - 1) {
+                    coordinateSystem.reportXValue(candle.end)
+                }
 
                 if (
                     (candle.begin >= leftDate.valueOf() && candle.end <= rightDate.valueOf()) &&
@@ -522,46 +537,48 @@
                     candle.stickPoint3 = transformThisPoint(candle.stickPoint3, thisObject.container);
                     candle.stickPoint4 = transformThisPoint(candle.stickPoint4, thisObject.container);
 
-                    let diffA = candle.stickPoint3.y - canvas.chartSpace.viewport.visibleArea.bottomLeft.y
-                    if (diffA > 0) {
-                        candle.candlePoint1.y = candle.candlePoint1.y - diffA
-                        candle.candlePoint2.y = candle.candlePoint2.y - diffA
-                        candle.candlePoint3.y = candle.candlePoint3.y - diffA
-                        candle.candlePoint4.y = candle.candlePoint4.y - diffA
+                    if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT) {
+                        let diffA = candle.stickPoint3.y - canvas.chartingSpace.viewport.visibleArea.bottomLeft.y
+                        if (diffA > 0) {
+                            candle.candlePoint1.y = candle.candlePoint1.y - diffA
+                            candle.candlePoint2.y = candle.candlePoint2.y - diffA
+                            candle.candlePoint3.y = candle.candlePoint3.y - diffA
+                            candle.candlePoint4.y = candle.candlePoint4.y - diffA
 
-                        candle.stickPoint1.y = candle.stickPoint1.y - diffA
-                        candle.stickPoint2.y = candle.stickPoint2.y - diffA
-                        candle.stickPoint3.y = candle.stickPoint3.y - diffA
-                        candle.stickPoint4.y = candle.stickPoint4.y - diffA
+                            candle.stickPoint1.y = candle.stickPoint1.y - diffA
+                            candle.stickPoint2.y = candle.stickPoint2.y - diffA
+                            candle.stickPoint3.y = candle.stickPoint3.y - diffA
+                            candle.stickPoint4.y = candle.stickPoint4.y - diffA
+                        }
+
+                        let diffB = candle.stickPoint1.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
+                        if (diffB < 0) {
+                            candle.candlePoint1.y = candle.candlePoint1.y - diffB
+                            candle.candlePoint2.y = candle.candlePoint2.y - diffB
+                            candle.candlePoint3.y = candle.candlePoint3.y - diffB
+                            candle.candlePoint4.y = candle.candlePoint4.y - diffB
+
+                            candle.stickPoint1.y = candle.stickPoint1.y - diffB
+                            candle.stickPoint2.y = candle.stickPoint2.y - diffB
+                            candle.stickPoint3.y = candle.stickPoint3.y - diffB
+                            candle.stickPoint4.y = candle.stickPoint4.y - diffB
+                        }
                     }
 
-                    let diffB = candle.stickPoint1.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
-                    if (diffB < 0) {
-                        candle.candlePoint1.y = candle.candlePoint1.y - diffB
-                        candle.candlePoint2.y = candle.candlePoint2.y - diffB
-                        candle.candlePoint3.y = candle.candlePoint3.y - diffB
-                        candle.candlePoint4.y = candle.candlePoint4.y - diffB
-
-                        candle.stickPoint1.y = candle.stickPoint1.y - diffB
-                        candle.stickPoint2.y = candle.stickPoint2.y - diffB
-                        candle.stickPoint3.y = candle.stickPoint3.y - diffB
-                        candle.stickPoint4.y = candle.stickPoint4.y - diffB
-                    }
-
-                    candle.candlePoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
-                    candle.candlePoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
-                    candle.candlePoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
-                    candle.candlePoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
+                    candle.candlePoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint1);
+                    candle.candlePoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint2);
+                    candle.candlePoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint3);
+                    candle.candlePoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.candlePoint4);
 
                     candle.candlePoint1 = thisObject.fitFunction(candle.candlePoint1);
                     candle.candlePoint2 = thisObject.fitFunction(candle.candlePoint2);
                     candle.candlePoint3 = thisObject.fitFunction(candle.candlePoint3);
                     candle.candlePoint4 = thisObject.fitFunction(candle.candlePoint4);
 
-                    candle.stickPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
-                    candle.stickPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);
-                    candle.stickPoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint3);
-                    candle.stickPoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(candle.stickPoint4);
+                    candle.stickPoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint1);
+                    candle.stickPoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint2);
+                    candle.stickPoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint3);
+                    candle.stickPoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(candle.stickPoint4);
 
                     candle.stickPoint1 = thisObject.fitFunction(candle.stickPoint1);
                     candle.stickPoint2 = thisObject.fitFunction(candle.stickPoint2);
@@ -578,13 +595,13 @@
                     
                     candle = candles[i];
 
-                    if (candle.candlePoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
+                    if (candle.candlePoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
                         continue
                     }
 
                     /* Contributing to Auto-Scale*/
-                    coordinateSystem.reportValue(candle.max)
-                    coordinateSystem.reportValue(candle.min)
+                    coordinateSystem.reportYValue(candle.max)
+                    coordinateSystem.reportYValue(candle.min)
 
 
                     //if (onScreenCandles.length < 15000) {

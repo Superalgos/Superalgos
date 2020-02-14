@@ -1,5 +1,5 @@
 
-function newDesignerSpace () {
+function newDesignSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
@@ -241,7 +241,17 @@ function newDesignerSpace () {
       'task-manager',
       'session-based-data',
       'session-independent-data',
-      'session-reference'
+      'session-reference',
+      'dashboard',
+      'toggle-auto-scale-manual',
+      'toggle-auto-scale-auto-min-max',
+      'toggle-auto-scale-auto-max',
+      'toggle-auto-scale-auto-min',
+      'toggle-panel-off',
+      'toggle-auto-time-scale-auto-min',
+      'toggle-auto-time-scale-auto-max',
+      'toggle-auto-time-scale-auto-min-max',
+      'toggle-auto-time-scale-manual'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {
@@ -281,7 +291,7 @@ function newDesignerSpace () {
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)
       if (container !== undefined) {
-        container.space = 'Designer Space'
+        container.space = 'Design Space'
         return container
       }
     }

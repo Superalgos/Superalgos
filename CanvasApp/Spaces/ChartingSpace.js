@@ -6,8 +6,8 @@ changes, then all charts in it are replotted with the corresponging data.
 
 */
 
-function newChartSpace () {
-  const MODULE_NAME = 'Chart Space'
+function newChartingSpace () {
+  const MODULE_NAME = 'Charting Space'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -84,7 +84,7 @@ function newChartSpace () {
   }
 
   function initialize () {
-    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    let rootNodes = canvas.designSpace.workspace.workspaceNode.rootNodes
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
       if (rootNode.type === 'Charting Space') {
@@ -93,7 +93,7 @@ function newChartSpace () {
     }
 
     if (thisObject.payload === undefined) {
-      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Designer Space in order to enable Charts. PLease create one and refreash your browser. ') }
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refreash your browser. ') }
       return
     }
 
@@ -167,7 +167,7 @@ function newChartSpace () {
       y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector)
+    canvas.chartingSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenDown () {
@@ -176,7 +176,7 @@ function newChartSpace () {
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector)
+    canvas.chartingSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenLeft () {
@@ -185,7 +185,7 @@ function newChartSpace () {
       y: 0
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector, true)
+    canvas.chartingSpace.viewport.displace(displaceVector, true)
   }
 
   function oneScreenRight () {
@@ -194,7 +194,7 @@ function newChartSpace () {
       y: 0
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector, true)
+    canvas.chartingSpace.viewport.displace(displaceVector, true)
   }
 
   function fitFunction (point, fullVisible) {
@@ -265,16 +265,21 @@ function newChartSpace () {
     if (thisObject.payload.node === undefined) { return }
     syncWithDesignerLoop = syncWithDesignerLoop + 0.00000000001
 
-    if (thisObject.payload.node.timeMachines !== undefined) {
-      for (let j = 0; j < thisObject.payload.node.timeMachines.length; j++) {
-        let node = thisObject.payload.node.timeMachines[j]
-        let timeMachine = timeMachinesMap.get(node.id)
-        if (timeMachine === undefined) {
+    if (thisObject.payload.node.dashboards !== undefined) {
+      for (let i = 0; i < thisObject.payload.node.dashboards.length; i++) {
+        let dashboard = thisObject.payload.node.dashboards[i]
+        if (dashboard.timeMachines !== undefined) {
+          for (let j = 0; j < dashboard.timeMachines.length; j++) {
+            let node = dashboard.timeMachines[j]
+            let timeMachine = timeMachinesMap.get(node.id)
+            if (timeMachine === undefined) {
               /* The time machine node is new, thus we need to initialize a new timeMachine */
-          initializeTimeMachine(node, syncWithDesignerLoop)
-        } else {
+              initializeTimeMachine(node, syncWithDesignerLoop)
+            } else {
               /* The time machine already exists, we tag it as existing at the current loop. */
-          timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+              timeMachine.syncWithDesignerLoop = syncWithDesignerLoop
+            }
+          }
         }
       }
     }
@@ -309,16 +314,11 @@ function newChartSpace () {
       timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
       timeMachine.initialize(onTimeMachineInitialized)
 
-      function onTimeMachineInitialized (err) {
-        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] syncWithDesigner -> initializeTimeMachine -> Initialization Failed. -> Err ' + err.message) }
-          return
-        }
-
+      function onTimeMachineInitialized () {
         thisObject.timeMachines.push(timeMachine)
         timeMachine.payload.uiObject.setValue('')
-        if (canvas.chartSpace.viewport !== undefined) {
-          canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+        if (canvas.chartingSpace.viewport !== undefined) {
+          canvas.chartingSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
         }
       }
     }
@@ -333,8 +333,8 @@ function newChartSpace () {
       thisObject.visible = true
     }
 
-    if (canvas.chartSpace.viewport !== undefined) {
-      canvas.chartSpace.viewport.resize()
+    if (canvas.chartingSpace.viewport !== undefined) {
+      canvas.chartingSpace.viewport.resize()
     }
   }
 

@@ -48,7 +48,7 @@
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        let localStorage = window.localStorage.getItem(MODULE_NAME)
        if (localStorage !== null) {
          storage = JSON.parse(localStorage)
@@ -132,7 +132,7 @@
 
      thisObject.status = 'MIDDLE'
 
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        thisObject.container.isDraggeable = true
      } else {
        thisObject.container.isDraggeable = false
@@ -141,10 +141,10 @@
      if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
-       canvas.designerSpace.makeInvisible()
+       canvas.designSpace.makeInvisible()
        canvas.floatingSpace.makeInvisible()
      } else {
-       canvas.designerSpace.makeVisible()
+       canvas.designSpace.makeVisible()
        canvas.floatingSpace.makeVisible()
      }
 
@@ -161,8 +161,8 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     if (canvas.chartSpace.viewport !== undefined) {
-       canvas.chartSpace.viewport.resize()
+     if (canvas.chartingSpace.viewport !== undefined) {
+       canvas.chartingSpace.viewport.resize()
      }
    }
 
@@ -219,7 +219,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        arrow()
      }
    }

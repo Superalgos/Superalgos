@@ -71,8 +71,8 @@
 
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -128,8 +128,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -146,7 +146,7 @@
             })
 
             for (let i = 1; i < 15; i++) {
-                let strategyImage = canvas.designerSpace.iconByUiObjectType.get('Strategy');   
+                let strategyImage = canvas.designSpace.iconByUiObjectType.get('Strategy');   
                 strategyImages.push(strategyImage);
             }
 
@@ -344,8 +344,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -427,8 +427,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -521,17 +521,17 @@
                 recordPoint3 = transformThisPoint(recordPoint3, thisObject.container);
                 recordPoint4 = transformThisPoint(recordPoint4, thisObject.container);
 
-                if (recordPoint2.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || recordPoint1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
+                if (recordPoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || recordPoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
                     continue;
                 }
 
                 recordPoint3.y = recordPoint1.y + 2000;
                 recordPoint4.y = recordPoint1.y + 2000;
 
-                recordPoint1 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint1);
-                recordPoint2 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint2);
-                recordPoint3 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint3);
-                recordPoint4 = canvas.chartSpace.viewport.fitIntoVisibleArea(recordPoint4);
+                recordPoint1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(recordPoint1);
+                recordPoint2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(recordPoint2);
+                recordPoint3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(recordPoint3);
+                recordPoint4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(recordPoint4);
 
                 recordPoint1 = thisObject.fitFunction(recordPoint1, undefined, 30);
                 recordPoint2 = thisObject.fitFunction(recordPoint2, undefined, 30);

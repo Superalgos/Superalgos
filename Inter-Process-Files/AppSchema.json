@@ -4784,8 +4784,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Time Machine",
-                "relatedUiObject": "Time Machine",
+                "label": "Add Dashboard",
+                "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4809,6 +4809,40 @@
                 "childType": "Viewport",
                 "autoAdd": true
             },
+            {
+                "name": "dashboards",
+                "type": "array",
+                "childType": "Dashboard"
+            }
+        ]
+    },
+    {
+        "type": "Dashboard",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Time Machine",
+                "relatedUiObject": "Time Machine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Dashboard",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "dashboard",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Charting Space->"
+        },
+        "propertyNameAtParent": "dashboards",
+        "properties": [
             {
                 "name": "timeMachines",
                 "type": "array",
@@ -4878,7 +4912,7 @@
         "isTitleAllwaysVisible": true,
         "icon": "time-machine",
         "chainAttachesTo": {
-            "compatibleTypes": "->Charting Space->"
+            "compatibleTypes": "->Dashboard->"
         },
         "propertyNameAtParent": "timeMachines",
         "properties": [
@@ -4965,7 +4999,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"fromDate\": \"2018-01-01\",\n\"toDate\": \"2020-12-31\"\n}"
+            "code": "{ \n\"autoMinScale\": true,\n\"autoMaxScale\": true,\n\"fromDate\": \"2018-01-01\",\n\"toDate\": \"2020-12-31\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

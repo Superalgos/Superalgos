@@ -114,15 +114,15 @@ function transformThisPoint (point, container) {
 
   point = container.frame.frameThisPoint(point)
 
-    /* We pass this point through the canvas.chartSpace.viewport lends, meaning we apply the canvas.chartSpace.viewport zoom and displacement. */
+    /* We pass this point through the canvas.chartingSpace.viewport lends, meaning we apply the canvas.chartingSpace.viewport zoom and displacement. */
 
-  point = canvas.chartSpace.viewport.transformThisPoint(point)
+  point = canvas.chartingSpace.viewport.transformThisPoint(point)
 
   return point
 }
 
 function unTransformThisPoint (point, container) {
-  point = canvas.chartSpace.viewport.unTransformThisPoint(point)
+  point = canvas.chartingSpace.viewport.unTransformThisPoint(point)
   point = container.frame.unframeThisPoint(point)
 
   return point
@@ -174,7 +174,7 @@ function getRateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   return point.y
 }
 
-function getRateFromPointAtChartSpace (point, container, coordinateSystem) {
+function getRateFromPointAtChartingSpace (point, container, coordinateSystem) {
   point = container.frame.unframeThisPoint(point)
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
@@ -200,14 +200,14 @@ function moveToUserPosition (container, currentDate, currentRate, coordinateSyst
     y: currentRate
   }
 
-  /* Put this point in the coordinate system of the canvas.chartSpace.viewport */
+  /* Put this point in the coordinate system of the canvas.chartingSpace.viewport */
   targetPoint = coordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
 
   let displaceVector
 
-  let targetNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(targetPoint)
-  let mouseNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(mousePosition)
+  let targetNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(targetPoint)
+  let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mousePosition)
 
   displaceVector = {
     x: mouseNoZoom.x - targetNoZoom.x,

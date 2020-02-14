@@ -271,14 +271,24 @@ entries:
       output: web
       class: childItem
 
-#    - title: Product definition
-#      url: /suite-product-definition.html
-#      output: web
-#      class: childItem
+    - title: Product definition
+      url: /suite-product-definition.html
+      output: web
+      class: childItem
 
-#    - title: Input-to-output cycle
-#      url: /suite-input-to-output-cycle.html
-#      output: web
+    - title: Plotters
+      url: /suite-plotters.html
+      output: web
+
+    - title: Plotter Panel
+      url: /suite-plotter-panel.html
+      output: web
+      class: childItem
+
+    - title: Shapes
+      url: /suite-shapes.html
+      output: web
+      class: childItem
 
 #    - title: Datasets
 #      url: /suite-datasets.html

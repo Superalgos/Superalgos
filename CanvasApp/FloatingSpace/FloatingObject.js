@@ -261,7 +261,7 @@ function newFloatingObject () {
       if (parent.payload.position === undefined) { return }
 
       let distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-      let parentChildren = canvas.designerSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
+      let parentChildren = canvas.designSpace.workspace.nodeChildren.childrenCount(parent, thisObject.payload.node)
       let axisCount = parentChildren.childrenCount
       let axisIndex = parentChildren.childIndex
       let baseAngle = 0

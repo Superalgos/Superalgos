@@ -30,6 +30,7 @@ function newTimeScale () {
   thisObject.container.frame.height = 40
 
   let visible = true
+  let autoScaleButton
   let isMouseOver
 
   let onMouseWheelEventSubscriptionId
@@ -63,6 +64,9 @@ function newTimeScale () {
     coordinateSystem = undefined
     limitingContainer = undefined
     mouse = undefined
+
+    autoScaleButton.finalize()
+    autoScaleButton = undefined
   }
 
   function initialize (pCoordinateSystem, pLimitingContainer) {
@@ -73,6 +77,10 @@ function newTimeScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+
+    autoScaleButton = newAutoScaleButton()
+    autoScaleButton.container.connectToParent(thisObject.container)
+    autoScaleButton.initialize('X', coordinateSystem)
 
     readObjectState()
   }
@@ -108,6 +116,10 @@ function newTimeScale () {
   }
 
   function onMouseWheel (event) {
+    if (event.shiftKey === true) {
+      autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
+      return
+    }
     let factor
     let morePower = 10
     if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
@@ -126,7 +138,7 @@ function newTimeScale () {
     saveObjectState()
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
@@ -137,6 +149,8 @@ function newTimeScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
       code.toDate = (new Date(coordinateSystem.max.x)).toISOString()
+      code.autoMinScale = coordinateSystem.autoMinXScale
+      code.autoMaxScale = coordinateSystem.autoMaxXScale
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -158,6 +172,12 @@ function newTimeScale () {
           thisObject.toDate = Date.parse(code.toDate)
           coordinateSystem.min.x = thisObject.fromDate
           coordinateSystem.max.x = thisObject.toDate
+
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
+            coordinateSystem.autoMinXScale = code.autoMinScale
+            coordinateSystem.autoMaxXScale = code.autoMaxScale
+            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
+          }
           coordinateSystem.recalculateScale()
         }
       }
@@ -229,6 +249,7 @@ function newTimeScale () {
 
   function draw () {
     drawScaleBox()
+    autoScaleButton.draw()
     if (visible === false) {
       drawScaleDisplayCover(thisObject.container)
     }
@@ -237,6 +258,7 @@ function newTimeScale () {
   function drawForeground () {
     if (isMouseOver === true) {
       drawScaleBox()
+      autoScaleButton.draw()
     }
   }
 
@@ -249,8 +271,8 @@ function newTimeScale () {
     let label2 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
     let label3 = labelArray[4]
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

@@ -54,6 +54,7 @@ function newTimeMachine () {
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
+  let onScaleChangedEventSubscriptionId
 
   setupContainer()
   return thisObject
@@ -71,8 +72,9 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    timeMachineCoordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     if (thisObject.timeScale !== undefined) {
       finalizeTimeScale()
@@ -146,15 +148,15 @@ function newTimeMachine () {
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-
-    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onScaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
     thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
-    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    callBackFunction()
   }
 
   function onMouseOver (event) {
@@ -262,6 +264,10 @@ function newTimeMachine () {
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
+        } else {
+          if (purpose === GET_CONTAINER_PURPOSE.DRAGGING && container.isClickeable === true) {
+            return container
+          }
         }
       }
     }
@@ -278,7 +284,6 @@ function newTimeMachine () {
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       container = thisObject.timelineCharts[i].getContainer(point, purpose)
       if (container !== undefined) {
-        console.log('IN TIME MACHINE GOT THIS CONTAINER: ' + container.name)
         if (container.isForThisPurpose(purpose)) {
           if (thisObject.container.frame.isThisPointHere(point) === true) {
             return container
@@ -317,14 +322,18 @@ function newTimeMachine () {
     }
   }
 
+  function onScaleChanged () {
+    recalculateCurrentDatetime()
+  }
+
   function recalculateCurrentDatetime () {
      /*
      The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
      must calculate.
      */
     let center = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
+      x: (canvas.chartingSpace.viewport.visibleArea.bottomRight.x - canvas.chartingSpace.viewport.visibleArea.bottomLeft.x) / 2,
+      y: (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2
     }
 
     center = unTransformThisPoint(center, thisObject.container)
@@ -339,7 +348,7 @@ function newTimeMachine () {
   }
 
   function fitFunction (point, fullVisible, margin, topMargin, bottomMargin) {
-     /* We prevent a point to be out of the container AND out of the Chart Space in general */
+     /* We prevent a point to be out of the container AND out of the Charting Space in general */
 
     let returnPoint = {
       x: point.x,
@@ -369,7 +378,7 @@ function newTimeMachine () {
     if (returnPoint.y - margin - topMargin < upCorner.y) { returnPoint.y = upCorner.y + margin + topMargin }
     if (returnPoint.y + margin + bottomMargin > bottonCorner.y) { returnPoint.y = bottonCorner.y - margin - bottomMargin }
 
-    returnPoint = canvas.chartSpace.fitFunction(returnPoint, fullVisible)
+    returnPoint = canvas.chartingSpace.fitFunction(returnPoint, fullVisible)
 
     return returnPoint
   }
@@ -387,7 +396,7 @@ function newTimeMachine () {
   }
 
   function panelPhysics () {
-    if (thisObject.container.frame.isInViewPort() && canvas.chartSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
+    if (thisObject.container.frame.isInViewPort() && canvas.chartingSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
     } else {
@@ -531,7 +540,7 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           let imageSize = 40
@@ -581,7 +590,7 @@ function newTimeMachine () {
     let imageSize = 25
     let fontSize = 25
     let opacity = 1
-    let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
     printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)

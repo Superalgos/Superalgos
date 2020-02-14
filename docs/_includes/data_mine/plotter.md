@@ -75,7 +75,7 @@ Those actions are performed recursively for each record, and the graphics are pl
 
 <!--------------------------------------------- ADDING starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To add a plotter, select *Add Plotter* on the data mine node menu. An indicator bot is created along with the basic structure of nodes required to define it.
 
 <!--------------------------------------------- ADDING ends -->
 

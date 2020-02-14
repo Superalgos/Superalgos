@@ -65,8 +65,8 @@
 
             /* Stop listening to the necesary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
-            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -118,8 +118,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -324,8 +324,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -418,8 +418,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -480,7 +480,7 @@
 
             let opacity = '0.25';
 
-            let visibleHeight = canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topLeft.y;
+            let visibleHeight = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y;
 
             let frameCorner1 = {
                 x: 0,
@@ -516,8 +516,8 @@
                         function calculateBuys(plot, height) {
 
                             /* Contributing to Auto-Scale*/
-                            coordinateSystem.reportValue(stairs.firstAmount * 2)
-                            coordinateSystem.reportValue(stairs.lastAmount * 2)
+                            coordinateSystem.reportYValue(stairs.firstAmount * 2)
+                            coordinateSystem.reportYValue(stairs.lastAmount * 2)
 
                             volumeBarPointA1 = {
                                 x: stairs.begin + timeFrame / 2,
@@ -550,7 +550,7 @@
                             volumeBarPointA3 = transformThisPoint(volumeBarPointA3, thisObject.container);
                             volumeBarPointA4 = transformThisPoint(volumeBarPointA4, thisObject.container);
 
-                            if (volumeBarPointA4.x < canvas.chartSpace.viewport.visibleArea.bottomLeft.x || volumeBarPointA1.x > canvas.chartSpace.viewport.visibleArea.bottomRight.x) {
+                            if (volumeBarPointA4.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || volumeBarPointA1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
                                 return false;
                             }
 
@@ -559,16 +559,16 @@
 
                         if (calculateBuys(coordinateSystem, thisObject.container.frame.height) === false) { continue; } // We try to see if it fits in the visible area.
 
-                        if (volumeBarPointA1.y > canvas.chartSpace.viewport.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
+                        if (volumeBarPointA1.y > canvas.chartingSpace.viewport.visibleArea.bottomLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
                             if (calculateBuys(coordinateSystem, visibleHeight) === false) { continue; }  // We snap t to the view port.
 
                             /* Now we set the real value of y. */
 
-                            volumeBarPointA1.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y;
-                            volumeBarPointA2.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - stairs.firstAmount * 2 * coordinateSystem.scale.y;
-                            volumeBarPointA3.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - stairs.lastAmount * 2 * coordinateSystem.scale.y;
-                            volumeBarPointA4.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y;
+                            volumeBarPointA1.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y;
+                            volumeBarPointA2.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - stairs.firstAmount * 2 * coordinateSystem.scale.y;
+                            volumeBarPointA3.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - stairs.lastAmount * 2 * coordinateSystem.scale.y;
+                            volumeBarPointA4.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y;
 
                         }
                     }
@@ -583,8 +583,8 @@
                         function calculateSells(plot, height) {
 
                             /* Contributing to Auto-Scale*/
-                            coordinateSystem.reportValue(stairs.firstAmount * 2)
-                            coordinateSystem.reportValue(stairs.lastAmount * 2)
+                            coordinateSystem.reportYValue(stairs.firstAmount * 2)
+                            coordinateSystem.reportYValue(stairs.lastAmount * 2)
 
                             volumeBarPointB1 = {
                                 x: stairs.begin + timeFrame / 2,
@@ -620,16 +620,16 @@
 
                         calculateSells(coordinateSystem, thisObject.container.frame.height); // We try to see if it fits in the visible area.
 
-                        if (volumeBarPointB1.y < canvas.chartSpace.viewport.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
+                        if (volumeBarPointB1.y < canvas.chartingSpace.viewport.visibleArea.topLeft.y && frameHeightInViewPort > visibleHeight * 2 / 3) {
 
                             calculateSells(coordinateSystem, visibleHeight); // We snap it to the view port.
 
                             /* Now we set the real value of y. */
 
-                            volumeBarPointB1.y = canvas.chartSpace.viewport.visibleArea.topLeft.y;
-                            volumeBarPointB2.y = canvas.chartSpace.viewport.visibleArea.topLeft.y + stairs.firstAmount * 2 * coordinateSystem.scale.y;
-                            volumeBarPointB3.y = canvas.chartSpace.viewport.visibleArea.topLeft.y + stairs.lastAmount * 2 * coordinateSystem.scale.y;
-                            volumeBarPointB4.y = canvas.chartSpace.viewport.visibleArea.topLeft.y;
+                            volumeBarPointB1.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y;
+                            volumeBarPointB2.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y + stairs.firstAmount * 2 * coordinateSystem.scale.y;
+                            volumeBarPointB3.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y + stairs.lastAmount * 2 * coordinateSystem.scale.y;
+                            volumeBarPointB4.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y;
 
                         }
                     }
@@ -638,10 +638,10 @@
 
                     if (stairs.type === 'buy') {
 
-                        volumeBarPointA1 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointA1);
-                        volumeBarPointA2 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointA2);
-                        volumeBarPointA3 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointA3);
-                        volumeBarPointA4 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointA4);
+                        volumeBarPointA1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointA1);
+                        volumeBarPointA2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointA2);
+                        volumeBarPointA3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointA3);
+                        volumeBarPointA4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointA4);
 
                         volumeBarPointA1 = thisObject.fitFunction(volumeBarPointA1);
                         volumeBarPointA2 = thisObject.fitFunction(volumeBarPointA2);
@@ -650,10 +650,10 @@
 
                     } else {
 
-                        volumeBarPointB1 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointB1);
-                        volumeBarPointB2 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointB2);
-                        volumeBarPointB3 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointB3);
-                        volumeBarPointB4 = canvas.chartSpace.viewport.fitIntoVisibleArea(volumeBarPointB4);
+                        volumeBarPointB1 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointB1);
+                        volumeBarPointB2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointB2);
+                        volumeBarPointB3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointB3);
+                        volumeBarPointB4 = canvas.chartingSpace.viewport.fitIntoVisibleArea(volumeBarPointB4);
 
                         volumeBarPointB1 = thisObject.fitFunction(volumeBarPointB1);
                         volumeBarPointB2 = thisObject.fitFunction(volumeBarPointB2);

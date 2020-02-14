@@ -5,6 +5,7 @@ function newAutoScaleButton () {
     parentContainer: undefined,
     autoMinScale: undefined,
     autoMaxScale: undefined,
+    setStatus: setStatus,
     draw: draw,
     getContainer: getContainer,     // returns the inner most container that holds the point received by parameter.
     initialize: initialize,
@@ -19,13 +20,15 @@ function newAutoScaleButton () {
   thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Auto Scale Button'
 
-  let onMouseClickEventSuscriptionId
+  const ICON_SIZE = 36
+  let onMouseWheelEventSubscriptionId
   let coordinateSystem
-
+  let axis
+  let currentStatus
   return thisObject
 
   function finalize () {
-    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
@@ -33,83 +36,159 @@ function newAutoScaleButton () {
     thisObject.panels = undefined
 
     coordinateSystem = undefined
+    axis = undefined
   }
 
-  function initialize (pCoordinateSystem) {
+  function initialize (pAxis, pCoordinateSystem) {
+    axis = pAxis
     coordinateSystem = pCoordinateSystem
-    thisObject.autoMinScale = coordinateSystem.autoMinScale
-    thisObject.autoMaxScale = coordinateSystem.autoMaxScale
+    thisObject.autoMinScale = coordinateSystem.autoMinYScale
+    thisObject.autoMaxScale = coordinateSystem.autoMaxYScale
 
-    thisObject.container.frame.width = 25
-    thisObject.container.frame.height = 25
+    switch (axis) {
+      case 'X': {
+        thisObject.container.frame.width = ICON_SIZE
+        thisObject.container.frame.height = ICON_SIZE
 
-    let position = {
-      x: thisObject.container.parentContainer.frame.width * 5 / 8,
-      y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+        let position = {
+          x: thisObject.container.parentContainer.frame.width * 7 / 8,
+          y: thisObject.container.parentContainer.frame.height / 2
+        }
+
+        thisObject.container.frame.position = position
+        break
+      }
+      case 'Y': {
+        thisObject.container.frame.width = ICON_SIZE
+        thisObject.container.frame.height = ICON_SIZE
+
+        let position = {
+          x: thisObject.container.parentContainer.frame.width * 7 / 8,
+          y: thisObject.container.parentContainer.frame.height / 2
+        }
+
+        thisObject.container.frame.position = position
+        break
+      }
     }
-
-    thisObject.container.frame.position = position
-
-    /* Lets listen to our own events to react when we have a Mouse Click */
-    onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
-  function onMouseClick (event) {
+  function setStatus (autoMinScale, autoMaxScale) {
+    thisObject.autoMinScale = autoMinScale
+    thisObject.autoMaxScale = autoMaxScale
+
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-      thisObject.autoMinScale = true
-      thisObject.autoMaxScale = false
-      update()
-      return
+      currentStatus = 1
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-      thisObject.autoMinScale = false
-      thisObject.autoMaxScale = true
-      update()
-      return
+      currentStatus = 2
     }
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      thisObject.autoMinScale = true
-      thisObject.autoMaxScale = true
-      update()
-      return
+      currentStatus = 3
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      thisObject.autoMinScale = false
-      thisObject.autoMaxScale = false
-      update()
-      return
+      currentStatus = 4
+    }
+  }
+  function onMouseWheel (event) {
+    let factor
+    let delta = event.wheelDelta
+    if (delta < 0) {
+      delta = -1
+    } else {
+      delta = 1
+    }
+    currentStatus = currentStatus + delta
+    if (currentStatus === 5) { currentStatus = 1 }
+    if (currentStatus === 0) { currentStatus = 4 }
+
+    switch (currentStatus) {
+      case 1: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = false
+        update()
+        return
+      }
+      case 2: {
+        thisObject.autoMinScale = true
+        thisObject.autoMaxScale = false
+        update()
+        return
+      }
+      case 3: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = true
+        update()
+        return
+      }
+      case 4: {
+        thisObject.autoMinScale = true
+        thisObject.autoMaxScale = true
+        update()
+        return
+      }
     }
 
     function update () {
-      coordinateSystem.autoMinScale = thisObject.autoMinScale
-      coordinateSystem.autoMaxScale = thisObject.autoMaxScale
+      switch (axis) {
+        case 'X': {
+          coordinateSystem.autoMinXScale = thisObject.autoMinScale
+          coordinateSystem.autoMaxXScale = thisObject.autoMaxScale
+          break
+        }
+        case 'Y': {
+          coordinateSystem.autoMinYScale = thisObject.autoMinScale
+          coordinateSystem.autoMaxYScale = thisObject.autoMaxScale
+          break
+        }
+      }
+
       coordinateSystem.recalculateScale()
     }
   }
 
   function getContainer (point, purpose) {
-    console.log('INSIDE BUTTON')
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      console.log('RETURNING BUTTON FROM BUTTON')
       return thisObject.container
     }
   }
 
   function draw () {
     let icon
-    if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-      icon = canvas.designerSpace.iconCollection.get('plotter-panel')
+    switch (axis) {
+      case 'X': {
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-manual')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-min')
+        }
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-max')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-min-max')
+        }
+        drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
+        break
+      }
+      case 'Y': {
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-manual')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min')
+        }
+        if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-max')
+        }
+        if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
+          icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
+        }
+        drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
+        break
+      }
     }
-    if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-      icon = canvas.designerSpace.iconCollection.get('shapes-polygon-body')
-    }
-    if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      icon = canvas.designerSpace.iconCollection.get('social-bot')
-    }
-    if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      icon = canvas.designerSpace.iconCollection.get('startup')
-    }
-
-    drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)
   }
 }

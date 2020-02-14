@@ -30,7 +30,7 @@ dataset_definition: "A dataset definition contains a configuration file that def
 
 record_definition: "The record definition is where indicators define how many fields, what fields and in which order those fields will be stored in each record."
 
-record: "A record is the compendium of information stored for each period of time, including the start and end datetime of the period along with the properties that provide the information the indicator is meant to generate."
+record_property: "A record is the compendium of information stored for each period of time, including the start and end datetime of the period along with the properties that provide the information the indicator is meant to generate."
 
 formula: "In the context of a record definition, formulas are used to assign a value to the property, usually in the form of a variable declared in the calculation or data building procedure."
 

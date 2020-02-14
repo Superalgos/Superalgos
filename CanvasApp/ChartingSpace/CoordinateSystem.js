@@ -15,10 +15,13 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
-    autoMinScale: true,
-    autoMaxScale: true,
+    autoMinXScale: true,
+    autoMaxXScale: true,
+    autoMinYScale: true,
+    autoMaxYScale: true,
     physics: physics,
-    reportValue: reportValue,
+    reportXValue: reportXValue,
+    reportYValue: reportYValue,
     zoomX: zoomX,
     zoomY: zoomY,
     recalculateScale: recalculateScale,
@@ -48,9 +51,13 @@ function newCoordinateSystem () {
   thisObject.eventHandler = newEventHandler()
   thisObject.eventHandler.name = 'Coordinate System'
 
-  let newMax = -VERY_LARGE_NUMBER
-  let newMin = VERY_LARGE_NUMBER
-  let notValueReported = true
+  let newXMax = -VERY_LARGE_NUMBER
+  let newXMin = VERY_LARGE_NUMBER
+  let noXValueReported = true
+
+  let newYMax = -VERY_LARGE_NUMBER
+  let newYMin = VERY_LARGE_NUMBER
+  let noYValueReported = true
 
   return thisObject
 
@@ -74,46 +81,80 @@ function newCoordinateSystem () {
   }
 
   function physics () {
-    if ((thisObject.autoMinScale === true || thisObject.autoMaxScale === true) && notValueReported === false) {
-      let mustRecalculate = false
+    let mustRecalculate = false
 
-      if (thisObject.autoMaxScale === true && thisObject.max.y !== newMax) {
-        thisObject.max.y = newMax
+    if ((thisObject.autoMinXScale === true || thisObject.autoMaxXScale === true) && noXValueReported === false) {
+      if (thisObject.autoMaxXScale === true && thisObject.max.x !== newXMax) {
+        thisObject.max.x = newXMax
         mustRecalculate = true
       }
 
-      if (thisObject.autoMaxScale === true) {
-        newMax = -VERY_LARGE_NUMBER
+      if (thisObject.autoMaxXScale === true) {
+        newXMax = -VERY_LARGE_NUMBER
       }
 
-      if (thisObject.autoMinScale === true && thisObject.min.y !== newMin) {
-        thisObject.min.y = newMin
-        newMin = VERY_LARGE_NUMBER
+      if (thisObject.autoMinXScale === true && thisObject.min.x !== newXMin) {
+        thisObject.min.x = newXMin
+        newXMin = VERY_LARGE_NUMBER
         mustRecalculate = true
       }
 
-      if (thisObject.autoMinScale === true) {
-        newMin = VERY_LARGE_NUMBER
-      }
-
-      if (mustRecalculate === true) {
-        recalculateScale()
+      if (thisObject.autoMinXScale === true) {
+        newXMin = VERY_LARGE_NUMBER
       }
 
       /* Reseting this to start over at each cycle. */
+      noXValueReported = true
+    }
 
-      notValueReported = true
+    if ((thisObject.autoMinYScale === true || thisObject.autoMaxYScale === true) && noYValueReported === false) {
+      if (thisObject.autoMaxYScale === true && thisObject.max.y !== newYMax) {
+        thisObject.max.y = newYMax
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMaxYScale === true) {
+        newYMax = -VERY_LARGE_NUMBER
+      }
+
+      if (thisObject.autoMinYScale === true && thisObject.min.y !== newYMin) {
+        thisObject.min.y = newYMin
+        newYMin = VERY_LARGE_NUMBER
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMinYScale === true) {
+        newYMin = VERY_LARGE_NUMBER
+      }
+
+      /* Reseting this to start over at each cycle. */
+      noYValueReported = true
+    }
+
+    if (mustRecalculate === true) {
+      recalculateScale()
     }
   }
 
-  function reportValue (value) {
-    if (thisObject.autoMinScale === true) {
-      if (value < newMin) { newMin = value }
-      notValueReported = false
+  function reportXValue (value) {
+    if (thisObject.autoMinXScale === true) {
+      if (value < newXMin) { newXMin = value }
+      noXValueReported = false
     }
-    if (thisObject.autoMaxScale === true) {
-      if (value > newMax) { newMax = value }
-      notValueReported = false
+    if (thisObject.autoMaxXScale === true) {
+      if (value > newXMax) { newXMax = value }
+      noXValueReported = false
+    }
+  }
+
+  function reportYValue (value) {
+    if (thisObject.autoMinYScale === true) {
+      if (value < newYMin) { newYMin = value }
+      noYValueReported = false
+    }
+    if (thisObject.autoMaxYScale === true) {
+      if (value > newYMax) { newYMax = value }
+      noYValueReported = false
     }
   }
 

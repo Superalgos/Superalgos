@@ -68,8 +68,8 @@
 
             /* Stop listening to the necesary events. */
 
-            canvas.chartSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
-            canvas.chartSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
+            canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
             thisObject.container.eventHandler.stopListening(dimmensionsChangedEventSubscriptionId)
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
@@ -117,8 +117,8 @@
 
             /* Listen to the necesary events. */
 
-            zoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
-            offsetChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
+            zoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
+            offsetChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
@@ -308,8 +308,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -390,8 +390,8 @@
 
             let daysOnSides = getSideDays(timeFrame);
 
-            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
-            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
+            let leftDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topLeft, thisObject.container, coordinateSystem);
+            let rightDate = getDateFromPointAtBrowserCanvas(canvas.chartingSpace.viewport.visibleArea.topRight, thisObject.container, coordinateSystem);
 
             let dateDiff = rightDate.valueOf() - leftDate.valueOf();
 
@@ -484,14 +484,14 @@
 
         if (currentRecord === undefined) { return; }
         if (currentRecord.conditionsNames === undefined) { return; }
-        if (canvas.designerSpace.workspace === undefined) { return; }
+        if (canvas.designSpace.workspace === undefined) { return; }
 
         /* We will get now the designer trading system */
         let designerTradingSystem
         let fileTradingSystem = currentRecord.conditionsNames;
 
-        for (let i = 0; i < canvas.designerSpace.workspace.workspaceNode.rootNodes.length; i++) {
-            let rootNode = canvas.designerSpace.workspace.workspaceNode.rootNodes[i]
+        for (let i = 0; i < canvas.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
+            let rootNode = canvas.designSpace.workspace.workspaceNode.rootNodes[i]
             if (rootNode.type === 'Definition') {
                 if (rootNode.tradingSystem.id === fileTradingSystem.id) {
                     designerTradingSystem = rootNode.tradingSystem

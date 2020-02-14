@@ -93,7 +93,7 @@ function newAnimation () {
             callBackFunction()
             let t1 = performance.now()
             timeConsumed = t1 - t0
-            if (key === 'Chart Space Draw') {
+            if (key === 'Charting Space Draw') {
               if (Math.random() * 100 > 99) {
                 totalConsumption = 0
                 totalCounter = 0

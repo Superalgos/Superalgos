@@ -61,7 +61,7 @@ function newTimeFrameScale () {
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
@@ -81,7 +81,7 @@ function newTimeFrameScale () {
     newTimeFrame()
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onViewportZoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportZoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
@@ -123,13 +123,13 @@ function newTimeFrameScale () {
   }
 
   function zoomOutPhysics () {
-    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
       let event = {}
       event.timeFrame = thisObject.timeFrame
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
       previousIsVisible = true
     }
-    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
       let event = {}
       event.timeFrame = ONE_DAY_IN_MILISECONDS
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
@@ -340,8 +340,8 @@ function newTimeFrameScale () {
     let label2 = label[0]
     let label3 = label[1].toUpperCase()
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

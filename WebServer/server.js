@@ -237,31 +237,31 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'DesignerSpace': // This means the DesignerSpace folder.
+    case 'DesignSpace': // This means the DesignSpace folder.
 
       {
         if (requestParameters[3] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignSpace/' + requestParameters[2], response)
           return
         }
         if (requestParameters[4] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2] + '/' + requestParameters[3], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignSpace/' + requestParameters[2] + '/' + requestParameters[3], response)
           return
         }
         if (requestParameters[5] === undefined) {
-          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignerSpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
+          respondWithFile(process.env.PATH_TO_CANVAS_APP + '/DesignSpace/' + requestParameters[2] + '/' + requestParameters[3] + '/' + requestParameters[4], response)
           return
         }
       }
       break
 
-    case 'ControlsToolBox': // This means the DesignerSpace folder.
+    case 'ControlsToolBox': // This means the DesignSpace folder.
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/ControlsToolBox/' + requestParameters[2], response)
       }
       break
 
-    case 'Utilities': // This means the DesignerSpace folder.
+    case 'Utilities': // This means the DesignSpace folder.
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Utilities/' + requestParameters[2], response)
       }
@@ -334,7 +334,7 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'ChartsSpace':
+    case 'ChartingSpace':
       {
         respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
       }

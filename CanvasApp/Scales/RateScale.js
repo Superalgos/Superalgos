@@ -91,11 +91,11 @@ function newRateScale () {
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
-    readObjectState()
-
     autoScaleButton = newAutoScaleButton()
     autoScaleButton.container.connectToParent(thisObject.container)
-    autoScaleButton.initialize(coordinateSystem)
+    autoScaleButton.initialize('Y', coordinateSystem)
+
+    readObjectState()
   }
 
   function onMouseOverSomeTimeMachineContainer (event) {
@@ -134,6 +134,11 @@ function newRateScale () {
   }
 
   function onMouseWheel (event) {
+    if (event.shiftKey === true) {
+      autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
+      return
+    }
+
     let factor
     let morePower = 10
     if (event.buttons === 4) { morePower = 1 } // Mouse wheel pressed.
@@ -150,15 +155,7 @@ function newRateScale () {
   }
 
   function getContainer (point, purpose) {
-    console.log(purpose, point.x, point.y)
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-      console.log('INSIDE')
-      let container = autoScaleButton.getContainer(point, purpose)
-      if (container !== undefined) {
-        console.log('RETURNING BUTTON FROM SCALE')
-        return container
-      }
-
       if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
         return draggeableContainer
       }
@@ -172,8 +169,8 @@ function newRateScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y
-      code.autoMinScale = coordinateSystem.autoMinScale
-      code.autoMaxScale = coordinateSystem.autoMaxScale
+      code.autoMinScale = coordinateSystem.autoMinYScale
+      code.autoMaxScale = coordinateSystem.autoMaxYScale
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -193,19 +190,20 @@ function newRateScale () {
         if (
           thisObject.minValue !== code.minValue ||
           thisObject.maxValue !== code.maxValue ||
-          coordinateSystem.autoMinScale !== code.autoMinScale ||
-          coordinateSystem.autoMaxScale !== code.autoMaxScale
+          coordinateSystem.autoMinYScale !== code.autoMinScale ||
+          coordinateSystem.autoMaxYScale !== code.autoMaxScale
         ) {
           thisObject.minValue = code.minValue
           thisObject.maxValue = code.maxValue
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
-          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
-            coordinateSystem.autoMinScale = code.autoMinScale
+
+          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
+            coordinateSystem.autoMinYScale = code.autoMinScale
+            coordinateSystem.autoMaxYScale = code.autoMaxScale
+            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
           }
-          if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
-            coordinateSystem.autoMaxScale = code.autoMaxScale
-          }
+
           coordinateSystem.recalculateScale()
         }
       }
@@ -394,8 +392,8 @@ function newRateScale () {
     let label3 = labelArray[1]
     if (label3 === undefined) { label3 = '00' }
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

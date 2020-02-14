@@ -26,7 +26,7 @@ function newAppLoader() {
             modulesArray = ['UserEcosystem.js']
        
             modulesArray = modulesArray.concat([
-                'ChartsSpace/Viewport.js',
+                'ChartingSpace/Viewport.js',
 
                 'Globals.js',
                 'Ecosystem.js',
@@ -34,25 +34,25 @@ function newAppLoader() {
                 'AppSchema.js',
                 'MQService',
 
-                'ChartsSpace/EdgeEditor.js',
-                'ChartsSpace/ChartUtilities.js',
-                'ChartsSpace/PlottersManager.js',
-                'ChartsSpace/TimelineChart.js',
-                'ChartsSpace/TimeMachine.js',
-                'ChartsSpace/CoordinateSystem.js',
+                'ChartingSpace/EdgeEditor.js',
+                'ChartingSpace/ChartUtilities.js',
+                'ChartingSpace/PlottersManager.js',
+                'ChartingSpace/TimelineChart.js',
+                'ChartingSpace/TimeMachine.js',
+                'ChartingSpace/CoordinateSystem.js',
 
-                'DesignerSpace/Workspace/Workspace.js',
-                'DesignerSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
-                'DesignerSpace/Workspace/FunctionLibraries/ChainAttachDetach.js',
-                'DesignerSpace/Workspace/FunctionLibraries/ReferenceAttachDetach.js',
-                'DesignerSpace/Workspace/FunctionLibraries/NodeDeleter.js',
-                'DesignerSpace/Workspace/FunctionLibraries/ProtocolNode.js',
-                'DesignerSpace/Workspace/FunctionLibraries/NodeCloning.js',
-                'DesignerSpace/Workspace/FunctionLibraries/NodeChildren.js', 
-                'DesignerSpace/Workspace/FunctionLibraries/TaskFunctions.js',
-                'DesignerSpace/Workspace/FunctionLibraries/SessionFunctions.js',
-                'DesignerSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
-                'DesignerSpace/Workspace/FunctionLibraries/OnFocus.js',
+                'DesignSpace/Workspace/Workspace.js',
+                'DesignSpace/Workspace/FunctionLibraries/UiObjectsFromNodes.js',
+                'DesignSpace/Workspace/FunctionLibraries/ChainAttachDetach.js',
+                'DesignSpace/Workspace/FunctionLibraries/ReferenceAttachDetach.js',
+                'DesignSpace/Workspace/FunctionLibraries/NodeDeleter.js',
+                'DesignSpace/Workspace/FunctionLibraries/ProtocolNode.js',
+                'DesignSpace/Workspace/FunctionLibraries/NodeCloning.js',
+                'DesignSpace/Workspace/FunctionLibraries/NodeChildren.js', 
+                'DesignSpace/Workspace/FunctionLibraries/TaskFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/SessionFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
+                'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 
                 'Utilities/RoundedCornersBackground.js',
 
@@ -68,9 +68,9 @@ function newAppLoader() {
                 'Spaces/CockpitSpace.js',
                 'Spaces/TopSpace.js',
                 'Spaces/PanelsSpace.js',
-                'Spaces/ChartSpace.js',
+                'Spaces/ChartingSpace.js',
                 'Spaces/FloatingSpace.js',
-                'Spaces/DesignerSpace.js',
+                'Spaces/DesignSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
@@ -122,7 +122,7 @@ function newAppLoader() {
                 'Container.js',
 
                 'Utilities.js',
-                'Dashboard.js'
+                'PostLoader.js'
             ])
 
             modulesArray = modulesArray.concat(plotters)

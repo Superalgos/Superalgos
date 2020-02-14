@@ -6,8 +6,8 @@ changes, then all charts in it are replotted with the corresponging data.
 
 */
 
-function newChartSpace () {
-  const MODULE_NAME = 'Chart Space'
+function newChartingSpace () {
+  const MODULE_NAME = 'Charting Space'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
@@ -167,7 +167,7 @@ function newChartSpace () {
       y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector)
+    canvas.chartingSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenDown () {
@@ -176,7 +176,7 @@ function newChartSpace () {
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector)
+    canvas.chartingSpace.viewport.displace(displaceVector)
   }
 
   function oneScreenLeft () {
@@ -185,7 +185,7 @@ function newChartSpace () {
       y: 0
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector, true)
+    canvas.chartingSpace.viewport.displace(displaceVector, true)
   }
 
   function oneScreenRight () {
@@ -194,7 +194,7 @@ function newChartSpace () {
       y: 0
     }
 
-    canvas.chartSpace.viewport.displace(displaceVector, true)
+    canvas.chartingSpace.viewport.displace(displaceVector, true)
   }
 
   function fitFunction (point, fullVisible) {
@@ -317,8 +317,8 @@ function newChartSpace () {
       function onTimeMachineInitialized () {
         thisObject.timeMachines.push(timeMachine)
         timeMachine.payload.uiObject.setValue('')
-        if (canvas.chartSpace.viewport !== undefined) {
-          canvas.chartSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
+        if (canvas.chartingSpace.viewport !== undefined) {
+          canvas.chartingSpace.viewport.raiseEvents() // These events will impacts on objects just initialized.
         }
       }
     }
@@ -333,8 +333,8 @@ function newChartSpace () {
       thisObject.visible = true
     }
 
-    if (canvas.chartSpace.viewport !== undefined) {
-      canvas.chartSpace.viewport.resize()
+    if (canvas.chartingSpace.viewport !== undefined) {
+      canvas.chartingSpace.viewport.resize()
     }
   }
 

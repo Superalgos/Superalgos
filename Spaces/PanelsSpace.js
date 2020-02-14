@@ -43,8 +43,8 @@ function newPanelsSpace () {
       case 'Layers Panel':
         {
           panel = newLayersPanel()
-          panel.fitFunction = canvas.chartSpace.fitFunction
-          panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+          panel.fitFunction = canvas.chartingSpace.fitFunction
+          panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
           panel.type = 'Layers Panel'
           break
         }
@@ -52,14 +52,14 @@ function newPanelsSpace () {
         {
           if (pParameters.panelNode.code.isLegacy !== true) {
             panel = newPlotterPanel()
-            panel.fitFunction = canvas.chartSpace.fitFunction
-            panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+            panel.fitFunction = canvas.chartingSpace.fitFunction
+            panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
             panel.session = pSession
             panel.initialize(pParameters.panelNode)
           } else {
             panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.code.codeName)
-            panel.fitFunction = canvas.chartSpace.fitFunction
-            panel.container.isVisibleFunction = canvas.chartSpace.isThisPointVisible
+            panel.fitFunction = canvas.chartingSpace.fitFunction
+            panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
             panel.session = pSession
             panel.initialize()
           }
@@ -130,7 +130,7 @@ function newPanelsSpace () {
     if (thisObject.panels !== undefined) {
       for (let i = 0; i < thisObject.panels.length; i++) {
         let panel = thisObject.panels[i]
-        let owner = canvas.chartSpace.inViewport.get(panel.owner)
+        let owner = canvas.chartingSpace.inViewport.get(panel.owner)
         if (owner !== undefined) {
           if (panel.physics !== undefined) {
             panel.physics()
@@ -162,8 +162,8 @@ function newPanelsSpace () {
         centerPoint.y = centerPoint.y + panel.container.frame.height / 2
 
         /* Lets see which quadrant the panel is at */
-        let verticalLine = (canvas.chartSpace.viewport.visibleArea.topRight.x - canvas.chartSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartSpace.viewport.visibleArea.topLeft.x
-        let horizontalLine = (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartSpace.viewport.visibleArea.topRight.y
+        let verticalLine = (canvas.chartingSpace.viewport.visibleArea.topRight.x - canvas.chartingSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartingSpace.viewport.visibleArea.topLeft.x
+        let horizontalLine = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartingSpace.viewport.visibleArea.topRight.y
 
         if (panel.panelTabButton !== undefined) {
           if (panel.panelTabButton.status === 'up') {
@@ -208,18 +208,18 @@ function newPanelsSpace () {
             panel.container.frame.position.x = browserCanvas.width - panel.container.frame.width
           }
         }
-        if (panel.container.frame.height <= canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) {
+        if (panel.container.frame.height <= canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) {
           if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'topRight') {
             panel.container.frame.position.y = panel.container.frame.position.y - panel.container.speed.y
             isOverlapping(i, panel.container)
-            if (panel.container.frame.position.y < canvas.chartSpace.viewport.visibleArea.topLeft.y) {
-              panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.topLeft.y
+            if (panel.container.frame.position.y < canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
+              panel.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topLeft.y
             }
           } else {
             panel.container.frame.position.y = panel.container.frame.position.y + panel.container.speed.y
             isOverlapping(i, panel.container)
-            if (panel.container.frame.position.y + panel.container.frame.height > canvas.chartSpace.viewport.visibleArea.bottomRight.y) {
-              panel.container.frame.position.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
+            if (panel.container.frame.position.y + panel.container.frame.height > canvas.chartingSpace.viewport.visibleArea.bottomRight.y) {
+              panel.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y - panel.container.frame.height
             }
           }
         }
@@ -317,7 +317,7 @@ function newPanelsSpace () {
 
     for (let i = 0; i < thisObject.panels.length; i++) {
       let panel = thisObject.panels[i]
-      let owner = canvas.chartSpace.inViewport.get(panel.owner)
+      let owner = canvas.chartingSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
         if (panel.isVisible === true && panel.isHidden === false) {
           panel.draw()
@@ -336,7 +336,7 @@ function newPanelsSpace () {
       */
     for (let i = thisObject.panels.length - 1; i >= 0; i--) {
       let panel = thisObject.panels[i]
-      let owner = canvas.chartSpace.inViewport.get(panel.owner)
+      let owner = canvas.chartingSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
         if (panel.isVisible === true && panel.isHidden === false) {
           container = panel.getContainer(point)

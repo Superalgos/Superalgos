@@ -60,8 +60,8 @@ function newLayersPanel () {
     thisObject.container.frame.height = headerHeight
 
     let position = { // Default position
-      x: canvas.chartSpace.viewport.visibleArea.topLeft.x,
-      y: canvas.chartSpace.viewport.visibleArea.topLeft.y
+      x: canvas.chartingSpace.viewport.visibleArea.topLeft.x,
+      y: canvas.chartingSpace.viewport.visibleArea.topLeft.y
     }
 
     thisObject.container.frame.position = position
@@ -189,7 +189,7 @@ function newLayersPanel () {
   function panelSizePhysics () {
     if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
 
-    let viewPortHeight = canvas.chartSpace.viewport.visibleArea.bottomLeft.y - canvas.chartSpace.viewport.visibleArea.topLeft.y
+    let viewPortHeight = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
 
     if (viewPortHeight < headerHeight) {
       thisObject.visible = false

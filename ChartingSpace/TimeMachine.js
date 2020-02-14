@@ -71,8 +71,8 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
 
     if (thisObject.timeScale !== undefined) {
       finalizeTimeScale()
@@ -147,8 +147,8 @@ function newTimeMachine () {
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
     thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
@@ -322,8 +322,8 @@ function newTimeMachine () {
      must calculate.
      */
     let center = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
+      x: (canvas.chartingSpace.viewport.visibleArea.bottomRight.x - canvas.chartingSpace.viewport.visibleArea.bottomLeft.x) / 2,
+      y: (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2
     }
 
     center = unTransformThisPoint(center, thisObject.container)
@@ -338,7 +338,7 @@ function newTimeMachine () {
   }
 
   function fitFunction (point, fullVisible, margin, topMargin, bottomMargin) {
-     /* We prevent a point to be out of the container AND out of the Chart Space in general */
+     /* We prevent a point to be out of the container AND out of the Charting Space in general */
 
     let returnPoint = {
       x: point.x,
@@ -368,7 +368,7 @@ function newTimeMachine () {
     if (returnPoint.y - margin - topMargin < upCorner.y) { returnPoint.y = upCorner.y + margin + topMargin }
     if (returnPoint.y + margin + bottomMargin > bottonCorner.y) { returnPoint.y = bottonCorner.y - margin - bottomMargin }
 
-    returnPoint = canvas.chartSpace.fitFunction(returnPoint, fullVisible)
+    returnPoint = canvas.chartingSpace.fitFunction(returnPoint, fullVisible)
 
     return returnPoint
   }
@@ -386,7 +386,7 @@ function newTimeMachine () {
   }
 
   function panelPhysics () {
-    if (thisObject.container.frame.isInViewPort() && canvas.chartSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
+    if (thisObject.container.frame.isInViewPort() && canvas.chartingSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
     } else {

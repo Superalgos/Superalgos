@@ -161,8 +161,8 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     if (canvas.chartSpace.viewport !== undefined) {
-       canvas.chartSpace.viewport.resize()
+     if (canvas.chartingSpace.viewport !== undefined) {
+       canvas.chartingSpace.viewport.resize()
      }
    }
 

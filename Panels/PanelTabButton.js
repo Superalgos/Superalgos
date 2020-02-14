@@ -58,7 +58,7 @@ function newPanelTabButton () {
     upPosition.y = thisObject.parentContainer.frame.position.y
 
     downPosition.x = thisObject.parentContainer.frame.position.x
-    downPosition.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y
+    downPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
 
     transitionPosition.x = upPosition.x
     transitionPosition.y = upPosition.y
@@ -96,10 +96,10 @@ function newPanelTabButton () {
     if (isInitialized === false) { return }
 
     upPosition.x = thisObject.parentContainer.frame.position.x
-    upPosition.y = canvas.chartSpace.viewport.visibleArea.topRight.y
+    upPosition.y = canvas.chartingSpace.viewport.visibleArea.topRight.y
 
     downPosition.x = thisObject.parentContainer.frame.position.x
-    downPosition.y = canvas.chartSpace.viewport.visibleArea.bottomRight.y
+    downPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
 
     if (thisObject.status === 'going down') {
       if (transitionPosition.y < downPosition.y) {

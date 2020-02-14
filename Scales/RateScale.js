@@ -169,8 +169,8 @@ function newRateScale () {
       let code = JSON.parse(thisObject.payload.node.code)
       code.minValue = coordinateSystem.min.y
       code.maxValue = coordinateSystem.max.y
-      code.autoMinScale = coordinateSystem.autoMinScale
-      code.autoMaxScale = coordinateSystem.autoMaxScale
+      code.autoMinScale = coordinateSystem.autoMinYScale
+      code.autoMaxScale = coordinateSystem.autoMaxYScale
       thisObject.payload.node.code = JSON.stringify(code, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
@@ -190,8 +190,8 @@ function newRateScale () {
         if (
           thisObject.minValue !== code.minValue ||
           thisObject.maxValue !== code.maxValue ||
-          coordinateSystem.autoMinScale !== code.autoMinScale ||
-          coordinateSystem.autoMaxScale !== code.autoMaxScale
+          coordinateSystem.autoMinYScale !== code.autoMinScale ||
+          coordinateSystem.autoMaxYScale !== code.autoMaxScale
         ) {
           thisObject.minValue = code.minValue
           thisObject.maxValue = code.maxValue
@@ -199,11 +199,11 @@ function newRateScale () {
           coordinateSystem.max.y = thisObject.maxValue
 
           if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false)) {
-            coordinateSystem.autoMinScale = code.autoMinScale
+            coordinateSystem.autoMinYScale = code.autoMinScale
             autoScaleButton.autoMinScale = code.autoMinScale
           }
           if (code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
-            coordinateSystem.autoMaxScale = code.autoMaxScale
+            coordinateSystem.autoMaxYScale = code.autoMaxScale
             autoScaleButton.autoMaxScale = code.autoMaxScale
           }
           coordinateSystem.recalculateScale()

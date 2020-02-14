@@ -37,8 +37,8 @@ function newAutoScaleButton () {
 
   function initialize (pCoordinateSystem) {
     coordinateSystem = pCoordinateSystem
-    thisObject.autoMinScale = coordinateSystem.autoMinScale
-    thisObject.autoMaxScale = coordinateSystem.autoMaxScale
+    thisObject.autoMinScale = coordinateSystem.autoMinYScale
+    thisObject.autoMaxScale = coordinateSystem.autoMaxYScale
 
     thisObject.container.frame.width = 25
     thisObject.container.frame.height = 25
@@ -81,8 +81,8 @@ function newAutoScaleButton () {
     }
 
     function update () {
-      coordinateSystem.autoMinScale = thisObject.autoMinScale
-      coordinateSystem.autoMaxScale = thisObject.autoMaxScale
+      coordinateSystem.autoMinYScale = thisObject.autoMinScale
+      coordinateSystem.autoMaxYScale = thisObject.autoMaxScale
       coordinateSystem.recalculateScale()
     }
   }

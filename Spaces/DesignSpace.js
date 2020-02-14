@@ -247,7 +247,11 @@ function newDesignSpace () {
       'toggle-auto-scale-auto-min-max',
       'toggle-auto-scale-auto-max',
       'toggle-auto-scale-auto-min',
-      'toggle-panel-off'
+      'toggle-panel-off',
+      'toggle-auto-time-scale-auto-min',
+      'toggle-auto-time-scale-auto-max',
+      'toggle-auto-time-scale-auto-min-max',
+      'toggle-auto-time-scale-manual'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

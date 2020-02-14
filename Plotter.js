@@ -569,7 +569,7 @@ function newPlotter () {
                   y: y
                 }
                 /* Contributing to Auto-Scale */
-                coordinateSystem.reportValue(dataPoint.y)
+                coordinateSystem.reportYValue(dataPoint.y)
 
               /*
               The information we store in files is independent from the charing system and its coordinate systems.
@@ -769,7 +769,7 @@ function newPlotter () {
         }
       }
 
-      if (coordinateSystem.autoMinScale === true || coordinateSystem.autosMaxScale === true) {
+      if (coordinateSystem.autoMinYScale === true || coordinateSystem.autosMaxScale === true) {
         mustRecalculateDataPoints = true
       } else {
         mustRecalculateDataPoints = false

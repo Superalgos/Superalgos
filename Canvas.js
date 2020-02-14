@@ -37,7 +37,7 @@ function newCanvas () {
     panelsSpace: undefined,
     cockpitSpace: undefined,
     bottomSpace: undefined,
-    designerSpace: undefined,
+    designSpace: undefined,
     animation: undefined,
     initialize: initialize,
     finalize: finalize
@@ -95,8 +95,8 @@ function newCanvas () {
       thisObject.topSpace = newTopSpace()
       thisObject.topSpace.initialize()
 
-      thisObject.designerSpace = newDesignerSpace()
-      thisObject.designerSpace.initialize()
+      thisObject.designSpace = newDesignSpace()
+      thisObject.designSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -123,7 +123,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
       animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
-      animation.addCallBackFunction('Designer Space Physics', thisObject.designerSpace.physics)
+      animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
@@ -131,7 +131,7 @@ function newCanvas () {
       animation.addCallBackFunction('Charting Space Draw', thisObject.chartingSpace.draw)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
-      animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
+      animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
@@ -231,7 +231,7 @@ function newCanvas () {
   function onKeyDown (event) {
     checkMediaRecording(event)
 
-    let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
+    let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
         if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -360,7 +360,7 @@ function newCanvas () {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
-        let nodeUsingThisKey = canvas.designerSpace.workspace.getNodeByShortcutKey(event.key)
+        let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
@@ -451,7 +451,7 @@ function newCanvas () {
             x: event.x,
             y: event.y
           }
-          thisObject.designerSpace.workspace.spawn(reader.result, mousePosition)
+          thisObject.designSpace.workspace.spawn(reader.result, mousePosition)
         }
       }
     } catch (err) {
@@ -470,9 +470,9 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Designer Space / */
+            /* We check if the mouse is over an element of the Design Space / */
 
-      container = thisObject.designerSpace.getContainer(point)
+      container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
@@ -577,9 +577,9 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Designer Space / */
+            /* We check if the mouse is over an element of the Design Space / */
 
-      container = thisObject.designerSpace.getContainer(point)
+      container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -712,8 +712,8 @@ function newCanvas () {
       let container
 
       /* We check if the mouse is over an element of the Strategy Space / */
-      if (thisObject.designerSpace !== undefined) {
-        container = thisObject.designerSpace.getContainer(point)
+      if (thisObject.designSpace !== undefined) {
+        container = thisObject.designSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()

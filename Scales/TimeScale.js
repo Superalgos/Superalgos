@@ -249,8 +249,8 @@ function newTimeScale () {
     let label2 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
     let label3 = labelArray[4]
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

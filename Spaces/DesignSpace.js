@@ -1,5 +1,5 @@
 
-function newDesignerSpace () {
+function newDesignSpace () {
   const MODULE_NAME = 'Strategy Space'
   let thisObject = {
     sidePanel: undefined,
@@ -287,7 +287,7 @@ function newDesignerSpace () {
     if (thisObject.sidePanel !== undefined) {
       container = thisObject.sidePanel.getContainer(point)
       if (container !== undefined) {
-        container.space = 'Designer Space'
+        container.space = 'Design Space'
         return container
       }
     }

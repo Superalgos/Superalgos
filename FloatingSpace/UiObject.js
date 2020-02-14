@@ -427,7 +427,7 @@ function newUiObject () {
 
     if (previousDistanceToChainParent !== undefined) {
       if (ratio > THRESHOLD) {
-        canvas.designerSpace.workspace.chainDetachNode(thisObject.payload.node)
+        canvas.designSpace.workspace.chainDetachNode(thisObject.payload.node)
       }
     }
   }
@@ -534,7 +534,7 @@ function newUiObject () {
 
     if (previousDistanceToReferenceParent !== undefined) {
       if (ratio > THRESHOLD) {
-        canvas.designerSpace.workspace.referenceDetachNode(thisObject.payload.node)
+        canvas.designSpace.workspace.referenceDetachNode(thisObject.payload.node)
       }
     }
   }
@@ -657,7 +657,7 @@ function newUiObject () {
   }
 
   function iconPhysics () {
-    icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
     let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
     if (nodeDefinition.alternativeIcons !== undefined) {
       let nodeToUse = thisObject.payload.node
@@ -685,7 +685,7 @@ function newUiObject () {
             iconName = alternativeIcon.iconName
           }
         }
-        let newIcon = canvas.designerSpace.iconCollection.get(iconName)
+        let newIcon = canvas.designSpace.iconCollection.get(iconName)
         if (newIcon !== undefined) {
           icon = newIcon
         }
@@ -694,7 +694,7 @@ function newUiObject () {
       }
     }
 
-    executingIcon = canvas.designerSpace.iconCollection.get('attractive')
+    executingIcon = canvas.designSpace.iconCollection.get('attractive')
   }
 
   function onFocus () {
@@ -748,12 +748,12 @@ function newUiObject () {
 
   function onDragFinished (event) {
     if (isChainAttaching === true) {
-      canvas.designerSpace.workspace.chainAttachNode(thisObject.payload.node, chainAttachToNode)
+      canvas.designSpace.workspace.chainAttachNode(thisObject.payload.node, chainAttachToNode)
       chainAttachToNode = undefined
       isChainAttaching = false
     }
     if (isReferenceAttaching === true) {
-      canvas.designerSpace.workspace.referenceAttachNode(thisObject.payload.node, referenceAttachToNode)
+      canvas.designSpace.workspace.referenceAttachNode(thisObject.payload.node, referenceAttachToNode)
       referenceAttachToNode = undefined
       isReferenceAttaching = false
     }

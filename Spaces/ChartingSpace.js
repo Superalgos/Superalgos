@@ -84,7 +84,7 @@ function newChartingSpace () {
   }
 
   function initialize () {
-    let rootNodes = canvas.designerSpace.workspace.workspaceNode.rootNodes
+    let rootNodes = canvas.designSpace.workspace.workspaceNode.rootNodes
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
       if (rootNode.type === 'Charting Space') {
@@ -93,7 +93,7 @@ function newChartingSpace () {
     }
 
     if (thisObject.payload === undefined) {
-      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Designer Space in order to enable Charts. PLease create one and refreash your browser. ') }
+      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refreash your browser. ') }
       return
     }
 

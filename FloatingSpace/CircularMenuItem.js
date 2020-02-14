@@ -203,19 +203,19 @@ function newCircularMenuItem () {
       temporaryStatus === STATUS_SECONDARY_WORK_FAILED
     ) && thisObject.secondaryAction !== undefined
       ) {
-      thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
-      thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOn = canvas.designSpace.iconCollection.get(thisObject.secondaryIcon)
+      thisObject.iconOff = canvas.designSpace.iconCollection.get(thisObject.secondaryIcon)
     } else {
       if (thisObject.relatedUiObject !== undefined) {
-        thisObject.iconOn = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
-        thisObject.iconOff = canvas.designerSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
+        thisObject.iconOn = canvas.designSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
+        thisObject.iconOff = canvas.designSpace.iconByUiObjectType.get(thisObject.relatedUiObject)
       } else {
         if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined) {
-          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.iconPathOn)
-          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.iconPathOff)
+          thisObject.iconOn = canvas.designSpace.iconCollection.get(thisObject.iconPathOn)
+          thisObject.iconOff = canvas.designSpace.iconCollection.get(thisObject.iconPathOff)
         } else {
-          thisObject.iconOn = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
-          thisObject.iconOff = canvas.designerSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+          thisObject.iconOn = canvas.designSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
+          thisObject.iconOff = canvas.designSpace.iconCollection.get(thisObject.icons[thisObject.actionStatus()])
         }
       }
     }

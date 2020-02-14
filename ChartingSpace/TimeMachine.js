@@ -530,7 +530,7 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           let imageSize = 40
@@ -580,7 +580,7 @@ function newTimeMachine () {
     let imageSize = 25
     let fontSize = 25
     let opacity = 1
-    let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
     printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)

@@ -96,16 +96,16 @@ function newAutoScaleButton () {
   function draw () {
     let icon
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-      icon = canvas.designerSpace.iconCollection.get('toggle-auto-scale-manual')
+      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-manual')
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-      icon = canvas.designerSpace.iconCollection.get('toggle-auto-scale-auto-min')
+      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min')
     }
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      icon = canvas.designerSpace.iconCollection.get('toggle-auto-scale-auto-max')
+      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-max')
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      icon = canvas.designerSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
+      icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
     }
 
     drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)

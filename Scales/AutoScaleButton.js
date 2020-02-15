@@ -20,6 +20,7 @@ function newAutoScaleButton () {
   thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Auto Scale Button'
 
+  const ICON_SIZE = 36
   let onMouseWheelEventSubscriptionId
   let coordinateSystem
   let axis
@@ -46,24 +47,24 @@ function newAutoScaleButton () {
 
     switch (axis) {
       case 'X': {
-        thisObject.container.frame.width = 20
-        thisObject.container.frame.height = 20
+        thisObject.container.frame.width = ICON_SIZE
+        thisObject.container.frame.height = ICON_SIZE
 
         let position = {
-          x: thisObject.container.parentContainer.frame.width / 2 - thisObject.container.frame.width / 2,
-          y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+          x: thisObject.container.parentContainer.frame.width * 7 / 8,
+          y: thisObject.container.parentContainer.frame.height / 2
         }
 
         thisObject.container.frame.position = position
         break
       }
       case 'Y': {
-        thisObject.container.frame.width = 20
-        thisObject.container.frame.height = 20
+        thisObject.container.frame.width = ICON_SIZE
+        thisObject.container.frame.height = ICON_SIZE
 
         let position = {
-          x: thisObject.container.parentContainer.frame.width / 2 - thisObject.container.frame.width / 2,
-          y: thisObject.container.parentContainer.frame.height / 2 - thisObject.container.frame.height / 2
+          x: thisObject.container.parentContainer.frame.width * 7 / 8,
+          y: thisObject.container.parentContainer.frame.height / 2
         }
 
         thisObject.container.frame.position = position
@@ -169,7 +170,7 @@ function newAutoScaleButton () {
         if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
           icon = canvas.designSpace.iconCollection.get('toggle-auto-time-scale-auto-min-max')
         }
-        drawIcon(icon, 6 / 8, 0, 0, 28, 12, thisObject.container.parentContainer)
+        drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
         break
       }
       case 'Y': {
@@ -185,7 +186,7 @@ function newAutoScaleButton () {
         if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
           icon = canvas.designSpace.iconCollection.get('toggle-auto-scale-auto-min-max')
         }
-        drawIcon(icon, 6 / 8, 0, 0, 28, 12, thisObject.container.parentContainer)
+        drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
         break
       }
     }

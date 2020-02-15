@@ -528,6 +528,8 @@ function newTimeMachine () {
   }
 
   function draw () {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]

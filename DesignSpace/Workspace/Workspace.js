@@ -182,9 +182,23 @@ function newWorkspace () {
         if (rootNode.networkNodes !== undefined) {
           for (let j = 0; j < rootNode.networkNodes.length; j++) {
             let networkNode = rootNode.networkNodes[j]
-            for (let i = 0; i < networkNode.taskManagers.length; i++) {
-              let taskManager = networkNode.taskManagers[i]
-              taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+            if (networkNode.dataMining !== undefined) {
+              for (let i = 0; i < networkNode.dataMining.taskManagers.length; i++) {
+                let taskManager = networkNode.dataMining.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
+            }
+            if (networkNode.testingEnvironment !== undefined) {
+              for (let i = 0; i < networkNode.testingEnvironment.taskManagers.length; i++) {
+                let taskManager = networkNode.testingEnvironment.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
+            }
+            if (networkNode.productionEnvironment !== undefined) {
+              for (let i = 0; i < networkNode.productionEnvironment.taskManagers.length; i++) {
+                let taskManager = networkNode.productionEnvironment.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
             }
           }
         }

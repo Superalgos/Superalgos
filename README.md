@@ -25,7 +25,7 @@ The version in development opens up the door to working with multiple exchanges 
 
 The [Users Manual](https://github.com/Superalgos/Platform/wiki) in this repository's wiki features the documentation corresponding to the latest release.
 
-A [new documentation site](https://superalgos.github.io/Documentation/) is in the making. Bear in mind the new version of the documentation is undergoing a massive restructuring, therefore, it is incomplete and should be complemented with the current User Manual.
+A [new documentation site](https://superalgos.github.io/Documentation/) is in the making, covering the functionality in development.
 
 ## Codebase and Development Environment
 

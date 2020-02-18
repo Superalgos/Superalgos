@@ -143,14 +143,14 @@ function newEdgeEditor () {
     switch (whereIsMouseOver) {
       case 'center': {
         switch (buttonUsedForDragging) {
-          case 'left mouse button': {
+          case 'right mouse button': {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
             thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
             thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
             thisObject.container.parentContainer.eventHandler.raiseEvent('onDisplace')
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button': {
             let point = {
               x: -dragVector.x,
               y: -dragVector.y

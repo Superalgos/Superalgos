@@ -39,6 +39,7 @@ function newCanvas () {
     bottomSpace: undefined,
     designSpace: undefined,
     animation: undefined,
+    mouse: undefined,
     initialize: initialize,
     finalize: finalize
   }
@@ -49,6 +50,13 @@ function newCanvas () {
   let lastContainerMouseOver
   let lastShortcutKeyRejection
 
+  thisObject.mouse = {
+    position: {
+      x: 0,
+      y: 0
+    },
+    action: ''
+  }
   return thisObject
 
   function finalize () {
@@ -73,9 +81,12 @@ function newCanvas () {
       browserCanvas.removeEventListener('drop', onDragDrop, false)
 
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
+      browserCanvas.removeEventListener('keyup', onKeyUp, false)
 
       splashScreen = undefined
       lastContainerMouseOver = undefined
+
+      hisObject.mouse = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -155,6 +166,7 @@ function newCanvas () {
 
       /* Keyboard events */
       window.addEventListener('keydown', onKeyDown, true)
+      window.addEventListener('keyup', onKeyUp, true)
 
       /* Mouse Events */
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
@@ -228,7 +240,15 @@ function newCanvas () {
     }
   }
 
+  function onKeyUp (event) {
+    thisObject.mouse.event = event
+    thisObject.mouse.action = 'key up'
+  }
+
   function onKeyDown (event) {
+    thisObject.mouse.event = event
+    thisObject.mouse.action = 'key down'
+
     checkMediaRecording(event)
 
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
@@ -461,6 +481,20 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      switch (event.buttons) {
+        case 1: {
+          thisObject.mouse.action = 'clicking with left button'
+          break
+        }
+        case 2: {
+          thisObject.mouse.action = 'clicking with right button'
+          break
+        }
+      }
+
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
@@ -571,6 +605,7 @@ function newCanvas () {
         ignoreNextClick = false
         return
       }
+
       let point = event
       point.x = event.pageX
       point.y = event.pageY - CURRENT_TOP_MARGIN
@@ -651,6 +686,11 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      thisObject.mouse.action = 'moving'
+
       /* Processing the event */
       let point = event
       point.x = event.pageX
@@ -787,6 +827,11 @@ function newCanvas () {
 
   function onMouseWheel (event) {
     try {
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      thisObject.mouse.action = 'wheel'
+
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
@@ -877,6 +922,11 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
+        thisObject.mouse.event = event
+        thisObject.mouse.position.x = event.pageX
+        thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+        thisObject.mouse.action = 'dragging'
+
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 

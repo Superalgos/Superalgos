@@ -327,6 +327,7 @@ function newUiObjectConstructor () {
   function setFloatingObjectBasicProperties (floatingObject, payload) {
     const FRICTION = 0.95
     const INITIAL_FRICTION = 0.97
+    const INITIAL_FONT_SIZE = 12
 
     switch (payload.node.type) {
       case 'Workspace': {
@@ -375,7 +376,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(500)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
     }
@@ -386,7 +387,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(600)
       floatingObject.initializeRadius(45)
       floatingObject.initializeImageSize(80)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
 
@@ -401,7 +402,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(300)
       floatingObject.initializeRadius(40)
       floatingObject.initializeImageSize(70)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
 
@@ -416,7 +417,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(150)
       floatingObject.initializeRadius(35)
       floatingObject.initializeImageSize(60)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
 
@@ -431,7 +432,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(75)
       floatingObject.initializeRadius(30)
       floatingObject.initializeImageSize(50)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
 
@@ -446,7 +447,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(50)
       floatingObject.initializeRadius(25)
       floatingObject.initializeImageSize(40)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
     }
@@ -457,7 +458,7 @@ function newUiObjectConstructor () {
       floatingObject.initializeMass(25)
       floatingObject.initializeRadius(20)
       floatingObject.initializeImageSize(30)
-      floatingObject.initializeFontSize(10)
+      floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
     }

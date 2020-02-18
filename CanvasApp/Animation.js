@@ -27,15 +27,18 @@ function newAnimation () {
 
   let totalConsumption = 0
   let totalCounter = 0
-
+  let pointerIcon
+  let videoRecorder
   return thisObject
 
   function finalize () {
     thisObject.stop()
+    pointerIcon = undefined
+    videoRecorder = undefined
   }
 
   function initialize () {
-
+    videoRecorder = newVideoRecorder()
   }
 
   function start () {
@@ -137,7 +140,7 @@ function newAnimation () {
 
       /* Media Recording */
       if (areWeRecording === true) {
-        mediaRecorder.capture(browserCanvas)
+        videoRecorder.recordCanvas()
       }
 
       /* We request the next frame to be drawn, and stablishing a loop */

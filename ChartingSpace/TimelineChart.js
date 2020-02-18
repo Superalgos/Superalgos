@@ -233,7 +233,7 @@ function newTimelineChart () {
 
   function onScaleChanged (event) {
     if (thisObject.rateScale !== undefined) {
-      thisObject.rateScale.onBorderChanged(event)
+      thisObject.rateScale.onUpstreamScaleChanged(event)
     }
     timelineChartCoordinateSystem.min.x = timeMachineCoordinateSystem.min.x
     timelineChartCoordinateSystem.max.x = timeMachineCoordinateSystem.max.x

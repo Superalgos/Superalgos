@@ -163,7 +163,11 @@ function newEdgeEditor () {
             coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
             coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
             coordinateSystem.max.y = newMaxRate
-            coordinateSystem.recalculateScale()
+            let event = {
+              type: 'center dragged',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
           }
         }
         thisObject.container.parentContainer.eventHandler.raiseEvent('onMouseOver', mouse.position)
@@ -188,7 +192,7 @@ function newEdgeEditor () {
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             let event = {
-              border: 'top',
+              type: 'top dragged',
               dragVector: dragVector
             }
             coordinateSystem.recalculateScale(event)
@@ -221,7 +225,7 @@ function newEdgeEditor () {
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             let event = {
-              border: 'bottom',
+              type: 'bottom dragged',
               dragVector: dragVector
             }
             coordinateSystem.recalculateScale(event)

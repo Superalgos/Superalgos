@@ -11,9 +11,7 @@ function newVideoRecorder () {
       const ICON_SIZES = 50
 
       let mousePointerIcon = canvas.designSpace.iconCollection.get('mouse-pointer')
-      let wheelIcon = canvas.designSpace.iconCollection.get('mouse-wheel')
       let draggingIcon = canvas.designSpace.iconCollection.get('hand-drag')
-      let keyDownIcon = canvas.designSpace.iconCollection.get('tron')
 
       let leftClickIcon = canvas.designSpace.iconCollection.get('mouse-left-click')
       let rightClickIcon = canvas.designSpace.iconCollection.get('mouse-right-click')
@@ -35,7 +33,12 @@ function newVideoRecorder () {
           break
         }
         case 'wheel': {
-          pointerIcon = wheelIcon
+          if (canvas.mouse.event.delta > 0) {
+            pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-up')
+          } else {
+            pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-down')
+          }
+
           break
         }
         case 'key down': {
@@ -113,7 +116,7 @@ function newVideoRecorder () {
       }
 
       if (canvas.mouse.event.code === 'ArrowUp') {
-        let icon = canvas.designSpace.iconCollection.get('mouse-wheel')
+        let icon = canvas.designSpace.iconCollection.get('key-up')
         imagePosition = {
           x: canvas.mouse.position.x - 0,
           y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS
@@ -122,7 +125,7 @@ function newVideoRecorder () {
       }
 
       if (canvas.mouse.event.code === 'ArrowDown') {
-        let icon = canvas.designSpace.iconCollection.get('mouse-wheel')
+        let icon = canvas.designSpace.iconCollection.get('key-down')
         imagePosition = {
           x: canvas.mouse.position.x - 0,
           y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
@@ -131,7 +134,7 @@ function newVideoRecorder () {
       }
 
       if (canvas.mouse.event.code === 'ArrowLeft') {
-        let icon = canvas.designSpace.iconCollection.get('mouse-wheel')
+        let icon = canvas.designSpace.iconCollection.get('key-left')
         imagePosition = {
           x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS,
           y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
@@ -140,7 +143,7 @@ function newVideoRecorder () {
       }
 
       if (canvas.mouse.event.code === 'ArrowRight') {
-        let icon = canvas.designSpace.iconCollection.get('mouse-wheel')
+        let icon = canvas.designSpace.iconCollection.get('key-right')
         imagePosition = {
           x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS,
           y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
@@ -163,4 +166,3 @@ function newVideoRecorder () {
     }
   }
 }
-

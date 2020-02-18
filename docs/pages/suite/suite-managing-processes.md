@@ -62,4 +62,4 @@ Hit <kbd>Ctrl or &#8984;</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> (*L* for *Live tr
 
 We keep the forward testing and live trading sessions separate from the backtesting and paper-trading sessions as there is money involved in the former. Keeping live sessions apart may help avoid unpleasant mistakes, turning on or off live sessions inadvertently.
 
-> **PRO TIP:** The Getting Started guide instructed you to start all tasks on the *Masters Datasets* task manager, but only the required task to start a backtesting session on the *Testing Sessions* task manager. Once you become proficient with the platform, you may want to start only individual tasks according to your specific needs.
+> **PRO TIP:** The Getting Started guide instructed you to start all tasks on the *Masters Datasets* task manager, but only the required task to start a backtesting session on the *Testing Sessions* task manager. Once you become proficient with the system, you may want to start only individual tasks according to your specific needs.

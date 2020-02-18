@@ -111,7 +111,7 @@ sidebars:
 - market_sidebar
 - mine_sidebar
 
-description: "The Superalgos Suite Documentation covers general workings of the Superalgos Platform and of each of the products in the suite."
+description: "The Superalgos Suite Documentation covers general workings of Superalgos and of each of the products in the suite."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only

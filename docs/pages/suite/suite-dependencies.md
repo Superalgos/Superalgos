@@ -21,7 +21,7 @@ The declaration of such dependencies is what allows bots to add value over the p
 
 As you may figure, the possibilities are endless when you have the power to combine information from different sources, produce an analysis on top of that information, and store the new information separately to be consumed by other bots, including the trading bot, through the trading logic behind strategies.
 
-Let's go through the dependencies existing among the current set of bots shipped with the platform...
+Let's go through the dependencies existing among the current set of bots shipped with the system...
 
 ## Charly
 

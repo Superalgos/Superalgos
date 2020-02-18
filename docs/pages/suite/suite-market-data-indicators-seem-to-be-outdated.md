@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-market-data-indicators-seem-to-be-outdated.html
 ---
 
-If you are running the platform for the first time or you stopped running the platform for some time, data will not be up to date. Every time you start the platform, it will take some time for data to catch up with the present time. 
+If you are running the system for the first time or you stopped running the system for some time, data will not be up to date. Every time you start the system, it will take some time for data to catch up with the present time. 
 
 To update your datasets until the present time you need to *Run All Tasks* in your *Masters Datasets* task manager, and allow enough time for the processes to go through the missing data.
 

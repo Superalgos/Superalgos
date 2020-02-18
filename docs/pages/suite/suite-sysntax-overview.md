@@ -7,7 +7,7 @@ permalink: suite-sysntax-overview.html
 
 ## Introduction
 
-Different bots running within the platform produce data products that others may consume. These products are available for you to use within your strategies.
+Different bots running within the system produce data products that others may consume. These products are available for you to use within your strategies.
 
 Datasets are stored as a collection of sequential records and you may access any of the properties (fields) of each record.
 

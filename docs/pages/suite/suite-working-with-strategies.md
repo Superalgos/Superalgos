@@ -54,7 +54,7 @@ Put in other words, events may be triggered in different circumstances, meaning 
 
 ## Using an Existing Strategy
 
-Thanks to the implementation of the Superalgos Trading Protocol, all strategies built within the Superalgos Platform are portable. This means that people may use strategies built by other people or groups of people.
+Thanks to the implementation of the Superalgos Trading Protocol, all strategies built within Superalgos are portable. This means that people may use strategies built by other people or groups of people.
 
 You may import any node—formulas, conditions, situations, phases, stages, complete strategies, complete trading systems, and even complete workspaces—simply by dragging and dropping them on the workspace.
 
@@ -66,4 +66,4 @@ When you have more than one strategy under the same trading system, all strategi
 
 As a consequence, strategies within a trading system may never be triggered-on at the same time. Under such a setting, when a strategy is triggered on, it blocks the triggering of the rest of the strategies within the trading system until the strategy is triggered off.
 
-If you wish to have multiple strategies that work independently from each other, then you need to place them on different trading systems. The platform supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system. Learn how to do that in the [Working with multiple definitions](Working-with-Multiple-Definitions) section.
+If you wish to have multiple strategies that work independently from each other, then you need to place them on different trading systems. The system supports only one trading system per definition. As a result, if you wish to have multiple independent strategies, then you need to have multiple definitions, each with one trading system. Learn how to do that in the [Working with multiple definitions](Working-with-Multiple-Definitions) section.

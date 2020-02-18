@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-charts-overview.html
 ---
 
-Conceptually, the Superalgos Platform places the focus on the visual experience. Not just because it's *nice* to see data in graphical representations, but because humans excel when our senses take part in the analysis. Human's capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.
+Conceptually, Superalgos places the focus on the visual experience. Not just because it's *nice* to see data in graphical representations, but because humans excel when our senses take part in the analysis. Human's capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.
 
 The Charts offer a visual environment in which you will be able to see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:
 

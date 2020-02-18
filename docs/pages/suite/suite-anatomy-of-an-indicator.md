@@ -7,13 +7,13 @@ permalink: suite-anatomy-of-an-indicator.html
 
 The tools available for you to turn an existing dataset into a new, value-added product, are scattered througout the definitions of the indicator itself.
 
-We will dive into Paula and Chris—two of the indicators that ship with the platform—to learn how these bots are structured. 
+We will dive into Paula and Chris—two of the indicators that ship with the system—to learn how these bots are structured. 
 
 | Masters Team | Paula | Chris |
 | :---: | :---: | :---: |
 | ![team](https://user-images.githubusercontent.com/13994516/70050816-24066080-15d0-11ea-83c4-f16b71007ecb.png) | ![bot-indicator](https://user-images.githubusercontent.com/13994516/67079733-000fcc80-f194-11e9-98d7-3426dd956d65.png) | ![bot-indicator](https://user-images.githubusercontent.com/13994516/67079733-000fcc80-f194-11e9-98d7-3426dd956d65.png) |
 
-It is highly recommended that you follow this exploration directly on the platform, so that you may clearly see the relationship among nodes and play with the hierachy as we advance. 
+It is highly recommended that you follow this exploration directly on the system, so that you may clearly see the relationship among nodes and play with the hierachy as we advance. 
 
 Paula and Chris are offspring nodes of the Masters Team hierarchy. 
 

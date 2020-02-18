@@ -21,12 +21,12 @@ For example, a typical record in the Multi-Period-Market Bollinger Bands dataset
 [1425945600000,1426031999999,253.17351109,15.293043836574176,30.586087673148352]
 ```
 
-That is what the platform will encounter at the time of reading a typical dataset.
+That is what the system will encounter at the time of reading a typical dataset.
 
 
 ### 2. Conversion to Objects with Named Properties
 
-To make data usable for humans, it maps the content of each record with concepts that describe the data. Put in other words, the platform labels each field so that the user doesn't need to know or remember what each data field represents, and stores the data a JSON objetcs in memory.
+To make data usable for humans, it maps the content of each record with concepts that describe the data. Put in other words, the system labels each field so that the user doesn't need to know or remember what each data field represents, and stores the data a JSON objetcs in memory.
 
 ### 3. Calculation of Not-Stored Properties
 

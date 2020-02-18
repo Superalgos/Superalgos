@@ -7,7 +7,7 @@ permalink: suite-advanced-backtesting.html
 
 ## Adding New Sessions
 
-The platform allows for having multiple testing sessions. You may add and work with multiple sessions in two different ways:
+The system allows for having multiple testing sessions. You may add and work with multiple sessions in two different ways:
 
 **1. Independent Task**
 
@@ -17,7 +17,7 @@ A process running under its own task may not be affected by errors occurring on 
 
 For the reasons above, you may choose to run each testing session on separate tasks.
 
-The easiest way to create sessions under this configuration is by cloning an existing task and dropping the cloned file back on the design space. Once the new task is on the design space, you may chain it to your preferred task manager.
+The easiest way to create sessions under this configuration is by cloning an existing task and dropping the cloned file back in the design space. Once the new task is in the design space, you may chain it to your preferred task manager.
 
 [![Sessions-01-Duplicate](https://user-images.githubusercontent.com/13994516/70354911-23d8c000-1871-11ea-8a6c-552ab6e206ce.gif)](https://user-images.githubusercontent.com/13994516/70354911-23d8c000-1871-11ea-8a6c-552ab6e206ce.gif)
 

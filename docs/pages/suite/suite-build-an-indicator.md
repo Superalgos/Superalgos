@@ -7,7 +7,7 @@ permalink: suite-build-an-indicator.html
 
 ## Introduction
 
-We will go through the process required to set up a new indicator bot from scratch, using the Simple Moving Average (SMA) indicator that ships with the platform as example.
+We will go through the process required to set up a new indicator bot from scratch, using the Simple Moving Average (SMA) indicator that ships with the system as example.
 
 The indicator's *Popular* product calculates the SMA on 20, 50, 100 and 200 periods, using Olivia's candles as input, storing two datasets of market and daily files.
 
@@ -401,7 +401,7 @@ If everything works well, the bot should start logging the typical progress mess
 
 ## Debugging
 
-In case something is not working properly, the console is the first place to look into. The platform will log handled errors just like it does with the rest of the components in the system.
+In case something is not working properly, the console is the first place to look into. The system will log handled errors just like it does with the rest of the components in the system.
 
 You may also implement additional logging features in the code you use on the *Data Building Procedure*. Notice that the code used for this bot has such kind of code embeded, but commented.
 

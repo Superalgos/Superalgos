@@ -9,7 +9,7 @@ permalink: suite-testing-overview.html
 | :---: | :---: |
 | ![session-backtesting](https://user-images.githubusercontent.com/13994516/66930152-7990a900-f034-11e9-8f97-2216e139cf40.png) | ![session-paper-trading](https://user-images.githubusercontent.com/13994516/66930155-7990a900-f034-11e9-9c87-0f5627c6f219.png) |
 
-A simulation is a visual representation over the charts of any of the forms of strategy testing available within the platform: 
+A simulation is a visual representation over the charts of any of the forms of strategy testing available within the system: 
 
 * **Backtesting:** testing over historic data;
 

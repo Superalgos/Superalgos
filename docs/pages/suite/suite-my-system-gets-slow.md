@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-my-system-gets-slow.html
 ---
 
-Dynamically rendering all the visual features we use on the platform tends to put a significant load on the machine's processor. Depending on your machine's capacity, this may result in the system getting slow and sometimes even unresponsive.
+Dynamically rendering all the visual features we use on the system tends to put a significant load on the machine's processor. Depending on your machine's capacity, this may result in the system getting slow and sometimes even unresponsive.
 
 If you experience such symptoms, there are several workarounds you may implement to mitigate them:
 

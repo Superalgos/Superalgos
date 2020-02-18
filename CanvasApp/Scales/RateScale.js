@@ -10,7 +10,7 @@ function newRateScale () {
     maxValue: undefined,
     isVisible: true,
     layersOn: undefined,
-    onBorderChanged: onBorderChanged,
+    onUpstreamScaleChanged: onUpstreamScaleChanged,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     physics: physics,
     draw: draw,
@@ -244,9 +244,25 @@ function newRateScale () {
     coordinateSystem.recalculateScale()
   }
 
-  function onBorderChanged (event) {
+  function onUpstreamScaleChanged (event) {
     if (event === undefined) { return }
-    if (event.border === 'top') {
+    if (event.type === 'center dragged') {
+      let point = {
+        x: event.dragVector.x,
+        y: -event.dragVector.y
+      }
+      let newMinDate = getDateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+      let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
+      let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
+      let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+      coordinateSystem.min.x = newMinDate.valueOf()
+      coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
+      coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
+      coordinateSystem.max.y = newMaxRate
+
+      coordinateSystem.recalculateScale()
+    }
+    if (event.type === 'top dragged') {
       let point = {
         x: event.dragVector.x,
         y: event.dragVector.y
@@ -257,7 +273,7 @@ function newRateScale () {
       coordinateSystem.maxHeight = rateCalculationsContainer.frame.height
       coordinateSystem.recalculateScale()
     }
-    if (event.border === 'bottom') {
+    if (event.type === 'bottom dragged') {
       let point = {
         x: event.dragVector.x,
         y: event.dragVector.y + rateCalculationsContainer.frame.height

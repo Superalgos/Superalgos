@@ -5,35 +5,41 @@ sidebar: suite_sidebar
 permalink: suite-what-to-expect.html
 ---
 
-Superalgos is pre-releasing an early beta-stage version of the Superalgos Platform in the hope that early adopters will help us shape the software and evolve it into a robust product. We try our best to make installation and operation easy, but at this point, the platform is directed at tech-savvy individuals with a knack for learning a few PC operator tricks while installing and using the platform.
+## Open Beta Stage
 
-If you don't consider yourself an early adopter and usually go to your 10-year-old for advice on using your PC, you may still give it a shot. Developers and users in the [Community](https://t.me/superalgoscommunity) will be happy to give you a hand and help you get up and running.
+Superalgos is in an open beta-stage, still under development. The early-stage pre-release intends to gather feedback from early adopters, who may help shape the software and evolve it into a robust product. We try our best to make installation and operation easy, but at this point, the system is directed at tech-savvy individuals with a knack for learning a few PC operator tricks while installing and using the system.
 
-## About the Platform
+If you don't consider yourself an early adopter and usually go to your 10-year-old for advice on using your PC, you may still give it a shot. Developers and users in the <a href="https://t.me/superalgoscommunity" rel="nofollow" rel="noopener" target="_blank">Community</a> will be happy to give you a hand and help you get up and running.
+
+## About the System
 
 What you will get is a client application that runs entirely on users' machines. This is to fulfill the design principle of a trustless deployment: you don't need to trust any third party with your strategies, exchange API keys, personal information, or funds.
 
-If you haven't seen it yet, there is a thorough description of the platform including introduction videos [on the website](https://superalgos.org/tools-superalgos-platform.shtml).
+There is a thorough description of system features and functionality [on the website](https://superalgos.org/).
 
-## A Rather Big Download
+## Data in Your Machine
 
-Traders rely on datasets for backtesting. The platform retrieves raw trades data directly from exchanges and processes data to produce candles and a few indicators, which are stored in your local machine.
+Traders rely on datasets for backtesting. The system retrieves raw trades data directly from exchanges and processes data to produce candles and  indicators, which are stored in your local machine.
 
-The volume of trades data generated at exchanges is massive. Exchanges APIs impose limits on the bandwidth of data you may retrieve from your machine per unit of time. To save you from spending days or weeks running processes to retrieve the data you will need for backtesting, we include historic market data in our releases.
+The volume of trades data generated at exchanges is significant. Exchanges APIs impose limits on the bandwidth of data you may retrieve from your machine per unit of time. Different exchanges have different transaction volumes, and imposse different limits.
 
-This has a small non-monetary cost associated: the zip files you will download are a bit heavy and highly compressed. As a result, it may take 30 to 60 minutes for your machine to decompress the files. Also, a second small cost is that this adds a step in the process to fire up the platform the first time.
+For those reasons, retrieving historic data takes considerably different times on each exchange. For example, retrieving the USDT-BTC market for the whole of 2019 from Poloniex may take three to four hours. The same period for Bitmex may take double or more.
 
-## Poloniex Only as a Temporary Limitation
+A third factor affecting data-retrieval times and initial candles-processing is the computational power of your machine. Check the [system requirements](suite-system-requirements.html) for more details in this regard.
 
-Because the platform is still at an early stage of development, we limit the use of data and trading to a single exchange: Poloniex. Once the core infrastructure is sufficiently developed and stabilized, we plan to implement the [CCXT library](https://github.com/ccxt/ccxt/) to enable access to [a vast list of exchanges](https://github.com/ccxt/ccxt/wiki/Exchange-Markets). We expect this to happen in Q1 2021.
+## Supported Exchanges
 
-The choice of Poloniex as the first exchange was purely circumstantial: Poloniex was the number one exchange in the world when the Superalgos Project was born, back in the summer of 2017.
+For a list of supported exchanges, please refer to the <a href="https://github.com/Superalgos/Superalgos/blob/develop/README.md" rel="nofollow" rel="noopener" target="_blank">develop branch README file</a>. 
+
+The system implements the <a href="https://github.com/ccxt/ccxt/" rel="nofollow" rel="noopener" target="_blank">CCXT library</a>, which allows connecting to a <a href="https://github.com/ccxt/ccxt/wiki/Exchange-Markets" rel="nofollow" rel="noopener" target="_blank">vast list of exchanges</a>. 
+
+You are free to try exchanges that haven't been tested by the team. We'd be happy to hear about your tests.
 
 ## Feedback
 
 We value highly all feedback. We are listening and actively participating in the various Superalgos Telegram groups.
 
-We keep a wish list for new features in the form of [issues in this repository](https://github.com/Superalgos/Platform/issues). If you are missing a key feature, feel free to open an issue using the ```improvement``` label.
+We keep a wish list for new features in the form of <a href="https://github.com/Superalgos/Platform/issues" rel="nofollow" rel="noopener" target="_blank">issues in the Superalgos repository</a>. If you are missing a key feature, feel free to open an issue using the ```improvement``` label.
 
-However, bear in mind that the platform is at an early stage of development and that the current priority is stabilization and delivery of core functionality.
+However, bear in mind that the system is at an early stage of development and that the current priority is the stabilization and delivery of core functionality.
 

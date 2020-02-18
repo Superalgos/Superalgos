@@ -7,7 +7,12 @@
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
-{% if include.heading != "" %}
+{% if include.more == "yes" and include.heading == "more" %}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.heading != "" and include.heading != "more" %}
 {{include.heading}} {{title}}
 {% endif %}
 
@@ -26,20 +31,18 @@
 {% endif %}
 
 {% if include.definition == "bold" %}
-
 <strong>{{ definition }}</strong>
-
 {% else %}
-
+{% if include.definition != "no" %}
 {{ definition }}
-
+{% endif %}
 {% endif %}
 
 {% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.more == "yes" and include.content == "more" %}
+{% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
@@ -48,13 +51,15 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as the scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.
+Conceptually, Superalgos places the focus on the visual experience. Not just because it's *nice* to see data in a graphical representation, but because our analysis capabillities expand when we incorporate senses in the mix. Human's capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.
+
+There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
-{% if include.more == "yes" and include.content != "more" %}
+{% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}

@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-consulting-logs.html
 ---
 
-If you are a technical person, you may be interested in consuting the logs of the different bots that run in the platform.
+If you are a technical person, you may be interested in consuting the logs of the different bots that run in the system.
 
 Each bot keeps its own set of execution log files, stored under a similar folder structure as bot's Output and Reports. The difference is that the Log-Files folder is at the root level of the release folder, instead of being inside Data-Storage:
 

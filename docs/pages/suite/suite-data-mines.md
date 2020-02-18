@@ -16,7 +16,7 @@ Data mines' functionality is highly flexible and works under the same paradigm u
 
 The vast majority of the complexity of processing data is handled internally by the bots, and you don't need to deal with it or even understand it. The system isolates complexity and only exposes you to the crucial elements that impact what you wish to accomplish.
 
-This section of the documentation provides you with the technical understanding of how data is handled by the platform. The core of the functionality this section unveils covers—in essence—the following points:
+This section of the documentation provides you with the technical understanding of how data is handled by the system. The core of the functionality this section unveils covers—in essence—the following points:
 
 * The capacity to define any number of calculation processes that may feed on each other's outputs, resulting in a wealth of *information* that may be consumed by trading strategies.
 

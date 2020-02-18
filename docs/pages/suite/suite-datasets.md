@@ -53,7 +53,7 @@ With all this in mind, lets go through the five different types of datasets exis
 
 The route for writing bot's output is built as follows:
 
-```Bot Name and version > the version of AACloud (an internal platform component) > the version of the dataset > Output folder```
+```Bot Name and version > the version of AACloud (an internal system component) > the version of the dataset > Output folder```
 
 _e.g.:_
 

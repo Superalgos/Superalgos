@@ -4,7 +4,7 @@ workspace: "The workspace refers to the body of information managed by the syste
 
 node: "A node is a small data structure containing information which may be related to market information, trading intelligence, the operation of the system or other concepts. They are visually represented by icons on the workspace."
 
-structure_of_nodes: "Nodes may be chained together forming structures of nodes. In every structure of nodes, there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring."
+structure_of_nodes: "Nodes may be chained together forming structures of nodes. In every structure of nodes there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring."
 
 parent-offspring_relationships: "Nodes in structures of nodes are chained to each other by so-called parent-offspring relationships. These relationships are visually represented by orange dotted lines, which may turn yellow or blue depending on certain visualization properties that the user may control. When nodes are chained together they form structures of nodes."
 

@@ -17,7 +17,7 @@ The bots that keep your datasets up to date are too controlled by a task manager
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | ![network](https://user-images.githubusercontent.com/13994516/66855353-59ed7800-ef83-11e9-8de9-db40971faa7b.png) | ![network-node](https://user-images.githubusercontent.com/13994516/66855357-5a860e80-ef83-11e9-917d-95cd8394588b.png) |![task](https://user-images.githubusercontent.com/13994516/66308205-ca9eef80-e906-11e9-8864-f7dba886bc7d.png) | ![timeline](https://user-images.githubusercontent.com/13994516/67079956-73b1d980-f194-11e9-89e0-9c8d1ea2ad1d.png) | ![bot-sensor](https://user-images.githubusercontent.com/13994516/67079734-000fcc80-f194-11e9-911d-2b537e4cb8f2.png) | ![bot-indicator](https://user-images.githubusercontent.com/13994516/67079733-000fcc80-f194-11e9-98d7-3426dd956d65.png) |
 
-Open up the design space section of the platform by dragging the horizontal bar upwards. You may also use <kbd>Alt</kbd> + <kbd>&#8593;</kbd> on your keyboard. This shortcut closes the Charts and opens the design space.
+Open up the design space section of the system by dragging the horizontal bar upwards. You may also use <kbd>Alt</kbd> + <kbd>&#8593;</kbd> on your keyboard. This shortcut closes the Charts and opens the design space.
 
 Hit <kbd>Ctrl or &#8984;</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> (*D* for *Datasets*) to go to the *Masters Datasets* task manager that controls the aforementioned bots. Open the menu and click *Run All Tasks*.
 
@@ -41,10 +41,10 @@ In our experience, it may take from 5 to 20 minutes per day's worth of Poloniex 
 
 * The speed and processing power of your machine will make a difference too.
 
-* The average number of trades per day at the exchange determines the volume of data the platform needs to retrieve and process.
+* The average number of trades per day at the exchange determines the volume of data the system needs to retrieve and process.
 
 * The number of trades the exchange returns per each request determines the size of the pipeline the exchanges allow API users to use.
 
-These bots will keep running for as long as you keep the browser tab running the platform open.
+These bots will keep running for as long as you keep the browser tab running the system open.
 
 > **NOTE:** Remember no to close the console before closing the browser and allowing enough time for all processes to finish the current execution. Failing to do so may corrupt your data.

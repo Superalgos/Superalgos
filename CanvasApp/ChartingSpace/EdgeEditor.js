@@ -143,14 +143,14 @@ function newEdgeEditor () {
     switch (whereIsMouseOver) {
       case 'center': {
         switch (buttonUsedForDragging) {
-          case 'left mouse button': {
+          case 'right mouse button': {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
             thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
             thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
             thisObject.container.parentContainer.eventHandler.raiseEvent('onDisplace')
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button': {
             let point = {
               x: -dragVector.x,
               y: -dragVector.y
@@ -163,7 +163,11 @@ function newEdgeEditor () {
             coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
             coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
             coordinateSystem.max.y = newMaxRate
-            coordinateSystem.recalculateScale()
+            let event = {
+              type: 'center dragged',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
           }
         }
         thisObject.container.parentContainer.eventHandler.raiseEvent('onMouseOver', mouse.position)
@@ -188,7 +192,7 @@ function newEdgeEditor () {
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             let event = {
-              border: 'top',
+              type: 'top dragged',
               dragVector: dragVector
             }
             coordinateSystem.recalculateScale(event)
@@ -221,7 +225,7 @@ function newEdgeEditor () {
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             let event = {
-              border: 'bottom',
+              type: 'bottom dragged',
               dragVector: dragVector
             }
             coordinateSystem.recalculateScale(event)

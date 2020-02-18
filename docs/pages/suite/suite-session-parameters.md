@@ -13,7 +13,7 @@ permalink: suite-session-parameters.html
 
 Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings.
 
-> **NOTE:** If any of these parameters are missing from the configuration of the testing session, the platform's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
+> **NOTE:** If any of these parameters are missing from the configuration of the testing session, the system's fallback mechanism will look for the parameters at the trading system level and use those settings instead.
 
 We covered the *Base Asset* parameter when explaining trading systems. Let's now review the rest.
 
@@ -89,7 +89,7 @@ You will set an *initialDatetime* and a *finalDatetime*:
 }
 ```
 
-If you do not set an *initialDatetime* the platform's fallback mechanism will try to get it from the parameters at the level of the trading system. In case there is no *initialDatetime*, the calculation will start at the current position of the charts.
+If you do not set an *initialDatetime* the system's fallback mechanism will try to get it from the parameters at the level of the trading system. In case there is no *initialDatetime*, the calculation will start at the current position of the charts.
 
 If you don't set a *finalDatetime* at the level of the testing session or the trading system, then calculations will run until the present time.
 

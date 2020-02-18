@@ -5,27 +5,43 @@ sidebar: suite_sidebar
 permalink: suite-system-requirements.html
 ---
 
-The Superalgos Platform is a web app, therefore, it is cross-platform. The team is testing mostly on Windows systems, but there are users running the platform on Mac OS and Linux systems as well.
+## Cross-Platform
 
-The app has very little requirements for active, hands-on use, that is, for creating strategies, running backtests, or interacting with the charts, for instance. We believe any cheap laptop should run the app without a problem.
+Superalgos is a web app, therefore, it is cross-platform. The dev team is testing mostly on Windows systems, but users are running the system on Mac OS and Linux systems as well.
 
-Requirements increase significantly when processes that fetch data from exchanges, calculate indicators and run live trading sessions are active.
+## Chrome is the Only Tested Browser
 
-The minimum hardware setup recommended for a dedicated machine running all processes to trade live, is 3 GB of RAM and a dual-core processor at 2.4 GHz. 
+Chrome is highly recommended so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
-> **NOTE:** The above is a broad reference to the total RAM and processing power of the machine, not the specific requirements of the platform.
+## Processing Power
 
-**Processing power is the key for comfortable operation.**
+One of the first and foremost design goals is to develop the most powerful trading automation and data processing system. There is no intention to limit or cut functionality short in an attempt to cope with less powerful hardware. It is a fact that your hardware will set the limits as of what you may or may not do with the system.
 
-The following recommendations may make your life easier using this pre-release in beta stage:
+The system's processing capacity is based on running independent, specialized processes. No single process is as intensive as to require any special hardware, and all processes may run on basic&mdash;even outdated&mdash;laptop computers. That means that, regardless of the limitations of your current hardware, you should be able to use all of the features in the system.
 
-* **We highly recommend you use Chrome to run the platform** so that you have a similar environment as developers in case you need help. We are not testing on any other browsers and it is a well-known fact that browsers do behave differently. 
+What will vary depending on your hardware is the capacity to run a determinate number of processes simultaneoulsy. That is where you will find the limits of your hardware. In other words, you will find your system starts getting slow when it's doing many things at the same time. How many depends on your hardware.
 
-* **You will benefit from having a decent Console / Command Line application** for similar reasons: we hope you won't need it, but in case you do, it may save you lots of hassle and make a difference troubleshooting and getting help from the community. We recommend [Console Emulator Cmder](https://cmder.net/).
+The app has very little requirements for active, hands-on use, that is, for creating strategies, running backtests, or interacting with light-weight charts, for instance. We believe any cheap laptop should cope with such use.
 
-## Deploying a VPS to Trade Live
+Processing requirements increase in a roughly linear fashion with every process added to the mix. For instance processes that fetch data from exchanges and calculate indicators.
 
-The minimum hardware setup for a virtual machine (VM) or a virtual private server (VPS) destined to trade live is 3 GB of RAM and a dual-core processor at 2.4 GHz. This is recommended to minimize deployment costs. Under this configuration, the platform becomes slow to react to user input.  If such is the case, you should start the live trading session and minimize the browser for lower CPU and memory consumption.
+These are a few examples of use cases demanding significant processing power:
 
-You may want to read an article about [Trading Live from a Cheap Linux VM](https://medium.com/superalgos/trading-live-from-a-cheap-linux-vm-3edbe0c7ca42).
+* Monitoring multiple markets in multiple exchanges, using multiple indicators on each chart, at the same time.  
+
+* Backtesting multiple strategies in multiple exchanges or multiple periods, at the same time. 
+
+* Running multiple live-trading sessions which depend on multiple indicators, at the same time. 
+
+## RAM Memory
+
+The system is not RAM-intensive. One dedicated gigabyte should be enough for intensive use, and two gigabytes may be required for extreme charting. Those are ball-park, non-scientific figures.
+
+## Console/Command Line
+
+Processes started from the system log their activity on the default console application, or the console used to fire up the app. Windows Command Prompt is particularly bad. It is recommended to install and use a decent application, such as <a href="https://cmder.net/" rel="nofollow" rel="noopener" target="_blank">Console Emulator Cmder<a/> This will save you time and hassle in the long run.
+
+## Deploying a Linux VPS to Trade Live
+
+You may want to read an article about <a href="https://medium.com/superalgos/trading-live-from-a-cheap-linux-vm-3edbe0c7ca42" rel="nofollow" rel="noopener" target="_blank">Trading Live from a Cheap Linux VM</a>.
 

@@ -22,7 +22,7 @@ Supported events are:
 
 The current implementation is based on broadcasting announcements via Telegram bots.
 
-The platform uses Telegram's bots API to interact with a Telegram bot you will create. The bot will be added as a user in the Telegram group of your choice in which it will deliver the announcements as per the configuration you will set up in the platform.
+The system uses Telegram's bots API to interact with a Telegram bot you will create. The bot will be added as a user in the Telegram group of your choice in which it will deliver the announcements as per the configuration you will set up in the system.
 
 Announcements may be triggered within any of the running modes available, including backtesting, paper trading, forward-testing, and live trading.
 
@@ -57,7 +57,7 @@ For example:
 
 [![Telegram-bot-01-Create-in-platform](https://user-images.githubusercontent.com/13994516/68231138-c09e0880-fffa-11e9-8ed2-b2fdcb76afe9.gif)](https://user-images.githubusercontent.com/13994516/68231138-c09e0880-fffa-11e9-8ed2-b2fdcb76afe9.gif)
 
-The platform now has everything it needs to communicate with your Telegram bot.
+The system now has everything it needs to communicate with your Telegram bot.
 
 ## Create Your Announcements
 
@@ -113,7 +113,7 @@ For example, a typical announcement formula for the take position event may look
 ```
 Selling BTC at $9703, with stop at $9896 and TP target at $9115
 ```
-> **NOTE:** If your formula is valid, the platform will ignore the plain text version you may have set up. If for any reason the formula results in an error, then the plain text version will be used.
+> **NOTE:** If your formula is valid, the system will ignore the plain text version you may have set up. If for any reason the formula results in an error, then the plain text version will be used.
 
 #### Announcements on Stop and Take Profit Phases
 

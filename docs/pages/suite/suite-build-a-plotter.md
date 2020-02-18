@@ -331,7 +331,7 @@ Beyond the graphic representation of data over the charts, plotters may also fea
 
 Once you select *Add Plotter Panel* on the plotter module menu, you may start adding as many data fields as you wish.
 
-The platform will render a panel featuring a centered, single-column vertical arrangement of data. The label of each data field on the panel is given (by default) by the label you set for the *panel data* node.
+The system will render a panel featuring a centered, single-column vertical arrangement of data. The label of each data field on the panel is given (by default) by the label you set for the *panel data* node.
 
 The configuration of a *panel data* node allows you to determine the number of decimal places for the corresponding data field:
 

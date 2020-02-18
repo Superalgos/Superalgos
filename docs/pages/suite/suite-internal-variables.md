@@ -5,7 +5,7 @@ sidebar: suite_sidebar
 permalink: suite-internal-variables.html
 ---
 
-These are properties managed internally by the platform that are made available for using within strategies.
+These are properties managed internally by the system that are made available for using within strategies.
 
 | Variable | Description |
 |:---|:---| 

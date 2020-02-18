@@ -19,22 +19,22 @@ entries:
 #      output: pdf
 #      type: frontmatter
 
-#  - title: Before you Begin
-#    output: web
-#    folderitems:
+  - title: Before you begin
+    output: web
+    folderitems:
 
-#    - title: Welcome!
-#      url: /index.html
-#      output: web
-#      type: homepage
+    - title: Welcome!
+      url: /index.html
+      output: web
+      type: homepage
 
-#    - title: What to expect
-#      url: /suite-what-to-expect.html
-#      output: web
+    - title: What to expect
+      url: /suite-what-to-expect.html
+      output: web
 
-#    - title: System requirements
-#      url: /suite-system-requirements.html
-#      output: web
+    - title: System requirements
+      url: /suite-system-requirements.html
+      output: web
 
 #  - title: Getting Started
 #    output: web
@@ -68,7 +68,6 @@ entries:
 #      url: /suite-what-is-next.html
 #      output: web
 
-
 #  - title: Charts
 #    output: web
 #    folderitems:
@@ -77,15 +76,13 @@ entries:
 #      url: /suite-charts-overview.html
 #      output: web
 
-#    - title: Interface
-#      url: /suite-charts-interface.html
-#      output: web
+
 
 #    - title: Layers panel
 #      url: /suite-layers-panel.html
 #      output: web
 
-  - title: General concepts
+  - title: Design space
     output: web
     folderitems:
 
@@ -96,7 +93,6 @@ entries:
     - title: Interface
       url: /suite-design-space-interface.html
       output: web
-      class: childItem
 
     - title: Hierarchies
       url: /suite-hierarchies.html
@@ -106,7 +102,49 @@ entries:
       url: /suite-references.html
       output: web
 
-  - title: Trading concepts
+  - title: Charting space
+    output: web
+    folderitems:
+
+    - title: Viewport interface
+      url: /suite-viewport-interface.html
+      output: web
+
+    - title: Arranging a dashboard
+      url: /suite-arranging-dashboard.html
+      output: web
+      class: childItem
+
+    - title: "Navigating time machines & charts"
+      url: /suite-navigating-time-machines.html
+      output: web
+      class: childItem
+
+    - title: Scale boxes
+      url: /suite-scale-boxes.html
+      output: web
+      class: childItem
+
+    - title: Layer managers
+      url: /suite-layer-managers.html
+      output: web
+      class: childItem
+
+    - title: Charting space
+      url: /suite-charting-space.html
+      output: web
+
+    - title: Scales
+      url: /suite-scales.html
+      output: web
+      class: childItem
+
+    - title: Timeline charts
+      url: /suite-timeline-charts.html
+      output: web
+      class: childItem
+
+  - title: Trading system
     output: web
     folderitems:
 
@@ -155,7 +193,7 @@ entries:
       output: web
       class: childItem
 
-  - title: Infrastructure concepts
+  - title: Infrastructure
     output: web
     folderitems:
 
@@ -254,7 +292,7 @@ entries:
 #      url: /suite-multiple-forward-testing-and-live-trading-sessions.html
 #      output: web
 
-  - title: Data mining concepts
+  - title: Data mines
     output: web
     folderitems:
 

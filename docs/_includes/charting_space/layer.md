@@ -7,7 +7,12 @@
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
-{% if include.heading != "" %}
+{% if include.more == "yes" and include.heading == "more" %}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.heading != "" and include.heading != "more" %}
 {{include.heading}} {{title}}
 {% endif %}
 
@@ -26,20 +31,18 @@
 {% endif %}
 
 {% if include.definition == "bold" %}
-
 <strong>{{ definition }}</strong>
-
 {% else %}
-
+{% if include.definition != "no" %}
 {{ definition }}
-
+{% endif %}
 {% endif %}
 
 {% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.more == "yes" and include.content == "more" %}
+{% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
@@ -60,13 +63,15 @@ To set up a layer, you need to establish a <a href="suite-references.html" data-
 
 <!--------------------------------------------- CHARTS starts -->
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+To turn layers on and off, simply click on the layer in the corresponding products panel.
+
+To turn on and off a layer panel, click the panel button on the bottom-left corner of the layer.
 
 <!--------------------------------------------- CHARTS ends -->
 
 {% endif %}
 
-{% if include.more == "yes" and include.content != "more" %}
+{% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
@@ -78,6 +83,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 <!--------------------------------------------- ADDING starts -->
 
 To add a layer, select *Add Layer* on the layer manager node menu. 
+
+{% include note.html content="After adding a layer node, make sure you establish a reference to the corresponding data product in the data storage node of the network hierarchy." %}
 
 <!--------------------------------------------- ADDING ends -->
 

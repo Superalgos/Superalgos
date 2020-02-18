@@ -29,4 +29,4 @@ Had there been a stop somewhere in the range of the sudden price drop, chances a
 
 An additional limitation is that there currently is no feature to break up orders,  therefore, the size of your orders and the likeliness of them getting filled depend on the liquidity of the market/exchange.
 
-> **NOTE: It is important that you fully understand the implications of these limitations if you are considering to trade live with the platform at this stage, as you will need to adapt to the current state of affairs.**
+> **NOTE: It is important that you fully understand the implications of these limitations if you are considering to trade live with the system at this stage, as you will need to adapt to the current state of affairs.**

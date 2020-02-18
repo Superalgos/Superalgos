@@ -7,7 +7,12 @@
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
-{% if include.heading != "" %}
+{% if include.more == "yes" and include.heading == "more" %}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.heading != "" and include.heading != "more" %}
 {{include.heading}} {{title}}
 {% endif %}
 
@@ -26,20 +31,18 @@
 {% endif %}
 
 {% if include.definition == "bold" %}
-
 <strong>{{ definition }}</strong>
-
 {% else %}
-
+{% if include.definition != "no" %}
 {{ definition }}
-
+{% endif %}
 {% endif %}
 
 {% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.more == "yes" and include.content == "more" %}
+{% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
@@ -48,19 +51,23 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-At this point, the system supports one viewport only. When you navigate through the charts, panning, zooming or moving elements around, what you are doing is panning and zooming on the viewport. That is, you are not moving the charts, but the space that contains them.
+The viewport offers a visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:
 
-Think of the viewport as a huge drawing board. You can have lots of information plotted on different parts of the board, so you move the viewport around and zoom in to focus on specific bits of information.
+* Live and historic market data;
+* Data crunched in the form of indicators;
+* The specific effects of the rules you will program into your strategies, and how strategies behave during testing and live trading sessions.
 
-When you zoom out, you are bringing more information in focus. Because information is handled dynamically, reading data from files, interpreting it, and drawing the corresponding visual elements on the screen in real-time, zooming out or&mdash;in general&mdash;bringing lots of information in focus may slow your system down. The information that is out of focus, that is, out of the visible screen, is not processed. 
+At this point, the system supports one viewport only. Think of the viewport as a huge drawing board. You may have lots of information plotted on different parts of the viewport. You may move the viewport around and zoom in to focus on specific charts.
 
-The concept of the viewport allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, or different technical studies on demand, simply by moving around and zooming in or out on the viewport. You may put any of those elements side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations.
+The information that is out of focus, that is, out of the visible screen, is not read nor rendered graphically, thus, does not consume resources. 
+
+The concept of the viewport allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, different time frames, or different technical studies on demand, simply by moving around and zooming in or out. You may put charts side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations.
 
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}
 
-{% if include.more == "yes" and include.content != "more" %}
+{% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}

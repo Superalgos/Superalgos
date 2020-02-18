@@ -5,9 +5,9 @@ sidebar: suite_sidebar
 permalink: suite-design-space-workspace-and-data-structures.html
 ---
 
-Superalgos handles numerous concepts encompassing fields such as market information, trading strategies, visualization features, workflows, technical resources, and many more. 
+Superalgos handles numerous concepts encompassing fields such as market information, trading strategies, visualization features, workflows, infrastructure, technical resources, and many more. Superalgos structures these concepts in an attempt to make their use intuitive. 
 
-All of these concepts are structured so that users may use them intuitively. Learning the Superalgos conceptual framework is the first step in that direction.
+However, each of the above are complex subjects in their own merit. Therefore, it is necessary to acquire a basic level of understanding of the Superalgos paradigm for the desired intuition to emerge. Understanding the following concepts is a first step in that direction.
 
 ## Design Space
 
@@ -21,11 +21,11 @@ In practical terms, the design space is the portion of the system you access whe
 
 It contains:
  
- * All <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.hierarchy}}">hierarchies</a> with all of their <a href="" data-toggle="tooltip" data-original-title="{{site.data.concepts.node}}">nodes</a>.
+* All <a data-toggle="tooltip" data-original-title="{{site.data.concepts.hierarchy}}">hierarchies</a> with all of their <a data-toggle="tooltip" data-original-title="{{site.data.concepts.node}}">nodes</a>.
 
- * Nodes that may be floating around detached from hierarchies.
+* Nodes that may be floating around detached from hierarchies.
 
- * Information regarding the physical position and status of all nodes within the design space, even those detached from the hierarchies.
+* Information regarding the physical position and status of all nodes within the design space, even those detached from the hierarchies.
  
 The workspace is not part of any of the hierarchies; instead, it contains them.
 

@@ -7,7 +7,12 @@
 
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
-{% if include.heading != "" %}
+{% if include.more == "yes" and include.heading == "more" %}
+<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+</summary>
+{% endif %}
+
+{% if include.heading != "" and include.heading != "more" %}
 {{include.heading}} {{title}}
 {% endif %}
 
@@ -26,20 +31,18 @@
 {% endif %}
 
 {% if include.definition == "bold" %}
-
 <strong>{{ definition }}</strong>
-
 {% else %}
-
+{% if include.definition != "no" %}
 {{ definition }}
-
+{% endif %}
 {% endif %}
 
 {% if include.table == "yes" and include.icon != "no" %}
 </td></tr></table>
 {% endif %}
 
-{% if include.more == "yes" and include.content == "more" %}
+{% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
@@ -48,9 +51,9 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-In other words, a timeline chart is a set of information to be displayed over a timeline. The information may include candles&mdash;the main and foremost resource&mdash;as well as any other indicator, study or&mdash;in general&mdash;data product that may be available.
+In other words, a timeline chart&mdash;often referred simply as *chart*&mdash;is a set of information to be displayed over a timeline. The information may include candles&mdash;the main and foremost resource&mdash;as well as any other indicator, study or&mdash;in general&mdash;data products that may be available.
 
-You may add as many charts as you wish. Charts within the same time machine are synchronized in the y-axis, that is, at the datetime level. Charts in different time machines are independent of each other concerning the datetime. In either case, you may also add rate scales and time frame scales at the timeline charts level.
+You may add as many charts as you wish. Charts within the same time machine are synchronized in the y-axis, that is, in the datetime dimension. Charts in different time machines are independent of each other concerning the datetime. In either case, you may also add rate scales and time frame scales at the timeline charts level.
 
 The information that each timeline chart makes available on the screen is given by the layers set up in the corresponding layers manager.
 
@@ -70,7 +73,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 {% endif %}
 
-{% if include.more == "yes" and include.content != "more" %}
+{% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
 <details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}

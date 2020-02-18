@@ -36,7 +36,7 @@ You may define shortcuts for frequently-used nodes with the following procedure:
 
 Repeat the same procedure to remove a shortcut.
 
-{% include note.html content="When attempting to assign a shortcut with a keyboard combination that is already in use, the platform will notify of the issue. If you insist by hitting the same keyboard combination two more times, the platform will assign the shortcut as expected." %}
+{% include note.html content="When attempting to assign a shortcut with a keyboard combination that is already in use, the system will notify of the issue. If you insist by hitting the same keyboard combination two more times, the system will assign the shortcut as expected." %}
 
 ## Node's Menu
 
@@ -58,12 +58,12 @@ However, there will be times in which you will want to override this self-organi
 
 | Icon | Freeze / Unfreeze |
 | --- | --- |
-| ![freeze](images/icons/freeze.png) | Clicking the *freeze* option freezes the node's chain connections with its parent and offspring. Connecting lines turn blue. If you freeze the head node of a hierarchy, then the whole hierarchy is frozen. Freezing node structures is effective only when nodes are loose, that is, when they are not affected by angle or distance settings and are unpinned. In such cases, freezing releases CPU resources, as the platform stops calculating node's positions and status. | 
+| ![freeze](images/icons/freeze.png) | Clicking the *freeze* option freezes the node's chain connections with its parent and offspring. Connecting lines turn blue. If you freeze the head node of a hierarchy, then the whole hierarchy is frozen. Freezing node structures is effective only when nodes are loose, that is, when they are not affected by angle or distance settings and are unpinned. In such cases, freezing releases CPU resources, as the system stops calculating node's positions and status. | 
 | ![unfreeze](images/icons/unfreeze.png) |  Clicking the *unfreeze* option unfreezes connections. If you click the option to unfreeze a node and the node does not change its status, it may be because a higher node in the hierarchy is still frozen. | 
 
 | Icon | Collapse / Expand |
 | --- | --- |
-| ![collapse](images/icons/collapse.png) | Clicking the _minus_ button collapses the structure, hiding offspring nodes. This also has the effect of releasing CPU resources as the platform stops calculating their position and status. In general, it is good practice to keep hierarchies closed when not being actively worked on. | 
+| ![collapse](images/icons/collapse.png) | Clicking the _minus_ button collapses the structure, hiding offspring nodes. This also has the effect of releasing CPU resources as the system stops calculating their position and status. In general, it is good practice to keep hierarchies closed when not being actively worked on. | 
 | ![expand](images/icons/expand.png) | Clicking the _plus_ button expands the structure of offspring nodes. | 
 
 | Icon | Angle to Parent &mdash; Click to cycle through the different options. |

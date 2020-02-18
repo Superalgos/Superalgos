@@ -106,7 +106,7 @@ function newAppLoader() {
 
                 'SystemEventHandler.js',
 
-                'Recording.js',
+                'VideoRecorder.js',
                 'Plotter.js',
                 'LegacyPlotter.js',
                 'PlotterPanel.js',

@@ -7,7 +7,7 @@ function newVideoRecorder () {
 
   function recordCanvas () {
     {
-      const DISTANCE_BETWEEN_ICONS = 60
+      const DISTANCE_BETWEEN_ICONS = 35
       const ICON_SIZES = 50
 
       let mousePointerIcon = canvas.designSpace.iconCollection.get('mouse-pointer')
@@ -82,71 +82,75 @@ function newVideoRecorder () {
         }
       }
 
+      let firstRow = DISTANCE_BETWEEN_ICONS * 1 + ICON_SIZES * 1
+      let secondRow = DISTANCE_BETWEEN_ICONS * 1 + ICON_SIZES * 2
+      let icon
+
       imagePosition = {
-        x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS,
+        x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 2,
         y: canvas.mouse.position.y
       }
       drawMousePointer(buttonPressedIcon, imagePosition, ICON_SIZES)
 
       if (canvas.mouse.event.shiftKey === true) {
-        let icon = canvas.designSpace.iconCollection.get('key-shift')
+        icon = canvas.designSpace.iconCollection.get('key-shift')
         imagePosition = {
-          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS,
-          y: canvas.mouse.position.y - DISTANCE_BETWEEN_ICONS
+          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
+          y: canvas.mouse.position.y + firstRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.ctrlKey === true || canvas.mouse.event.metaKey === true) {
-        let icon = canvas.designSpace.iconCollection.get('key-ctrl')
+        icon = canvas.designSpace.iconCollection.get('key-ctrl')
         imagePosition = {
-          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS,
-          y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS
+          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
+          y: canvas.mouse.position.y + secondRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.altKey === true) {
-        let icon = canvas.designSpace.iconCollection.get('key-alt')
+        icon = canvas.designSpace.iconCollection.get('key-alt')
         imagePosition = {
-          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS,
-          y: canvas.mouse.position.y - 0
+          x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 3 + ICON_SIZES * 0,
+          y: canvas.mouse.position.y + secondRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.code === 'ArrowUp') {
-        let icon = canvas.designSpace.iconCollection.get('key-up')
+        icon = canvas.designSpace.iconCollection.get('key-up')
         imagePosition = {
           x: canvas.mouse.position.x - 0,
-          y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS
+          y: canvas.mouse.position.y + firstRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.code === 'ArrowDown') {
-        let icon = canvas.designSpace.iconCollection.get('key-down')
+        icon = canvas.designSpace.iconCollection.get('key-down')
         imagePosition = {
           x: canvas.mouse.position.x - 0,
-          y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
+          y: canvas.mouse.position.y + secondRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.code === 'ArrowLeft') {
-        let icon = canvas.designSpace.iconCollection.get('key-left')
+        icon = canvas.designSpace.iconCollection.get('key-left')
         imagePosition = {
-          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS,
-          y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
+          x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 0 - ICON_SIZES * 1,
+          y: canvas.mouse.position.y + secondRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
 
       if (canvas.mouse.event.code === 'ArrowRight') {
-        let icon = canvas.designSpace.iconCollection.get('key-right')
+        icon = canvas.designSpace.iconCollection.get('key-right')
         imagePosition = {
-          x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS,
-          y: canvas.mouse.position.y + DISTANCE_BETWEEN_ICONS * 2
+          x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 0 + ICON_SIZES * 1,
+          y: canvas.mouse.position.y + secondRow
         }
         drawMousePointer(icon, imagePosition, ICON_SIZES)
       }
@@ -166,3 +170,4 @@ function newVideoRecorder () {
     }
   }
 }
+

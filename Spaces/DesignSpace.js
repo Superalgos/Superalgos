@@ -251,7 +251,12 @@ function newDesignSpace () {
       'toggle-auto-time-scale-auto-min',
       'toggle-auto-time-scale-auto-max',
       'toggle-auto-time-scale-auto-min-max',
-      'toggle-auto-time-scale-manual'
+      'toggle-auto-time-scale-manual',
+      'mouse-pointer',
+      'mouse-left-click',
+      'mouse-right-click',
+      'mouse-wheel',
+      'mouse-wheel-click'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

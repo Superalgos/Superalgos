@@ -273,7 +273,7 @@ function newUiObjectTitle () {
           label = trimTitle(label)
 
           labelPoint = {
-            x: 0,
+            x: 5,
             y: thisObject.container.frame.height * 0.8
           }
 

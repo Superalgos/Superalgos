@@ -256,7 +256,11 @@ function newDesignSpace () {
       'mouse-left-click',
       'mouse-right-click',
       'mouse-wheel',
-      'mouse-wheel-click'
+      'mouse-wheel-click',
+      'key-alt',
+      'key-shift',
+      'key-ctrl',
+      'hand-drag'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

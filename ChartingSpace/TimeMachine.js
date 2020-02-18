@@ -139,9 +139,7 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
     loadFrame(thisObject.payload, thisObject.container.frame)
-
-    // thisObject.container.frame.position.x = 0
-    // thisObject.container.frame.position.y = 0
+    saveFrame(thisObject.payload, thisObject.container.frame)
 
     recalculateCoordinateSystem()
     recalculateCurrentDatetime()

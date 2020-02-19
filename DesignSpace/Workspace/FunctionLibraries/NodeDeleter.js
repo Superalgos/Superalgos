@@ -24,9 +24,6 @@ function newNodeDeleter () {
   }
 
   function deleteUIObject (node, rootNodes) {
-    if (node.id === '0726a9e4-23b6-4d27-a8de-e91a9665a8ba') {
-      console.log('a')
-    }
     let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
     if (nodeDefinition !== undefined) {
       /* Remove all of its own children nodes. */
@@ -58,9 +55,6 @@ function newNodeDeleter () {
         }
       }
 
-      if (node.payload === undefined) {
-        console.log('a')
-      }
       /* Remove node from parent */
       if (node.payload.parentNode !== undefined) {
         let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
@@ -118,9 +112,6 @@ function newNodeDeleter () {
   }
 
   function cleanNode (node) {
-    if (node.id === '52d55987-e468-43fb-a93e-f92d720fa67e') {
-      console.log('a')
-    }
     node.payload.targetPosition.x = undefined
     node.payload.targetPosition.y = undefined
     node.payload.visible = undefined

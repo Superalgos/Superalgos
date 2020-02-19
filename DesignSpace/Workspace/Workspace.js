@@ -87,6 +87,8 @@ function newWorkspace () {
       }
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
+
+      setInterval(saveWorkspace, 5000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -108,11 +110,13 @@ function newWorkspace () {
     functionLibraryReferenceAttachDetach.referenceAttachNode(node, attachToNode, thisObject.workspaceNode.rootNodes)
   }
 
-  function physics () {
-    if (thisObject.enabled !== true) { return }
-
+  function saveWorkspace () {
     let textToSave = stringifyWorkspace()
     window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+  }
+
+  function physics () {
+    if (thisObject.enabled !== true) { return }
 
     if (workingAtTask > 0) {
       circularProgressBar.physics()
@@ -136,7 +140,7 @@ function newWorkspace () {
           workingAtTask++
           break
         case 5:
-          canvas.chartSpace.reset()
+          canvas.chartingSpace.reset()
           workingAtTask++
           break
         case 6:
@@ -178,9 +182,23 @@ function newWorkspace () {
         if (rootNode.networkNodes !== undefined) {
           for (let j = 0; j < rootNode.networkNodes.length; j++) {
             let networkNode = rootNode.networkNodes[j]
-            for (let i = 0; i < networkNode.taskManagers.length; i++) {
-              let taskManager = networkNode.taskManagers[i]
-              taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+            if (networkNode.dataMining !== undefined) {
+              for (let i = 0; i < networkNode.dataMining.taskManagers.length; i++) {
+                let taskManager = networkNode.dataMining.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
+            }
+            if (networkNode.testingEnvironment !== undefined) {
+              for (let i = 0; i < networkNode.testingEnvironment.taskManagers.length; i++) {
+                let taskManager = networkNode.testingEnvironment.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
+            }
+            if (networkNode.productionEnvironment !== undefined) {
+              for (let i = 0; i < networkNode.productionEnvironment.taskManagers.length; i++) {
+                let taskManager = networkNode.productionEnvironment.taskManagers[i]
+                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
+              }
             }
           }
         }
@@ -260,14 +278,14 @@ function newWorkspace () {
         {
           let text = stringifyWorkspace(true)
           let fileName = 'Share - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
         break
       case 'Backup Workspace':
         {
           let text = stringifyWorkspace(false)
           let fileName = 'Backup - ' + payload.node.type + ' - ' + payload.node.name + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
         break
       case 'Edit Code':
@@ -284,7 +302,7 @@ function newWorkspace () {
             nodeName = '.' + nodeName
           }
           let fileName = 'Share - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break
@@ -299,7 +317,7 @@ function newWorkspace () {
             nodeName = ' ' + nodeName
           }
           let fileName = 'Backup - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break
@@ -314,7 +332,7 @@ function newWorkspace () {
             nodeName = ' ' + nodeName
           }
           let fileName = 'Clone - ' + payload.node.type + ' - ' + nodeName + '.json'
-          download(fileName, text)
+          downloadText(fileName, text)
         }
 
         break

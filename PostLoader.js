@@ -45,18 +45,6 @@ function newDashboard () {
 
         if (canvas !== undefined) { canvas.finalize() }
 
-        /* Here we check where we are executing. In case we are Local we need to create a Local Dummy User and Data Mine. */
-
-        if (window.canvasApp.executingAt === 'Local') {
-          window.localStorage.setItem(LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY, 'Local Access Token')       // Dummy Access Token
-          window.localStorage.setItem(LOGGED_IN_USER_LOCAL_STORAGE_KEY, '{"authId":"x|x","alias":"user"}')  // Dummy Local User
-        }
-
-        /* Here we used to have a call to the DataMines Module to get the profile pictures. That was removed but to keep things working, we do this: */
-
-        window.canvasApp.context.dataMineProfileImages = new Map()
-        window.canvasApp.context.fbProfileImages = new Map()
-
         setTimeout(delayedStart, DEBUG_START_UP_DELAY)
       }
     } catch (err) {
@@ -88,7 +76,7 @@ function newDashboard () {
   function setBrowserEvents () {
     window.onbeforeunload = onBrowserClosed
     function onBrowserClosed () {
-      // canvas.designerSpace.workspace.stopAllRunningTasks()
+      // canvas.designSpace.workspace.stopAllRunningTasks()
     }
   }
 }

@@ -15,6 +15,15 @@ function newCoordinateSystem () {
     maxWidth: undefined,
     scale: undefined,
     eventHandler: undefined,
+    autoMinXScale: true,
+    autoMaxXScale: true,
+    autoMinYScale: true,
+    autoMaxYScale: true,
+    physics: physics,
+    reportXValue: reportXValue,
+    reportYValue: reportYValue,
+    zoomX: zoomX,
+    zoomY: zoomY,
     recalculateScale: recalculateScale,
     transformThisPoint: transformThisPoint,
     transformThisPoint2: transformThisPoint2,
@@ -42,6 +51,14 @@ function newCoordinateSystem () {
   thisObject.eventHandler = newEventHandler()
   thisObject.eventHandler.name = 'Coordinate System'
 
+  let newXMax = -VERY_LARGE_NUMBER
+  let newXMin = VERY_LARGE_NUMBER
+  let noXValueReported = true
+
+  let newYMax = -VERY_LARGE_NUMBER
+  let newYMin = VERY_LARGE_NUMBER
+  let noYValueReported = true
+
   return thisObject
 
   function finalize () {
@@ -51,11 +68,11 @@ function newCoordinateSystem () {
 
   function initialize (minValue, maxValue, pMaxWidth, pMaxHeight) {
     /* Defines the min and max value of rate that we are going to transport to the available screen at the center position. */
-    thisObject.min.x = minValue.x // * 0.999; // 0.1% less
-    thisObject.max.x = maxValue.x // * 1.001; // 0.1% more
+    thisObject.min.x = minValue.x
+    thisObject.max.x = maxValue.x
 
-    thisObject.min.y = minValue.y // * 0.999; // 0.1% less
-    thisObject.max.y = maxValue.y // * 1.001; // 0.1% more
+    thisObject.min.y = minValue.y
+    thisObject.max.y = maxValue.y
 
     thisObject.maxWidth = pMaxWidth
     thisObject.maxHeight = pMaxHeight
@@ -63,12 +80,119 @@ function newCoordinateSystem () {
     recalculateScale()
   }
 
-  function recalculateScale () {
-    /* Defines the initial Zoom level at center position. */
+  function physics () {
+    let mustRecalculate = false
+
+    if ((thisObject.autoMinXScale === true || thisObject.autoMaxXScale === true) && noXValueReported === false) {
+      if (thisObject.autoMaxXScale === true && thisObject.max.x !== newXMax) {
+        thisObject.max.x = newXMax
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMaxXScale === true) {
+        newXMax = -VERY_LARGE_NUMBER
+      }
+
+      if (thisObject.autoMinXScale === true && thisObject.min.x !== newXMin) {
+        thisObject.min.x = newXMin
+        newXMin = VERY_LARGE_NUMBER
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMinXScale === true) {
+        newXMin = VERY_LARGE_NUMBER
+      }
+
+      /* Reseting this to start over at each cycle. */
+      noXValueReported = true
+    }
+
+    if ((thisObject.autoMinYScale === true || thisObject.autoMaxYScale === true) && noYValueReported === false) {
+      if (thisObject.autoMaxYScale === true && thisObject.max.y !== newYMax) {
+        thisObject.max.y = newYMax
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMaxYScale === true) {
+        newYMax = -VERY_LARGE_NUMBER
+      }
+
+      if (thisObject.autoMinYScale === true && thisObject.min.y !== newYMin) {
+        thisObject.min.y = newYMin
+        newYMin = VERY_LARGE_NUMBER
+        mustRecalculate = true
+      }
+
+      if (thisObject.autoMinYScale === true) {
+        newYMin = VERY_LARGE_NUMBER
+      }
+
+      /* Reseting this to start over at each cycle. */
+      noYValueReported = true
+    }
+
+    if (mustRecalculate === true) {
+      recalculateScale()
+    }
+  }
+
+  function reportXValue (value) {
+    if (thisObject.autoMinXScale === true) {
+      if (value < newXMin) { newXMin = value }
+      noXValueReported = false
+    }
+    if (thisObject.autoMaxXScale === true) {
+      if (value > newXMax) { newXMax = value }
+      noXValueReported = false
+    }
+  }
+
+  function reportYValue (value) {
+    if (thisObject.autoMinYScale === true) {
+      if (value < newYMin) { newYMin = value }
+      noYValueReported = false
+    }
+    if (thisObject.autoMaxYScale === true) {
+      if (value > newYMax) { newYMax = value }
+      noYValueReported = false
+    }
+  }
+
+  function zoomX (factor, mousePosition, container) {
+    let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+    let leftDistance = mouseAtCointainer.x
+    let rightDistance = container.frame.width - mouseAtCointainer.x
+    let diff = thisObject.max.x - thisObject.min.x
+    let min = thisObject.min.x + diff * factor * leftDistance / (container.frame.width / 2)
+    let max = thisObject.max.x - diff * factor * rightDistance / (container.frame.width / 2)
+
+    if (min < max) {
+      thisObject.min.x = min
+      thisObject.max.x = max
+      thisObject.recalculateScale()
+    }
+  }
+
+  function zoomY (factor, mousePosition, container) {
+    let mouseAtCointainer = unTransformThisPoint(mousePosition, container)
+    let topDistance = mouseAtCointainer.y
+    let bottomDistance = container.frame.height - mouseAtCointainer.y
+    let diff = thisObject.max.y - thisObject.min.y
+    let min = thisObject.min.y + diff * factor * bottomDistance / (container.frame.height / 2)
+    let max = thisObject.max.y - diff * factor * topDistance / (container.frame.height / 2)
+
+    if (min < max) {
+      thisObject.min.y = min
+      thisObject.max.y = max
+      thisObject.recalculateScale()
+    }
+  }
+
+  function recalculateScale (event) {
     thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
     thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
 
-    thisObject.eventHandler.raiseEvent('Scale Changed')
+    thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

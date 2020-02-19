@@ -32,13 +32,14 @@ function newCanvas () {
   let thisObject = {
     eventHandler: undefined,
     topSpace: undefined,
-    chartSpace: undefined,
+    chartingSpace: undefined,
     floatingSpace: undefined,
     panelsSpace: undefined,
     cockpitSpace: undefined,
     bottomSpace: undefined,
-    designerSpace: undefined,
+    designSpace: undefined,
     animation: undefined,
+    mouse: undefined,
     initialize: initialize,
     finalize: finalize
   }
@@ -49,11 +50,18 @@ function newCanvas () {
   let lastContainerMouseOver
   let lastShortcutKeyRejection
 
+  thisObject.mouse = {
+    position: {
+      x: 0,
+      y: 0
+    },
+    action: ''
+  }
   return thisObject
 
   function finalize () {
     try {
-      thisObject.chartSpace.finalize()
+      thisObject.chartingSpace.finalize()
       thisObject.floatingSpace.finalize()
 
       browserCanvas.removeEventListener('mousedown', onMouseDown, false)
@@ -73,9 +81,12 @@ function newCanvas () {
       browserCanvas.removeEventListener('drop', onDragDrop, false)
 
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
+      browserCanvas.removeEventListener('keyup', onKeyUp, false)
 
       splashScreen = undefined
       lastContainerMouseOver = undefined
+
+      hisObject.mouse = undefined
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] finalize -> err = ' + err.stack) }
     }
@@ -95,8 +106,8 @@ function newCanvas () {
       thisObject.topSpace = newTopSpace()
       thisObject.topSpace.initialize()
 
-      thisObject.designerSpace = newDesignerSpace()
-      thisObject.designerSpace.initialize()
+      thisObject.designSpace = newDesignSpace()
+      thisObject.designSpace.initialize()
 
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
@@ -104,8 +115,8 @@ function newCanvas () {
       thisObject.panelsSpace = newPanelsSpace()
       thisObject.panelsSpace.initialize()
 
-      thisObject.chartSpace = newChartSpace()
-      thisObject.chartSpace.initialize()
+      thisObject.chartingSpace = newChartingSpace()
+      thisObject.chartingSpace.initialize()
 
       thisObject.bottomSpace = thisObject.cockpitSpace
 
@@ -122,16 +133,16 @@ function newCanvas () {
       /* Spcaces Physics */
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
       animation.addCallBackFunction('Floating Space Physics', thisObject.floatingSpace.physics)
-      animation.addCallBackFunction('Chart Space Physics', thisObject.chartSpace.physics)
-      animation.addCallBackFunction('Strategy Space Physics', thisObject.designerSpace.physics)
+      animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
+      animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
-      animation.addCallBackFunction('Chart Space Draw', thisObject.chartSpace.draw)
+      animation.addCallBackFunction('Charting Space Draw', thisObject.chartingSpace.draw)
       animation.addCallBackFunction('Panels Space', thisObject.panelsSpace.draw)
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
-      animation.addCallBackFunction('Designer Space Draw', thisObject.designerSpace.draw)
+      animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
@@ -155,6 +166,7 @@ function newCanvas () {
 
       /* Keyboard events */
       window.addEventListener('keydown', onKeyDown, true)
+      window.addEventListener('keyup', onKeyUp, true)
 
       /* Mouse Events */
       browserCanvas.addEventListener('mousedown', onMouseDown, false)
@@ -194,8 +206,52 @@ function newCanvas () {
     }
   }
 
+  function checkMediaRecording (event) {
+    if ((event.ctrlKey === true || event.metaKey === true)) {
+      let constructorParams
+      switch (event.keyCode) {
+        case 119: { //  F8
+          downloadCanvas('Superalgos.image.capture')
+          return
+          break
+        }
+        case 120: { //  F9
+          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.video.capture'}
+          break
+        }
+        case 121: { //  F10
+          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.video.capture' }
+          break
+        }
+        default: return
+      }
+
+      if (areWeRecording === false) {
+        console.log('RECORDING', constructorParams.format)
+        mediaRecorder = new CCapture(constructorParams)
+        mediaRecorder.start()
+        areWeRecording = true
+      } else {
+        console.log('SAVING', constructorParams.format)
+        areWeRecording = false
+        mediaRecorder.stop()
+        mediaRecorder.save()
+      }
+    }
+  }
+
+  function onKeyUp (event) {
+    thisObject.mouse.event = event
+    thisObject.mouse.action = 'key up'
+  }
+
   function onKeyDown (event) {
-    let nodeOnFocus = canvas.designerSpace.workspace.getNodeThatIsOnFocus()
+    thisObject.mouse.event = event
+    thisObject.mouse.action = 'key down'
+
+    checkMediaRecording(event)
+
+    let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
         if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -231,61 +287,52 @@ function newCanvas () {
       }
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Regenerates APP SCHEMA FILE
-      /*
-      for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
-        let schemaNode = APP_SCHEMA_ARRAY[i]
-        schemaNode.addLeftIcons = true
+    if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true && event.shiftKey === true && event.keyCode === 122) { // Dev Tool when used with F11
+      if (SHOW_ANIMATION_PERFORMACE === false) {
+        SHOW_ANIMATION_PERFORMACE = true
+      } else {
+        SHOW_ANIMATION_PERFORMACE = false
       }
-      */
-      let text = JSON.stringify(APP_SCHEMA_ARRAY)
-      let fileName = 'AppSchema.json'
-      download(fileName, text)
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
       return
     }
 
-    if (event.altKey === true && event.code === 'ArrowLeft' || event.altKey === true && event.code === 'ArrowRight') {
-      thisObject.cockpitSpace.toMiddle()
-      return
-    }
-
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
       thisObject.cockpitSpace.moveUp()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       thisObject.cockpitSpace.moveDown()
       return
     }
 
     if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowLeft') {
-      canvas.chartSpace.oneScreenLeft()
+      canvas.chartingSpace.oneScreenLeft()
       return
     }
 
     if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowRight') {
-      canvas.chartSpace.oneScreenRight()
+      canvas.chartingSpace.oneScreenRight()
       return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowUp') {
-      canvas.chartSpace.oneScreenUp()
+      canvas.chartingSpace.oneScreenUp()
       return
     }
 
     if (event.shiftKey === true && event.code === 'ArrowDown') {
-      canvas.chartSpace.oneScreenDown()
+      canvas.chartingSpace.oneScreenDown()
       return
     }
 
@@ -333,7 +380,7 @@ function newCanvas () {
         /* From here we prevent the default behaviour */
         event.preventDefault()
 
-        let nodeUsingThisKey = canvas.designerSpace.workspace.getNodeByShortcutKey(event.key)
+        let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {
           /* Then we displace the whole workspace to center it at the node using this key */
@@ -424,7 +471,7 @@ function newCanvas () {
             x: event.x,
             y: event.y
           }
-          thisObject.designerSpace.workspace.spawn(reader.result, mousePosition)
+          thisObject.designSpace.workspace.spawn(reader.result, mousePosition)
         }
       }
     } catch (err) {
@@ -434,20 +481,32 @@ function newCanvas () {
 
   function onMouseDown (event) {
     try {
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN,
-        button: event.button
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      switch (event.buttons) {
+        case 1: {
+          thisObject.mouse.action = 'clicking with left button'
+          break
+        }
+        case 2: {
+          thisObject.mouse.action = 'clicking with right button'
+          break
+        }
       }
+
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
 
       dragVector.downX = point.x
       dragVector.downY = point.y
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Design Space / */
 
-      container = thisObject.designerSpace.getContainer(point)
+      container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
         containerBeingDragged = container
@@ -491,7 +550,7 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isDraggeable === true && event.button === 2) {
+      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
         containerBeingDragged = container
         containerDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
@@ -503,18 +562,20 @@ function newCanvas () {
         return
       }
 
-           /*  we check if it is over any of the existing containers at the Chart Space. */
+           /*  we check if it is over any of the existing containers at the Charting Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined) {
-        if (container.isDraggeable === true && event.button === 2) {
+        if (container.isDraggeable === true) {
           containerBeingDragged = container
           containerDragStarted = true
           containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
           return
         } else {
-          viewPortBeingDragged = true
+          if (container.isClickeable === false) {
+            viewPortBeingDragged = true
+          }
           return
         }
       }
@@ -544,16 +605,16 @@ function newCanvas () {
         ignoreNextClick = false
         return
       }
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
 
       let container
 
-            /* We check if the mouse is over an element of the Strategy Space / */
+            /* We check if the mouse is over an element of the Design Space / */
 
-      container = thisObject.designerSpace.getContainer(point)
+      container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -587,9 +648,9 @@ function newCanvas () {
         return
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
+           /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
 
-      container = thisObject.chartSpace.getContainer(point)
+      container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -625,15 +686,19 @@ function newCanvas () {
 
   function onMouseMove (event) {
     try {
-      /* Processing the event */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      thisObject.mouse.action = 'moving'
 
-      if (canvas.chartSpace.viewport !== undefined) {
-        canvas.chartSpace.viewport.mousePosition.x = point.x
-        canvas.chartSpace.viewport.mousePosition.y = point.y
+      /* Processing the event */
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+
+      if (canvas.chartingSpace.viewport !== undefined) {
+        canvas.chartingSpace.viewport.mousePosition.x = point.x
+        canvas.chartingSpace.viewport.mousePosition.y = point.y
       }
 
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
@@ -673,26 +738,22 @@ function newCanvas () {
 
   function onMouseOver (event) {
     try {
+      let point = event
+      point.x = event.pageX
+      point.y = event.pageY - CURRENT_TOP_MARGIN
+
       if (containerDragStarted === true) {
-        let point = {
-          x: event.pageX,
-          y: event.pageY - CURRENT_TOP_MARGIN
-        }
         containerBeingDragged.eventHandler.raiseEvent('onMouseOver', point)
         return
       }
 
        /* Then we check who is the current object underneeth the mounse. */
-      let point = {
-        x: event.pageX,
-        y: event.pageY - CURRENT_TOP_MARGIN
-      }
 
       let container
 
       /* We check if the mouse is over an element of the Strategy Space / */
-      if (thisObject.designerSpace !== undefined) {
-        container = thisObject.designerSpace.getContainer(point)
+      if (thisObject.designSpace !== undefined) {
+        container = thisObject.designSpace.getContainer(point)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -730,9 +791,9 @@ function newCanvas () {
         }
       }
 
-       /* If it is not, then we check if it is over any of the existing containers at the Chart Space. */
-      if (thisObject.chartSpace !== undefined) {
-        container = thisObject.chartSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
+       /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
+      if (thisObject.chartingSpace !== undefined) {
+        container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -766,6 +827,11 @@ function newCanvas () {
 
   function onMouseWheel (event) {
     try {
+      thisObject.mouse.event = event
+      thisObject.mouse.position.x = event.pageX
+      thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+      thisObject.mouse.action = 'wheel'
+
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
@@ -795,16 +861,16 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-          /*   Chart Space. */
+          /*   Charting Space. */
 
-      container = canvas.chartSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
+      container = canvas.chartingSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
       if (container !== undefined && container.isWheelable === true) {
         container.eventHandler.raiseEvent('onMouseWheel', event)
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
       if (container !== undefined) {
-        canvas.chartSpace.viewport.onMouseWheel(event)
+        canvas.chartingSpace.viewport.onMouseWheel(event)
         return false
       }
 
@@ -856,52 +922,64 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
+        thisObject.mouse.event = event
+        thisObject.mouse.position.x = event.pageX
+        thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+        thisObject.mouse.action = 'dragging'
+
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)
 
-        if (containerDragStarted || viewPortBeingDragged) {
+        if (viewPortBeingDragged) {
           let displaceVector = {
             x: dragVector.upX - dragVector.downX,
             y: dragVector.upY - dragVector.downY
           }
 
-          if (containerBeingDragged !== undefined && containerBeingDragged.insideViewport === true) {
-            let downCopy = {
-              x: dragVector.downX,
-              y: dragVector.downY
-            }
-
-            let downNoZoom
-            downNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(downCopy)
-
-            let upCopy = {
-              x: dragVector.upX,
-              y: dragVector.upY
-            }
-
-            let upNoZoom
-            upNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(upCopy)
-
-            displaceVector = {
-              x: upNoZoom.x - downNoZoom.x,
-              y: upNoZoom.y - downNoZoom.y
-            }
-          }
-
-          if (viewPortBeingDragged) {
-            canvas.chartSpace.viewport.displace(displaceVector)
-          }
-
+          canvas.chartingSpace.viewport.displace(displaceVector)
+        }
+        if (containerDragStarted) {
           if (containerBeingDragged !== undefined) {
-            let moveSucceed = containerBeingDragged.displace(displaceVector)
-            if (moveSucceed === false) {
-              deactivateDragging(event)
+            if (containerBeingDragged.space === 'Charting Space') {
+              let downCopy = {
+                x: dragVector.downX,
+                y: dragVector.downY
+              }
+
+              let downNoZoom
+              downNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(downCopy)
+
+              let upCopy = {
+                x: dragVector.upX,
+                y: dragVector.upY
+              }
+
+              let upNoZoom
+              upNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(upCopy)
+
+              displaceVector = {
+                x: upNoZoom.x - downNoZoom.x,
+                y: upNoZoom.y - downNoZoom.y
+              }
+
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
+            } else {
+              let displaceVector = {
+                x: dragVector.upX - dragVector.downX,
+                y: dragVector.upY - dragVector.downY
+              }
+              let moveSucceed = containerBeingDragged.displace(displaceVector)
+              if (moveSucceed === false) {
+                deactivateDragging(event)
+              }
             }
           }
         }
 
-               /* Finally we set the starting point of the new dragVector at this current point. */
-
+        /* Finally we set the starting point of the new dragVector at this current point. */
         dragVector.downX = dragVector.upX
         dragVector.downY = dragVector.upY
       }

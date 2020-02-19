@@ -48,7 +48,7 @@
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        let localStorage = window.localStorage.getItem(MODULE_NAME)
        if (localStorage !== null) {
          storage = JSON.parse(localStorage)
@@ -80,10 +80,21 @@
    function resize () {
      thisObject.container.frame.width = browserCanvas.width
      thisObject.container.frame.height = COCKPIT_SPACE_HEIGHT
+
+     switch (thisObject.status) {
+       case 'BOTTOM': {
+         thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
+         break
+       }
+       case 'TOP': {
+         thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
+         break
+       }
+     }
    }
 
    function toTop () {
-     thisObject.container.frame.position.y = 0
+     thisObject.container.frame.position.y = COCKPIT_SPACE_HEIGHT
    }
 
    function toBottom () {
@@ -95,14 +106,14 @@
    }
 
    function moveUp () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y - browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y - COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y < 0) {
        thisObject.container.frame.position.y = 0
      }
    }
 
    function moveDown () {
-     thisObject.container.frame.position.y = thisObject.container.frame.position.y + browserCanvas.height / 10
+     thisObject.container.frame.position.y = thisObject.container.frame.position.y + COCKPIT_SPACE_HEIGHT * 2
      if (thisObject.container.frame.position.y > browserCanvas.height - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
      }
@@ -121,7 +132,7 @@
 
      thisObject.status = 'MIDDLE'
 
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        thisObject.container.isDraggeable = true
      } else {
        thisObject.container.isDraggeable = false
@@ -130,15 +141,15 @@
      if (thisObject.container.frame.position.y > browserCanvas.height * 99.5 / 100 - COCKPIT_SPACE_HEIGHT) {
        thisObject.container.frame.position.y = browserCanvas.height - COCKPIT_SPACE_HEIGHT
        thisObject.status = 'BOTTOM'
-       canvas.designerSpace.makeInvisible()
+       canvas.designSpace.makeInvisible()
        canvas.floatingSpace.makeInvisible()
      } else {
-       canvas.designerSpace.makeVisible()
+       canvas.designSpace.makeVisible()
        canvas.floatingSpace.makeVisible()
      }
 
-     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100) {
-       thisObject.container.frame.position.y = 0
+     if (thisObject.container.frame.position.y < browserCanvas.height * 0.5 / 100 + TOP_SPACE_HEIGHT) {
+       thisObject.container.frame.position.y = TOP_SPACE_HEIGHT
        thisObject.status = 'TOP'
        canvas.panelsSpace.visible = false
      } else {
@@ -150,8 +161,8 @@
        spacePosition: COCKPIT_SPACE_POSITION
      }
      window.localStorage.setItem(MODULE_NAME, JSON.stringify(storage))
-     if (canvas.chartSpace.viewport !== undefined) {
-       canvas.chartSpace.viewport.resize()
+     if (canvas.chartingSpace.viewport !== undefined) {
+       canvas.chartingSpace.viewport.resize()
      }
    }
 
@@ -162,6 +173,7 @@
      // if (container !== undefined) { return container }
 
      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+       thisObject.container.space = 'Cockpit Space'
        return thisObject.container
      } else {
        return undefined
@@ -207,7 +219,7 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     if (canvas.designerSpace.workspace.enabled === true) {
+     if (canvas.designSpace.workspace.enabled === true) {
        arrow()
      }
    }

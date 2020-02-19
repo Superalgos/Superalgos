@@ -21,7 +21,8 @@ function newTimeFrameScale () {
   const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
-  let visible = true
+  let previousIsVisible = true
+  let greyOutCoverLayer = false
   let isMouseOver
 
   let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
@@ -60,7 +61,7 @@ function newTimeFrameScale () {
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
@@ -80,7 +81,7 @@ function newTimeFrameScale () {
     newTimeFrame()
 
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onViewportZoomChangedEventSubscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onViewportZoomChangedEventSubscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
@@ -88,12 +89,12 @@ function newTimeFrameScale () {
   function onMouseOverSomeTimeMachineContainer (event) {
     if (event.containerId === undefined) {
       /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
-      visible = true
+      greyOutCoverLayer = false
     } else {
       if (event.containerId === thisObject.container.id) {
-        visible = true
+        greyOutCoverLayer = false
       } else {
-        visible = false
+        greyOutCoverLayer = true
         turnOnCounter = 0
       }
     }
@@ -118,6 +119,22 @@ function newTimeFrameScale () {
   function physics () {
     readObjectState()
     positioningPhysics()
+    zoomOutPhysics()
+  }
+
+  function zoomOutPhysics () {
+    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+      let event = {}
+      event.timeFrame = thisObject.timeFrame
+      thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
+      previousIsVisible = true
+    }
+    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+      let event = {}
+      event.timeFrame = ONE_DAY_IN_MILISECONDS
+      thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
+      previousIsVisible = false
+    }
   }
 
   function positioningPhysics () {
@@ -186,7 +203,8 @@ function newTimeFrameScale () {
     thisObject.isVisible = true
     thisObject.payload.isVisible = true
     if (thisObject.container.frame.position.y + thisObject.container.frame.height > bottonCorner.y ||
-        thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y) {
+        thisObject.container.frame.position.y - thisObject.container.frame.height * 3 < upCorner.y ||
+      thisObject.container.frame.position.x < upCorner.x) {
       thisObject.isVisible = false
       thisObject.payload.isVisible = false
     }
@@ -303,7 +321,7 @@ function newTimeFrameScale () {
 
   function draw () {
     drawScaleBox()
-    if (visible === false) {
+    if (greyOutCoverLayer === true) {
       drawScaleDisplayCover(thisObject.container)
     }
   }
@@ -322,8 +340,8 @@ function newTimeFrameScale () {
     let label2 = label[0]
     let label3 = label[1].toUpperCase()
 
-    let icon1 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
-    let icon2 = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+    let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
+    let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
 

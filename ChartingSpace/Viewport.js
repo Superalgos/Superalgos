@@ -34,7 +34,9 @@ function newViewport () {
     transformThisPoint: transformThisPoint,
     unTransformThisPoint: unTransformThisPoint,
     isThisPointVisible: isThisPointVisible,
+    isThisPointInViewport: isThisPointInViewport,
     fitIntoVisibleArea: fitIntoVisibleArea,
+    fitIntoViewport: fitIntoViewport,
     displace: displace,
     physics: physics,
     raiseEvents: raiseEvents,
@@ -174,6 +176,7 @@ function newViewport () {
   }
 
   function onMouseWheel (event) {
+    if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
     let amount = event.delta
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
@@ -219,25 +222,40 @@ function newViewport () {
   }
 
   function fitIntoVisibleArea (point) {
-       /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
-
-    if (point.x > thisObject.visibleArea.bottomRight.x + 1) {
-      point.x = thisObject.visibleArea.bottomRight.x + 1
+    let pointCopy = {
+      x: point.x,
+      y: point.y
     }
 
-    if (point.x < thisObject.visibleArea.topLeft.x - 1) {
-      point.x = thisObject.visibleArea.topLeft.x - 1
+    /* Here we check the boundaries of the resulting points, so they dont go out of the visible area. */
+    if (pointCopy.x > thisObject.visibleArea.bottomRight.x + 1) {
+      pointCopy.x = thisObject.visibleArea.bottomRight.x + 1
     }
 
-    if (point.y > thisObject.visibleArea.bottomRight.y + 1) {
-      point.y = thisObject.visibleArea.bottomRight.y + 1
+    if (pointCopy.x < thisObject.visibleArea.topLeft.x - 1) {
+      pointCopy.x = thisObject.visibleArea.topLeft.x - 1
     }
 
-    if (point.y < thisObject.visibleArea.topLeft.y - 1) {
-      point.y = thisObject.visibleArea.topLeft.y - 1
+    if (pointCopy.y > thisObject.visibleArea.bottomRight.y + 1) {
+      pointCopy.y = thisObject.visibleArea.bottomRight.y + 1
     }
 
-    return point
+    if (pointCopy.y < thisObject.visibleArea.topLeft.y - 1) {
+      pointCopy.y = thisObject.visibleArea.topLeft.y - 1
+    }
+
+    return pointCopy
+  }
+
+  function fitIntoViewport (point) {
+    let pointCopy = {
+      x: point.x,
+      y: point.y
+    }
+    if (pointCopy.y > COCKPIT_SPACE_POSITION) {
+      pointCopy.y = COCKPIT_SPACE_POSITION
+    }
+    return pointCopy
   }
 
   function displace (displaceVector, recalculate) {
@@ -310,11 +328,15 @@ function newViewport () {
   }
 
   function isThisPointVisible (point) {
-    if (visibleArea === undefined) {
-      getVisibleArea()
+    if (point.x < thisObject.visibleArea.topLeft.x || point.x > thisObject.visibleArea.bottomRight.x || point.y < thisObject.visibleArea.topLeft.y || point.y > thisObject.visibleArea.bottomRight.y) {
+      return false
+    } else {
+      return true
     }
+  }
 
-    if (point.x < visibleArea.topLeft.x || point.x > visibleArea.bottomRight.x || point.y < visibleArea.topLeft.y || point.y > visibleArea.bottomRight.y) {
+  function isThisPointInViewport (point) {
+    if (point.y > COCKPIT_SPACE_POSITION) {
       return false
     } else {
       return true

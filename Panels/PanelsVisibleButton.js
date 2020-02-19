@@ -16,6 +16,7 @@ function newPanelsVisibleButton () {
   thisObject.container.name = 'Panels Visible Button'
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Panels Visible Button'
 
   let onMouseClickEventSuscriptionId
@@ -73,9 +74,9 @@ function newPanelsVisibleButton () {
   function draw () {
     let icon
     if (thisObject.showPanels === true) {
-      icon = canvas.designerSpace.iconCollection.get('plotter-panel')
+      icon = canvas.designSpace.iconCollection.get('plotter-panel')
     } else {
-      icon = canvas.designerSpace.iconCollection.get('social-bot')
+      icon = canvas.designSpace.iconCollection.get('toggle-panel-off')
     }
 
     drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)

@@ -21,6 +21,7 @@ function newTimeMachine () {
     timeScale: undefined,
     rateScale: undefined,
     payload: undefined,
+    edgeEditor: undefined,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -49,12 +50,11 @@ function newTimeMachine () {
   let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
-  let timeScaleValueEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
-  let rateScaleValueEventSuscriptionId
   let rateScaleMouseOverEventSuscriptionId
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
+  let onScaleChangedEventSubscriptionId
 
   setupContainer()
   return thisObject
@@ -63,7 +63,7 @@ function newTimeMachine () {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.fitFunction = thisObject.fitFunction
-    thisObject.container.isDraggeable = true
+    thisObject.container.isDraggeable = false
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
@@ -72,8 +72,9 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
+    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
+    timeMachineCoordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     if (thisObject.timeScale !== undefined) {
       finalizeTimeScale()
@@ -101,6 +102,7 @@ function newTimeMachine () {
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.payload = undefined
+    thisObject.edgeEditor = undefined
 
     mouse = undefined
     timelineChartsMap = undefined
@@ -112,7 +114,6 @@ function newTimeMachine () {
   function finalizeTimeScale () {
     if (thisObject.timeScale === undefined) { return }
 
-    thisObject.timeScale.container.eventHandler.stopListening(timeScaleValueEventSuscriptionId)
     thisObject.timeScale.container.eventHandler.stopListening(timeScaleMouseOverEventSuscriptionId)
     thisObject.timeScale.finalize()
     thisObject.timeScale = undefined
@@ -121,7 +122,6 @@ function newTimeMachine () {
   function finalizeRateScale () {
     if (thisObject.rateScale === undefined) { return }
 
-    thisObject.rateScale.container.eventHandler.stopListening(rateScaleValueEventSuscriptionId)
     thisObject.rateScale.container.eventHandler.stopListening(rateScaleMouseOverEventSuscriptionId)
     thisObject.rateScale.finalize()
     thisObject.rateScale = undefined
@@ -139,17 +139,22 @@ function newTimeMachine () {
   function initialize (callBackFunction) {
     timeFrame = INITIAL_TIME_PERIOD
     loadFrame(thisObject.payload, thisObject.container.frame)
+    saveFrame(thisObject.payload, thisObject.container.frame)
 
     recalculateCoordinateSystem()
     recalculateCurrentDatetime()
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
+    onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    onScaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
-    onViewportPositionChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
+    thisObject.edgeEditor = newEdgeEditor()
+    thisObject.edgeEditor.initialize(timeMachineCoordinateSystem)
+    thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
-    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    callBackFunction()
   }
 
   function onMouseOver (event) {
@@ -188,23 +193,9 @@ function newTimeMachine () {
     thisObject.timeScale.fitFunction = thisObject.fitFunction
     thisObject.timeScale.payload = thisObject.payload.node.timeScale.payload
 
-    timeScaleValueEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('Time Scale Value Changed', timeScaleValueChanged)
     timeScaleMouseOverEventSuscriptionId = thisObject.timeScale.container.eventHandler.listenToEvent('onMouseOverScale', timeScaleMouseOver)
     thisObject.timeScale.initialize(timeMachineCoordinateSystem, thisObject.container)
 
-    function timeScaleValueChanged (event) {
-      if (event.isUserAction === true) {
-        let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
-        recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, false, true, event.mousePosition)
-      } else {
-        thisObject.container.frame.width = TIME_MACHINE_WIDTH + TIME_MACHINE_WIDTH * event.scale
-        recalculateCoordinateSystem()
-      }
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-    }
     function timeScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -215,25 +206,9 @@ function newTimeMachine () {
     thisObject.rateScale.fitFunction = thisObject.fitFunction
     thisObject.rateScale.payload = thisObject.payload.node.rateScale.payload
 
-    rateScaleValueEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('Rate Scale Value Changed', rateScaleValueChanged)
     rateScaleMouseOverEventSuscriptionId = thisObject.rateScale.container.eventHandler.listenToEvent('onMouseOverScale', rateScaleMouseOver)
     thisObject.rateScale.initialize(timeMachineCoordinateSystem, thisObject.container, thisObject.container)
 
-    function rateScaleValueChanged (event) {
-      if (event.isUserAction === true) {
-        let currentDate = getDateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-        let currentRate = getRateFromPoint(event.mousePosition, thisObject.container, timeMachineCoordinateSystem)
-
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-        moveToUserPosition(thisObject.container, currentDate, currentRate, timeMachineCoordinateSystem, true, false, event.mousePosition)
-      } else {
-        thisObject.container.frame.height = TIME_MACHINE_HEIGHT + TIME_MACHINE_HEIGHT * event.scale
-        recalculateCoordinateSystem()
-      }
-      thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
-      thisObject.container.eventHandler.raiseEvent('Upstream Rate Scale Value Changed', event)
-    }
     function rateScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onMouseOver', event)
     }
@@ -270,25 +245,33 @@ function newTimeMachine () {
     let container
 
     if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
-      container = thisObject.rateScale.getContainer(point)
+      container = thisObject.rateScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
+        } else {
+          if (purpose === GET_CONTAINER_PURPOSE.DRAGGING && container.isClickeable === true) {
+            return container
+          }
         }
       }
     }
 
     if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) {
-      container = thisObject.timeScale.getContainer(point)
+      container = thisObject.timeScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
+        } else {
+          if (purpose === GET_CONTAINER_PURPOSE.DRAGGING && container.isClickeable === true) {
+            return container
+          }
         }
       }
     }
 
     if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
-      container = thisObject.timeFrameScale.getContainer(point)
+      container = thisObject.timeFrameScale.getContainer(point, purpose)
       if (container !== undefined) {
         if (container.isForThisPurpose(purpose)) {
           return container
@@ -303,12 +286,25 @@ function newTimeMachine () {
           if (thisObject.container.frame.isThisPointHere(point) === true) {
             return container
           }
+        } else {
+          if (purpose === GET_CONTAINER_PURPOSE.DRAGGING && container.isClickeable === true) {
+            if (thisObject.container.frame.isThisPointHere(point) === true) {
+              return container
+            }
+          }
         }
       }
     }
 
-    if (thisObject.container.frame.isThisPointHere(point) === true) {
-      return thisObject.container
+    container = thisObject.edgeEditor.getContainer(point, purpose)
+    if (container !== undefined) {
+      return container
+    } else {
+      if (thisObject.container.isForThisPurpose(purpose)) {
+        if (thisObject.container.frame.isThisPointHere(point) === true) {
+          return thisObject.container
+        }
+      }
     }
   }
 
@@ -324,14 +320,18 @@ function newTimeMachine () {
     }
   }
 
+  function onScaleChanged () {
+    recalculateCurrentDatetime()
+  }
+
   function recalculateCurrentDatetime () {
      /*
      The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
      must calculate.
      */
     let center = {
-      x: (canvas.chartSpace.viewport.visibleArea.bottomRight.x - canvas.chartSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartSpace.viewport.visibleArea.bottomRight.y - canvas.chartSpace.viewport.visibleArea.topRight.y) / 2
+      x: (canvas.chartingSpace.viewport.visibleArea.bottomRight.x - canvas.chartingSpace.viewport.visibleArea.bottomLeft.x) / 2,
+      y: (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2
     }
 
     center = unTransformThisPoint(center, thisObject.container)
@@ -346,7 +346,7 @@ function newTimeMachine () {
   }
 
   function fitFunction (point, fullVisible, margin, topMargin, bottomMargin) {
-     /* We prevent a point to be out of the container AND out of the Chart Space in general */
+     /* We prevent a point to be out of the container AND out of the Charting Space in general */
 
     let returnPoint = {
       x: point.x,
@@ -376,12 +376,15 @@ function newTimeMachine () {
     if (returnPoint.y - margin - topMargin < upCorner.y) { returnPoint.y = upCorner.y + margin + topMargin }
     if (returnPoint.y + margin + bottomMargin > bottonCorner.y) { returnPoint.y = bottonCorner.y - margin - bottomMargin }
 
-    returnPoint = canvas.chartSpace.fitFunction(returnPoint, fullVisible)
+    returnPoint = canvas.chartingSpace.fitFunction(returnPoint, fullVisible)
 
     return returnPoint
   }
 
   function physics () {
+    thisObject.edgeEditor.physics()
+    timeMachineCoordinateSystem.physics()
+
     saveFrame(thisObject.payload, thisObject.container.frame)
     if (thisObject.container.frame.isInViewPort()) {
       childrenPhysics()
@@ -391,10 +394,12 @@ function newTimeMachine () {
   }
 
   function panelPhysics () {
-    if (thisObject.container.frame.isInViewPort()) {
-      canvas.panelsSpace.makeVisible(thisObject.payload.node.id, 'Layers Panel')
+    if (thisObject.container.frame.isInViewPort() && canvas.chartingSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
     } else {
-      canvas.panelsSpace.makeInvisible(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.hide(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.hide(thisObject.payload.node.id, 'Plotter Panel')
     }
   }
 
@@ -475,7 +480,7 @@ function newTimeMachine () {
       timelineChart.container.frame.height = thisObject.container.frame.height
       timelineChart.container.frame.position.x = 0
       timelineChart.container.frame.position.y = 0
-      timelineChart.initialize(timeMachineCoordinateSystem)
+      timelineChart.initialize(timeMachineCoordinateSystem, timeFrame)
 
       /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
       timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)
@@ -521,6 +526,8 @@ function newTimeMachine () {
   }
 
   function draw () {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
     if (thisObject.container.frame.isInViewPort()) {
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
@@ -533,7 +540,7 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designerSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           let imageSize = 40
@@ -569,13 +576,33 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawForeground() }
       }
 
-      let style = {
-        color: UI_COLOR.BLACK,
-        opacity: 1,
-        lineWidth: 1,
-        lineDash: [1, 3]
+      drawLabel()
+      thisObject.edgeEditor.drawForeground()
+    }
+  }
+
+  function drawLabel () {
+  /* Draw Title Above the Container */
+    let position = {
+      x: 0,
+      y: 0
+    }
+    let imageSize = 25
+    let fontSize = 25
+    let opacity = 1
+    let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+
+    position = transformThisPoint(position, thisObject.container)
+    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)
+
+    if (icon !== undefined) {
+      if (icon.canDrawIcon === true) {
+        browserCanvasContext.drawImage(
+        icon, position.x - 0,
+        position.y - 30,
+        imageSize,
+        imageSize)
       }
-      thisObject.container.frame.draw(false, true, false, thisObject.fitFunction, style)
     }
   }
 
@@ -588,16 +615,6 @@ function newTimeMachine () {
     let maxValue = {
       x: MAX_PLOTABLE_DATE.valueOf(),
       y: nextPorwerOf10(MAX_DEFAULT_RATE_SCALE_VALUE) / 4
-    }
-
-    if (thisObject.timeScale !== undefined) {
-      minValue.x = thisObject.timeScale.fromDate
-      maxValue.x = thisObject.timeScale.toDate
-    }
-
-    if (thisObject.rateScale !== undefined) {
-      minValue.y = thisObject.rateScale.minValue
-      maxValue.y = thisObject.rateScale.maxValue
     }
 
     timeMachineCoordinateSystem.initialize(

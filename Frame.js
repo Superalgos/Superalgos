@@ -52,7 +52,7 @@ function newFrame () {
   }
 
   function isInViewPort () {
-   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartSpace.viewport */
+   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
 
     point1 = {
       x: 0,
@@ -69,7 +69,7 @@ function newFrame () {
     point1 = transformThisPoint(point1, thisObject.container)
     point3 = transformThisPoint(point3, thisObject.container)
 
-    if (point1.x < canvas.chartSpace.viewport.visibleArea.topRight.x && point1.y < canvas.chartSpace.viewport.visibleArea.bottomRight.y && point3.x > canvas.chartSpace.viewport.visibleArea.bottomLeft.x && point3.y > canvas.chartSpace.viewport.visibleArea.topLeft.y) {
+    if (point1.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point1.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
       return true
     } else {
       return false
@@ -160,11 +160,13 @@ function newFrame () {
     return point
   }
 
-  function isThisPointHere (point, outsideViewPort, dontTransform) {
- // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+  function isThisPointHere (point, outsideViewPort, dontTransform, padding) {
+    // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
+    // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the cointainer size) or positive (inside to decrease the cointainer size)
+
+    if (padding === undefined) { padding = 0 }
 
        /* We need not to modify the point received, so me make a copy of it. */
-
     let checkPoint = {
       x: point.x,
       y: point.y
@@ -193,7 +195,7 @@ function newFrame () {
     }
 
     if (thisObject.type === 'Rectangle') {
-      if (checkPoint.x < 0 || checkPoint.y < 0 || checkPoint.x > thisObject.width || checkPoint.y > thisObject.height) {
+      if (checkPoint.x < 0 + padding || checkPoint.y < 0 + padding || checkPoint.x > thisObject.width - padding || checkPoint.y > thisObject.height - padding) {
         return false
       } else {
         return true

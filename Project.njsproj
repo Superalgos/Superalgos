@@ -145,7 +145,7 @@
     <Compile Include="Candle.js" />
     <Compile Include="Canvas.js" />
     <Compile Include="Scales\ChartGrid.js" />
-    <Compile Include="Spaces\ChartSpace.js" />
+    <Compile Include="Spaces\ChartingSpace.js" />
     <Compile Include="ChartUtilities.js" />
     <Compile Include="Container.js" />
     <Compile Include="Dashboard.js" />

@@ -41,6 +41,11 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const DEBUG = {}
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 5 // This regulates some behavious changes that happens when the user zoom out below this level.
+const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 5  // This help regulate when to change the Time Frame base on the level of zoom out.
+const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 5  
+
 let FONT_ASPECT_RATIO = 0.32;
 
 
@@ -116,7 +121,7 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-window.AT_BREAKPOINT = false;
+SHOW_ANIMATION_PERFORMACE = false;
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY
@@ -160,10 +165,10 @@ const _3_MINUTES_IN_MILISECONDS = 3 * 60 * 1000;
 const _2_MINUTES_IN_MILISECONDS = 2 * 60 * 1000;
 const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
-let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartSpace.viewport.initialize if the user had a prevous session with this same browser.
+let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartSpace.viewport.initialize if the user had a prevous session with this same browser.
-let VERY_LARGE_NUMBER = 100000000000
+let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let VERY_LARGE_NUMBER = 100000000000000
 
 let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
 let AT_FULL_SCREEN_MODE = false
@@ -175,7 +180,7 @@ maxDate.setDate(maxDate.getDate() + 365 * 1);  // We might have charts that proj
 const MIN_PLOTABLE_DATE = new Date(2015, 0, 1, 0, 0, 0);
 const MAX_PLOTABLE_DATE = maxDate;
 
-const TOP_SPACE_HEIGHT = 2
+const TOP_SPACE_HEIGHT = 40
 const COCKPIT_SPACE_HEIGHT = 30;
 const BREAKPOINT_HEIGHT = 15;
 const SIDE_PANEL_WIDTH = 450
@@ -202,11 +207,14 @@ const PERIOD_05_MIN = "05-min";
 const PERIOD_01_MIN = "01-min";
 
 /*
-We define here the size of the chartSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
+We define here the size of the chartingSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const TIME_MACHINE_WIDTH = 250;
-const TIME_MACHINE_HEIGHT = 250 / 50;
+const TIME_MACHINE_WIDTH = 320;
+const TIME_MACHINE_HEIGHT = 120;
+
+let mediaRecorder // to downloadText canvas animation as a mediaRecorder
+let areWeRecording = false
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

@@ -472,7 +472,7 @@ function newLayer () {
 
     let icon2
     if (plotterModule.code.icon !== undefined) {
-      icon2 = canvas.designerSpace.iconCollection.get(plotterModule.code.icon)
+      icon2 = canvas.designSpace.iconCollection.get(plotterModule.code.icon)
     }
 
     let icon3 = getIcon(baseAsset)
@@ -490,9 +490,9 @@ function newLayer () {
         }
       }
       if (iconName !== undefined) {
-        icon = canvas.designerSpace.iconCollection.get(iconName)
+        icon = canvas.designSpace.iconCollection.get(iconName)
       } else {
-        icon = canvas.designerSpace.iconCollection.get(nodeDefinition.icon)
+        icon = canvas.designSpace.iconCollection.get(nodeDefinition.icon)
       }
       return icon
     }

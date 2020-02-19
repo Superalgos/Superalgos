@@ -27,15 +27,18 @@ function newAnimation () {
 
   let totalConsumption = 0
   let totalCounter = 0
-
+  let pointerIcon
+  let videoRecorder
   return thisObject
 
   function finalize () {
     thisObject.stop()
+    pointerIcon = undefined
+    videoRecorder = undefined
   }
 
   function initialize () {
-
+    videoRecorder = newVideoRecorder()
   }
 
   function start () {
@@ -73,8 +76,9 @@ function newAnimation () {
         let mustExecute
 
         // console.clear()
-
+        let row = 0
         for (const [key, callBackFunction] of callBackFunctions.entries()) {
+          row++
           switch (key) {
             case 'Floating Space Physics':
               chanceToExecute = 50
@@ -86,14 +90,13 @@ function newAnimation () {
             }
 
           }
+          let timeConsumed = 0
           if (mustExecute === true) {
             let t0 = performance.now()
             callBackFunction()
             let t1 = performance.now()
-            let timeConsumed = t1 - t0
-            if (key === 'Chart Space Draw') {
-              // console.log(key, (totalConsumption / totalCounter).toFixed(1))
-
+            timeConsumed = t1 - t0
+            if (key === 'Charting Space Draw') {
               if (Math.random() * 100 > 99) {
                 totalConsumption = 0
                 totalCounter = 0
@@ -109,16 +112,35 @@ function newAnimation () {
         }
 
         /* Performance Check */
-
-        for (const [key, timeConsumed] of performanceMap.entries()) {
-          let percentage = timeConsumed * 100 / totalTimeConsumed
-          if (key === 'Chart Space Draw') {
-                      // console.log(key, percentage.toFixed(0))
+        if (SHOW_ANIMATION_PERFORMACE === true) {
+          row = 0
+          for (const [key, timeConsumed] of performanceMap.entries()) {
+            row++
+            labelToPrint = key + '   ' + timeConsumed.toFixed(4)
+            printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
+            let percentage = timeConsumed * 100 / totalTimeConsumed
+            labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
+            printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
           }
+
+          /* Other Variables */
+          row++
+          printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
         }
       } else {
         browserCanvas.width = 1
         browserCanvas.height = 1
+      }
+
+      /* Media Recording */
+      if (areWeRecording === true) {
+        videoRecorder.recordCanvas()
       }
 
       /* We request the next frame to be drawn, and stablishing a loop */
@@ -148,4 +170,3 @@ function newAnimation () {
     browserCanvasContext.fill()
   }
 }
-

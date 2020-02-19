@@ -384,7 +384,7 @@ function newUiObjectsFromNodes () {
     payload.node = node
     payload.parentNode = parentNode
     payload.chainParent = chainParent
-    payload.onMenuItemClick = canvas.designerSpace.workspace.onMenuItemClick
+    payload.onMenuItemClick = canvas.designSpace.workspace.onMenuItemClick
 
     node.payload = payload
     node.type = uiObjectType

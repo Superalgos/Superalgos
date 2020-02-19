@@ -82,7 +82,7 @@ function convertTimeFrameToName (pTimeFrame) {
   }
 }
 
-function download (filename, text) {
+function downloadText (filename, text) {
   let element = document.createElement('a')
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
   element.setAttribute('download', filename)
@@ -92,20 +92,37 @@ function download (filename, text) {
   document.body.removeChild(element)
 }
 
+function downloadCanvas (filename) {
+  let data = browserCanvas.toDataURL('image/png', 1)
+  /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+  data = data.replace(/^data:image\/[^;]*/, 'data:application/octet-stream')
+
+  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+  data = data.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=' + filename + '.png')
+
+  let element = document.createElement('a')
+  element.setAttribute('href', data)
+  element.setAttribute('download', filename + '.PNG')
+  element.style.display = 'none'
+  document.body.appendChild(element)
+  element.click()
+  document.body.removeChild(element)
+};
+
 function transformThisPoint (point, container) {
     /* We make the point relative to the current frame */
 
   point = container.frame.frameThisPoint(point)
 
-    /* We pass this point through the canvas.chartSpace.viewport lends, meaning we apply the canvas.chartSpace.viewport zoom and displacement. */
+    /* We pass this point through the canvas.chartingSpace.viewport lends, meaning we apply the canvas.chartingSpace.viewport zoom and displacement. */
 
-  point = canvas.chartSpace.viewport.transformThisPoint(point)
+  point = canvas.chartingSpace.viewport.transformThisPoint(point)
 
   return point
 }
 
 function unTransformThisPoint (point, container) {
-  point = canvas.chartSpace.viewport.unTransformThisPoint(point)
+  point = canvas.chartingSpace.viewport.unTransformThisPoint(point)
   point = container.frame.unframeThisPoint(point)
 
   return point
@@ -124,7 +141,7 @@ function pad (str, max) {
   return str.length < max ? pad('0' + str, max) : str
 }
 
-function getDateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
@@ -133,8 +150,38 @@ function getDateFromPoint (point, container, coordinateSystem) {
   return date
 }
 
-function getRateFromPoint (point, container, coordinateSystem) {
+function getDateFromPointAtChartsSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getDateFromPointAtContainer (point, container, coordinateSystem) {
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  let date = new Date(point.x)
+
+  return date
+}
+
+function getRateFromPointAtBrowserCanvas (point, container, coordinateSystem) {
   point = unTransformThisPoint(point, container)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtChartingSpace (point, container, coordinateSystem) {
+  point = container.frame.unframeThisPoint(point)
+  point = coordinateSystem.unInverseTransform(point, container.frame.height)
+
+  return point.y
+}
+
+function getRateFromPointAtContainer (point, container, coordinateSystem) {
   point = coordinateSystem.unInverseTransform(point, container.frame.height)
 
   return point.y
@@ -153,14 +200,14 @@ function moveToUserPosition (container, currentDate, currentRate, coordinateSyst
     y: currentRate
   }
 
-  /* Put this point in the coordinate system of the canvas.chartSpace.viewport */
+  /* Put this point in the coordinate system of the canvas.chartingSpace.viewport */
   targetPoint = coordinateSystem.transformThisPoint(targetPoint)
   targetPoint = transformThisPoint(targetPoint, container)
 
   let displaceVector
 
-  let targetNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(targetPoint)
-  let mouseNoZoom = canvas.chartSpace.viewport.unTransformThisPoint(mousePosition)
+  let targetNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(targetPoint)
+  let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mousePosition)
 
   displaceVector = {
     x: mouseNoZoom.x - targetNoZoom.x,
@@ -181,16 +228,14 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function printLabel (labelToPrint, x, y, opacity, fontSize) {
+function printLabel (labelToPrint, x, y, opacity, fontSize, color) {
   let labelPoint
+  if (color === undefined) { color = UI_COLOR.DARK }
 
   browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
   let label = '' + labelToPrint
-
   let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
+  browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
   browserCanvasContext.fillText(label, x, y)
 }
 

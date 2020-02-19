@@ -37,9 +37,13 @@ These are a few examples of use cases demanding significant processing power:
 
 The system is not RAM-intensive. One dedicated gigabyte should be enough for intensive use, and two gigabytes may be required for extreme charting. Those are ball-park, non-scientific figures.
 
+## Graphics Processing Unit
+
+The system benefits from a powerful GPU, as all of the visual experience Superalgos enables derives from the implementation of an HTML5 canvas animation. The more powerful your GPU, the more data you will be able to visualize at the same time, and the more fluid the visual experience becomes.
+
 ## Console/Command Line
 
-Processes started from the system log their activity on the default console application, or the console used to fire up the app. Windows Command Prompt is particularly bad. It is recommended to install and use a decent application, such as <a href="https://cmder.net/" rel="nofollow" rel="noopener" target="_blank">Console Emulator Cmder<a/> This will save you time and hassle in the long run.
+Processes started from the system log their activity on the default console application, or the console used to fire up the app. Windows Command Prompt is particularly bad. It is recommended to install and use a decent application, such as <a href="https://cmder.net/" rel="nofollow" rel="noopener" target="_blank">Console Emulator Cmder<a/>. This will save you time and hassle in the long run.
 
 ## Deploying a Linux VPS to Trade Live
 

@@ -23,7 +23,7 @@ Traders rely on datasets for backtesting. The system retrieves raw trades data d
 
 The volume of trades data generated at exchanges is significant. Exchanges APIs impose limits on the bandwidth of data you may retrieve from your machine per unit of time. Different exchanges have different transaction volumes, and imposse different limits.
 
-For those reasons, retrieving historic data takes considerably different times on each exchange. For example, retrieving the USDT-BTC market for the whole of 2019 from Poloniex may take three to four hours. The same period for Bitmex may take double or more.
+For those reasons, retrieving historic data takes considerably different times on each exchange. For example, retrieving the USDT-BTC market for the whole of 2019 from Bitfinex may take three to four hours. The same period for Bitmex may take several days.
 
 A third factor affecting data-retrieval times and initial candles-processing is the computational power of your machine. Check the [system requirements](suite-system-requirements.html) for more details in this regard.
 

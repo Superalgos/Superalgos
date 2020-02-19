@@ -66,13 +66,13 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
 
             if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Team. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Team witn no codeName defined. Team = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -81,7 +81,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             dataDependencyNode.dataSet = dataDependencyNode.referenceParent.code.codeName
             dataDependencyNode.product = dataDependencyNode.referenceParent.parentNode.code.codeName
             dataDependencyNode.bot = dataDependencyNode.referenceParent.parentNode.parentNode.code.codeName
-            dataDependencyNode.devTeam = dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+            dataDependencyNode.dataMine = dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
 
             /* This stuff is still hardcoded and unresolved. */
             dataDependencyNode.botVersion = {
@@ -104,11 +104,11 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let filePathRoot = dataDependencyNode.devTeam + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
+            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "/" + bot.exchange;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
-            fileStorage.getTextFile(dataDependencyNode.devTeam, filePath, onFileReceived);
+            fileStorage.getTextFile(filePath, onFileReceived);
 
             function onFileReceived(err, text) {
 
@@ -132,8 +132,8 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName); }
 
-            let ownerId = dataDependencyNode.devTeam + "-" + dataDependencyNode.bot + "-" + dataDependencyNode.botVersion.major + "-" + dataDependencyNode.botVersion.minor + "-" + dataDependencyNode.dataSetVersion;
-            let botId = bot.devTeam + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
+            let ownerId = dataDependencyNode.dataMine + "-" + dataDependencyNode.bot + "-" + dataDependencyNode.botVersion.major + "-" + dataDependencyNode.botVersion.minor + "-" + dataDependencyNode.dataSetVersion;
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
 
@@ -146,10 +146,10 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = dataDependencyNode.devTeam + "/" + dataDependencyNode.bot + "." + dataDependencyNode.botVersion.major + "." + dataDependencyNode.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + dataDependencyNode.dataSetVersion;
+            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "/" + bot.exchange;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
-            fileStorage.createTextFile(dataDependencyNode.devTeam, filePath, pFileContent, onFileCreated);
+            fileStorage.createTextFile(filePath, pFileContent, onFileCreated);
 
             function onFileCreated(err) {
 

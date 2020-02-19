@@ -40,9 +40,8 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 process.on('exit', function (code) {
-
+    
     /* We send an event signaling that the Task is being terminated. */
-
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Task Stopped
@@ -50,7 +49,7 @@ process.on('exit', function (code) {
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
 
-    console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
+    //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
 
 /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
@@ -63,7 +62,8 @@ process.on('message', message => {
         There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
         In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
         */
-        console.log('[INFO] Task Server -> server -> process.on -> Executing order received from Task Manager to Stop this Task. Nodejs process will be exited in less than 1 minute.')
+        let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+        console.log('[INFO] Task Server -> server -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
         setTimeout(global.EXIT_NODE_PROCESS, 60000);
     } 
 });
@@ -81,7 +81,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
-    console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
+    //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
 
     setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
 }
@@ -89,11 +89,6 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 require('dotenv').config();
 
 global.WRITE_LOGS_TO_FILES = process.env.WRITE_LOGS_TO_FILES
-
-/* Default parameters can be changed by the execution configuration */
-global.EXCHANGE_NAME = 'Poloniex'
-global.MARKET = { assetA: 'USDT', assetB: 'BTC' }
-global.CLONE_EXECUTOR = { codeName: 'AACloud', version: '1.1' } // NOTE: To refactor the name of this variable you would need to go through the bots code that are using it.
 
 /*
 We need to count how many process instances we deployd and how many of them have already finished their job, either
@@ -124,7 +119,7 @@ function preLoader() {
     if (taskId !== undefined) {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
-            console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
+            //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
             global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
             function eventReceived(message) {
                 global.TASK_NODE = message
@@ -138,7 +133,7 @@ function preLoader() {
     }
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
         try { 
-            console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
+            //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
@@ -174,7 +169,47 @@ function bootLoader() {
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let code = global.TASK_NODE.bot.processes[processIndex].code
 
-        /* Validate that the minimun amount of parameters required are defined. */
+        /* Validate that the minimun amount of input required are defined. */
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Market Reference. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market Reference without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Exchange Markets without a Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Base Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market without a Quoted Asset. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Base Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset));
+            continue
+        }
+
+        if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent === undefined) {
+            console.log("[WARN] Task Server -> server -> bootLoader -> Quoted Asset without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset));
+            continue
+        }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Process Instance without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex]));
@@ -187,7 +222,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without parent Team. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without parent Data Mine. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
@@ -202,7 +237,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Team without a codeName defined. -> Team Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
 
@@ -212,7 +247,7 @@ function bootLoader() {
 
 function startRoot(processIndex) {
 
-    console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
+   // console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_MODULE = require('./Root')
     let root = ROOT_MODULE.newRoot()
@@ -220,7 +255,7 @@ function startRoot(processIndex) {
     root.initialize(onInitialized)
 
     function onInitialized() {
-        console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
+        //console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
         root.start(processIndex)
     }
 }

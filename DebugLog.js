@@ -37,10 +37,12 @@ exports.newDebugLog = function newDebugLog() {
         }
     }
 
-    function newInternalLoop(pBot, pProcess) {
+    function newInternalLoop(pBot, pProcess, date) {
 
+        if (date === undefined) { date = thisObject.bot.processDatetime }
 
-        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 4) + " bot.processDatetime = " + thisObject.bot.processDatetime.toISOString());
+        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10)
+            + "      Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date.toISOString(), 30))  
 
         persist();
 
@@ -92,22 +94,22 @@ exports.newDebugLog = function newDebugLog() {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
-                let fileContent = fileStorage.getTextFile(thisObject.bot.devTeam, fileToDelete, onGetFile, true) 
+                let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true) 
                 function onGetFile(err, fileContent) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         if (fileContent.indexOf("ERROR") < 0) {
                             /* Logs will only be deleted when they contain no ERROR in them. */
-                            fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                            fileStorage.deleteTextFile(fileToDelete);
                         } 
                     } else {
-                        fileStorage.deleteTextFile(thisObject.bot.devTeam, fileToDelete);
+                        fileStorage.deleteTextFile(fileToDelete);
                     }
                 }
             }
              
             function writeLog() {
 
-                fileStorage.createTextFile(thisObject.bot.devTeam, filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+                fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
                 function onFileCreated(err) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);
@@ -149,7 +151,7 @@ exports.newDebugLog = function newDebugLog() {
             if (process.env.CONSOLE_LOG === "true" || message.indexOf("ERROR") > 0) {
                 let key = ''
                 if (thisObject.bot) {
-                    key = thisObject.bot.devTeam + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
+                    key = thisObject.bot.dataMine + '-' + thisObject.bot.codeName + '-' + thisObject.bot.process
                 }
                 console.log('*********** ' + message + ' @ ' + key)
             }

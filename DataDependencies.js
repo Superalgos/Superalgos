@@ -79,7 +79,7 @@
 
                     let key;
 
-                    key = thisObject.nodeArray[i].devTeam + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].product + "-" + thisObject.nodeArray[i].dataSet + "-" + thisObject.nodeArray[i].dataSetVersion;
+                    key = thisObject.nodeArray[i].dataMine + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].product + "-" + thisObject.nodeArray[i].dataSet + "-" + thisObject.nodeArray[i].dataSetVersion;
 
                     thisObject.keys.push(key);
                     thisObject.dataSets.set(key, dataSetModule);

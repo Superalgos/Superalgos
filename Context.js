@@ -36,8 +36,8 @@
             newPositions: 0,
             newTrades: 0,
             movedPositions: 0,
-            profitsAssetA: 0,
-            profitsAssetB: 0,
+            profitsBaseAsset: 0,
+            profitsQuotedAsset: 0,
             combinedProfitsA: 0,
             combinedProfitsB: 0,
             messageRelevance: 0,
@@ -134,7 +134,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> getStatusReport -> Entering function."); }
 
-                    let key = bot.devTeam + "-" + bot.codeName + "-" + "Context" + "-" + bot.dataSetVersion;
+                    let key = bot.dataMine + "-" + bot.codeName + "-" + "Context" + "-" + bot.dataSetVersion;
 
                     statusReportModule = statusDependencies.statusReports.get(key);
                     thisObject.statusReport = statusReportModule.file;
@@ -168,7 +168,7 @@
                     let fileName = "Execution.History." + bot.startMode + "." + runIndex + ".json";
                     let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/"  + fileName;
 
-                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                    fileStorage.getTextFile(filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -229,7 +229,7 @@
                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
                     let filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" +  dateForPath + fileName;
 
-                    fileStorage.getTextFile(bot.devTeam, filePath, onFileReceived);
+                    fileStorage.getTextFile(filePath, onFileReceived);
 
                     function onFileReceived(err, text) {
 
@@ -250,11 +250,11 @@
 
                             /* Update the new History Record, in case there are no trades during this execution that updates it. */
 
-                            thisObject.newHistoryRecord.profitsAssetA = thisObject.executionContext.profits.assetA;
-                            thisObject.newHistoryRecord.profitsAssetB = thisObject.executionContext.profits.assetB;
+                            thisObject.newHistoryRecord.profitsBaseAsset = thisObject.executionContext.profits.baseAsset;
+                            thisObject.newHistoryRecord.profitsQuotedAsset = thisObject.executionContext.profits.quotedAsset;
 
-                            thisObject.newHistoryRecord.combinedProfitsA = thisObject.executionContext.combinedProfits.assetA;
-                            thisObject.newHistoryRecord.combinedProfitsB = thisObject.executionContext.combinedProfits.assetB;
+                            thisObject.newHistoryRecord.combinedProfitsA = thisObject.executionContext.combinedProfits.baseAsset;
+                            thisObject.newHistoryRecord.combinedProfitsB = thisObject.executionContext.combinedProfits.quotedAsset;
 
                             callBack(global.DEFAULT_OK_RESPONSE);
 
@@ -315,24 +315,24 @@
 
                     thisObject.executionContext = {
                         initialBalance: {                               // This is used to calculate profits.
-                            assetA: INITIAL_BALANCE_A,
-                            assetB: INITIAL_BALANCE_B
+                            baseAsset: INITIAL_BALANCE_A,
+                            quotedAsset: INITIAL_BALANCE_B
                         },
                         balance: {                                  // This is the total balance that includes positions at the order book + funds available to be traded.
-                            assetA: INITIAL_BALANCE_A,
-                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
+                            baseAsset: INITIAL_BALANCE_A,
+                            quotedAsset: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         availableBalance: {                         // This is the balance the bot has at any moment in time available to be traded (not in positions at the order book).
-                            assetA: INITIAL_BALANCE_A,
-                            assetB: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
+                            baseAsset: INITIAL_BALANCE_A,
+                            quotedAsset: INITIAL_BALANCE_B              // It starts with the initial initialBalance.
                         },
                         profits: {
-                            assetA: 0,
-                            assetB: 0
+                            baseAsset: 0,
+                            quotedAsset: 0
                         },
                         combinedProfits: {
-                            assetA: 0,
-                            assetB: 0
+                            baseAsset: 0,
+                            quotedAsset: 0
                         },
                         positions: [],
                         transactions: []
@@ -411,7 +411,7 @@
 
                     if (global.LOG_CONTROL[MODULE_NAME].logContent === true) { logger.write(MODULE_NAME, "[INFO] saveThemAll -> writeExecutionContext -> fileContent = " + fileContent); }
 
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -457,8 +457,8 @@
                         thisObject.newHistoryRecord.newPositions,
                         thisObject.newHistoryRecord.newTrades,
                         thisObject.newHistoryRecord.movedPositions,
-                        thisObject.newHistoryRecord.profitsAssetA,
-                        thisObject.newHistoryRecord.profitsAssetB,
+                        thisObject.newHistoryRecord.profitsBaseAsset,
+                        thisObject.newHistoryRecord.profitsQuotedAsset,
                         thisObject.newHistoryRecord.combinedProfitsA,
                         thisObject.newHistoryRecord.combinedProfitsB,
 
@@ -472,7 +472,7 @@
 
                     let fileContent = JSON.stringify(thisObject.executionHistory);
 
-                    fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onFileCreated);
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
 
@@ -494,7 +494,7 @@
                         fileName = "Execution.History." + bot.startMode + "." + "Sequence" + ".json";
                         filePath = bot.filePathRoot + "/Output/" + sessionPath + "Trading-Process/" + fileName;
 
-                        fileStorage.createTextFile(bot.devTeam, filePath, fileContent + '\n', onSequenceFileCreated);
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onSequenceFileCreated);
 
                         function onSequenceFileCreated(err) {
 

@@ -35,19 +35,18 @@
     function runSimulation(
         chart,
         dataDependencies,
-        timePeriod,
-        timePeriodLabel,
+        timeFrame,
+        timeFrameLabel,
         currentDay,
         interExecutionMemory,
-        assistant,
+        exchangeAPI,
         callback,
         callBackFunction) {
 
         try {
-
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> Entering function."); }
             let processingDailyFiles
-            if (timePeriod > global.dailyFilePeriods[0][0]) {
+            if (timeFrame > global.dailyFilePeriods[0][0]) {
                 processingDailyFiles = false
             } else {
                 processingDailyFiles = true
@@ -58,7 +57,7 @@
             let strategiesArray = [];
             let tradesArray = [];
 
-            let tradingSystem = bot.DEFINITION.tradingSystem;
+            let tradingSystem = bot.TRADING_SYSTEM 
 
             /* Initial Default Values */
 
@@ -117,8 +116,8 @@
             */
 
             /*Needed for statistics */
-            let previousBalanceAssetA = 0;
-            let previousBalanceAssetB = 0;
+            let previousBalanceBaseAsset = 0;
+            let previousBalanceQuotedAsset = 0;
 
             /* Position Management */
             let tradePositionRate = 0;
@@ -155,8 +154,8 @@
                 endRate: 0
             }
 
-            let balanceAssetA = bot.VALUES_TO_USE.initialBalanceA;
-            let balanceAssetB = bot.VALUES_TO_USE.initialBalanceB;
+            let balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA;
+            let balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB;
 
             let lastTradeProfitLoss = 0;
             let profit = 0;
@@ -167,6 +166,8 @@
             let hits = 0;
             let periods = 0;
             let positionPeriods = 0;
+
+            let closeRate
 
             /* Usefull counters for conditions and formulas */
 
@@ -189,8 +190,8 @@
             yesterday.stopLoss = 0
             yesterday.takeProfit = 0
 
-            yesterday.previousBalanceAssetA = previousBalanceAssetA
-            yesterday.previousBalanceAssetB = previousBalanceAssetB
+            yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
+            yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
             yesterday.tradePositionRate = tradePositionRate
             yesterday.tradePositionSize = tradePositionSize
@@ -223,8 +224,8 @@
                 endRate: 0
             }
 
-            yesterday.balanceAssetA = balanceAssetA;
-            yesterday.balanceAssetB = balanceAssetB;
+            yesterday.balanceBaseAsset = balanceBaseAsset;
+            yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
             yesterday.lastTradeProfitLoss = 0;
             yesterday.profit = 0;
@@ -257,8 +258,8 @@
                 interExecutionMemory.stopLoss = 0
                 interExecutionMemory.takeProfit = 0
 
-                interExecutionMemory.previousBalanceAssetA = previousBalanceAssetA
-                interExecutionMemory.previousBalanceAssetB = previousBalanceAssetB
+                interExecutionMemory.previousBalanceBaseAsset = previousBalanceBaseAsset
+                interExecutionMemory.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
                 interExecutionMemory.tradePositionRate = tradePositionRate
                 interExecutionMemory.tradePositionSize = tradePositionSize
@@ -291,8 +292,8 @@
                     endRate: 0
                 }
 
-                interExecutionMemory.balanceAssetA = balanceAssetA;
-                interExecutionMemory.balanceAssetB = balanceAssetB;
+                interExecutionMemory.balanceBaseAsset = balanceBaseAsset;
+                interExecutionMemory.balanceQuotedAsset = balanceQuotedAsset;
 
                 interExecutionMemory.lastTradeProfitLoss = lastTradeProfitLoss;
                 interExecutionMemory.profit = profit;
@@ -327,8 +328,8 @@
                 stopLoss = interExecutionMemory.stopLoss
                 takeProfit = interExecutionMemory.takeProfit
 
-                previousBalanceAssetA = interExecutionMemory.previousBalanceAssetA
-                previousBalanceAssetB = interExecutionMemory.previousBalanceAssetB
+                previousBalanceBaseAsset = interExecutionMemory.previousBalanceBaseAsset
+                previousBalanceQuotedAsset = interExecutionMemory.previousBalanceQuotedAsset
 
                 tradePositionRate = interExecutionMemory.tradePositionRate
                 tradePositionSize = interExecutionMemory.tradePositionSize
@@ -364,11 +365,11 @@
                 if (currentDay) {
                     if (currentDay.valueOf() >= bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
-                        balanceAssetA = interExecutionMemory.balanceAssetA;
-                        balanceAssetB = interExecutionMemory.balanceAssetB;
+                        balanceBaseAsset = interExecutionMemory.balanceBaseAsset;
+                        balanceQuotedAsset = interExecutionMemory.balanceQuotedAsset;
 
-                        yesterday.balanceAssetA = balanceAssetA;
-                        yesterday.balanceAssetB = balanceAssetB;
+                        yesterday.balanceBaseAsset = balanceBaseAsset;
+                        yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
                     }
                 }
@@ -400,8 +401,8 @@
                 yesterday.stopLoss = stopLoss
                 yesterday.takeProfit = takeProfit
 
-                yesterday.previousBalanceAssetA = previousBalanceAssetA
-                yesterday.previousBalanceAssetB = previousBalanceAssetB
+                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
+                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
                 yesterday.tradePositionRate = tradePositionRate
                 yesterday.tradePositionSize = tradePositionSize
@@ -456,7 +457,7 @@
 
             /* Main Array and Maps */
 
-            let propertyName = 'at' + timePeriodLabel.replace('-', '');
+            let propertyName = 'at' + timeFrameLabel.replace('-', '');
             let candles = chart[propertyName].candles
             let currentChart = chart[propertyName]
 
@@ -480,7 +481,7 @@
                 let firstEnd = candles[0].end
                 let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
                 let diff = targetEnd - firstEnd
-                let amount = diff / timePeriod
+                let amount = diff / timeFrame
 
                 currentCandleIndex = Math.trunc(amount)
                 if (currentCandleIndex < 0) { currentCandleIndex = 0 }
@@ -555,8 +556,6 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle Begin @ " + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Candle End @ " + (new Date(candle.end)).toLocaleString()) }
 
-                /* Assistant Info */
-
                 let ticker = {
                     bid: candle.close,
                     ask: candle.close,
@@ -594,7 +593,7 @@
                 }
 
                 periods++;
-                days = periods * timePeriod / ONE_DAY_IN_MILISECONDS;
+                days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 if (processingDailyFiles) {
                     if (positionedAtYesterday) {
@@ -602,7 +601,7 @@
                     }
 
                     /* We skip the candle at the head of the market because currentCandleIndex has not closed yet. */
-                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timePeriod
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / timeFrame
                     if (currentCandleIndex === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /*We are at the head of the market, thus we skip the last candle because it has not close yet. */
@@ -707,11 +706,11 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionSize = balanceAssetA;
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            positionSize = balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
-                            positionSize = balanceAssetB;
+                            positionSize = balanceQuotedAsset;
                             positionRate = candle.close;
                         }
 
@@ -730,16 +729,16 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                positionSize = balanceAssetA;
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                                positionSize = balanceBaseAsset;
                                             } else {
-                                                positionSize = balanceAssetB;
+                                                positionSize = balanceQuotedAsset;
                                             }
                                         } else {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                                if (positionSize > balanceAssetA) { positionSize = balanceAssetA }
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                                if (positionSize > balanceBaseAsset) { positionSize = balanceBaseAsset }
                                             } else {
-                                                if (positionSize > balanceAssetB) { positionSize = balanceAssetB }
+                                                if (positionSize > balanceQuotedAsset) { positionSize = balanceQuotedAsset }
                                             }
                                         }
                                     }
@@ -757,7 +756,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -1094,12 +1093,12 @@
                     let maximumBalance
                     let balance
 
-                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                        balance = balanceAssetA
+                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        balance = balanceBaseAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
                     } else {
-                        balance = balanceAssetB
+                        balance = balanceQuotedAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
@@ -1361,45 +1360,47 @@
                         }
                     }
 
-                    let phase = parentNode.stopLoss.phases[p];
+                    if (parentNode !== undefined) {
+                        let phase = parentNode.stopLoss.phases[p];
 
-                    let nextPhaseEvent = phase.nextPhaseEvent;
-                    if (nextPhaseEvent !== undefined) {
+                        let nextPhaseEvent = phase.nextPhaseEvent;
+                        if (nextPhaseEvent !== undefined) {
 
-                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                            let situation = nextPhaseEvent.situations[k];
-                            let passed = true;
+                                let situation = nextPhaseEvent.situations[k];
+                                let passed = true;
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
-                                let value = false
-                                if (conditions.get(key) !== undefined) {
-                                    value = conditions.get(key).value;
-                                }
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                stopLossPhase++;
-                                stopLossStage = 'Manage Stage'
-                                if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
-
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.stopLossPhase = stopLossPhase;
-                                        yesterday.stopLossStage = stopLossStage;
-                                        yesterday.strategyStage = strategyStage;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
                                     }
+
+                                    if (value === false) { passed = false; }
                                 }
 
-                                checkAnnouncements(nextPhaseEvent)
-                                return;
+                                if (passed) {
+
+                                    stopLossPhase++;
+                                    stopLossStage = 'Manage Stage'
+                                    if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.stopLossPhase = stopLossPhase;
+                                            yesterday.stopLossStage = stopLossStage;
+                                            yesterday.strategyStage = strategyStage;
+                                        }
+                                    }
+
+                                    checkAnnouncements(nextPhaseEvent)
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1490,45 +1491,47 @@
                         }
                     }
 
-                    let phase = parentNode.takeProfit.phases[p];
+                    if (parentNode !== undefined) {
+                        let phase = parentNode.takeProfit.phases[p];
 
-                    let nextPhaseEvent = phase.nextPhaseEvent;
-                    if (nextPhaseEvent !== undefined) {
+                        let nextPhaseEvent = phase.nextPhaseEvent;
+                        if (nextPhaseEvent !== undefined) {
 
-                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                            for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
-                            let situation = nextPhaseEvent.situations[k];
-                            let passed = true;
+                                let situation = nextPhaseEvent.situations[k];
+                                let passed = true;
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
+                                for (let m = 0; m < situation.conditions.length; m++) {
 
-                                let condition = situation.conditions[m];
-                                let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
+                                    let condition = situation.conditions[m];
+                                    let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
-                                let value = false
-                                if (conditions.get(key) !== undefined) {
-                                    value = conditions.get(key).value;
-                                }
-
-                                if (value === false) { passed = false; }
-                            }
-
-                            if (passed) {
-
-                                takeProfitPhase++;
-                                takeProfitStage = 'Manage Stage'
-                                if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
-
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.takeProfitPhase = takeProfitPhase;
-                                        yesterday.takeProfitStage = takeProfitStage;
-                                        yesterday.strategyStage = strategyStage;
+                                    let value = false
+                                    if (conditions.get(key) !== undefined) {
+                                        value = conditions.get(key).value;
                                     }
+
+                                    if (value === false) { passed = false; }
                                 }
 
-                                checkAnnouncements(nextPhaseEvent)
-                                return;
+                                if (passed) {
+
+                                    takeProfitPhase++;
+                                    takeProfitStage = 'Manage Stage'
+                                    if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
+
+                                    if (processingDailyFiles) {
+                                        if (positionedAtYesterday) {
+                                            yesterday.takeProfitPhase = takeProfitPhase;
+                                            yesterday.takeProfitStage = takeProfitStage;
+                                            yesterday.strategyStage = strategyStage;
+                                        }
+                                    }
+
+                                    checkAnnouncements(nextPhaseEvent)
+                                    return;
+                                }
                             }
                         }
                     }
@@ -1593,7 +1596,7 @@
                     }
 
                     positionPeriods++;
-                    positionDays = positionPeriods * timePeriod / ONE_DAY_IN_MILISECONDS;
+                    positionDays = positionPeriods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                     if (processingDailyFiles) {
                         if (positionedAtYesterday) {
@@ -1672,7 +1675,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.min <= stopLoss)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.min <= stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1682,7 +1685,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             if (stopLoss < candle.min) {
                                 stopLoss = candle.min
                                 if (processingDailyFiles) {
@@ -1707,42 +1710,15 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
                         }
 
-                        let finalStopLoss = slippedStopLoss;
+                        closeRate = slippedStopLoss;
 
-                        let feePaid = 0
-
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / finalStopLoss;
-                            strategy.positionRate = finalStopLoss;
-
-                            feePaid = balanceAssetB / finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalStopLoss - feePaid;
-                            balanceAssetB = 0;
-                        } else {
-                            strategy.positionSize = balanceAssetA * finalStopLoss;
-                            strategy.positionRate = finalStopLoss;
-
-                            feePaid = balanceAssetA * finalStopLoss * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalStopLoss - feePaid;
-                            balanceAssetA = 0;
-                        }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
-                            }
-                        }
-
-                        marketRate = finalStopLoss;
+                        marketRate = closeRate;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1750,7 +1726,7 @@
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 1;
-                        currentTrade.endRate = finalStopLoss;
+                        currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
 
@@ -1769,7 +1745,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === 'BTC' && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== 'BTC' && candle.max >= takeProfit)) {
+                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.max >= takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1779,7 +1755,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             if (takeProfit > candle.max) {
                                 takeProfit = candle.max
                                 if (processingDailyFiles) {
@@ -1803,43 +1779,15 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
                         }
 
-                        let finalTakeProfit = slippedTakeProfit;
+                        closeRate = slippedTakeProfit;
 
-                        let feePaid = 0
-
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            strategy.positionSize = balanceAssetB / finalTakeProfit;
-                            strategy.positionRate = finalTakeProfit;
-
-                            feePaid = balanceAssetB / finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceAssetA = balanceAssetA + balanceAssetB / finalTakeProfit - feePaid;
-                            balanceAssetB = 0;
-                        } else {
-                            strategy.positionSize = balanceAssetA * finalTakeProfit;
-                            strategy.positionRate = finalTakeProfit;
-
-                            feePaid = balanceAssetA * finalTakeProfit * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            balanceAssetB = balanceAssetB + balanceAssetA * finalTakeProfit - feePaid;
-                            balanceAssetA = 0;
-                        }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
-
-                            }
-                        }
-
-                        marketRate = finalTakeProfit;
+                        marketRate = closeRate;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         stopLossStage = 'No Stage';
@@ -1848,7 +1796,7 @@
                         currentTrade.end = candle.end;
                         currentTrade.status = 1;
                         currentTrade.exitType = 2;
-                        currentTrade.endRate = finalTakeProfit;
+                        currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
 
@@ -1892,7 +1840,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                         tradePositionRate = tradePositionRate - slippageAmount
                     } else {
                         tradePositionRate = tradePositionRate + slippageAmount
@@ -1990,20 +1938,7 @@
                             }
                         }
 
-
-                        /* Checking the status of current positions */
-                        let positions = assistant.getPositions();
-                        if (positions.length > 0) {
-                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open.  
-                            if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the last position is still open. "); }
-                                afterLoop();
-                                return
-                            }
-                        }
-
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
@@ -2027,34 +1962,28 @@
                             }
                         }
 
-                        let openPositionRate
+                        let orderPrice
                         let amountA
                         let amountB
-                        let positionDirection
-                        let availableBalance = assistant.getAvailableBalance()
+                        let orderSide
+ 
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionDirection = "sell"
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            orderSide = "sell"
 
-                            openPositionRate = tradePositionRate - 100 // 100 is Provisional since we do have management of orders yet
+                            orderPrice = tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
 
-                            amountA = tradePositionSize * openPositionRate
+                            amountA = tradePositionSize * orderPrice
                             amountB = tradePositionSize
-
-                            if (amountB > availableBalance.assetB) { // The assistant know what fees were paid.
-                                amountB = availableBalance.assetB
-                            }
+ 
                         } else {
-                            positionDirection = "buy"
+                            orderSide = "buy"
 
-                            openPositionRate = tradePositionRate + 100 // 100 is Provisional since we do have management of orders yet
+                            orderPrice = tradePositionRate // This is going to be ingnored at the Exchange API for now since we only put market orders.
 
                             amountA = tradePositionSize
-                            amountB = tradePositionSize / openPositionRate
+                            amountB = tradePositionSize / orderPrice
 
-                            if (amountA > availableBalance.assetA) { // The assistant know what fees were paid.
-                                amountA = availableBalance.assetA
-                            }
                         }
 
                         interExecutionMemory.executionContext = {
@@ -2062,46 +1991,47 @@
                             periods: periods,
                         }
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to put order."); }
-                        assistant.putPosition(positionDirection, openPositionRate, amountA, amountB, onOrderPut)
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order."); }
+                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
 
-                        function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Entering function."); }
+                        function onOrderCreated(err, order) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "In a Position",
                                             periods: periods,
                                             amountA: amountA,
-                                            amountB: amountB
+                                            amountB: amountB,
+                                            orderId: order.id
                                         }
                                         takePositionAtSimulation()
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Message = " + err.message); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = " + err.message); }
                                         strategy.openStage.openExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderCreated ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -2117,13 +2047,13 @@
 
                         marketRate = candle.close;
 
-                        previousBalanceAssetA = balanceAssetA;
-                        previousBalanceAssetB = balanceAssetB;
+                        previousBalanceBaseAsset = balanceBaseAsset;
+                        previousBalanceQuotedAsset = balanceQuotedAsset;
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.previousBalanceAssetA = previousBalanceAssetA;
-                                yesterday.previousBalanceAssetB = previousBalanceAssetB;
+                                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset;
+                                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset;
                             }
                         }
 
@@ -2132,24 +2062,24 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
 
                             feePaid = tradePositionSize * tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetB = balanceAssetB + tradePositionSize * tradePositionRate - feePaid;
-                            balanceAssetA = balanceAssetA - tradePositionSize;
+                            balanceQuotedAsset = balanceQuotedAsset + tradePositionSize * tradePositionRate - feePaid;
+                            balanceBaseAsset = balanceBaseAsset - tradePositionSize;
                         } else {
 
                             feePaid = tradePositionSize / tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceAssetA = balanceAssetA + tradePositionSize / tradePositionRate - feePaid;
-                            balanceAssetB = balanceAssetB - tradePositionSize;
+                            balanceBaseAsset = balanceBaseAsset + tradePositionSize / tradePositionRate - feePaid;
+                            balanceQuotedAsset = balanceQuotedAsset - tradePositionSize;
                         }
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
-                                yesterday.balanceAssetA = balanceAssetA;
-                                yesterday.balanceAssetB = balanceAssetB;
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
 
                                 yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
                                 yesterday.lastTradeROI = lastTradeROI;
@@ -2228,19 +2158,7 @@
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
 
-                        /* Checking the status of current positions */
-                        let positions = assistant.getPositions();
-                        if (positions.length > 0) {
-                            let position = positions[positions.length - 1] // We are allways checking the the last position is not open. 
-                            if (position.status === 'open') {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because status of last position is Open."); }
-                                afterLoop();
-                                return
-                            }
-                        }
-
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-
                         if (interExecutionMemory.executionContext !== undefined) {
                             if (interExecutionMemory.executionContext.periods !== undefined) {
                                 if (periods <= interExecutionMemory.executionContext.periods) {
@@ -2251,27 +2169,26 @@
                             }
                         }
 
-                        let closePositionRate
+                        let orderPrice
                         let amountA
                         let amountB
-                        let positionDirection
-                        let availableBalance = assistant.getAvailableBalance()
+                        let orderSide
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            positionDirection = "buy"
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            orderSide = "buy"
 
-                            closePositionRate = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+                            orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.assetA
-                            amountB = availableBalance.assetA / closePositionRate
+                            amountA =  balanceQuotedAsset 
+                            amountB = balanceQuotedAsset / orderPrice
 
                         } else {
-                            positionDirection = "sell"
+                            orderSide = "sell"
 
-                            closePositionRate = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
+                            orderPrice = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = availableBalance.assetB * closePositionRate
-                            amountB = availableBalance.assetB
+                            amountA = balanceBaseAsset * orderPrice
+                            amountB = balanceBaseAsset
 
                         }
 
@@ -2281,44 +2198,45 @@
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
-                        assistant.putPosition(positionDirection, closePositionRate, amountA, amountB, onOrderPut)
+                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
 
-                        function onOrderPut(err) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Entering function."); }
+                        function onOrderCreated(err, order) {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Entering function."); }
 
                             try {
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_OK_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         interExecutionMemory.executionContext = {
                                             status: "Position Closed",
                                             periods: periods,
                                             amountA: amountA,
-                                            amountB: amountB
+                                            amountB: amountB,
+                                            orderId: order.id
                                         }
                                         closePositionAtSimulation()
                                         return;
                                     }
                                     case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderPut -> DEFAULT_FAIL_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE "); }
                                         /* We will assume that the problem is temporary, and expect that it will work at the next execution.*/
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                     case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderPut -> DEFAULT_RETRY_RESPONSE "); }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE "); }
                                         strategy.closeStage.closeExecution.error = err.message
                                         afterLoop()
                                         return;
                                     }
                                 }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderPut -> Unexpected Response -> Message = " + err.message); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Unexpected Response -> Message = " + err.message); }
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
 
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderPut ->  err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderCreated ->  err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
                             }
@@ -2336,16 +2254,44 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                            lastTradeProfitLoss = balanceAssetA - previousBalanceAssetA;
-                            lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
-                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetA - bot.VALUES_TO_USE.initialBalanceA;
+                        let feePaid = 0
+
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            strategy.positionSize = balanceQuotedAsset / closeRate;
+                            strategy.positionRate = closeRate;
+
+                            feePaid = balanceQuotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+
+                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / closeRate - feePaid;
+                            balanceQuotedAsset = 0;
                         } else {
-                            lastTradeProfitLoss = balanceAssetB - previousBalanceAssetB;
+                            strategy.positionSize = balanceBaseAsset * closeRate;
+                            strategy.positionRate = closeRate;
+
+                            feePaid = balanceBaseAsset * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+
+                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * closeRate - feePaid;
+                            balanceBaseAsset = 0;
+                        }
+
+                        if (processingDailyFiles) {
+                            if (positionedAtYesterday) {
+                                yesterday.balanceBaseAsset = balanceBaseAsset;
+                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
+
+                            }
+                        }
+
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                            lastTradeProfitLoss = balanceBaseAsset - previousBalanceBaseAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceAssetB - bot.VALUES_TO_USE.initialBalanceB;
+                            profit = balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
+                        } else {
+                            lastTradeProfitLoss = balanceQuotedAsset - previousBalanceQuotedAsset;
+                            lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
+                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
+                            profit = balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
                         if (processingDailyFiles) {
@@ -2383,7 +2329,7 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             ROI = (bot.VALUES_TO_USE.initialBalanceA + profit) / bot.VALUES_TO_USE.initialBalanceA - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
@@ -2533,12 +2479,12 @@
                         }
                     }
 
-                    if (balanceAssetA === Infinity) {
-                        balanceAssetA = Number.MAX_SAFE_INTEGER
+                    if (balanceBaseAsset === Infinity) {
+                        balanceBaseAsset = Number.MAX_SAFE_INTEGER
                     }
 
-                    if (balanceAssetB === Infinity) {
-                        balanceAssetB = Number.MAX_SAFE_INTEGER
+                    if (balanceQuotedAsset === Infinity) {
+                        balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
                     let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
@@ -2549,8 +2495,8 @@
                         type: type,
                         marketRate: marketRate,
                         amount: 1,
-                        balanceA: balanceAssetA,
-                        balanceB: balanceAssetB,
+                        balanceA: balanceBaseAsset,
+                        balanceB: balanceQuotedAsset,
                         profit: profit,
                         lastTradeProfitLoss: lastTradeProfitLoss,
                         stopLoss: stopLoss,
@@ -2649,7 +2595,7 @@
                         currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing ROI */
-                        if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
+                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
                             currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
                         } else {
                             currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100
@@ -2814,8 +2760,8 @@
                         interExecutionMemory.stopLoss = yesterday.stopLoss
                         interExecutionMemory.takeProfit = yesterday.takeProfit
 
-                        interExecutionMemory.previousBalanceAssetA = yesterday.previousBalanceAssetA
-                        interExecutionMemory.previousBalanceAssetB = yesterday.previousBalanceAssetB
+                        interExecutionMemory.previousBalanceBaseAsset = yesterday.previousBalanceBaseAsset
+                        interExecutionMemory.previousBalanceQuotedAsset = yesterday.previousBalanceQuotedAsset
 
                         interExecutionMemory.tradePositionRate = yesterday.tradePositionRate
                         interExecutionMemory.tradePositionSize = yesterday.tradePositionSize
@@ -2848,8 +2794,8 @@
                             endRate: yesterday.currentTrade.endRate
                         }
 
-                        interExecutionMemory.balanceAssetA = yesterday.balanceAssetA;
-                        interExecutionMemory.balanceAssetB = yesterday.balanceAssetB;
+                        interExecutionMemory.balanceBaseAsset = yesterday.balanceBaseAsset;
+                        interExecutionMemory.balanceQuotedAsset = yesterday.balanceQuotedAsset;
                         interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
                         interExecutionMemory.profit = yesterday.profit;
                         interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;

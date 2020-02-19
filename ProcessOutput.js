@@ -49,12 +49,12 @@
                                     } 
                                     if (outputDataset.referenceParent.parentNode.parentNode.parentNode !== undefined) {
                                         if (outputDataset.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                                            logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Team not defined. Team = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode.parentNode));
+                                            logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode.parentNode));
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return
                                         }                                        
                                     } else {
-                                        logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Team. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
+                                        logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return
                                     }
@@ -76,14 +76,14 @@
 
                         /* All good, lets emit the event. */
 
-                        let devTeam = outputDataset.referenceParent.parentNode.parentNode.parentNode.code.codeName
+                        let dataMine = outputDataset.referenceParent.parentNode.parentNode.parentNode.code.codeName
                         let botName = outputDataset.referenceParent.parentNode.parentNode.code.codeName
                         let product = outputDataset.referenceParent.parentNode.code.codeName
                         let dataset = outputDataset.referenceParent.code.codeName
 
                         let statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
-                        key = devTeam + "-" + botName + "-" + product + "-" + dataset
+                        key = dataMine + "-" + botName + "-" + product + "-" + dataset
                         let event = {
                             lastFile: statusReport.file.lastFile
                         }

@@ -2,6 +2,7 @@
 
     const MODULE_NAME = "Session"
     const FULL_LOG = true;
+    const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 
     let thisObject = {
         initialize: initialize 
@@ -44,16 +45,15 @@
             return
 
             function runSession(message) {
+                if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
                 /* We are going to run the Definition comming at the event. */
-                bot.DEFINITION = JSON.parse(message.event.definition)
+                bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                 bot.SESSION = JSON.parse(message.event.session)
-                bot.UI_CURRENT_VALUES = message.event.uiCurrentValues
-
+    
                 /* Set the folderName for logging, reports, context and data output */
                 let code
                 if (bot.SESSION.code !== undefined) {
-        
                     code = bot.SESSION.code
                     if (code.folderName === undefined) {
                         bot.SESSION.folderName = bot.SESSION.id
@@ -67,31 +67,46 @@
 
                 /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
                 setValuesToUse(message)
-
+                let allGood 
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
-                        startBackTesting(message)
+                        allGood = startBackTesting(message)
                         break
                     }
                     case 'Live Trading Session': {
-                        startLiveTrading(message)
+                        allGood = startLiveTrading(message)
                         break
                     }
                     case 'Fordward Testing Session': {
-                        startFordwardTesting(message)
+                        allGood = startFordwardTesting(message)
                         break
                     }
                     case 'Paper Trading Session': {
-                        startPaperTrading(message)
+                        allGood = startPaperTrading(message)
                         break
                     }
                 }
-                bot.SESSION_STATUS = 'Idle'
-                bot.STOP_SESSION = false
+                if (allGood === true) {
+                    bot.SESSION_STATUS = 'Idle'
+                    bot.STOP_SESSION = false
+                } else {
+                    bot.STOP_SESSION = true
+                }
             }
 
             function stopSession(message) {
                 bot.STOP_SESSION = true
+            }
+
+            function checkDatetimes() {
+                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
+                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                }
+                if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
+                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
+                }
             }
 
             function startBackTesting(message) {
@@ -102,40 +117,35 @@
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                return true
             }
 
             function startLiveTrading(message) {
 
-                setKeyToUse()
-
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
+                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }
 
                 bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
-
+                return true
             }
 
             function startFordwardTesting(message) {
 
-                setKeyToUse()
-
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }
 
                 bot.startMode = "Live"
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
@@ -156,60 +166,17 @@
                
                 bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
+                return true
             }
 
             function startPaperTrading(message) {
                 bot.startMode = "Backtest"
-                console.log("startPaperTrading")
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                }
+                
+                checkDatetimes()
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
-
-            }
-
-            function setKeyToUse() {
-                /* The last place where we can find a key to use is the key pool at the exchange account. */
-                if (bot.DEFINITION.personalData) {
-                    if (bot.DEFINITION.personalData.exchangeAccounts) {
-                        if (bot.DEFINITION.personalData.exchangeAccounts.length > 0) {
-                            let exchangeAccount = bot.DEFINITION.personalData.exchangeAccounts[0]
-                            if (exchangeAccount.keys) {
-                                if (exchangeAccount.keys.length > 0) {
-                                    let key = exchangeAccount.keys[0]
-
-                                    process.env.KEY = key.code.name
-                                    process.env.SECRET = key.code.secret
-
-                                }
-                            }
-                        }
-                    }
-                }
-
-                /* This is the primary fallback, when there is no key defined at the parameters at the session level. */
-                if (bot.DEFINITION.tradingSystem) {
-                    if (bot.DEFINITION.tradingSystem.parameters) {
-                        if (bot.DEFINITION.tradingSystem.parameters.key !== undefined) {
-                            let key = bot.DEFINITION.tradingSystem.parameters.key
-
-                            process.env.KEY = key.code.name
-                            process.env.SECRET = key.code.secret
-                        }
-                    }
-                }
-
-                /* Key defined at the parameters at the session level. */
-                if (bot.SESSION.parameters) {
-                    if (bot.SESSION.parameters.key !== undefined) {
-                        let key = bot.SESSION.parameters.key
-
-                        process.env.KEY = key.code.name
-                        process.env.SECRET = key.code.secret
-                    }
-                }
+                return true
             }
 
             function setValuesToUse(message) {
@@ -227,7 +194,6 @@
                     minimumBalanceB: 0,
                     maximumBalanceA: 0.002,
                     maximumBalanceB: 0,
-                    timePeriod: bot.UI_CURRENT_VALUES.timePeriod,
                     slippage: {
                         positionRate: 0,
                         stopLoss: 0,
@@ -244,10 +210,10 @@
                 }
 
                 /* Session Type Dependant Default Values */
-                const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
+
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(bot.UI_CURRENT_VALUES.initialDatetime)
+                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date((new Date()).valueOf() - ONE_YEAR_IN_MILISECONDS)
                         bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
                         break
                     }
@@ -268,7 +234,7 @@
                     }
                 }
 
-                let tradingSystem = bot.DEFINITION.tradingSystem
+                let tradingSystem = bot.TRADING_SYSTEM 
 
                 if (tradingSystem !== undefined) {
 
@@ -278,45 +244,52 @@
                         /* Base Asset and Initial Balances. */
                         {
                             if (tradingSystem.parameters.baseAsset !== undefined) {
-                                let code = tradingSystem.parameters.baseAsset.code
+                                if (tradingSystem.parameters.baseAsset.referenceParent !== undefined) {
+                                    if (tradingSystem.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                if (code.name !== undefined) {
-                                    bot.VALUES_TO_USE.baseAsset = code.name;
-                                }
+                                        let code = tradingSystem.parameters.baseAsset.referenceParent.referenceParent.code
 
-                                if (bot.VALUES_TO_USE.baseAsset === 'BTC') { 
-                                    if (code.initialBalance !== undefined) {
-                                        bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                        bot.VALUES_TO_USE.initialBalanceB = 0
-                                    }
-                                    if (code.minimumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                        bot.VALUES_TO_USE.minimumBalanceB = 0
-                                    }
-                                    if (code.maximumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                        bot.VALUES_TO_USE.maximumBalanceB = 0
-                                    }
-                                } else {
-                                    if (code.initialBalance !== undefined) {
-                                        bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                        bot.VALUES_TO_USE.initialBalanceA = 0
-                                    }
-                                    if (code.minimumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                        bot.VALUES_TO_USE.minimumBalanceA = 0
-                                    }
-                                    if (code.maximumBalance !== undefined) {
-                                        bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                        bot.VALUES_TO_USE.maximumBalanceA = 0
+                                        if (code.codeName !== undefined) {
+                                            bot.VALUES_TO_USE.baseAsset = code.codeName;
+                                        }
+
+                                        code = tradingSystem.parameters.baseAsset.code
+
+                                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceB = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceB = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceB = 0
+                                            }
+                                        } else {
+                                            if (code.initialBalance !== undefined) {
+                                                bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                bot.VALUES_TO_USE.initialBalanceA = 0
+                                            }
+                                            if (code.minimumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                bot.VALUES_TO_USE.minimumBalanceA = 0
+                                            }
+                                            if (code.maximumBalance !== undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                bot.VALUES_TO_USE.maximumBalanceA = 0
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
 
-                        /* Time Period */
-                        if (tradingSystem.parameters.timePeriod !== undefined) {
-                            bot.VALUES_TO_USE.timePeriod = tradingSystem.parameters.timePeriod.code.value
+                        /* Time Frame */
+                        if (tradingSystem.parameters.timeFrame !== undefined) {
+                            bot.VALUES_TO_USE.timeFrame = tradingSystem.parameters.timeFrame.code.value
                         }
 
                         /* Slippage */
@@ -358,10 +331,18 @@
  
                                 let code = tradingSystem.parameters.timeRange.code
                                 if (code.initialDatetime !== undefined) {
-                                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    if (isNaN(Date.parse(code.initialDatetime)) === true) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Trading System Parameters because it is not a valid Date.");
+                                    } else {
+                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                    }
                                 }
                                 if (code.finalDatetime !== undefined) {
-                                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                    if (isNaN(Date.parse(code.finalDatetime)) === true) {
+                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Trading System Parameters because it is not a valid Date.");
+                                    } else {
+                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                    }
                                 }
                             }
                         }
@@ -374,45 +355,52 @@
                             /* Base Asset and Initial Balances. */
                             {
                                 if (bot.SESSION.parameters.baseAsset !== undefined) {
-                                    let code = bot.SESSION.parameters.baseAsset.code
+                                    if (bot.SESSION.parameters.baseAsset.referenceParent !== undefined) {
+                                        if (bot.SESSION.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                    if (code.name !== undefined) {
-                                        bot.VALUES_TO_USE.baseAsset = code.name;
-                                    }
+                                            let code = bot.SESSION.parameters.baseAsset.referenceParent.referenceParent.code
 
-                                    if (bot.VALUES_TO_USE.baseAsset === 'BTC') {
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceB = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceB = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceB = 0
-                                        }
-                                    } else {
-                                        if (code.initialBalance !== undefined) {
-                                            bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                            bot.VALUES_TO_USE.initialBalanceA = 0
-                                        }
-                                        if (code.minimumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                            bot.VALUES_TO_USE.minimumBalanceA = 0
-                                        }
-                                        if (code.maximumBalance !== undefined) {
-                                            bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                            bot.VALUES_TO_USE.maximumBalanceA = 0
+                                            if (code.codeName !== undefined) {
+                                                bot.VALUES_TO_USE.baseAsset = code.codeName;
+                                            }
+
+                                            code = bot.SESSION.parameters.baseAsset.code
+
+                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                                if (code.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                    bot.VALUES_TO_USE.initialBalanceB = 0
+                                                }
+                                                if (code.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                    bot.VALUES_TO_USE.minimumBalanceB = 0
+                                                }
+                                                if (code.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                    bot.VALUES_TO_USE.maximumBalanceB = 0
+                                                }
+                                            } else {
+                                                if (code.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                    bot.VALUES_TO_USE.initialBalanceA = 0
+                                                }
+                                                if (code.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                    bot.VALUES_TO_USE.minimumBalanceA = 0
+                                                }
+                                                if (code.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                    bot.VALUES_TO_USE.maximumBalanceA = 0
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
 
-                            /* Time Period */
-                            if (bot.SESSION.parameters.timePeriod !== undefined) {
-                                bot.VALUES_TO_USE.timePeriod = bot.SESSION.parameters.timePeriod.code.value
+                            /* Time Frame */
+                            if (bot.SESSION.parameters.timeFrame !== undefined) {
+                                bot.VALUES_TO_USE.timeFrame = bot.SESSION.parameters.timeFrame.code.value
                             }
 
                             /* Slippage */
@@ -454,10 +442,18 @@
 
                                     let code = bot.SESSION.parameters.timeRange.code
                                     if (code.initialDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                        if (isNaN(Date.parse(code.initialDatetime)) === true) {
+                                            parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Session Parameters because it is not a valid Date.");
+                                        } else {
+                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                        }
                                     }
                                     if (code.finalDatetime !== undefined) {
-                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                        if (isNaN(Date.parse(code.finalDatetime)) === true) {
+                                            parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Session Parameters because it is not a valid Date.");
+                                        } else {
+                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                        }
                                     }
                                 }
                             }
@@ -485,10 +481,7 @@
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
                                     let code = JSON.parse(announcement.code)
-                                    if (code.botId === undefined) {
-                                        code.botId = socialBot.id
-                                    }
-                                    if (socialBot.type === code.botType && socialBot.id === code.botId) {
+                                    if (socialBot.id === announcement.referenceParent.id) {
                                         if (socialBot.type === "Telegram Bot") {
                                             if (announcement.formulaValue !== undefined) {
                                                 socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))

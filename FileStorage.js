@@ -25,20 +25,18 @@ exports.newFileStorage = function newFileStorage(logger) {
 
   return thisObject
 
-    function getTextFile(container, filePath, callBackFunction, noRetry) {
+    function getTextFile(filePath, callBackFunction, noRetry) {
 
         logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
 
         let fileDoesNotExist = false
 
-        container = container.toLowerCase()
-
         /* Choose path for either bots or data */
         let fileLocation
         if (filePath.indexOf("/bots/") > 0) {
-            fileLocation = process.env.BOTS_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.BOTS_PATH + '/' +  filePath
         } else {
-            fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.STORAGE_PATH + '/' +  filePath
         }
 
         try {
@@ -71,7 +69,6 @@ exports.newFileStorage = function newFileStorage(logger) {
                     }
 
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
-                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> container = ' + container)
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> filePath = ' + filePath)
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
                     setTimeout(retry, RETRY_TIME_IN_MILISECONDS)
@@ -97,7 +94,7 @@ exports.newFileStorage = function newFileStorage(logger) {
             if (currentRetryGetTextFile < MAX_RETRY) {
                 currentRetryGetTextFile++
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
-                getTextFile(container, filePath, callBackFunction)
+                getTextFile(filePath, callBackFunction)
             } else {
                 currentRetryGetTextFile = 0
 
@@ -119,18 +116,16 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
     }
 
-    function createTextFile(container, filePath, fileContent, callBackFunction) {
+    function createTextFile(filePath, fileContent, callBackFunction) {
 
         logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> Entering Function.')
-
-        container = container.toLowerCase()
 
         /* Choose path for either logs or data */
         let fileLocation
         if (filePath.indexOf("/Logs/") > 0) {
-            fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.LOG_PATH + '/' +  filePath
         } else {
-            fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.STORAGE_PATH + '/' +  filePath
         }
 
         try {
@@ -198,7 +193,7 @@ exports.newFileStorage = function newFileStorage(logger) {
             if (currentRetryWriteTextFile < MAX_RETRY) {
                 currentRetryWriteTextFile++
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
-                createTextFile(container, filePath, fileContent, callBackFunction)
+                createTextFile(filePath, fileContent, callBackFunction)
             } else {
                 currentRetryWriteTextFile = 0
                 logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')
@@ -208,18 +203,16 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
     }
 
-    function deleteTextFile(container, filePath, callBackFunction) {
+    function deleteTextFile(filePath, callBackFunction) {
 
         logger.write(MODULE_NAME, '[INFO] FileStorage -> deleteTextFile -> Entering Function.')
-
-        container = container.toLowerCase()
 
         /* Choose path for either logs or data */
         let fileLocation
         if (filePath.indexOf("/Logs/") > 0) {
-            fileLocation = process.env.LOG_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.LOG_PATH + '/' +  filePath
         } else {
-            fileLocation = process.env.STORAGE_PATH + '/' + container + '/' + filePath
+            fileLocation = process.env.STORAGE_PATH + '/' +  filePath
         }
 
         try {
@@ -252,7 +245,7 @@ exports.newFileStorage = function newFileStorage(logger) {
             if (currentRetryWriteTextFile < MAX_RETRY) {
                 currentRetryWriteTextFile++
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
-                createTextFile(container, filePath, fileContent, callBackFunction)
+                createTextFile(filePath, fileContent, callBackFunction)
             } else {
                 currentRetryWriteTextFile = 0
                 logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')

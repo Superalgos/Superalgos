@@ -16,7 +16,7 @@
 
     return thisObject;
 
-    function initialize(pMonth, pYear, callBackFunction) {
+    function initialize(callBackFunction) {
 
         try {
 
@@ -44,27 +44,11 @@
             let dependenciesToProcess = []
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
                 let statusDependency = {
-                    dependency: thisObject.nodeArray[i],
-                    month: pMonth,
-                    year: pYear
+                    dependency: thisObject.nodeArray[i]
                 }
                     
                 dependenciesToProcess.push(statusDependency)
 
-                /*
-                For the special case that the statusDependency is a Self Reference AND this process is sliced in different
-                instances for each month, we will add the main self reference status report that is month/year independent.
-                */
-
-                if (statusDependency.dependency.code.mainUtility === "Self Reference" && pMonth !== undefined && pYear !== undefined) {
-                    let mainDependency = {
-                        dependency: thisObject.nodeArray[i],
-                        month: undefined,
-                        year: undefined
-                    }
-
-                    dependenciesToProcess.push(mainDependency)
-                }
             }
 
             for (let i = 0; i < dependenciesToProcess.length; i++) {
@@ -73,7 +57,7 @@
 
                 logger.write(MODULE_NAME, "[INFO] initialize -> onInitilized -> Initializing Status Report # " + (i + 1));
                 let statusDependency = dependenciesToProcess[i]
-                statusReportModule.initialize(statusDependency.dependency, statusDependency.month, statusDependency.year, onInitilized);
+                statusReportModule.initialize(statusDependency.dependency, onInitilized);
 
                 function onInitilized(err) {
 
@@ -152,13 +136,7 @@
                     loadCount++;
                     logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Total Added = " + loadCount);
 
-                    let key;
-
-                    if (statusDependency.dependency.processRunMonthly === true && statusDependency.month !== undefined && statusDependency.year !== undefined) {
-                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion + "-" + statusDependency.year + "-" + statusDependency.month;
-                    } else {
-                        key = statusDependency.dependency.devTeam + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
-                    }
+                    let key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
 
                     thisObject.keys.push(key);
                     thisObject.statusReports.set(key, statusReportModule);

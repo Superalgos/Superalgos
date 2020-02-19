@@ -71,7 +71,7 @@
                 return
             }
             if (outputDatasetNode.referenceParent.parentNode.dataBuilding === undefined) {
-                logger.write(MODULE_NAME, "[WARN] start -> Product Definition without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
+                logger.write(MODULE_NAME, "[WARN] start -> Product Definition " + outputDatasetNode.referenceParent.parentNode.name + " without a Data Building Procedure. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
             }
             if (outputDatasetNode.referenceParent.code.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
@@ -104,13 +104,13 @@
             }
 
             if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Team. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             if (outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] start -> Team witn no codeName defined. Team = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
+                logger.write(MODULE_NAME, "[ERROR] start -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -118,7 +118,7 @@
         return true
     }
 
-    function inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timePeriod) {
+    function inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame) {
         /*
         For each dataDependencyNode in our data dependencies, we should have a dataFile containing the records needed as an imput for this process.
         What we need to do first is transform those records into JSON objects that can be used by user-defined formulas.
@@ -143,7 +143,7 @@
             jsonData = jsonifyDataFile(dataFile, recordDefinition)
             /* Add the calculated properties */
             if (dataDependencyNode.referenceParent.parentNode.calculations !== undefined) {
-                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timePeriod)
+                inputData = calculationsProcedure(jsonData, recordDefinition, dataDependencyNode.referenceParent.parentNode.calculations, singularVariableName, timeFrame)
             } else {
                 inputData = jsonData
             }
@@ -184,7 +184,7 @@
         return jsonifiedArray
     }
 
-    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timePeriod) {
+    function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, variableName, timeFrame) {
 
         /* 
             This function has as an input an array of JSON objects, and it adds calculated properties to
@@ -192,7 +192,7 @@
         */
 
         let system = { // These are the available system variables to be used in User Code and Formulas
-            timePeriod: timePeriod,
+            timeFrame: timeFrame,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
@@ -265,8 +265,8 @@
         dataBuildingProcedure,
         variableName,
         productName,
-        timePeriod,
-        timePeriodLabel,
+        timeFrame,
+        timeFrameLabel,
         resultsWithIrregularPeriods,
         interExecutionMemory,
         processingDailyFiles,
@@ -283,7 +283,7 @@
         let lastInstantOfTheDay 
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
-            timePeriod: timePeriod,
+            timeFrame: timeFrame,
             ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
@@ -462,25 +462,25 @@
         }
     }
 
-    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timePeriodLabel, currentDay, callBackFunction) {
+    function writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction) {
 
         try {
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
 
-            let market = global.MARKET;
-            let fileName = '' + market.assetA + '_' + market.assetB + '.json';
+            let market = bot.market;
+            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = contextSummary.devTeam + "/" + contextSummary.bot + "." + contextSummary.botVersion.major + "." + contextSummary.botVersion.minor + "/" + global.CLONE_EXECUTOR.codeName + "." + global.CLONE_EXECUTOR.version + "/" + global.EXCHANGE_NAME + "/" + contextSummary.dataSetVersion;
-            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timePeriodLabel + dateForPath;
+            let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "/" + bot.exchange;
+            let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 
-            fileStorage.createTextFile(contextSummary.devTeam, filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
             function onFileCreated(err) {
 
@@ -493,7 +493,7 @@
 
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack);
                         logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> filePath = " + filePath);
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> market = " + market.assetA + "_" + market.assetB);
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                         callBackFunction(err);
                         return;

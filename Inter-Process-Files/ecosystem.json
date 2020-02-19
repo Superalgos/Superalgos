@@ -1,0 +1,773 @@
+{
+	"dataMines": [
+		{
+			"codeName": "AAMasters",
+			"displayName": "Masters",
+			"host": {
+				"url": "localhost",
+				"storage": "localStorage",
+				"container": "aamasters",
+				"accessKey": "09e890b76767ede3e10f0526b5036600a6b8d3faac540336e12b493fdb2aa9ed46f86094c34652f99fb6322e5f09806412f17725807f85e4dc4169bd22dd59f0b23aba5251f5544478a1aabf5a2dea5260e6eb0c29af3a788208af85025a02f94950437d501b91fd55b9d97b3d6ac3af4e1161321f78b73ca0fda524dc3a5d03"
+			},
+			"bots": [
+				{
+					"codeName": "AAOlivia",
+					"displayName": "Olivia",
+					"type": "Indicator Bot Instance",
+					"profilePicture": "Olivia.png",
+					"repo": "AAOlivia-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Candles",
+							"displayName": "Candles",
+							"description": "Two sets of files per period that contains candles.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersCandlesVolumes",
+								"moduleName": "Candles"
+							}
+						},
+						{
+							"codeName": "Volumes",
+							"displayName": "Buy and Sell Volumes",
+							"description": "Two sets of files per period that contains buy and sell volumes.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersCandlesVolumes",
+								"moduleName": "Volumes"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AATom",
+					"displayName": "Tom",
+					"type": "Indicator Bot Instance",
+					"profilePicture": "Tom.png",
+					"repo": "AATom-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Candle-Stairs",
+							"displayName": "Candle-Stairs Patters",
+							"description": "Two sets of files per period that contains candle-stairs patterns.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersStairsPatterns",
+								"moduleName": "CandleStairs"
+							}
+						},
+						{
+							"codeName": "Volume-Stairs",
+							"displayName": "Volume-Stairs Patters",
+							"description": "Two sets of files per period that contains volume-stairs patterns.",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersStairsPatterns",
+								"moduleName": "VolumeStairs"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AAChris",
+					"displayName": "Chris",
+					"type": "Indicator Bot Instance",
+					"profilePicture": "Chris.png",
+					"repo": "AAChris-Indicator-Bot",
+					"configFile": "this.bot.config.json",
+					"products": [
+						{
+							"codeName": "Bollinger-Bands",
+							"displayName": "Bollinger Bands",
+							"description": "Bollinger Bands",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAChris.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Bollinger-Bands/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersBollingerBands",
+								"moduleName": "BollingerBands"
+							}
+						}
+					]
+				},
+				{
+					"codeName": "AAJason",
+					"displayName": "Jason",
+					"type": "Trading Bot Instance",
+					"profilePicture": "jason.png",
+					"products": [
+						{
+							"codeName": "Trading-Simulation",
+							"displayName": "Simulation",
+							"description": "Trading Simulation",
+							"storageAccount": "aajason",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Trading-Simulation/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersTradingSimulation",
+								"moduleName": "TradingSimulation"
+							}
+						},
+						{
+							"codeName": "Simulation-Conditions",
+							"displayName": "Conditions",
+							"description": "Simulation Conditions",
+							"storageAccount": "aajason",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Conditions/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersTradingSimulation",
+								"moduleName": "Conditions"
+							}
+						},
+						{
+							"codeName": "Simulation-Strategies",
+							"displayName": "Strategies",
+							"description": "Simulation Strategies",
+							"storageAccount": "aajason",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Strategies/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersTradingSimulation",
+								"moduleName": "Strategies"
+							}
+						},
+						{
+							"codeName": "Simulation-Trades",
+							"displayName": "Trades",
+							"description": "Simulation Trades",
+							"storageAccount": "aajason",
+							"dataSets": [
+								{
+									"codeName": "Multi-Period-Market",
+									"type": "Market Files",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Market/@Period",
+									"fileName": "@BaseAsset_@QuotedAsset.json"
+								},
+								{
+									"codeName": "Multi-Period-Daily",
+									"type": "Daily Files",
+									"validTimeFrames": [
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+									"fileName": "@BaseAsset_@QuotedAsset.json",
+									"dataRange": {
+										"filePath": "AAMasters/AAJason.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/@Session/Simulation-Trades/Multi-Period-Daily",
+										"fileName": "Data.Range.@BaseAsset_@QuotedAsset.json"
+									}
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								},
+								{
+									"name": "Coss"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersTradingSimulation",
+								"moduleName": "Trades"
+							}
+						},
+						{
+							"codeName": "Live-Trading-History",
+							"displayName": "Live",
+							"shortDisplayName": "Live",
+							"description": "Live Trading Execution.",
+							"dataSets": [
+								{
+									"codeName": "Oficial History",
+									"type": "File Sequence",
+									"validTimeFrames": [
+										"24-hs",
+										"12-hs",
+										"08-hs",
+										"06-hs",
+										"04-hs",
+										"03-hs",
+										"02-hs",
+										"01-hs",
+										"45-min",
+										"40-min",
+										"30-min",
+										"20-min",
+										"15-min",
+										"10-min",
+										"05-min",
+										"04-min",
+										"03-min",
+										"02-min",
+										"01-min"
+									],
+									"filePath": "@DataMine/@Bot.1.0/AACloud.1.1/Poloniex/dataSet.V1/Output/@Session/Trading-Process",
+									"fileName": "Execution.History.Live.@Sequence.json"
+								}
+							],
+							"exchangeList": [
+								{
+									"name": "Poloniex"
+								}
+							],
+							"plotter": {
+								"dataMine": "AAMasters",
+								"codeName": "PlottersTradingSimulation",
+								"moduleName": "SimulationExecution"
+							}
+						}
+					]
+				}
+			],
+			"plotters": [
+				{
+					"displayName": "Plotters Candles & Volumes",
+					"codeName": "PlottersCandlesVolumes",
+					"dataMine": "AAMasters",
+					"modules": [
+						{
+							"codeName": "Candles",
+							"moduleName": "Candles",
+							"description": "Plots traditional red and green candles.",
+							"profilePicture": "Candles.png",
+							"panels": [
+								{
+									"codeName": "CandlePanel",
+									"moduleName": "CandlePanel",
+									"event": "Current Candle Changed"
+								}
+							]
+						},
+						{
+							"codeName": "Volumes",
+							"description": "Plots volumes separated in buy and sell.",
+							"moduleName": "Volumes",
+							"profilePicture": "Volumes.png",
+							"panels": [
+								{
+									"codeName": "VolumePanel",
+									"moduleName": "VolumePanel",
+									"event": "Current Volume Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Candles-Volumes",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Stairs Patterns",
+					"codeName": "PlottersStairsPatterns",
+					"dataMine": "AAMasters",
+					"modules": [
+						{
+							"codeName": "CandleStairs",
+							"moduleName": "CandleStairs",
+							"description": "Plots Candle Stairs patterns.",
+							"profilePicture": "CandleStairs.png",
+							"panels": []
+						},
+						{
+							"codeName": "VolumeStairs",
+							"description": "Plots Volume Stairs patterns.",
+							"moduleName": "VolumeStairs",
+							"profilePicture": "VolumeStairs.png",
+							"panels": []
+						}
+					],
+					"repo": "Plotters-Stairs-Patterns",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Bollinger Bands",
+					"codeName": "PlottersBollingerBands",
+					"dataMine": "AAMasters",
+					"modules": [
+						{
+							"codeName": "BollingerBands",
+							"moduleName": "BollingerBands",
+							"description": "Plots Bollinger Bands.",
+							"profilePicture": "BollingerBands.png",
+							"panels": [
+								{
+									"codeName": "BollingerBandsPanel",
+									"moduleName": "BollingerBandsPanel",
+									"event": "Current Band Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Bollinger-Bands",
+					"configFile": "this.plotter.config.json"
+				},
+				{
+					"displayName": "Plotters Trading Simulation",
+					"codeName": "PlottersTradingSimulation",
+					"dataMine": "AAMasters",
+					"modules": [
+						{
+							"codeName": "TradingSimulation",
+							"moduleName": "TradingSimulation",
+							"description": "Plots Bollinger Records.",
+							"profilePicture": "TradingSimulation.png",
+							"panels": [
+								{
+									"codeName": "TradingSimulationPanel",
+									"moduleName": "TradingSimulationPanel",
+									"event": "Current Record Changed"
+								}
+							]
+						},
+						{
+							"codeName": "Conditions",
+							"moduleName": "Conditions",
+							"description": "Plots Simulation Conditions.",
+							"profilePicture": "Conditions.png",
+							"panels": []
+						},
+						{
+							"codeName": "Strategies",
+							"moduleName": "Strategies",
+							"description": "Plots Strategies.",
+							"profilePicture": "Strategies.png",
+							"panels": []
+						},
+						{
+							"codeName": "Trades",
+							"moduleName": "Trades",
+							"description": "Plots Trades.",
+							"profilePicture": "Trades.png",
+							"panels": []
+						},
+						{
+							"codeName": "SimulationExecution",
+							"moduleName": "SimulationExecution",
+							"description": "Plots Simulation Execution.",
+							"profilePicture": "SimulationExecution.png",
+							"panels": [
+								{
+									"codeName": "SimulationExecutionPanel",
+									"moduleName": "SimulationExecutionPanel",
+									"event": "Current Record Changed"
+								}
+							]
+						}
+					],
+					"repo": "Plotters-Trading-Simulation",
+					"configFile": "this.plotter.config.json"
+				}
+			]
+		}
+	],
+	"hosts": []
+}

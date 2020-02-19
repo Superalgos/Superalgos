@@ -1,0 +1,5599 @@
+[
+    {
+        "type": "Plotter Module",
+        "properties": [
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code"
+            },
+            {
+                "name": "shapes",
+                "type": "node",
+                "childType": "Shapes",
+                "autoAdd": true
+            },
+            {
+                "name": "panels",
+                "type": "array",
+                "childType": "Plotter Panel",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Config Plotter Module",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Plotter Module",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "shapes",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Shapes",
+                "relatedUiObject": "Shapes"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "javascriptCode",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Javascript Code",
+                "relatedUiObject": "Javascript Code"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Plotter Panel",
+                "relatedUiObject": "Plotter Panel"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Plotter Panel",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter->"
+        },
+        "icon": "plotter-module",
+        "propertyNameAtParent": "modules"
+    },
+    {
+        "type": "Shapes",
+        "icon": "shapes",
+        "level": 4,
+        "propertyNameAtParent": "shapes",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "properties": [
+            {
+                "name": "chartPoints",
+                "type": "array",
+                "childType": "Chart Points",
+                "autoAdd": true
+            },
+            {
+                "name": "polygons",
+                "type": "array",
+                "childType": "Polygon",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Chart Points",
+                "relatedUiObject": "Chart Points"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Polygon",
+                "relatedUiObject": "Polygon"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Shapes",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Plotter Panel",
+        "icon": "plotter-panel",
+        "level": 4,
+        "propertyNameAtParent": "panels",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "properties": [
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code"
+            },
+            {
+                "name": "panelData",
+                "type": "array",
+                "childType": "Panel Data",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Config Plotter Panel",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Plotter Panel",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "javascriptCode",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Code",
+                "relatedUiObject": "Javascript Code"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Panel Data",
+                "relatedUiObject": "Panel Data"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Plotter Panel",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Panel Data",
+        "icon": "data-entry",
+        "level": 4,
+        "propertyNameAtParent": "panelData",
+        "isTitleAllwaysVisible": true,
+        "editors": {
+            "config": true
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Plotter Panel->"
+        },
+        "initialValues": {
+            "code": "{\n     \"valueDecimals\": 2\n}"
+        },
+        "properties": [
+            {
+                "name": "dataFormula",
+                "type": "node",
+                "childType": "Data Formula",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Config Panel Data",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Panel Data",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataFormula",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Data Formula",
+                "relatedUiObject": "Data Formula"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Panel Data",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Data Formula",
+        "icon": "data-formula",
+        "level": 4,
+        "propertyNameAtParent": "dataFormula",
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": "// Type you code here"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Panel Data->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit Formula",
+                "actionFunction": "uiObject.formulaEditor.activate",
+                "label": "Edit Formula",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Data Formula",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Javascript Code",
+        "icon": "html",
+        "level": 4,
+        "propertyNameAtParent": "javascriptCode",
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type you code here"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Condition->Procedure Initialization->Procedure Loop->Plotter Module->Plotter Panel->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit Code",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit Code",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Data Formula",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Chart Points",
+        "icon": "chart-points",
+        "level": 4,
+        "propertyNameAtParent": "chartPoints",
+        "isTitleAllwaysVisible": true,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Shapes->"
+        },
+        "properties": [
+            {
+                "name": "points",
+                "type": "array",
+                "childType": "Point",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Point",
+                "relatedUiObject": "Point"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Chart Points",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Point",
+        "icon": "chart-point",
+        "level": 4,
+        "propertyNameAtParent": "points",
+        "isTitleAllwaysVisible": true,
+        "isReferenceParent": true,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Chart Points->"
+        },
+        "properties": [
+            {
+                "name": "pointFormula",
+                "type": "node",
+                "childType": "Point Formula",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "pointFormula",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Point Formula",
+                "relatedUiObject": "Point Formula"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Point",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Point Formula",
+        "icon": "chart-point-formula",
+        "level": 4,
+        "propertyNameAtParent": "pointFormula",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Point->"
+        },
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": "x = record.begin\ny = record.propertyA"
+        },
+        "menuItems": [
+            {
+                "action": "Edit Formula",
+                "actionFunction": "uiObject.formulaEditor.activate",
+                "label": "Edit Formula",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Point",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Polygon",
+        "icon": "shapes-polygon",
+        "level": 3,
+        "propertyNameAtParent": "polygons",
+        "isTitleAllwaysVisible": true,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Shapes->"
+        },
+        "properties": [
+            {
+                "name": "polygonBody",
+                "type": "node",
+                "childType": "Polygon Body",
+                "autoAdd": true
+            },
+            {
+                "name": "polygonBorder",
+                "type": "node",
+                "childType": "Polygon Border",
+                "autoAdd": true
+            },
+            {
+                "name": "polygonVertexes",
+                "type": "array",
+                "childType": "Polygon Vertex",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "polygonBody",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Polygon Body",
+                "relatedUiObject": "Polygon Body"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "polygonBorder",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Polygon Border",
+                "relatedUiObject": "Polygon Border"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Polygon Vertex",
+                "relatedUiObject": "Polygon Vertex"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Polygon",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Polygon Body",
+        "icon": "shapes-polygon-body",
+        "level": 4,
+        "propertyNameAtParent": "polygonBody",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "properties": [
+            {
+                "name": "style",
+                "type": "node",
+                "childType": "Style",
+                "autoAdd": true
+            },
+            {
+                "name": "styleConditions",
+                "type": "array",
+                "childType": "Style Condition"
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "style",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Style",
+                "relatedUiObject": "Style"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Style Condition",
+                "relatedUiObject": "Style Condition"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Polygon Body",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Polygon Border",
+        "icon": "shapes-polygon-border",
+        "level": 4,
+        "propertyNameAtParent": "polygonBorder",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "properties": [
+            {
+                "name": "style",
+                "type": "node",
+                "childType": "Style",
+                "autoAdd": true
+            },
+            {
+                "name": "styleConditions",
+                "type": "array",
+                "childType": "Style Condition"
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "style",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Style",
+                "relatedUiObject": "Style"
+            },
+            {
+                "action": "Add UI Object",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Style Condition",
+                "relatedUiObject": "Style Condition"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Polygon Border",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Style Condition",
+        "icon": "style-condition",
+        "level": 4,
+        "propertyNameAtParent": "styleConditions",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Polygon Body->Polygon Border->"
+        },
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": ""
+        },
+        "properties": [
+            {
+                "name": "style",
+                "type": "node",
+                "childType": "Style",
+                "autoAdd": true
+            }
+        ],
+        "menuItems": [
+            {
+                "action": "Edit Condition",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit Condition",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "style",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Style",
+                "relatedUiObject": "Style"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Style Condition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Style",
+        "icon": "style",
+        "level": 4,
+        "propertyNameAtParent": "style",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Style Condition->Polygon Body->Polygon Border->"
+        },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{}"
+        },
+        "menuItems": [
+            {
+                "action": "Configure Style",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Style",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Style",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Polygon Vertex",
+        "icon": "shapes-polygon-vertex",
+        "level": 4,
+        "propertyNameAtParent": "polygonVertexes",
+        "isReferenceChildren": true,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Point->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Polygon Edge",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Workspace",
+        "menuItems": [
+            {
+                "action": "Pin / Unpin",
+                "currentStatus": true,
+                "iconPathOn": "menu-fix-unpinned",
+                "iconPathOff": "menu-fix-pinned",
+                "actionFunction": "payload.onMenuItemClick",
+                "ring": 1
+            },
+            {
+                "action": "Backup Workspace",
+                "iconPathOn": "menu-backup",
+                "iconPathOff": "menu-backup",
+                "actionFunction": "payload.onMenuItemClick",
+                "ring": 1
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading System",
+                "relatedUiObject": "Trading System",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Network",
+                "relatedUiObject": "Network",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Mine",
+                "relatedUiObject": "Data Mine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Crypto Ecosystem",
+                "relatedUiObject": "Crypto Ecosystem",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Charting Space",
+                "relatedUiObject": "Charting Space",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Share Workspace",
+                "label": "Share",
+                "iconPathOn": "menu-share",
+                "iconPathOff": "menu-share",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": false,
+        "isPinned": true,
+        "positionLocked": true,
+        "icon": "design-tool"
+    },
+    {
+        "type": "Situation",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Condition",
+                "relatedUiObject": "Condition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Situation",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 0,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->"
+        },
+        "icon": "pyramid",
+        "properties": [
+            {
+                "name": "conditions",
+                "type": "array",
+                "childType": "Condition",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "situations"
+    },
+    {
+        "type": "Condition",
+        "menuItems": [
+            {
+                "action": "Edit Condition",
+                "label": "Edit Condition",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.conditionEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "code",
+                "label": "Add Code",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Condition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "condition": true
+        },
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Situation->"
+        },
+        "icon": "testing",
+        "properties": [
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "conditions"
+    },
+    {
+        "type": "Network",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Network Node",
+                "relatedUiObject": "Network Node",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Network",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "network",
+        "properties": [
+            {
+                "name": "networkNodes",
+                "type": "array",
+                "childType": "Network Node"
+            }
+        ]
+    },
+    {
+        "type": "Network Node",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataStorage",
+                "label": "Add Data Storage",
+                "relatedUiObject": "Data Storage",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataMining",
+                "label": "Add Data Mining",
+                "relatedUiObject": "Data Mining",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "testingEnvironment",
+                "label": "Add Testing Environment",
+                "relatedUiObject": "Testing Environment",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "productionEnvironment",
+                "label": "Add Production Environment",
+                "relatedUiObject": "Production Environment",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Network Node",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network->"
+        },
+        "icon": "network-node",
+        "properties": [
+            {
+                "name": "dataStorage",
+                "type": "node",
+                "childType": "Data Storage",
+                "autoAdd": true
+            },
+            {
+                "name": "dataMining",
+                "type": "node",
+                "childType": "Data Mining",
+                "autoAdd": true
+            },
+            {
+                "name": "testingEnvironment",
+                "type": "node",
+                "childType": "Testing Environment",
+                "autoAdd": true
+            },
+            {
+                "name": "productionEnvironment",
+                "type": "node",
+                "childType": "Production Environment",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "networkNodes"
+    },
+    {
+        "type": "Task Manager",
+        "menuItems": [
+            {
+                "action": "Run All Tasks",
+                "label": "Run All Tasks",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Tasks",
+                "label": "Stop All Tasks",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Task",
+                "relatedUiObject": "Task",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Task Manager",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->"
+        },
+        "icon": "task-manager",
+        "properties": [
+            {
+                "name": "tasks",
+                "type": "array",
+                "childType": "Task",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "taskManagers"
+    },
+    {
+        "type": "Task",
+        "menuItems": [
+            {
+                "action": "Run Task",
+                "label": "Run",
+                "workingLabel": "Stop",
+                "workDoneLabel": "Task Running",
+                "workFailedLabel": "Task Cannot be Run",
+                "secondaryAction": "Stop Task",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Task Stopped",
+                "secondaryWorkFailedLabel": "Task Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "bot",
+                "label": "Add Sensor Bot Instance",
+                "relatedUiObject": "Sensor Bot Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "bot",
+                "label": "Add Indicator Bot Instance",
+                "relatedUiObject": "Indicator Bot Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "bot",
+                "label": "Add Trading Bot Instance",
+                "relatedUiObject": "Trading Bot Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Task",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Task Manager->"
+        },
+        "icon": "timeline",
+        "properties": [
+            {
+                "name": "bot",
+                "type": "node",
+                "childType": "Trading Bot Instance"
+            },
+            {
+                "name": "bot",
+                "type": "node",
+                "childType": "Sensor Bot Instance"
+            },
+            {
+                "name": "bot",
+                "type": "node",
+                "childType": "Indicator Bot Instance"
+            }
+        ],
+        "propertyNameAtParent": "tasks"
+    },
+    {
+        "type": "Trading Bot Instance",
+        "menuItems": [
+            {
+                "action": "Configure Bot Instance",
+                "label": "Configure Bot Instance",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Instance",
+                "relatedUiObject": "Trading Process Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Bot Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{}"
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Task->"
+        },
+        "icon": "bot-trading",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Trading Process Instance",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "bot"
+    },
+    {
+        "type": "Sensor Process Instance",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "marketReference",
+                "label": "Add Market Reference",
+                "relatedUiObject": "Market Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Sensor Bot Instance->"
+        },
+        "icon": "process",
+        "properties": [
+            {
+                "name": "marketReference",
+                "type": "node",
+                "childType": "Market Reference",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "Indicator Process Instance",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "marketReference",
+                "label": "Add Market Reference",
+                "relatedUiObject": "Market Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Indicator Bot Instance->"
+        },
+        "icon": "process",
+        "properties": [
+            {
+                "name": "marketReference",
+                "type": "node",
+                "childType": "Market Reference",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "Trading Process Instance",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "marketReference",
+                "label": "Add Market Reference",
+                "relatedUiObject": "Market Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Backtesting",
+                "relatedUiObject": "Backtesting Session",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Live Trading",
+                "relatedUiObject": "Live Trading Session",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Fordward Testing",
+                "relatedUiObject": "Fordward Testing Session",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Paper Trading",
+                "relatedUiObject": "Paper Trading Session",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Bot Instance->"
+        },
+        "icon": "process",
+        "properties": [
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Backtesting Session"
+            },
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Paper Trading Session"
+            },
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Fordward Testing Session"
+            },
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Live Trading Session"
+            },
+            {
+                "name": "marketReference",
+                "type": "node",
+                "childType": "Market Reference",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "Backtesting Session",
+        "menuItems": [
+            {
+                "action": "Run Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "parameters",
+                "label": "Add Parameters",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "socialBots",
+                "label": "Add Social Bots",
+                "relatedUiObject": "Social Bots",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure Session",
+                "label": "Configure Session",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Session",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading Process Instance->"
+        },
+        "icon": "session-backtesting",
+        "properties": [
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session"
+    },
+    {
+        "type": "Parameters",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Params",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Parameters",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading System->Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->"
+        },
+        "icon": "settings",
+        "properties": [
+            {
+                "name": "baseAsset",
+                "type": "node",
+                "childType": "Base Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "quotedAsset",
+                "type": "node",
+                "childType": "Quoted Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "timeRange",
+                "type": "node",
+                "childType": "Time Range",
+                "autoAdd": true
+            },
+            {
+                "name": "timeFrame",
+                "type": "node",
+                "childType": "Time Frame",
+                "autoAdd": true
+            },
+            {
+                "name": "slippage",
+                "type": "node",
+                "childType": "Slippage",
+                "autoAdd": true
+            },
+            {
+                "name": "feeStructure",
+                "type": "node",
+                "childType": "Fee Structure",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "parameters"
+    },
+    {
+        "type": "Base Asset",
+        "menuItems": [
+            {
+                "action": "Configure Base Asset",
+                "label": "Configure Base Asset",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Base Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{\n\"initialBalance\": 0.001,\n\"minimumBalance\": 0.0001,\n\"maximumBalance\": 0.1\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Exchange Account Asset->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "loading",
+        "alternativeIcons": "Use Reference Grandparent",
+        "title": [
+            "Use Reference Grandparent"
+        ],
+        "propertyNameAtParent": "baseAsset"
+    },
+    {
+        "type": "Quoted Asset",
+        "menuItems": [
+            {
+                "action": "Configure Quoted Asset",
+                "label": "Configure Quoted Asset",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Quoted Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{\n\"initialBalance\": 0,\n\"minimumBalance\": 0,\n\"maximumBalance\": 100\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Exchange Account Asset->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "loading",
+        "alternativeIcons": "Use Reference Grandparent",
+        "title": [
+            "Use Reference Grandparent"
+        ],
+        "propertyNameAtParent": "quotedAsset"
+    },
+    {
+        "type": "Market Base Asset",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Base Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Asset->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "icon": "loading",
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "propertyNameAtParent": "baseAsset"
+    },
+    {
+        "type": "Market Quoted Asset",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Base Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Asset->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "icon": "loading",
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "propertyNameAtParent": "quotedAsset"
+    },
+    {
+        "type": "Market Reference",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "keyInstance",
+                "label": "Add Key Instance",
+                "relatedUiObject": "Key Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Base Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Sensor Process Instance->Indicator Process Instance->Trading Process Instance->"
+        },
+        "properties": [
+            {
+                "name": "keyInstance",
+                "type": "node",
+                "childType": "Key Instance"
+            }
+        ],
+        "icon": "market",
+        "propertyNameAtParent": "marketReference"
+    },
+    {
+        "type": "Time Range",
+        "menuItems": [
+            {
+                "action": "Configure Time Range",
+                "label": "Configure Time Range",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Time Range",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"initialDatetime\": \"2019-07-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-01T00:00:00.000Z\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "schedule",
+        "propertyNameAtParent": "timeRange"
+    },
+    {
+        "type": "Time Frame",
+        "menuItems": [
+            {
+                "action": "Configure Time Frame",
+                "label": "Configure Time Frame",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Time Frame",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"value\": \"01-hs\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "time-period",
+        "propertyNameAtParent": "timeFrame"
+    },
+    {
+        "type": "Slippage",
+        "menuItems": [
+            {
+                "action": "Configure Slippage",
+                "label": "Configure Slippage",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Slippage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"positionRate\": 0.1,\n\"stopLoss\": 0.2,\n\"takeProfit\": 0.3\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "support",
+        "propertyNameAtParent": "slippage"
+    },
+    {
+        "type": "Fee Structure",
+        "menuItems": [
+            {
+                "action": "Configure Fee Structure",
+                "label": "Configure Fee Structure",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Fee Structure",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"maker\": 0.15,\n\"taker\": 0.25\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Parameters->"
+        },
+        "icon": "sitemap",
+        "propertyNameAtParent": "feeStructure"
+    },
+    {
+        "type": "Paper Trading Session",
+        "menuItems": [
+            {
+                "action": "Run Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "parameters",
+                "label": "Add Parameters",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "socialBots",
+                "label": "Add Social Bots",
+                "relatedUiObject": "Social Bots",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure Session",
+                "label": "Configure Session",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Session",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Instance->"
+        },
+        "icon": "session-paper-trading",
+        "properties": [
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session"
+    },
+    {
+        "type": "Fordward Testing Session",
+        "menuItems": [
+            {
+                "action": "Run Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "parameters",
+                "label": "Add Parameters",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "socialBots",
+                "label": "Add Social Bots",
+                "relatedUiObject": "Social Bots",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure Session",
+                "label": "Configure Session",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Session",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\",\n\"balancePercentage\": \"Type here the the % of the balance to be used in this test.\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Instance->"
+        },
+        "icon": "session-forward-testing",
+        "properties": [
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session"
+    },
+    {
+        "type": "Key Instance",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Key Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Reference->"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Exchange Account Key->"
+        },
+        "icon": "login",
+        "propertyNameAtParent": "keyInstance"
+    },
+    {
+        "type": "Live Trading Session",
+        "menuItems": [
+            {
+                "action": "Run Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "parameters",
+                "label": "Add Parameters",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "socialBots",
+                "label": "Add Social Bots",
+                "relatedUiObject": "Social Bots",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Configure Session",
+                "label": "Configure Session",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Session",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Instance->"
+        },
+        "icon": "session-live-trading",
+        "properties": [
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session"
+    },
+    {
+        "type": "Sensor Bot Instance",
+        "menuItems": [
+            {
+                "action": "Configure Bot Instance",
+                "label": "Configure Bot Instance",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Instance",
+                "relatedUiObject": "Sensor Process Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Bot Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"startDate\": \"2020-01-01\"\n}"
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Task->"
+        },
+        "icon": "bot-sensor",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Sensor Process Instance",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "bot"
+    },
+    {
+        "type": "Indicator Bot Instance",
+        "menuItems": [
+            {
+                "action": "Configure Bot Instance",
+                "label": "Configure Bot Instance",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Instance",
+                "relatedUiObject": "Indicator Process Instance",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Bot Instance",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{}"
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Task->"
+        },
+        "icon": "bot-indicator",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Indicator Process Instance",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "bot"
+    },
+    {
+        "type": "Data Mine",
+        "menuItems": [
+            {
+                "action": "Configure Data Mine",
+                "label": "Configigure Data Mine",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Sensor Bot",
+                "relatedUiObject": "Sensor Bot",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Indicator Bot",
+                "relatedUiObject": "Indicator Bot",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Trading Bot",
+                "relatedUiObject": "Trading Bot",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Plotter",
+                "relatedUiObject": "Plotter",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Mine",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "data-mine",
+        "properties": [
+            {
+                "name": "sensorBots",
+                "type": "array",
+                "childType": "Sensor Bot"
+            },
+            {
+                "name": "indicatorBots",
+                "type": "array",
+                "childType": "Indicator Bot"
+            },
+            {
+                "name": "tradingBots",
+                "type": "array",
+                "childType": "Trading Bot"
+            },
+            {
+                "name": "plotters",
+                "type": "array",
+                "childType": "Plotter"
+            }
+        ]
+    },
+    {
+        "type": "Sensor Bot",
+        "menuItems": [
+            {
+                "action": "Configure Bot",
+                "label": "Configure Bot",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Sensor Bot",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"repo\": \"If this is a legacy bot, write here the repository name in order to locate its code.\"\n}"
+        },
+        "level": 0,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "icon": "bot-sensor",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "sensorBots"
+    },
+    {
+        "type": "Process Definition",
+        "menuItems": [
+            {
+                "action": "Configure Process",
+                "label": "Configure Process",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Calculations Procedure",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Definition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
+        },
+        "icon": "process-definition",
+        "properties": [
+            {
+                "name": "processOutput",
+                "type": "node",
+                "childType": "Process Output",
+                "autoAdd": true
+            },
+            {
+                "name": "processDependencies",
+                "type": "node",
+                "childType": "Process Dependencies",
+                "autoAdd": true
+            },
+            {
+                "name": "statusReport",
+                "type": "node",
+                "childType": "Status Report",
+                "autoAdd": true
+            },
+            {
+                "name": "executionStartedEvent",
+                "type": "node",
+                "childType": "Execution Started Event",
+                "autoAdd": true
+            },
+            {
+                "name": "executionFinishedEvent",
+                "type": "node",
+                "childType": "Execution Finished Event",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "Process Output",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Output Dataset",
+                "relatedUiObject": "Output Dataset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Output",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "icon": "process-output",
+        "properties": [
+            {
+                "name": "outputDatasets",
+                "type": "array",
+                "childType": "Output Dataset",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processOutput"
+    },
+    {
+        "type": "Process Dependencies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Status Dependency",
+                "relatedUiObject": "Status Dependency",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Dependency",
+                "relatedUiObject": "Data Dependency",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Process Dependencies",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "icon": "process-dependencies",
+        "properties": [
+            {
+                "name": "statusDependencies",
+                "type": "array",
+                "childType": "Status Dependency",
+                "autoAdd": true
+            },
+            {
+                "name": "dataDependencies",
+                "type": "array",
+                "childType": "Data Dependency",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "processDependencies"
+    },
+    {
+        "type": "Status Dependency",
+        "menuItems": [
+            {
+                "action": "Configure Status Dependency",
+                "label": "Config Status Dependency",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Status Dependency",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Status Report->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Dependencies->"
+        },
+        "icon": "status-dependency",
+        "propertyNameAtParent": "statusDependencies"
+    },
+    {
+        "type": "Status Report",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Status Report",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "icon": "status-report",
+        "propertyNameAtParent": "statusReport"
+    },
+    {
+        "type": "Execution Started Event",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Execution Finished Event->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "icon": "execution-started-event",
+        "propertyNameAtParent": "executionStartedEvent"
+    },
+    {
+        "type": "Execution Finished Event",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "icon": "execution-finished-event",
+        "propertyNameAtParent": "executionFinishedEvent"
+    },
+    {
+        "type": "Product Definition",
+        "menuItems": [
+            {
+                "action": "Configure Product",
+                "label": "Configure Product",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "record",
+                "label": "Add Record Definition",
+                "relatedUiObject": "Record Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Dataset Definition",
+                "relatedUiObject": "Dataset Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Calculations Procedure",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Product Definition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Plotter Module->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
+        },
+        "icon": "product-definition",
+        "properties": [
+            {
+                "name": "datasets",
+                "type": "array",
+                "childType": "Dataset Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "record",
+                "type": "node",
+                "childType": "Record Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "calculations",
+                "type": "node",
+                "childType": "Calculations Procedure"
+            },
+            {
+                "name": "dataBuilding",
+                "type": "node",
+                "childType": "Data Building Procedure"
+            }
+        ],
+        "propertyNameAtParent": "products"
+    },
+    {
+        "type": "Dataset Definition",
+        "menuItems": [
+            {
+                "action": "Configure Definition",
+                "label": "Configure Definition",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Dataset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Product Definition->"
+        },
+        "icon": "dataset-definition",
+        "propertyNameAtParent": "datasets"
+    },
+    {
+        "type": "Indicator Bot",
+        "menuItems": [
+            {
+                "action": "Configure Bot",
+                "label": "Configure Bot",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Indicator Bot",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "icon": "bot-indicator",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "indicatorBots"
+    },
+    {
+        "type": "Output Dataset",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Output Dataset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Dataset Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Output->"
+        },
+        "icon": "output-dataset",
+        "propertyNameAtParent": "outputDatasets"
+    },
+    {
+        "type": "Data Dependency",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Dependency",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Dataset Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Process Dependencies->"
+        },
+        "icon": "data-dependency",
+        "propertyNameAtParent": "dataDependencies"
+    },
+    {
+        "type": "Record Definition",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Record Property",
+                "relatedUiObject": "Record Property",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Record Definition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Product Definition->"
+        },
+        "icon": "record-definition",
+        "properties": [
+            {
+                "name": "properties",
+                "type": "array",
+                "childType": "Record Property",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "record"
+    },
+    {
+        "type": "Record Property",
+        "menuItems": [
+            {
+                "action": "Configure Property",
+                "label": "Configure Property",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Record Property",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Record Definition->"
+        },
+        "icon": "record-property",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula"
+            }
+        ],
+        "propertyNameAtParent": "properties"
+    },
+    {
+        "type": "Formula",
+        "menuItems": [
+            {
+                "action": "Edit Formula",
+                "label": "Edit Formula",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.formulaEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Formula",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": "// Write your Formula code here."
+        },
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position Size->Position Rate->Phase->Announcement->Record Property->"
+        },
+        "icon": "pipette",
+        "propertyNameAtParent": "formula"
+    },
+    {
+        "type": "Calculations Procedure",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "initialization",
+                "label": "Add Procedure Initialization",
+                "relatedUiObject": "Procedure Initialization",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "loop",
+                "label": "Add Procedure Loop",
+                "relatedUiObject": "Procedure Loop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Procedure",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Product Definition->"
+        },
+        "icon": "calculations-procedure",
+        "properties": [
+            {
+                "name": "initialization",
+                "type": "node",
+                "childType": "Procedure Initialization",
+                "autoAdd": true
+            },
+            {
+                "name": "loop",
+                "type": "node",
+                "childType": "Procedure Loop",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "calculations"
+    },
+    {
+        "type": "Procedure Initialization",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "code",
+                "label": "Add Code",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Initialization",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
+        },
+        "icon": "procedure-initialization",
+        "properties": [
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "initialization"
+    },
+    {
+        "type": "Procedure Loop",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "code",
+                "label": "Add Code",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Procedure Loop",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
+        },
+        "icon": "procedure-loop",
+        "properties": [
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "loop"
+    },
+    {
+        "type": "Data Building Procedure",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "initialization",
+                "label": "Add Procedure Initialization",
+                "relatedUiObject": "Procedure Initialization",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "loop",
+                "label": "Add Procedure Loop",
+                "relatedUiObject": "Procedure Loop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Procedure",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Product Definition->"
+        },
+        "icon": "data-building-procedure",
+        "properties": [
+            {
+                "name": "loop",
+                "type": "node",
+                "childType": "Procedure Loop",
+                "autoAdd": true
+            },
+            {
+                "name": "initialization",
+                "type": "node",
+                "childType": "Procedure Initialization",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "dataBuilding"
+    },
+    {
+        "type": "Trading Bot",
+        "menuItems": [
+            {
+                "action": "Configure Bot",
+                "label": "Configure Bot",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Trading Bot",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "icon": "bot-trading",
+        "properties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "tradingBots"
+    },
+    {
+        "type": "Plotter",
+        "menuItems": [
+            {
+                "action": "Configure Plotter",
+                "label": "Configure Plotter",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Plotter Module",
+                "relatedUiObject": "Plotter Module",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Plotter",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "plotter",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "properties": [
+            {
+                "name": "modules",
+                "type": "array",
+                "childType": "Plotter Module",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "plotters"
+    },
+    {
+        "type": "Trading System",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Strategy",
+                "relatedUiObject": "Strategy",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "parameters",
+                "label": "Add Parameters",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Trading System",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "icon": "analysis",
+        "properties": [
+            {
+                "name": "strategies",
+                "type": "array",
+                "childType": "Strategy",
+                "autoAdd": true
+            },
+            {
+                "name": "parameters",
+                "type": "node",
+                "childType": "Parameters",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "tradingSystem"
+    },
+    {
+        "type": "Strategy",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Stages",
+                "relatedUiObject": "Strategy",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Strategy",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "icon": "quality",
+        "properties": [
+            {
+                "name": "triggerStage",
+                "type": "node",
+                "childType": "Trigger Stage",
+                "autoAdd": true
+            },
+            {
+                "name": "openStage",
+                "type": "node",
+                "childType": "Open Stage",
+                "autoAdd": true
+            },
+            {
+                "name": "manageStage",
+                "type": "node",
+                "childType": "Manage Stage",
+                "autoAdd": true
+            },
+            {
+                "name": "closeStage",
+                "type": "node",
+                "childType": "Close Stage",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "strategies"
+    },
+    {
+        "type": "Trigger Stage",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Events",
+                "relatedUiObject": "Trigger Stage",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Stage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "stage-trigger",
+        "properties": [
+            {
+                "name": "triggerOn",
+                "type": "node",
+                "childType": "Trigger On Event",
+                "autoAdd": true
+            },
+            {
+                "name": "triggerOff",
+                "type": "node",
+                "childType": "Trigger Off Event",
+                "autoAdd": true
+            },
+            {
+                "name": "takePosition",
+                "type": "node",
+                "childType": "Take Position Event",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "triggerStage"
+    },
+    {
+        "type": "Trigger On Event",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trigger Stage->"
+        },
+        "icon": "stage-trigger-trigger-on",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "triggerOn"
+    },
+    {
+        "type": "Trigger Off Event",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trigger Stage->"
+        },
+        "icon": "stage-trigger-trigger-off",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "triggerOff"
+    },
+    {
+        "type": "Take Position Event",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trigger Stage->"
+        },
+        "icon": "stage-trigger-take-position",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "takePosition"
+    },
+    {
+        "type": "Open Stage",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "initialDefinition",
+                "label": "Add Initial Definition",
+                "relatedUiObject": "Initial Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "openExecution",
+                "label": "Add Open Execution",
+                "relatedUiObject": "Open Execution",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Stage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "stage-open",
+        "properties": [
+            {
+                "name": "initialDefinition",
+                "type": "node",
+                "childType": "Initial Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "openExecution",
+                "type": "node",
+                "childType": "Open Execution",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "openStage"
+    },
+    {
+        "type": "Initial Definition",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Initial Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Definition",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Open Stage->"
+        },
+        "icon": "initial-definition",
+        "properties": [
+            {
+                "name": "stopLoss",
+                "type": "node",
+                "childType": "Initial Stop",
+                "autoAdd": true
+            },
+            {
+                "name": "takeProfit",
+                "type": "node",
+                "childType": "Initial Take Profit",
+                "autoAdd": true
+            },
+            {
+                "name": "positionSize",
+                "type": "node",
+                "childType": "Position Size"
+            },
+            {
+                "name": "positionRate",
+                "type": "node",
+                "childType": "Position Rate"
+            }
+        ],
+        "propertyNameAtParent": "initialDefinition"
+    },
+    {
+        "type": "Stop",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Phase",
+                "relatedUiObject": "Phase",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Item",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Manage Stage->Initial Definition->"
+        },
+        "icon": "stop",
+        "properties": [
+            {
+                "name": "phases",
+                "type": "array",
+                "childType": "Phase",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "stopLoss"
+    },
+    {
+        "type": "Initial Stop",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Phase",
+                "relatedUiObject": "Phase",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Item",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Manage Stage->Initial Definition->"
+        },
+        "icon": "stop",
+        "properties": [
+            {
+                "name": "phases",
+                "type": "array",
+                "maxItems": 1,
+                "childType": "Phase",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "stopLoss"
+    },
+    {
+        "type": "Phase",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "nextPhaseEvent",
+                "label": "Add Next Phase Event",
+                "relatedUiObject": "Next Phase Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Phase",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainedToSameType": true,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stop->Take Profit->Initial Stop->Initial Take Profit->Phase->"
+        },
+        "icon": "placeholder",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula",
+                "autoAdd": true
+            },
+            {
+                "name": "nextPhaseEvent",
+                "type": "node",
+                "childType": "Next Phase Event"
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "phases"
+    },
+    {
+        "type": "Next Phase Event",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Phase->"
+        },
+        "icon": "next-phase-event",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "nextPhaseEvent"
+    },
+    {
+        "type": "Take Profit",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Phase",
+                "relatedUiObject": "Phase",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Item",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Manage Stage->Initial Definition->"
+        },
+        "icon": "stage-open-take-profit",
+        "properties": [
+            {
+                "name": "phases",
+                "type": "array",
+                "childType": "Phase",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "takeProfit"
+    },
+    {
+        "type": "Initial Take Profit",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Phase",
+                "relatedUiObject": "Phase",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Item",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Manage Stage->Initial Definition->"
+        },
+        "icon": "stage-open-take-profit",
+        "properties": [
+            {
+                "name": "phases",
+                "type": "array",
+                "maxItems": 1,
+                "childType": "Phase",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "takeProfit"
+    },
+    {
+        "type": "Position Size",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Position Size",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Initial Definition->"
+        },
+        "icon": "stage-open-position-size",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula"
+            }
+        ],
+        "propertyNameAtParent": "positionSize"
+    },
+    {
+        "type": "Position Rate",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Position Rate",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Initial Definition->"
+        },
+        "icon": "stage-open-postion-rate",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula"
+            }
+        ],
+        "propertyNameAtParent": "positionRate"
+    },
+    {
+        "type": "Open Execution",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Open Stage->"
+        },
+        "icon": "piggy-bank",
+        "propertyNameAtParent": "openExecution"
+    },
+    {
+        "type": "Manage Stage",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Manage Stage",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Stage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "video-player",
+        "properties": [
+            {
+                "name": "stopLoss",
+                "type": "node",
+                "childType": "Stop",
+                "autoAdd": true
+            },
+            {
+                "name": "takeProfit",
+                "type": "node",
+                "childType": "Take Profit",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "manageStage"
+    },
+    {
+        "type": "Close Stage",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "closeExecution",
+                "label": "Add Close Execution",
+                "relatedUiObject": "Close Execution",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Stage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "stage-close",
+        "properties": [
+            {
+                "name": "closeExecution",
+                "type": "node",
+                "childType": "Close Execution",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "closeStage"
+    },
+    {
+        "type": "Close Execution",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Close Stage->"
+        },
+        "icon": "piggy-bank",
+        "propertyNameAtParent": "closeExecution"
+    },
+    {
+        "type": "Social Bots",
+        "menuItems": [
+            {
+                "action": "Add Telegram Bot",
+                "label": "Add Telegram Bot",
+                "relatedUiObject": "Telegram Bot",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Social Bots",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->"
+        },
+        "icon": "social-bot",
+        "properties": [
+            {
+                "name": "bots",
+                "type": "array",
+                "childType": "Telegram Bot",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "socialBots"
+    },
+    {
+        "type": "Telegram Bot",
+        "editors": {
+            "config": true
+        },
+        "menuItems": [
+            {
+                "action": "Config Telegram Bot",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Telegram Bot",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Telegram Bot",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Social Bots->"
+        },
+        "icon": "paper-plane",
+        "properties": [],
+        "propertyNameAtParent": "bots"
+    },
+    {
+        "type": "Announcement",
+        "editors": {
+            "config": true
+        },
+        "menuItems": [
+            {
+                "action": "Config Announcement",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Announcement",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Announcement",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{ \n\"text\": \"Write here what you want to announce when there is no Formula.\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Telegram Bot->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Phase->"
+        },
+        "properties": [
+            {
+                "name": "formula",
+                "type": "nide",
+                "childType": "Formula",
+                "autoAdd": true
+            }
+        ],
+        "icon": "promotion",
+        "propertyNameAtParent": "announcements"
+    },
+    {
+        "type": "Crypto Ecosystem",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "cryptoExchanges",
+                "label": "Add Crypto Exchanges",
+                "relatedUiObject": "Crypto Exchanges",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Crypto Ecosystem",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "image",
+        "properties": [
+            {
+                "name": "cryptoExchanges",
+                "type": "node",
+                "childType": "Network Node"
+            }
+        ]
+    },
+    {
+        "type": "Crypto Exchanges",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Crypto Exchange",
+                "relatedUiObject": "Crypto Exchange",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Crypto Exchanges",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "crypto-exchanges",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Ecosystem->"
+        },
+        "propertyNameAtParent": "cryptoExchanges",
+        "properties": [
+            {
+                "name": "exchanges",
+                "type": "array",
+                "childType": "Crypto Exchange",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Crypto Exchange",
+        "menuItems": [
+            {
+                "action": "Config Crypto Exchange",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Crypto Exchange",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "exchangeAssets",
+                "label": "Add Exchange Assets",
+                "relatedUiObject": "Exchange Assets",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "exchangeMarkets",
+                "label": "Add Exchange Markets",
+                "relatedUiObject": "Exchange Markets",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "exchangeAccounts",
+                "label": "Add Exchange Accounts",
+                "relatedUiObject": "Exchange Accounts",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Crypto Exchange",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "crypto-exchange",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here the name of the exchange here.\"\n}"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Exchanges->"
+        },
+        "propertyNameAtParent": "exchanges",
+        "properties": [
+            {
+                "name": "exchangeAssets",
+                "type": "node",
+                "childType": "Exchange Assets",
+                "autoAdd": true
+            },
+            {
+                "name": "exchangeMarkets",
+                "type": "node",
+                "childType": "Exchange Markets",
+                "autoAdd": true
+            },
+            {
+                "name": "exchangeAccounts",
+                "type": "node",
+                "childType": "Exchange Accounts",
+                "autoAdd": true
+            }
+        ],
+        "alternativeIcons": [
+            {
+                "codeName": "Bitfinex",
+                "iconName": "bitfinex"
+            },
+            {
+                "codeName": "Binance",
+                "iconName": "binance"
+            },
+            {
+                "codeName": "Kucoin",
+                "iconName": "kucoin"
+            },
+            {
+                "codeName": "Bittrex",
+                "iconName": "bittrex"
+            },
+            {
+                "codeName": "Kraken",
+                "iconName": "kraken"
+            },
+            {
+                "codeName": "Poloniex",
+                "iconName": "poloniex"
+            },
+            {
+                "codeName": "Upbit",
+                "iconName": "upbit"
+            },
+            {
+                "codeName": "Bitmex",
+                "iconName": "bitmex"
+            },
+            {
+                "codeName": "Liquid",
+                "iconName": "liquid"
+            },
+            {
+                "codeName": "HitBTC",
+                "iconName": "hitbtc"
+            }
+        ]
+    },
+    {
+        "type": "Exchange Assets",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Asset",
+                "relatedUiObject": "Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Exchange Assets",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "exchange-assets",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "propertyNameAtParent": "exchangeAssets",
+        "properties": [
+            {
+                "name": "assets",
+                "type": "array",
+                "childType": "Asset",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Asset",
+        "menuItems": [
+            {
+                "action": "Config Asset",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Asset",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Asset",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 4,
+        "icon": "asset",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here the code name of the asset here.\"\n}"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Assets->"
+        },
+        "propertyNameAtParent": "assets",
+        "alternativeIcons": [
+            {
+                "codeName": "XMR",
+                "iconName": "monero"
+            },
+            {
+                "codeName": "USDT",
+                "iconName": "tether"
+            },
+            {
+                "codeName": "TRX",
+                "iconName": "tron"
+            },
+            {
+                "codeName": "XLM",
+                "iconName": "stellar"
+            },
+            {
+                "codeName": "QTUM",
+                "iconName": "qtum"
+            },
+            {
+                "codeName": "NEO",
+                "iconName": "neo"
+            },
+            {
+                "codeName": "LTC",
+                "iconName": "litecoin"
+            },
+            {
+                "codeName": "ETC",
+                "iconName": "ethereum-classic"
+            },
+            {
+                "codeName": "ETH",
+                "iconName": "ethereum"
+            },
+            {
+                "codeName": "EOS",
+                "iconName": "eos"
+            },
+            {
+                "codeName": "DASH",
+                "iconName": "dash"
+            },
+            {
+                "codeName": "ADA",
+                "iconName": "cardano"
+            },
+            {
+                "codeName": "BCH",
+                "iconName": "bitcoin-cash"
+            },
+            {
+                "codeName": "BTC",
+                "iconName": "bitcoin"
+            },
+            {
+                "codeName": "BNB",
+                "iconName": "binance-coin"
+            },
+            {
+                "codeName": "USD",
+                "iconName": "us-dollar"
+            }
+        ]
+    },
+    {
+        "type": "Exchange Markets",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Market",
+                "relatedUiObject": "Market",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Exchange Markets",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "exchange-markets",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "propertyNameAtParent": "exchangeMarkets",
+        "properties": [
+            {
+                "name": "markets",
+                "type": "array",
+                "childType": "Market",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Market",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "baseAsset",
+                "label": "Add Base Asset",
+                "relatedUiObject": "Market Base Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "quotedAsset",
+                "label": "Add Quoted Asset",
+                "relatedUiObject": "Market Quoted Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Config Market",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Market",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Market",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "properties": [
+            {
+                "name": "baseAsset",
+                "type": "node",
+                "childType": "Market Base Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "quotedAsset",
+                "type": "node",
+                "childType": "Market Quoted Asset",
+                "autoAdd": true
+            }
+        ],
+        "addLeftIcons": true,
+        "isTitleAllwaysVisible": true,
+        "level": 4,
+        "icon": "market",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here the name of the market as it is defined at the CCXT library.\"\n}"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Markets->"
+        },
+        "propertyNameAtParent": "markets"
+    },
+    {
+        "type": "Exchange Accounts",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add User Account",
+                "relatedUiObject": "User Account",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Exchange Accounts",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "exchange-accounts",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "propertyNameAtParent": "exchangeAccounts",
+        "properties": [
+            {
+                "name": "userAccounts",
+                "type": "array",
+                "childType": "User Account",
+                "autoAdd": true
+            }
+        ],
+        "isPersonalData": true
+    },
+    {
+        "type": "User Account",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "userAssets",
+                "label": "Add User Assets",
+                "relatedUiObject": "User Assets",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "userKeys",
+                "label": "Add User Keys",
+                "relatedUiObject": "User Keys",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Account",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "user-account",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Exchange Accounts->"
+        },
+        "propertyNameAtParent": "userAccounts",
+        "properties": [
+            {
+                "name": "userAssets",
+                "type": "node",
+                "childType": "User Assets",
+                "autoAdd": true
+            },
+            {
+                "name": "userKeys",
+                "type": "node",
+                "childType": "User Keys",
+                "autoAdd": true
+            }
+        ],
+        "isPersonalData": true
+    },
+    {
+        "type": "User Assets",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Asset",
+                "relatedUiObject": "Exchange Account Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete User Assets",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "user-assets",
+        "chainAttachesTo": {
+            "compatibleTypes": "->User Account->"
+        },
+        "propertyNameAtParent": "userAssets",
+        "properties": [
+            {
+                "name": "assets",
+                "type": "array",
+                "childType": "Exchange Account Asset",
+                "autoAdd": true
+            }
+        ],
+        "isPersonalData": true
+    },
+    {
+        "type": "User Keys",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Key",
+                "relatedUiObject": "Exchange Account Key",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete User Keys",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "user-keys",
+        "chainAttachesTo": {
+            "compatibleTypes": "->User Account->"
+        },
+        "propertyNameAtParent": "userKeys",
+        "properties": [
+            {
+                "name": "keys",
+                "type": "array",
+                "childType": "Exchange Account Key",
+                "autoAdd": true
+            }
+        ],
+        "isPersonalData": true
+    },
+    {
+        "type": "Exchange Account Asset",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Asset",
+                "visible": true,
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "rawRadius": 8,
+                "targetRadius": 0,
+                "currentRadius": 0,
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 4,
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Asset->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->User Assets->"
+        },
+        "icon": "exchange-account-asset",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "propertyNameAtParent": "assets",
+        "alternativeIcons": "Use Reference Parent",
+        "isPersonalData": true
+    },
+    {
+        "type": "Exchange Account Key",
+        "menuItems": [
+            {
+                "action": "Configure Key",
+                "label": "Configure Key",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Key",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Paste your exchange API name or label here\",\n\"secret\": \"Paste your exchange API secret key here. To keep you exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing.\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->User Keys->"
+        },
+        "icon": "exchange-account-key",
+        "propertyNameAtParent": "keys",
+        "isPersonalData": true
+    },
+    {
+        "type": "Charting Space",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "viewport",
+                "label": "Add Viewport",
+                "relatedUiObject": "Viewport",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Dashboard",
+                "relatedUiObject": "Dashboard",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Charting Space",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "charting-space",
+        "properties": [
+            {
+                "name": "viewport",
+                "type": "node",
+                "childType": "Viewport",
+                "autoAdd": true
+            },
+            {
+                "name": "dashboards",
+                "type": "array",
+                "childType": "Dashboard"
+            }
+        ]
+    },
+    {
+        "type": "Dashboard",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Time Machine",
+                "relatedUiObject": "Time Machine",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Dashboard",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "dashboard",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Charting Space->"
+        },
+        "propertyNameAtParent": "dashboards",
+        "properties": [
+            {
+                "name": "timeMachines",
+                "type": "array",
+                "childType": "Time Machine"
+            }
+        ]
+    },
+    {
+        "type": "Time Machine",
+        "menuItems": [
+            {
+                "action": "Configure Time Machine",
+                "label": "Configure Time Machine",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "timeScale",
+                "label": "Add Time Scale",
+                "relatedUiObject": "Time Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "rateScale",
+                "label": "Add Rate Scale",
+                "relatedUiObject": "Rate Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "timeFrameScale",
+                "label": "Add Time Frame Scale",
+                "relatedUiObject": "Time Frame Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Timeline Chart",
+                "relatedUiObject": "Timeline Chart",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Crypto Exchange",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 1,
+        "isTitleAllwaysVisible": true,
+        "icon": "time-machine",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Dashboard->"
+        },
+        "propertyNameAtParent": "timeMachines",
+        "properties": [
+            {
+                "name": "timeScale",
+                "type": "node",
+                "childType": "Time Scale",
+                "autoAdd": true
+            },
+            {
+                "name": "rateScale",
+                "type": "node",
+                "childType": "Rate Scale",
+                "autoAdd": true
+            },
+            {
+                "name": "timeFrameScale",
+                "type": "node",
+                "childType": "Time Frame Scale",
+                "autoAdd": true
+            },
+            {
+                "name": "timelineCharts",
+                "type": "array",
+                "childType": "Timeline Chart",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Viewport",
+        "menuItems": [
+            {
+                "action": "Configure Viewport",
+                "label": "Configure Viewport",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Viewport",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"topMargin\": 40,\n\"bottomMargin\": 40\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "viewport",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Charting Space->"
+        },
+        "propertyNameAtParent": "viewport"
+    },
+    {
+        "type": "Time Scale",
+        "menuItems": [
+            {
+                "action": "Configure Time Scale",
+                "label": "Configure Time Scale",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Time Scale",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"autoMinScale\": true,\n\"autoMaxScale\": true,\n\"fromDate\": \"2018-01-01\",\n\"toDate\": \"2020-12-31\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "time-scale",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Time Machine->"
+        },
+        "propertyNameAtParent": "timeScale"
+    },
+    {
+        "type": "Rate Scale",
+        "menuItems": [
+            {
+                "action": "Configure Rate Scale",
+                "label": "Configure Rate Scale",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Rate Scale",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"autoMinScale\": true,\n\"autoMaxScale\": true,\n\"minValue\": 0,\n\"maxValue\": 25000\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "rate-scale",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Time Machine->Timeline Chart->"
+        },
+        "propertyNameAtParent": "rateScale"
+    },
+    {
+        "type": "Time Frame Scale",
+        "menuItems": [
+            {
+                "action": "Configure Frame Scale",
+                "label": "Configure Frame Scale",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Time Frame Scale",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "code": "{ \n\"value\": \"24-hs\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 2,
+        "icon": "time-frame-scale",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Time Machine->Timeline Chart->"
+        },
+        "propertyNameAtParent": "timeFrameScale"
+    },
+    {
+        "type": "Timeline Chart",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "rateScale",
+                "label": "Add Rate Scale",
+                "relatedUiObject": "Rate Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "timeFrameScale",
+                "label": "Add Time Frame Scale",
+                "relatedUiObject": "Time Frame Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layersManager",
+                "label": "Add Layers Manager",
+                "relatedUiObject": "Layers Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Time Timeline Chart",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "isTitleAllwaysVisible": true,
+        "icon": "time-line-chart",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Time Machine->"
+        },
+        "propertyNameAtParent": "timelineCharts",
+        "properties": [
+            {
+                "name": "rateScale",
+                "type": "node",
+                "childType": "Rate Scale"
+            },
+            {
+                "name": "timeFrameScale",
+                "type": "node",
+                "childType": "Time Frame Scale"
+            },
+            {
+                "name": "layersManager",
+                "type": "node",
+                "childType": "Layers Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Layers Manager",
+        "menuItems": [
+            {
+                "action": "Configure Layers Manager",
+                "label": "Configure Layers Manager",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Layer",
+                "relatedUiObject": "Layer",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Layers Manager",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"visibleLayers\": 5\n}"
+        },
+        "level": 3,
+        "icon": "layer-manager",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Timeline Chart->"
+        },
+        "propertyNameAtParent": "layersManager",
+        "properties": [
+            {
+                "name": "layers",
+                "type": "array",
+                "childType": "Layer",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Layer",
+        "menuItems": [
+            {
+                "action": "Configure Layer",
+                "label": "Configure Layer",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "timeFrameScale",
+                "label": "Add Time Frame Scale",
+                "relatedUiObject": "Time Frame Scale",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Layer",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "initialValues": {
+            "code": "{ \n\"status\": \"off\"\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Data Product->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Layer Manager->Layers Manager->"
+        },
+        "icon": "attractive",
+        "propertyNameAtParent": "layers",
+        "properties": [
+            {
+                "name": "timeFrameScale",
+                "type": "node",
+                "childType": "Time Frame Scale"
+            }
+        ]
+    },
+    {
+        "type": "Data Storage",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "sessionIndependentData",
+                "label": "Add Session Ind Data",
+                "relatedUiObject": "Session Independent Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "sessionBasedData",
+                "label": "Add Session Based Data",
+                "relatedUiObject": "Session Based Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Storage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "data-storage",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "dataStorage",
+        "properties": [
+            {
+                "name": "sessionIndependentData",
+                "type": "node",
+                "childType": "Session Independent Data",
+                "autoAdd": true
+            },
+            {
+                "name": "sessionBasedData",
+                "type": "node",
+                "childType": "Session Based Data",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Data Mining",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Mining",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "data-mining",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "dataMining",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Testing Environment",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Environment",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "testing-environment",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "testingEnvironment",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Production Environment",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Task Manager",
+                "relatedUiObject": "Task Manager",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Environment",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "production-environment",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Network Node->"
+        },
+        "propertyNameAtParent": "productionEnvironment",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Session Independent Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Single Market Data",
+                "relatedUiObject": "Single Market Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Storage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "session-independent-data",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "sessionIndependentData",
+        "properties": [
+            {
+                "name": "singleMarketData",
+                "type": "array",
+                "childType": "Single Market Data",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Session Based Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Session Reference",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Storage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "session-based-data",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "sessionBasedData",
+        "properties": [
+            {
+                "name": "sessionReference",
+                "type": "array",
+                "childType": "Session Reference",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Session Reference",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Single Market Data",
+                "relatedUiObject": "Single Market Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Storage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "session-reference",
+        "alternativeIcons": "Use Reference Parent",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Session Based Data->"
+        },
+        "propertyNameAtParent": "sessionReference",
+        "properties": [
+            {
+                "name": "singleMarketData",
+                "type": "array",
+                "childType": "Single Market Data",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Single Market Data",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Product",
+                "relatedUiObject": "Data Product",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Single Market Data",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent"
+        ],
+        "icon": "single-market-data",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Session Independent Data->Session Reference->"
+        },
+        "propertyNameAtParent": "singleMarketData",
+        "properties": [
+            {
+                "name": "dataProducts",
+                "type": "array",
+                "childType": "Data Product",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Data Product",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Product",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "data-product",
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent"
+        ],
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Product Definition->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Single Market Data->"
+        },
+        "propertyNameAtParent": "dataProducts",
+        "properties": []
+    }
+]

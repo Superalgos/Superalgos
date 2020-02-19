@@ -1,0 +1,19 @@
+{
+  "name": "@superalgos/saweb",
+  "version": "0.1.0",
+  "description": "Superalgos web interface.",
+  "main": "server.js",
+  "author": "Superalgos, ltd.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Superalgos/AAWeb.git"
+  },
+  "dependencies": {
+    "@superalgos/mqservice": "0.0.12",
+    "axios": "0.19.0",
+    "dotenv": "8.0.0",
+    "open": "^6.4.0",
+    "rimraf": "^3.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "backend-server",
+  "version": "0.0.0",
+  "description": "BackendServer",
+  "main": "app.js",
+  "author": {
+    "name": "Luis"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "dotenv": "^8.1.0",
+    "node-ipc": "^9.1.1"
+  }
+}

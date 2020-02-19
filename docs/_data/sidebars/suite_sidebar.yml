@@ -1,0 +1,421 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Superalgos
+  version: 0.0.6
+  folders:
+
+#  - title:
+#    output: pdf
+#    type: frontmatter
+#    folderitems:
+#    - title:
+#      url: /titlepage.html
+#      output: pdf
+#      type: frontmatter
+#    - title:
+#      url: /tocpage.html
+#      output: pdf
+#      type: frontmatter
+
+  - title: Before you begin
+    output: web
+    folderitems:
+
+    - title: Welcome!
+      url: /index.html
+      output: web
+      type: homepage
+
+    - title: What to expect
+      url: /suite-what-to-expect.html
+      output: web
+
+    - title: System requirements
+      url: /suite-system-requirements.html
+      output: web
+
+#  - title: Getting Started
+#    output: web
+#    folderitems:
+
+#    - title: Download and set up
+#      url: /suite-download-and-set-up.html
+#      output: web
+
+#    - title: Run the suite
+#      url: /suite-run-the-suite.html
+#      output: web
+
+#    - title: Quick overview
+#      url: /suite-quick-overview.html
+#      output: web
+
+#    - title: Run your first backtest
+#      url: /suite-run-your-first-backtest.html
+#      output: web
+
+#    - title: Update datasets
+#      url: /suite-update-datasets.html
+#      output: web
+
+#    - title: Trade with an open-source strategy
+#      url: /suite-trade-live-with-an-open-source-strategy.html
+#      output: web
+
+#    - title: What's next?
+#      url: /suite-what-is-next.html
+#      output: web
+
+#  - title: Charts
+#    output: web
+#    folderitems:
+
+#    - title: Overview
+#      url: /suite-charts-overview.html
+#      output: web
+
+
+
+#    - title: Layers panel
+#      url: /suite-layers-panel.html
+#      output: web
+
+  - title: Design space
+    output: web
+    folderitems:
+
+    - title: Design space, workspace, and nodes
+      url: /suite-design-space-workspace-and-data-structures.html
+      output: web
+
+    - title: Interface
+      url: /suite-design-space-interface.html
+      output: web
+
+    - title: Hierarchies
+      url: /suite-hierarchies.html
+      output: web
+
+    - title: References
+      url: /suite-references.html
+      output: web
+
+  - title: Charting space
+    output: web
+    folderitems:
+
+    - title: Viewport interface
+      url: /suite-viewport-interface.html
+      output: web
+
+    - title: Arranging a dashboard
+      url: /suite-arranging-dashboard.html
+      output: web
+      class: childItem
+
+    - title: "Navigating time machines & charts"
+      url: /suite-navigating-time-machines.html
+      output: web
+      class: childItem
+
+    - title: Scale boxes
+      url: /suite-scale-boxes.html
+      output: web
+      class: childItem
+
+    - title: Layer managers
+      url: /suite-layer-managers.html
+      output: web
+      class: childItem
+
+    - title: Charting space
+      url: /suite-charting-space.html
+      output: web
+
+    - title: Scales
+      url: /suite-scales.html
+      output: web
+      class: childItem
+
+    - title: Timeline charts
+      url: /suite-timeline-charts.html
+      output: web
+      class: childItem
+
+  - title: Trading system
+    output: web
+    folderitems:
+
+    - title: Trading systems
+      url: /suite-trading-systems.html
+      output: web
+
+    - title: Strategies
+      url: /suite-strategies.html
+      output: web
+
+    - title: Situations, conditions and formulas
+      url: /suite-situations-conditions-formulas.html
+      output: web
+
+    - title: Syntax overview
+      url: /suite-sysntax-overview.html
+      output: web
+      class: childItem
+
+    - title: Internal variables
+      url: /suite-internal-variables.html
+      output: web
+      class: childItem
+
+    - title: Masters indicators
+      url: /suite-masters-indicators.html
+      output: web
+      class: childItem
+
+    - title: Sparta indicators
+      url: /suite-sparta-indicators.html
+      output: web
+      class: childItem
+
+#    - title: Using non-included indicators
+#      url: /suite-using-non-included-indicators.html
+#      output: web
+
+    - title: Trading sessions
+      url: /suite-trading-sessions.html
+      output: web
+
+    - title: Parameters
+      url: /suite-parameters.html
+      output: web
+      class: childItem
+
+  - title: Infrastructure
+    output: web
+    folderitems:
+
+    - title: How bots work
+      url: /suite-how-bots-work.html
+      output: web
+
+    - title: Crypto ecosystem
+      url: /suite-crypto-ecosystem.html
+      output: web
+
+    - title: Exchange assets
+      url: /suite-exchange-assets.html
+      output: web
+      class: childItem
+
+    - title: Exchange markets
+      url: /suite-exchange-markets.html
+      output: web
+      class: childItem
+
+    - title: Exchange accounts
+      url: /suite-exchange-accounts.html
+      output: web
+      class: childItem
+
+    - title: Network
+      url: /suite-network.html
+      output: web
+
+    - title: Data storage
+      url: /suite-data-storage.html
+      output: web
+      class: childItem
+
+    - title: Data mining
+      url: /suite-data-mining.html
+      output: web
+      class: childItem
+
+    - title: Testing environment
+      url: /suite-testing-environment.html
+      output: web
+      class: childItem
+
+    - title: Production environment
+      url: /suite-production-environment.html
+      output: web
+      class: childItem
+
+#    - title: Managing processes
+#      url: /suite-managing-processes.html
+#      output: web
+
+#  - title: Backtests & Paper Trading
+#    output: web
+#    folderitems:
+
+#    - title: Overview
+#      url: /suite-testing-overview.html
+#      output: web
+
+#    - title: Session parameters
+#      url: /suite-session-parameters.html
+#      output: web
+
+#    - title: Simulation layers
+#      url: /suite-simulation-layers.html
+#      output: web
+
+#    - title: Advanced backtesting
+#      url: /suite-advanced-backtesting.html
+#      output: web
+
+#  - title: Forward Tests & Live Trading
+#    output: web
+#    folderitems:
+
+#    - title: Overview
+#      url: /suite-live-trading-overview.html
+#      output: web
+
+#    - title: Getting ready to trade live
+#      url: /suite-getting-ready-to-trade-live.html
+#      output: web
+
+#    - title: Live trading history layer
+#      url: /suite-live-trading-history-layer.html
+#      output: web
+
+#    - title: Execution limitations
+#      url: /suite-execution-limitations.html
+#      output: web
+
+#    - title: Multiple sessions
+#      url: /suite-multiple-forward-testing-and-live-trading-sessions.html
+#      output: web
+
+  - title: Data mines
+    output: web
+    folderitems:
+
+    - title: Data mines
+      url: /suite-data-mines.html
+      output: web
+
+    - title: Indicator bots
+      url: /suite-indicator-bots.html
+      output: web
+
+    - title: Process definition
+      url: /suite-process-definition.html
+      output: web
+      class: childItem
+
+    - title: Product definition
+      url: /suite-product-definition.html
+      output: web
+      class: childItem
+
+    - title: Plotters
+      url: /suite-plotters.html
+      output: web
+
+    - title: Plotter Panel
+      url: /suite-plotter-panel.html
+      output: web
+      class: childItem
+
+    - title: Shapes
+      url: /suite-shapes.html
+      output: web
+      class: childItem
+
+#    - title: Datasets
+#      url: /suite-datasets.html
+#      output: web
+
+#    - title: Dependencies
+#      url: /suite-dependencies.html
+#      output: web
+
+#    - title: Build an indicator
+#      url: /suite-build-an-indicator.html
+#      output: web
+
+#    - title: Build a plotter
+#      url: /suite-build-a-plotter.html
+#      output: web
+
+#  - title: Productivity Tools
+#    output: web
+#    folderitems:
+
+#    - title: Backups
+#      url: /suite-backups.html
+#      output: web
+
+#    - title: Clones
+#      url: /suite-clones.html
+#      output: web
+
+#    - title: Shares
+#      url: /suite-shares.html
+#      output: web
+
+#    - title: Telegram Announcements
+#      url: /suite-telegram-announcements.html
+#      output: web
+
+  - title: Hierarchies directory
+    output: web
+    folderitems:
+
+    - title: Crypto ecosystem
+      url: /suite-crypto-ecosystem-hierarchy.html
+      output: web
+
+    - title: Charting space
+      url: /suite-charting-space-hierarchy.html
+      output: web
+
+    - title: Trading system
+      url: /suite-trading-system-hierarchy.html
+      output: web
+
+    - title: Network
+      url: /suite-network-hierarchy.html
+      output: web
+
+    - title: Data mine
+      url: /suite-data-mine-hierarchy.html
+      output: web
+
+#  - title: Troubleshooting
+#    output: web
+#    folderitems:
+
+#    - title: Upgrading your existing installation
+#      url: /suite-upgrading-your-existing-instalation.html
+#      output: web
+
+#    - title: My system gets slow
+#      url: /suite-my-system-gets-slow.html
+#      output: web
+
+#    - title: On-screen errors and warnings
+#      url: /suite-on-screen-errors-and-warnings.html
+#      output: web
+
+#    - title: Market data seems to be outdated
+#      url: /suite-market-data-indicators-seem-to-be-outdated.html
+#      output: web
+
+#    - title: Reporting bugs
+#      url: /suite-reporting-bugs.html
+#      output: web
+
+#    - title: Consulting logs
+#      url: /suite-consulting-logs.html
+#      output: web
+
+
+
+

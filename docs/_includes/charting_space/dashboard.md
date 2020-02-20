@@ -51,7 +51,9 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-At the moment, the functionality of a dashboard is trivial: grouping time machines. However, in the future, it will offer various features to enhance the user experience while setting up complex and ellaborate dashboards.
+The concept of the dashboard allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, different time frames, or different technical studies on demand, simply by moving around and zooming in or out. You may put charts side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations.
+
+At the moment, the functionality of a dashboard is trivial: grouping time machines. However, in the future, it will offer various features to enhance the user experience.
 
 <!--------------------------------------------- CONTENT ends -->
 

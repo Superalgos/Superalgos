@@ -1,6 +1,6 @@
-charting_space: "The Charting Space is the hierarchy that governs the configuration of the charts."
+charting_space: "The charting space is the hierarchy that governs the configuration of the charts, and the bidimensional space on which charts are drawn."
 
-viewport: "The viewport represents the bidimensional space on which charts are drawn."
+viewport: "The viewport is a window through which you may look into the charting space."
 
 dashboard: "A dashboard is a collection of time machines, each containing any number of charts."
 

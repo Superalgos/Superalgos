@@ -8,7 +8,7 @@ toc: false
 
 {% include /network/production-environment.md heading="" icon="150-" adding="" configuring="" starting="" content="yes" definition="bold" table="yes" more="no"%}
 
-{% include tip.html content="If you are familiar with the testing environment, the production environment works in the exact same way, only that it features forward testing and live trading sessions instead of backtesting and paper trading sessions. **Live sessions require the setup of key instances**." %}
+{% include tip.html content="If you are familiar with the testing environment, the production environment works in the exact same way, only that it features forward testing and live trading sessions instead of backtesting and paper trading sessions. **Live sessions require the setup of a key instance and a live data feed, meaning that the sensor bot, along with all indicators used by the trading system, must be up and running**." %}
 
 <table class='hierarchyTable'><thead><tr><th><a href='#testing-environment' data-toggle='tooltip' data-original-title='{{site.data.network.testing_environment}}'><img src='images/icons/testing-environment.png' /><br />Testing Environment</a></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody>
 <tr><td><img src='images/icons/tree-connector-elbow.png' /></td><td><a href='#task-manager' data-toggle='tooltip' data-original-title='{{site.data.network.task_manager}}'><img src='images/icons/task-manager.png' /><br />Task Manager</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>

@@ -106,16 +106,12 @@ entries:
       url: /suite-hierarchies.html
       output: web
 
-    - title: References
-      url: /suite-references.html
-      output: web
-
   - title: Charting space
     output: web
     folderitems:
 
-    - title: Viewport interface
-      url: /suite-viewport-interface.html
+    - title: Interface
+      url: /suite-charting-space-interface.html
       output: web
 
     - title: Arranging a dashboard
@@ -135,6 +131,30 @@ entries:
 
     - title: Layer managers
       url: /suite-layer-managers.html
+      output: web
+      class: childItem
+
+    - title: Available layers
+      url: /suite-available-layers.html
+      output: web
+
+    - title: Masters bots layers
+      url: /suite-masters-bots-layers.html
+      output: web
+      class: childItem
+
+    - title: Sparta bots layers
+      url: /suite-sparta-bots-layers.html
+      output: web
+      class: childItem
+
+    - title: Simulation layers
+      url: /suite-simulation-layers.html
+      output: web
+      class: childItem
+
+    - title: Live trading history layer
+      url: /suite-live-trading-history-layer.html
       output: web
       class: childItem
 
@@ -169,7 +189,7 @@ entries:
       output: web
 
     - title: Syntax overview
-      url: /suite-sysntax-overview.html
+      url: /suite-syntax-overview.html
       output: web
       class: childItem
 
@@ -251,10 +271,6 @@ entries:
       url: /suite-production-environment.html
       output: web
       class: childItem
-
-#    - title: Managing processes
-#      url: /suite-managing-processes.html
-#      output: web
 
 #  - title: Backtests & Paper Trading
 #    output: web
@@ -352,21 +368,21 @@ entries:
 #      url: /suite-build-a-plotter.html
 #      output: web
 
-#  - title: Productivity Tools
-#    output: web
-#    folderitems:
+  - title: Productivity Tools
+    output: web
+    folderitems:
 
-#    - title: Backups
-#      url: /suite-backups.html
-#      output: web
+    - title: Backups
+      url: /suite-backups.html
+      output: web
 
-#    - title: Clones
-#      url: /suite-clones.html
-#      output: web
+    - title: Clones
+      url: /suite-clones.html
+      output: web
 
-#    - title: Shares
-#      url: /suite-shares.html
-#      output: web
+    - title: Shares
+      url: /suite-shares.html
+      output: web
 
 #    - title: Telegram Announcements
 #      url: /suite-telegram-announcements.html
@@ -396,13 +412,13 @@ entries:
       url: /suite-data-mine-hierarchy.html
       output: web
 
-#  - title: Troubleshooting
-#    output: web
-#    folderitems:
+  - title: Troubleshooting
+    output: web
+    folderitems:
 
-#    - title: Upgrading your existing installation
-#      url: /suite-upgrading-your-existing-instalation.html
-#      output: web
+    - title: Upgrading your existing installation
+      url: /suite-upgrading-your-existing-instalation.html
+      output: web
 
 #    - title: My system gets slow
 #      url: /suite-my-system-gets-slow.html

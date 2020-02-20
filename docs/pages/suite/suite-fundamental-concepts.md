@@ -64,3 +64,8 @@ Nodes may be attached only to potential parents. The system limits the way in wh
 {% include note.html content="Nodes may not be detached or attached to frozen nodes. You need to unfreeze them before attaching or detaching." %}
 
 {% include note.html content="The verbs *to chain* and *to attach* may be used interchangeably, as synonyms. Similarly, *to unchain* and *to detach* are both valid." %}
+
+{% include /concepts/references.md heading="##" icon="no" extended="more" content="yes" definition="bold" table="no" more="yes"%}
+
+
+

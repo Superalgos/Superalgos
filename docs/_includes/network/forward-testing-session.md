@@ -53,6 +53,8 @@
 
 A forward testing session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it.
 
+{% include note.html content="Running a forward testing session requires the setup of a key instance at the market reference. It also requires a live data feed, meaning that the corresponding sensor bot, along with all indicators used by the referenced trading system, must be up and running" %}
+
 <!--------------------------------------------- CONTENT ends -->
 
 {% endif %}

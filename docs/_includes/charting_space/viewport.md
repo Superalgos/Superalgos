@@ -51,17 +51,15 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-The viewport offers a visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:
+The viewport offers an opening into the visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:
 
 * Live and historic market data;
 * Data crunched in the form of indicators;
 * The specific effects of the rules you will program into your strategies, and how strategies behave during testing and live trading sessions.
 
-At this point, the system supports one viewport only. Think of the viewport as a huge drawing board. You may have lots of information plotted on different parts of the viewport. You may move the viewport around and zoom in to focus on specific charts.
+At this point, the system supports one viewport only. In the future, different viewports may give you direct access to different parts of the charting space.
 
-The information that is out of focus, that is, out of the visible screen, is not read nor rendered graphically, thus, does not consume resources. 
-
-The concept of the viewport allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, different time frames, or different technical studies on demand, simply by moving around and zooming in or out. You may put charts side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations.
+{% include note.html content="The information that is out of focus, that is, out of the viewport, is not read nor rendered graphically, thus, does not consume resources." %}
 
 <!--------------------------------------------- CONTENT ends -->
 

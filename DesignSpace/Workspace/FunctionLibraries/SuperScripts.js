@@ -44,7 +44,7 @@ function newSuperScriptsFunctions () {
         }
         return thisObject
 
-        function runValidations (superAction) {
+        function runValidations (superAction, masterScript) {
             /* Validations */
           if (superAction.payload.parentNode.type !== 'Market') {
             superAction.payload.uiObject.setErrorMessage('Super Action Parent Node needs to be of type Market.')
@@ -99,15 +99,6 @@ function newSuperScriptsFunctions () {
             return
           }
 
-          return true
-        }
-
-        function runScript (superAction, masterScript) {
-          let market = superAction.payload.parentNode
-          let singleMarketData // we expect this variable to be set by a template script.
-          let backSessionReference
-          let liveSessionReference
-
           for (let i = 0; i < masterScript.templateScripts.length; i++) {
             let templateScript = masterScript.templateScripts[i]
 
@@ -132,31 +123,56 @@ function newSuperScriptsFunctions () {
 
               eval(templateScript.javascriptCode.code)
 
-            /*
-            Template Script
-            */
+              let executionResult = true
+              let templateScriptInstance = templateScriptConstructor()
 
-            /*
-            End of Template Script
-            */
+              if (executionResult === true) {
+                executionResult = templateScriptInstance.runValidations(superAction)
+              }
+
+              if (executionResult !== true) { return false }
+            } catch (err) {
+              console.log(err.stack)
+              superAction.payload.uiObject.setErrorMessage(err.message)
+              return false
+            }
+          }
+
+          return true
+        }
+
+        function runScript (superAction, masterScript) {
+          let market = superAction.payload.parentNode
+          let singleMarketData // we expect this variable to be set by a template script.
+          let backSessionReference
+          let liveSessionReference
+          let testingEnvironmentTaskManager
+          let productionEnvironmentTaskManager
+
+          for (let i = 0; i < masterScript.templateScripts.length; i++) {
+            let templateScript = masterScript.templateScripts[i]
+
+            try {
+              let templateScriptConstructor
+
+              eval(templateScript.javascriptCode.code)
 
               let executionResult = true
               let templateClone
               let templateScriptInstance = templateScriptConstructor()
 
               if (executionResult === true) {
-                executionResult = templateScriptInstance.runValidations(superAction)
-              }
-              if (executionResult === true) {
                 templateClone = templateScriptInstance.runScript(superAction, templateScript)
               }
 
-              switch (templateClone.type) {
-                case 'Single Market Data': {
+              if (executionResult !== true) { return false }
+
+              switch (templateClone.payload.parentNode.type) {
+                case 'Session Independent Data': {
                   singleMarketData = templateClone
                   break
                 }
-                case 'Session Reference': {
+                case 'Session Based Data': {
                   if (backSessionReference === undefined) {
                     backSessionReference = templateClone
                   } else {
@@ -164,15 +180,23 @@ function newSuperScriptsFunctions () {
                   }
                   break
                 }
+                case 'Testing Environment': {
+                  testingEnvironmentTaskManager = templateClone
+                  break
+                }
+                case 'Production Environment': {
+                  productionEnvironmentTaskManager = templateClone
+                  break
+                }
               }
 
-              if (executionResult === false) { return false }
+              if (executionResult !== true) { return false }
             } catch (err) {
               console.log(err.stack)
               superAction.payload.uiObject.setErrorMessage(err.message)
+              return false
             }
           }
-
           return true
         }
       }
@@ -185,7 +209,7 @@ function newSuperScriptsFunctions () {
       let masterScriptInstance = newNewMasterScriptInstance()
 
       if (executionResult === true) {
-        executionResult = masterScriptInstance.runValidations(superAction)
+        executionResult = masterScriptInstance.runValidations(superAction, masterScript)
       }
       if (executionResult === true) {
         executionResult = masterScriptInstance.runScript(superAction, masterScript)

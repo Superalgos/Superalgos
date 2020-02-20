@@ -3,8 +3,6 @@
 topnav:
 - title: Topnav
   items:
-    - title: Releases
-      external_url: https://github.com/Superalgos/Platform/releases
     - title: Issues
       external_url: https://github.com/Superalgos/Platform/issues
     - title: Suite Docs

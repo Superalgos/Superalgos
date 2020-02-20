@@ -1,6 +1,6 @@
 ---
 title:  Shares
-summary: ""
+summary: "The share feature works almost the same as the back up feature, but discarding personal information like exchange keys."
 sidebar: suite_sidebar
 permalink: suite-shares.html
 ---
@@ -13,4 +13,6 @@ On a different note, it is also critical to bring one more issue to your attenti
 
 You may have noticed that the system accepts JavaScript code in a multitude of input forms such as configurations, conditions, formulas and more. At this point, there is no restriction to the code that may be used. This is a design feature, as we wish advanced users to be able to use their programing skills to make the most out of the system.
 
-However, this also means that using workspaces or any other data structure coming from untrusted sources is not free of risks. On the contrary, it may be a high-risk choice, as it is not overly complex to introduce malicious code that may, for example, attempt to steal people's API keys.
+However, this also means that using workspaces or any other data structure coming from untrusted sources is not free of risks. On the contrary, it may be a high-risk choice, as it is possible to introduce malicious code that may, for example, attempt to steal people's API keys.
+
+{% include warning.html content="Beware of using shared data structures from untrusted sources as they may contain malicious code that could, for example, steal your exchange keys." %}

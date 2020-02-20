@@ -2,7 +2,7 @@
 title:  Syntax Overview
 summary: "The syntax for writing conditions and formulas combine references to the data product name, the name of the property, and the time frame."
 sidebar: suite_sidebar
-permalink: suite-sysntax-overview.html
+permalink: suite-syntax-overview.html
 ---
 
 ## Introduction
@@ -77,7 +77,7 @@ The syntax is ```productName.[currentCandleIndex-n].propertyName``` where *curre
 
 For example, ```chart.at1hs.candle.[currentCandleIndex-5].max``` retrieves the maximum value of the fifth candle previous to the last closed candle at the 1-hour chart.
 
-{% include note.html content="There is a technical limitation by which you may retrieve the value of a  property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time frame you may be working on. For instance, if you are working on the 1 hour time frame, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time frame, you may retrieve 1439 candles." %}
+{% include note.html content="There is a technical limitation by which you may retrieve the value of a property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time frame you may be working on. For instance, if you are working on the 1 hour time frame, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time frame, you may retrieve 1439 candles. If you need to retrieve information further in the past, then you should consider building an indicator that makes the data available to your strategies. Learn more in the [data mines](suite-data-mines.html) pages." %}
 
 ## Comparison and Logical Operators
 

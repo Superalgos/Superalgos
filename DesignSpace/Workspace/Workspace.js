@@ -374,12 +374,12 @@ function newWorkspace () {
         break
       case 'Remove Parent':
         {
-          functionLibraryChainAttachDetach.chainDetachNode(payload.node, thisObject.workspaceNode.rootNodes)
+          chainDetachNode(payload.node)
         }
         break
       case 'Remove Reference':
         {
-          payload.referenceParent = undefined
+          referenceDetachNode(payload.node)
         }
         break
     }

@@ -922,10 +922,12 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
-        thisObject.mouse.event = event
-        thisObject.mouse.position.x = event.pageX
-        thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
-        thisObject.mouse.action = 'dragging'
+        if (event !== undefined) {
+          thisObject.mouse.event = event
+          thisObject.mouse.position.x = event.pageX
+          thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+          thisObject.mouse.action = 'dragging'
+        }
 
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)

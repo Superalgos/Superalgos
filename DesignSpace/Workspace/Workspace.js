@@ -372,6 +372,16 @@ function newWorkspace () {
           functionLibrarySuperScripts.runSuperScript(payload.node, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes)
         }
         break
+      case 'Remove Parent':
+        {
+
+        }
+        break
+      case 'Remove Reference':
+        {
+          payload.referenceParent = undefined
+        }
+        break
     }
   }
 }

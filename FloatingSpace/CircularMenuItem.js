@@ -150,15 +150,15 @@ function newCircularMenuItem () {
     if (thisObject.type === 'Icon Only') {
       switch (thisObject.ring) {
         case 1: {
-          radiusGrowthFactor = 5
+          radiusGrowthFactor = 6
           break
         }
         case 2: {
-          radiusGrowthFactor = 3.5
+          radiusGrowthFactor = 4.5
           break
         }
         case 3: {
-          radiusGrowthFactor = 2
+          radiusGrowthFactor = 3
           break
         }
       }

@@ -246,6 +246,34 @@ function newUiObjectConstructor () {
         }
       )
     }
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Parent',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'kraken',
+        iconPathOff: 'kraken',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+        )
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Reference',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'bitcoin',
+        iconPathOff: 'bitcoin',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+            )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {

@@ -272,7 +272,9 @@ function newDesignSpace () {
       'super-scripts',
       'template-script',
       'template-structure',
-      'template-target'
+      'template-target',
+      'delink',
+      'detach'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

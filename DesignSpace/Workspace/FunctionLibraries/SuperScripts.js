@@ -149,9 +149,12 @@ function newSuperScriptsFunctions () {
           let market = superAction.payload.parentNode
           let singleMarketData // we expect this variable to be set by a template script.
           let backSessionReference
+          let paperSessionReference
           let liveSessionReference
           let testingEnvironmentTaskManager
+          let fordwardSessionReference
           let productionEnvironmentTaskManager
+          let timeMachine
 
           for (let i = 0; i < masterScript.templateScripts.length; i++) {
             let templateScript = masterScript.templateScripts[i]
@@ -177,10 +180,23 @@ function newSuperScriptsFunctions () {
                   break
                 }
                 case 'Session Based Data': {
-                  if (backSessionReference === undefined) {
-                    backSessionReference = templateClone
-                  } else {
-                    liveSessionReference = templateClone
+                  switch (templateClone.templateType) {
+                    case 'Backtesting Session': {
+                      backSessionReference = templateClone
+                      break
+                    }
+                    case 'Paper Trading Session': {
+                      paperSessionReference = templateClone
+                      break
+                    }
+                    case 'Live Trading Session': {
+                      liveSessionReference = templateClone
+                      break
+                    }
+                    case 'Fordward Testing Session': {
+                      fordwardSessionReference = templateClone
+                      break
+                    }
                   }
                   break
                 }
@@ -192,6 +208,10 @@ function newSuperScriptsFunctions () {
                   productionEnvironmentTaskManager = templateClone
                   break
                 }
+                case 'Dashboard': {
+                  timeMachine = templateClone
+                  break
+                }
               }
 
               if (executionResult !== true) { return false }
@@ -201,6 +221,160 @@ function newSuperScriptsFunctions () {
               return false
             }
           }
+
+          /* Here we will find the sessions within the tasks in order to put them as a reference of the Session Reference nodes we already have */
+          let session
+          session = findSession('Backtesting Session', testingEnvironmentTaskManager)
+          backSessionReference.payload.referenceParent = session
+          session = findSession('Paper Trading Session', testingEnvironmentTaskManager)
+          paperSessionReference.payload.referenceParent = session
+          session = findSession('Live Trading Session', productionEnvironmentTaskManager)
+          liveSessionReference.payload.referenceParent = session
+          session = findSession('Fordward Testing Session', productionEnvironmentTaskManager)
+          fordwardSessionReference.payload.referenceParent = session
+
+          function findSession (sessionType, taskManager) {
+            for (let i = 0; i < taskManager.tasks.length; i++) {
+              let task = taskManager.tasks[i]
+              if (task.bot !== undefined) {
+                if (task.bot.processes !== undefined) {
+                  for (let j = 0; j < task.bot.processes.length; j++) {
+                    let process = task.bot.processes[j]
+                    if (process.session !== undefined) {
+                      if (process.session.type === sessionType) {
+                        return process.session
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          /* Here, we are going to connect the layers of the charts at the Time Machine */
+          for (let i = 0; i < timeMachine.timelineCharts.length; i++) {
+            let timelineChart = timeMachine.timelineCharts[i]
+            switch (timelineChart.name) {
+              case 'Indicators': {
+                for (let j = 0; j < timelineChart.layersManager.layers.length; j++) {
+                  let layer = timelineChart.layersManager.layers[j]
+                  switch (j) {
+                    case 0: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Candles')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                    case 1: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Bollinger Bands')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                    case 2: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Bollinger Channels Objects')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                    case 3: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Bollinger Sub-Channels Objects')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                    case 4: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Candles-Stairs')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                  }
+                }
+                break
+              }
+              case 'Volumes': {
+                for (let j = 0; j < timelineChart.layersManager.layers.length; j++) {
+                  let layer = timelineChart.layersManager.layers[j]
+                  switch (j) {
+                    case 0: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Volumes')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                    case 1: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Volume-Stairs')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                  }
+                }
+                break
+              }
+              case 'Oscilators': {
+                for (let j = 0; j < timelineChart.layersManager.layers.length; j++) {
+                  let layer = timelineChart.layersManager.layers[j]
+                  switch (j) {
+                    case 0: {
+                      let dataProduct = findDataProduct(singleMarketData, 'Percentage Bandwidth')
+                      layer.payload.referenceParent = dataProduct
+                      break
+                    }
+                  }
+                }
+                break
+              }
+              case 'Backtesting': {
+                setupSessionReference(timelineChart, backSessionReference)
+                break
+              }
+              case 'Paper Trading': {
+                setupSessionReference(timelineChart, paperSessionReference)
+                break
+              }
+              case 'Live Trading': {
+                setupSessionReference(timelineChart, liveSessionReference)
+                break
+              }
+              case 'Fordward Trading': {
+                setupSessionReference(timelineChart, fordwardSessionReference)
+                break
+              }
+            }
+          }
+
+          function findDataProduct (singleMarketData, name) {
+            for (let i = 0; i < singleMarketData.dataProducts.length; i++) {
+              let dataProduct = singleMarketData.dataProducts[i]
+              if (dataProduct.name === name) {
+                return dataProduct
+              }
+            }
+          }
+          function setupSessionReference (timelineChart, sessionReference) {
+            for (let j = 0; j < timelineChart.layersManager.layers.length; j++) {
+              let layer = timelineChart.layersManager.layers[j]
+              switch (j) {
+                case 0: {
+                  let dataProduct = findDataProduct(sessionReference.singleMarketData, 'Simulation')
+                  layer.payload.referenceParent = dataProduct
+                  break
+                }
+                case 1: {
+                  let dataProduct = findDataProduct(sessionReference.singleMarketData, 'Conditions')
+                  layer.payload.referenceParent = dataProduct
+                  break
+                }
+                case 2: {
+                  let dataProduct = findDataProduct(sessionReference.singleMarketData, 'Trades')
+                  layer.payload.referenceParent = dataProduct
+                  break
+                }
+                case 3: {
+                  let dataProduct = findDataProduct(sessionReference.singleMarketData, 'Strategies')
+                  layer.payload.referenceParent = dataProduct
+                  break
+                }
+              }
+            }
+          }
+
+          timeMachine.name = superAction.payload.parentNode.payload.parentNode.payload.parentNode.name + ' ' + market.name
           return true
         }
       }

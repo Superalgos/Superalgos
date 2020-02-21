@@ -98,6 +98,10 @@ function newSuperScriptsFunctions () {
             superAction.payload.uiObject.setErrorMessage('Assets and Market must be defined at the same Exchange.')
             return
           }
+          if (superAction.payload.parentNode.payload.parentNode.payload.parentNode.exchangeAccounts === undefined) {
+            superAction.payload.uiObject.setErrorMessage('Exchange Markets needs have a child Exchange Accounts.')
+            return
+          }
 
           for (let i = 0; i < masterScript.templateScripts.length; i++) {
             let templateScript = masterScript.templateScripts[i]

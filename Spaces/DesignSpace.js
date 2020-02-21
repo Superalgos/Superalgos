@@ -265,7 +265,14 @@ function newDesignSpace () {
       'key-down',
       'key-left',
       'key-right',
-      'key-up'
+      'key-up',
+      'master-script',
+      'scripts-library',
+      'super-action',
+      'super-scripts',
+      'template-script',
+      'template-structure',
+      'template-target'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

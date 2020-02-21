@@ -53,6 +53,7 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/SessionFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
+                'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
                 
                 'Utilities/RoundedCornersBackground.js',
 

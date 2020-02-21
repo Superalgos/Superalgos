@@ -34,7 +34,7 @@
     container.initialize();
     thisObject.container = container;
 
-    let coordinateSystem = newCoordinateSystem();       // Needed to be able to plot on the timeline, otherwise not.
+    let coordinateSystem
 
     let timeFrame;                     // This will hold the current Time Frame the user is at.
     let datetime;                       // This will hold the current Datetime the user is at.
@@ -58,6 +58,7 @@
     let dimmensionsChangedEventSubscriptionId
     let marketFilesUpdatedEventSubscriptionId
     let dailyFilesUpdatedEventSubscriptionId
+    let scaleChangedEventSubscriptionId
 
     return thisObject;
 
@@ -86,13 +87,15 @@
             marketFile = undefined;
             fileCursor = undefined;
 
+            finalizeCoordinateSystem()
+            coordinateSystem = undefined
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] finalize -> err = " + err.stack); }
         }
     }
 
-    function initialize(pStorage, pDatetime, pTimeFrame, callBackFunction) {
+    function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction) {
 
         try {
 
@@ -105,6 +108,8 @@
 
             datetime = pDatetime;
             timeFrame = pTimeFrame;
+            coordinateSystem = pCoordinateSystem
+            initializeCoordinateSystem()
 
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
 
@@ -139,6 +144,23 @@
 
             if (ERROR_LOG === true) { logger.write("[ERROR] initialize -> err = " + err.stack); }
         }
+    }
+
+    function initializeCoordinateSystem() {
+        scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    }
+
+    function finalizeCoordinateSystem() {
+        coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
+    }
+
+    function onScaleChanged() {
+        recalculate();
+    }
+
+    function onMouseOver(event) {
+        let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
+        userPositionDate = userPosition.valueOf()
     }
 
     function getContainer(point) {
@@ -228,6 +250,12 @@
 
         datetime = pDatetime;
 
+    }
+
+    function setCoordinateSystem(pCoordinateSystem) {
+        finalizeCoordinateSystem()
+        coordinateSystem = pCoordinateSystem
+        initializeCoordinateSystem()
     }
 
     function onDailyFileLoaded(event) {
@@ -350,7 +378,10 @@
                         record.formulaErrors = dailyFile[1][i][7];
                         record.formulaValues = dailyFile[1][i][8];
 
-                        if (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) {
+                        if (
+                            (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+                            (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                        ) {
 
                             conditions.push(record);
 
@@ -419,7 +450,10 @@
                 record.formulaErrors = marketFile[1][i][7];
                 record.formulaValues = marketFile[1][i][8];
 
-                if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
+                if (
+                    (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
+                    (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
+                ) {
 
                     conditions.push(record);
 
@@ -443,9 +477,6 @@
     function plotChart() {
 
         try {
-
-            let userPosition = getUserPosition()
-            let userPositionDate = userPosition.point.x
 
             thisObject.container.eventHandler.raiseEvent("Current Condition Record Changed", undefined);
 

@@ -7,6 +7,7 @@ function newChainAttachDetach () {
   return thisObject
 
   function chainDetachNode (node, rootNodes) {
+    if (node.payload.parentNode === undefined) { return }
     switch (node.type) {
       case 'Phase': {
         let payload = node.payload

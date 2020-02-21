@@ -141,6 +141,11 @@ function newUiObjectTitle () {
       }
     }
 
+    /* The name becomes the title. */
+    if (thisObject.payload.node.name !== undefined) {
+      thisObject.payload.title = thisObject.payload.node.name
+    }
+
     let title = trimTitle(thisObject.payload.title)
 
     /* Here we set the dimensions and position of this object */

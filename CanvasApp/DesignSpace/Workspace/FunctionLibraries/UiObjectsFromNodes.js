@@ -189,6 +189,16 @@ function newUiObjectsFromNodes () {
         }
       }
 
+      /* Create Empty Arrays for properties of type Array */
+      if (nodeDefinition.properties !== undefined) {
+        for (let i = 0; i < nodeDefinition.properties.length; i++) {
+          let property = nodeDefinition.properties[i]
+          if (property.type === 'array') {
+            object[property.name] = []
+          }
+        }
+      }
+
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.initialValues !== undefined) {
           if (nodeDefinition.initialValues.code !== undefined) {

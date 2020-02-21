@@ -56,6 +56,7 @@ function newWorkspace () {
   let functionLibrarySessionFunctions = newSessionFunctions()
   let functionLibraryShortcutKeys = newShortcutKeys()
   let functionLibraryOnFocus = newOnFocus()
+  let functionLibrarySuperScripts = newSuperScriptsFunctions()
 
   thisObject.nodeChildren = newNodeChildren()
 
@@ -364,6 +365,21 @@ function newWorkspace () {
       case 'Stop Session':
         {
           functionLibrarySessionFunctions.stopSession(payload.node, functionLibraryProtocolNode, callBackFunction)
+        }
+        break
+      case 'Run Super Action':
+        {
+          functionLibrarySuperScripts.runSuperScript(payload.node, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes)
+        }
+        break
+      case 'Remove Parent':
+        {
+          chainDetachNode(payload.node)
+        }
+        break
+      case 'Remove Reference':
+        {
+          referenceDetachNode(payload.node)
         }
         break
     }

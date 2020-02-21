@@ -246,6 +246,34 @@ function newUiObjectConstructor () {
         }
       )
     }
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Parent',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'detach',
+        iconPathOff: 'detach',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+        )
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Reference',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'delink',
+        iconPathOff: 'delink',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+            )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {

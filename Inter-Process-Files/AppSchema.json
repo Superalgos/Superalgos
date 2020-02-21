@@ -280,7 +280,7 @@
             "code": "// Type you code here"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Condition->Procedure Initialization->Procedure Loop->Plotter Module->Plotter Panel->"
+            "compatibleTypes": "->Condition->Procedure Initialization->Procedure Loop->Plotter Module->Plotter Panel->Master Script->"
         },
         "menuItems": [
             {
@@ -729,6 +729,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Super Scripts",
+                "relatedUiObject": "Super Scripts",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Share Workspace",
                 "label": "Share",
                 "iconPathOn": "menu-share",
@@ -824,6 +830,298 @@
             }
         ],
         "propertyNameAtParent": "conditions"
+    },
+    {
+        "type": "Super Scripts",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Scripts Library",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "scriptsLibrary",
+                "relatedUiObject": "Scripts Library",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Super Scripts",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "super-scripts",
+        "properties": [
+            {
+                "name": "scriptsLibrary",
+                "type": "node",
+                "childType": "Scripts Library",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Scripts Library",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Master Script",
+                "relatedUiObject": "Master Script",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Scripts Library",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "scriptsLibrary",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "level": 1,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Super Scripts->"
+        },
+        "icon": "scripts-library",
+        "properties": [
+            {
+                "name": "masterScripts",
+                "type": "array",
+                "childType": "Master Script",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Master Script",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Template Script",
+                "relatedUiObject": "Template Script",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Javascript Code",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "javascriptCode",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Master Script",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "masterScripts",
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Scripts Library->"
+        },
+        "icon": "master-script",
+        "properties": [
+            {
+                "name": "templateScripts",
+                "type": "array",
+                "childType": "Template Script"
+            },
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Template Script",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Template Structure",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "templateStructure",
+                "relatedUiObject": "Template Structure",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Template Target",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "templateTarget",
+                "relatedUiObject": "Template Target",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Javascript Code",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "javascriptCode",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Template Script",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "templateScripts",
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Master Script->"
+        },
+        "icon": "template-script",
+        "properties": [
+            {
+                "name": "templateStructure",
+                "type": "node",
+                "childType": "Template Structure",
+                "autoAdd": true
+            },
+            {
+                "name": "templateTarget",
+                "type": "node",
+                "childType": "Template Target",
+                "autoAdd": true
+            },
+            {
+                "name": "javascriptCode",
+                "type": "node",
+                "childType": "Javascript Code",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Template Structure",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Template Structure",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "templateStructure",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Template Script->"
+        },
+        "icon": "template-structure",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "node",
+                "childType": "Task Manager"
+            },
+            {
+                "name": "singleMarketData",
+                "type": "node",
+                "childType": "Single Market Data"
+            },
+            {
+                "name": "sessionReferences",
+                "type": "node",
+                "childType": "Session Reference"
+            },
+            {
+                "name": "timeMachines",
+                "type": "node",
+                "childType": "Time Machine"
+            }
+        ]
+    },
+    {
+        "type": "Template Target",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Template Target",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "templateTarget",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Template Script->"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Dashboard->Session Independent Data->Session Based Data->Data Mining->Testing Environment->Production Environment->"
+        },
+        "icon": "template-target",
+        "properties": []
+    },
+    {
+        "type": "Super Action",
+        "menuItems": [
+            {
+                "action": "Run Super Action",
+                "label": "Run",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Super Action Executed",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Super Action",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "superActions",
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market->"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Master Script->"
+        },
+        "icon": "super-action",
+        "properties": []
     },
     {
         "type": "Network",
@@ -974,7 +1272,7 @@
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->"
+            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->Template Structure->"
         },
         "icon": "task-manager",
         "properties": [
@@ -4496,6 +4794,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Super Action",
+                "relatedUiObject": "Super Action",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Config Market",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Config Market",
@@ -4524,6 +4828,11 @@
                 "type": "node",
                 "childType": "Market Quoted Asset",
                 "autoAdd": true
+            },
+            {
+                "name": "superActions",
+                "type": "array",
+                "childType": "Super Action"
             }
         ],
         "addLeftIcons": true,
@@ -4912,7 +5221,7 @@
         "isTitleAllwaysVisible": true,
         "icon": "time-machine",
         "chainAttachesTo": {
-            "compatibleTypes": "->Dashboard->"
+            "compatibleTypes": "->Dashboard->Template Structure->"
         },
         "propertyNameAtParent": "timeMachines",
         "properties": [
@@ -5474,7 +5783,7 @@
         "propertyNameAtParent": "sessionBasedData",
         "properties": [
             {
-                "name": "sessionReference",
+                "name": "sessionReferences",
                 "type": "array",
                 "childType": "Session Reference",
                 "autoAdd": true
@@ -5487,6 +5796,8 @@
             {
                 "action": "Add UI Object",
                 "label": "Add Single Market Data",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "singleMarketData",
                 "relatedUiObject": "Single Market Data",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -5512,13 +5823,13 @@
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Based Data->"
+            "compatibleTypes": "->Session Based Data->Template Structure->"
         },
-        "propertyNameAtParent": "sessionReference",
+        "propertyNameAtParent": "sessionReferences",
         "properties": [
             {
                 "name": "singleMarketData",
-                "type": "array",
+                "type": "node",
                 "childType": "Single Market Data",
                 "autoAdd": true
             }
@@ -5555,7 +5866,7 @@
             "compatibleTypes": "->Market->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Independent Data->Session Reference->"
+            "compatibleTypes": "->Session Independent Data->Session Reference->Template Structure->"
         },
         "propertyNameAtParent": "singleMarketData",
         "properties": [

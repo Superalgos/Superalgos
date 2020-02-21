@@ -150,15 +150,15 @@ function newCircularMenuItem () {
     if (thisObject.type === 'Icon Only') {
       switch (thisObject.ring) {
         case 1: {
-          radiusGrowthFactor = 5
+          radiusGrowthFactor = 6
           break
         }
         case 2: {
-          radiusGrowthFactor = 3.5
+          radiusGrowthFactor = 4.5
           break
         }
         case 3: {
-          radiusGrowthFactor = 2
+          radiusGrowthFactor = 3
           break
         }
       }
@@ -275,6 +275,7 @@ function newCircularMenuItem () {
       /* A Click during confirmation executes the pre-defined action. */
       if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
         executeAction()
+        setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 100, STATUS_SECONDARY_WORK_DONE)
         return
       }
     }

@@ -1,16 +1,16 @@
 ---
 title:  Consulting Logs
-summary: ""
+summary: "Log files are available in a format that should be understandable to most technically-oriented people."
 sidebar: suite_sidebar
 permalink: suite-consulting-logs.html
 ---
 
-If you are a technical person, you may be interested in consuting the logs of the different bots that run in the system.
+If you are a technical person, you may be interested in consulting the logs of the different bots that run in the system.
 
 Each bot keeps its own set of execution log files, stored under a similar folder structure as bot's Output and Reports. The difference is that the Log-Files folder is at the root level of the release folder, instead of being inside Data-Storage:
 
 ```
-\Log-Files\AAMasters\AAMasters
+\Log-Files\AAMasters\
 ```
 Log files contain detailed information about each execution of the bot. As such, a new folder is created for each execution, labeled with the exact DateTime.
 

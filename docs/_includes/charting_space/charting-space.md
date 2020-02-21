@@ -51,8 +51,6 @@
 
 <!--------------------------------------------- CONTENT starts -->
 
-Conceptually, Superalgos places the focus on the visual experience. Not just because it's *nice* to see data in a graphical representation, but because our analysis capabillities expand when we incorporate senses in the mix. Human's capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.
-
 Think of the charting space as a huge drawing board. You may have lots of information plotted on different parts of the space and use a viewport to look into that space.
 
 There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.

@@ -1,13 +1,15 @@
 ---
-title:  "Fundamental Concepts"
+title:  "Fundamental Design Space Concepts"
 summary: "The design space controlling the workspace, nodes, structures of nodes, and their parent-offspring relationships are the overarching concepts arranging all information handled by the system."
 sidebar: suite_sidebar
-permalink: suite-fundamental-concepts.html
+permalink: suite-fundamental-design-space-concepts.html
 ---
 
-Superalgos handles numerous concepts encompassing fields such as market information, trading strategies, visualization features, workflows, infrastructure, technical resources, and many more. Superalgos structures these concepts in an attempt to make their use intuitive. 
+Trading intelligence emerges from the effective use of information, strategies, technical resources, visualization tools, infrastructure, workflows, collaboration, and several other concepts.
 
-However, each of the above are complex subjects in their own merit. Therefore, it is necessary to acquire a basic level of understanding of the Superalgos paradigm for the desired intuition to emerge. Understanding the following concepts is a first step in that direction.
+Superalgos structures these concepts in an attempt to make their use intuitive and efficient. However, each of the above are complex subjects in their own merit. The quest for the effective use of several complex concepts is titanic. 
+
+Therefore, it is necessary to acquire a basic level of understanding of the Superalgos paradigm for the desired intuition to emerge. Understanding the following concepts is a first step in that direction.
 
 ## Design Space
 

@@ -60,6 +60,10 @@ entries:
       url: /suite-step-4.html
       output: web
 
+    - title: "Step 5: Import a workspace"
+      url: /suite-step-5.html
+      output: web
+
 #    - title: Run your first backtest
 #      url: /suite-run-your-first-backtest.html
 #      output: web
@@ -95,7 +99,7 @@ entries:
     folderitems:
 
     - title: Fundamental concepts
-      url: /suite-fundamental-concepts.html
+      url: /suite-fundamental-design-space-concepts.html
       output: web
 
     - title: Interface
@@ -109,6 +113,10 @@ entries:
   - title: Charting space
     output: web
     folderitems:
+
+    - title: Fundamental concepts
+      url: /suite-fundamental-charting-space-concepts.html
+      output: web
 
     - title: Interface
       url: /suite-charting-space-interface.html
@@ -225,8 +233,8 @@ entries:
     output: web
     folderitems:
 
-    - title: How bots work
-      url: /suite-how-bots-work.html
+    - title: Fundamental concepts
+      url: /suite-fundamental-infrastructure-concepts.html
       output: web
 
     - title: Crypto ecosystem
@@ -420,25 +428,25 @@ entries:
       url: /suite-upgrading-your-existing-instalation.html
       output: web
 
-#    - title: My system gets slow
-#      url: /suite-my-system-gets-slow.html
-#      output: web
+    - title: My system gets slow
+      url: /suite-my-system-gets-slow.html
+      output: web
 
-#    - title: On-screen errors and warnings
-#      url: /suite-on-screen-errors-and-warnings.html
-#      output: web
+    - title: On-screen errors and warnings
+      url: /suite-on-screen-errors-and-warnings.html
+      output: web
 
-#    - title: Market data seems to be outdated
-#      url: /suite-market-data-indicators-seem-to-be-outdated.html
-#      output: web
+    - title: Market data seems to be outdated
+      url: /suite-market-data-indicators-seem-to-be-outdated.html
+      output: web
 
-#    - title: Reporting bugs
-#      url: /suite-reporting-bugs.html
-#      output: web
+    - title: Reporting bugs
+      url: /suite-reporting-bugs.html
+      output: web
 
-#    - title: Consulting logs
-#      url: /suite-consulting-logs.html
-#      output: web
+    - title: Consulting logs
+      url: /suite-consulting-logs.html
+      output: web
 
 
 

@@ -136,6 +136,14 @@ function newUiObjectTitle () {
             }
             break
           }
+          default: {
+            if (titleReference.indexOf('Use Child @') === 0) {
+              let propertyName = titleReference.substring(titleReference.indexOf('@') + 1, titleReference.length)
+              let childNode = thisObject.payload.node[propertyName]
+              thisObject.payload.title = thisObject.payload.title + separator + childNode.name
+              thisObject.payload.node.name = thisObject.payload.node.name + separator + childNode.name
+            }
+          }
         }
         separator = ' '
       }

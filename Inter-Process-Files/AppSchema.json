@@ -5813,7 +5813,8 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
-            "Use Reference Parent"
+            "Use Reference Parent",
+            "Use Child @singleMarketData"
         ],
         "addLeftIcons": true,
         "level": 3,

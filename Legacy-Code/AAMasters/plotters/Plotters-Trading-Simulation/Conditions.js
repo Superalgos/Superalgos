@@ -60,6 +60,7 @@
     let dailyFilesUpdatedEventSubscriptionId
     let scaleChangedEventSubscriptionId
 
+    let userPositionDate
     return thisObject;
 
     function finalize() {

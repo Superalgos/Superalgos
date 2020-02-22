@@ -81,8 +81,7 @@ function newWorkspace () {
       let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
 
       if (savedWorkspace === null) {
-        thisObject.workspaceNode.type = 'Workspace'
-        thisObject.workspaceNode.name = 'My Workspace'
+        thisObject.workspaceNode = getWorkspace()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
       }

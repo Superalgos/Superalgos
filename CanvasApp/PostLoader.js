@@ -1,6 +1,5 @@
 let canvas
 let markets
-let ecosystem = newEcosystem()
 let systemEventHandler
 
 let APP_SCHEMA_MAP = new Map()

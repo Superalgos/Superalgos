@@ -112,6 +112,7 @@ function newChartingSpace () {
 
   function getContainer (point, purpose) {
     if (thisObject.visible !== true) { return }
+    if (thisObject.viewport === undefined) { return }
     if (thisObject.viewport.isThisPointInViewport(point) === false) { return }
 
     let container

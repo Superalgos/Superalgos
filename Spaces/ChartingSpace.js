@@ -77,8 +77,10 @@ function newChartingSpace () {
     thisObject.container.finalize()
     thisObject.container = undefined
 
-    thisObject.viewport.finalize()
-    thisObject.viewport = undefined
+    if (thisObject.viewport !== undefined) {
+      thisObject.viewport.finalize()
+      thisObject.viewport = undefined
+    }
 
     thisObject.payload = undefined
   }

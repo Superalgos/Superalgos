@@ -191,12 +191,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'Ecosystem.js':
-      {
-              respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Ecosystem.js', response)
-      }
-      break
-
     case 'Images': // This means the Scripts folder.
       {
         let path = process.env.PATH_TO_WEB_SERVER  +  'Images/' + requestParameters[2]
@@ -340,28 +334,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'UserEcosystem.js':
-      {
-        let fs = require('fs')
-
-        try {
-          let filePath = process.env.INTER_PROCESS_FILES_PATH + '/ecosystem.json'
-          fs.readFile(filePath, onFileRead)
-        } catch (e) {
-          console.log('[ERROR] Error reading the user ecosystem.', e)
-        }
-
-        function onFileRead (err, userEcosystem) {
-          if (err) {
-            respondWithContent(undefined, response)
-          } else {
-            let responseContent = 'function getUserEcosystem(){ return ' + userEcosystem + '}'
-            respondWithContent(responseContent, response)
-          }
-        }
-      }
-      break
-
     case 'AppSchema.js':
         {
             let fs = require('fs')
@@ -378,6 +350,28 @@ function onBrowserRequest (request, response) {
                     respondWithContent(undefined, response)
                 } else {
                     let responseContent = 'function getAppSchema(){ return ' + appSchema + '}'
+                    respondWithContent(responseContent, response)
+                }
+            }
+        }
+        break
+
+    case 'Workspace.js':
+        {
+            let fs = require('fs')
+
+            try {
+                let filePath = process.env.INTER_PROCESS_FILES_PATH + '/Workspace.json'
+                fs.readFile(filePath, onFileRead)
+            } catch (e) {
+                console.log('[ERROR] Error reading the Workspace.', e)
+            }
+
+            function onFileRead(err, workspace) {
+                if (err) {
+                    respondWithContent(undefined, response)
+                } else {
+                    let responseContent = 'function getWorkspace(){ return ' + workspace + '}'
                     respondWithContent(responseContent, response)
                 }
             }

@@ -50,3 +50,7 @@ This is the time to restore any of the work you may have backed up earlier, on t
 Before going deep back to work, it is always recommeended to test the new version a bit and make sure that your existing work performs as you would expect.
 
 If you run into any issues, feel free to drop us a line in our <a href="https://t.me/superalgoscommunity" rel="nofollow" rel="noopener" target="_blank">Community</a>.
+
+## 7. Check the Gettings Started Guide
+
+It would be wise to go through the potentially new *Getting Started Guide* in the documentation, as it may reveal important information.

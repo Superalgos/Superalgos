@@ -1,6 +1,6 @@
 ---
 title:  "Step 0: Get ready"
-summary: Before you begin, please install Chrome. If you are on Mac OS or Linux, install Node JS too.
+summary: Before you begin, please install Chrome and Node JS .
 sidebar: suite_sidebar
 permalink: suite-step-0.html
 toc: false
@@ -8,13 +8,15 @@ toc: false
 
 This *Getting Started Guide* will quickly show you the very basics of Superalgos so that you may rapidly grasp the system's potential. The guide will take you through a sequence of instructions to download and install the system, run it for the first time, fetch some data from your preferred exchanges, browse markets on the charts, run a first backtest with an existing strategy, and even try a live trading session, for demonstration purposes.
 
-But, before you begin, it is highly reccommended that you <a href="https://www.google.com/chrome/" rel="nofollow" rel="noopener" target="_blank">install Chrome</a> and set it up as your default browser.
+## Chrome is the Only Tested Browser
+
+Before you begin, it is highly reccommended that you <a href="https://www.google.com/chrome/" rel="nofollow" rel="noopener" target="_blank">install Chrome</a> and set it up as your default browser.
 
 {% include note.html content="Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently." %}
 
-## If You Are NOT on Windows
+## Node JS is Required
 
-If you are running Mac OS, Linux or other operating systems, you will need to install Node JS, an open-source server environment required to run Superalgos. 
+Please install Node JS, an open-source server environment required to run Superalgos. 
 
 **1. Go to the <a href="https://nodejs.org/en/download/" rel="nofollow" rel="noopener" target="_blank">Node JS downloads page</a>**.
 

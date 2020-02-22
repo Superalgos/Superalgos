@@ -56,12 +56,16 @@ entries:
       url: /suite-step-3.html
       output: web
 
-    - title: "Step 4: Quick overview"
+    - title: "Step 4: Import a workspace"
       url: /suite-step-4.html
       output: web
 
-    - title: "Step 5: Import a workspace"
+    - title: "Step 5: Quick overview"
       url: /suite-step-5.html
+      output: web
+
+    - title: "Step 6: Pull and process data"
+      url: /suite-step-6.html
       output: web
 
 #    - title: Run your first backtest

@@ -339,7 +339,7 @@ function onBrowserRequest (request, response) {
             let fs = require('fs')
 
             try {
-                let filePath = process.env.INTER_PROCESS_FILES_PATH + '/AppSchema.json'
+                let filePath =  './AppSchema.json'
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the App Schema.', e)
@@ -361,7 +361,7 @@ function onBrowserRequest (request, response) {
             let fs = require('fs')
 
             try {
-                let filePath = process.env.INTER_PROCESS_FILES_PATH + '/Workspace.json'
+                let filePath =  './Workspace.json'
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the Workspace.', e)

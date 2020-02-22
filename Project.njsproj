@@ -31,7 +31,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Ecosystem.js" />
     <Compile Include="LegacyPlotter.js" />
     <Compile Include="PlotterPanel.js" />
     <Compile Include="Scripts\AppLoader.js">
@@ -44,7 +43,6 @@
     <Compile Include="server.js" />
     <Compile Include="Server\FileCloud.js" />
     <Content Include=".env" />
-    <Content Include="ecosystem.json" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>

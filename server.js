@@ -340,28 +340,6 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'UserEcosystem.js':
-      {
-        let fs = require('fs')
-
-        try {
-          let filePath = process.env.INTER_PROCESS_FILES_PATH + '/ecosystem.json'
-          fs.readFile(filePath, onFileRead)
-        } catch (e) {
-          console.log('[ERROR] Error reading the user ecosystem.', e)
-        }
-
-        function onFileRead (err, userEcosystem) {
-          if (err) {
-            respondWithContent(undefined, response)
-          } else {
-            let responseContent = 'function getUserEcosystem(){ return ' + userEcosystem + '}'
-            respondWithContent(responseContent, response)
-          }
-        }
-      }
-      break
-
     case 'AppSchema.js':
         {
             let fs = require('fs')

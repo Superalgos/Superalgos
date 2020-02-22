@@ -17,20 +17,16 @@ function newAppLoader() {
         try {
             if (INFO_LOG === true) { logger.write('[INFO] loadModules -> Entering function.') }
 
-            window.localStorage.removeItem('ecosystem')
-
             let plotters
             let modulesArray = []
            
             plotters = defaultPlotters()
-            modulesArray = ['UserEcosystem.js']
        
             modulesArray = modulesArray.concat([
                 'ChartingSpace/Viewport.js',
-
+          
                 'Globals.js',
-                'Ecosystem.js',
-                'UserEcosystem.js',
+ 
                 'AppSchema.js',
                 'MQService',
 

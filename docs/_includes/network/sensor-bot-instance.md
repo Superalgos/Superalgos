@@ -90,7 +90,14 @@ Select *Configure Sensor Bot Instance* on the menu to access the configuration.
   }
 ```
 
-* ```startDate``` is the starting date of the data product the sensor bot instance builds. In other words, the sensor bot instance queries its data source for data starting on the configured ```startDate```. In cases when the sensor bot has built a data product starting on a certain date and the ```startDate``` is eventually changed for an earlier one, that is, a date further in the past, then the sensor bot discards the existing data product and starts over from the newly configured date.
+* ```startDate``` is the *desired starting date* of the data product the sensor bot instance builds, in the ```YYYY-MM-DD``` format. The sensor bot instance queries its data source for data starting on the configured ```startDate```.
+
+  * The actual date in which the dataset starts depends on external factors: A. The market may start at a later date. B. The exchange may limit how far in the past data may be retrieved. In both cases, the sensor bot automatically discovers the date closest to the *desired starting date* that is possible to start with, and proceeds accordingly.
+
+  * In the case the ```startDate``` is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the ```startDate``` is changed, the sensor bot starts over.
+ 
+  * Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date.
+
 
 <!--------------------------------------------- CONFIGURING ends -->
 

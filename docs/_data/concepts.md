@@ -34,5 +34,9 @@ dataset: "A dataset is a collection of plain-text files storing information in t
 
 process: "A process is an algorithm defined in the process definition structure of nodes of the corresponding bot and data mine."
 
+masters_data_mine: "Masters is a data mine shipping with the system. It features the main trading bot and sensor bot, along with indicators offering the following data products: Candles, Volumes, Candle Stairs Patterns, Volume Stairs Patterns, Bollinger Bands, Percentage Bandwidth, Bollinger Channels, and Bollinger Sub-Channels."
+
+sparta_data_mine: "Sparta is a data mine shipping with the system. It features indicators offering the following data products: Relative Strength Index (RSI 14), Simple Moving Average (SMA), Exponential Moving Average (EMA), and Moving Average Convergence/Divergence (MACD)."
+
 pending: "balanceAssetA, balanceAssetB, overfitting, supported assets, supported exchanges, supported markets"
 

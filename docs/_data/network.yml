@@ -2,7 +2,7 @@ network: "The network hierarchy contains definitions regarding the physical loca
 
 network_node: "A network node represents a machine in the network on which processes run or data is stored."
 
-data_mining: "Data mining is the activity of processing data. You need to process data so that the trading bot may make decisions based on quality information. In the context of the network hierarchy, the data-mining node groups the task managers handling sensor and indicator bots instances."
+data_mining: "Data mining is the activity of processing data. You need to process data to feed charts, and so that the trading bot may make decisions based on quality information. In the context of the network hierarchy, the data-mining node groups the task managers handling sensor and indicator bots instances."
 
 testing_environment: "The testing environment node organizes trading sessions involving testing of trading systems."
 

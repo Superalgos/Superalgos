@@ -6,6 +6,8 @@ permalink: suite-step-2.html
 toc: false
 ---
 
+## Start Here
+
 **1. Go to the ```Superalgos-master``` folder** you extracted from the ZIP file on the prior step.
 
 **2. On Windows systems, double click on ```Superalgos.exe```** and skip points 3 and 4.

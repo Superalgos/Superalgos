@@ -8,14 +8,14 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 The current version opens up the door to working with multiple exchanges and multiple markets. For your reference, this is a quick report on the progress of our tests:
 
-| Exchange | Historic Data Capability [*] | Trading Capability [**] |
-| :--- | :---: | :---: | 
-| Binance | &#x2611; | &#x2611; |
-| Bitfinex | &#x2611; | &#x2611; |
-| Bitmex | &#x2611; | &#x2610; |
-| HitBTC | &#x2610; | &#x2610; |
-| Kraken | &#x2611; | &#x2610; |
-| Poloniex | &#x2610; | &#x2610; |
+| Exchange | Historic Data Capability [*] | Trading Capability [**] | Comments |
+| :--- | :---: | :---: |  :---: | 
+| Binance | &#x2611; | &#x2611; | Need Exchange Key to download hitoric trades |
+| Bitfinex | &#x2611; | &#x2611; | Tested |
+| Bitmex | &#x2611; | &#x2610; | We need to implement Contracts first in order to place orders |
+| HitBTC | &#x2610; | &#x2610; | Not tested yet |
+| Kraken | &#x2611; | &#x2610; | Live trading not tested yet |
+| Poloniex | &#x2610; | &#x2610; | Not tested yet |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.
 

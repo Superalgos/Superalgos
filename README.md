@@ -4,14 +4,14 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
-## Testing Exchanges
+## Exchange Testing Queue
 
 The current version opens up the door to working with multiple exchanges and multiple markets. For your reference, this is a quick report on the progress of our tests:
 
 | Exchange | Historic Data Capability [*] | Trading Capability [**] | Comments |
 | :--- | :---: | :---: |  :---: | 
-| Binance | &#x2611; | &#x2611; | Need Exchange Key to download hitoric trades |
-| Bitfinex | &#x2611; | &#x2611; | Tested |
+| Binance | &#x2611; | &#x2611; | You will need Exchange Key to download Hitoric Trades |
+| Bitfinex | &#x2611; | &#x2611; | Tested. Expect 1 year max of Historic Trades |
 | Bitmex | &#x2611; | &#x2610; | We need to implement Contracts first in order to place orders |
 | HitBTC | &#x2610; | &#x2610; | Not tested yet |
 | Kraken | &#x2611; | &#x2610; | Live trading not tested yet |

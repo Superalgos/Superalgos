@@ -4,18 +4,18 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 ![Illustration](https://user-images.githubusercontent.com/13994516/63528460-4550ae80-c503-11e9-8db6-22995e0b9c16.gif)
 
-## Testing Exchanges
+## Exchange Testing Queue
 
 The current version opens up the door to working with multiple exchanges and multiple markets. For your reference, this is a quick report on the progress of our tests:
 
-| Exchange | Historic Data Capability [*] | Trading Capability [**] |
-| :--- | :---: | :---: | 
-| Binance | &#x2611; | &#x2611; |
-| Bitfinex | &#x2611; | &#x2611; |
-| Bitmex | &#x2611; | &#x2610; |
-| HitBTC | &#x2610; | &#x2610; |
-| Kraken | &#x2611; | &#x2610; |
-| Poloniex | &#x2610; | &#x2610; |
+| Exchange | Historic Trades Capability [*] | Trading Capability [**] | Comments |
+| :--- | :---: | :---: |  :---: | 
+| Binance | &#x2611; | &#x2611; | You will need an Exchange Key to download Hitoric Trades. |
+| Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of Historic Trades. |
+| Bitmex | &#x2611; | &#x2610; | We need to implement the concept of Contracts within the system in order to be able to test trading capabilities. |
+| HitBTC | &#x2610; | &#x2610; | Not tested yet. |
+| Kraken | &#x2611; | &#x2610; | Live trading not tested yet. |
+| Poloniex | &#x2610; | &#x2610; | Not tested yet. |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.
 

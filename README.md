@@ -10,12 +10,12 @@ The current version opens up the door to working with multiple exchanges and mul
 
 | Exchange | Historic Data Capability [*] | Trading Capability [**] | Comments |
 | :--- | :---: | :---: |  :---: | 
-| Binance | &#x2611; | &#x2611; | You will need Exchange Key to download Hitoric Trades |
-| Bitfinex | &#x2611; | &#x2611; | Tested. Expect 1 year max of Historic Trades |
-| Bitmex | &#x2611; | &#x2610; | We need to implement Contracts first in order to place orders |
-| HitBTC | &#x2610; | &#x2610; | Not tested yet |
-| Kraken | &#x2611; | &#x2610; | Live trading not tested yet |
-| Poloniex | &#x2610; | &#x2610; | Not tested yet |
+| Binance | &#x2611; | &#x2611; | You will need an Exchange Key to download Hitoric Trades. |
+| Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of Historic Trades. |
+| Bitmex | &#x2611; | &#x2610; | We need to implement Contracts first in order to place orders. |
+| HitBTC | &#x2610; | &#x2610; | Not tested yet. |
+| Kraken | &#x2611; | &#x2610; | Live trading not tested yet. |
+| Poloniex | &#x2610; | &#x2610; | Not tested yet. |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.
 

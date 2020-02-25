@@ -184,7 +184,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             async function getOHLCVs() {
 
                 try {
-                    let lastTradeKey = ''
+                    let lastOHLCVKey = ''
                     let params = undefined
                     let previousSince
 
@@ -199,6 +199,23 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         /* Fetching the OHLCVs from the exchange.*/
                         const OHLCVs = await exchange.fetchOHLCVs(symbol, '1m', since, limit, params)
 
+                        /*
+                        OHLCV Structure
+                        The fetchOHLCV method shown above returns a list (a flat array) of OHLCV candles represented by the following structure:
+
+                        [
+                            [
+                                1504541580000, // UTC timestamp in milliseconds, integer
+                                4235.4,        // (O)pen price, float
+                                4240.6,        // (H)ighest price, float
+                                4230.0,        // (L)owest price, float
+                                4230.7,        // (C)losing price, float
+                                37.72941911    // (V)olume (in terms of the base currency), float
+                            ],
+                            ...
+                        ]
+                        */
+
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched = " + OHLCVs.length) }
                         if (OHLCVs.length > 0) {
                             let beginDate = new Date(OHLCVs[0].timestamp)
@@ -209,18 +226,18 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                         if (OHLCVs.length > 1) {
                             previousSince = since
-                            since = OHLCVs[OHLCVs.length - 1]['timestamp']
+                            since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
                             }
 
                             for (let i = 0; i < OHLCVs.length; i++) {
                                 let OHLCV = OHLCVs[i]
-                                let OHLCVKey = OHLCV.id + '-' + OHLCV.timestamp + '-' + OHLCV.side + '-' + OHLCV.price.toFixed(16) + '-' + OHLCV.amount.toFixed(16)
-                                if (OHLCVKey !== lastTradeKey) {
-                                    allOHLCVs.push([OHLCV.timestamp, OHLCV.side, OHLCV.price, OHLCV.amount, OHLCV.id])
+                                let OHLCVKey = OHLCV[0] + '-' + OHLCV[1].toFixed(16) + '-' + OHLCV[2].toFixed(16) + '-' + OHLCV[3].toFixed(16) + '-' + OHLCV[4].toFixed(16) + '-' + OHLCV[5].toFixed(16)
+                                if (OHLCVKey !== lastOHLCVKey) {
+                                    allOHLCVs.push(OHLCV)
                                 }
-                                lastTradeKey = OHLCVKey
+                                lastOHLCVKey = OHLCVKey
                             }
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }

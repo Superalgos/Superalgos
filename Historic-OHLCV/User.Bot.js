@@ -6,7 +6,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const MODULE_NAME = "User Bot";
-    const TRADES_FOLDER_NAME = "OHLCVs";
+    const OHLCVs_FOLDER_NAME = "OHLCVs";
 
     thisObject = {
         initialize: initialize,
@@ -16,8 +16,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let utilities = UTILITIES.newCloudUtilities(bot, logger)
     let statusDependencies
 
-    const ONE_MINUTE = 60000
-    const MAX_TRADES_PER_EXECUTION = 100000
+    const ONE_DAY = 60000 * 24
+    const MAX_OHLCVs_PER_EXECUTION = 100000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -248,7 +248,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (
                             OHLCVs.length < limit - 1 ||
                             global.STOP_TASK_GRACEFULLY === true ||
-                            allOHLCVs.length >= MAX_TRADES_PER_EXECUTION
+                            allOHLCVs.length >= MAX_OHLCVs_PER_EXECUTION
                         ) {
                             break
                         }
@@ -265,8 +265,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 try {
 
                     let fileContent = '['
-                    let previousRecordMinute = Math.trunc((initialProcessTimestamp - ONE_MINUTE) / ONE_MINUTE)
-                    let currentRecordMinute
+                    let previousRecordDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
+                    let currentRecordDay
                     let needSeparator = false
                     let error
                     let separator
@@ -301,13 +301,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
 
                         /* Saving the OHLCVs in Files*/
-                        currentRecordMinute = Math.trunc(OHLCV.timestamp / ONE_MINUTE)
+                        currentRecordDay = Math.trunc(OHLCV.timestamp / ONE_DAY)
 
                         if (
-                            currentRecordMinute !== previousRecordMinute
+                            currentRecordDay !== previousRecordDay
                         ) {
                             /* There are no more OHLCVs at this minute or it is the last OHLCV, so we save the file.*/
-                            saveFile(previousRecordMinute)
+                            saveFile(previousRecordDay)
                         }
 
                         if (needSeparator === false) {
@@ -322,12 +322,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                         if (i === allOHLCVs.length - 1) {
                             /* This is the last OHLCV, so we save the file.*/
-                            saveFile(currentRecordMinute)
+                            saveFile(currentRecordDay)
                             /* It might happen that there are several minutes after the last OHLCV without OHLCVs. We need to record empty files for them.*/
-                            if (allOHLCVs.length < MAX_TRADES_PER_EXECUTION) {
-                                let currentTimeMinute = Math.trunc((new Date()).valueOf() / ONE_MINUTE)
-                                if (currentTimeMinute - currentRecordMinute > 1) {
-                                    createMissingEmptyFiles(currentRecordMinute, currentTimeMinute)
+                            if (allOHLCVs.length < MAX_OHLCVs_PER_EXECUTION) {
+                                let currentTimeDay = Math.trunc((new Date()).valueOf() / ONE_DAY)
+                                if (currentTimeDay - currentRecordDay > 1) {
+                                    createMissingEmptyFiles(currentRecordDay, currentTimeDay)
                                 }
                             }
 
@@ -336,7 +336,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                             return
                         }
-                        previousRecordMinute = currentRecordMinute
+                        previousRecordDay = currentRecordDay
                         if (error) {
                             callBackFunction(error);
                             return;
@@ -346,13 +346,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                         function saveFile(minute) {
                             fileContent = fileContent + ']'
-                            if (currentRecordMinute - previousRecordMinute > 1) {
-                                createMissingEmptyFiles(previousRecordMinute, currentRecordMinute)
+                            if (currentRecordDay - previousRecordDay > 1) {
+                                createMissingEmptyFiles(previousRecordDay, currentRecordDay)
                             }
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
-                            if (previousRecordMinute >= initialProcessTimestamp / ONE_MINUTE) {
+                            if (previousRecordDay >= initialProcessTimestamp / ONE_DAY) {
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(minute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(minute * ONE_DAY) + '/' + fileName, fileContent + '\n', onFileCreated);
                             }
                             fileContent = '['
                             needSeparator = false
@@ -367,13 +367,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                             if ((end - begin) / 60 / 24 > 7) {
                                 begin = end
-                                beginingOfMarket = new Date(end * ONE_MINUTE)
+                                beginingOfMarket = new Date(end * ONE_DAY)
                             }
 
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(j * ONE_DAY) + '/' + fileName, "[]" + '\n', onFileCreated);
 
                             }
                         }
@@ -384,7 +384,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 return;
                             }
                             filesCreated++
-                            lastFileSaved = new Date((currentRecordMinute * ONE_MINUTE))
+                            lastFileSaved = new Date((currentRecordDay * ONE_DAY))
                             if (filesCreated === filesToCreate) {
                                 controlLoop()
                             }
@@ -396,7 +396,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 utilities.pad(datetime.getUTCDate(), 2) + '/' +
                                 utilities.pad(datetime.getUTCHours(), 2) + '/' +
                                 utilities.pad(datetime.getUTCMinutes(), 2)
-                            let filePath = bot.filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + OHLCVs_FOLDER_NAME + '/' + dateForPath;
                             return filePath
                         }
 

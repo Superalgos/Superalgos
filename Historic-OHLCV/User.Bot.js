@@ -284,9 +284,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         let record = allOHLCVs[i]
                         let OHLCV = {
                             timestamp: record[0],
-                            side: record[1],
-                            price: record[2],
-                            amount: record[3]
+                            open: record[1],
+                            hight: record[2],
+                            low: record[3],
+                            close: record[4],
+                            volume: record[5]
                         }
 
                         let processingDate = new Date(OHLCV.timestamp)
@@ -318,12 +320,22 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
 
                         /* Add the OHLCV to the file content.*/
-                        fileContent = fileContent + separator + '[' + OHLCV.timestamp + ',"' + OHLCV.side + '",' + OHLCV.price + ',' + OHLCV.amount + ']';
+
+                        let candle = {
+                            begin: timestamp,
+                            end: timestamp + 60000 - 1,
+                            open: OHLCV.open,
+                            close: OHLCV.close,
+                            min: OHLCV.low,
+                            max: OHLCV.hight
+                        }
+
+                        fileContent = fileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
 
                         if (i === allOHLCVs.length - 1) {
                             /* This is the last OHLCV, so we save the file.*/
                             saveFile(currentRecordDay)
-                            /* It might happen that there are several minutes after the last OHLCV without OHLCVs. We need to record empty files for them.*/
+                            /* It might happen that there are several days after the last OHLCV without OHLCVs. We need to record empty files for them.*/
                             if (allOHLCVs.length < MAX_OHLCVs_PER_EXECUTION) {
                                 let currentTimeDay = Math.trunc((new Date()).valueOf() / ONE_DAY)
                                 if (currentTimeDay - currentRecordDay > 1) {
@@ -344,7 +356,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (filesToCreate === 0) {
                             controlLoop()
                         }
-                        function saveFile(minute) {
+                        function saveFile(day) {
                             fileContent = fileContent + ']'
                             if (currentRecordDay - previousRecordDay > 1) {
                                 createMissingEmptyFiles(previousRecordDay, currentRecordDay)
@@ -352,7 +364,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                             if (previousRecordDay >= initialProcessTimestamp / ONE_DAY) {
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(minute * ONE_DAY) + '/' + fileName, fileContent + '\n', onFileCreated);
+                                fileStorage.createTextFile(getFilePath(day * ONE_DAY) + '/' + fileName, fileContent + '\n', onFileCreated);
                             }
                             fileContent = '['
                             needSeparator = false
@@ -365,7 +377,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             In that case we will change the begin and the beginingOfMarket
                             */
 
-                            if ((end - begin) / 60 / 24 > 7) {
+                            if ((end - begin) > 7) {
                                 begin = end
                                 beginingOfMarket = new Date(end * ONE_DAY)
                             }

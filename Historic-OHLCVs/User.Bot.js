@@ -29,13 +29,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let since
     let initialProcessTimestamp
     let beginingOfMarket
-    let lastFileSaved
+    let lastFile
     let exchangeId
     let options = {}
     let firstId
     let rateLimit
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
+    let fisrtTimeThisProcessRun = false
 
     const limit = 1000
 
@@ -145,8 +146,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
-                        lastFileSaved = new Date(thisReport.file.lastFileSaved.year + "-" + thisReport.file.lastFileSaved.month + "-" + thisReport.file.lastFileSaved.days + " " + thisReport.file.lastFileSaved.hours + ":" + thisReport.file.lastFileSaved.minutes + GMT_SECONDS);
+                        lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + GMT_SECONDS);
                     } else {  // This means this is the first time this process run.
+                        fisrtTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                     }
 
@@ -163,9 +165,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             initialProcessTimestamp = since
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
-                            if (lastFileSaved !== undefined) {
-                                since = lastFileSaved.valueOf()
-                                initialProcessTimestamp = lastFileSaved.valueOf()
+                            if (lastFile !== undefined) {
+                                since = lastFile.valueOf()
+                                initialProcessTimestamp = lastFile.valueOf()
                             } else {
                                 since = uiStartDate.valueOf()
                                 initialProcessTimestamp = uiStartDate.valueOf()
@@ -225,6 +227,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let endDate = new Date(OHLCVs[OHLCVs.length - 1].timestamp)
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate) }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate) }
+
+                            if (fisrtTimeThisProcessRun === true) {
+                                let OHLCV = OHLCVs[0]
+
+                                initialProcessTimestamp = OHLCV[0]  // 'timestamp'
+                                beginingOfMarket = new Date(OHLCV[0])  // 'timestamp'
+                                fisrtTimeThisProcessRun = false
+                            }
                         }
 
                         if (OHLCVs.length > 1) {
@@ -434,7 +444,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 return;
                             }
                             filesCreated++
-                            lastFileSaved = new Date((currentDay * ONE_DAY))
+                            lastFile = new Date((currentDay * ONE_DAY))
                             if (filesCreated === filesToCreate) {
                                 controlLoop()
                             }
@@ -474,14 +484,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
             function writeStatusReport() {
                 try {
-                    if (lastFileSaved === undefined) { return }
+                    if (lastFile === undefined) { return }
                     thisReport.file = {
-                        lastFileSaved: {
-                            year: lastFileSaved.getUTCFullYear(),
-                            month: (lastFileSaved.getUTCMonth() + 1),
-                            days: lastFileSaved.getUTCDate(),
-                            hours: lastFileSaved.getUTCHours(),
-                            minutes: lastFileSaved.getUTCMinutes()
+                        lastFile: {
+                            year: lastFile.getUTCFullYear(),
+                            month: (lastFile.getUTCMonth() + 1),
+                            days: lastFile.getUTCDate(),
+                            hours: lastFile.getUTCHours(),
+                            minutes: lastFile.getUTCMinutes()
                         },
                         beginingOfMarket: {
                             year: beginingOfMarket.getUTCFullYear(),

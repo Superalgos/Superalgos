@@ -50,16 +50,16 @@
 
     This process is going to do the following:
 
-    Read the candles and volumes from Bruce and produce a single Index File for Market Period. But this is the situation:
+    Read the candles and volumes from Charly and produce a single Index File for Market Period. But this is the situation:
 
-    Bruce has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timeFrame for the whole market.
+    Charly has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timeFrame for the whole market.
     Everytime this process run, must be able to resume its job and process everything pending until reaching the head of the market. So the tactic to do this is the
     following:
 
     1. First we need to read the last file written by this process, and load all the information into in-memory arrays. We will then append to this arrays the new
-    information we will get from Bruce.
+    information we will get from Charly.
 
-    2. We know from out status report which was the last DAY we processed from Bruce, but we must be carefull, because that day mightn not have been complete, if the
+    2. We know from out status report which was the last DAY we processed from Charly, but we must be carefull, because that day mightn not have been complete, if the
     last run found the head of the market. That means that we have to be carefull not to append candles that are already there. To simplify what we do is to discard
     all candles of the last processed day, and then we can process that full day again adding all the candles.
 
@@ -95,7 +95,7 @@
 
                     /* We look first for Charly in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -129,9 +129,9 @@
 
                     contextVariables.firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
-                    /* Second, we get the report from Bruce, to know when the marted ends. */
+                    /* Second, we get the report from Charly, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1" 
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -403,6 +403,8 @@
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
+                         
+                        logger.newInternalLoop(bot.codeName, bot.process, contextVariables.lastCandleFile);                         
 
                         /* Validation that we are not going past the head of the market. */
 
@@ -450,12 +452,12 @@
                             const timeFrame = global.marketFilesPeriods[n][1];
 
                             /*
-                            Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Bruce's daily files and
+                            Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Charly's daily files and
                             add all its candles to our in memory arrays. At the first iteration of this loop, we will add the candles that we are carrying
                             from our previous run, the ones we already have in-memory. You can see below how we discard from those candles the ones that
                             are belonging to the first day we are processing at this run, that it is exactly the same as the last day processed the privious
                             run. By discarding these candles, we are ready to run after that standard function that will just add ALL the candles found each
-                            day at Bruce.
+                            day at Charly.
                             */
 
                             if (previousCandles !== undefined) {
@@ -505,7 +507,7 @@
                             }
 
                             /*
-                            From here on is where every iteration of the loop fully runs. Here is where we read Bruce's files and add their content to whatever
+                            From here on is where every iteration of the loop fully runs. Here is where we read Charly's files and add their content to whatever
                             we already have in our arrays in-memory. In this way the process will run as many days needed and it should only stop when it reaches
                             the head of the market.
                             */
@@ -518,7 +520,7 @@
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
+                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -568,7 +570,7 @@
                                         let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Bruce, into candles of each timeFrame
+                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Charly, into candles of each timeFrame
                                         that Olivia generates. For market files those timePediods goes from 1h to 24hs.
                                         */
 
@@ -649,7 +651,7 @@
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
+                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 

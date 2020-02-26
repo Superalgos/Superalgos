@@ -6,7 +6,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const GMT_SECONDS = ':00.000 GMT+0000';
     const GMT_MILI_SECONDS = '.000 GMT+0000';
     const MODULE_NAME = "User Bot";
-    const OHLCVs_FOLDER_NAME = "OHLCVs";
+    const CANDLES_FOLDER_NAME = "Candles/One-Min";
+    const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
 
     thisObject = {
         initialize: initialize,
@@ -16,8 +17,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let utilities = UTILITIES.newCloudUtilities(bot, logger)
     let statusDependencies
 
-    const ONE_DAY = 60000 * 24
-    const MAX_OHLCVs_PER_EXECUTION = 100000
+    const ONE_MIN = 60000
+    const ONE_DAY = ONE_MIN * 60 * 24
+    
+    const MAX_OHLCVs_PER_EXECUTION =   100000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -197,7 +200,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         /* Fetching the OHLCVs from the exchange.*/
-                        const OHLCVs = await exchange.fetchOHLCVs(symbol, '1m', since, limit, params)
+                        const OHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                         /*
                         OHLCV Structure
@@ -232,7 +235,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
 
                             for (let i = 0; i < OHLCVs.length; i++) {
-                                let OHLCV = OHLCVs[i]
+                                
+                                let OHLCV = OHLCVs[i]         
+
                                 let OHLCVKey = OHLCV[0] + '-' + OHLCV[1].toFixed(16) + '-' + OHLCV[2].toFixed(16) + '-' + OHLCV[3].toFixed(16) + '-' + OHLCV[4].toFixed(16) + '-' + OHLCV[5].toFixed(16)
                                 if (OHLCVKey !== lastOHLCVKey) {
                                     allOHLCVs.push(OHLCV)
@@ -264,15 +269,30 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                 try {
 
-                    let fileContent = '['
-                    let previousRecordDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
-                    let currentRecordDay
+                    let candlesFileContent = '['
+                    let volumesFileContent = '['
+                    let previousDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
+                    let currentDay = Math.trunc((initialProcessTimestamp - ONE_DAY) / ONE_DAY)
                     let needSeparator = false
                     let error
                     let separator
                     let heartBeatCounter = 0
+                    let lastCandle = {
+                        begin: 0,
+                        end: 0,
+                        open: 0,
+                        close: 0,
+                        min: 0,
+                        max: 0
+                    }
+                    let lastVolume = {
+                        begin: 0,
+                        end: 0,
+                        buy: 0,
+                        sell: 0
+                    }
 
-                    let i = -1
+                    let i = 0
 
                     controlLoop()
 
@@ -281,92 +301,109 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         let filesToCreate = 0
                         let filesCreated = 0
 
-                        let record = allOHLCVs[i]
-                        let OHLCV = {
-                            timestamp: record[0],
-                            open: record[1],
-                            hight: record[2],
-                            low: record[3],
-                            close: record[4],
-                            volume: record[5]
-                        }
+                        /* Go through all possible 1 min candles of a day. */
+                        for (let j = 0; j <   60 * 24; j++) {
 
-                        let processingDate = new Date(OHLCV.timestamp)
-                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-
-                        /* Reporting we are doing well */
-                        heartBeatCounter--
-                        if (heartBeatCounter <= 0) {
-                            heartBeatCounter = 1000
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                            bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
-                        }
-
-                        /* Saving the OHLCVs in Files*/
-                        currentRecordDay = Math.trunc(OHLCV.timestamp / ONE_DAY)
-
-                        if (
-                            currentRecordDay !== previousRecordDay
-                        ) {
-                            /* There are no more OHLCVs at this minute or it is the last OHLCV, so we save the file.*/
-                            saveFile(previousRecordDay)
-                        }
-
-                        if (needSeparator === false) {
-                            needSeparator = true;
-                            separator = '';
-                        } else {
-                            separator = ',';
-                        }
-
-                        /* Add the OHLCV to the file content.*/
-
-                        let candle = {
-                            begin: timestamp,
-                            end: timestamp + 60000 - 1,
-                            open: OHLCV.open,
-                            close: OHLCV.close,
-                            min: OHLCV.low,
-                            max: OHLCV.hight
-                        }
-
-                        fileContent = fileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
-
-                        if (i === allOHLCVs.length - 1) {
-                            /* This is the last OHLCV, so we save the file.*/
-                            saveFile(currentRecordDay)
-                            /* It might happen that there are several days after the last OHLCV without OHLCVs. We need to record empty files for them.*/
-                            if (allOHLCVs.length < MAX_OHLCVs_PER_EXECUTION) {
-                                let currentTimeDay = Math.trunc((new Date()).valueOf() / ONE_DAY)
-                                if (currentTimeDay - currentRecordDay > 1) {
-                                    createMissingEmptyFiles(currentRecordDay, currentTimeDay)
-                                }
+                            let candle = {
+                                begin: currentDay * ONE_DAY + ONE_MIN * j,
+                                end: currentDay * ONE_DAY + ONE_MIN * j + ONE_MIN - 1,
+                                open: lastCandle.close,
+                                close: lastCandle.close,
+                                min: lastCandle.close,
+                                max: lastCandle.close
+                            }
+                            let volume = {
+                                begin: currentDay * ONE_DAY + ONE_MIN * j,
+                                end: currentDay * ONE_DAY + ONE_MIN * j + ONE_MIN - 1,
+                                buy: lastVolume.buy,
+                                sell: lastVolume.sell
                             }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                            bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                            let record = allOHLCVs[i]
+                            let OHLCV = {
+                                timestamp: record[0],
+                                open: record[1],
+                                hight: record[2],
+                                low: record[3],
+                                close: record[4],
+                                volume: record[5]
+                            }
 
-                            return
+                            /* Reporting we are doing well */
+                            let processingDate = new Date(candle.begin)
+                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);                            
+                            heartBeatCounter--
+                            if (heartBeatCounter <= 0) {
+                                heartBeatCounter = 1440
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                            }
+                            /* End Reporting */
+
+                            if (candle.begin === OHLCV.timestamp) {
+                                candle.open = OHLCV.open 
+                                candle.close = OHLCV.close 
+                                candle.min = OHLCV.low 
+                                candle.max = OHLCV.hight
+                                volume.buy = OHLCV.volume / 2
+                                volume.sell = OHLCV.volume / 2
+                                i++
+                            }
+                            lastCandle = candle
+
+                            if (needSeparator === false) {
+                                needSeparator = true;
+                                separator = '';
+                            } else {
+                                separator = ',';
+                            }
+
+                            /* Add the candle to the file content.*/
+
+                            candlesFileContent = candlesFileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
+                            volumesFileContent = volumesFileContent + separator + '[' + volume.buy + "," + volume.sell + "," + volume.begin + "," + volume.end + "]";
+
+                            if (i === allOHLCVs.length) {
+                                /* This was the last OHLCV, so we save the file.*/
+                                saveFile(currentDay)
+                                /* It might happen that there are several days after the last OHLCV without OHLCVs. We need to record empty files for them.*/
+                                if (allOHLCVs.length < MAX_OHLCVs_PER_EXECUTION) {
+                                    let currentTimeDay = Math.trunc((new Date()).valueOf() / ONE_DAY)
+                                    if (currentTimeDay - currentDay > 1) {
+                                        createMissingEmptyFiles(currentDay, currentTimeDay)
+                                    }
+                                }
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+
+                                return
+                            }
                         }
-                        previousRecordDay = currentRecordDay
+
+                        saveFile(currentDay)
+                        previousDay = currentDay
                         if (error) {
                             callBackFunction(error);
                             return;
                         }
-                        if (filesToCreate === 0) {
-                            controlLoop()
-                        }
+
                         function saveFile(day) {
-                            fileContent = fileContent + ']'
-                            if (currentRecordDay - previousRecordDay > 1) {
-                                createMissingEmptyFiles(previousRecordDay, currentRecordDay)
+                            candlesFileContent = candlesFileContent + ']'
+                            volumesFileContent = volumesFileContent + ']'
+                            if (currentDay - previousDay > 1) {
+                                createMissingEmptyFiles(previousDay, currentDay)
                             }
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
-                            if (previousRecordDay >= initialProcessTimestamp / ONE_DAY) {
-                                filesToCreate++
-                                fileStorage.createTextFile(getFilePath(day * ONE_DAY) + '/' + fileName, fileContent + '\n', onFileCreated);
-                            }
-                            fileContent = '['
+                             
+                            filesToCreate++
+                            fileStorage.createTextFile(getFilePath(day * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
+
+                            filesToCreate++
+                            fileStorage.createTextFile(getFilePath(day * ONE_DAY, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
+
+                            candlesFileContent = '['
+                            volumesFileContent = '['
                             needSeparator = false
 
                         }
@@ -385,8 +422,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             for (let j = begin + 1; j < end; j++) {
                                 let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(j * ONE_DAY) + '/' + fileName, "[]" + '\n', onFileCreated);
-
+                                fileStorage.createTextFile(getFilePath(j * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, "[]" + '\n', onFileCreated);
+                                filesToCreate++
+                                fileStorage.createTextFile(getFilePath(j * ONE_DAY, VOLUMES_FOLDER_NAME) + '/' + fileName, "[]" + '\n', onFileCreated);
                             }
                         }
                         function onFileCreated(err) {
@@ -396,31 +434,30 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 return;
                             }
                             filesCreated++
-                            lastFileSaved = new Date((currentRecordDay * ONE_DAY))
+                            lastFileSaved = new Date((currentDay * ONE_DAY))
                             if (filesCreated === filesToCreate) {
                                 controlLoop()
                             }
                         }
-                        function getFilePath(timestamp) {
+                        function getFilePath(timestamp, folderName) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 utilities.pad(datetime.getUTCMonth() + 1, 2) + '/' +
-                                utilities.pad(datetime.getUTCDate(), 2) + '/' +
-                                utilities.pad(datetime.getUTCHours(), 2) + '/' +
-                                utilities.pad(datetime.getUTCMinutes(), 2)
-                            let filePath = bot.filePathRoot + "/Output/" + OHLCVs_FOLDER_NAME + '/' + dateForPath;
+                                utilities.pad(datetime.getUTCDate(), 2) 
+                            let filePath = bot.filePathRoot + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }
 
 
                     }
+
                     function controlLoop() {
                         if (global.STOP_TASK_GRACEFULLY === true) {
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return
                         }
 
-                        i++
+                        currentDay++
                         if (i < allOHLCVs.length) {
                             setImmediate(loop)
                         } else {

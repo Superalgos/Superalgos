@@ -92,7 +92,8 @@ function newFloatingSpace () {
       payload.node.type === 'Network' ||
       payload.node.type === 'Crypto Ecosystem' ||
       payload.node.type === 'Charting Space' ||
-      payload.node.type === 'Data Mine'
+      payload.node.type === 'Data Mine' ||
+      payload.node.type === 'Super Scripts'
   ) {
       return false
     }

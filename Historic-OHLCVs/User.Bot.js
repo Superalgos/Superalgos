@@ -37,8 +37,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
     let fisrtTimeThisProcessRun = false
-
-    const limit = 1000
+    let limit = 1000 // This is the default value
 
     return thisObject;
 
@@ -72,6 +71,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                     }
                 }
+            }
+
+            if (bot.code.fetchLimit !== undefined) {
+                limit = bot.code.fetchLimit
             }
 
             let key = process.env.KEY
@@ -339,6 +342,38 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 volume: record[5]
                             }
 
+                            if (OHLCV.open === 11478 || OHLCV.hight === 11478 || OHLCV.low === 11478 || OHLCV.close === 11478) {
+                                console.log('FROM HERE')
+                            }
+
+                            let candleMinute = Math.trunc(candle.begin / ONE_MIN)
+                            let OHLCVMinute  
+
+                            checkOHLCVMinute()
+
+                            function checkOHLCVMinute() {
+                                /*
+                                Some exchanges return inconsistent data. It is not guaranteed that each candle will have a timeStamp exactly at the begining of an
+                                UTC minute. It is also not guaranteed that the distance between timestamps will be the same. To fix this, we will do this.
+                                */
+
+                                OHLCVMinute = Math.trunc(OHLCV.timestamp / ONE_MIN)
+
+                                if (OHLCVMinute < candleMinute) {
+                                    i++
+                                    record = allOHLCVs[i]
+                                    OHLCV = {
+                                        timestamp: record[0],
+                                        open: record[1],
+                                        hight: record[2],
+                                        low: record[3],
+                                        close: record[4],
+                                        volume: record[5]
+                                    }
+                                    checkOHLCVMinute()
+                                }
+                            }
+
                             /* Reporting we are doing well */
                             let processingDate = new Date(candle.begin)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);                            
@@ -346,11 +381,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                                bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                             }
                             /* End Reporting */
 
-                            if (candle.begin === OHLCV.timestamp) {
+                            if (candleMinute === OHLCVMinute) {
                                 candle.open = OHLCV.open 
                                 candle.close = OHLCV.close 
                                 candle.min = OHLCV.low 
@@ -385,7 +420,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 }
 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                                bot.processHeartBeat("Saving " + i.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length  + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                                 return
                             }

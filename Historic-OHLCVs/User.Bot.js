@@ -232,7 +232,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
-                                beginingOfMarket = new Date(OHLCV[0])  // 'timestamp'
+                                beginingOfMarket = new Date(Math.trunc (OHLCV[0] / ONE_DAY) * ONE_DAY)  // 'timestamp'
                                 fisrtTimeThisProcessRun = false
                             }
                         }

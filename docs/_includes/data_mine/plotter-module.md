@@ -8,7 +8,7 @@
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.more == "yes" and include.heading == "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -19,7 +19,7 @@
 {% if include.icon != "no" %} 
 
 {% if include.table == "yes" and include.icon != "no" %}
-<table class="definitionTable"><tr><td>
+<table class='definitionTable'><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
@@ -43,7 +43,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -64,7 +64,7 @@ A single plotter may have several modules. Different modules may be used to plot
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -105,20 +105,20 @@ Select *Configure Plotter Module* on the menu to access the configuration.
 
 | Value | Image|
 | :---: | :---: |
-| ```Default``` | ![Default-Banner](https://user-images.githubusercontent.com/13994516/70896073-5bbdd100-1ff0-11ea-84e3-5bd90475976f.png) |
-| ```Histogram``` | ![Histogram-Banner](https://user-images.githubusercontent.com/13994516/70896074-5bbdd100-1ff0-11ea-8dad-ccc6cfe64beb.png) |
-| ```Band``` | ![Bands-Banner](https://user-images.githubusercontent.com/13994516/70896072-5bbdd100-1ff0-11ea-8626-61c36bd22a3c.png) |
-| ```Moving Average``` | ![Moving-Average-Banner](https://user-images.githubusercontent.com/13994516/70896075-5bbdd100-1ff0-11ea-9909-dae33e57f65f.png) |
-| ```Oscillator``` | ![Oscillator-Banner](https://user-images.githubusercontent.com/13994516/70896076-5c566780-1ff0-11ea-8a5b-20077257c560.png) |
-| ```Trend``` | ![trends-banner](https://user-images.githubusercontent.com/13994516/70989177-744aeb80-20c3-11ea-88f5-d10473fa79b9.png) |
+| ```default``` | ![Default-Banner](https://user-images.githubusercontent.com/13994516/70896073-5bbdd100-1ff0-11ea-84e3-5bd90475976f.png) |
+| ```histogram``` | ![Histogram-Banner](https://user-images.githubusercontent.com/13994516/70896074-5bbdd100-1ff0-11ea-8dad-ccc6cfe64beb.png) |
+| ```band``` | ![Bands-Banner](https://user-images.githubusercontent.com/13994516/70896072-5bbdd100-1ff0-11ea-8626-61c36bd22a3c.png) |
+| ```moving-average``` | ![Moving-Average-Banner](https://user-images.githubusercontent.com/13994516/70896075-5bbdd100-1ff0-11ea-9909-dae33e57f65f.png) |
+| ```oscillator``` | ![Oscillator-Banner](https://user-images.githubusercontent.com/13994516/70896076-5c566780-1ff0-11ea-8a5b-20077257c560.png) |
+| ```trend``` | ![trends-banner](https://user-images.githubusercontent.com/13994516/70989177-744aeb80-20c3-11ea-88f5-d10473fa79b9.png) |
 
 Custom images may be added too. To do that:
 
-1. name the image in the following format: ```The-Image-Name-Icon.png```;
+1. name the image in the following format: ```image-name.png```;
 
-1. place images in the ```WebServer\Images\``` folder;
+1. place images in the ```WebServer\Images\Icons``` folder;
 
-1. in the configuration of the module, use the name without the *-Icon* ending (e.g.: ```"icon": "The-Image-Name"```)
+1. in the configuration of the module, use the name as is (e.g.: ```"icon": "image-name"```)
 
 <!--------------------------------------------- CONFIGURING ends -->
 

@@ -519,11 +519,13 @@ dl.dl-horizontal dd {
 figcaption {
 
     padding-bottom:12px;
-    padding-top:6px;
+    padding-top:0px;
     max-width: 90%;
     margin-bottom:20px;
     font-style: italic;
     color: gray;
+    font-size: 90%;
+    text-align: center;
 
 }
 

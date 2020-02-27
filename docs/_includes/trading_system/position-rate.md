@@ -9,7 +9,7 @@
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.more == "yes" and include.heading == "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -20,7 +20,7 @@
 {% if include.icon != "no" %} 
 
 {% if include.table == "yes" and include.icon != "no" %}
-<table class="definitionTable"><tr><td>
+<table class='definitionTable'><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
@@ -44,7 +44,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -59,7 +59,7 @@ However, for the time being, the formula is overridden by the system as executio
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

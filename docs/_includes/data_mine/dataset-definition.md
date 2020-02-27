@@ -8,7 +8,7 @@
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.more == "yes" and include.heading == "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -19,7 +19,7 @@
 {% if include.icon != "no" %} 
 
 {% if include.table == "yes" and include.icon != "no" %}
-<table class="definitionTable"><tr><td>
+<table class='definitionTable'><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
@@ -43,7 +43,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -58,7 +58,7 @@ A good part of what makes datasets easy to consume by other bots is the fact tha
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -88,7 +88,7 @@ Select *Configure Definition* on the menu to access the configuration.
 {
   "codeName": "Multi-Period-Market",
   "type": "Market Files",
-  "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
+  "validTimeFrames": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
   "filePath": "Data-Mine-Name/Bot-Name/@Exchange/Output/Product-Name/Multi-Period-Market/@Period",
   "fileName": "@BaseAsset_@QuotedAsset.json"
 }
@@ -100,7 +100,7 @@ Select *Configure Definition* on the menu to access the configuration.
 {
   "codeName": "Multi-Period-Daily",
   "type": "Daily Files",
-  "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
+  "validTimeFrames": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
   "filePath": "Data-Mine-Name/Bot-Name/@Exchange/Output/Product-Name/Multi-Period-Daily/@Period/@Year/@Month/@Day",
   "fileName": "@BaseAsset_@QuotedAsset.json",
   "dataRange": {

@@ -8,7 +8,7 @@
 <!--------------------------------------------- TITLE AND DEFINITION ends -->
 
 {% if include.more == "yes" and include.heading == "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -19,7 +19,7 @@
 {% if include.icon != "no" %} 
 
 {% if include.table == "yes" and include.icon != "no" %}
-<table class="definitionTable"><tr><td>
+<table class='definitionTable'><tr><td>
 {% endif %}
 
 <img src='images/icons/{{include.icon}}{{ title | downcase | replace: " ", "-" }}.png' />
@@ -43,7 +43,7 @@
 {% endif %}
 
 {% if include.more == "yes" and include.content == "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 
@@ -58,7 +58,7 @@ The indicator bot node holds all definitions required for an indicator bot to fu
 {% endif %}
 
 {% if include.more == "yes" and include.content != "more" and include.heading != "more" %}
-<details class="detailsCollapsible"><summary class="nobr">Click to learn more about {{ title | downcase }}{{plural}}
+<details class='detailsCollapsible'><summary class='nobr'>Click to learn more about {{ title | downcase }}{{plural}}
 </summary>
 {% endif %}
 

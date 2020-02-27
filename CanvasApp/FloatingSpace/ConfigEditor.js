@@ -34,7 +34,7 @@ function newConfigEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
-  let SIZE_FACTOR = 0.6
+  let SIZE_FACTOR = 0.8
 
   return thisObject
 
@@ -97,7 +97,7 @@ function newConfigEditor () {
                      'box-shadow: none;' +
                      'overflow:hidden;' +
                      'font-family: ' + UI_FONT.PRIMARY + ';' +
-                     'font-size: 12px;' +
+                     'font-size: 14px;' +
                      'background-color: rgb(' + UI_COLOR.DARK_TURQUOISE + ');' +
                      'color:rgb(255, 255, 255);' +
                     'width: ' + thisObject.container.frame.width + 'px;' +

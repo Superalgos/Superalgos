@@ -90,7 +90,7 @@ function newConditionEditor () {
                      'box-shadow: none;' +
                      'overflow:hidden;' +
                      'font-family: ' + UI_FONT.PRIMARY + ';' +
-                     'font-size: 12px;' +
+                     'font-size: 14px;' +
                      'background-color: rgb(' + UI_COLOR.GREEN + ');' +
                      'color:rgb(255, 255, 255);' +
                     'width: ' + thisObject.container.frame.width + 'px;' +

@@ -495,6 +495,7 @@ function newUiObjectConstructor () {
   }
 
   function destroyUiObject (payload) {
+    if (payload === undefined) { return }
     floatingLayer.removeFloatingObject(payload.floatingObject.handle)
 
     payload.floatingObject.finalize()

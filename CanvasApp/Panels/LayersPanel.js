@@ -18,8 +18,11 @@ function newLayersPanel () {
   thisObject.container.initialize()
   thisObject.container.isDraggeable = true
   thisObject.container.isWheelable = true
+  thisObject.container.detectMouseOver = true
 
   let isInitialized = false
+  let isMouseOver = false
+  let mouseOverCounter = 0
 
   let layersMap = new Map()
   let visibleLayers = []
@@ -36,10 +39,12 @@ function newLayersPanel () {
   let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight + footerHeight
 
   let onMouseWheelEventSuscriptionId
+  let onMouseOverEventSuscriptionId
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
 
     thisObject.panelTabButton.finalize()
     thisObject.panelTabButton = undefined
@@ -74,6 +79,7 @@ function newLayersPanel () {
     thisObject.panelTabButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     readObjectState()
 
@@ -166,6 +172,11 @@ function newLayersPanel () {
     }
   }
 
+  function onMouseOver (event) {
+    isMouseOver = true
+    mouseOverCounter = 150
+  }
+
   function onMouseWheel (event) {
     delta = event.wheelDelta
     if (delta > 0) {
@@ -239,7 +250,7 @@ function newLayersPanel () {
     thisObject.container.eventHandler.raiseEvent('Layer Status Changed', layer)
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
     let container
 
@@ -261,7 +272,9 @@ function newLayersPanel () {
           checkPoint = thisObject.fitFunction(checkPoint)
 
           if (point.x === checkPoint.x && point.y === checkPoint.y) {
-            return container
+            if (container.isForThisPurpose(purpose)) {
+              return container
+            }
           }
         }
       }
@@ -291,8 +304,18 @@ function newLayersPanel () {
     readObjectState()
   }
 
+  function mouseOverPhysics () {
+    mouseOverCounter--
+    if (mouseOverCounter < 0) {
+      mouseOverCounter = 0
+      isMouseOver = false
+    }
+  }
+
   function physics () {
     if (isInitialized === false) { return }
+
+    mouseOverPhysics()
     thisObject.panelTabButton.physics()
     saveFrame(thisObject.payload, thisObject.container.frame)
     syncWithConfigPhysics()
@@ -369,7 +392,7 @@ function newLayersPanel () {
   }
 
   function draw () {
-    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
+    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true || isMouseOver === false) { return }
 
     // thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 

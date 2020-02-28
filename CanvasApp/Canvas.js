@@ -550,11 +550,15 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
-        containerBeingDragged = container
-        containerDragStarted = true
-        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-        return
+      if (container !== undefined && event.shiftKey === false) {
+        if (container.isDraggeable === true) {
+          containerBeingDragged = container
+          containerDragStarted = true
+          containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+          return
+        } else {
+          return
+        }
       }
 
       if (container !== undefined && container.isClickeable === true) {
@@ -783,7 +787,7 @@ function newCanvas () {
 
        /* We check if the mouse is over a panel/ */
       if (thisObject.panelsSpace !== undefined) {
-        container = thisObject.panelsSpace.getContainer(point)
+        container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()

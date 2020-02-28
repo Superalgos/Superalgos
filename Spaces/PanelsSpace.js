@@ -326,7 +326,7 @@ function newPanelsSpace () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     if (thisObject.visible !== true) { return }
 
     let container
@@ -339,7 +339,7 @@ function newPanelsSpace () {
       let owner = canvas.chartingSpace.inViewport.get(panel.owner)
       if (owner !== undefined) {
         if (panel.isVisible === true && panel.isHidden === false) {
-          container = panel.getContainer(point)
+          container = panel.getContainer(point, purpose)
         }
       }
       if (container !== undefined) {

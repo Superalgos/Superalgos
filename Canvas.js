@@ -783,7 +783,7 @@ function newCanvas () {
 
        /* We check if the mouse is over a panel/ */
       if (thisObject.panelsSpace !== undefined) {
-        container = thisObject.panelsSpace.getContainer(point)
+        container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()

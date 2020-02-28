@@ -5,7 +5,7 @@ function newSuperScriptsFunctions () {
 
   return thisObject
 
-  function runSuperScript (node, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes) {
+  function runSuperScript (node, rootNodes, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter) {
     try {
       let clone = functionLibraryNodeCloning.getNodeClone
       let executionResult = true
@@ -15,6 +15,10 @@ function newSuperScriptsFunctions () {
         spawnPosition.y = target.payload.position.y
 
         functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
+      }
+
+      function deleteNode (node) {
+        functionLibraryNodeDeleter.deleteUIObject(node, rootNodes)
       }
 
       /* Validations */

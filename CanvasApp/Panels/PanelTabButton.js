@@ -19,6 +19,7 @@ function newPanelTabButton () {
   thisObject.container.name = 'Panel Tab Button'
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
+  thisObject.container.isDraggeable = false
   thisObject.container.frame.containerName = 'Panel Tab Button'
 
   /* Animation to hide the pannel */
@@ -127,19 +128,10 @@ function newPanelTabButton () {
     drawButton()
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     let container
-
-       /* First we check if thisObject point is inside thisObject space. */
-
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-           /* Now we see which is the inner most container that has it */
-
       return thisObject.container
-    } else {
-           /* This point does not belong to thisObject space. */
-
-      return undefined
     }
   }
 

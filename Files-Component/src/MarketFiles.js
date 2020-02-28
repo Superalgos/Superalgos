@@ -78,6 +78,14 @@ function newMarketFiles () {
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot)
 
+      /* Some Validations */
+      if (dataset.code.validTimeFrames === undefined) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Market Files for bot ' + pBot.name) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = You need to define validTimeFrames at the Dataset config. ') }
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
             /* Now we will get the market files */
 
       for (let i = 0; i < marketFilesPeriods.length; i++) {

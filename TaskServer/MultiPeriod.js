@@ -454,7 +454,7 @@
                             previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
                             
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                logger.newInternalLoop(bot.codeName, bot.process);
+                                logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodProcessDatetime);
                             }
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFramesDailyFiles -> advanceTime -> bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime); }

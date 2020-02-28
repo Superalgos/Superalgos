@@ -56,17 +56,17 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Historic-Trades",
+          "process": "Historic-OHLCVs",
           "dataSetVersion": "dataSet.V1"
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AABruce",
+          "bot": "AACharly",
           "botVersion": {
             "major": 1,
             "minor": 0
           },
-          "process": "Single-Period-Daily",
+          "process": "Historic-OHLCVs",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month",
           "waitUntilNextUpdate": true
@@ -128,17 +128,17 @@
             "major": 1,
             "minor": 0
           },
-          "process": "Historic-Trades",
+          "process": "Historic-OHLCVs",
           "dataSetVersion": "dataSet.V1"
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AABruce",
+          "bot": "AACharly",
           "botVersion": {
             "major": 1,
             "minor": 0
           },
-          "process": "Single-Period-Daily",
+          "process": "Historic-OHLCVs",
           "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month",
           "waitUntilNextUpdate": true

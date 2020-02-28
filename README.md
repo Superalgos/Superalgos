@@ -25,7 +25,7 @@ The current version opens up the door to working with multiple exchanges and mul
 
 Please refer to the [new documentation site](https://docs.superalgos.org/).
 
-Developers testing the version in the ```develop``` branch may consult the [develop documentation version](https://superalgos.github.io/Documentation/). This version of the docs is in a permanent work-in-progress state.
+<!--Developers testing the version in the ```develop``` branch may consult the [develop documentation version](https://superalgos.github.io/Documentation/). This version of the docs is in a permanent work-in-progress state.-->
 
 ## Codebase and Development Environment
 

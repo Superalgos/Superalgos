@@ -52,7 +52,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Bruce and produce a file for each day and for each period with candles and volumes.
+Read the candles and volumes from Charly and produce a file for each day and for each period with candles and volumes.
 
 */
 
@@ -86,7 +86,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     /* We look first for Charly in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -120,9 +120,9 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                     contextVariables.firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
-                    /* Second, we get the report from Bruce, to know when the marted ends. */
+                    /* Second, we get the report from Charly, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AABruce" + "-" + "Single-Period-Daily" + "-" + "dataSet.V1"  
+                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1"  
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -304,7 +304,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
+                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -430,7 +430,7 @@ Read the candles and volumes from Bruce and produce a file for each day and for 
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AABruce" + "/" + bot.exchange;
+                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 

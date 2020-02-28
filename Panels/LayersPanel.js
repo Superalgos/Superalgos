@@ -174,7 +174,7 @@ function newLayersPanel () {
 
   function onMouseOver (event) {
     isMouseOver = true
-    mouseOverCounter = 100
+    mouseOverCounter = 150
   }
 
   function onMouseWheel (event) {

@@ -550,11 +550,15 @@ function newCanvas () {
 
       container = thisObject.panelsSpace.getContainer(point)
 
-      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
-        containerBeingDragged = container
-        containerDragStarted = true
-        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-        return
+      if (container !== undefined && event.shiftKey === false) {
+        if (container.isDraggeable === true) {
+          containerBeingDragged = container
+          containerDragStarted = true
+          containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+          return
+        } else {
+          return
+        }
       }
 
       if (container !== undefined && container.isClickeable === true) {

@@ -368,7 +368,7 @@ function newWorkspace () {
         break
       case 'Run Super Action':
         {
-          functionLibrarySuperScripts.runSuperScript(payload.node, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes)
+          functionLibrarySuperScripts.runSuperScript(payload.node, thisObject.workspaceNode.rootNodes, functionLibraryNodeCloning, functionLibraryUiObjectsFromNodes, functionLibraryNodeDeleter)
         }
         break
       case 'Remove Parent':

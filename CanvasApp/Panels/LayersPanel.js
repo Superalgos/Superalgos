@@ -272,7 +272,7 @@ function newLayersPanel () {
           checkPoint = thisObject.fitFunction(checkPoint)
 
           if (point.x === checkPoint.x && point.y === checkPoint.y) {
-            if (container.isForThisPurpose(purpose)) {
+            if (purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
               return container
             }
           }

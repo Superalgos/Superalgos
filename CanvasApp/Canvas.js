@@ -548,7 +548,7 @@ function newCanvas () {
 
            /* We check if the mouse is over a panel/ */
 
-      container = thisObject.panelsSpace.getContainer(point)
+      container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined && event.shiftKey === false) {
         if (container.isDraggeable === true) {
@@ -645,7 +645,7 @@ function newCanvas () {
 
            /* We check if the mouse is over a panel/ */
 
-      container = thisObject.panelsSpace.getContainer(point)
+      container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)

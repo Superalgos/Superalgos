@@ -10,8 +10,8 @@ The current version opens up the door to working with multiple exchanges and mul
 
 | Exchange | Historic Trades Capability [*] | Trading Capability [**] | Comments |
 | :--- | :---: | :---: |  :---: | 
-| Binance | &#x2611; | &#x2611; | You will need an Exchange Key to download Hitoric Trades. |
-| Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of Historic Trades. |
+| Binance | &#x2611; | &#x2611; | Fully tested. Market history from Sep 2017. |
+| Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of market history. |
 | Bitmex | &#x2611; | &#x2610; | We need to implement the concept of Contracts within the system in order to be able to test trading capabilities. |
 | HitBTC | &#x2610; | &#x2610; | Not tested yet. |
 | Kraken | &#x2611; | &#x2610; | Live trading not tested yet. |

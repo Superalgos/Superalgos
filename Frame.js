@@ -21,6 +21,7 @@ function newFrame () {
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
     isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
+    isCenterInViewPort: isCenterInViewPort,
     initialize: initialize,
     finalize: finalize
   }
@@ -70,6 +71,24 @@ function newFrame () {
     point3 = transformThisPoint(point3, thisObject.container)
 
     if (point1.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point1.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function isCenterInViewPort () {
+   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
+
+    point = {
+      x: thisObject.width / 2,
+      y: thisObject.height / 2
+    }
+
+     /* Now the transformations. */
+    point = transformThisPoint(point, thisObject.container)
+
+    if (point.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
       return true
     } else {
       return false

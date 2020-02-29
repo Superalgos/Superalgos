@@ -78,17 +78,24 @@ function newFrame () {
   }
 
   function isCenterInViewPort () {
-   /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
+    /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
 
-    point = {
-      x: thisObject.width / 2,
-      y: thisObject.height / 2
+    point1 = {
+      x: thisObject.width * 25 / 100,
+      y: thisObject.height * 25 / 100
     }
 
-     /* Now the transformations. */
-    point = transformThisPoint(point, thisObject.container)
+    point3 = {
+      x: thisObject.width * 75 / 100,
+      y: thisObject.height * 75 / 100
+    }
 
-    if (point.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
+        /* Now the transformations. */
+
+    point1 = transformThisPoint(point1, thisObject.container)
+    point3 = transformThisPoint(point3, thisObject.container)
+
+    if (point1.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point1.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
       return true
     } else {
       return false

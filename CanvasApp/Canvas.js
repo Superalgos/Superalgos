@@ -578,7 +578,9 @@ function newCanvas () {
           return
         } else {
           if (container.isClickeable === false) {
-            viewPortBeingDragged = true
+            if (event.buttons === 2) {
+              viewPortBeingDragged = true
+            }
           }
           return
         }

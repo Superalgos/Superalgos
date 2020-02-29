@@ -347,7 +347,7 @@ function newPanelsSpace () {
         return container
       }
     }
-    thisObject.container.space = 'Panels Space'
-    return thisObject.container
+    // thisObject.container.space = 'Panels Space'
+    // return thisObject.container
   }
 }

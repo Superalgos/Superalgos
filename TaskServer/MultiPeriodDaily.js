@@ -338,10 +338,33 @@
 
                             }
 
-                            periodsLoop();
+                            checkStopTaskGracefully();
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> advanceTime -> err = "+ err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function checkStopTaskGracefully() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFramesDailyFiles -> checkStopTaskGracefully -> Entering function."); }
+
+                            /* Validation that we dont need to stop. */
+
+                            if (global.STOP_TASK_GRACEFULLY === true) {
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+
+                            }
+
+                            periodsLoop();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFramesDailyFiles -> checkStopTaskGracefully -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }

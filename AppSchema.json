@@ -295,7 +295,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Data Formula",
+                "label": "Delete Javascript Code",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1280,7 +1280,8 @@
                 "name": "tasks",
                 "type": "array",
                 "childType": "Task",
-                "autoAdd": true
+                "autoAdd": true,
+                "monitorChildrenRunning": true
             }
         ],
         "propertyNameAtParent": "taskManagers"
@@ -5619,6 +5620,20 @@
         "type": "Data Mining",
         "menuItems": [
             {
+                "action": "Run All Task Managers",
+                "label": "Run All Task Managers",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Task Managers",
+                "label": "Stop All Task Managers",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Task Manager",
                 "relatedUiObject": "Task Manager",
@@ -5646,7 +5661,8 @@
                 "name": "taskManagers",
                 "type": "array",
                 "childType": "Task Manager",
-                "autoAdd": true
+                "autoAdd": true,
+                "monitorChildrenRunning": true
             }
         ]
     },

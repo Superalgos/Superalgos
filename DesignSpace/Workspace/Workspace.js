@@ -356,6 +356,16 @@ function newWorkspace () {
           functionLibraryTaskFunctions.stopAllTasks(payload.node, functionLibraryProtocolNode)
         }
         break
+      case 'Run All Task Managers':
+        {
+          functionLibraryTaskFunctions.runAllTaskManagers(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Stop All Task Managers':
+        {
+          functionLibraryTaskFunctions.stopAllTaskManagers(payload.node, functionLibraryProtocolNode)
+        }
+        break
       case 'Run Session':
         {
           functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)

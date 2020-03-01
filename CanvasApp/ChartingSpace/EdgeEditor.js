@@ -77,17 +77,20 @@ function newEdgeEditor () {
     switch (event.buttons) {
       case 1: {
         buttonUsedForDragging = 'left mouse button'
+        if (event.shiftKey === true) {
+          buttonUsedForDragging = 'left mouse button + SHIFT'
+        }
         break
       }
       case 2: {
-        buttonUsedForDragging = 'right mouse button'
+        buttonUsedForDragging = 'right mouse button' // this will never happen as of today
         break
       }
     }
   }
 
   function getContainer (event, purpose) {
-    if (thisObject.container.frame.isThisPointHere(event, undefined, undefined, -EDGE_SIZE) === true && event.shiftKey !== true) {
+    if (thisObject.container.frame.isThisPointHere(event, undefined, undefined, -EDGE_SIZE) === true && event.buttons !== 2) {
       let point = {
         x: event.x,
         y: event.y
@@ -143,7 +146,7 @@ function newEdgeEditor () {
     switch (whereIsMouseOver) {
       case 'center': {
         switch (buttonUsedForDragging) {
-          case 'right mouse button': {
+          case 'left mouse button + SHIFT': {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
             thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
             thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
@@ -198,7 +201,7 @@ function newEdgeEditor () {
             coordinateSystem.recalculateScale(event)
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button + SHIFT': {
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             coordinateSystem.recalculateScale()
             break
@@ -231,7 +234,7 @@ function newEdgeEditor () {
             coordinateSystem.recalculateScale(event)
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button + SHIFT': {
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
             coordinateSystem.recalculateScale()
             break
@@ -260,7 +263,7 @@ function newEdgeEditor () {
             coordinateSystem.recalculateScale()
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button + SHIFT': {
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
             coordinateSystem.recalculateScale()
             break
@@ -289,7 +292,7 @@ function newEdgeEditor () {
             coordinateSystem.recalculateScale()
             break
           }
-          case 'right mouse button': {
+          case 'left mouse button + SHIFT': {
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
             coordinateSystem.recalculateScale()
             break

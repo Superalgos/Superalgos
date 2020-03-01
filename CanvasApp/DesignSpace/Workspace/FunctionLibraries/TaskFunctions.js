@@ -3,7 +3,9 @@ function newTaskFunctions () {
     runTask: runTask,
     stopTask: stopTask,
     runAllTasks: runAllTasks,
-    stopAllTasks: stopAllTasks
+    stopAllTasks: stopAllTasks,
+    runAllTaskManagers: runAllTaskManagers,
+    stopAllTaskManagers: stopAllTaskManagers
   }
 
   return thisObject
@@ -105,6 +107,24 @@ function newTaskFunctions () {
       let menu = node.payload.uiObject.menu
 
       menu.internalClick('Stop Task')
+    }
+  }
+
+  function runAllTaskManagers (dataMining, functionLibraryProtocolNode) {
+    for (let i = 0; i < dataMining.taskManagers.length; i++) {
+      let node = dataMining.taskManagers[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Run All Tasks')
+    }
+  }
+
+  function stopAllTaskManagers (dataMining, functionLibraryProtocolNode) {
+    for (let i = 0; i < dataMining.taskManagers.length; i++) {
+      let node = dataMining.taskManagers[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Stop All Tasks')
     }
   }
 }

@@ -277,6 +277,33 @@ function newUiObject () {
     chainAttachingPhysics()
     referenceDetachingPhysics()
     referenceAttachingPhysics()
+    childrenRunningPhysics()
+  }
+
+  function childrenRunningPhysics () {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.properties === undefined) { return }
+    for (let i = 0; i < nodeDefinition.properties.length; i++) {
+      let property = nodeDefinition.properties[i]
+      if (property.monitorChildrenRunning === true) {
+        let children = thisObject.payload.node[property.name]
+        let totalRunning = 0
+        for (let j = 0; j < children.length; j++) {
+          let child = children[j]
+          if (child.payload.uiObject.isRunning === true) {
+            totalRunning++
+          }
+        }
+        if (totalRunning > 0) {
+          setValue(totalRunning + ' / ' + children.length + ' Running')
+          thisObject.isRunning = true
+        } else {
+          thisObject.isRunning = false
+        }
+
+        return
+      }
+    }
   }
 
   function chainAttachingPhysics () {

@@ -252,7 +252,23 @@ function newFloatingSpace () {
   function physics () {
     if (visible === true) {
       browserZoomPhysics()
+      positionContraintsPhysics()
       thisObject.floatingLayer.physics()
+    }
+  }
+
+  function positionContraintsPhysics () {
+    if (thisObject.container.frame.position.x > 0) {
+      thisObject.container.frame.position.x = 0
+    }
+    if (thisObject.container.frame.position.y > 0) {
+      thisObject.container.frame.position.y = 0
+    }
+    if (thisObject.container.frame.position.x + thisObject.container.frame.width < browserCanvas.width) {
+      thisObject.container.frame.position.x = browserCanvas.width - thisObject.container.frame.width
+    }
+    if (thisObject.container.frame.position.y + thisObject.container.frame.height < browserCanvas.height) {
+      thisObject.container.frame.position.y = browserCanvas.height - thisObject.container.frame.height
     }
   }
 

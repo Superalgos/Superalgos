@@ -33,7 +33,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let exchangeId
     let options = {}
     let firstId
-    let rateLimit
+    let rateLimit = 500
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
     let fisrtTimeThisProcessRun = false
@@ -109,6 +109,15 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
     function start(callBackFunction) {
         try {
+
+            let lastCandle = {
+                begin: 0,
+                end: 0,
+                open: 0,
+                close: 0,
+                min: 0,
+                max: 0
+            }
 
             if (global.STOP_TASK_GRACEFULLY === true) {
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -205,6 +214,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         /* Fetching the OHLCVs from the exchange.*/
+                        await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                         const OHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                         /*
@@ -290,14 +300,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let error
                     let separator
                     let heartBeatCounter = 0
-                    let lastCandle = {
-                        begin: 0,
-                        end: 0,
-                        open: 0,
-                        close: 0,
-                        min: 0,
-                        max: 0
-                    }
                     let lastVolume = {
                         begin: 0,
                         end: 0,
@@ -340,10 +342,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 low: record[3],
                                 close: record[4],
                                 volume: record[5]
-                            }
-
-                            if (OHLCV.open === 11478 || OHLCV.hight === 11478 || OHLCV.low === 11478 || OHLCV.close === 11478) {
-                                console.log('FROM HERE')
                             }
 
                             let candleMinute = Math.trunc(candle.begin / ONE_MIN)

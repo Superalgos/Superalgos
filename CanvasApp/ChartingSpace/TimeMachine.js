@@ -22,6 +22,8 @@ function newTimeMachine () {
     rateScale: undefined,
     payload: undefined,
     edgeEditor: undefined,
+    onFocus: undefined,
+    onKeyPressed: onKeyPressed,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -155,6 +157,10 @@ function newTimeMachine () {
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
     callBackFunction()
+  }
+
+  function onKeyPressed (event) {
+    thisObject.edgeEditor.onKeyPressed(event)
   }
 
   function onMouseOver (event) {
@@ -391,6 +397,15 @@ function newTimeMachine () {
       syncWithDesigner()
     }
     panelPhysics()
+    onFocusPhysics()
+  }
+
+  function onFocusPhysics () {
+    if (thisObject.edgeEditor.isMouseOver === true) {
+      thisObject.onFocus = true
+    } else {
+      thisObject.onFocus = false
+    }
   }
 
   function panelPhysics () {
@@ -540,24 +555,26 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          let imageSize = 40
-          let imagePosition = {
-            x: thisObject.container.frame.width / 2,
-            y: thisObject.container.frame.height / 2
+      if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
+        let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            let imageSize = 40
+            let imagePosition = {
+              x: thisObject.container.frame.width / 2,
+              y: thisObject.container.frame.height / 2
+            }
+
+            imagePosition = transformThisPoint(imagePosition, thisObject.container)
+            imagePosition = thisObject.fitFunction(imagePosition, true)
+
+            browserCanvasContext.drawImage(
+               icon,
+               imagePosition.x - imageSize / 2,
+               imagePosition.y - imageSize / 2,
+               imageSize,
+               imageSize)
           }
-
-          imagePosition = transformThisPoint(imagePosition, thisObject.container)
-          imagePosition = thisObject.fitFunction(imagePosition, true)
-
-          browserCanvasContext.drawImage(
-             icon,
-             imagePosition.x - imageSize / 2,
-             imagePosition.y - imageSize / 2,
-             imageSize,
-             imageSize)
         }
       }
     }
@@ -587,23 +604,92 @@ function newTimeMachine () {
       x: 0,
       y: 0
     }
-    let imageSize = 25
-    let fontSize = 25
+    let imageSize = 13
+    let fontSize = 15
     let opacity = 1
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
-    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)
+    printLabel(thisObject.payload.node.name, position.x + 15, position.y - 28, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
         icon, position.x - 0,
-        position.y - 30,
+        position.y - 40,
         imageSize,
         imageSize)
       }
     }
+
+    imageSize = 13
+    fontSize = 15
+    let exchangeMarkets = new Map()
+
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let timelinechart = thisObject.timelineCharts[i]
+      if (timelinechart.layersManager !== undefined) {
+        for (let j = 0; j < timelinechart.layersManager.layers.length; j++) {
+          let layer = timelinechart.layersManager.layers[j]
+
+          exchangeMarket = {
+            exchangeName: layer.exchange.name,
+            marketName: layer.market,
+            exchangeIcon: layer.exchangeIcon,
+            baseAssetIcon: layer.baseAssetIcon,
+            quotedAssetIcon: layer.quotedAssetIcon
+          }
+          exchangeMarkets.set(exchangeMarket.exchangeName + '-' + exchangeMarket.marketName, exchangeMarket)
+        }
+      }
+    }
+
+    const INTER_EXCHANGE_SPACE = 60
+    const INTER_MARKET_SPACE = 90
+
+    exchangeMarkets.forEach((exchangeMarket, i) => {
+      icon = exchangeMarket.exchangeIcon
+
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x - 0,
+          position.y - 22,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
+
+      position.x = position.x + INTER_EXCHANGE_SPACE
+
+      icon = exchangeMarket.baseAssetIcon
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x - 0,
+          position.y - 22,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      printLabel(exchangeMarket.marketName, position.x + 15, position.y - 10, opacity, fontSize)
+
+      icon = exchangeMarket.quotedAssetIcon
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x + 70,
+          position.y - 22,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      position.x = position.x + INTER_MARKET_SPACE
+    })
   }
 
   function recalculateCoordinateSystem () {
@@ -625,3 +711,4 @@ function newTimeMachine () {
       )
   }
 }
+

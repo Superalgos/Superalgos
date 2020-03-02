@@ -470,6 +470,13 @@
 
         try {
 
+            let lowResolution = false
+            if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
+                if (candles.length > 100) {
+                    lowResolution = true
+                }
+            }
+
             if (candles.length > 0) {
 
                 /* Now we calculate all the points. */
@@ -627,13 +634,17 @@
                 }
 
                 browserCanvasContext.closePath();
-                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                browserCanvasContext.fill();
 
-                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
-                browserCanvasContext.lineWidth = 1;
-                browserCanvasContext.setLineDash([0, 0])
-                browserCanvasContext.stroke();
+                if (lowResolution === false) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
+                    browserCanvasContext.fill();
+                
+                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT + ', 1)';
+                    browserCanvasContext.lineWidth = 1;
+                    browserCanvasContext.setLineDash([0, 0])
+                    browserCanvasContext.stroke();
+
+                }
 
                 /* The stick at the mouse candle */
                 if (mouseCandle) {
@@ -647,8 +658,11 @@
                     browserCanvasContext.lineTo(candle.stickPoint4.x, candle.stickPoint4.y);
 
                     browserCanvasContext.closePath();
-                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
-                    browserCanvasContext.fill();
+
+                    if (lowResolution === false) {
+                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)';
+                        browserCanvasContext.fill();
+                    }
 
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)';
                     browserCanvasContext.lineWidth = 1;
@@ -676,23 +690,28 @@
                         browserCanvasContext.lineTo(candle.candlePoint2.x, candle.candlePoint2.y);
                         browserCanvasContext.lineTo(candle.candlePoint3.x, candle.candlePoint3.y);
                         browserCanvasContext.lineTo(candle.candlePoint4.x, candle.candlePoint4.y);
+                        browserCanvasContext.lineTo(candle.candlePoint1.x, candle.candlePoint1.y);
                     }
 
                     browserCanvasContext.closePath();
+
+                    if (lowResolution === false) {
+
+                        if (direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
+                        if (direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
+                        if (direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
+
+                        browserCanvasContext.fill();
+                    }
 
                     if (direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 1)'; }
                     if (direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 1)'; }
                     if (direction === 'side') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
 
-                    if (direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'; }
-                    if (direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'; }
-                    if (direction === 'side') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', 1)'; }
-
-                    browserCanvasContext.fill();
-
                     browserCanvasContext.lineWidth = 1;
                     browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke();
+                    
                 }
 
                 /* Draw mouse candel and Raise Event. */

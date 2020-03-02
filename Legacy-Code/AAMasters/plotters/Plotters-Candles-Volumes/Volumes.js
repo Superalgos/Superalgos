@@ -434,6 +434,13 @@
 
         try {
 
+            let lowResolution = false
+            if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
+                if (volumes.length > 100) {
+                    lowResolution = true
+                }
+            }
+
             if (volumes.length > 0) {
 
                 /* Now we calculate and plot the volumes */
@@ -640,19 +647,21 @@
 
                         browserCanvasContext.closePath();
 
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
+                        if (lowResolution === false) {
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
 
-                        if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
+                            if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
+                            }
                         }
 
                         browserCanvasContext.fill();
+
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', 0.40)';
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
-
-
+                        
                         browserCanvasContext.beginPath();
 
                         browserCanvasContext.moveTo(volumePointB1.x, volumePointB1.y);
@@ -662,19 +671,22 @@
 
                         browserCanvasContext.closePath();
 
-                        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
+                        if (lowResolution === false) {
+                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
 
-                        if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
-                            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
+                            if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
+                            }
+
+                            browserCanvasContext.fill();
                         }
 
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', 0.40)';
 
-                        browserCanvasContext.fill();
                         browserCanvasContext.lineWidth = 1;
                         browserCanvasContext.setLineDash([0, 0])
                         browserCanvasContext.stroke();
-
+                        
                         if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
 
                             let buyInfo = {

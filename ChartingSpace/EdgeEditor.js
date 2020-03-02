@@ -95,13 +95,15 @@ function newEdgeEditor () {
 
     if (event.shiftKey === false && event.code === 'ArrowLeft') {
       thisObject.container.frame.position.x = thisObject.container.frame.position.x + STEP
+      whatHappened = 'left or right arrow key pressed'
+      return
     }
 
     if (event.shiftKey === false && event.code === 'ArrowRight') {
       thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
+      whatHappened = 'left or right arrow key pressed'
+      return
     }
-
-    whatHappened = 'left or right arrow key pressed'
   }
 
   function getContainer (event, purpose) {

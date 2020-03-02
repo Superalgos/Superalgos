@@ -604,23 +604,71 @@ function newTimeMachine () {
       x: 0,
       y: 0
     }
-    let imageSize = 25
-    let fontSize = 25
+    let imageSize = 12
+    let fontSize = 15
     let opacity = 1
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
-    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)
+    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 25, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
         icon, position.x - 0,
-        position.y - 30,
+        position.y - 37,
         imageSize,
         imageSize)
       }
     }
+
+    imageSize = 10
+    let exchangeMarkets = new Map()
+
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let timelinechart = thisObject.timelineCharts[i]
+      if (timelinechart.layersManager !== undefined) {
+        for (let j = 0; j < timelinechart.layersManager.layers.length; j++) {
+          let layer = timelinechart.layersManager.layers[j]
+
+          exchangeMarket = {
+            exchangeName: layer.exchange.name,
+            marketName: layer.market,
+            exchangeIcon: layer.exchangeIcon,
+            baseAssetIcon: layer.baseAssetIcon,
+            quotedAssetIcon: layer.quotedAssetIcon
+          }
+          exchangeMarkets.set(exchangeMarket.exhangeName + '-' + exchangeMarket.marketName, exchangeMarket)
+        }
+      }
+    }
+
+    const INTER_EXCHANGE_SPACE = 60
+    let xOffset = 15
+
+    exchangeMarkets.forEach((exchangeMarket, i) => {
+      position = {
+        x: xOffset,
+        y: 0
+      }
+
+      icon = exchangeMarket.exchangeIcon
+      position = transformThisPoint(position, thisObject.container)
+
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x - 0,
+          position.y - 20,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
+
+      xOffset = xOffset + INTER_EXCHANGE_SPACE
+    })
   }
 
   function recalculateCoordinateSystem () {

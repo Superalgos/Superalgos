@@ -604,7 +604,7 @@ function newTimeMachine () {
       x: 0,
       y: 0
     }
-    let imageSize = 12
+    let imageSize = 13
     let fontSize = 15
     let opacity = 1
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
@@ -622,7 +622,7 @@ function newTimeMachine () {
       }
     }
 
-    imageSize = 12
+    imageSize = 13
     fontSize = 15
     let exchangeMarkets = new Map()
 
@@ -639,7 +639,7 @@ function newTimeMachine () {
             baseAssetIcon: layer.baseAssetIcon,
             quotedAssetIcon: layer.quotedAssetIcon
           }
-          exchangeMarkets.set(exchangeMarket.exhangeName + '-' + exchangeMarket.marketName, exchangeMarket)
+          exchangeMarkets.set(exchangeMarket.exchangeName + '-' + exchangeMarket.marketName, exchangeMarket)
         }
       }
     }
@@ -711,3 +711,4 @@ function newTimeMachine () {
       )
   }
 }
+

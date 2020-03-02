@@ -22,6 +22,8 @@ function newTimeMachine () {
     rateScale: undefined,
     payload: undefined,
     edgeEditor: undefined,
+    onFocus: undefined,
+    onKeyPressed: onKeyPressed,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -155,6 +157,10 @@ function newTimeMachine () {
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
     callBackFunction()
+  }
+
+  function onKeyPressed (event) {
+    thisObject.edgeEditor.onKeyPressed(event)
   }
 
   function onMouseOver (event) {
@@ -391,6 +397,15 @@ function newTimeMachine () {
       syncWithDesigner()
     }
     panelPhysics()
+    onFocusPhysics()
+  }
+
+  function onFocusPhysics () {
+    if (thisObject.edgeEditor.isMouseOver === true) {
+      thisObject.onFocus = true
+    } else {
+      thisObject.onFocus = false
+    }
   }
 
   function panelPhysics () {

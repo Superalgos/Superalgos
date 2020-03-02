@@ -5,6 +5,8 @@ function newEdgeEditor () {
     container: undefined,
     fitFunction: undefined,
     isVisible: true,
+    isMouseOver: undefined,
+    onKeyPressed: onKeyPressed,
     physics: physics,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -22,8 +24,7 @@ function newEdgeEditor () {
   thisObject.container.isWheelable = false
   thisObject.container.detectMouseOver = true
 
-  let buttonUsedForDragging
-  let isMouseOver
+  let whatHappened
   let whereIsMouseOver = 'outside'
 
   let coordinateSystem
@@ -60,7 +61,7 @@ function newEdgeEditor () {
   }
 
   function onMouseOver (event) {
-    isMouseOver = true
+    thisObject.isMouseOver = true
     mouse = {
       position: {
         x: event.x,
@@ -70,23 +71,37 @@ function newEdgeEditor () {
   }
 
   function onMouseNotOver () {
-    isMouseOver = false
+    thisObject.isMouseOver = false
   }
 
   function onDragStarted (event) {
     switch (event.buttons) {
       case 1: {
-        buttonUsedForDragging = 'left mouse button'
+        whatHappened = 'left mouse button'
         if (event.shiftKey === true) {
-          buttonUsedForDragging = 'left mouse button + SHIFT'
+          whatHappened = 'left mouse button + SHIFT'
         }
         break
       }
       case 2: {
-        buttonUsedForDragging = 'right mouse button' // this will never happen as of today
+        whatHappened = 'right mouse button' // this will never happen as of today
         break
       }
     }
+  }
+
+  function onKeyPressed (event) {
+    const STEP = 10
+
+    if (event.shiftKey === false && event.code === 'ArrowLeft') {
+      thisObject.container.frame.position.x = thisObject.container.frame.position.x + STEP
+    }
+
+    if (event.shiftKey === false && event.code === 'ArrowRight') {
+      thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
+    }
+
+    whatHappened = 'left or right arrow key pressed'
   }
 
   function getContainer (event, purpose) {
@@ -145,7 +160,7 @@ function newEdgeEditor () {
 
     switch (whereIsMouseOver) {
       case 'center': {
-        switch (buttonUsedForDragging) {
+        switch (whatHappened) {
           case 'left mouse button + SHIFT': {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
             thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
@@ -172,6 +187,21 @@ function newEdgeEditor () {
             }
             coordinateSystem.recalculateScale(event)
           }
+          case 'left or right arrow key pressed': {
+            let point = {
+              x: -dragVector.x,
+              y: 0
+            }
+            let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+            let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
+            coordinateSystem.min.x = newMinDate.valueOf()
+            coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
+            let event = {
+              type: 'center dragged',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
+          }
         }
         thisObject.container.parentContainer.eventHandler.raiseEvent('onMouseOver', mouse.position)
         break
@@ -190,7 +220,7 @@ function newEdgeEditor () {
         thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - dragVector.y
 
-        switch (buttonUsedForDragging) {
+        switch (whatHappened) {
           case 'left mouse button': {
             coordinateSystem.max.y = newMaxRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
@@ -223,7 +253,7 @@ function newEdgeEditor () {
 
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + dragVector.y
 
-        switch (buttonUsedForDragging) {
+        switch (whatHappened) {
           case 'left mouse button': {
             coordinateSystem.min.y = newMinRate
             coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
@@ -256,7 +286,7 @@ function newEdgeEditor () {
         thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
         thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - dragVector.x
 
-        switch (buttonUsedForDragging) {
+        switch (whatHappened) {
           case 'left mouse button': {
             coordinateSystem.min.x = newMinDate.valueOf()
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
@@ -285,7 +315,7 @@ function newEdgeEditor () {
 
         thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + dragVector.x
 
-        switch (buttonUsedForDragging) {
+        switch (whatHappened) {
           case 'left mouse button': {
             coordinateSystem.max.x = newMaxDate.valueOf()
             coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
@@ -309,7 +339,7 @@ function newEdgeEditor () {
     let edgeSize
     let lineWidth
 
-    if (whereIsMouseOver === 'outside' || isMouseOver === false) {
+    if (whereIsMouseOver === 'outside' || thisObject.isMouseOver === false) {
       edgeSize = EDGE_SIZE / 2
       lineWidth = 0.1
     } else {
@@ -462,7 +492,7 @@ function newEdgeEditor () {
     drawEdge('left')
 
     function drawEdge (edgeType) {
-      if (whereIsMouseOver === edgeType && isMouseOver === true) {
+      if (whereIsMouseOver === edgeType && thisObject.isMouseOver === true) {
         browserCanvasContext.lineWidth = lineWidth
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'

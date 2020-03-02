@@ -250,6 +250,7 @@ function newCanvas () {
     thisObject.mouse.action = 'key down'
 
     checkMediaRecording(event)
+    canvas.chartingSpace.onKeyPressed(event)
 
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {

@@ -622,7 +622,7 @@ function newTimeMachine () {
       }
     }
 
-    imageSize = 10
+    imageSize = 12
     let exchangeMarkets = new Map()
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
@@ -644,6 +644,8 @@ function newTimeMachine () {
     }
 
     const INTER_EXCHANGE_SPACE = 60
+    const INTER_MARKET_SPACE = 90
+
     let xOffset = 15
 
     exchangeMarkets.forEach((exchangeMarket, i) => {
@@ -659,7 +661,7 @@ function newTimeMachine () {
         if (icon.canDrawIcon === true) {
           browserCanvasContext.drawImage(
           icon, position.x - 0,
-          position.y - 20,
+          position.y - 22,
           imageSize,
           imageSize)
         }
@@ -668,6 +670,39 @@ function newTimeMachine () {
       printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
 
       xOffset = xOffset + INTER_EXCHANGE_SPACE
+
+      position = {
+        x: xOffset,
+        y: 0
+      }
+
+      position = transformThisPoint(position, thisObject.container)
+
+      icon = exchangeMarket.baseAssetIcon
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x - 0,
+          position.y - 22,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      printLabel(exchangeMarket.marketName, position.x + 15, position.y - 10, opacity, fontSize)
+
+      icon = exchangeMarket.quotedAssetIcon
+      if (icon !== undefined) {
+        if (icon.canDrawIcon === true) {
+          browserCanvasContext.drawImage(
+          icon, position.x + 70,
+          position.y - 22,
+          imageSize,
+          imageSize)
+        }
+      }
+
+      xOffset = xOffset + INTER_MARKET_SPACE
     })
   }
 
@@ -690,3 +725,4 @@ function newTimeMachine () {
       )
   }
 }
+

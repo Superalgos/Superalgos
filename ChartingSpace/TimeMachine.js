@@ -540,24 +540,26 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          let imageSize = 40
-          let imagePosition = {
-            x: thisObject.container.frame.width / 2,
-            y: thisObject.container.frame.height / 2
+      if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
+        let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            let imageSize = 40
+            let imagePosition = {
+              x: thisObject.container.frame.width / 2,
+              y: thisObject.container.frame.height / 2
+            }
+
+            imagePosition = transformThisPoint(imagePosition, thisObject.container)
+            imagePosition = thisObject.fitFunction(imagePosition, true)
+
+            browserCanvasContext.drawImage(
+               icon,
+               imagePosition.x - imageSize / 2,
+               imagePosition.y - imageSize / 2,
+               imageSize,
+               imageSize)
           }
-
-          imagePosition = transformThisPoint(imagePosition, thisObject.container)
-          imagePosition = thisObject.fitFunction(imagePosition, true)
-
-          browserCanvasContext.drawImage(
-             icon,
-             imagePosition.x - imageSize / 2,
-             imagePosition.y - imageSize / 2,
-             imageSize,
-             imageSize)
         }
       }
     }

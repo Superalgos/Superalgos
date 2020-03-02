@@ -88,7 +88,7 @@ function newWorkspace () {
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
 
-      setInterval(saveWorkspace, 5000)
+      setInterval(saveWorkspace, 30000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }

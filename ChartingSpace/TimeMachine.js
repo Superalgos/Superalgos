@@ -610,19 +610,20 @@ function newTimeMachine () {
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
-    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 25, opacity, fontSize)
+    printLabel(thisObject.payload.node.name, position.x + 15, position.y - 28, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
         icon, position.x - 0,
-        position.y - 37,
+        position.y - 40,
         imageSize,
         imageSize)
       }
     }
 
     imageSize = 12
+    fontSize = 15
     let exchangeMarkets = new Map()
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
@@ -646,16 +647,8 @@ function newTimeMachine () {
     const INTER_EXCHANGE_SPACE = 60
     const INTER_MARKET_SPACE = 90
 
-    let xOffset = 15
-
     exchangeMarkets.forEach((exchangeMarket, i) => {
-      position = {
-        x: xOffset,
-        y: 0
-      }
-
       icon = exchangeMarket.exchangeIcon
-      position = transformThisPoint(position, thisObject.container)
 
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
@@ -669,14 +662,7 @@ function newTimeMachine () {
 
       printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
 
-      xOffset = xOffset + INTER_EXCHANGE_SPACE
-
-      position = {
-        x: xOffset,
-        y: 0
-      }
-
-      position = transformThisPoint(position, thisObject.container)
+      position.x = position.x + INTER_EXCHANGE_SPACE
 
       icon = exchangeMarket.baseAssetIcon
       if (icon !== undefined) {
@@ -702,7 +688,7 @@ function newTimeMachine () {
         }
       }
 
-      xOffset = xOffset + INTER_MARKET_SPACE
+      position.x = position.x + INTER_MARKET_SPACE
     })
   }
 
@@ -725,4 +711,3 @@ function newTimeMachine () {
       )
   }
 }
-

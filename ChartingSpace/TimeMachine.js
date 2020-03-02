@@ -599,6 +599,8 @@ function newTimeMachine () {
   }
 
   function drawLabel () {
+    if (thisObject.payload.node === undefined) { return }
+    if (thisObject.payload === undefined) { return }
   /* Draw Title Above the Container */
     let position = {
       x: 0,

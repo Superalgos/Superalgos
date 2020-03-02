@@ -11,6 +11,15 @@ function newLayer () {
     payload: undefined,
     definition: undefined,
     panels: undefined,
+    baseAsset: undefined,
+    quotedAsset: undefined,
+    market: undefined,
+    exchange: undefined,
+    plotterModule: undefined,
+    exchangeIcon: undefined,
+    plotterTypeIcon: undefined,
+    baseAssetIcon: undefined,
+    quotedAssetIcon: undefined,
     physics: physics,
     draw: draw,
     turnOff: turnOff,
@@ -79,6 +88,8 @@ function newLayer () {
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
+
     thisObject.container.finalize()
     thisObject.eventHandler.finalize()
     thisObject.container = undefined
@@ -107,7 +118,15 @@ function newLayer () {
 
     panelsVisibleButton = undefined
 
-    thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
+    thisObject.baseAsset = undefined
+    thisObject.quotedAsset = undefined
+    thisObject.market = undefined
+    thisObject.exchange = undefined
+    thisObject.plotterModule = undefined
+    thisObject.exchangeIcon = undefined
+    thisObject.plotterTypeIcon = undefined
+    thisObject.baseAssetIcon = undefined
+    thisObject.quotedAssetIcon = undefined
   }
 
   function initialize (callBackFunction) {
@@ -169,6 +188,41 @@ function newLayer () {
 
        /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+
+      /* Get ready to draw this layer */
+      thisObject.baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
+      thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
+      thisObject.market = thisObject.baseAsset.code.codeName + '/' + thisObject.quotedAsset.code.codeName
+      thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
+      thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
+
+      thisObject.exchangeIcon = getIcon(thisObject.exchange)
+
+      if (thisObject.plotterModule.code.icon !== undefined) {
+        thisObject.plotterTypeIcon = canvas.designSpace.iconCollection.get(thisObject.plotterModule.code.icon)
+      }
+
+      thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
+      thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
+
+      function getIcon (node) {
+        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        let iconName
+        if (nodeDefinition.alternativeIcons !== undefined) {
+          for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
+            alternativeIcon = nodeDefinition.alternativeIcons[i]
+            if (alternativeIcon.codeName === node.code.codeName) {
+              iconName = alternativeIcon.iconName
+            }
+          }
+        }
+        if (iconName !== undefined) {
+          icon = canvas.designSpace.iconCollection.get(iconName)
+        } else {
+          icon = canvas.designSpace.iconCollection.get(nodeDefinition.icon)
+        }
+        return icon
+      }
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     } catch (err) {
@@ -454,47 +508,12 @@ function newLayer () {
   }
 
   function drawLayerDisplay () {
-    let baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
-    let quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
-    let market = baseAsset.code.codeName + '/' + quotedAsset.code.codeName
-    let exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
-    let plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
-
     let label1 = thisObject.payload.node.name
-    let label2 = exchange.name.substring(0, 15) + ' - ' + market
+    let label2 = thisObject.exchange.name.substring(0, 15) + ' - ' + thisObject.market
     let label3 = thisObject.status.toUpperCase()
 
     if (label1 !== undefined) {
       label1 = label1.substring(0, 22)
-    }
-
-    let icon1 = getIcon(exchange)
-
-    let icon2
-    if (plotterModule.code.icon !== undefined) {
-      icon2 = canvas.designSpace.iconCollection.get(plotterModule.code.icon)
-    }
-
-    let icon3 = getIcon(baseAsset)
-    let icon4 = getIcon(quotedAsset)
-
-    function getIcon (node) {
-      let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
-      let iconName
-      if (nodeDefinition.alternativeIcons !== undefined) {
-        for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
-          alternativeIcon = nodeDefinition.alternativeIcons[i]
-          if (alternativeIcon.codeName === node.code.codeName) {
-            iconName = alternativeIcon.iconName
-          }
-        }
-      }
-      if (iconName !== undefined) {
-        icon = canvas.designSpace.iconCollection.get(iconName)
-      } else {
-        icon = canvas.designSpace.iconCollection.get(nodeDefinition.icon)
-      }
-      return icon
     }
 
     let backgroundColor = UI_COLOR.BLACK
@@ -523,9 +542,9 @@ function newLayer () {
     drawProgressBar(singleFileProgressBar, 1, -47)
     drawProgressBar(fileSequenceProgressBar, 1, -48)
 
-    drawIcon(icon1, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon2, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon3, 3.4 / 8, 2 / 10, 0, 0, 14, thisObject.container)
-    drawIcon(icon4, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(thisObject.plotterTypeIcon, 7 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(thisObject.baseAssetIcon, 3.4 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }

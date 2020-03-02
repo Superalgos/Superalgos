@@ -19,6 +19,7 @@ function newChartingSpace () {
     timeMachines: undefined,
     viewport: undefined,
     payload: undefined,
+    onKeyPressed: onKeyPressed,
     reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -261,6 +262,16 @@ function newChartingSpace () {
     thisObjectPhysics()
     childrenPhysics()
     syncWithDesigner()
+  }
+
+  function onKeyPressed (event) {
+    if (thisObject.visible !== true) { return }
+    for (let j = 0; j < thisObject.timeMachines.length; j++) {
+      let timeMachine = thisObject.timeMachines[j]
+      if (timeMachine.onFocus === true) {
+        timeMachine.onKeyPressed(event)
+      }
+    }
   }
 
   function syncWithDesigner () {

@@ -138,10 +138,14 @@ function newChartingSpace () {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (purpose !== undefined) {
-          containerFound = container
+          if (containerFound === undefined) {
+            containerFound = container
+          }
         } else {
           if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            containerFound = container
+            if (containerFound === undefined) {
+              containerFound = container
+            }
           }
         }
       }

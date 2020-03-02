@@ -245,6 +245,10 @@ function newTimeScale () {
       thisObject.container.frame.position.x < upCorner.x) {
       thisObject.isVisible = false
     }
+
+    if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+      thisObject.isVisible = false
+    }
   }
 
   function draw () {

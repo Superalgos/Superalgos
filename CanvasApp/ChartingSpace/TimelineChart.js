@@ -318,6 +318,8 @@ function newTimelineChart () {
   }
 
   function thisObjectPhysics () {
+    timelineChartCoordinateSystem.reportXValue(timeMachineCoordinateSystem.min.x)
+    timelineChartCoordinateSystem.reportXValue(timeMachineCoordinateSystem.max.x)
     timelineChartCoordinateSystem.physics()
   }
 

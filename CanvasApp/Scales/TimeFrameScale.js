@@ -212,6 +212,10 @@ function newTimeFrameScale () {
       thisObject.isVisible = false
       thisObject.payload.isVisible = false
     }
+
+    if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+      thisObject.isVisible = false
+    }
   }
 
   function onViewportZoomChanged (event) {

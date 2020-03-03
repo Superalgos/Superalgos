@@ -152,6 +152,7 @@ function newFloatingSpace () {
   }
 
   function oneScreenUp () {
+    if (visible === false) { return }
     let displaceVector = {
       x: 0,
       y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -162,6 +163,7 @@ function newFloatingSpace () {
   }
 
   function oneScreenDown () {
+    if (visible === false) { return }
     let displaceVector = {
       x: 0,
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -172,6 +174,7 @@ function newFloatingSpace () {
   }
 
   function oneScreenLeft () {
+    if (visible === false) { return }
     let displaceVector = {
       x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -182,6 +185,7 @@ function newFloatingSpace () {
   }
 
   function oneScreenRight () {
+    if (visible === false) { return }
     let displaceVector = {
       x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -223,6 +227,7 @@ function newFloatingSpace () {
   }
 
   function onMouseWheel (event) {
+    if (visible === false) { return }
     thisObject.floatingLayer.changeTargetRepulsion(event.wheelDelta)
   }
 
@@ -235,6 +240,7 @@ function newFloatingSpace () {
   }
 
   function getContainer (point) {
+    if (visible === false) { return }
     let container
 
     container = thisObject.floatingLayer.getContainer(point)
@@ -250,11 +256,10 @@ function newFloatingSpace () {
   }
 
   function physics () {
-    if (visible === true) {
-      browserZoomPhysics()
-      positionContraintsPhysics()
-      thisObject.floatingLayer.physics()
-    }
+    if (visible === false) { return }
+    browserZoomPhysics()
+    positionContraintsPhysics()
+    thisObject.floatingLayer.physics()
   }
 
   function positionContraintsPhysics () {
@@ -282,10 +287,9 @@ function newFloatingSpace () {
   }
 
   function draw () {
-    if (visible === true) {
-      drawBackground()
-      thisObject.floatingLayer.draw()
-    }
+    if (visible === false) { return }
+    drawBackground()
+    thisObject.floatingLayer.draw()
   }
 
   function drawBackground () {

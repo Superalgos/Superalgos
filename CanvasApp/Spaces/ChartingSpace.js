@@ -13,7 +13,7 @@ function newChartingSpace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    visible: undefined,
+    visible: false,
     container: undefined,
     inViewport: undefined,
     timeMachines: undefined,
@@ -170,6 +170,7 @@ function newChartingSpace () {
   }
 
   function oneScreenUp () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: 0,
       y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -179,6 +180,7 @@ function newChartingSpace () {
   }
 
   function oneScreenDown () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: 0,
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -188,6 +190,7 @@ function newChartingSpace () {
   }
 
   function oneScreenLeft () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -197,6 +200,7 @@ function newChartingSpace () {
   }
 
   function oneScreenRight () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -259,11 +263,11 @@ function newChartingSpace () {
   }
 
   function physics () {
+    thisObjectPhysics()
+    if (thisObject.visible !== true) { return }
     if (thisObject.viewport !== undefined) {
       thisObject.viewport.physics()
     }
-
-    thisObjectPhysics()
     childrenPhysics()
     syncWithDesigner()
   }
@@ -345,10 +349,16 @@ function newChartingSpace () {
   function thisObjectPhysics () {
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
 
-    if (thisObject.container.frame.height <= 0 / 100) {
+    if (thisObject.container.frame.height <= TOP_SPACE_HEIGHT) {
       thisObject.visible = false
+      if (thisObject.viewport !== undefined) {
+        thisObject.viewport.visible = false
+      }
     } else {
       thisObject.visible = true
+      if (thisObject.viewport !== undefined) {
+        thisObject.viewport.visible = true
+      }
     }
 
     if (canvas.chartingSpace.viewport !== undefined) {
@@ -373,6 +383,7 @@ function newChartingSpace () {
   }
 
   function drawBackground () {
+    if (thisObject.visible === false) { return }
     drawSpaceBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
@@ -382,7 +393,7 @@ function newChartingSpace () {
   }
 
   function draw () {
-    if (thisObject.visible !== true) { return }
+    if (thisObject.visible === false) { return }
     drawBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {

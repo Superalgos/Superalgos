@@ -263,7 +263,7 @@
 
             thisObject.container.frame.draw();
 
-            plotChart();
+            return plotChart();
 
         } catch (err) {
 
@@ -469,7 +469,7 @@
     function plotChart() {
 
         try {
-
+            let elementsPlotted = 0
             let lowResolution = false
             if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION) {
                 if (candles.length > 100) {
@@ -691,6 +691,8 @@
                         browserCanvasContext.lineTo(candle.candlePoint3.x, candle.candlePoint3.y);
                         browserCanvasContext.lineTo(candle.candlePoint4.x, candle.candlePoint4.y);
                         browserCanvasContext.lineTo(candle.candlePoint1.x, candle.candlePoint1.y);
+
+                        elementsPlotted++
                     }
 
                     browserCanvasContext.closePath();
@@ -746,7 +748,7 @@
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentCandle);
                 }
             }
-
+            return elementsPlotted
         } catch (err) {
 
             if (ERROR_LOG === true) { logger.write("[ERROR] plotChart -> err = " + err.stack); }

@@ -529,9 +529,18 @@ function newTimeMachine () {
   function drawBackground () {
     drawChartsBackground()
     if (thisObject.container.frame.isInViewPort()) {
+      let maxElementsPlotted = 0
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
-        timelineChart.drawBackground()
+        let elementsPlotted = timelineChart.drawBackground()
+        if (elementsPlotted !== undefined) {
+          if (elementsPlotted > maxElementsPlotted) {
+            maxElementsPlotted = elementsPlotted
+          }
+        }
+      }
+      if (thisObject.timeFrameScale !== undefined) {
+        thisObject.timeFrameScale.adjustTimeFrame(maxElementsPlotted)
       }
     }
   }

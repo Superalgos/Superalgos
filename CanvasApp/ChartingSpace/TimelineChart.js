@@ -380,7 +380,12 @@ function newTimelineChart () {
     if (thisObject.container.frame.isInViewPort()) {
       drawChartsBackground()
       if (thisObject.plotterManager !== undefined) {
-        thisObject.plotterManager.draw()
+        let elementsPlotted = thisObject.plotterManager.draw()
+        if (thisObject.timeFrameScale !== undefined) {
+          thisObject.timeFrameScale.adjustTimeFrame(elementsPlotted)
+        } else {
+          return elementsPlotted
+        }
       }
     }
   }

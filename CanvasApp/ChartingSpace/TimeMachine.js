@@ -612,7 +612,14 @@ function newTimeMachine () {
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
-    printLabel(thisObject.payload.node.name, position.x + 15, position.y - 28, opacity, fontSize)
+
+    let label = thisObject.payload.node.name
+    let description = loadPropertyFromNodeConfig(thisObject.payload, 'description')
+
+    if (description !== undefined) {
+      label = description
+    }
+    printLabel(label, position.x + 15, position.y - 28, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {

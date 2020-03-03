@@ -8,14 +8,14 @@ The Superalgos Platform provides a visual environment for developing, testing an
 
 The current version opens up the door to working with multiple exchanges and multiple markets. For your reference, this is a quick report on the progress of our tests:
 
-| Exchange | Historic Trades Capability [*] | Trading Capability [**] | Comments |
+| Exchange | Historic OHLCVs Capability [*] | Trading Capability [**] | Comments |
 | :--- | :---: | :---: |  :---: | 
 | Binance | &#x2611; | &#x2611; | Fully tested. Market history from Sep 2017. |
 | Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of market history. |
 | Bitmex | &#x2611; | &#x2610; | We need to implement the concept of Contracts within the system in order to be able to test trading capabilities. |
 | HitBTC | &#x2610; | &#x2610; | Not tested yet. |
 | Kraken | &#x2611; | &#x2610; | Live trading not tested yet. |
-| Poloniex | &#x2610; | &#x2610; | Not tested yet. |
+| Poloniex | &#x2610; | &#x2610; | At the moment we can not retrieve OHLCVs from Poloniex because we require 1 minute time frame while Poloniex only offers 5 minutes and above. |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.
 

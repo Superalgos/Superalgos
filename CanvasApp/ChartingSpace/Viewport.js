@@ -20,6 +20,7 @@ function newViewport () {
   }
 
   let thisObject = {
+    visible: false,
     visibleArea: undefined,
     width: undefined,
     height: undefined,
@@ -128,6 +129,7 @@ function newViewport () {
   }
 
   function raiseEvents () {
+    if (thisObject.visible === false) { return }
     let event = {
       newPosition: position
     }
@@ -136,12 +138,14 @@ function newViewport () {
   }
 
   function physics () {
+    if (thisObject.visible === false) { return }
     animationPhysics()
     positioningPhysics()
     readObjectState()
   }
 
   function positioningPhysics () {
+    if (thisObject.visible === false) { return }
     if (thisObject.payload === undefined) { return }
     /* Save the position at the frame lavel */
     let frame = {}
@@ -176,6 +180,7 @@ function newViewport () {
   }
 
   function onMouseWheel (event) {
+    if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
     let amount = event.delta
@@ -259,6 +264,7 @@ function newViewport () {
   }
 
   function displace (displaceVector, recalculate) {
+    if (thisObject.visible === false) { return }
     position.x = position.x + displaceVector.x
     position.y = position.y + displaceVector.y
 
@@ -273,6 +279,7 @@ function newViewport () {
   }
 
   function changeZoom (oldLevel, newLevel) {
+    if (thisObject.visible === false) { return }
     let oldMouse = unTransformThisPoint(thisObject.mousePosition, oldLevel)
     let newMouse = transformThisPoint(oldMouse, newLevel)
 
@@ -295,6 +302,7 @@ function newViewport () {
   }
 
   function transformThisPoint (point, level) {
+    if (thisObject.visible === false) { return }
     let transformedPoint = {
       x: 0,
       y: 0
@@ -328,6 +336,7 @@ function newViewport () {
   }
 
   function isThisPointVisible (point) {
+    if (thisObject.visible === false) { return }
     if (point.x < thisObject.visibleArea.topLeft.x || point.x > thisObject.visibleArea.bottomRight.x || point.y < thisObject.visibleArea.topLeft.y || point.y > thisObject.visibleArea.bottomRight.y) {
       return false
     } else {
@@ -336,6 +345,7 @@ function newViewport () {
   }
 
   function isThisPointInViewport (point) {
+    if (thisObject.visible === false) { return }
     if (point.y > COCKPIT_SPACE_POSITION) {
       return false
     } else {

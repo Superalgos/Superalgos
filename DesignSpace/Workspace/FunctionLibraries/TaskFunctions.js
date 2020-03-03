@@ -116,6 +116,7 @@ function newTaskFunctions () {
       let menu = node.payload.uiObject.menu
 
       menu.internalClick('Run All Tasks')
+      menu.internalClick('Run All Tasks')
     }
   }
 
@@ -124,6 +125,7 @@ function newTaskFunctions () {
       let node = dataMining.taskManagers[i]
       let menu = node.payload.uiObject.menu
 
+      menu.internalClick('Stop All Tasks')
       menu.internalClick('Stop All Tasks')
     }
   }

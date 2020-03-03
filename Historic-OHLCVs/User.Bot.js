@@ -20,7 +20,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const ONE_MIN = 60000
     const ONE_DAY = ONE_MIN * 60 * 24
     
-    const MAX_OHLCVs_PER_EXECUTION =   100000
+    const MAX_OHLCVs_PER_EXECUTION =   500000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -119,6 +119,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 max: 0
             }
 
+            let lastVolume = {
+                begin: 0,
+                end: 0,
+                buy: 0,
+                sell: 0
+            }
+
             if (global.STOP_TASK_GRACEFULLY === true) {
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return
@@ -175,6 +182,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
                             since = uiStartDate.valueOf()
                             initialProcessTimestamp = since
+                            fisrtTimeThisProcessRun = true
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
                             if (lastFile !== undefined) {
@@ -282,7 +290,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                    if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is saying you are requesting data too often. I will retry the request later, no action is needed. To avoid this happening again please increase the rateLimit at the Exchange node config.");
+                    } else {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                    }
+                    
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                     abort = true
                 }
@@ -300,12 +313,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let error
                     let separator
                     let heartBeatCounter = 0
-                    let lastVolume = {
-                        begin: 0,
-                        end: 0,
-                        buy: 0,
-                        sell: 0
-                    }
 
                     let i = 0
 
@@ -424,7 +431,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
                         }
 
-                        saveFile(currentDay)
+                        if (i > 0) { // Only start saving at the day of the first candle.
+                            saveFile(currentDay)
+                        }
+                        
                         previousDay = currentDay
                         if (error) {
                             callBackFunction(error);

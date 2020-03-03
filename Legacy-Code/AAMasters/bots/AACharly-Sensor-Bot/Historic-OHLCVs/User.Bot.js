@@ -20,7 +20,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const ONE_MIN = 60000
     const ONE_DAY = ONE_MIN * 60 * 24
     
-    const MAX_OHLCVs_PER_EXECUTION =   100000
+    const MAX_OHLCVs_PER_EXECUTION =   500000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
@@ -33,7 +33,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let exchangeId
     let options = {}
     let firstId
-    let rateLimit
+    let rateLimit = 500
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
     let fisrtTimeThisProcessRun = false
@@ -110,6 +110,22 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     function start(callBackFunction) {
         try {
 
+            let lastCandle = {
+                begin: 0,
+                end: 0,
+                open: 0,
+                close: 0,
+                min: 0,
+                max: 0
+            }
+
+            let lastVolume = {
+                begin: 0,
+                end: 0,
+                buy: 0,
+                sell: 0
+            }
+
             if (global.STOP_TASK_GRACEFULLY === true) {
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return
@@ -166,6 +182,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
                             since = uiStartDate.valueOf()
                             initialProcessTimestamp = since
+                            fisrtTimeThisProcessRun = true
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
                             if (lastFile !== undefined) {
@@ -205,6 +222,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                         /* Fetching the OHLCVs from the exchange.*/
+                        await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                         const OHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                         /*
@@ -272,7 +290,12 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                     }
                 } catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                    if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
+                    } else {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                    }
+                    
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                     abort = true
                 }
@@ -290,20 +313,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let error
                     let separator
                     let heartBeatCounter = 0
-                    let lastCandle = {
-                        begin: 0,
-                        end: 0,
-                        open: 0,
-                        close: 0,
-                        min: 0,
-                        max: 0
-                    }
-                    let lastVolume = {
-                        begin: 0,
-                        end: 0,
-                        buy: 0,
-                        sell: 0
-                    }
 
                     let i = 0
 
@@ -340,10 +349,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 low: record[3],
                                 close: record[4],
                                 volume: record[5]
-                            }
-
-                            if (OHLCV.open === 11478 || OHLCV.hight === 11478 || OHLCV.low === 11478 || OHLCV.close === 11478) {
-                                console.log('FROM HERE')
                             }
 
                             let candleMinute = Math.trunc(candle.begin / ONE_MIN)
@@ -426,7 +431,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
                         }
 
-                        saveFile(currentDay)
+                        if (i > 0) { // Only start saving at the day of the first candle.
+                            saveFile(currentDay)
+                        }
+                        
                         previousDay = currentDay
                         if (error) {
                             callBackFunction(error);

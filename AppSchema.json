@@ -1241,6 +1241,9 @@
             {
                 "action": "Run All Tasks",
                 "label": "Run All Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
                 "iconPathOn": "paper-plane",
                 "iconPathOff": "paper-plane",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1248,6 +1251,9 @@
             {
                 "action": "Stop All Tasks",
                 "label": "Stop All Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
                 "iconPathOn": "stop",
                 "iconPathOff": "stop",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5622,6 +5628,9 @@
             {
                 "action": "Run All Task Managers",
                 "label": "Run All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
                 "iconPathOn": "paper-plane",
                 "iconPathOff": "paper-plane",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5629,6 +5638,9 @@
             {
                 "action": "Stop All Task Managers",
                 "label": "Stop All Task Managers",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
                 "iconPathOn": "stop",
                 "iconPathOff": "stop",
                 "actionFunction": "payload.onMenuItemClick"

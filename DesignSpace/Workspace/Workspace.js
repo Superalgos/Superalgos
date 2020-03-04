@@ -183,22 +183,16 @@ function newWorkspace () {
           for (let j = 0; j < rootNode.networkNodes.length; j++) {
             let networkNode = rootNode.networkNodes[j]
             if (networkNode.dataMining !== undefined) {
-              for (let i = 0; i < networkNode.dataMining.taskManagers.length; i++) {
-                let taskManager = networkNode.dataMining.taskManagers[i]
-                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-              }
+              networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+              networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
             if (networkNode.testingEnvironment !== undefined) {
-              for (let i = 0; i < networkNode.testingEnvironment.taskManagers.length; i++) {
-                let taskManager = networkNode.testingEnvironment.taskManagers[i]
-                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-              }
+              networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+              networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
             if (networkNode.productionEnvironment !== undefined) {
-              for (let i = 0; i < networkNode.productionEnvironment.taskManagers.length; i++) {
-                let taskManager = networkNode.productionEnvironment.taskManagers[i]
-                taskManager.payload.uiObject.menu.internalClick('Stop All Tasks')
-              }
+              networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
+              networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
           }
         }

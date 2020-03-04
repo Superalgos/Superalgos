@@ -5,7 +5,9 @@ function newTaskFunctions () {
     runAllTasks: runAllTasks,
     stopAllTasks: stopAllTasks,
     runAllTaskManagers: runAllTaskManagers,
-    stopAllTaskManagers: stopAllTaskManagers
+    stopAllTaskManagers: stopAllTaskManagers,
+    runAllExchangeTasks: runAllExchangeTasks,
+    stopAllExchangeTasks: stopAllExchangeTasks
   }
 
   return thisObject
@@ -110,9 +112,9 @@ function newTaskFunctions () {
     }
   }
 
-  function runAllTaskManagers (dataMining, functionLibraryProtocolNode) {
-    for (let i = 0; i < dataMining.taskManagers.length; i++) {
-      let node = dataMining.taskManagers[i]
+  function runAllTaskManagers (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.taskManagers.length; i++) {
+      let node = parent.taskManagers[i]
       let menu = node.payload.uiObject.menu
 
       menu.internalClick('Run All Tasks')
@@ -120,13 +122,32 @@ function newTaskFunctions () {
     }
   }
 
-  function stopAllTaskManagers (dataMining, functionLibraryProtocolNode) {
-    for (let i = 0; i < dataMining.taskManagers.length; i++) {
-      let node = dataMining.taskManagers[i]
+  function stopAllTaskManagers (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.taskManagers.length; i++) {
+      let node = parent.taskManagers[i]
       let menu = node.payload.uiObject.menu
 
       menu.internalClick('Stop All Tasks')
       menu.internalClick('Stop All Tasks')
+    }
+  }
+  function runAllExchangeTasks (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.exchangeTasks.length; i++) {
+      let node = parent.exchangeTasks[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Run All Task Managers')
+      menu.internalClick('Run All Task Managers')
+    }
+  }
+
+  function stopAllExchangeTasks (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.exchangeTasks.length; i++) {
+      let node = parent.exchangeTasks[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Stop All Task Managers')
+      menu.internalClick('Stop All Task Managers')
     }
   }
 }

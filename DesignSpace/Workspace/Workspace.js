@@ -366,6 +366,16 @@ function newWorkspace () {
           functionLibraryTaskFunctions.stopAllTaskManagers(payload.node, functionLibraryProtocolNode)
         }
         break
+      case 'Run All Exchange Tasks':
+        {
+          functionLibraryTaskFunctions.runAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+        }
+        break
+      case 'Stop All Exchange Tasks':
+        {
+          functionLibraryTaskFunctions.stopAllExchangeTasks(payload.node, functionLibraryProtocolNode)
+        }
+        break
       case 'Run Session':
         {
           functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)

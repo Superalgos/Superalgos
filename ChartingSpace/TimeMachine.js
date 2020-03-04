@@ -48,8 +48,6 @@ function newTimeMachine () {
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
 
-  let onViewportPositionChangedEventSuscriptionId
-  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
@@ -74,8 +72,6 @@ function newTimeMachine () {
   }
 
   function finalize () {
-    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     timeMachineCoordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     if (thisObject.timeScale !== undefined) {
@@ -148,8 +144,6 @@ function newTimeMachine () {
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-    onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onScaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
@@ -314,36 +308,17 @@ function newTimeMachine () {
     }
   }
 
-  function onViewportZoomChanged (event) {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function onViewportPositionChanged () {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
   function onScaleChanged () {
     recalculateCurrentDatetime()
   }
 
   function recalculateCurrentDatetime () {
-     /*
-     The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
-     must calculate.
-     */
     let center = {
-      x: (canvas.chartingSpace.viewport.visibleArea.bottomRight.x - canvas.chartingSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2
+      x: thisObject.container.frame.width / 2,
+      y: thisObject.container.frame.height / 2
     }
 
-    center = unTransformThisPoint(center, thisObject.container)
-    center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-
-    datetime = new Date(center.x)
+    datetime = new Date(getDateFromPointAtContainer(center, thisObject.container, timeMachineCoordinateSystem))
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let timelineChart = thisObject.timelineCharts[i]
@@ -729,4 +704,3 @@ function newTimeMachine () {
       )
   }
 }
-

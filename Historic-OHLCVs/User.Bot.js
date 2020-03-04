@@ -20,7 +20,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const ONE_MIN = 60000
     const ONE_DAY = ONE_MIN * 60 * 24
     
-    const MAX_OHLCVs_PER_EXECUTION =   500000
+    const MAX_OHLCVs_PER_EXECUTION =   1000000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 

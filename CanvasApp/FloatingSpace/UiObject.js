@@ -287,6 +287,7 @@ function newUiObject () {
       let property = nodeDefinition.properties[i]
       if (property.monitorChildrenRunning === true) {
         let children = thisObject.payload.node[property.name]
+        if (children === undefined) { continue }
         let totalRunning = 0
         for (let j = 0; j < children.length; j++) {
           let child = children[j]

@@ -42,6 +42,7 @@ function loadPropertyFromNodeConfig (payload, propertyName) {
 }
 
 function saveFrame (payload, frame) {
+  if (frame.position.x === 0 && frame.position.y === 0) { return }
   payload.frame = {
     position: {
       x: frame.position.x,

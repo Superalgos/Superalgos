@@ -10,11 +10,40 @@ function newSuperScriptsFunctions () {
       let clone = functionLibraryNodeCloning.getNodeClone
       let executionResult = true
 
-      function setup (templateClone, target) {
+      function setup (templateClone, target, exchange, exchangeNodeType, arrayPropertyName) {
         spawnPosition.x = target.payload.position.x
         spawnPosition.y = target.payload.position.y
 
-        functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
+        if (exchange === undefined) {
+          functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
+        } else {
+          let definition = APP_SCHEMA_MAP.get(target.type)
+          for (let i = 0; i < definition.properties.length; i++) {
+            let property = definition.properties[i]
+            if (property.childType === exchangeNodeType) {
+              let exchanges = target[property.name]
+              if (exchanges === undefined) {
+                exchanges = []
+              }
+              let targetExchange
+              for (let j = 0; j < exchanges.length; j++) {
+                let thisExchange = exchanges[j]
+                if (thisExchange.payload.referenceParent !== undefined) {
+                  if (thisExchange.payload.referenceParent.id === exchange.id) {
+                    targetExchange = thisExchange
+                  }
+                }
+              }
+              if (targetExchange === undefined) {
+                targetExchange = functionLibraryUiObjectsFromNodes.addUIObject(target, exchangeNodeType)
+                targetExchange.payload.referenceParent = exchange
+              }
+              let nodesArray = targetExchange[arrayPropertyName]
+              nodesArray.push(templateClone)
+              functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, targetExchange, targetExchange)
+            }
+          }
+        }
       }
 
       function deleteNode (node) {

@@ -177,7 +177,7 @@ function bootLoader() {
         }
 
         if (global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent === undefined) {
-            console.log("[WARN] Task Server -> server -> bootLoader -> Market Reference without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference));
+            console.log("[WARN] Task Server -> server -> bootLoader -> Market Reference without a Reference Parent. This process will not be executed. -> Process Instance = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].marketReference) + ", bot = " + global.TASK_NODE.bot.name);
             continue
         }
 

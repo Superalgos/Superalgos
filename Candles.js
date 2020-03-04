@@ -694,7 +694,7 @@
 
                         elementsPlotted++
                     }
-
+                    
                     browserCanvasContext.closePath();
 
                     if (lowResolution === false) {

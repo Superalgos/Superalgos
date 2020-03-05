@@ -29,7 +29,6 @@ function newAppLoader() {
  
                 'AppSchema.js',
                 'Workspace.js',
-                'MQService',
 
                 'ChartingSpace/EdgeEditor.js',
                 'ChartingSpace/ChartUtilities.js',

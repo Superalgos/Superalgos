@@ -21,42 +21,43 @@ function newCCXTFunctions () {
       }
     }
 
-    for (let i = 0; i < ccxt.exchanges.length; i++) {
-      let exchangeId = ccxt.exchanges[i]
-      let existingExchange = currentExchanges.get(exchangeId)
-      if (existingExchange === undefined) {
-        const exchangeClass = ccxt[exchangeId]
-        const exchangeConstructorParams = {
-          'timeout': 30000,
-          'enableRateLimit': true,
-          verbose: false
-        }
+    let params = {
+      method: 'listExchanges',
+      has: {
+        fetchOHLCV: true,
+        fetchMarkets: true
+      }
+    }
 
-        let ccxtExchange = new exchangeClass(exchangeConstructorParams)
+    callServer(JSON.stringify(params), 'CCXT', onResponse)
 
-        if (ccxtExchange.has.fetchOHLCV === true) {
-          if (ccxtExchange.has.fetchCurrencies === true) {
-            if (ccxtExchange.has.fetchMarkets === true) {
-              if (ccxtExchange.timeframes['1m'] !== undefined) {
-                let newExchange = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
-                newExchange.name = ccxtExchange.name
-                newExchange.code = '{ \n\"codeName\": \"' + ccxtExchange.id + '\"\n}'
-                newExchange.payload.floatingObject.collapseToggle()
-                newExchange.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                newExchange.exchangeMarkets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                newExchange.exchangeAccounts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                newExchange.exchangeAssets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
-                newExchange.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
-                newExchange.exchangeAccounts.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
-              }
-            }
-          }
+    function onResponse (err, data) {
+      if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+        node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+        return
+      }
+
+      let exchanges = JSON.parse(data)
+      for (let i = 0; i < exchanges.length; i++) {
+        let exchange = exchanges[i]
+        let existingExchange = currentExchanges.get(exchange.id)
+        if (existingExchange === undefined) {
+          let newExchange = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
+          newExchange.name = exchange.name
+          newExchange.code = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
+          newExchange.payload.floatingObject.collapseToggle()
+          newExchange.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+          newExchange.exchangeMarkets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+          newExchange.exchangeAccounts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+          newExchange.exchangeAssets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+          newExchange.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+          newExchange.exchangeAccounts.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
         }
       }
     }
   }
 
-  async function addMissingAssets (node, functionLibraryUiObjectsFromNodes) {
+  function addMissingAssets (node, functionLibraryUiObjectsFromNodes) {
     currentAssets = new Map()
     for (let j = 0; j < node.assets.length; j++) {
       let asset = node.assets[j]
@@ -66,34 +67,57 @@ function newCCXTFunctions () {
 
     let exchangeId = loadPropertyFromNodeConfig(node.payload.parentNode.payload, 'codeName')
 
-    const exchangeClass = ccxt[exchangeId]
-    const exchangeConstructorParams = {
-      'timeout': 30000,
-      'enableRateLimit': true,
-      verbose: false
-    }
-
-    let ccxtExchange = new exchangeClass(exchangeConstructorParams)
-
-    if (ccxtExchange.has.fetchCurrencies === true) {
-      let ccxtAssets = []
-      try {
-        ccxtAssets = await ccxtExchange.fetchCurrencies()
-      } catch (err) {
-        node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
-        console.log(err.stack)
+    try {
+      let params = {
+        exchangeId: exchangeId,
+        method: 'fetchMarkets'
       }
+      callServer(JSON.stringify(params), 'CCXT', onResponse)
 
-      for (let i = 0; i < ccxtAssets.length; i++) {
-        let ccxtAsset = ccxtAssets[i]
-        let newAsseet = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Asset')
-        newAsseet.name = ccxtAsset.name
-        newAsseet.code = '{ \n\"codeName\": \"' + newAsseet.id + '\"\n}'
-        newAsseet.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
-        newAsseet.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+      function onResponse (err, data) {
+        if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+          return
+        }
+        let queryParams = loadPropertyFromNodeConfig(node.payload, 'addMissingAssets')
+
+        let markets = JSON.parse(data)
+        for (let i = 0; i < markets.length; i++) {
+          let market = markets[i]
+
+          if (queryParams !== undefined) {
+            if (queryParams.baseAsset !== undefined) {
+              if (market.baseId.indexOf(queryParams.baseAsset) >= 0) {
+                continue
+              }
+            }
+            if (queryParams.quotedAsset !== undefined) {
+              if (market.quoteId.indexOf(queryParams.quotedAsset) >= 0) {
+                continue
+              }
+            }
+          }
+          if (currentAssets.get(market.baseId) === undefined) {
+            addAsset(market.baseId)
+            currentAssets.set(market.baseId, market.baseId)
+          }
+          if (currentAssets.get(market.quoteId) === undefined) {
+            addAsset(market.quoteId)
+            currentAssets.set(market.quoteId, market.quoteId)
+          }
+
+          function addAsset (name) {
+            let newAsseet = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Asset')
+            newAsseet.name = name
+            newAsseet.code = '{ \n\"codeName\": \"' + name + '\"\n}'
+            newAsseet.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
+            newAsseet.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
+          }
+        }
       }
-    } else {
-      node.payload.uiObject.setErrorMessage('This exchange does not provide a list of supported Assets.')
+    } catch (err) {
+      node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
+      console.log(err.stack)
     }
   }
 

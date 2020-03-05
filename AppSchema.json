@@ -4426,8 +4426,6 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "cryptoExchanges",
                 "label": "Add Crypto Exchanges",
                 "relatedUiObject": "Crypto Exchanges",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4449,8 +4447,8 @@
         "properties": [
             {
                 "name": "cryptoExchanges",
-                "type": "node",
-                "childType": "Network Node"
+                "type": "array",
+                "childType": "Crypto Exchanges"
             }
         ]
     },
@@ -4464,6 +4462,15 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add Missing Crypto Exchanges",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Crypto Exchange",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4473,6 +4480,7 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "crypto-exchanges",
@@ -4569,43 +4577,43 @@
         ],
         "alternativeIcons": [
             {
-                "codeName": "Bitfinex",
+                "codeName": "bitfinex",
                 "iconName": "bitfinex"
             },
             {
-                "codeName": "Binance",
+                "codeName": "binance",
                 "iconName": "binance"
             },
             {
-                "codeName": "Kucoin",
+                "codeName": "kucoin",
                 "iconName": "kucoin"
             },
             {
-                "codeName": "Bittrex",
+                "codeName": "bittrex",
                 "iconName": "bittrex"
             },
             {
-                "codeName": "Kraken",
+                "codeName": "kraken",
                 "iconName": "kraken"
             },
             {
-                "codeName": "Poloniex",
+                "codeName": "poloniex",
                 "iconName": "poloniex"
             },
             {
-                "codeName": "Upbit",
+                "codeName": "upbit",
                 "iconName": "upbit"
             },
             {
-                "codeName": "Bitmex",
+                "codeName": "bitmex",
                 "iconName": "bitmex"
             },
             {
-                "codeName": "Liquid",
+                "codeName": "liquid",
                 "iconName": "liquid"
             },
             {
-                "codeName": "HitBTC",
+                "codeName": "hitbtc",
                 "iconName": "hitbtc"
             }
         ]
@@ -4614,8 +4622,24 @@
         "type": "Exchange Assets",
         "menuItems": [
             {
+                "action": "Config Exchange Assets",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Exchange Assets",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Asset",
+                "relatedUiObject": "Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Assets",
+                "label": "Add Missing Assets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
                 "relatedUiObject": "Asset",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -4629,6 +4653,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"addMissingAssets\": { \"quotedAsset\": \"USDT\"} \n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "icon": "exchange-assets",
@@ -4640,8 +4670,7 @@
             {
                 "name": "assets",
                 "type": "array",
-                "childType": "Asset",
-                "autoAdd": true
+                "childType": "Asset"
             }
         ]
     },
@@ -4750,8 +4779,24 @@
         "type": "Exchange Markets",
         "menuItems": [
             {
+                "action": "Config Market",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Market",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Market",
+                "relatedUiObject": "Market",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Markets",
+                "label": "Add Missing Markets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
                 "relatedUiObject": "Market",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -4765,6 +4810,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here the code name of the Market here.\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "icon": "exchange-markets",
@@ -4776,14 +4827,20 @@
             {
                 "name": "markets",
                 "type": "array",
-                "childType": "Market",
-                "autoAdd": true
+                "childType": "Market"
             }
         ]
     },
     {
         "type": "Market",
         "menuItems": [
+            {
+                "action": "Config Market",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Market",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -4805,13 +4862,6 @@
                 "label": "Add Super Action",
                 "relatedUiObject": "Super Action",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Config Market",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Market",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
             },
             {
                 "action": "Delete UI Object",
@@ -4975,8 +5025,7 @@
             {
                 "name": "assets",
                 "type": "array",
-                "childType": "Exchange Account Asset",
-                "autoAdd": true
+                "childType": "Exchange Account Asset"
             }
         ],
         "isPersonalData": true

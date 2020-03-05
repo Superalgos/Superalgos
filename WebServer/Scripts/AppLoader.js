@@ -29,7 +29,6 @@ function newAppLoader() {
  
                 'AppSchema.js',
                 'Workspace.js',
-                'MQService',
 
                 'ChartingSpace/EdgeEditor.js',
                 'ChartingSpace/ChartUtilities.js',
@@ -51,7 +50,8 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
-                
+                'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
+                               
                 'Utilities/RoundedCornersBackground.js',
 
                 'Panels/LayersPanel.js',

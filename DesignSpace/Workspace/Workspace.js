@@ -57,6 +57,7 @@ function newWorkspace () {
   let functionLibraryShortcutKeys = newShortcutKeys()
   let functionLibraryOnFocus = newOnFocus()
   let functionLibrarySuperScripts = newSuperScriptsFunctions()
+  let functionLibraryCCXTFunctions = newCCXTFunctions()
 
   thisObject.nodeChildren = newNodeChildren()
 
@@ -88,7 +89,7 @@ function newWorkspace () {
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
 
-      setInterval(saveWorkspace, 30000)
+      setInterval(saveWorkspace, 10000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -370,6 +371,22 @@ function newWorkspace () {
           functionLibraryTaskFunctions.stopAllExchangeTasks(payload.node, functionLibraryProtocolNode)
         }
         break
+      case 'Add Missing Crypto Exchanges':
+        {
+          functionLibraryCCXTFunctions.addMissingExchanges(payload.node, functionLibraryUiObjectsFromNodes)
+        }
+        break
+      case 'Add Missing Assets':
+        {
+          functionLibraryCCXTFunctions.addMissingAssets(payload.node, functionLibraryUiObjectsFromNodes)
+        }
+        break
+      case 'Add Missing Markets':
+        {
+          functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes)
+        }
+        break
+
       case 'Run Session':
         {
           functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)

@@ -399,6 +399,27 @@ function newUiObjectsFromNodes () {
     node.payload = payload
     node.type = uiObjectType
 
+    /*
+    Now we copy the possible frame saved to the payload where it can be used. A saved frame stores the position of a a chartingSpace object related to a node.
+    This will prevent that if those charting space objects never get activated, that the frame information is lost when the workspace is saved.
+    */
+    if (node.savedPayload !== undefined) {
+      if (node.savedPayload.frame !== undefined) {
+        let frame = {
+          position: {
+            x: 0,
+            y: 0
+          }
+        }
+        frame.position.x = node.savedPayload.frame.position.x
+        frame.position.y = node.savedPayload.frame.position.y
+        frame.width = node.savedPayload.frame.width
+        frame.height = node.savedPayload.frame.height
+        frame.radius = node.savedPayload.frame.radius
+        saveFrame(payload, frame)
+      }
+    }
+
     /* Now we mount the floating object where the UIOBject will be laying on top of */
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 

@@ -383,7 +383,7 @@ function newWorkspace () {
         break
       case 'Add Missing Markets':
         {
-          functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes)
+          functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
         }
         break
 

@@ -1115,7 +1115,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Market->"
+            "compatibleTypes": "->Super Actions->Market->"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->Master Script->"
@@ -4431,6 +4431,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "superActions",
+                "label": "Add Super Actions",
+                "relatedUiObject": "Super Actions",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4449,6 +4457,46 @@
                 "name": "cryptoExchanges",
                 "type": "array",
                 "childType": "Crypto Exchanges"
+            },
+            {
+                "name": "superActions",
+                "type": "node",
+                "childType": "Super Actions"
+            }
+        ]
+    },
+    {
+        "type": "Super Actions",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Super Action",
+                "relatedUiObject": "Super Action",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Super Actions",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "superActions",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Ecosystem->"
+        },
+        "icon": "super-action",
+        "properties": [
+            {
+                "name": "superActions",
+                "type": "array",
+                "childType": "Super Action"
             }
         ]
     },
@@ -4796,7 +4844,7 @@
                 "label": "Add Missing Markets",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
-                "workDoneLabel": "Done",
+                "workDoneLabel": "Request Sent",
                 "relatedUiObject": "Market",
                 "actionFunction": "payload.onMenuItemClick"
             },

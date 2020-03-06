@@ -312,6 +312,8 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                                 logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath);
 
+                                logger.newInternalLoop(bot.codeName, bot.process, contextVariables.lastCandleFile); 
+
                                 function onFileReceived(err, text) {
 
                                     try {

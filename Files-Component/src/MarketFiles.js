@@ -106,7 +106,7 @@ function newMarketFiles () {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
-                let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName
+                let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.code.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
                 systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)

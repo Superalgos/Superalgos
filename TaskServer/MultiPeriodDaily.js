@@ -318,11 +318,7 @@
 
                             bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
-     
-                            if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);
-                            }
-
+                             
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay); }
 
@@ -778,6 +774,13 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName  + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let event = {
+                            dateRange: dataRange
+                        }
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
+
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }
                 }
@@ -804,6 +807,8 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
+
+                    logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);             
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

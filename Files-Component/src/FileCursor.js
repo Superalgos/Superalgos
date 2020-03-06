@@ -89,10 +89,10 @@ function newFileCursor () {
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
 
-      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName
+      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.code.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
       systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponseDataSet, updateFiles)
 
-      key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + pPeriodName
+      key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + exchange.code.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
       systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)

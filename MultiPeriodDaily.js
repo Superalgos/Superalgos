@@ -774,6 +774,13 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName  + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let event = {
+                            dateRange: dataRange
+                        }
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
+
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }
                 }

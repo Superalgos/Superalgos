@@ -1005,7 +1005,7 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
-                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName + "-" + currentOutputPeriodName
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName  + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {
                             dateRange: dataRange
                         }

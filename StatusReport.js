@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES) {
+﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES, PROCESS_OUTPUT) {
 
     /*
 
@@ -255,7 +255,12 @@
                     logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
                 }
 
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                /* All good, lets emit the event that means data has been updated. */
+
+                let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+
+                processOutput.raiseEvents(thisObject.file.lastFile, callBackFunction);
+
                 return;
             }
 

@@ -123,9 +123,12 @@ function newCCXTFunctions () {
     }
   }
 
-  function addMissingMarkets (node, functionLibraryUiObjectsFromNodes) {
+  function addMissingMarkets (node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning) {
     if (node.payload.parentNode === undefined) { return }
     if (node.payload.parentNode.exchangeAssets === undefined) { return }
+    if (node.payload.parentNode.payload.parentNode === undefined) { return }
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.superActions === undefined) { return }
 
     let currentAssets = new Map()
     let exchangeAssets = node.payload.parentNode.exchangeAssets
@@ -185,6 +188,15 @@ function newCCXTFunctions () {
             newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
             newMarket.baseAsset.payload.referenceParent = baseAsset
             newMarket.quotedAsset.payload.referenceParent = quotedAsset
+
+            let superActions = node.payload.parentNode.payload.parentNode.payload.parentNode.superActions
+
+            for (let j = 0; j < superActions.superActions.length; j++) {
+              let superAction = superActions.superActions[j]
+              let clone = functionLibraryNodeCloning.getNodeClone(superAction)
+              functionLibraryUiObjectsFromNodes.createUiObjectFromNode(clone, newMarket, newMarket)
+              newMarket.superActions.push(clone)
+            }
           }
         }
       }

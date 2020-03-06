@@ -95,8 +95,6 @@ function newFileCursor () {
       key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + exchange.code.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
       systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
 
-      console.log('Daily Files Data Range Updated Listening to Events at: ' + key)
-
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 
       function onResponseDataSet (message) {

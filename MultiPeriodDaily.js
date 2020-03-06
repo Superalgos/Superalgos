@@ -318,11 +318,7 @@
 
                             bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
-     
-                            if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);
-                            }
-
+                             
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay); }
 
@@ -804,6 +800,8 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
+
+                    logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);             
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

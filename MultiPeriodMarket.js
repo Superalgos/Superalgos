@@ -338,6 +338,7 @@
                     thisReport.file.lastExecution = bot.processDatetime;
                     thisReport.save(callBack);
 
+                    logger.newInternalLoop(bot.codeName, bot.process, bot.processDatetime);
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

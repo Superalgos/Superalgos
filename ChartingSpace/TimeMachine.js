@@ -603,13 +603,13 @@ function newTimeMachine () {
     if (description !== undefined) {
       label = description
     }
-    printLabel(label, position.x + 15, position.y - 28, opacity, fontSize)
+    printLabel(label, position.x + 15, position.y - 10, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
         icon, position.x - 0,
-        position.y - 40,
+        position.y - 22,
         imageSize,
         imageSize)
       }
@@ -638,22 +638,29 @@ function newTimeMachine () {
     }
 
     const INTER_EXCHANGE_SPACE = 60
-    const INTER_MARKET_SPACE = 90
+    const INTER_MARKET_SPACE = -100
 
     exchangeMarkets.forEach((exchangeMarket, i) => {
+      browserCanvasContext.save()
+      browserCanvasContext.translate(position.x, position.y)
+      browserCanvasContext.rotate(-Math.PI / 2)
+
+      let xOffSet = -80
+
       icon = exchangeMarket.exchangeIcon
 
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           browserCanvasContext.drawImage(
-          icon, position.x - 0,
-          position.y - 22,
+          icon,
+          -15 + xOffSet,
+           -43,
           imageSize,
           imageSize)
         }
       }
 
-      printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
+      printLabel(exchangeMarket.exchangeName, -0 + xOffSet, -30, opacity, fontSize)
 
       position.x = position.x + INTER_EXCHANGE_SPACE
 
@@ -661,27 +668,31 @@ function newTimeMachine () {
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           browserCanvasContext.drawImage(
-          icon, position.x - 0,
-          position.y - 22,
+          icon,
+          -20 + xOffSet,
+           -22,
           imageSize,
           imageSize)
         }
       }
 
-      printLabel(exchangeMarket.marketName, position.x + 15, position.y - 10, opacity, fontSize)
+      printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize)
 
       icon = exchangeMarket.quotedAssetIcon
       if (icon !== undefined) {
         if (icon.canDrawIcon === true) {
           browserCanvasContext.drawImage(
-          icon, position.x + 70,
-          position.y - 22,
+          icon,
+          +50 + xOffSet,
+           -22,
           imageSize,
           imageSize)
         }
       }
 
       position.x = position.x + INTER_MARKET_SPACE
+
+      browserCanvasContext.restore()
     })
   }
 
@@ -704,3 +715,4 @@ function newTimeMachine () {
       )
   }
 }
+

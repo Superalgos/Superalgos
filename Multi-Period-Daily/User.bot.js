@@ -312,8 +312,6 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                                 logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath);
 
-                                logger.newInternalLoop(bot.codeName, bot.process, contextVariables.lastCandleFile); 
-
                                 function onFileReceived(err, text) {
 
                                     try {
@@ -754,6 +752,13 @@ Read the candles and volumes from Charly and produce a file for each day and for
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + pProductFolder + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let event = {
+                            dateRange: dataRange
+                        }
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
+
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }
                 }
@@ -778,6 +783,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
+                    logger.newInternalLoop(bot.codeName, bot.process, lastFileDate); 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

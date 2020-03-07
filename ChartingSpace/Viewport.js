@@ -166,17 +166,17 @@ function newViewport () {
   function animationPhysics () {
     if (thisObject.zoomLevel < thisObject.zoomTargetLevel) {
       if (thisObject.zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
-        ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
+        ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) * 100) / 100
       }
-      thisObject.zoomLevel = thisObject.zoomLevel + ANIMATION_INCREMENT
+      thisObject.zoomLevel = Math.round((thisObject.zoomLevel + ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
     if (thisObject.zoomLevel > thisObject.zoomTargetLevel) {
       if (thisObject.zoomLevel - thisObject.zoomTargetLevel < ANIMATION_INCREMENT) {
-        ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
+        ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) * 100) / 100
       }
-      thisObject.zoomLevel = thisObject.zoomLevel - ANIMATION_INCREMENT
+      thisObject.zoomLevel = Math.round((thisObject.zoomLevel - ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
   }
@@ -293,10 +293,9 @@ function newViewport () {
     position.x = position.x - newMouse.x + thisObject.mousePosition.x
     position.y = position.y - newMouse.y + thisObject.mousePosition.y
 
-    let testPoint = unTransformThisPoint(thisObject.mousePosition, newLevel)
-
     saveObjectState()
 
+    console.log('ZOOM LEVEL CHANGED', oldLevel, newLevel)
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 

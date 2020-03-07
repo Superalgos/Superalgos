@@ -342,7 +342,7 @@ function newEdgeEditor () {
     let lineWidth
 
     if (whereIsMouseOver === 'outside' || thisObject.isMouseOver === false) {
-      edgeSize = EDGE_SIZE / 2
+      edgeSize = 2
       lineWidth = 0.1
     } else {
       edgeSize = EDGE_SIZE
@@ -508,3 +508,4 @@ function newEdgeEditor () {
     }
   }
 }
+

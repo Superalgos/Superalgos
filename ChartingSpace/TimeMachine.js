@@ -44,6 +44,10 @@ function newTimeMachine () {
     }
   }
 
+  let tabAnimation = 0
+  let tabAnimationStatus = 'Close'
+  let tabAnimationCounter = 0
+  let wasOnFocus = false
   let drawScales = false
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
@@ -373,9 +377,36 @@ function newTimeMachine () {
     }
     panelPhysics()
     onFocusPhysics()
+    tabAnimationPhysics()
+  }
+
+  function tabAnimationPhysics () {
+    const MAX_COUNTER_VALUE = 40
+    const STEP = 10
+
+    if (wasOnFocus === true && thisObject.onFocus === false) {
+      tabAnimationStatus = 'Closing'
+    }
+    if (wasOnFocus === false && thisObject.onFocus === true) {
+      tabAnimationStatus = 'Opening'
+    }
+
+    if (tabAnimationStatus === 'Closing') {
+      tabAnimationCounter = tabAnimationCounter - STEP
+      if (tabAnimationCounter === 0) {
+        tabAnimationStatus = 'Closed'
+      }
+    }
+    if (tabAnimationStatus === 'Opening') {
+      tabAnimationCounter = tabAnimationCounter + STEP
+      if (tabAnimationCounter === MAX_COUNTER_VALUE) {
+        tabAnimationStatus = 'Open'
+      }
+    }
   }
 
   function onFocusPhysics () {
+    wasOnFocus = thisObject.onFocus
     if (thisObject.edgeEditor.isMouseOver === true) {
       thisObject.onFocus = true
     } else {
@@ -637,65 +668,71 @@ function newTimeMachine () {
       }
     }
 
-    drawTab(0, 0, exchangeMarkets.size * 40, 90, thisObject.container)
+    drawTab(0, 0, exchangeMarkets.size * tabAnimationCounter, 90, thisObject.container)
 
     const INTER_EXCHANGE_SPACE = 60
     const INTER_MARKET_SPACE = -100
 
-    exchangeMarkets.forEach((exchangeMarket, i) => {
-      browserCanvasContext.save()
-      browserCanvasContext.translate(position.x, position.y)
-      browserCanvasContext.rotate(-Math.PI / 2)
+    if (tabAnimationStatus === 'Open') {
+      drawMarketNames()
+    }
 
-      let xOffSet = -80
+    function drawMarketNames () {
+      exchangeMarkets.forEach((exchangeMarket, i) => {
+        browserCanvasContext.save()
+        browserCanvasContext.translate(position.x, position.y)
+        browserCanvasContext.rotate(-Math.PI / 2)
 
-      icon = exchangeMarket.exchangeIcon
+        let xOffSet = -80
 
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon,
-          -20 + xOffSet,
-           -43,
-          imageSize,
-          imageSize)
+        icon = exchangeMarket.exchangeIcon
+
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -43,
+        imageSize,
+        imageSize)
+          }
         }
-      }
 
-      printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
+        printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
 
-      position.x = position.x + INTER_EXCHANGE_SPACE
+        position.x = position.x + INTER_EXCHANGE_SPACE
 
-      icon = exchangeMarket.baseAssetIcon
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon,
-          -20 + xOffSet,
-           -22,
-          imageSize,
-          imageSize)
+        icon = exchangeMarket.baseAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
         }
-      }
 
-      printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
+        printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
 
-      icon = exchangeMarket.quotedAssetIcon
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon,
-          +50 + xOffSet,
-           -22,
-          imageSize,
-          imageSize)
+        icon = exchangeMarket.quotedAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        +50 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
         }
-      }
 
-      position.x = position.x + INTER_MARKET_SPACE
+        position.x = position.x + INTER_MARKET_SPACE
 
-      browserCanvasContext.restore()
-    })
+        browserCanvasContext.restore()
+      })
+    }
 
     function drawTab (x, y, width, height, container) {
       const GRADIENT = 0
@@ -764,4 +801,3 @@ function newTimeMachine () {
       )
   }
 }
-

@@ -40,6 +40,7 @@ function newViewport () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     fitIntoViewport: fitIntoViewport,
     displace: displace,
+    displaceToContainer: displaceToContainer,
     physics: physics,
     raiseEvents: raiseEvents,
     resize: resize,
@@ -133,10 +134,24 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
+  function displaceToContainer (container) {
+    let targetPoint = {
+      x: -container.frame.position.x - container.frame.width / 2,
+      y: -container.frame.position.y - container.frame.height / 2 + TOP_SPACE_HEIGHT
+    }
+    position.x = targetPoint.x + thisObject.width / 2
+    position.y = targetPoint.y + thisObject.height / 2
+  }
+
+  function zoomAtCenter (level) {
+    thisObject.zoomTargetLevel = level
+    overrideMousePositionCounter = 50
+  }
+
   function mousePositionPhysics () {
     if (overrideMousePositionCounter > 0) {
       thisObject.mousePosition.x = browserCanvas.width / 2
-      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 - TOP_SPACE_HEIGHT / 2
 
       console.log('SETTING MOUSE TO CENTER', overrideMousePositionCounter, thisObject.zoomLevel, thisObject.zoomTargetLevel)
       overrideMousePositionCounter--
@@ -280,11 +295,6 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
-  function zoomAtCenter (level) {
-    thisObject.zoomTargetLevel = level
-    overrideMousePositionCounter = 10
-  }
-
   function changeZoom (oldLevel, newLevel) {
     if (thisObject.visible === false) { return }
     let oldMouse = unTransformThisPoint(thisObject.mousePosition, oldLevel)
@@ -406,3 +416,4 @@ function newViewport () {
     }
   }
 }
+

@@ -107,7 +107,7 @@ function newEdgeEditor () {
   function onDoubleClick () {
     doubleClickCounter = 0
 
-  //  canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
+    canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
 
     if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
       canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_OUT_LEVEL)

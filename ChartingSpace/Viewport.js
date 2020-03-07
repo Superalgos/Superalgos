@@ -133,8 +133,22 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
+  function mousePositionPhysics () {
+    if (overrideMousePositionCounter > 0) {
+      thisObject.mousePosition.x = browserCanvas.width / 2
+      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+
+      console.log('SETTING MOUSE TO CENTER', overrideMousePositionCounter, thisObject.zoomLevel, thisObject.zoomTargetLevel)
+      overrideMousePositionCounter--
+      if (overrideMousePositionCounter < 0) {
+        overrideMousePositionCounter = 0
+      }
+    }
+  }
+
   function physics () {
     if (thisObject.visible === false) { return }
+    mousePositionPhysics()
     animationPhysics()
     positioningPhysics()
     readObjectState()

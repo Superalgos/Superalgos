@@ -222,8 +222,8 @@ function newEdgeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    const MIN_WIDTH = 100
-    const MIN_HEIGHT = 50
+    const MIN_WIDTH = 250
+    const MIN_HEIGHT = 120
 
     switch (whereIsMouseOver) {
       case 'center': {
@@ -277,8 +277,11 @@ function newEdgeEditor () {
         break
       }
       case 'top' : {
-        if (thisObject.container.parentContainer.frame.height - dragVector.y < MIN_HEIGHT && dragVector.y > 0) {
-          return
+        dragVectorWhenDragStarted.x = 0
+
+        let newHight = parentFrameWhenDragStarted.height - dragVectorWhenDragStarted.y
+        if (newHight < MIN_HEIGHT && dragVectorWhenDragStarted.y > 0) {
+          dragVectorWhenDragStarted.y = parentFrameWhenDragStarted.height - MIN_HEIGHT
         }
 
         thisObject.container.parentContainer.frame.position.y = parentFrameWhenDragStarted.position.y + dragVectorWhenDragStarted.y
@@ -315,18 +318,25 @@ function newEdgeEditor () {
         break
       }
       case 'bottom' : {
-        if (thisObject.container.parentContainer.frame.height + dragVector.y < MIN_HEIGHT && dragVector.y < 0) {
-          return
+        dragVectorWhenDragStarted.x = 0
+
+        let newHight = dragVectorWhenDragStarted.y + parentFrameWhenDragStarted.height
+        if (newHight < MIN_HEIGHT && dragVectorWhenDragStarted.y < 0) {
+          dragVectorWhenDragStarted.y = MIN_HEIGHT - parentFrameWhenDragStarted.height
         }
 
         let point = {
-          x: dragVector.x,
-          y: dragVector.y + thisObject.container.frame.height
+          x: 0,
+          y: dragVectorWhenDragStarted.y + parentFrameWhenDragStarted.height + parentFrameWhenDragStarted.position.y
         }
         snapPointToGrid(point)
-        let newMinRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+        point.y = point.y - parentFrameWhenDragStarted.position.y
 
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + dragVector.y
+        thisObject.container.parentContainer.frame.height = point.y
+
+        /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+        point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.height)
+        let newMinRate = point.y
 
         switch (whatHappened) {
           case 'left mouse button': {
@@ -349,18 +359,25 @@ function newEdgeEditor () {
         break
       }
       case 'left' : {
-        if (thisObject.container.parentContainer.frame.width - dragVector.x < MIN_WIDTH && dragVector.x > 0) {
-          return
-        }
-        let point = {
-          x: dragVector.x,
-          y: dragVector.y
-        }
-        snapPointToGrid(point)
-        let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+        dragVectorWhenDragStarted.y = 0
 
-        thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width - dragVector.x
+        let newWidth = parentFrameWhenDragStarted.width - dragVectorWhenDragStarted.x
+        if (newWidth < MIN_WIDTH && dragVectorWhenDragStarted.x > 0) {
+          dragVectorWhenDragStarted.x = parentFrameWhenDragStarted.width - MIN_WIDTH
+        }
+
+        thisObject.container.parentContainer.frame.position.x = parentFrameWhenDragStarted.position.x + dragVectorWhenDragStarted.x
+        snapPointToGrid(thisObject.container.parentContainer.frame.position)
+        thisObject.container.parentContainer.frame.width = parentFrameWhenDragStarted.width + (parentFrameWhenDragStarted.position.x - thisObject.container.parentContainer.frame.position.x)
+
+        let point = {
+          x: (thisObject.container.parentContainer.frame.position.x - parentFrameWhenDragStarted.position.x),
+          y: 0
+        }
+
+        /* This is equivalent to getDateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+        point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.width)
+        let newMinDate = point.x
 
         switch (whatHappened) {
           case 'left mouse button': {
@@ -417,7 +434,7 @@ function newEdgeEditor () {
 
     function snapScalarToGrid (scalar) {
       const GRID_SIZE = 10
-      return Math.trunc(scalar / GRID_SIZE) * GRID_SIZE
+      return Math.trunc(scalar / GRID_SIZE) * GRID_SIZE + GRID_SIZE / 2
     }
   }
 

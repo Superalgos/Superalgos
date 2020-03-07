@@ -154,7 +154,6 @@ function newViewport () {
       thisObject.mousePosition.x = browserCanvas.width / 2
       thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 - TOP_SPACE_HEIGHT / 2
 
-      console.log('SETTING MOUSE TO CENTER ', 'COUNTER ' + overrideMousePositionCounter, 'zoomLevel ' + thisObject.zoomLevel, 'zoomTargetLevel ' + thisObject.zoomTargetLevel)
       overrideMousePositionCounter--
       if (overrideMousePositionCounter < 0) {
         overrideMousePositionCounter = 0
@@ -186,8 +185,6 @@ function newViewport () {
       }
       thisObject.zoomLevel = Math.round((thisObject.zoomLevel + ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel)
-
-      console.log('ANIMATION_INCREMENT ' + ANIMATION_INCREMENT)
     }
 
     if (thisObject.zoomLevel > thisObject.zoomTargetLevel) {
@@ -196,8 +193,6 @@ function newViewport () {
       }
       thisObject.zoomLevel = Math.round((thisObject.zoomLevel - ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
-
-      console.log('ANIMATION_INCREMENT ' + ANIMATION_INCREMENT)
     }
   }
 
@@ -310,7 +305,6 @@ function newViewport () {
 
     saveObjectState()
 
-    console.log('ZOOM LEVEL CHANGED', 'oldLevel = ' + oldLevel, 'newLevel = ' + newLevel)
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 

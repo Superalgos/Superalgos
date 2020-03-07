@@ -396,18 +396,25 @@ function newEdgeEditor () {
         break
       }
       case 'right' : {
-        if (thisObject.container.parentContainer.frame.width + dragVector.x < MIN_WIDTH && dragVector.x < 0) {
-          return
+        dragVectorWhenDragStarted.y = 0
+
+        let newWidth = dragVectorWhenDragStarted.x + parentFrameWhenDragStarted.width
+        if (newWidth < MIN_WIDTH && dragVectorWhenDragStarted.x < 0) {
+          dragVectorWhenDragStarted.x = MIN_WIDTH - parentFrameWhenDragStarted.width
         }
 
         let point = {
-          x: dragVector.x + thisObject.container.frame.width,
-          y: dragVector.y
+          x: dragVectorWhenDragStarted.x + parentFrameWhenDragStarted.width + parentFrameWhenDragStarted.position.x,
+          y: 0
         }
         snapPointToGrid(point)
-        let newMaxDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+        point.x = point.x - parentFrameWhenDragStarted.position.x
 
         thisObject.container.parentContainer.frame.width = point.x
+
+        /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+        point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.width)
+        let newMaxDate = point.x
 
         switch (whatHappened) {
           case 'left mouse button': {

@@ -30,6 +30,7 @@ function newViewport () {
     mousePosition: undefined,
     margins: MARGINS,
     payload: undefined,
+    zoomAtCenter: zoomAtCenter,
     changeZoom: changeZoom,
     onMouseWheel: onMouseWheel,
     transformThisPoint: transformThisPoint,
@@ -61,6 +62,8 @@ function newViewport () {
   thisObject.zoomLevel = MIN_ZOOM_LEVEL
   thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
   INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+
+  let overrideMousePositionCounter = 0
 
   return thisObject
 
@@ -261,6 +264,11 @@ function newViewport () {
     }
 
     thisObject.eventHandler.raiseEvent('Position Changed', event)
+  }
+
+  function zoomAtCenter (level) {
+    thisObject.zoomTargetLevel = level
+    overrideMousePositionCounter = 10
   }
 
   function changeZoom (oldLevel, newLevel) {

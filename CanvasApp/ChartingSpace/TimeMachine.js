@@ -393,13 +393,15 @@ function newTimeMachine () {
 
     if (tabAnimationStatus === 'Closing') {
       tabAnimationCounter = tabAnimationCounter - STEP
-      if (tabAnimationCounter === 0) {
+      if (tabAnimationCounter <= 0) {
+        tabAnimationCounter = 0
         tabAnimationStatus = 'Closed'
       }
     }
     if (tabAnimationStatus === 'Opening') {
       tabAnimationCounter = tabAnimationCounter + STEP
-      if (tabAnimationCounter === MAX_COUNTER_VALUE) {
+      if (tabAnimationCounter >= MAX_COUNTER_VALUE) {
+        tabAnimationCounter = MAX_COUNTER_VALUE
         tabAnimationStatus = 'Open'
       }
     }

@@ -314,6 +314,7 @@ function newLayersPanel () {
 
   function physics () {
     if (isInitialized === false) { return }
+    if (thisObject.payload.node === undefined) { return }
 
     mouseOverPhysics()
     thisObject.panelTabButton.physics()
@@ -344,6 +345,7 @@ function newLayersPanel () {
     calculateVisbleLayers()
 
     function syncWithDesignerLayers () {
+      if (thisObject.payload.node === undefined) { return }
       let layerManager = thisObject.payload.node
       for (let p = 0; p < layerManager.layers.length; p++) {
         let layerNode = layerManager.layers[p]

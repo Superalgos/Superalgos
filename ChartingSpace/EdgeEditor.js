@@ -28,6 +28,7 @@ function newEdgeEditor () {
   let whereIsMouseOver = 'outside'
 
   let coordinateSystem
+  let coordinateSystemWhenDragStarted
 
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
@@ -38,6 +39,22 @@ function newEdgeEditor () {
       x: 0,
       y: 0
     }
+  }
+
+  mouseWhenDragStarted = {
+    position: {
+      x: 0,
+      y: 0
+    }
+  }
+
+  parentFrameWhenDragStarted = {
+    position: {
+      x: 0,
+      y: 0
+    },
+    width: 0,
+    height: 0
   }
   return thisObject
 
@@ -50,6 +67,16 @@ function newEdgeEditor () {
     thisObject.container = undefined
     thisObject.fitFunction = undefined
     mouse = undefined
+    mouseWhenDragStarted = undefined
+    parentFrameWhenDragStarted = undefined
+
+    coordinateSystem = undefined
+
+    if (coordinateSystemWhenDragStarted !== undefined) {
+      coordinateSystemWhenDragStarted.finalize()
+    }
+
+    coordinateSystemWhenDragStarted = undefined
   }
 
   function initialize (pCoordinateSystem) {
@@ -75,6 +102,36 @@ function newEdgeEditor () {
   }
 
   function onDragStarted (event) {
+    mouseWhenDragStarted = {
+      position: {
+        x: event.x,
+        y: event.y
+      }
+    }
+
+    parentFrameWhenDragStarted = {
+      position: {
+        x: thisObject.container.parentContainer.frame.position.x,
+        y: thisObject.container.parentContainer.frame.position.y
+      },
+      width: thisObject.container.parentContainer.frame.width,
+      height: thisObject.container.parentContainer.frame.height
+    }
+
+    coordinateSystemWhenDragStarted = newCoordinateSystem()
+
+    let minValue = {
+      x: coordinateSystem.min.x,
+      y: coordinateSystem.min.y
+    }
+
+    let maxValue = {
+      x: coordinateSystem.max.x,
+      y: coordinateSystem.max.y
+    }
+
+    coordinateSystemWhenDragStarted.initialize(minValue, maxValue, coordinateSystem.maxWidth, coordinateSystem.maxHeight)
+
     switch (event.buttons) {
       case 1: {
         whatHappened = 'left mouse button'
@@ -149,6 +206,14 @@ function newEdgeEditor () {
   function physics () {
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
+    let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouse.position)
+    let mouseWhenDragStartedNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
+
+    let dragVectorWhenDragStarted = {
+      x: mouseNoZoom.x - mouseWhenDragStartedNoZoom.x,
+      y: mouseNoZoom.y - mouseWhenDragStartedNoZoom.y
+    }
+
     let dragVector = {
       x: thisObject.container.frame.position.x,
       y: thisObject.container.frame.position.y
@@ -165,8 +230,9 @@ function newEdgeEditor () {
         switch (whatHappened) {
           case 'left mouse button + SHIFT': {
             /* This is equivalent to drag the whole Time Machine, so we will apply the translation received onto the Time Machine container. */
-            thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
-            thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
+            thisObject.container.parentContainer.frame.position.x = parentFrameWhenDragStarted.position.x + dragVectorWhenDragStarted.x
+            thisObject.container.parentContainer.frame.position.y = parentFrameWhenDragStarted.position.y + dragVectorWhenDragStarted.y
+            snapPointToGrid(thisObject.container.parentContainer.frame.position)
             thisObject.container.parentContainer.eventHandler.raiseEvent('onDisplace')
             break
           }
@@ -175,6 +241,7 @@ function newEdgeEditor () {
               x: -dragVector.x,
               y: -dragVector.y
             }
+
             let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
             let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
             let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
@@ -194,6 +261,7 @@ function newEdgeEditor () {
               x: -dragVector.x,
               y: 0
             }
+
             let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
             let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
             coordinateSystem.min.x = newMinDate.valueOf()
@@ -213,14 +281,18 @@ function newEdgeEditor () {
           return
         }
 
-        let point = {
-          x: dragVector.x,
-          y: dragVector.y
-        }
-        let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+        thisObject.container.parentContainer.frame.position.y = parentFrameWhenDragStarted.position.y + dragVectorWhenDragStarted.y
+        snapPointToGrid(thisObject.container.parentContainer.frame.position)
+        thisObject.container.parentContainer.frame.height = parentFrameWhenDragStarted.height + (parentFrameWhenDragStarted.position.y - thisObject.container.parentContainer.frame.position.y)
 
-        thisObject.container.parentContainer.frame.position.y = thisObject.container.parentContainer.frame.position.y + dragVector.y
-        thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height - dragVector.y
+        let point = {
+          x: 0,
+          y: (thisObject.container.parentContainer.frame.position.y - parentFrameWhenDragStarted.position.y)
+        }
+
+        /* This is equivalent to getRateFromPointAtContainer, but as we do not have a container anymore because we already change it, we do it like this. */
+        point = coordinateSystemWhenDragStarted.unInverseTransform(point, parentFrameWhenDragStarted.height)
+        let newMaxRate = point.y
 
         switch (whatHappened) {
           case 'left mouse button': {
@@ -251,6 +323,7 @@ function newEdgeEditor () {
           x: dragVector.x,
           y: dragVector.y + thisObject.container.frame.height
         }
+        snapPointToGrid(point)
         let newMinRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
         thisObject.container.parentContainer.frame.height = thisObject.container.parentContainer.frame.height + dragVector.y
@@ -283,6 +356,7 @@ function newEdgeEditor () {
           x: dragVector.x,
           y: dragVector.y
         }
+        snapPointToGrid(point)
         let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
         thisObject.container.parentContainer.frame.position.x = thisObject.container.parentContainer.frame.position.x + dragVector.x
@@ -313,9 +387,10 @@ function newEdgeEditor () {
           x: dragVector.x + thisObject.container.frame.width,
           y: dragVector.y
         }
+        snapPointToGrid(point)
         let newMaxDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
 
-        thisObject.container.parentContainer.frame.width = thisObject.container.parentContainer.frame.width + dragVector.x
+        thisObject.container.parentContainer.frame.width = point.x
 
         switch (whatHappened) {
           case 'left mouse button': {
@@ -333,6 +408,16 @@ function newEdgeEditor () {
         thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
         break
       }
+    }
+
+    function snapPointToGrid (point) {
+      point.x = snapScalarToGrid(point.x)
+      point.y = snapScalarToGrid(point.y)
+    }
+
+    function snapScalarToGrid (scalar) {
+      const GRID_SIZE = 10
+      return Math.trunc(scalar / GRID_SIZE) * GRID_SIZE
     }
   }
 
@@ -508,4 +593,3 @@ function newEdgeEditor () {
     }
   }
 }
-

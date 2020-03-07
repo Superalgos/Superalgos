@@ -238,14 +238,15 @@ function newEdgeEditor () {
           }
           case 'left mouse button': {
             let point = {
-              x: -dragVector.x,
-              y: -dragVector.y
+              x: (-dragVectorWhenDragStarted.x),
+              y: (-dragVectorWhenDragStarted.y)
             }
 
-            let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
-            let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
-            let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
-            let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+            let newMinDate = getDateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
+            let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystemWhenDragStarted)
+
+            let xDifferenceMaxMin = coordinateSystemWhenDragStarted.max.x - coordinateSystemWhenDragStarted.min.x
+            let yDifferenceMaxMin = coordinateSystemWhenDragStarted.max.y - coordinateSystemWhenDragStarted.min.y
             coordinateSystem.min.x = newMinDate.valueOf()
             coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
             coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin

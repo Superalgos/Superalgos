@@ -56,6 +56,9 @@ function newEdgeEditor () {
     width: 0,
     height: 0
   }
+
+  let doubleClickCounter = 0
+
   return thisObject
 
   function finalize () {
@@ -101,7 +104,26 @@ function newEdgeEditor () {
     thisObject.isMouseOver = false
   }
 
+  function onDoubleClick () {
+    doubleClickCounter = 0
+
+  //  canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
+
+    if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
+      canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_OUT_LEVEL)
+    } else {
+      canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_LEVEL)
+    }
+  }
+
   function onDragStarted (event) {
+    if (doubleClickCounter > 0) {
+      onDoubleClick()
+      return
+    } else {
+      doubleClickCounter = 50
+    }
+
     mouseWhenDragStarted = {
       position: {
         x: event.x,
@@ -204,6 +226,18 @@ function newEdgeEditor () {
   }
 
   function physics () {
+    draggingPhysics()
+    doubleClickPhysics()
+  }
+
+  function doubleClickPhysics () {
+    doubleClickCounter--
+    if (doubleClickCounter < 0) {
+      doubleClickCounter = 0
+    }
+  }
+
+  function draggingPhysics () {
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
     let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouse.position)

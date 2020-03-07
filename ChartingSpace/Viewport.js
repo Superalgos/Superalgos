@@ -50,14 +50,7 @@ function newViewport () {
     x: 0,
     y: 0
   }
-  let targetPosition = {
-    x: 0,
-    y: 0
-  }
-  let positionIncrement = {
-    x: 0,
-    y: 0
-  }
+
   thisObject.mousePosition = {
     x: 0,
     y: 0
@@ -168,14 +161,6 @@ function newViewport () {
       }
       thisObject.zoomLevel = thisObject.zoomLevel - ANIMATION_INCREMENT
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
-    }
-
-    if (positionIncrement.y !== 0) {
-      if (Math.trunc(Math.abs(targetPosition.y - position.y) * 1000) >= Math.trunc(Math.abs(positionIncrement.y) * 1000)) {
-        position.y = position.y + positionIncrement.y
-      } else {
-        positionIncrement.y = 0
-      }
     }
   }
 
@@ -289,14 +274,6 @@ function newViewport () {
     let testPoint = unTransformThisPoint(thisObject.mousePosition, newLevel)
 
     saveObjectState()
-
-    targetPosition.x = position.x
-    targetPosition.y = position.y
-
-    positionIncrement = {
-      x: 0,
-      y: 0
-    }
 
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }

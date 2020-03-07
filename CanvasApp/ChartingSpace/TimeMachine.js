@@ -44,6 +44,10 @@ function newTimeMachine () {
     }
   }
 
+  let tabAnimation = 0
+  let tabAnimationStatus = 'Close'
+  let tabAnimationCounter = 0
+  let wasOnFocus = false
   let drawScales = false
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
@@ -373,9 +377,36 @@ function newTimeMachine () {
     }
     panelPhysics()
     onFocusPhysics()
+    tabAnimationPhysics()
+  }
+
+  function tabAnimationPhysics () {
+    const MAX_COUNTER_VALUE = 40
+    const STEP = 10
+
+    if (wasOnFocus === true && thisObject.onFocus === false) {
+      tabAnimationStatus = 'Closing'
+    }
+    if (wasOnFocus === false && thisObject.onFocus === true) {
+      tabAnimationStatus = 'Opening'
+    }
+
+    if (tabAnimationStatus === 'Closing') {
+      tabAnimationCounter = tabAnimationCounter - STEP
+      if (tabAnimationCounter === 0) {
+        tabAnimationStatus = 'Closed'
+      }
+    }
+    if (tabAnimationStatus === 'Opening') {
+      tabAnimationCounter = tabAnimationCounter + STEP
+      if (tabAnimationCounter === MAX_COUNTER_VALUE) {
+        tabAnimationStatus = 'Open'
+      }
+    }
   }
 
   function onFocusPhysics () {
+    wasOnFocus = thisObject.onFocus
     if (thisObject.edgeEditor.isMouseOver === true) {
       thisObject.onFocus = true
     } else {
@@ -603,13 +634,13 @@ function newTimeMachine () {
     if (description !== undefined) {
       label = description
     }
-    printLabel(label, position.x + 15, position.y - 28, opacity, fontSize)
+    printLabel(label, position.x + 20, position.y - 10, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
-        icon, position.x - 0,
-        position.y - 40,
+        icon, position.x + 5,
+        position.y - 22,
         imageSize,
         imageSize)
       }
@@ -637,52 +668,118 @@ function newTimeMachine () {
       }
     }
 
+    drawTab(0, 0, exchangeMarkets.size * tabAnimationCounter, 90, thisObject.container)
+
     const INTER_EXCHANGE_SPACE = 60
-    const INTER_MARKET_SPACE = 90
+    const INTER_MARKET_SPACE = -100
 
-    exchangeMarkets.forEach((exchangeMarket, i) => {
-      icon = exchangeMarket.exchangeIcon
+    if (tabAnimationStatus === 'Open') {
+      drawMarketNames()
+    }
 
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon, position.x - 0,
-          position.y - 22,
-          imageSize,
-          imageSize)
+    function drawMarketNames () {
+      exchangeMarkets.forEach((exchangeMarket, i) => {
+        browserCanvasContext.save()
+        browserCanvasContext.translate(position.x, position.y)
+        browserCanvasContext.rotate(-Math.PI / 2)
+
+        let xOffSet = -80
+
+        icon = exchangeMarket.exchangeIcon
+
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -43,
+        imageSize,
+        imageSize)
+          }
         }
+
+        printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
+
+        position.x = position.x + INTER_EXCHANGE_SPACE
+
+        icon = exchangeMarket.baseAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
+        }
+
+        printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
+
+        icon = exchangeMarket.quotedAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        +50 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
+        }
+
+        position.x = position.x + INTER_MARKET_SPACE
+
+        browserCanvasContext.restore()
+      })
+    }
+
+    function drawTab (x, y, width, height, container) {
+      const GRADIENT = 0
+      const X_OFFSET = -3
+      const Y_OFFSET = 13
+      const TAB_CORNERS_RADIUS = 5
+
+      let point = {
+        x: x,
+        y: y
+      }
+      point = transformThisPoint(point, container)
+
+      let point1 = {
+        x: point.x + X_OFFSET,
+        y: point.y + Y_OFFSET
       }
 
-      printLabel(exchangeMarket.exchangeName, position.x + 15, position.y - 10, opacity, fontSize)
-
-      position.x = position.x + INTER_EXCHANGE_SPACE
-
-      icon = exchangeMarket.baseAssetIcon
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon, position.x - 0,
-          position.y - 22,
-          imageSize,
-          imageSize)
-        }
+      let point2 = {
+        x: point.x + X_OFFSET,
+        y: point.y + height + Y_OFFSET
       }
 
-      printLabel(exchangeMarket.marketName, position.x + 15, position.y - 10, opacity, fontSize)
-
-      icon = exchangeMarket.quotedAssetIcon
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          browserCanvasContext.drawImage(
-          icon, position.x + 70,
-          position.y - 22,
-          imageSize,
-          imageSize)
-        }
+      let point3 = {
+        x: point.x - width + X_OFFSET,
+        y: point.y + height - GRADIENT + Y_OFFSET
       }
 
-      position.x = position.x + INTER_MARKET_SPACE
-    })
+      let point4 = {
+        x: point.x - width + X_OFFSET,
+        y: point.y + GRADIENT + Y_OFFSET
+      }
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(point1.x, point1.y)
+      browserCanvasContext.lineTo(point2.x, point2.y)
+      browserCanvasContext.lineTo(point3.x, point3.y)
+      browserCanvasContext.arc(point3.x, point3.y - TAB_CORNERS_RADIUS, TAB_CORNERS_RADIUS, 0.5 * Math.PI, 1.0 * Math.PI)
+      // browserCanvasContext.lineTo(point4.x, point4.y)
+      browserCanvasContext.arc(point4.x, point4.y + TAB_CORNERS_RADIUS, TAB_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+      browserCanvasContext.closePath()
+      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ''
+      browserCanvasContext.stroke()
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
+      browserCanvasContext.fill()
+    }
   }
 
   function recalculateCoordinateSystem () {

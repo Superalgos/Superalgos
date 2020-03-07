@@ -146,6 +146,7 @@ function newViewport () {
   function zoomAtCenter (level) {
     thisObject.zoomTargetLevel = level
     overrideMousePositionCounter = 50
+    ANIMATION_INCREMENT = 0.5
   }
 
   function mousePositionPhysics () {
@@ -153,7 +154,7 @@ function newViewport () {
       thisObject.mousePosition.x = browserCanvas.width / 2
       thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 - TOP_SPACE_HEIGHT / 2
 
-      console.log('SETTING MOUSE TO CENTER', overrideMousePositionCounter, thisObject.zoomLevel, thisObject.zoomTargetLevel)
+      console.log('SETTING MOUSE TO CENTER ', 'COUNTER ' + overrideMousePositionCounter, 'zoomLevel ' + thisObject.zoomLevel, 'zoomTargetLevel ' + thisObject.zoomTargetLevel)
       overrideMousePositionCounter--
       if (overrideMousePositionCounter < 0) {
         overrideMousePositionCounter = 0
@@ -185,6 +186,8 @@ function newViewport () {
       }
       thisObject.zoomLevel = Math.round((thisObject.zoomLevel + ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel)
+
+      console.log('ANIMATION_INCREMENT ' + ANIMATION_INCREMENT)
     }
 
     if (thisObject.zoomLevel > thisObject.zoomTargetLevel) {
@@ -193,6 +196,8 @@ function newViewport () {
       }
       thisObject.zoomLevel = Math.round((thisObject.zoomLevel - ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
+
+      console.log('ANIMATION_INCREMENT ' + ANIMATION_INCREMENT)
     }
   }
 
@@ -222,9 +227,9 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount * morePower
+    thisObject.zoomTargetLevel = Math.round(thisObject.zoomTargetLevel + amount * morePower)
 
-    ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS
+    ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 
     let newEvent = {
       newLevel: thisObject.zoomTargetLevel,
@@ -305,7 +310,7 @@ function newViewport () {
 
     saveObjectState()
 
-    console.log('ZOOM LEVEL CHANGED', oldLevel, newLevel)
+    console.log('ZOOM LEVEL CHANGED', 'oldLevel = ' + oldLevel, 'newLevel = ' + newLevel)
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 

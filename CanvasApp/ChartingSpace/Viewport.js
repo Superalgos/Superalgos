@@ -197,6 +197,8 @@ function newViewport () {
   }
 
   function onMouseWheel (event) {
+    const MAC_AMOUNT_FACTOR = 5
+
     if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
@@ -204,7 +206,7 @@ function newViewport () {
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
     let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
-    if (isMac) { amount = amount / 5 }
+    if (isMac) { amount = amount / MAC_AMOUNT_FACTOR }
 
     if (thisObject.zoomTargetLevel > 10) {
       amount = amount * 2
@@ -222,7 +224,7 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = Math.round(thisObject.zoomTargetLevel + amount * morePower)
+    thisObject.zoomTargetLevel = Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR
 
     ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 

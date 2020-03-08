@@ -21,7 +21,6 @@ function newLayersPanel () {
   thisObject.container.detectMouseOver = true
 
   let isInitialized = false
-  let isMouseOver = false
   let mouseOverCounter = 0
 
   let layersMap = new Map()
@@ -39,12 +38,10 @@ function newLayersPanel () {
   let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight + footerHeight
 
   let onMouseWheelEventSuscriptionId
-  let onMouseOverEventSuscriptionId
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
 
     thisObject.panelTabButton.finalize()
     thisObject.panelTabButton = undefined
@@ -79,7 +76,6 @@ function newLayersPanel () {
     thisObject.panelTabButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
     readObjectState()
 
@@ -170,11 +166,6 @@ function newLayersPanel () {
         return layer
       }
     }
-  }
-
-  function onMouseOver (event) {
-    isMouseOver = true
-    mouseOverCounter = 150
   }
 
   function onMouseWheel (event) {
@@ -304,19 +295,10 @@ function newLayersPanel () {
     readObjectState()
   }
 
-  function mouseOverPhysics () {
-    mouseOverCounter--
-    if (mouseOverCounter < 0) {
-      mouseOverCounter = 0
-      isMouseOver = false
-    }
-  }
-
   function physics () {
     if (isInitialized === false) { return }
     if (thisObject.payload.node === undefined) { return }
 
-    mouseOverPhysics()
     thisObject.panelTabButton.physics()
     saveFrame(thisObject.payload, thisObject.container.frame)
     syncWithConfigPhysics()

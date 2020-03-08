@@ -394,7 +394,7 @@ function newLayersPanel () {
   }
 
   function draw () {
-    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true || isMouseOver === false) { return }
+    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
 
     // thisObject.container.frame.draw(false, false, false, thisObject.fitFunction)
 

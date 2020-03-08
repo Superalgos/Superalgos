@@ -41,13 +41,16 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
+const DOUBLE_CLICK_ZOOM_IN_LEVEL = 7
+
 const DEBUG = {}
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 5 // This regulates some behavious changes that happens when the user zoom out below this level.
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 // This regulates some behavious changes that happens when the user zoom out below this level.
 const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 3  // This help regulate when to change the Time Frame base on the level of zoom out.
 const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 2
-const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3  
-const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED = 5 
-const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3 
+const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3
+const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED = 5
+const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3
 
 let FONT_ASPECT_RATIO = 0.32;
 
@@ -168,8 +171,7 @@ const _3_MINUTES_IN_MILISECONDS = 3 * 60 * 1000;
 const _2_MINUTES_IN_MILISECONDS = 2 * 60 * 1000;
 const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
-const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
-const DOUBLE_CLICK_ZOOM_IN_LEVEL = 8
+
 
 let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.

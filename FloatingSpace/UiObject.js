@@ -96,6 +96,7 @@ function newUiObject () {
 
   let eventSubscriptionIdHeartbeat
   let eventSubscriptionIdOnStopped
+  let lastHeartBeat
 
   return thisObject
 
@@ -143,6 +144,7 @@ function newUiObject () {
     icon = undefined
     chainAttachToNode = undefined
     referenceAttachToNode = undefined
+    lastHeartBeat = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -278,6 +280,17 @@ function newUiObject () {
     referenceDetachingPhysics()
     referenceAttachingPhysics()
     childrenRunningPhysics()
+  }
+
+  function heartBeatPhysics () {
+    if (lastHeartBeat !== undefined) {
+      const ONE_MIN = 60000
+      nowTimestamp = (new Date()).valueOf()
+      if (nowTimestamp - lastHeartBeat.valueOf() > ONE_MIN) {
+        lastHeartBeat = undefined
+        thisObject.isRunning = false
+      }
+    }
   }
 
   function childrenRunningPhysics () {
@@ -634,6 +647,7 @@ function newUiObject () {
 
     function onHeartBeat () {
       if (thisObject.payload === undefined) { return }
+      lastHeartBeat = new Date()
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
       systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
 
@@ -681,6 +695,7 @@ function newUiObject () {
         thisObject.circularProgressBar = undefined
       }
       thisObject.isRunning = false
+      lastHeartBeat = undefined
     }
   }
 

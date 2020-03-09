@@ -428,7 +428,9 @@ function newUiObjectsFromNodes () {
     /* Check if there are tasks to run */
     if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
       if (node.savedPayload.uiObject.isRunning === true) {
-        tasksToRun.push(node)
+        if (node.payload.parentNode !== undefined) {
+          tasksToRun.push(node)
+        }
       }
     }
 
@@ -436,7 +438,9 @@ function newUiObjectsFromNodes () {
     if (userAddingNew === false && node.savedPayload !== undefined) {
       if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Fordward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
         if (node.savedPayload.uiObject.isRunning === true) {
-          sessionsToRun.push(node)
+          if (node.payload.parentNode !== undefined) {
+            sessionsToRun.push(node)
+          }
         }
       }
     }

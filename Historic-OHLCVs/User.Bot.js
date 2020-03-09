@@ -94,7 +94,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 'secret': secret,
                 'timeout': 30000,
                 'enableRateLimit': true,
-                verbose: false,
+                verbose: true,
                 options: options
             }
             if (rateLimit !== undefined) {
@@ -365,15 +365,27 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 return
                             }
 
-                            let record = allOHLCVs[i]
-                            let OHLCV = {
-                                timestamp: record[0],
-                                open: record[1],
-                                hight: record[2],
-                                low: record[3],
-                                close: record[4],
-                                volume: record[5]
+                            let OHLCV = { // these values should be overrided unless there are no OHLVCs fetched from the exchange.
+                                timestamp: (new Date()).valueOf() + ONE_MIN,
+                                open: 0,
+                                hight: 0,
+                                low: 0,
+                                close: 0,
+                                volume: 0
                             }
+
+                            let record = allOHLCVs[i]
+
+                            if (record !== undefined) { // can be undefined if there is no candle fetched from the exchange
+                                OHLCV = {
+                                    timestamp: record[0],
+                                    open: record[1],
+                                    hight: record[2],
+                                    low: record[3],
+                                    close: record[4],
+                                    volume: record[5]
+                                }
+                            } 
 
                             let candleMinute = Math.trunc(candle.begin / ONE_MIN)
                             let OHLCVMinute  

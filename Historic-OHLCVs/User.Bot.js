@@ -94,7 +94,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 'secret': secret,
                 'timeout': 30000,
                 'enableRateLimit': true,
-                verbose: true,
+                verbose: false,
                 options: options
             }
             if (rateLimit !== undefined) {

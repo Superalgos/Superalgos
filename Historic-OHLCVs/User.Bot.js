@@ -313,6 +313,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let error
                     let separator
                     let heartBeatCounter = 0
+                    let headOfTheMarketReached = false
 
                     let i = 0
 
@@ -324,7 +325,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         let filesCreated = 0
 
                         /* Go through all possible 1 min candles of a day. */
-                        for (let j = 0; j <   60 * 24; j++) {
+                        for (let j = 0; j < 60 * 24; j++) {
 
                             let candle = {
                                 begin: currentDay * ONE_DAY + ONE_MIN * j,
@@ -339,6 +340,22 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 end: currentDay * ONE_DAY + ONE_MIN * j + ONE_MIN - 1,
                                 buy: lastVolume.buy,
                                 sell: lastVolume.sell
+                            }
+
+                            let processingDate = new Date(candle.begin)
+                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+
+                            if (candle.begin > (new Date()).valueOf()) {
+                                /* We stop when the current candle is pointing to a time in the future.*/
+                                headOfTheMarketReached = true
+                                saveFile(currentDay)
+
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+
+                                /* We exit the loop and we aint comming back*/
+                                return
                             }
 
                             let record = allOHLCVs[i]
@@ -365,6 +382,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 OHLCVMinute = Math.trunc(OHLCV.timestamp / ONE_MIN)
 
                                 if (OHLCVMinute < candleMinute) {
+                                    if (i >= allOHLCVs.length - 1) {
+                                        /* We run out of OHLCVs, we can not move to the next OHLCV, we leave this function. */
+                                        return
+                                    }
+
                                     i++
                                     record = allOHLCVs[i]
                                     OHLCV = {
@@ -380,9 +402,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
 
                             /* Reporting we are doing well */
-                            let processingDate = new Date(candle.begin)
-                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);                            
-                            heartBeatCounter--
+                             heartBeatCounter--
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
@@ -397,7 +417,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 candle.max = OHLCV.hight
                                 volume.buy = OHLCV.volume / 2
                                 volume.sell = OHLCV.volume / 2
-                                i++
+
+                                if (i < allOHLCVs.length - 1) {
+                                    i++
+                                }
                             }
                             lastCandle = candle
 
@@ -413,40 +436,21 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             candlesFileContent = candlesFileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
                             volumesFileContent = volumesFileContent + separator + '[' + volume.buy + "," + volume.sell + "," + volume.begin + "," + volume.end + "]";
 
-                            if (i === allOHLCVs.length) {
-                                /* This was the last OHLCV, so we save the file.*/
-                                saveFile(currentDay)
-                                /* It might happen that there are several days after the last OHLCV without OHLCVs. We need to record empty files for them.*/
-                                if (allOHLCVs.length < MAX_OHLCVs_PER_EXECUTION) {
-                                    let currentTimeDay = Math.trunc((new Date()).valueOf() / ONE_DAY)
-                                    if (currentTimeDay - currentDay > 1) {
-                                        createMissingEmptyFiles(currentDay, currentTimeDay)
-                                    }
-                                }
-
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
-                                bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length  + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
-
-                                return
-                            }
                         }
+
+                        previousDay = currentDay
 
                         if (i > 0) { // Only start saving at the day of the first candle.
                             saveFile(currentDay)
-                        }
-                        
-                        previousDay = currentDay
-                        if (error) {
-                            callBackFunction(error);
-                            return;
-                        }
+                            return
+                        }                        
+
+                        controlLoop()
 
                         function saveFile(day) {
                             candlesFileContent = candlesFileContent + ']'
                             volumesFileContent = volumesFileContent + ']'
-                            if (currentDay - previousDay > 1) {
-                                createMissingEmptyFiles(previousDay, currentDay)
-                            }
+
                             let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
                              
                             filesToCreate++
@@ -460,26 +464,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             needSeparator = false
 
                         }
-                        function createMissingEmptyFiles(begin, end) {
 
-                            /*
-                            If this range is too wide, we will consider this means that the begin is before the begining of this market at this exchange.
-                            In that case we will change the begin and the beginingOfMarket
-                            */
-
-                            if ((end - begin) > 7) {
-                                begin = end
-                                beginingOfMarket = new Date(end * ONE_DAY)
-                            }
-
-                            for (let j = begin + 1; j < end; j++) {
-                                let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
-                                filesToCreate++
-                                fileStorage.createTextFile(getFilePath(j * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, "[]" + '\n', onFileCreated);
-                                filesToCreate++
-                                fileStorage.createTextFile(getFilePath(j * ONE_DAY, VOLUMES_FOLDER_NAME) + '/' + fileName, "[]" + '\n', onFileCreated);
-                            }
-                        }
                         function onFileCreated(err) {
                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                 logger.write(MODULE_NAME, "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
@@ -492,6 +477,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 controlLoop()
                             }
                         }
+
                         function getFilePath(timestamp, folderName) {
                             let datetime = new Date(timestamp)
                             let dateForPath = datetime.getUTCFullYear() + '/' +
@@ -500,8 +486,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             let filePath = bot.filePathRoot + "/Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }
-
-
                     }
 
                     function controlLoop() {
@@ -510,8 +494,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             return
                         }
 
+                        if (error) {
+                            callBackFunction(error);
+                            return;
+                        }
+
                         currentDay++
-                        if (i < allOHLCVs.length) {
+
+                        if (headOfTheMarketReached === false) {
                             setImmediate(loop)
                         } else {
                             writeStatusReport()

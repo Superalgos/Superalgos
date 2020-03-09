@@ -711,8 +711,10 @@ function newUiObject () {
       }
       if (nodeDefinition.alternativeIcons === 'Use Reference Grandparent') {
         if (thisObject.payload.node.payload.referenceParent !== undefined) {
-          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
-            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+          if (thisObject.payload.node.payload.referenceParent.payload !== undefined) {
+            if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+            }
           }
         }
       }

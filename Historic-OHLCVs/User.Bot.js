@@ -38,6 +38,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let uiStartDate = new Date(bot.uiStartDate)
     let fisrtTimeThisProcessRun = false
     let limit = 1000 // This is the default value
+    let hostname
 
     return thisObject;
 
@@ -54,7 +55,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             /* Applying the parameters defined by the user at the Exchange node */
             if (bot.exchangeNode.code.API !== undefined) {
                 for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
-                    if (bot.exchangeNode.code.API[i].method === 'fetchOHLCVs') {
+                    if (bot.exchangeNode.code.API[i].method === 'fetch_ohlcv') {
                         if (bot.exchangeNode.code.API[i].class !== undefined) {
                             exchangeId = bot.exchangeNode.code.API[i].class
                         }
@@ -68,6 +69,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                         if (bot.exchangeNode.code.API[i].rateLimit !== undefined) {
                             rateLimit = bot.exchangeNode.code.API[i].rateLimit
+                        }
+                        if (bot.exchangeNode.code.API[i].hostname !== undefined) {
+                            hostname = bot.exchangeNode.code.API[i].hostname
                         }
                     }
                 }
@@ -95,6 +99,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
             }
             if (rateLimit !== undefined) {
                 exchangeConstructorParams.rateLimit = rateLimit
+            }
+            if (hostname !== undefined) {
+                exchangeConstructorParams.hostname = hostname
             }
 
             exchange = new exchangeClass(exchangeConstructorParams)

@@ -89,23 +89,23 @@ function newCCXTFunctions () {
 
           if (queryParams !== undefined) {
             if (queryParams.baseAsset !== undefined) {
-              if (market.baseId.indexOf(queryParams.baseAsset) >= 0) {
+              if (market.base.indexOf(queryParams.baseAsset) >= 0) {
                 continue
               }
             }
             if (queryParams.quotedAsset !== undefined) {
-              if (market.quoteId.indexOf(queryParams.quotedAsset) >= 0) {
+              if (market.quote.indexOf(queryParams.quotedAsset) >= 0) {
                 continue
               }
             }
           }
-          if (currentAssets.get(market.baseId) === undefined) {
-            addAsset(market.baseId)
-            currentAssets.set(market.baseId, market.baseId)
+          if (currentAssets.get(market.base) === undefined) {
+            addAsset(market.base)
+            currentAssets.set(market.base, market.base)
           }
-          if (currentAssets.get(market.quoteId) === undefined) {
-            addAsset(market.quoteId)
-            currentAssets.set(market.quoteId, market.quoteId)
+          if (currentAssets.get(market.quote) === undefined) {
+            addAsset(market.quote)
+            currentAssets.set(market.quote, market.quote)
           }
 
           function addAsset (name) {
@@ -164,8 +164,8 @@ function newCCXTFunctions () {
         let markets = JSON.parse(data)
         for (let i = 0; i < markets.length; i++) {
           let market = markets[i]
-          let baseAsset = currentAssets.get(market.baseId)
-          let quotedAsset = currentAssets.get(market.quoteId)
+          let baseAsset = currentAssets.get(market.base)
+          let quotedAsset = currentAssets.get(market.quote)
 
           if (baseAsset === undefined) {
             continue

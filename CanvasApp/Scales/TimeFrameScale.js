@@ -253,10 +253,8 @@ function newTimeFrameScale () {
   }
 
   function onMouseWheel (event) {
-    delta = event.wheelDelta
-
     if (IS_MAC) {
-      if (delta < 0) {
+      if (event.wheelDelta < 0) {
         if (wheelDeltaDirection === -1) {
           wheelDeltaCounter++
           if (wheelDeltaCounter < 5) {

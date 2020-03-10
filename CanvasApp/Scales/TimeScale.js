@@ -116,6 +116,36 @@ function newTimeScale () {
   }
 
   function onMouseWheel (event) {
+    if (IS_MAC) {
+      if (event.wheelDelta < 0) {
+        if (wheelDeltaDirection === -1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < 5) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = -1
+          return
+        }
+      } else {
+        if (wheelDeltaDirection === 1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < 5) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = 1
+          return
+        }
+      }
+    }
+
     if (event.shiftKey === true) {
       autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
       return

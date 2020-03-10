@@ -842,7 +842,9 @@ function newCanvas () {
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
-      if (IS_MAC) { event.delta = event.delta / MAC_AMOUNT_FACTOR }
+      if (IS_MAC) {
+        event.delta = event.delta / MAC_AMOUNT_FACTOR
+      }
 
            /* We try first with panels. */
 

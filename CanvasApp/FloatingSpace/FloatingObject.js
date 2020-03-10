@@ -366,6 +366,14 @@ function newFloatingObject () {
       }
     }
 
+    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= 1) {
+      if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + 1
+      } else {
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - 1
+      }
+    }
+
     /* Floating object position in screen coordinates */
 
     thisObject.payload.position.x = thisObject.container.frame.position.x
@@ -473,7 +481,7 @@ function newFloatingObject () {
   }
 
   function initializeImageSize (suggestedValue) {
-    var size = suggestedValue
+    let size = suggestedValue
     if (size < 2) {
       size = 2
     }

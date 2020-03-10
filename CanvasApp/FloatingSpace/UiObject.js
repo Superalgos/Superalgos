@@ -1239,7 +1239,7 @@ function newUiObject () {
       let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
-          VISIBLE_RADIUS = thisObject.container.frame.radius * 1.1
+          VISIBLE_RADIUS = thisObject.container.frame.radius * 1.4
           let OPACITY = 1
 
           browserCanvasContext.beginPath()

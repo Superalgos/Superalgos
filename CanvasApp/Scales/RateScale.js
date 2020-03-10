@@ -56,6 +56,10 @@ function newRateScale () {
 
   let scaleDisplayTimer = 0
   let autoScaleButton
+
+  let wheelDeltaDirection
+  let wheelDeltaCounter = 0
+
   return thisObject
 
   function finalize () {

@@ -289,6 +289,7 @@ function newTimeFrameScale () {
       }
     }
 
+    let delta = event.wheelDelta
     if (delta < 0) {
       timeFrameIndex--
       if (timeFrameIndex < 0) {

@@ -41,6 +41,9 @@ UI_FONT = {
     SECONDARY: "Source Code Pro"
 };
 
+const MAC_AMOUNT_FACTOR = 5
+const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+
 const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
 const DOUBLE_CLICK_ZOOM_IN_LEVEL = 7
 

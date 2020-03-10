@@ -834,6 +834,8 @@ function newCanvas () {
 
   function onMouseWheel (event) {
     try {
+      if (IS_MAC) { event.delta = event.delta / MAC_AMOUNT_FACTOR }
+
       thisObject.mouse.event = event
       thisObject.mouse.position.x = event.pageX
       thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
@@ -907,7 +909,7 @@ function newCanvas () {
      floatingObjectDragStarted ||
      viewPortBeingDragged
      ) {
-        ignoreNextClick = true
+        ignoreNextClick = false
       }
            /* Turn off all the possible things that can be dragged. */
 

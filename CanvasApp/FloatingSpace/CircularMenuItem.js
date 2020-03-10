@@ -57,7 +57,7 @@ function newCircularMenuItem () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
   thisObject.container.frame.width = 0
-  thisObject.container.frame.height = 30
+  thisObject.container.frame.height = 40
 
   let isMouseOver = false
 
@@ -112,7 +112,7 @@ function newCircularMenuItem () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (thisObject.type === 'Icon & Text') {
-      thisObject.container.frame.width = 150
+      thisObject.container.frame.width = 200
     } else {
       thisObject.container.frame.width = 50
     }
@@ -375,13 +375,13 @@ function newCircularMenuItem () {
           backgroundColor = UI_COLOR.GREY
         }
         let params = {
-          cornerRadius: 3,
+          cornerRadius: 5,
           lineWidth: 0.1,
           container: thisObject.container,
           borderColor: UI_COLOR.DARK,
           backgroundColor: backgroundColor,
           castShadow: false,
-          xOffset: 40
+          xOffset: 60
         }
 
         if (isMouseOver === true) {
@@ -422,7 +422,7 @@ function newCircularMenuItem () {
 
       if (thisObject.type === 'Icon & Text') {
         let labelPoint
-        let fontSize = 10
+        let fontSize = 15
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 

@@ -112,7 +112,7 @@ function newCircularMenuItem () {
     selfMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     if (thisObject.type === 'Icon & Text') {
-      thisObject.container.frame.width = 200
+      thisObject.container.frame.width = 220
     } else {
       thisObject.container.frame.width = 50
     }

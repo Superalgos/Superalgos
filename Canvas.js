@@ -907,7 +907,7 @@ function newCanvas () {
      floatingObjectDragStarted ||
      viewPortBeingDragged
      ) {
-        ignoreNextClick = true
+        ignoreNextClick = false
       }
            /* Turn off all the possible things that can be dragged. */
 

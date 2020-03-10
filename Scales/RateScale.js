@@ -56,6 +56,10 @@ function newRateScale () {
 
   let scaleDisplayTimer = 0
   let autoScaleButton
+
+  let wheelDeltaDirection
+  let wheelDeltaCounter = 0
+
   return thisObject
 
   function finalize () {
@@ -134,6 +138,42 @@ function newRateScale () {
   }
 
   function onMouseWheel (event) {
+    if (IS_MAC) {
+      let sensitivity
+      if (event.wheelDelta < 0) {
+        if (event.shiftKey === true) {
+          sensitivity = 20
+        } else {
+          sensitivity = 5
+        }
+        if (wheelDeltaDirection === -1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = -1
+          return
+        }
+      } else {
+        if (wheelDeltaDirection === 1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = 1
+          return
+        }
+      }
+    }
+
     if (event.shiftKey === true) {
       autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
       return

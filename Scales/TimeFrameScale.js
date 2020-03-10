@@ -45,6 +45,10 @@ function newTimeFrameScale () {
     }
   }
   setupContainer()
+
+  let wheelDeltaDirection
+  let wheelDeltaCounter = 0
+
   return thisObject
 
   function setupContainer () {
@@ -249,7 +253,43 @@ function newTimeFrameScale () {
   }
 
   function onMouseWheel (event) {
-    delta = event.wheelDelta
+    if (IS_MAC) {
+      let sensitivity
+      if (event.wheelDelta < 0) {
+        if (event.shiftKey === true) {
+          sensitivity = 20
+        } else {
+          sensitivity = 5
+        }
+        if (wheelDeltaDirection === -1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = -1
+          return
+        }
+      } else {
+        if (wheelDeltaDirection === 1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = 1
+          return
+        }
+      }
+    }
+
+    let delta = event.wheelDelta
     if (delta < 0) {
       timeFrameIndex--
       if (timeFrameIndex < 0) {

@@ -204,8 +204,6 @@ function newViewport () {
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
 
-    if (IS_MAC) { amount = amount / MAC_AMOUNT_FACTOR }
-
     if (thisObject.zoomTargetLevel > 10) {
       amount = amount * 2
     }

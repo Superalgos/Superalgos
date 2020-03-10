@@ -412,6 +412,17 @@ function newWorkspace () {
           referenceDetachNode(payload.node)
         }
         break
+      case 'Open Documentation':
+        {
+          let definition = APP_SCHEMA_MAP.get(payload.node.type)
+          if (definition !== undefined) {
+            if (definition.docURL !== undefined) {
+              let newTab = window.open(definition.docURL, '_blank')
+              newTab.focus()
+            }
+          }
+        }
+        break
     }
   }
 }

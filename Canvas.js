@@ -758,7 +758,7 @@ function newCanvas () {
 
       let container
 
-      /* We check if the mouse is over an element of the Strategy Space / */
+      /* We check if the mouse is over an element of the Designe Space / */
       if (thisObject.designSpace !== undefined) {
         container = thisObject.designSpace.getContainer(point)
 

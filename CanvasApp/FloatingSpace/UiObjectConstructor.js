@@ -373,7 +373,7 @@ function newUiObjectConstructor () {
     const INITIAL_FONT_SIZE = 12 * 1.5
     const INITIAL_RADIOUS = 45 * 1.5
     const INITIAL_IMAGE_SIZE = 80 * 1.2
-    const INITIAL_HIERARCHY_RING = 35
+    const INITIAL_HIERARCHY_RING = 20
 
     switch (payload.node.type) {
       case 'Workspace': {

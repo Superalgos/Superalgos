@@ -386,7 +386,7 @@ function newFloatingObject () {
       thisObject.targetRadius = thisObject.rawRadius * 6.0
       thisObject.targetImageSize = thisObject.rawImageSize * 2.0
       thisObject.targetFontSize = thisObject.rawFontSize * 2.0
-      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 6.0
+      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
@@ -513,7 +513,7 @@ function newFloatingObject () {
 
     thisObject.rawHierarchyRing = radius
     thisObject.targetHierarchyRing = radius
-    thisObject.currentHierarchyRing = radius / 3
+    thisObject.currentHierarchyRing = radius
   }
 
   function initializeCurrentPosition (arroundPoint) {

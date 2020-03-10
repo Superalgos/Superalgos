@@ -370,7 +370,9 @@ function newUiObjectConstructor () {
   function setFloatingObjectBasicProperties (floatingObject, payload) {
     const FRICTION = 0.95
     const INITIAL_FRICTION = 0.97
-    const INITIAL_FONT_SIZE = 12
+    const INITIAL_FONT_SIZE = 12 * 1.5
+    const INITIAL_RADIOUS = 45 * 1.5
+    const INITIAL_IMAGE_SIZE = 80 * 1.2
 
     switch (payload.node.type) {
       case 'Workspace': {
@@ -417,8 +419,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(500)
-      floatingObject.initializeRadius(45)
-      floatingObject.initializeImageSize(80)
+      floatingObject.initializeRadius(INITIAL_RADIOUS)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -428,8 +430,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(600)
-      floatingObject.initializeRadius(45)
-      floatingObject.initializeImageSize(80)
+      floatingObject.initializeRadius(INITIAL_RADIOUS)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -443,8 +445,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(300)
-      floatingObject.initializeRadius(40)
-      floatingObject.initializeImageSize(70)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 5)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 10)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
@@ -458,8 +460,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(150)
-      floatingObject.initializeRadius(35)
-      floatingObject.initializeImageSize(60)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 10)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 20)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
@@ -473,8 +475,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(75)
-      floatingObject.initializeRadius(30)
-      floatingObject.initializeImageSize(50)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 15)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 30)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
@@ -488,8 +490,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(50)
-      floatingObject.initializeRadius(25)
-      floatingObject.initializeImageSize(40)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 20)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 40)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
@@ -499,8 +501,8 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(25)
-      floatingObject.initializeRadius(20)
-      floatingObject.initializeImageSize(30)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 25)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 50)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'

@@ -45,6 +45,7 @@ function newFloatingObject () {
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
     initializeFontSize: initializeFontSize,
+    initializeHierarchyRing: initializeHierarchyRing,
     initializeCurrentPosition: initializeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
     drawBackground: drawBackground,
@@ -385,6 +386,7 @@ function newFloatingObject () {
       thisObject.targetRadius = thisObject.rawRadius * 6.0
       thisObject.targetImageSize = thisObject.rawImageSize * 2.0
       thisObject.targetFontSize = thisObject.rawFontSize * 2.0
+      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 6.0
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
@@ -417,6 +419,7 @@ function newFloatingObject () {
       thisObject.targetRadius = thisObject.rawRadius * 1
       thisObject.targetImageSize = thisObject.rawImageSize * 1
       thisObject.targetFontSize = thisObject.rawFontSize * 1
+      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
 

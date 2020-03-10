@@ -48,6 +48,9 @@ function newTimeScale () {
     }
   }
 
+  let wheelDeltaDirection
+  let wheelDeltaCounter = 0
+
   return thisObject
 
   function finalize () {

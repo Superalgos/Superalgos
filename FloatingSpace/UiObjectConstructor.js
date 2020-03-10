@@ -134,7 +134,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-fix-pinned',
         iconPathOff: 'menu-fix-unpinned',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -149,7 +149,7 @@ function newUiObjectConstructor () {
         label: undefined,
         visible: true,
         icons: ['angle-to-parent-000', 'angle-to-parent-360', 'angle-to-parent-180', 'angle-to-parent-090', 'angle-to-parent-045'],
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -164,7 +164,7 @@ function newUiObjectConstructor () {
         label: undefined,
         visible: true,
         icons: ['distance-to-parent-000', 'distance-to-parent-025', 'distance-to-parent-050', 'distance-to-parent-100', 'distance-to-parent-150', 'distance-to-parent-200'],
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -180,7 +180,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-mobility-unfreeze',
         iconPathOff: 'menu-mobility-freeze',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -196,7 +196,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-tree-plus',
         iconPathOff: 'menu-tree-minus',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -210,7 +210,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-backup',
         iconPathOff: 'menu-backup',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 2
@@ -224,7 +224,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'clone',
         iconPathOff: 'clone',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 2
@@ -239,7 +239,7 @@ function newUiObjectConstructor () {
           visible: true,
           iconPathOn: 'menu-share',
           iconPathOff: 'menu-share',
-          rawRadius: 8,
+          rawRadius: 12,
           targetRadius: 0,
           currentRadius: 0,
           ring: 2
@@ -254,7 +254,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'detach',
         iconPathOff: 'detach',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 3
@@ -268,7 +268,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'delink',
         iconPathOff: 'delink',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 3
@@ -283,7 +283,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'quality',
         iconPathOff: 'quality',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 4
@@ -347,7 +347,7 @@ function newUiObjectConstructor () {
         }
 
         if (newMenuItem.rawRadius === undefined) {
-          newMenuItem.rawRadius = 8
+          newMenuItem.rawRadius = 12
         }
 
         if (newMenuItem.targetRadius === undefined) {

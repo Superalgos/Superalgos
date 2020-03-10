@@ -120,10 +120,16 @@ function newTimeScale () {
 
   function onMouseWheel (event) {
     if (IS_MAC) {
+      let sensitivity
       if (event.wheelDelta < 0) {
+        if (event.shiftKey === true) {
+          sensitivity = 20
+        } else {
+          sensitivity = 5
+        }
         if (wheelDeltaDirection === -1) {
           wheelDeltaCounter++
-          if (wheelDeltaCounter < 5) {
+          if (wheelDeltaCounter < sensitivity) {
             return
           } else {
             wheelDeltaCounter = 0
@@ -136,7 +142,7 @@ function newTimeScale () {
       } else {
         if (wheelDeltaDirection === 1) {
           wheelDeltaCounter++
-          if (wheelDeltaCounter < 5) {
+          if (wheelDeltaCounter < sensitivity) {
             return
           } else {
             wheelDeltaCounter = 0

@@ -367,11 +367,11 @@ function newFloatingObject () {
       }
     }
 
-    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= 1) {
+    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= 10) {
       if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
-        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + 1
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + 10
       } else {
-        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - 1
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - 10
       }
     }
 

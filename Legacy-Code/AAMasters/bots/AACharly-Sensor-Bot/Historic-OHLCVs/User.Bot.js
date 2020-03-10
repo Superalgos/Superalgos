@@ -20,10 +20,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     const ONE_MIN = 60000
     const ONE_DAY = ONE_MIN * 60 * 24
     
-    const MAX_OHLCVs_PER_EXECUTION =   10000000
+    const MAX_OHLCVs_PER_EXECUTION =  2000 // 10000000
     const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
     const ccxt = require('ccxt')
 
+    let fetchType = "by Time"
+    let lastId
+    let firstId
     let allOHLCVs = []
     let thisReport;
     let since
@@ -32,7 +35,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let lastFile
     let exchangeId
     let options = {}
-    let firstId
     let rateLimit = 500
     let exchange
     let uiStartDate = new Date(bot.uiStartDate)
@@ -52,7 +54,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
             exchangeId = bot.exchange.toLowerCase()
 
-            /* Applying the parameters defined by the user at the Exchange node */
+            /* Applying the parameters defined by the user at the Exchange Node Config */
             if (bot.exchangeNode.code.API !== undefined) {
                 for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
                     if (bot.exchangeNode.code.API[i].method === 'fetch_ohlcv') {
@@ -72,6 +74,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         }
                         if (bot.exchangeNode.code.API[i].hostname !== undefined) {
                             hostname = bot.exchangeNode.code.API[i].hostname
+                        }
+                        if (bot.exchangeNode.code.API[i].fetchType !== undefined) {
+                            fetchType = bot.exchangeNode.code.API[i].fetchType
                         }
                     }
                 }
@@ -94,7 +99,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 'secret': secret,
                 'timeout': 30000,
                 'enableRateLimit': true,
-                verbose: false,
+                verbose: true,
                 options: options
             }
             if (rateLimit !== undefined) {
@@ -145,6 +150,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
 
                 getContextVariables()
                 if (abort === true) { return }
+                await getFirstId()
                 await getOHLCVs()
                 if (abort === true) { return }
                 if (global.STOP_TASK_GRACEFULLY === true) {
@@ -173,6 +179,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
                         lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + GMT_SECONDS);
+                        lastId = thisReport.file.lastId
                     } else {  // This means this is the first time this process run.
                         fisrtTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
@@ -213,6 +220,33 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 }
             }
 
+            async function getFirstId() {
+                try {
+                    /* We need the first id only when we are going to fetch trades based on id and it is the first time the process runs*/
+                    if (fetchType !== "by Id") { return }
+                    if (lastId !== undefined) { return }
+                    lastId = 0
+
+                    return
+                    /*
+                    const limit = 1
+                    const exchangeClass = ccxt[exchangeId]
+                    const exchange = new exchangeClass({
+                        'timeout': 30000,
+                        'enableRateLimit': true,
+                        verbose: false
+                    })
+
+                    const OHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, undefined)
+
+                    let lastRecord = OHLCVs[OHLCVs.length - 1]
+                    lastId = lastRecord.info[firstId]
+                    */
+                } catch (err) {
+                    /* If something fails trying to get an id close to since, we just will continue without an id.*/
+                }
+            }
+
             async function getOHLCVs() {
 
                 try {
@@ -227,6 +261,16 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                         bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+
+                        /* Defining if we will query the exchange by Date or Id */
+                        if (fetchType === "by Id") {
+                            /*
+                            params = {
+                                'fromId': lastId
+                            }
+                            */
+                            since = lastId
+                        }
 
                         /* Fetching the OHLCVs from the exchange.*/
                         await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
@@ -271,6 +315,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
                             }
+
+                            lastId = OHLCVs[OHLCVs.length - 1]['id']
 
                             for (let i = 0; i < OHLCVs.length; i++) {
                                 
@@ -323,6 +369,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let headOfTheMarketReached = false
 
                     let i = 0
+                    lastId = undefined
 
                     controlLoop()
 
@@ -356,7 +403,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 /* We stop when the current candle is pointing to a time in the future.*/
                                 headOfTheMarketReached = true
                                 saveFile(currentDay)
-
 
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
                                 bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
@@ -414,7 +460,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                         hight: record[2],
                                         low: record[3],
                                         close: record[4],
-                                        volume: record[5]
+                                        volume: record[5],
+                                        id: record[6]
                                     }
                                     checkOHLCVMinute()
                                 }
@@ -440,6 +487,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                                 if (i < allOHLCVs.length - 1) {
                                     i++
                                 }
+
+                                lastId = OHLCV.id
+                                
                             }
                             lastCandle = candle
 
@@ -554,6 +604,10 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         },
                         uiStartDate: uiStartDate.toUTCString()
                     };
+
+                    if (fetchType === "by Id") {
+                        thisReport.file.lastId = lastId
+                    }
 
                     thisReport.save(onSaved);
 

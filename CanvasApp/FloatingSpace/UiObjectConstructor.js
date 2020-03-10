@@ -274,6 +274,21 @@ function newUiObjectConstructor () {
         ring: 3
       }
             )
+
+    menuItemsInitialValues.push(
+      {
+        action: 'Open Documentation',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'quality',
+        iconPathOff: 'quality',
+        rawRadius: 8,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 4
+      }
+    )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {

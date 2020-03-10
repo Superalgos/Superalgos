@@ -1,6 +1,6 @@
 
 function newDesignSpace () {
-  const MODULE_NAME = 'Strategy Space'
+  const MODULE_NAME = 'Designe Space'
   let thisObject = {
     sidePanel: undefined,
     container: undefined,

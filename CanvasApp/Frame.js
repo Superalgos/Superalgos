@@ -209,7 +209,7 @@ function newFrame () {
     }
 
    /* Now we check if the resulting point is whin the current Frame. */
-
+    if (isNaN(checkPoint.x) || isNaN(checkPoint.y)) { return false }
     if (thisObject.type === 'Circle') {
       let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
 

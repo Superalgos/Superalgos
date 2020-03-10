@@ -219,12 +219,13 @@ function newFloatingObject () {
   }
 
   function physics () {
-    collapsePhysics()
     frozenPhysics()
     /* From here on, only if they are not too far. */
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
-    thisObject.payload.uiObject.physics()
+    if (thisObject.payload.uiObject !== undefined) {
+      thisObject.payload.uiObject.physics()
+    }
     positionContraintsPhysics()
   }
 
@@ -238,18 +239,6 @@ function newFloatingObject () {
           thisObject.isFrozen = parent.payload.floatingObject.isFrozen
         }
       }
-    }
-  }
-
-  function collapsePhysics () {
-    let parent = thisObject.payload.chainParent
-    if (parent === undefined) { return }
-    if (parent.payload === undefined) { return }
-    if (parent.payload.floatingObject === undefined) { return }
-
-    thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
-    if (thisObject.collapsedManually === false) {
-      thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
     }
   }
 

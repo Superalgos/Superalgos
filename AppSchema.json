@@ -1147,6 +1147,7 @@
         "addLeftIcons": true,
         "level": 1,
         "icon": "network",
+        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#network",
         "properties": [
             {
                 "name": "networkNodes",

@@ -312,7 +312,7 @@
 
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFramesMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName =  "Data.json";
 
                                             if (dependency.dataSet !== "Multi-Period-Market") {
 
@@ -632,7 +632,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName =  "Data.json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -708,7 +708,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName =  "Data.json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -986,7 +986,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = '/Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                    let fileName = '/Data.Range.json';
                     let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

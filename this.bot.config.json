@@ -1,6 +1,6 @@
 {
-  "displayName": "Tom",
-  "codeName": "AATom",
+  "displayName": "Stairs Patterns",
+  "codeName": "Stairs-Patterns",
   "type": "Indicator Bot",
   "version": {
     "major": 1,
@@ -8,7 +8,7 @@
     "patch": 0
   },
   "dataMine": "AAMasters",
-  "profilePicture": "Tom.png",
+  "profilePicture": "Stairs Patterns.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
@@ -51,7 +51,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AATom",
+          "bot": "Stairs-Patterns",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -61,7 +61,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AAOlivia",
+          "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -112,7 +112,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -122,7 +122,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AAOlivia",
+          "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -133,7 +133,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AATom",
+          "bot": "Stairs-Patterns",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -149,24 +149,24 @@
       "codeName": "Candle-Stairs",
       "displayName": "Candle-Stairs Patters",
       "description": "Two sets of files per period that contains candle-stairs patterns.",
-      "storageAccount": "aatom",
+      "storageAccount": "Stairs-Patterns",
       "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily",
+            "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candle-Stairs/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -189,24 +189,24 @@
       "codeName": "Volume-Stairs",
       "displayName": "Volume-Stairs Patters",
       "description": "Two sets of files per period that contains volume-stairs patterns.",
-      "storageAccount": "aatom",
+      "storageAccount": "Stairs-Patterns",
       "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AATom.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily",
+            "filePath": "AAMasters/Stairs-Patterns.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volume-Stairs/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }

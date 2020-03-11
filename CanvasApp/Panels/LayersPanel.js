@@ -163,7 +163,9 @@ function newLayersPanel () {
         layer.onLayerStatusChangedEventSuscriptionId = layer.container.eventHandler.listenToEvent('Status Changed', onLayerStatusChanged)
         layer.onMouseWheelEventSuscriptionId = layer.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
-        return layer
+        layer.checkStatusAtShutDown()
+
+        return
       }
     }
   }

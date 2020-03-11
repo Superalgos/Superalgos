@@ -1,5 +1,5 @@
 ﻿
-function newAAMastersPlottersCandlesVolumesCandlesCandlePanel() {
+function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
     let thisObject = {
         fitFunction: undefined,

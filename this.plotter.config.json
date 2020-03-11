@@ -1,7 +1,7 @@
 {
   "displayName": "Plotters Candles & Volumes",
   "codeName": "PlottersCandlesVolumes",
-  "dataMine": "AAMasters",
+  "dataMine": "Masters",
   "modules": [
     {
       "codeName": "Candles",

@@ -520,7 +520,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             candlesFileContent = candlesFileContent + ']'
                             volumesFileContent = volumesFileContent + ']'
 
-                            let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
+                            let fileName =  'Data.json'
                              
                             filesToCreate++
                             fileStorage.createTextFile(getFilePath(day * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);

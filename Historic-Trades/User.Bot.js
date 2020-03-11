@@ -376,7 +376,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             if (currentRecordMinute - previousRecordMinute > 1) {
                                 createMissingEmptyFiles(previousRecordMinute, currentRecordMinute)
                             }
-                            let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
+                            let fileName =  'Data.json'
                             if (previousRecordMinute >= initialProcessTimestamp / ONE_MINUTE) {
                                 filesToCreate++
                                 fileStorage.createTextFile(getFilePath(minute * ONE_MINUTE) + '/' + fileName, fileContent + '\n', onFileCreated);
@@ -398,7 +398,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
 
                             for (let j = begin + 1; j < end; j++) {
-                                let fileName = bot.market.baseAsset + '_' + bot.market.quotedAsset + '.json'
+                                let fileName =  'Data.json'
                                 filesToCreate++
                                 fileStorage.createTextFile(getFilePath(j * ONE_MINUTE) + '/' + fileName, "[]" + '\n', onFileCreated);
 

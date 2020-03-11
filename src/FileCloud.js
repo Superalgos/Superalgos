@@ -75,8 +75,8 @@ function newFileCloud () {
           }
 
           if (pMarket !== undefined) {
-            fileName = fileName.replace('@BaseAsset', pMarket.baseAsset)
-            fileName = fileName.replace('@QuotedAsset', pMarket.quotedAsset)
+            filePath = filePath.replace('@BaseAsset', pMarket.baseAsset)
+            filePath = filePath.replace('@QuotedAsset', pMarket.quotedAsset)
           }
 
           if (pDataMine !== undefined) {

@@ -1,6 +1,6 @@
 {
-  "displayName": "Olivia",
-  "codeName": "AAOlivia",
+  "displayName": "Candles Volumes",
+  "codeName": "Candles-Volumes",
   "type": "Indicator Bot",
   "version": {
     "major": 1,
@@ -8,7 +8,7 @@
     "patch": 0
   },
   "dataMine": "AAMasters",
-  "profilePicture": "Olivia.png",
+  "profilePicture": "Candles Volumes.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
@@ -51,7 +51,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -61,7 +61,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -73,7 +73,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AAOlivia",
+          "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -123,7 +123,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -133,7 +133,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -145,7 +145,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AAOlivia",
+          "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -161,24 +161,24 @@
       "codeName": "Candles",
       "displayName": "Candles",
       "description": "Two sets of files per period that contains candles.",
-      "storageAccount": "aaolivia",
+      "storageAccount": "Candles-Volumes",
       "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+            "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -201,24 +201,24 @@
       "codeName": "Volumes",
       "displayName": "Buy and Sell Volumes",
       "description": "Two sets of files per period that contains buy and sell volumes.",
-      "storageAccount": "aaolivia",
+      "storageAccount": "Candles-Volumes",
       "shareWith": "Public",
       "dataSets": [
         {
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
+          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
+            "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }

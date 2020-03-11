@@ -52,7 +52,7 @@
 
 This process is going to do the following:
 
-Read the candles and volumes from Charly and produce a file for each day and for each period with candles and volumes.
+Read the candles and volumes from Exchange Raw Data and produce a file for each day and for each period with candles and volumes.
 
 */
 
@@ -84,9 +84,9 @@ Read the candles and volumes from Charly and produce a file for each day and for
                     let reportKey;
                     let statusReport;
 
-                    /* We look first for Charly in order to get when the market starts. */
+                    /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -120,9 +120,9 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                     contextVariables.firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
-                    /* Second, we get the report from Charly, to know when the marted ends. */
+                    /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1"  
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1"  
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -157,7 +157,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -304,7 +304,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
-                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
+                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -430,7 +430,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
@@ -775,7 +775,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

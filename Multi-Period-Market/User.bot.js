@@ -50,16 +50,16 @@
 
     This process is going to do the following:
 
-    Read the candles and volumes from Charly and produce a single Index File for Market Period. But this is the situation:
+    Read the candles and volumes from Exchange Raw Data and produce a single Index File for Market Period. But this is the situation:
 
-    Charly has a dataset organized with daily files with candles of 1 min. Olivia is writting in this process a single file for each timeFrame for the whole market.
+    Exchange Raw Data has a dataset organized with daily files with candles of 1 min. Candles Volumes is writting in this process a single file for each timeFrame for the whole market.
     Everytime this process run, must be able to resume its job and process everything pending until reaching the head of the market. So the tactic to do this is the
     following:
 
     1. First we need to read the last file written by this process, and load all the information into in-memory arrays. We will then append to this arrays the new
-    information we will get from Charly.
+    information we will get from Exchange Raw Data.
 
-    2. We know from out status report which was the last DAY we processed from Charly, but we must be carefull, because that day mightn not have been complete, if the
+    2. We know from out status report which was the last DAY we processed from Exchange Raw Data, but we must be carefull, because that day mightn not have been complete, if the
     last run found the head of the market. That means that we have to be carefull not to append candles that are already there. To simplify what we do is to discard
     all candles of the last processed day, and then we can process that full day again adding all the candles.
 
@@ -93,9 +93,9 @@
                     let reportKey;
                     let statusReport;
 
-                    /* We look first for Charly in order to get when the market starts. */
+                    /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -129,9 +129,9 @@
 
                     contextVariables.firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
-                    /* Second, we get the report from Charly, to know when the marted ends. */
+                    /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1" 
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -166,7 +166,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -452,12 +452,12 @@
                             const timeFrame = global.marketFilesPeriods[n][1];
 
                             /*
-                            Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Charly's daily files and
+                            Here we are inside a Loop that is going to advance 1 day at the time, at each pass, will ready one of Exchange Raw Data's daily files and
                             add all its candles to our in memory arrays. At the first iteration of this loop, we will add the candles that we are carrying
                             from our previous run, the ones we already have in-memory. You can see below how we discard from those candles the ones that
                             are belonging to the first day we are processing at this run, that it is exactly the same as the last day processed the privious
                             run. By discarding these candles, we are ready to run after that standard function that will just add ALL the candles found each
-                            day at Charly.
+                            day at Exchange Raw Data.
                             */
 
                             if (previousCandles !== undefined) {
@@ -507,7 +507,7 @@
                             }
 
                             /*
-                            From here on is where every iteration of the loop fully runs. Here is where we read Charly's files and add their content to whatever
+                            From here on is where every iteration of the loop fully runs. Here is where we read Exchange Raw Data's files and add their content to whatever
                             we already have in our arrays in-memory. In this way the process will run as many days needed and it should only stop when it reaches
                             the head of the market.
                             */
@@ -520,7 +520,7 @@
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
-                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
+                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -570,8 +570,8 @@
                                         let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
 
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Charly, into candles of each timeFrame
-                                        that Olivia generates. For market files those timePediods goes from 1h to 24hs.
+                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Exchange Raw Data, into candles of each timeFrame
+                                        that Candles Volumes generates. For market files those timePediods goes from 1h to 24hs.
                                         */
 
                                         for (let i = 0; i < totalOutputCandles; i++) {
@@ -651,7 +651,7 @@
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Exchange-Raw-Data";
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
@@ -888,7 +888,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

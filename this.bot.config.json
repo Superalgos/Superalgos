@@ -87,7 +87,7 @@
           "type": "Daily Files",
           "validPeriods": [ "01-min" ],
           "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/One-Min",
-          "fileName": "@AssetA_@AssetB.json"
+          "fileName": "Data.json"
         }
       ],
       "exchangeList": [
@@ -115,7 +115,7 @@
           "type": "Daily Files",
           "validPeriods": [ "01-min" ],
           "filePath": "AAMasters/AAOlivia.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/One-Min",
-          "fileName": "@AssetA_@AssetB.json"
+          "fileName": "Data.json"
         }
       ],
       "exchangeList": [

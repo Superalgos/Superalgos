@@ -175,7 +175,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getCandles -> Entering function."); }
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName = 'Data.json';
                             let dateForPath = lastTradeFileProcessed.getUTCFullYear() + '/' + utilities.pad(lastTradeFileProcessed.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileProcessed.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -226,7 +226,7 @@
                         try {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> getVolumes -> Entering function."); }
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName = 'Data.json';
                             let dateForPath = lastTradeFileProcessed.getUTCFullYear() + '/' + utilities.pad(lastTradeFileProcessed.getUTCMonth() + 1, 2) + '/' + utilities.pad(lastTradeFileProcessed.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -418,8 +418,9 @@
                                     lastTradeFile = new Date(date.valueOf());
 
                                     let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2) + '/' + utilities.pad(date.getUTCHours(), 2) + '/' + utilities.pad(date.getUTCMinutes(), 2);
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
+                                    let fileName = "Data.json"
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
+
                                     let filePath = filePathRoot + "/Output/" + TRADES_FOLDER_NAME + '/' + dateForPath;
                                     filePath += '/' + fileName
 
@@ -575,7 +576,7 @@
 
                             fileContent = "[" + fileContent + "]";
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName =  'Data.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName
@@ -649,7 +650,7 @@
 
                             fileContent = "[" + fileContent + "]";
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName =  'Data.json';
                             let dateForPath = date.getUTCFullYear() + '/' + utilities.pad(date.getUTCMonth() + 1, 2) + '/' + utilities.pad(date.getUTCDate(), 2);
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                             filePath += '/' + fileName

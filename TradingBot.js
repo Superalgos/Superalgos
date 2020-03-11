@@ -103,7 +103,7 @@
                 }
             }
 
-            /* From here we have more or less the same we used to have at JASON */
+           
             const TRADING_SIMULATION = require('./TradingSimulation.js');
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);
 
@@ -460,9 +460,6 @@
                                     return;
 
                                 }
-
-                                /* Emit event that signals that simulation files were updated */
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -928,9 +925,6 @@
                                     return;
 
                                 }
-
-                                /* Emit event that signals that simulation files were updated */
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 

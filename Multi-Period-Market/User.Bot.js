@@ -43,7 +43,7 @@
 
     This process is going to do the following:
 
-    Read the candles from Olivia and produce the bollinger bands out of them.
+    Read the candles from Candles Volumes and produce the bollinger bands out of them.
 
     */
 
@@ -109,7 +109,7 @@
 
                                     let fileName = "Data.json";
 
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Candles-Volumes";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
@@ -463,7 +463,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

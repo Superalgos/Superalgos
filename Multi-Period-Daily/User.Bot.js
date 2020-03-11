@@ -50,7 +50,7 @@
 
     This process is going to do the following:
 
-    Read the candles from Olivia and produce daily files with bollinger bands.
+    Read the candles from Candles Volumes and produce daily files with bollinger bands.
 
     */
 
@@ -85,9 +85,9 @@
                     let reportKey;
                     let statusReport;
 
-                    /* We look first for Charly in order to get when the market starts. */
+                    /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -121,9 +121,9 @@
 
                     contextVariables.firstTradeFile = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
 
-                    /* Second, we get the report from Olivia, to know when the marted ends. */
+                    /* Second, we get the report from Candles Volumes, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "AAOlivia" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -158,7 +158,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -329,7 +329,7 @@
 
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Candles-Volumes";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
@@ -368,7 +368,7 @@
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
                                     let fileName = "Data.json"
-                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "Candles-Volumes";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
@@ -857,7 +857,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "AAChris" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

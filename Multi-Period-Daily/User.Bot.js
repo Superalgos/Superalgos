@@ -328,9 +328,8 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getPreviousDayFile -> Entering function."); }
 
                                     let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-
-                                    let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
+                                    let fileName = "Data.json"
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
@@ -368,9 +367,8 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> getProcessDayFile -> Entering function."); }
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-
-                                    let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
+                                    let fileName = "Data.json"
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
@@ -598,10 +596,8 @@
                                     fileContent = "[" + fileContent + "]";
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
+                                    let fileName = 'Data.json';
+                                    let filePath = bot.filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -670,10 +666,8 @@
                                     fileContent = "[" + fileContent + "]";
 
                                     let dateForPath = processDate.getUTCFullYear() + '/' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(processDate.getUTCDate(), 2);
-                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
+                                    let fileName = 'Data.json';
+                                    let filePath = bot.filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -826,7 +820,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                    let fileName = 'Data.Range.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
 
                     filePath += '/' + fileName

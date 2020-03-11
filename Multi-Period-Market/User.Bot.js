@@ -107,9 +107,9 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> loopBody -> nextCandleFile -> Entering function."); }
 
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                    let fileName = "Data.json";
 
-                                    let filePathRoot = bot.dataMine + "/" + "AAOlivia" + "/" + bot.exchange;
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AAOlivia";
                                     let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
@@ -297,10 +297,8 @@
 
                                                     fileContent = "[" + fileContent + "]";
 
-                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                                                    let filePath = filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
+                                                    let fileName = 'Data.json';
+                                                    let filePath = bot.filePathRoot + "/Output/" + BOLLINGER_BANDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
                                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -369,10 +367,8 @@
 
                                                     fileContent = "[" + fileContent + "]";
 
-                                                    let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                                                    let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                                                    let filePath = filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
+                                                    let fileName = 'Data.json';
+                                                    let filePath = bot.filePathRoot + "/Output/" + PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
                                                     filePath += '/' + fileName
 
                                                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);

@@ -1,4 +1,4 @@
-﻿function newAAMastersPlottersTradingSimulationConditions() {
+﻿function newMastersPlottersTradingSimulationConditions() {
 
     const MODULE_NAME = "Conditions Plotter";
     const INFO_LOG = false;

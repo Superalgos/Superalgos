@@ -1,5 +1,5 @@
 ﻿
-function newAAMastersPlottersTradingSimulationSimulationExecutionSimulationExecutionPanel() {
+function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecutionPanel() {
 
 
     let thisObject = {

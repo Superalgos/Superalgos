@@ -1,7 +1,7 @@
 {
   "displayName": "Plotters Trading Simulation",
   "codeName": "PlottersTradingSimulation",
-  "dataMine": "AAMasters",
+  "dataMine": "Masters",
   "modules": [
     {
       "codeName": "TradingSimulation",

@@ -1,4 +1,4 @@
-﻿function newAAMastersPlottersTradingSimulationStrategies() {
+﻿function newMastersPlottersTradingSimulationStrategies() {
 
     const MODULE_NAME = "Strategies Plotter";
     const INFO_LOG = false;

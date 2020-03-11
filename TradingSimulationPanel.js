@@ -1,5 +1,5 @@
 ﻿
-function newAAMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
+function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
 
     let thisObject = {
         fitFunction: undefined,

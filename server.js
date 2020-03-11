@@ -218,7 +218,7 @@ function onBrowserRequest (request, response) {
       {
         try {
             let rimraf = require('rimraf')
-            rimraf.sync(process.env.STORAGE_PATH + '/AAMasters/AAMasters/AAJason.1.0')
+            rimraf.sync(process.env.STORAGE_PATH + '/Masters/Masters/AAJason.1.0')
             rimraf.sync(process.env.LOG_PATH)
 
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)

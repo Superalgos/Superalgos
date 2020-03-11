@@ -86,7 +86,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -122,7 +122,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1"  
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1"  
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -157,7 +157,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -775,7 +775,7 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

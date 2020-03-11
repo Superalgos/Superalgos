@@ -7,7 +7,7 @@
     "minor": 0,
     "patch": 0
   },
-  "dataMine": "AAMasters",
+  "dataMine": "Masters",
   "profilePicture": "Candles Volumes.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
@@ -50,7 +50,7 @@
       ],
       "statusDependencies": [
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
@@ -60,7 +60,7 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
@@ -72,7 +72,7 @@
           "waitUntilNextUpdate": true
         },
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
@@ -122,7 +122,7 @@
       ],
       "statusDependencies": [
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
@@ -132,7 +132,7 @@
           "dataSetVersion": "dataSet.V1"
         },
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
@@ -144,7 +144,7 @@
           "waitUntilNextUpdate": true
         },
         {
-          "dataMine": "AAMasters",
+          "dataMine": "Masters",
           "bot": "Candles-Volumes",
           "botVersion": {
             "major": 1,
@@ -168,17 +168,17 @@
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
+          "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
+            "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Candles/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -192,7 +192,7 @@
         }
       ],
       "plotter": {
-        "dataMine": "AAMasters",
+        "dataMine": "Masters",
         "codeName": "PlottersCandlesVolumes",
         "moduleName": "Candles"
       }
@@ -208,17 +208,17 @@
           "codeName": "Multi-Period-Market",
           "type": "Market Files",
           "validPeriods": [ "24-hs", "12-hs", "08-hs", "06-hs", "04-hs", "03-hs", "02-hs", "01-hs" ],
-          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
+          "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Market/@Period",
           "fileName": "@AssetA_@AssetB.json"
         },
         {
           "codeName": "Multi-Period-Daily",
           "type": "Daily Files",
           "validPeriods": [ "45-min", "40-min", "30-min", "20-min", "15-min", "10-min", "05-min", "04-min", "03-min", "02-min", "01-min" ],
-          "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
+          "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily/@Period/@Year/@Month/@Day",
           "fileName": "@AssetA_@AssetB.json",
           "dataRange": {
-            "filePath": "AAMasters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
+            "filePath": "Masters/Candles-Volumes.1.0/AACloud.1.1/@Exchange/dataSet.V1/Output/Volumes/Multi-Period-Daily",
             "fileName": "Data.Range.@AssetA_@AssetB.json"
           }
         }
@@ -232,7 +232,7 @@
         }
       ],
       "plotter": {
-        "dataMine": "AAMasters",
+        "dataMine": "Masters",
         "codeName": "PlottersCandlesVolumes",
         "moduleName": "Volumes"
       }

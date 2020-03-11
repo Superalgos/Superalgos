@@ -303,8 +303,8 @@ Read the candles and volumes from Charly and produce a file for each day and for
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
+                                let fileName = "Data.json"
+                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -429,8 +429,8 @@ Read the candles and volumes from Charly and produce a file for each day and for
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
+                                    let fileName = "Data.json"
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
@@ -592,7 +592,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                        let fileName = 'Data.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
@@ -643,7 +643,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                        let fileName = 'Data.json';
                         let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let filePath = bot.filePathRoot  + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame + "/" + dateForPath;
                         filePath += '/' + fileName
@@ -732,7 +732,7 @@ Read the candles and volumes from Charly and produce a file for each day and for
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = 'Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                    let fileName = 'Data.Range.json';
                     let filePath = bot.filePathRoot + "/Output/" + pProductFolder + "/" + bot.process;
                     filePath += '/' + fileName
 

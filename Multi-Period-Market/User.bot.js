@@ -269,7 +269,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> Entering function."); }
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName = 'Data.json';
                             let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
@@ -308,7 +308,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> Entering function."); }
 
-                            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                            let fileName = 'Data.json';
                             let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                             filePath += '/' + fileName
 
@@ -519,8 +519,8 @@
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> Entering function."); }
 
                                 let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
+                                let fileName = "Data.json"
+                                let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -650,8 +650,8 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> Entering function."); }
 
                                     let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
-                                    let fileName = market.baseAsset + '_' + market.quotedAsset + ".json"
-                                    let filePathRoot = bot.dataMine + "/" + "AACharly" + "/" + bot.exchange;
+                                    let fileName = "Data.json"
+                                    let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + bot.dataMine + "/" + "AACharly";
                                     let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
                                     filePath += '/' + fileName
 
@@ -797,7 +797,7 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                        let fileName = 'Data.json';
                         let filePath = bot.filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 
@@ -847,7 +847,7 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                        let fileName = 'Data.json';
                         let filePath = bot.filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + "/" + bot.process + "/" + timeFrame;
                         filePath += '/' + fileName
 

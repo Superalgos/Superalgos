@@ -428,7 +428,7 @@ function newCircularMenuItem () {
 
         if (thisObject.currentRadius >= thisObject.targetRadius) {
           labelPoint = {
-            x: menuPosition.x + thisObject.currentRadius + 20,
+            x: menuPosition.x + thisObject.currentRadius + 25,
             y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
           }
 

@@ -135,7 +135,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                 try {
                     let reportKey;
 
-                    reportKey = "AAMasters" + "-" + "AACharly" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {

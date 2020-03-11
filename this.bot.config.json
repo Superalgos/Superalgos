@@ -1,6 +1,6 @@
 {
-  "displayName": "Charly",
-  "codeName": "AACharly",
+  "displayName": "Exchange Raw Data",
+  "codeName": "Exchange-Raw-Data",
   "type": "Sensor Bot",
   "version": {
     "major": 1,
@@ -8,7 +8,7 @@
     "patch": 0
   },
   "dataMine": "AAMasters",
-  "profilePicture": "Charly.png",
+  "profilePicture": "Exchange Raw Data.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
@@ -41,7 +41,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -81,7 +81,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -91,7 +91,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -131,7 +131,7 @@
       "statusDependencies": [
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -142,7 +142,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -152,7 +152,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0
@@ -163,7 +163,7 @@
         },
         {
           "dataMine": "AAMasters",
-          "bot": "AACharly",
+          "bot": "Exchange-Raw-Data",
           "botVersion": {
             "major": 1,
             "minor": 0

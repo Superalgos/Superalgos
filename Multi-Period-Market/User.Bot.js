@@ -786,7 +786,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "Stairs-Patterns" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Stairs-Patterns" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

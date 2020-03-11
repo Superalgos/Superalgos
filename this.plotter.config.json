@@ -1,7 +1,7 @@
 {
   "displayName": "Plotters Bollinger Bands",
   "codeName": "PlottersBollingerBands",
-  "dataMine": "AAMasters",
+  "dataMine": "Masters",
   "modules": [
     {
       "codeName": "BollingerBands",

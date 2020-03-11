@@ -1,4 +1,4 @@
-﻿function newAAMastersPlottersBollingerBandsPercentageBandwidth() {
+﻿function newMastersPlottersBollingerBandsPercentageBandwidth() {
 
     const MODULE_NAME = "Bands Plotter";
     const ERROR_LOG = true;

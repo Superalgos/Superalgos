@@ -463,7 +463,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

@@ -87,7 +87,7 @@
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "AAMasters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -123,7 +123,7 @@
 
                     /* Second, we get the report from Candles Volumes, to know when the marted ends. */
 
-                    reportKey = "AAMasters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -158,7 +158,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -857,7 +857,7 @@
 
                 try {
 
-                    let reportKey = "AAMasters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

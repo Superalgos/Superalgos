@@ -41,6 +41,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     let fisrtTimeThisProcessRun = false
     let limit = 1000 // This is the default value
     let hostname
+    let lastCandleOfTheDay
 
     return thisObject;
 
@@ -122,22 +123,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
     function start(callBackFunction) {
         try {
 
-            let lastCandle = {
-                begin: 0,
-                end: 0,
-                open: 0,
-                close: 0,
-                min: 0,
-                max: 0
-            }
-
-            let lastVolume = {
-                begin: 0,
-                end: 0,
-                buy: 0,
-                sell: 0
-            }
-
             if (global.STOP_TASK_GRACEFULLY === true) {
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return
@@ -180,6 +165,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + GMT_SECONDS);
                         lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + GMT_SECONDS);
                         lastId = thisReport.file.lastId
+                        lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                     } else {  // This means this is the first time this process run.
                         fisrtTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
@@ -368,8 +354,28 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                     let heartBeatCounter = 0
                     let headOfTheMarketReached = false
 
+                    let lastCandle = {
+                        begin: 0,
+                        end: 0,
+                        open: 0,
+                        close: 0,
+                        min: 0,
+                        max: 0
+                    }
+
+                    let lastVolume = {
+                        begin: 0,
+                        end: 0,
+                        buy: 0,
+                        sell: 0
+                    }
+
                     let i = 0
                     lastId = undefined
+
+                    if (lastCandleOfTheDay !== undefined) {
+                        lastCandle = JSON.parse(JSON.stringify(lastCandleOfTheDay))
+                    }
 
                     controlLoop()
 
@@ -501,10 +507,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             }
 
                             /* Add the candle to the file content.*/
-
                             candlesFileContent = candlesFileContent + separator + '[' + candle.min + "," + candle.max + "," + candle.open + "," + candle.close + "," + candle.begin + "," + candle.end + "]";
                             volumesFileContent = volumesFileContent + separator + '[' + volume.buy + "," + volume.sell + "," + volume.begin + "," + volume.end + "]";
 
+                            /* We store the last candle of the day in order to have a previous candles during next execution. */
+                            if (j === 1440 - 1) {
+                                lastCandleOfTheDay = JSON.parse(JSON.stringify(candle))
+                            }
                         }
 
                         previousDay = currentDay
@@ -602,7 +611,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileSt
                             hours: beginingOfMarket.getUTCHours(),
                             minutes: beginingOfMarket.getUTCMinutes()
                         },
-                        uiStartDate: uiStartDate.toUTCString()
+                        uiStartDate: uiStartDate.toUTCString(),
+                        lastCandleOfTheDay: lastCandleOfTheDay
                     };
 
                     if (fetchType === "by Id") {

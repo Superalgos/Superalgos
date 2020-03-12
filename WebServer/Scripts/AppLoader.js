@@ -171,22 +171,22 @@ function newAppLoader() {
 
     function defaultPlotters() {
         return [  
-            'Plotters/AAMasters/Plotters-Candles-Volumes/Candles.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/Volumes.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
-            'Plotters/AAMasters/Plotters-Stairs-Patterns/CandleStairs.js',
-            'Plotters/AAMasters/Plotters-Stairs-Patterns/VolumeStairs.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBands.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulation.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Conditions.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Strategies.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Trades.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecution.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
+            'Plotters/Masters/Plotters-Candles-Volumes/Candles.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/CandlePanel.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/Volumes.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/VolumePanel.js',
+            'Plotters/Masters/Plotters-Stairs-Patterns/CandleStairs.js',
+            'Plotters/Masters/Plotters-Stairs-Patterns/VolumeStairs.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulation.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/Conditions.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/Strategies.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/Trades.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/SimulationExecution.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
         ]
     }
 

@@ -173,7 +173,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
                                             let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName =  "Data.json";
 
                                             let filePath
                                             if (dependency.dataSet === "Multi-Period-Market") {

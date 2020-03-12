@@ -570,7 +570,7 @@
                     let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate) }
-                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate)
+                    console.log("Trading-Engine -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate)
 
                     bot.sessionHeartBeat(processingDate) // tell the world we are alive and doing well
                 }

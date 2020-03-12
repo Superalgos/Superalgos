@@ -205,7 +205,7 @@
 
                     /* Simplifying the access to basic info */
                     botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
-                    botConfig.exchange = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode.code.codeName
+                    botConfig.exchange = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode.name
                     botConfig.exchangeNode = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode
                     botConfig.market = {
                         baseAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent.code.codeName,
@@ -225,7 +225,7 @@
                     botConfig.loopCounter = 0;                   
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.dataMine + "/" + botConfig.codeName + "/" + botConfig.exchange;
+                    botConfig.filePathRoot = botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset + "/" + botConfig.dataMine + "/" + botConfig.codeName  ;
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id

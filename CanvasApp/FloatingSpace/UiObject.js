@@ -289,7 +289,11 @@ function newUiObject () {
       if (nowTimestamp - lastHeartBeat.valueOf() > ONE_MIN) {
         lastHeartBeat = undefined
         thisObject.isRunning = false
+        setValue('')
       }
+    } else {
+      thisObject.isRunning = false
+      setValue('')
     }
   }
 
@@ -313,9 +317,12 @@ function newUiObject () {
           thisObject.isRunning = true
         } else {
           thisObject.isRunning = false
+          setValue('')
         }
 
         return
+      } else {
+        heartBeatPhysics()
       }
     }
   }

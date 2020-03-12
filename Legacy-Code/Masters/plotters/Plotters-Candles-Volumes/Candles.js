@@ -602,6 +602,9 @@
                     
                     candle = candles[i];
 
+                    /* Skip the first candle with zero at open */
+                    if (candle.open === 0) { continue }
+
                     if (candle.candlePoint2.x < canvas.chartingSpace.viewport.visibleArea.bottomLeft.x || candle.candlePoint1.x > canvas.chartingSpace.viewport.visibleArea.bottomRight.x) {
                         continue
                     }

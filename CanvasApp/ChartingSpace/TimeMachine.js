@@ -540,6 +540,11 @@ function newTimeMachine () {
   function drawBackground () {
     drawChartsBackground()
     if (thisObject.container.frame.isInViewPort()) {
+      if (drawScales === true) {
+        // if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) { thisObject.timeScale.drawBackground() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawBackground() }
+      }
+
       let maxElementsPlotted = 0
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]

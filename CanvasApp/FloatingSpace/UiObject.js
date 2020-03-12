@@ -97,6 +97,7 @@ function newUiObject () {
   let eventSubscriptionIdHeartbeat
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
+  let newUiObjectCounter = 25
 
   return thisObject
 
@@ -280,6 +281,14 @@ function newUiObject () {
     referenceDetachingPhysics()
     referenceAttachingPhysics()
     childrenRunningPhysics()
+    newObjectPhysics()
+  }
+
+  function newObjectPhysics () {
+    newUiObjectCounter--
+    if (newUiObjectCounter < 0) {
+      newUiObjectCounter = 0
+    }
   }
 
   function heartBeatPhysics () {
@@ -939,6 +948,9 @@ function newUiObject () {
       }
       if (thisObject.payload.floatingObject.isFrozen === true) {
         LINE_STYLE = UI_COLOR.TURQUOISE
+      }
+      if (newUiObjectCounter > 0) {
+        LINE_STYLE = UI_COLOR.GREY
       }
 
       browserCanvasContext.beginPath()

@@ -449,12 +449,18 @@ function newRateScale () {
     if (rate < 1) { decimals = 4 }
     if (Math.trunc(rate * 100) < 1) { decimals = 6 }
     if (Math.trunc(rate * 10000) < 1) { decimals = 8 }
+    if (Math.trunc(rate * 1000000) < 1) { decimals = 10 }
     let label = (rate - Math.trunc(rate)).toFixed(decimals)
     let labelArray = label.split('.')
     let label1 = thisObject.payload.node.payload.parentNode.name
     let label2 = (Math.trunc(rate)).toLocaleString()
     let label3 = labelArray[1]
     if (label3 === undefined) { label3 = '00' }
+
+    if (rate < 1) {
+      label2 = label
+      label3 = ''
+    }
 
     let icon1 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.payload.parentNode.type)
     let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)

@@ -139,6 +139,7 @@ function newAnimation () {
       }
 
       /* Media Recording */
+      videoRecorder.physics()
       if (areWeRecording === true) {
         videoRecorder.recordCanvas()
       }

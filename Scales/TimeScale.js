@@ -307,7 +307,7 @@ function newTimeScale () {
       }
 
       let time = getDateFromPointAtBrowserCanvas(timePoint, limitingContainer, coordinateSystem)
-      let labels = scaleLabels(time)
+      let labels = scaleLabels(time, true)
       let labelDisplace = labels[1].length * FONT_SIZE * FONT_ASPECT_RATIO
 
       let timePoint1 = {
@@ -323,8 +323,8 @@ function newTimeScale () {
       let fitPoint2 = thisObject.fitFunction(timePoint2)
 
       if (fitPoint1.x === timePoint1.x && fitPoint2.x === timePoint2.x) {
-        drawLabel(labels[1], 1 / 2, 0, 0, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
-        drawLabel(labels[2], 1 / 2, 0, 20, 27, 9, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+        drawLabel(labels[1], 1 / 2, 0, 18, 17, FONT_SIZE, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
+        drawLabel(labels[2], 1 / 2, 0, 18, 30, 12, thisObject.container, UI_COLOR.GREY, timePoint1.x, undefined)
       }
     }
   }
@@ -356,13 +356,18 @@ function newTimeScale () {
     drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }
 
-  function scaleLabels (date) {
+  function scaleLabels (date, excludeYear) {
     let label = date.toUTCString()
     let labelArray = label.split(' ')
     let label1 = thisObject.payload.node.payload.parentNode.name
     let label2 = labelArray[1] + ' ' + labelArray[2] + ' ' + labelArray[3]
     let label3 = labelArray[4]
 
+    if (excludeYear === true) {
+      label2 = labelArray[1] + ' ' + labelArray[2]
+    }
+
     return [label1, label2, label3]
   }
 }
+

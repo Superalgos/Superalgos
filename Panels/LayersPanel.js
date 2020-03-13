@@ -391,6 +391,11 @@ function newLayersPanel () {
   }
 
   function drawHeader () {
+    if (thisObject.payload === undefined) { return }
+    if (thisObject.payload.node === undefined) { return }
+    if (thisObject.payload.node.payload.parentNode === undefined) { return }
+    if (thisObject.payload.node.payload.parentNode.payload.parentNode === undefined) { return }
+
     let label1 = thisObject.payload.node.payload.parentNode.payload.parentNode.name.substring(0, 18)
     let label2 = thisObject.payload.node.payload.parentNode.name.substring(0, 18)
     let label3 = ''

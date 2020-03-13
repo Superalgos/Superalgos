@@ -9,6 +9,7 @@ function newSuperScriptsFunctions () {
     try {
       let clone = functionLibraryNodeCloning.getNodeClone
       let executionResult = true
+      let superAction = node
 
       function setup (templateClone, target, exchange, exchangeNodeType, arrayPropertyName) {
         spawnPosition.x = target.payload.position.x
@@ -64,7 +65,6 @@ function newSuperScriptsFunctions () {
         executionResult = false
       }
 
-      let superAction = node
       let masterScript = node.payload.referenceParent
 
       eval(masterScript.javascriptCode.code)

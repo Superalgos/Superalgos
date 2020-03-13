@@ -448,7 +448,7 @@ function newRateScale () {
       }
       let ratePoint2 = {
         x: 0,
-        y: TOP_SPACE_HEIGHT + SEPARATION * (i + 1) - FONT_SIZE
+        y: TOP_SPACE_HEIGHT + SEPARATION * (i + 0)
       }
 
       let rate = getRateFromPointAtBrowserCanvas(ratePoint1, rateCalculationsContainer, coordinateSystem)
@@ -474,8 +474,7 @@ function newRateScale () {
     let icon2 = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     let backgroundColor = UI_COLOR.BLACK
-    let rate = thisObject.rate
-    let labels = scaleLabels(rate)
+    let labels = scaleLabels(thisObject.rate)
 
     drawScaleDisplay(labels[0], labels[1], labels[2], 0, 0, 0, icon1, icon2, thisObject.container, backgroundColor)
   }

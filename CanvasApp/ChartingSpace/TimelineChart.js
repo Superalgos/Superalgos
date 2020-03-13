@@ -379,7 +379,6 @@ function newTimelineChart () {
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
       if (drawScales === true) {
-        // if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) { thisObject.timeScale.drawBackground() }
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawBackground() }
       }
       drawChartsBackground()

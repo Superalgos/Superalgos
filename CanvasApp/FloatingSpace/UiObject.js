@@ -298,17 +298,17 @@ function newUiObject () {
       if (nowTimestamp - lastHeartBeat.valueOf() > ONE_MIN) {
         lastHeartBeat = undefined
         thisObject.isRunning = false
-        setValue('')
+        valueCounter = 0
       }
     } else {
       thisObject.isRunning = false
-      setValue('')
     }
   }
 
   function childrenRunningPhysics () {
     let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
     if (nodeDefinition.properties === undefined) { return }
+    let monitorChildrenRunning = false
     for (let i = 0; i < nodeDefinition.properties.length; i++) {
       let property = nodeDefinition.properties[i]
       if (property.monitorChildrenRunning === true) {
@@ -326,13 +326,14 @@ function newUiObject () {
           thisObject.isRunning = true
         } else {
           thisObject.isRunning = false
-          setValue('')
+          valueCounter = 0
         }
-
+        monitorChildrenRunning = true
         return
-      } else {
-        heartBeatPhysics()
       }
+    }
+    if (monitorChildrenRunning === false) {
+      heartBeatPhysics()
     }
   }
 
@@ -638,7 +639,7 @@ function newUiObject () {
     if (value !== undefined) {
       currentValue = value
       hasValue = true
-      valueCounter = 500
+      valueCounter = 100
     }
   }
 
@@ -667,6 +668,8 @@ function newUiObject () {
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
       systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
 
+      thisObject.isRunning = true
+
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       }
@@ -687,8 +690,6 @@ function newUiObject () {
       type: 'Secondary Action Already Executed'
     }
     stop(callBackFunction, event)
-
-    thisObject.isRunning = true
   }
 
   function stop (callBackFunction, event) {
@@ -1114,6 +1115,7 @@ function newUiObject () {
 
   function drawValue () {
     if (hasValue === false) { return }
+    // if (currentValue === undefined || currentValue === '') { return }
 
 /* Text Follows */
     let position = {

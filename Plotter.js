@@ -24,7 +24,6 @@ function newPlotter () {
   thisObject.container = container
 
   let coordinateSystem
-  let plotterModuleConfig
   let slotHeight = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
   let mustRecalculateDataPoints = false
   let atMousePositionFillStyles = new Map()
@@ -58,6 +57,7 @@ function newPlotter () {
   return thisObject
 
   function finalize () {
+    console.log('finalize')
     try {
       /* Stop listening to the necesary events. */
       thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
@@ -82,7 +82,6 @@ function newPlotter () {
 
       finalizeCoordinateSystem()
       coordinateSystem = undefined
-      plotterModuleConfig = undefined
       slotHeight = undefined
       mustRecalculateDataPoints = undefined
       atMousePositionFillStyles = undefined
@@ -93,6 +92,7 @@ function newPlotter () {
   }
 
   function initialize (pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
+    console.log('initialize')
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
@@ -135,24 +135,29 @@ function newPlotter () {
   }
 
   function initializeCoordinateSystem () {
+    console.log('initializeCoordinateSystem')
     scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
   }
 
   function finalizeCoordinateSystem () {
+    console.log('finalizeCoordinateSystem')
     coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
   }
 
   function onScaleChanged () {
+    console.log('onScaleChanged')
     mustRecalculateDataPoints = true
     recalculate()
   }
 
   function onMouseOver (event) {
+    console.log('onMouseOver')
     let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
     userPositionDate = userPosition.valueOf()
   }
 
   function onMarketFilesUpdated () {
+    console.log('onMarketFilesUpdated')
     try {
       let newMarketFile = marketFiles.getFile(timeFrame)
       if (newMarketFile !== undefined) {
@@ -166,6 +171,7 @@ function newPlotter () {
   }
 
   function onDailyFilesUpdated () {
+    console.log('onDailyFilesUpdated')
     try {
       let newFileCursor = dailyFiles.getFileCursor(timeFrame)
       if (newFileCursor !== undefined) {
@@ -179,6 +185,7 @@ function newPlotter () {
   }
 
   function getContainer (point) {
+    console.log('getContainer')
     try {
       let container
       /* First we check if this point is inside this space. */
@@ -194,6 +201,7 @@ function newPlotter () {
   }
 
   function setTimeFrame (pTimeFrame) {
+    console.log('setTimeFrame')
     try {
       if (timeFrame !== pTimeFrame) {
         timeFrame = pTimeFrame
@@ -220,16 +228,19 @@ function newPlotter () {
   }
 
   function setDatetime (pDatetime) {
+    console.log('setDatetime')
     datetime = pDatetime
   }
 
   function setCoordinateSystem (pCoordinateSystem) {
+    console.log('setCoordinateSystem')
     finalizeCoordinateSystem()
     coordinateSystem = pCoordinateSystem
     initializeCoordinateSystem()
   }
 
   function onDailyFileLoaded (event) {
+    console.log('onDailyFileLoaded')
     try {
       if (event.currentValue === event.totalValue) {
         /* This happens only when all of the files in the cursor have been loaded. */
@@ -241,6 +252,7 @@ function newPlotter () {
   }
 
   function draw () {
+    console.log('draw')
     try {
       thisObject.container.frame.draw()
       plotChart()
@@ -250,6 +262,7 @@ function newPlotter () {
   }
 
   function recalculate () {
+    console.log('recalculate')
     try {
       if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
         recalculateUsingMarketFiles()
@@ -263,6 +276,7 @@ function newPlotter () {
   }
 
   function jsonifyDataFile (dataFile, recordDefinition, farLeftDate, farRightDate) {
+    console.log('jsonifyDataFile')
       /*
           This function has as an input the raw data on files and creates with it an array of JSON objects
           with not calculated properties for later being consumed by Formulas
@@ -299,6 +313,7 @@ function newPlotter () {
   }
 
   function calculationsProcedure (jsonArray, recordDefinition, calculationsProcedure, timeFrame) {
+    console.log('calculationsProcedure')
       /*
           This function has as an input an array of JSON objects, and it adds calculated properties to
           complete the set of properties that will be available.
@@ -370,6 +385,7 @@ function newPlotter () {
   }
 
   function recalculateUsingDailyFiles () {
+    console.log('recalculateUsingDailyFiles')
     try {
       if (fileCursor === undefined) { return }    // We need to wait until there is a fileCursor
       if (fileCursor.files.size === 0) { return } // We need to wait until there are files in the cursor
@@ -424,6 +440,7 @@ function newPlotter () {
   }
 
   function recalculateUsingMarketFiles () {
+    console.log('recalculateUsingMarketFiles')
     try {
       if (marketFile === undefined) { return }    // Initialization not complete yet.
 
@@ -463,6 +480,7 @@ function newPlotter () {
   }
 
   function recalculateScale () {
+    console.log('recalculateScale')
     try {
       if (coordinateSystem.maxValue > 0) { return } // Already calculated.
       /* First we calculate the default scale */
@@ -488,6 +506,7 @@ function newPlotter () {
   }
 
   function plotChart () {
+    console.log('plotChart')
     try {
       /* Clean the pannel at places where there is no record. */
       let currentRecord = {
@@ -498,6 +517,10 @@ function newPlotter () {
       for (let i = 0; i < records.length; i++) {
         let record = records[i]
 
+        /*
+        In the formulas to create plotters, we allos users to reference the previous record.
+        To enable that we need to link all records to the previous one in this way.
+        */
         if (i == 0) {
           record.previous = record
         } else {
@@ -555,7 +578,7 @@ function newPlotter () {
           if (logged === false) {
             logged = true
           }
-          /* Only calculate the datapoints for this record, if we have not calculate it before. */
+          /* It seems we need to calculate the data points this time. */
           for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
             let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
             for (let j = 0; j < chartPoints.points.length; j++) {
@@ -582,13 +605,6 @@ function newPlotter () {
 
               /* Store the data point at the local map */
                 dataPoints.set(point.id, dataPoint)
-
-                if (plotterModuleConfig !== undefined) {
-                  if (plotterModuleConfig.slot !== undefined) {
-                  /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                    dataPoint.y = (-1) * y * coordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + canvas.chartingSpace.viewport.visibleArea.topLeft.y
-                  }
-                }
               }
             }
           }
@@ -769,7 +785,7 @@ function newPlotter () {
         }
       }
 
-      if (coordinateSystem.autoMinYScale === true || coordinateSystem.autosMaxScale === true) {
+      if (coordinateSystem.autoMinYScale === true || coordinateSystem.autoMinYScale === true) {
         mustRecalculateDataPoints = true
       } else {
         mustRecalculateDataPoints = false
@@ -782,6 +798,7 @@ function newPlotter () {
   }
 
   function onViewportZoomChanged (event) {
+    console.log('onViewportZoomChanged')
     try {
       mustRecalculateDataPoints = true
       recalculate()
@@ -791,6 +808,7 @@ function newPlotter () {
   }
 
   function onDragFinished () {
+    console.log('onDragFinished')
     try {
       recalculate()
     } catch (err) {
@@ -799,14 +817,17 @@ function newPlotter () {
   }
 
   function onDisplace (event) {
+    console.log('onDisplace')
     recalculateAll(event)
   }
 
   function onViewportPositionChanged (event) {
+    console.log('onViewportPositionChanged')
     recalculateAll(event)
   }
 
   function recalculateAll (event) {
+    console.log('recalculateAll')
     mustRecalculateDataPoints = true
     if (event !== undefined) {
       if (event.recalculate === true) {

@@ -976,7 +976,7 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([0, chainLineCounter, 5, 500 - chainLineCounter])
+      browserCanvasContext.setLineDash([0, chainLineCounter, 2, 3, 0, 500 - chainLineCounter])
       browserCanvasContext.lineWidth = 2
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])

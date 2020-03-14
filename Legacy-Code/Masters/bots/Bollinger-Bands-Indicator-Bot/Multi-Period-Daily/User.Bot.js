@@ -88,7 +88,7 @@
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -254,8 +254,6 @@
                     function advanceTime() {
 
                         try {
-
-                            logger.newInternalLoop(bot.codeName, bot.process);
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> advanceTime -> Entering function."); }
 
@@ -866,6 +864,7 @@
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
+                    logger.newInternalLoop(bot.codeName, bot.process, lastFileDate); 
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

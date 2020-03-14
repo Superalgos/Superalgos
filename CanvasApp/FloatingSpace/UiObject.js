@@ -98,6 +98,8 @@ function newUiObject () {
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
   let newUiObjectCounter = 25
+  let referenceLineCounter = 0
+  let chainLineCounter = 0
 
   return thisObject
 
@@ -282,6 +284,22 @@ function newUiObject () {
     referenceAttachingPhysics()
     childrenRunningPhysics()
     newObjectPhysics()
+    referenceLinePhysics()
+    chainLinePhysics()
+  }
+
+  function referenceLinePhysics () {
+    referenceLineCounter = referenceLineCounter + 2
+    if (referenceLineCounter > 500) {
+      referenceLineCounter = 0
+    }
+  }
+
+  function chainLinePhysics () {
+    chainLineCounter = chainLineCounter - 5
+    if (chainLineCounter < 0) {
+      chainLineCounter = 500
+    }
   }
 
   function newObjectPhysics () {
@@ -958,6 +976,15 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+      browserCanvasContext.setLineDash([0, chainLineCounter, 5, 500 - chainLineCounter])
+      browserCanvasContext.lineWidth = 2
+      browserCanvasContext.stroke()
+      browserCanvasContext.setLineDash([0, 0])
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
       browserCanvasContext.setLineDash([3, 47])
       browserCanvasContext.lineWidth = 3
       browserCanvasContext.stroke()
@@ -1019,7 +1046,7 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 0, 500])
+      browserCanvasContext.setLineDash([0, referenceLineCounter, 1, 9, 2, 8, 3, 7, 4, 6, 0, 500 - referenceLineCounter])
       browserCanvasContext.lineWidth = 4
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
@@ -1455,3 +1482,4 @@ function newUiObject () {
     }
   }
 }
+

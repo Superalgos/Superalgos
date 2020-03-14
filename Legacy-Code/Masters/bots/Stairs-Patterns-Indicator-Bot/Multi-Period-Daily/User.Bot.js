@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const INTENSIVE_LOG = false;
@@ -24,6 +24,7 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
+    let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let statusDependencies;
     let beginingOfMarket

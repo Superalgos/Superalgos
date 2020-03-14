@@ -1,4 +1,4 @@
-﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, fileStorage) {
+﻿exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_STORAGE) {
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
@@ -17,6 +17,7 @@
     };
 
     let statusDependencies;
+    let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     return thisObject;
 

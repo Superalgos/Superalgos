@@ -8,6 +8,7 @@ exports.newFileStorage = function newFileStorage(logger) {
     const RETRY_TIME_IN_MILISECONDS = 250
     let currentRetryGetTextFile = 0
     let currentRetryWriteTextFile = 0
+    let currentRetryDeleteTextFile = 0
 
     if (logger === undefined) { // Dummy logger
         logger = {}
@@ -242,14 +243,14 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
 
         function retry() {
-            if (currentRetryWriteTextFile < MAX_RETRY) {
-                currentRetryWriteTextFile++
-                logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
+            if (currentRetryDeleteTextFile < MAX_RETRY) {
+                currentRetryDeleteTextFile++
+                logger.write(MODULE_NAME, '[WARN] FileStorage -> deleteTextFile -> retry -> Will try to delete the file again -> Retry #: ' + currentRetryDeleteTextFile)
                 createTextFile(filePath, fileContent, callBackFunction)
             } else {
-                currentRetryWriteTextFile = 0
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')
-                logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> file = ' + fileLocation)
+                currentRetryDeleteTextFile = 0
+                logger.write(MODULE_NAME, '[ERROR] FileStorage -> deleteTextFile -> retry -> Max retries reached deleting a file. Giving up.')
+                logger.write(MODULE_NAME, '[ERROR] FileStorage -> deleteTextFile -> retry -> file = ' + fileLocation)
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
             }
         }

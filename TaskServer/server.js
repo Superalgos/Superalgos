@@ -163,8 +163,7 @@ function bootLoader() {
         let event = {
             seconds: (new Date()).getSeconds()
         }
-        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
-
+         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
     }
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {

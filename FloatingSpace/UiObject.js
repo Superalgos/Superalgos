@@ -1505,6 +1505,12 @@ function newUiObject () {
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
         if (canvas.floatingSpace.inMapMode === true) {
           totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              totalImageSize = totalImageSize / 4
+            }
+          }
         }
         browserCanvasContext.drawImage(
           icon, position.x - totalImageSize / 2,

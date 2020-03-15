@@ -99,7 +99,7 @@ function newFloatingSpace () {
   }
 
   function transformImagesizeToMap (imageSize) {
-    const IMAGE_REDUCTION_FACTOR = 5
+    const IMAGE_REDUCTION_FACTOR = 3
     return imageSize / IMAGE_REDUCTION_FACTOR
   }
 
@@ -126,6 +126,7 @@ function newFloatingSpace () {
   function isItFar (payload, dontCheckParent) {
     /* If for any reason the paylaod is undefined we return false */
     if (payload === undefined) { return false }
+    if (thisObject.inMapMode === true) { return false }
 
     let radarFactor = 2 // How big is the margin
 

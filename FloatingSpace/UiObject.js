@@ -1108,6 +1108,16 @@ function newUiObject () {
           y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
+        if (canvas.floatingSpace.inMapMode === true) {
+          labelPoint.y = labelPoint.y - 20
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              return
+            }
+          }
+        }
+
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
@@ -1321,6 +1331,9 @@ function newUiObject () {
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.8
+          if (canvas.floatingSpace.inMapMode === true) {
+            VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+          }
           let OPACITY = 1
 
           browserCanvasContext.beginPath()
@@ -1517,3 +1530,4 @@ function newUiObject () {
     }
   }
 }
+

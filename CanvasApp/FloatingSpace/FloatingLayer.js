@@ -24,7 +24,6 @@ function newFloatingLayer () {
     removeFloatingObject: removeFloatingObject,
     getFloatingObject: getFloatingObject,
     physics: physics,
-    changeTargetRepulsion: changeTargetRepulsion,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
@@ -616,24 +615,6 @@ function newFloatingLayer () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
-    }
-  }
-
-  function changeTargetRepulsion (pDelta) {
-    try {
-      if (pDelta > 0) {
-        pDelta = 1
-      } else {
-        pDelta = -1
-      }
-
-      maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 1000
-
-      if (maxTargetRepulsionForce < 0.0000000001) {
-        maxTargetRepulsionForce = 0.0000000001
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] changeTargetRepulsion -> err= ' + err.stack) }
     }
   }
 

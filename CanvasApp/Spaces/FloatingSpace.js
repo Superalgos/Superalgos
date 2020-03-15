@@ -13,6 +13,7 @@ function newFloatingSpace () {
     container: undefined,
     inMapMode: false,
     toggleMapMode: toggleMapMode,
+    enterMapMode: enterMapMode,
     exitMapMode: exitMapMode,
     transformPointToMap: transformPointToMap,
     transformRadiusToMap: transformRadiusToMap,
@@ -54,15 +55,11 @@ function newFloatingSpace () {
   let visible = false
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
-  let eventSubscriptionId
   let onDragStartedEventSubscriptionId
-
-  let doubleClickCounter = 0
 
   return thisObject
 
   function finalize () {
-    thisObject.container.eventHandler.stopListening(eventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
 
     thisObject.floatingLayer.finalize()
@@ -81,7 +78,6 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor = newUiObjectConstructor()
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
-    eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
   }
 
@@ -105,19 +101,17 @@ function newFloatingSpace () {
     return imageSize / IMAGE_REDUCTION_FACTOR
   }
 
-  function onDoubleClick () {
-    doubleClickCounter = 0
+  function enterMapMode () {
     thisObject.inMapMode = true
   }
 
   function exitMapMode () {
     thisObject.inMapMode = false
-    doubleClickCounter = 0
   }
 
   function toggleMapMode () {
     if (thisObject.inMapMode === false) {
-      thisObject.inMapMode = true
+      enterMapMode()
     } else {
       exitMapMode()
     }
@@ -125,15 +119,43 @@ function newFloatingSpace () {
 
   function onDragStarted (event) {
     if (thisObject.inMapMode === false) {
-      if (doubleClickCounter > 0) {
-        onDoubleClick()
-        return
-      } else {
-        doubleClickCounter = 8
-      }
+      if (event.buttons !== 2) { return }
+
+      enterMapMode()
     } else {
-      thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
-      thisObject.container.frame.position.y = -event.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
+      if (event.buttons !== 1) { return }
+
+      let mousePosition = {
+        x: event.x,
+        y: event.y
+      }
+
+      let mouseAtSpace = {
+        x: mousePosition.x / browserCanvas.width * SPACE_SIZE,
+        y: mousePosition.y / browserCanvas.height * SPACE_SIZE
+      }
+      /* Let's see if we can snap to some of the root nodes that are isHierarchyHead */
+      let snapCandidateNodes = canvas.designSpace.workspace.getHierarchyHeads()
+      for (let i = 0; i < snapCandidateNodes.length; i++) {
+        let node = snapCandidateNodes[i]
+        let nodePosition = {
+          x: node.payload.floatingObject.container.frame.position.x,
+          y: node.payload.floatingObject.container.frame.position.y
+        }
+        // nodePosition = node.payload.floatingObject.container.frame.frameThisPoint(nodePosition)
+
+        let distance = Math.sqrt(Math.pow(mouseAtSpace.x - nodePosition.x, 2) + Math.pow(mouseAtSpace.y - nodePosition.y, 2))
+        const SNAP_THREASHOLD = 1000
+        if (distance < SNAP_THREASHOLD) {
+          mousePosition.x = nodePosition.x / SPACE_SIZE * browserCanvas.width
+          mousePosition.y = nodePosition.y / SPACE_SIZE * browserCanvas.height
+        }
+      }
+
+      /* Movign the Floating Space to where the mouse is. */
+      thisObject.container.frame.position.x = -mousePosition.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
+      thisObject.container.frame.position.y = -mousePosition.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
+
       exitMapMode()
     }
   }
@@ -292,11 +314,6 @@ function newFloatingSpace () {
     return true
   }
 
-  function onMouseWheel (event) {
-    if (visible === false) { return }
-    thisObject.floatingLayer.changeTargetRepulsion(event.wheelDelta)
-  }
-
   function makeVisible () {
     visible = true
   }
@@ -326,14 +343,6 @@ function newFloatingSpace () {
     browserZoomPhysics()
     positionContraintsPhysics()
     thisObject.floatingLayer.physics()
-    doubleClickPhysics()
-  }
-
-  function doubleClickPhysics () {
-    doubleClickCounter--
-    if (doubleClickCounter < 0) {
-      doubleClickCounter = 0
-    }
   }
 
   function positionContraintsPhysics () {
@@ -376,3 +385,4 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
+

@@ -12,6 +12,8 @@ function newFloatingSpace () {
     uiObjectConstructor: undefined,
     container: undefined,
     inMapMode: false,
+    drawReferenceLines: true,
+    toggleDrawReferenceLines: toggleDrawReferenceLines,
     toggleMapMode: toggleMapMode,
     enterMapMode: enterMapMode,
     exitMapMode: exitMapMode,
@@ -79,6 +81,14 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
     onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+  }
+
+  function toggleDrawReferenceLines () {
+    if (thisObject.drawReferenceLines === true) {
+      thisObject.drawReferenceLines = false
+    } else {
+      thisObject.drawReferenceLines = true
+    }
   }
 
   function transformPointToMap (point) {

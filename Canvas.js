@@ -258,6 +258,12 @@ function newCanvas () {
 
     if (event.key === 'M' || event.key === 'm') {
       canvas.floatingSpace.toggleMapMode()
+      return
+    }
+
+    if (event.key === 'R' || event.key === 'r') {
+      canvas.floatingSpace.toggleDrawReferenceLines()
+      return
     }
 
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()

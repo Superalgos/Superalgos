@@ -124,8 +124,38 @@ function newFloatingSpace () {
       enterMapMode()
     } else {
       if (event.buttons !== 1) { return }
-      thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
-      thisObject.container.frame.position.y = -event.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
+
+      let mousePosition = {
+        x: event.x,
+        y: event.y
+      }
+
+      let mouseAtSpace = {
+        x: mousePosition.x / browserCanvas.width * SPACE_SIZE,
+        y: mousePosition.y / browserCanvas.height * SPACE_SIZE
+      }
+      /* Let's see if we can snap to some of the root nodes that are isHierarchyHead */
+      let snapCandidateNodes = canvas.designSpace.workspace.getHierarchyHeads()
+      for (let i = 0; i < snapCandidateNodes.length; i++) {
+        let node = snapCandidateNodes[i]
+        let nodePosition = {
+          x: node.payload.floatingObject.container.frame.position.x,
+          y: node.payload.floatingObject.container.frame.position.y
+        }
+        // nodePosition = node.payload.floatingObject.container.frame.frameThisPoint(nodePosition)
+
+        let distance = Math.sqrt(Math.pow(mouseAtSpace.x - nodePosition.x, 2) + Math.pow(mouseAtSpace.y - nodePosition.y, 2))
+        const SNAP_THREASHOLD = 1000
+        if (distance < SNAP_THREASHOLD) {
+          mousePosition.x = nodePosition.x / SPACE_SIZE * browserCanvas.width
+          mousePosition.y = nodePosition.y / SPACE_SIZE * browserCanvas.height
+        }
+      }
+
+      /* Movign the Floating Space to where the mouse is. */
+      thisObject.container.frame.position.x = -mousePosition.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
+      thisObject.container.frame.position.y = -mousePosition.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
+
       exitMapMode()
     }
   }
@@ -355,3 +385,4 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
+

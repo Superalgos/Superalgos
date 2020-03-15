@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
     stopAllRunningTasks: stopAllRunningTasks,
@@ -215,6 +216,20 @@ function newWorkspace () {
       let node = functionLibraryOnFocus.getNodeThatIsOnFocus(rootNode)
       if (node !== undefined) { return node }
     }
+  }
+
+  function getHierarchyHeads () {
+    let nodes = []
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+      let nodeDefinition = APP_SCHEMA_MAP.get(rootNode.type)
+      if (nodeDefinition !== undefined) {
+        if (nodeDefinition.isHierarchyHead === true) {
+          nodes.push(rootNode)
+        }
+      }
+    }
+    return nodes
   }
 
   function spawn (nodeText, mousePointer) {

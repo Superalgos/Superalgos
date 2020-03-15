@@ -256,6 +256,10 @@ function newCanvas () {
       canvas.floatingSpace.exitMapMode()
     }
 
+    if (event.key === 'M' || event.key === 'm') {
+      canvas.floatingSpace.toggleMapMode()
+    }
+
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {

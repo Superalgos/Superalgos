@@ -12,6 +12,7 @@ function newFloatingSpace () {
     uiObjectConstructor: undefined,
     container: undefined,
     inMapMode: false,
+    toggleMapMode: toggleMapMode,
     exitMapMode: exitMapMode,
     transformPointToMap: transformPointToMap,
     transformRadiusToMap: transformRadiusToMap,
@@ -114,13 +115,21 @@ function newFloatingSpace () {
     doubleClickCounter = 0
   }
 
+  function toggleMapMode () {
+    if (thisObject.inMapMode === false) {
+      thisObject.inMapMode = true
+    } else {
+      exitMapMode()
+    }
+  }
+
   function onDragStarted (event) {
     if (thisObject.inMapMode === false) {
       if (doubleClickCounter > 0) {
         onDoubleClick()
         return
       } else {
-        doubleClickCounter = 10
+        doubleClickCounter = 8
       }
     } else {
       thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2

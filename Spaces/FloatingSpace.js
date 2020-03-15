@@ -105,21 +105,22 @@ function newFloatingSpace () {
 
   function onDoubleClick () {
     doubleClickCounter = 0
-
-    if (thisObject.inMapMode === false) {
-      thisObject.inMapMode = true
-    } else {
-      thisObject.inMapMode = false
-    }
-    console.log(thisObject.inMapMode)
+    thisObject.inMapMode = true
   }
 
   function onDragStarted (event) {
-    if (doubleClickCounter > 0) {
-      onDoubleClick()
-      return
+    if (thisObject.inMapMode === false) {
+      if (doubleClickCounter > 0) {
+        onDoubleClick()
+        return
+      } else {
+        doubleClickCounter = 10
+      }
     } else {
-      doubleClickCounter = 10
+      thisObject.inMapMode = false
+      doubleClickCounter = 0
+      thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
+      thisObject.container.frame.position.y = -event.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
     }
   }
 

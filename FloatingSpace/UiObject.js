@@ -1295,6 +1295,8 @@ function newUiObject () {
 
       if (canvas.floatingSpace.inMapMode === true) {
         visiblePosition = canvas.floatingSpace.transformPointToMap(visiblePosition)
+        radius = canvas.floatingSpace.transformRadiusToMap(radius)
+        VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
       } else {
         visiblePosition = thisObject.fitFunction(visiblePosition)
       }
@@ -1488,7 +1490,9 @@ function newUiObject () {
         let additionalImageSize = 0
         if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
-
+        if (canvas.floatingSpace.inMapMode === true) {
+          totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
+        }
         browserCanvasContext.drawImage(
           icon, position.x - totalImageSize / 2,
           position.y - totalImageSize / 2,

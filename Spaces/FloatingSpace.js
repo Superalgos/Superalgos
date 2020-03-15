@@ -13,6 +13,8 @@ function newFloatingSpace () {
     container: undefined,
     inMapMode: false,
     transformPointToMap: transformPointToMap,
+    transformRadiusToMap: transformRadiusToMap,
+    transformImagesizeToMap: transformImagesizeToMap,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
@@ -92,8 +94,13 @@ function newFloatingSpace () {
   }
 
   function transformRadiusToMap (radius) {
-    const RADIUS_REDUCTION_FACTOR = 1
+    const RADIUS_REDUCTION_FACTOR = 2
     return radius / RADIUS_REDUCTION_FACTOR
+  }
+
+  function transformImagesizeToMap (imageSize) {
+    const IMAGE_REDUCTION_FACTOR = 5
+    return imageSize / IMAGE_REDUCTION_FACTOR
   }
 
   function onDoubleClick () {

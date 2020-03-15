@@ -183,9 +183,11 @@ function newCCXTFunctions () {
             newMarket.name = name
             newMarket.code = '{ \n\"codeName\": \"' + name + '\"\n}'
             newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+            newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
             newMarket.baseAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
             newMarket.quotedAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
-            newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+            newMarket.baseAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+            newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
             newMarket.baseAsset.payload.referenceParent = baseAsset
             newMarket.quotedAsset.payload.referenceParent = quotedAsset
 
@@ -196,6 +198,14 @@ function newCCXTFunctions () {
               let clone = functionLibraryNodeCloning.getNodeClone(superAction)
               functionLibraryUiObjectsFromNodes.createUiObjectFromNode(clone, newMarket, newMarket)
               newMarket.superActions.push(clone)
+              switch (j) {
+                case 0:
+                  clone.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
+                  break
+                case 1:
+                  clone.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+                  break
+              }
             }
           }
         }

@@ -12,7 +12,7 @@ function newFloatingSpace () {
     uiObjectConstructor: undefined,
     container: undefined,
     inMapMode: false,
-    drawReferenceLines: true,
+    drawReferenceLines: false,
     drawChainLines: true,
     toggleDrawChainLines: toggleDrawChainLines,
     toggleDrawReferenceLines: toggleDrawReferenceLines,

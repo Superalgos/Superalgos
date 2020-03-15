@@ -246,9 +246,6 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
-    /* From here we prevent the default behaviour */
-    event.preventDefault()
-
     thisObject.mouse.event = event
     thisObject.mouse.action = 'key down'
 
@@ -261,16 +258,19 @@ function newCanvas () {
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
       canvas.floatingSpace.toggleMapMode()
+      event.preventDefault()
       return
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
       canvas.floatingSpace.toggleDrawReferenceLines()
+      event.preventDefault()
       return
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
       canvas.floatingSpace.toggleDrawChainLines()
+      event.preventDefault()
       return
     }
 
@@ -400,6 +400,9 @@ function newCanvas () {
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
+        /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
+        event.preventDefault()
+
         let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
 
         if (nodeOnFocus === undefined && nodeUsingThisKey !== undefined) {

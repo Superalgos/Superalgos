@@ -13,6 +13,8 @@ function newFloatingSpace () {
     container: undefined,
     inMapMode: false,
     drawReferenceLines: true,
+    drawChainLines: true,
+    toggleDrawChainLines: toggleDrawChainLines,
     toggleDrawReferenceLines: toggleDrawReferenceLines,
     toggleMapMode: toggleMapMode,
     enterMapMode: enterMapMode,
@@ -88,6 +90,14 @@ function newFloatingSpace () {
       thisObject.drawReferenceLines = false
     } else {
       thisObject.drawReferenceLines = true
+    }
+  }
+
+  function toggleDrawChainLines () {
+    if (thisObject.drawChainLines === true) {
+      thisObject.drawChainLines = false
+    } else {
+      thisObject.drawChainLines = true
     }
   }
 
@@ -395,4 +405,3 @@ function newFloatingSpace () {
     browserCanvasContext.fill()
   }
 }
-

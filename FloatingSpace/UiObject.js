@@ -945,6 +945,7 @@ function newUiObject () {
   }
 
   function drawChainLine () {
+    if (canvas.floatingSpace.drawChainLines === false) { return }
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {

@@ -292,6 +292,19 @@ function newUiObjectTitle () {
 
           labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
+          if (canvas.floatingSpace.inMapMode === true) {
+            labelPoint = canvas.floatingSpace.transformPointToMap(labelPoint)
+            labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
+            labelPoint.y = labelPoint.y - 35
+
+            let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+            if (nodeDefinition !== undefined) {
+              if (nodeDefinition.isHierarchyHead !== true) {
+                return
+              }
+            }
+          }
+
           browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
           browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
           browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
@@ -309,3 +322,4 @@ function newUiObjectTitle () {
     return title
   }
 }
+

@@ -960,6 +960,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     if (thisObject.container.frame.radius > 1) {
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
       if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
@@ -1030,6 +1035,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+    }
+
     let LINE_STYLE = UI_COLOR.GREY
 
     if (thisObject.container.frame.radius > 1) {
@@ -1072,6 +1082,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
@@ -1094,6 +1108,16 @@ function newUiObject () {
           y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
+        if (canvas.floatingSpace.inMapMode === true) {
+          labelPoint.y = labelPoint.y - 20
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              return
+            }
+          }
+        }
+
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
@@ -1111,6 +1135,10 @@ function newUiObject () {
     }
 
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
 
     let radius = thisObject.container.frame.radius * 3.5
             /* Label Text */
@@ -1151,6 +1179,10 @@ function newUiObject () {
     }
 
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
 
     let radius = thisObject.container.frame.radius * 1.5
             /* Label Text */
@@ -1255,6 +1287,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
 
     if (radius > 0.5) {
@@ -1266,7 +1302,14 @@ function newUiObject () {
       }
 
       visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
-      visiblePosition = thisObject.fitFunction(visiblePosition)
+
+      if (canvas.floatingSpace.inMapMode === true) {
+        visiblePosition = canvas.floatingSpace.transformPointToMap(visiblePosition)
+        radius = canvas.floatingSpace.transformRadiusToMap(radius)
+        VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+      } else {
+        visiblePosition = thisObject.fitFunction(visiblePosition)
+      }
 
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
@@ -1288,6 +1331,9 @@ function newUiObject () {
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.8
+          if (canvas.floatingSpace.inMapMode === true) {
+            VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+          }
           let OPACITY = 1
 
           browserCanvasContext.beginPath()
@@ -1457,7 +1503,15 @@ function newUiObject () {
         let additionalImageSize = 0
         if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
-
+        if (canvas.floatingSpace.inMapMode === true) {
+          totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              totalImageSize = totalImageSize / 4
+            }
+          }
+        }
         browserCanvasContext.drawImage(
           icon, position.x - totalImageSize / 2,
           position.y - totalImageSize / 2,

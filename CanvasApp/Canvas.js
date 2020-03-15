@@ -252,6 +252,10 @@ function newCanvas () {
     checkMediaRecording(event)
     canvas.chartingSpace.onKeyPressed(event)
 
+    if (event.key === 'Escape' && canvas.floatingSpace.inMapMode === true) {
+      canvas.floatingSpace.exitMapMode()
+    }
+
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {

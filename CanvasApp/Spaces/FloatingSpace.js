@@ -11,6 +11,11 @@ function newFloatingSpace () {
     floatingLayer: undefined,               // This is the array of floatingObjects being displayed
     uiObjectConstructor: undefined,
     container: undefined,
+    inMapMode: false,
+    exitMapMode: exitMapMode,
+    transformPointToMap: transformPointToMap,
+    transformRadiusToMap: transformRadiusToMap,
+    transformImagesizeToMap: transformImagesizeToMap,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
@@ -34,6 +39,7 @@ function newFloatingSpace () {
   thisObject.container.isDraggeable = true
   thisObject.container.isWheelable = true
   thisObject.container.detectMouseOver = true
+  thisObject.container.isClickeable = false
   thisObject.container.frame.radius = 0
 
   let devicePixelRatio = window.devicePixelRatio
@@ -48,11 +54,15 @@ function newFloatingSpace () {
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   let eventSubscriptionId
+  let onDragStartedEventSubscriptionId
+
+  let doubleClickCounter = 0
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(eventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
 
     thisObject.floatingLayer.finalize()
     thisObject.uiObjectConstructor.finalize()
@@ -71,11 +81,58 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
     eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+  }
+
+  function transformPointToMap (point) {
+    let returnPoint = {
+      x: point.x - thisObject.container.frame.position.x,
+      y: point.y - thisObject.container.frame.position.y
+    }
+    returnPoint.x = returnPoint.x / SPACE_SIZE * browserCanvas.width
+    returnPoint.y = returnPoint.y / SPACE_SIZE * browserCanvas.height
+    return returnPoint
+  }
+
+  function transformRadiusToMap (radius) {
+    const RADIUS_REDUCTION_FACTOR = 2
+    return radius / RADIUS_REDUCTION_FACTOR
+  }
+
+  function transformImagesizeToMap (imageSize) {
+    const IMAGE_REDUCTION_FACTOR = 3
+    return imageSize / IMAGE_REDUCTION_FACTOR
+  }
+
+  function onDoubleClick () {
+    doubleClickCounter = 0
+    thisObject.inMapMode = true
+  }
+
+  function exitMapMode () {
+    thisObject.inMapMode = false
+    doubleClickCounter = 0
+  }
+
+  function onDragStarted (event) {
+    if (thisObject.inMapMode === false) {
+      if (doubleClickCounter > 0) {
+        onDoubleClick()
+        return
+      } else {
+        doubleClickCounter = 10
+      }
+    } else {
+      thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
+      thisObject.container.frame.position.y = -event.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
+      exitMapMode()
+    }
   }
 
   function isItFar (payload, dontCheckParent) {
     /* If for any reason the paylaod is undefined we return false */
     if (payload === undefined) { return false }
+    if (thisObject.inMapMode === true) { return false }
 
     let radarFactor = 2 // How big is the margin
 
@@ -260,6 +317,14 @@ function newFloatingSpace () {
     browserZoomPhysics()
     positionContraintsPhysics()
     thisObject.floatingLayer.physics()
+    doubleClickPhysics()
+  }
+
+  function doubleClickPhysics () {
+    doubleClickCounter--
+    if (doubleClickCounter < 0) {
+      doubleClickCounter = 0
+    }
   }
 
   function positionContraintsPhysics () {

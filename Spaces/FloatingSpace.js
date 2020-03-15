@@ -12,7 +12,7 @@ function newFloatingSpace () {
     uiObjectConstructor: undefined,
     container: undefined,
     inMapMode: false,
-    transformPoointToMap: transformPoointToMap,
+    transformPointToMap: transformPointToMap,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
     oneScreenLeft: oneScreenLeft,
@@ -81,7 +81,7 @@ function newFloatingSpace () {
     onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
   }
 
-  function transformPoointToMap (point) {
+  function transformPointToMap (point) {
     let returnPoint = {
       x: point.x - thisObject.container.frame.position.x,
       y: point.y - thisObject.container.frame.position.y
@@ -89,6 +89,11 @@ function newFloatingSpace () {
     returnPoint.x = returnPoint.x / SPACE_SIZE * browserCanvas.width
     returnPoint.y = returnPoint.y / SPACE_SIZE * browserCanvas.height
     return returnPoint
+  }
+
+  function transformRadiusToMap (radius) {
+    const RADIUS_REDUCTION_FACTOR = 1
+    return radius / RADIUS_REDUCTION_FACTOR
   }
 
   function onDoubleClick () {

@@ -961,8 +961,8 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      targetPoint = canvas.floatingSpace.transformPoointToMap(targetPoint)
-      position = canvas.floatingSpace.transformPoointToMap(position)
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+      position = canvas.floatingSpace.transformPointToMap(position)
     }
 
     if (thisObject.container.frame.radius > 1) {
@@ -1036,8 +1036,8 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      position = canvas.floatingSpace.transformPoointToMap(position)
-      targetPoint = canvas.floatingSpace.transformPoointToMap(targetPoint)
+      position = canvas.floatingSpace.transformPointToMap(position)
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
     }
 
     let LINE_STYLE = UI_COLOR.GREY
@@ -1083,7 +1083,7 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      position = canvas.floatingSpace.transformPoointToMap(position)
+      position = canvas.floatingSpace.transformPointToMap(position)
     }
 
     let radius = thisObject.container.frame.radius
@@ -1127,7 +1127,7 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      position = canvas.floatingSpace.transformPoointToMap(position)
+      position = canvas.floatingSpace.transformPointToMap(position)
     }
 
     let radius = thisObject.container.frame.radius * 3.5
@@ -1171,7 +1171,7 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      position = canvas.floatingSpace.transformPoointToMap(position)
+      position = canvas.floatingSpace.transformPointToMap(position)
     }
 
     let radius = thisObject.container.frame.radius * 1.5
@@ -1278,7 +1278,7 @@ function newUiObject () {
     position = thisObject.container.frame.frameThisPoint(position)
 
     if (canvas.floatingSpace.inMapMode === true) {
-      position = canvas.floatingSpace.transformPoointToMap(position)
+      position = canvas.floatingSpace.transformPointToMap(position)
     }
 
     let radius = thisObject.container.frame.radius
@@ -1294,7 +1294,7 @@ function newUiObject () {
       visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
 
       if (canvas.floatingSpace.inMapMode === true) {
-        visiblePosition = canvas.floatingSpace.transformPoointToMap(visiblePosition)
+        visiblePosition = canvas.floatingSpace.transformPointToMap(visiblePosition)
       } else {
         visiblePosition = thisObject.fitFunction(visiblePosition)
       }
@@ -1513,4 +1513,3 @@ function newUiObject () {
     }
   }
 }
-

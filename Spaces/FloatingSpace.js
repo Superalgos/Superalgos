@@ -54,7 +54,6 @@ function newFloatingSpace () {
   let visible = false
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
-  let eventSubscriptionId
   let onDragStartedEventSubscriptionId
 
   let doubleClickCounter = 0
@@ -62,7 +61,6 @@ function newFloatingSpace () {
   return thisObject
 
   function finalize () {
-    thisObject.container.eventHandler.stopListening(eventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
 
     thisObject.floatingLayer.finalize()
@@ -81,7 +79,6 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor = newUiObjectConstructor()
     thisObject.uiObjectConstructor.initialize(thisObject.floatingLayer)
 
-    eventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
   }
 
@@ -290,11 +287,6 @@ function newFloatingSpace () {
     }
 
     return true
-  }
-
-  function onMouseWheel (event) {
-    if (visible === false) { return }
-    thisObject.floatingLayer.changeTargetRepulsion(event.wheelDelta)
   }
 
   function makeVisible () {

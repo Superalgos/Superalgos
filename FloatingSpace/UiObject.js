@@ -960,6 +960,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      targetPoint = canvas.floatingSpace.transformPoointToMap(targetPoint)
+      position = canvas.floatingSpace.transformPoointToMap(position)
+    }
+
     if (thisObject.container.frame.radius > 1) {
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
       if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
@@ -1030,6 +1035,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPoointToMap(position)
+      targetPoint = canvas.floatingSpace.transformPoointToMap(targetPoint)
+    }
+
     let LINE_STYLE = UI_COLOR.GREY
 
     if (thisObject.container.frame.radius > 1) {
@@ -1072,6 +1082,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPoointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
@@ -1112,6 +1126,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPoointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius * 3.5
             /* Label Text */
     let labelPoint
@@ -1151,6 +1169,10 @@ function newUiObject () {
     }
 
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPoointToMap(position)
+    }
 
     let radius = thisObject.container.frame.radius * 1.5
             /* Label Text */
@@ -1255,6 +1277,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPoointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
 
     if (radius > 0.5) {
@@ -1266,7 +1292,12 @@ function newUiObject () {
       }
 
       visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
-      visiblePosition = thisObject.fitFunction(visiblePosition)
+
+      if (canvas.floatingSpace.inMapMode === true) {
+        visiblePosition = canvas.floatingSpace.transformPoointToMap(visiblePosition)
+      } else {
+        visiblePosition = thisObject.fitFunction(visiblePosition)
+      }
 
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

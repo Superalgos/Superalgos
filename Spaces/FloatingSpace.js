@@ -13,6 +13,7 @@ function newFloatingSpace () {
     container: undefined,
     inMapMode: false,
     toggleMapMode: toggleMapMode,
+    enterMapMode: enterMapMode,
     exitMapMode: exitMapMode,
     transformPointToMap: transformPointToMap,
     transformRadiusToMap: transformRadiusToMap,
@@ -55,8 +56,6 @@ function newFloatingSpace () {
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   let onDragStartedEventSubscriptionId
-
-  let doubleClickCounter = 0
 
   return thisObject
 
@@ -102,19 +101,17 @@ function newFloatingSpace () {
     return imageSize / IMAGE_REDUCTION_FACTOR
   }
 
-  function onDoubleClick () {
-    doubleClickCounter = 0
+  function enterMapMode () {
     thisObject.inMapMode = true
   }
 
   function exitMapMode () {
     thisObject.inMapMode = false
-    doubleClickCounter = 0
   }
 
   function toggleMapMode () {
     if (thisObject.inMapMode === false) {
-      thisObject.inMapMode = true
+      enterMapMode()
     } else {
       exitMapMode()
     }
@@ -122,13 +119,11 @@ function newFloatingSpace () {
 
   function onDragStarted (event) {
     if (thisObject.inMapMode === false) {
-      if (doubleClickCounter > 0) {
-        onDoubleClick()
-        return
-      } else {
-        doubleClickCounter = 8
-      }
+      if (event.buttons !== 2) { return }
+
+      enterMapMode()
     } else {
+      if (event.buttons !== 1) { return }
       thisObject.container.frame.position.x = -event.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
       thisObject.container.frame.position.y = -event.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
       exitMapMode()
@@ -318,14 +313,6 @@ function newFloatingSpace () {
     browserZoomPhysics()
     positionContraintsPhysics()
     thisObject.floatingLayer.physics()
-    doubleClickPhysics()
-  }
-
-  function doubleClickPhysics () {
-    doubleClickCounter--
-    if (doubleClickCounter < 0) {
-      doubleClickCounter = 0
-    }
   }
 
   function positionContraintsPhysics () {

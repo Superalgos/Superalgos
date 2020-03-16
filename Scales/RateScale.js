@@ -487,12 +487,7 @@ function newRateScale () {
       rate = coordinateSystem.max.y
     }
 
-    let decimals = 2
-    if (rate < 1) { decimals = 4 }
-    if (Math.trunc(rate * 100) < 1) { decimals = 6 }
-    if (Math.trunc(rate * 10000) < 1) { decimals = 8 }
-    if (Math.trunc(rate * 1000000) < 1) { decimals = 10 }
-    let label = (rate - Math.trunc(rate)).toFixed(decimals)
+    let label = dynamicDecimals(rate)
     let labelArray = label.split('.')
     let label1 = thisObject.payload.node.payload.parentNode.name
     let label2 = (Math.trunc(rate)).toLocaleString()

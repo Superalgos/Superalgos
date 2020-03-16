@@ -202,6 +202,65 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         }
 
+        const leftLimit = thisObject.container.frame.width * 0.40;
+        const rightLimit = thisObject.container.frame.width * 0.60;
+
+        if (candlePoint1.x < leftLimit) {
+
+            candlePoint1.x = leftLimit;
+            candlePoint4.x = leftLimit;
+
+        }
+
+        if (stickPoint1.x < leftLimit) {
+
+            stickPoint1.x = leftLimit;
+            stickPoint4.x = leftLimit;
+
+        }
+
+        if (candlePoint4.x < leftLimit) {
+
+            candlePoint4.x = leftLimit;
+            candlePoint1.x = leftLimit;
+
+        }
+
+        if (stickPoint4.x < leftLimit) {
+
+            stickPoint4.x = leftLimit;
+            stickPoint1.x = leftLimit;
+
+        }
+
+        if (candlePoint2.x > rightLimit) {
+
+            candlePoint2.x = rightLimit;
+            candlePoint3.x = rightLimit;
+
+        }
+
+        if (stickPoint2.x > rightLimit) {
+
+            stickPoint2.x = rightLimit;
+            stickPoint3.x = rightLimit;
+
+        }
+
+        if (candlePoint3.x > rightLimit) {
+
+            candlePoint3.x = rightLimit;
+            candlePoint2.x = rightLimit;
+
+        }
+
+        if (stickPoint3.x > rightLimit) {
+
+            stickPoint3.x = rightLimit;
+            stickPoint2.x = rightLimit;
+
+        }
+
 
         candlePoint1 = thisObject.container.frame.frameThisPoint(candlePoint1);
         candlePoint2 = thisObject.container.frame.frameThisPoint(candlePoint2);

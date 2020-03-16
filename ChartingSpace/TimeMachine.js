@@ -418,6 +418,14 @@ function newTimeMachine () {
 
   function panelPhysics () {
     if (
+      thisObject.container.frame.isInViewPort() &&
+      canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+      return
+    }
+
+    if (
       thisObject.container.frame.isCenterInViewPort() &&
       canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
     ) {

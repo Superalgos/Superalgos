@@ -48,7 +48,8 @@ const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
 const DOUBLE_CLICK_ZOOM_IN_LEVEL = 7
 
 const DEBUG = {}
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 // This regulates some behavious changes that happens when the user zoom out below this level.
+const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 
 const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 3  // This help regulate when to change the Time Frame base on the level of zoom out.
 const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 2
 const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3

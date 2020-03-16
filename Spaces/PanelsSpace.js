@@ -167,16 +167,32 @@ function newPanelsSpace () {
 
         if (panel.upDownButton !== undefined) {
           if (panel.upDownButton.status === 'up') {
-            if (centerPoint.x < verticalLine) {
-              panel.gravitatesTowards = 'topLeft'
+            if (panel.leftRightButton !== undefined) {
+              if (panel.leftRightButton.status === 'left') {
+                panel.gravitatesTowards = 'topLeft'
+              } else {
+                panel.gravitatesTowards = 'topRight'
+              }
             } else {
-              panel.gravitatesTowards = 'topRight'
+              if (centerPoint.x < verticalLine) {
+                panel.gravitatesTowards = 'topLeft'
+              } else {
+                panel.gravitatesTowards = 'topRight'
+              }
             }
           } else {
-            if (centerPoint.x < verticalLine) {
-              panel.gravitatesTowards = 'bottomLeft'
+            if (panel.leftRightButton !== undefined) {
+              if (panel.leftRightButton.status === 'left') {
+                panel.gravitatesTowards = 'bottomLeft'
+              } else {
+                panel.gravitatesTowards = 'bottomRight'
+              }
             } else {
-              panel.gravitatesTowards = 'bottomRight'
+              if (centerPoint.x < verticalLine) {
+                panel.gravitatesTowards = 'bottomLeft'
+              } else {
+                panel.gravitatesTowards = 'bottomRight'
+              }
             }
           }
         } else {

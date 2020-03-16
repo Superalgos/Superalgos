@@ -93,14 +93,13 @@ function newLeftRightButton () {
   }
 
   function physics () {
-    return
     if (isInitialized === false) { return }
 
-    leftPosition.x = thisObject.parentContainer.frame.position.x
-    leftPosition.y = canvas.chartingSpace.viewport.visibleArea.topRight.y
+    leftPosition.x = canvas.chartingSpace.viewport.visibleArea.topLeft.x
+    leftPosition.y = thisObject.parentContainer.frame.position.y
 
-    rightPosition.x = thisObject.parentContainer.frame.position.x
-    rightPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
+    rightPosition.x = canvas.chartingSpace.viewport.visibleArea.bottomRight.x
+    rightPosition.y = thisObject.parentContainer.frame.position.y
 
     if (thisObject.status === 'going right') {
       if (transitionPosition.x < rightPosition.x) {

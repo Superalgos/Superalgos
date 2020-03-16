@@ -213,6 +213,10 @@ function newPanelsSpace () {
         /* According to the quadrant we push the panels to the sides */
         if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'bottomLeft') {
           panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x
+          if (panel.leftRightButton !== undefined) {
+            if (panel.leftRightButton.status === 'left' || panel.leftRightButton.status === 'right') { // we avoid pushing other panels while in transition
+            }
+          }
           isOverlapping(i, panel.container)
           if (panel.container.frame.position.x < 0) {
             panel.container.frame.position.x = 0
@@ -262,6 +266,11 @@ function newPanelsSpace () {
 
       for (let i = 0; i < currentIndex; i++) {
         let panel = thisObject.panels[i]
+        if (panel.leftRightButton !== undefined) {
+          if (panel.leftRightButton.status !== 'left' && panel.leftRightButton.status !== 'right') { // we avoid pushing other panels while in transition
+            continue
+          }
+        }
         if (panel.isVisible === true && panel.isHidden === false) {
           if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) {
             pushOut(currentContainer, panel.container, panel.gravitatesTowards)

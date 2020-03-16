@@ -165,18 +165,34 @@ function newPanelsSpace () {
         let verticalLine = (canvas.chartingSpace.viewport.visibleArea.topRight.x - canvas.chartingSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartingSpace.viewport.visibleArea.topLeft.x
         let horizontalLine = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartingSpace.viewport.visibleArea.topRight.y
 
-        if (panel.panelTabButton !== undefined) {
-          if (panel.panelTabButton.status === 'up') {
-            if (centerPoint.x < verticalLine) {
-              panel.gravitatesTowards = 'topLeft'
+        if (panel.upDownButton !== undefined) {
+          if (panel.upDownButton.status === 'up') {
+            if (panel.leftRightButton !== undefined) {
+              if (panel.leftRightButton.status === 'left') {
+                panel.gravitatesTowards = 'topLeft'
+              } else {
+                panel.gravitatesTowards = 'topRight'
+              }
             } else {
-              panel.gravitatesTowards = 'topRight'
+              if (centerPoint.x < verticalLine) {
+                panel.gravitatesTowards = 'topLeft'
+              } else {
+                panel.gravitatesTowards = 'topRight'
+              }
             }
           } else {
-            if (centerPoint.x < verticalLine) {
-              panel.gravitatesTowards = 'bottomLeft'
+            if (panel.leftRightButton !== undefined) {
+              if (panel.leftRightButton.status === 'left') {
+                panel.gravitatesTowards = 'bottomLeft'
+              } else {
+                panel.gravitatesTowards = 'bottomRight'
+              }
             } else {
-              panel.gravitatesTowards = 'bottomRight'
+              if (centerPoint.x < verticalLine) {
+                panel.gravitatesTowards = 'bottomLeft'
+              } else {
+                panel.gravitatesTowards = 'bottomRight'
+              }
             }
           }
         } else {
@@ -197,6 +213,10 @@ function newPanelsSpace () {
         /* According to the quadrant we push the panels to the sides */
         if (panel.gravitatesTowards === 'topLeft' || panel.gravitatesTowards === 'bottomLeft') {
           panel.container.frame.position.x = panel.container.frame.position.x - panel.container.speed.x
+          if (panel.leftRightButton !== undefined) {
+            if (panel.leftRightButton.status === 'left' || panel.leftRightButton.status === 'right') { // we avoid pushing other panels while in transition
+            }
+          }
           isOverlapping(i, panel.container)
           if (panel.container.frame.position.x < 0) {
             panel.container.frame.position.x = 0
@@ -246,6 +266,11 @@ function newPanelsSpace () {
 
       for (let i = 0; i < currentIndex; i++) {
         let panel = thisObject.panels[i]
+        if (panel.leftRightButton !== undefined) {
+          if (panel.leftRightButton.status !== 'left' && panel.leftRightButton.status !== 'right') { // we avoid pushing other panels while in transition
+            continue
+          }
+        }
         if (panel.isVisible === true && panel.isHidden === false) {
           if (isThisPointInsideThisFrame(corner1, panel.container.frame) === true) {
             pushOut(currentContainer, panel.container, panel.gravitatesTowards)

@@ -118,8 +118,6 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
             y: Y_AXIS - currentBand.rightBodyHeight / 2 + currentBand.bottomDelta / 4
         };
 
-
-
         /* Extra bounderies due to constrained space */
 
         const upperLimit = frameTitleHeight + frameBodyHeight * 0.15;
@@ -130,6 +128,15 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
         if (bandPoint2.y < upperLimit) { bandPoint2.y = upperLimit; }
         if (bandPoint3.y < upperLimit) { bandPoint3.y = upperLimit; }
+
+        const leftLimit = thisObject.container.frame.width * 0.40;
+        const rightLimit = thisObject.container.frame.width * 0.60;
+
+        if (bandPoint1.x < leftLimit) { bandPoint1.x = leftLimit; }
+        if (bandPoint2.x < leftLimit) { bandPoint2.x = leftLimit; }
+
+        if (bandPoint3.x > rightLimit) { bandPoint3.x = rightLimit; }
+        if (bandPoint4.x > rightLimit) { bandPoint4.x = rightLimit; }
 
         bandPoint1 = thisObject.container.frame.frameThisPoint(bandPoint1);
         bandPoint2 = thisObject.container.frame.frameThisPoint(bandPoint2);
@@ -213,9 +220,10 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
             browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
 
-            let label = '' + labelToPrint;
+            let label = labelToPrint
             if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
+                label = dynamicDecimals(labelToPrint) 
+                label = label.toLocaleString();
             }
             let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
 

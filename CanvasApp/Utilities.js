@@ -22,6 +22,15 @@ function drawContainerBackground (container, color, opacity, fitFunction) {
   browserCanvasContext.fill()
 }
 
+function dynamicDecimals (value) {
+  let decimals = 2
+  if (value < 1) { decimals = 4 }
+  if (Math.trunc(value * 100) < 1) { decimals = 6 }
+  if (Math.trunc(value * 10000) < 1) { decimals = 8 }
+  if (Math.trunc(value * 1000000) < 1) { decimals = 10 }
+  return (value - Math.trunc(value)).toFixed(decimals)
+}
+
 function savePropertyAtNodeConfig (payload, propertyName, value) {
   try {
     let code = JSON.parse(payload.node.code)

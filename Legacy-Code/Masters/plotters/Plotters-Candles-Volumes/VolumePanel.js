@@ -118,6 +118,28 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
             y: Y_AXIS_BUY
         };
 
+        /* Extra bounderies due to constrained space */
+
+        const upperLimit = frameTitleHeight + frameBodyHeight * 0.15;
+        const downLimit = frameTitleHeight + frameBodyHeight * 0.85;
+
+        const leftLimit = thisObject.container.frame.width * 0.40;
+        const rightLimit = thisObject.container.frame.width * 0.60;
+
+        if (buyVolumePoint1.y < downLimit) { buyVolumePoint1.y = downLimit; }
+        if (buyVolumePoint4.y < downLimit) { buyVolumePoint4.y = downLimit; }
+
+        if (buyVolumePoint2.y < upperLimit) { buyVolumePoint2.y = upperLimit; }
+        if (buyVolumePoint3.y < upperLimit) { buyVolumePoint3.y = upperLimit; }
+
+        if (buyVolumePoint1.x < leftLimit) { buyVolumePoint1.x = leftLimit; }
+        if (buyVolumePoint2.x < leftLimit) { buyVolumePoint2.x = leftLimit; }
+
+        if (buyVolumePoint3.x > rightLimit) { buyVolumePoint3.x = rightLimit; }
+        if (buyVolumePoint4.x > rightLimit) { buyVolumePoint4.x = rightLimit; }
+
+
+
         buyVolumePoint1 = thisObject.container.frame.fitIntoFrame(buyVolumePoint1);
         buyVolumePoint2 = thisObject.container.frame.fitIntoFrame(buyVolumePoint2);
         buyVolumePoint3 = thisObject.container.frame.fitIntoFrame(buyVolumePoint3);
@@ -153,6 +175,18 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
             y: Y_AXIS_SELL
         };
 
+        if (sellVolumePoint1.y < upperLimit) { sellVolumePoint1.y = upperLimit; }
+        if (sellVolumePoint4.y < upperLimit) { sellVolumePoint4.y = upperLimit; }
+
+        if (sellVolumePoint2.y > downLimit) { sellVolumePoint2.y = downLimit; }
+        if (sellVolumePoint3.y > downLimit) { sellVolumePoint3.y = downLimit; }
+
+        if (sellVolumePoint1.x < leftLimit) { sellVolumePoint1.x = leftLimit; }
+        if (sellVolumePoint2.x < leftLimit) { sellVolumePoint2.x = leftLimit; }
+
+        if (sellVolumePoint3.x > rightLimit) { sellVolumePoint3.x = rightLimit; }
+        if (sellVolumePoint4.x > rightLimit) { sellVolumePoint4.x = rightLimit; }
+
         sellVolumePoint1 = thisObject.container.frame.fitIntoFrame(sellVolumePoint1);
         sellVolumePoint2 = thisObject.container.frame.fitIntoFrame(sellVolumePoint2);
         sellVolumePoint3 = thisObject.container.frame.fitIntoFrame(sellVolumePoint3);
@@ -167,6 +201,8 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
         sellVolumePoint2 = thisObject.fitFunction(sellVolumePoint2)
         sellVolumePoint3 = thisObject.fitFunction(sellVolumePoint3)
         sellVolumePoint4 = thisObject.fitFunction(sellVolumePoint4)
+
+
 
         const OPACITY = '0.40';
 

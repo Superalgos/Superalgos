@@ -17,7 +17,7 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
     thisObject.container.frame.containerName = "Volume";
 
     let currentVolume;
-    let panelTabButton
+    let upDownButton
 
     return thisObject;
 
@@ -28,8 +28,8 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
         thisObject.isVisible = undefined
 
         currentVolume = undefined
-        panelTabButton.finalize()
-        panelTabButton = undefined
+        upDownButton.finalize()
+        upDownButton = undefined
     }
 
     function initialize() {
@@ -40,18 +40,18 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
         thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width;
         thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height;
 
-        panelTabButton = newPanelTabButton()
-        panelTabButton.parentContainer = thisObject.container
-        panelTabButton.container.frame.parentFrame = thisObject.container.frame
-        panelTabButton.fitFunction = thisObject.fitFunction
-        panelTabButton.initialize()
+        upDownButton = newUpDownButton()
+        upDownButton.parentContainer = thisObject.container
+        upDownButton.container.frame.parentFrame = thisObject.container.frame
+        upDownButton.fitFunction = thisObject.fitFunction
+        upDownButton.initialize()
     }
 
     function getContainer(point) {
         if (thisObject.isVisible !== true) { return }
         let container;
 
-        container = panelTabButton.getContainer(point)
+        container = upDownButton.getContainer(point)
         if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -83,7 +83,7 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
 
         plotCurrentVolumeInfo();
 
-        panelTabButton.draw()
+        upDownButton.draw()
     }
 
     function plotCurrentVolumeInfo() {

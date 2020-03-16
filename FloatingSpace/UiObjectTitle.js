@@ -215,6 +215,8 @@ function newUiObjectTitle () {
         thisObject.payload.node.name = input.value
       }
     }
+    let inputDiv = document.getElementById('inputDiv')
+    inputDiv.style = 'position:absolute; top:' + '-100' + 'px; left:' + '-100' + 'px; z-index:1; '
   }
 
   function enterEditMode () {

@@ -71,8 +71,8 @@ function newTimeMachine () {
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
-    thisObject.container.frame.width = TIME_MACHINE_WIDTH
-    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
+    thisObject.container.frame.width = browserCanvas.width / TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
   }
 
   function finalize () {

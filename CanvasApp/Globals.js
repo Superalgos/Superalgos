@@ -45,10 +45,12 @@ const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
 
 const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
-const DOUBLE_CLICK_ZOOM_IN_LEVEL = 7
+const DOUBLE_CLICK_ZOOM_IN_LEVEL = 6
+const DOUBLE_CLICK_ZOOM_IN_IN_LEVEL = 7
 
 const DEBUG = {}
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 // This regulates some behavious changes that happens when the user zoom out below this level.
+const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 
 const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 3  // This help regulate when to change the Time Frame base on the level of zoom out.
 const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 2
 const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3
@@ -221,8 +223,8 @@ const PERIOD_01_MIN = "01-min";
 We define here the size of the chartingSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const TIME_MACHINE_WIDTH = 250;
-const TIME_MACHINE_HEIGHT = 120;
+const TIME_MACHINE_WIDTH = 8;
+const TIME_MACHINE_HEIGHT = 8;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false

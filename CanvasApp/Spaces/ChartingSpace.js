@@ -332,8 +332,8 @@ function newChartingSpace () {
       timeMachine.payload.uiObject.setValue('Loading...')
 
       /* Setting up the new time machine. */
-      timeMachine.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
-      timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
+      timeMachine.container.frame.position.x = browserCanvas.width / 2 - browserCanvas.width / TIME_MACHINE_WIDTH / 2
+      timeMachine.container.frame.position.y = browserCanvas.height / 2 - (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT / 2
       timeMachine.initialize(onTimeMachineInitialized)
 
       function onTimeMachineInitialized () {

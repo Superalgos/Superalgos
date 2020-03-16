@@ -131,6 +131,15 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
         if (bandPoint2.y < upperLimit) { bandPoint2.y = upperLimit; }
         if (bandPoint3.y < upperLimit) { bandPoint3.y = upperLimit; }
 
+        const leftLimit = thisObject.container.frame.width * 0.40;
+        const rightLimit = thisObject.container.frame.width * 0.60;
+
+        if (bandPoint1.x < leftLimit) { bandPoint1.x = leftLimit; }
+        if (bandPoint2.x < leftLimit) { bandPoint2.x = leftLimit; }
+
+        if (bandPoint3.x > rightLimit) { bandPoint3.x = rightLimit; }
+        if (bandPoint4.x > rightLimit) { bandPoint4.x = rightLimit; }
+
         bandPoint1 = thisObject.container.frame.frameThisPoint(bandPoint1);
         bandPoint2 = thisObject.container.frame.frameThisPoint(bandPoint2);
         bandPoint3 = thisObject.container.frame.frameThisPoint(bandPoint3);

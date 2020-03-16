@@ -22,7 +22,7 @@ function newPlotterPanel () {
 
   let heightFactor = 1
   let currentRecord
-  let panelTabButton
+  let upDownButton
   let panelNode
 
   return thisObject
@@ -35,8 +35,8 @@ function newPlotterPanel () {
 
     heightFactor = undefined
     currentRecord = undefined
-    panelTabButton.finalize()
-    panelTabButton = undefined
+    upDownButton.finalize()
+    upDownButton = undefined
     panelNode = undefined
   }
 
@@ -50,18 +50,18 @@ function newPlotterPanel () {
     thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width - thisObject.container.frame.width * Math.random() * 8
     thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height - thisObject.container.frame.height * Math.random() * 1.5
 
-    panelTabButton = newPanelTabButton()
-    panelTabButton.parentContainer = thisObject.container
-    panelTabButton.container.frame.parentFrame = thisObject.container.frame
-    panelTabButton.fitFunction = thisObject.fitFunction
-    panelTabButton.initialize()
+    upDownButton = newUpDownButton()
+    upDownButton.parentContainer = thisObject.container
+    upDownButton.container.frame.parentFrame = thisObject.container.frame
+    upDownButton.fitFunction = thisObject.fitFunction
+    upDownButton.initialize()
   }
 
   function getContainer (point) {
     if (thisObject.isVisible !== true) { return }
     let container
 
-    container = panelTabButton.getContainer(point)
+    container = upDownButton.getContainer(point)
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -87,7 +87,7 @@ function newPlotterPanel () {
 
     thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
     plotCurrentRecordData()
-    panelTabButton.draw()
+    upDownButton.draw()
   }
 
   function plotCurrentRecordData () {

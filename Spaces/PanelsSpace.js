@@ -165,8 +165,8 @@ function newPanelsSpace () {
         let verticalLine = (canvas.chartingSpace.viewport.visibleArea.topRight.x - canvas.chartingSpace.viewport.visibleArea.topLeft.x) / 2 + canvas.chartingSpace.viewport.visibleArea.topLeft.x
         let horizontalLine = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2 + canvas.chartingSpace.viewport.visibleArea.topRight.y
 
-        if (panel.panelTabButton !== undefined) {
-          if (panel.panelTabButton.status === 'up') {
+        if (panel.upDownButton !== undefined) {
+          if (panel.upDownButton.status === 'up') {
             if (centerPoint.x < verticalLine) {
               panel.gravitatesTowards = 'topLeft'
             } else {

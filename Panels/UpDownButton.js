@@ -1,4 +1,4 @@
-function newPanelTabButton () {
+function newUpDownButton () {
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
@@ -48,7 +48,7 @@ function newPanelTabButton () {
     thisObject.container.frame.width = 10
     thisObject.container.frame.height = 10
 
-    var position = {
+    let position = {
       x: thisObject.parentContainer.frame.width - 14,
       y: 1
     }

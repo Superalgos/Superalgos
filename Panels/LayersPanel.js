@@ -6,7 +6,7 @@ function newLayersPanel () {
     layers: [],
     payload: undefined,
     isVisible: true,
-    panelTabButton: undefined,
+    upDownButton: undefined,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -43,8 +43,8 @@ function newLayersPanel () {
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
 
-    thisObject.panelTabButton.finalize()
-    thisObject.panelTabButton = undefined
+    thisObject.upDownButton.finalize()
+    thisObject.upDownButton = undefined
     layersMap = undefined
     visibleLayers = undefined
 
@@ -69,11 +69,11 @@ function newLayersPanel () {
     thisObject.container.frame.position = position
     loadFrame(thisObject.payload, thisObject.container.frame)
 
-    thisObject.panelTabButton = newPanelTabButton()
-    thisObject.panelTabButton.parentContainer = thisObject.container
-    thisObject.panelTabButton.container.frame.parentFrame = thisObject.container.frame
-    thisObject.panelTabButton.fitFunction = thisObject.fitFunction
-    thisObject.panelTabButton.initialize()
+    thisObject.upDownButton = newUpDownButton()
+    thisObject.upDownButton.parentContainer = thisObject.container
+    thisObject.upDownButton.container.frame.parentFrame = thisObject.container.frame
+    thisObject.upDownButton.fitFunction = thisObject.fitFunction
+    thisObject.upDownButton.initialize()
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
 
@@ -87,7 +87,7 @@ function newLayersPanel () {
   }
 
   function saveObjectStatePanelLocation () {
-    savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', thisObject.panelTabButton.status)
+    savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', thisObject.upDownButton.status)
   }
 
   function readObjectState () {
@@ -123,7 +123,7 @@ function newLayersPanel () {
         saveObjectStatePanelLocation() // this overrides any invalid value at the config.
         return
       }
-      thisObject.panelTabButton.setStatus(storedValue)
+      thisObject.upDownButton.setStatus(storedValue)
       saveObjectStatePanelLocation()
     }
   }
@@ -247,7 +247,7 @@ function newLayersPanel () {
     if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
     let container
 
-    container = thisObject.panelTabButton.getContainer(point)
+    container = thisObject.upDownButton.getContainer(point)
     if (container !== undefined) { return container }
 
      /* First we check if thisObject point is inside thisObject space. */
@@ -301,7 +301,7 @@ function newLayersPanel () {
     if (isInitialized === false) { return }
     if (thisObject.payload.node === undefined) { return }
 
-    thisObject.panelTabButton.physics()
+    thisObject.upDownButton.physics()
     saveFrame(thisObject.payload, thisObject.container.frame)
     syncWithConfigPhysics()
 
@@ -387,7 +387,7 @@ function newLayersPanel () {
       visibleLayers[i].draw()
     }
     drawScrollBar()
-    thisObject.panelTabButton.draw()
+    thisObject.upDownButton.draw()
   }
 
   function drawHeader () {

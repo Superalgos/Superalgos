@@ -20,7 +20,7 @@ function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecuti
     container.frame.containerName = "Trading Execution";
 
     let currentRecord;
-    let panelTabButton
+    let upDownButton
 
     return thisObject;
 
@@ -31,8 +31,8 @@ function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecuti
         thisObject.isVisible = undefined
 
         currentRecord = undefined
-        panelTabButton.finalize()
-        panelTabButton = undefined
+        upDownButton.finalize()
+        upDownButton = undefined
     }
 
     function initialize() {
@@ -43,18 +43,18 @@ function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecuti
         thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topLeft.x + thisObject.container.frame.width * 4;
         thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topRight.y;
 
-        panelTabButton = newPanelTabButton()
-        panelTabButton.parentContainer = thisObject.container
-        panelTabButton.container.frame.parentFrame = thisObject.container.frame
-        panelTabButton.fitFunction = thisObject.fitFunction
-        panelTabButton.initialize()
+        upDownButton = newUpDownButton()
+        upDownButton.parentContainer = thisObject.container
+        upDownButton.container.frame.parentFrame = thisObject.container.frame
+        upDownButton.fitFunction = thisObject.fitFunction
+        upDownButton.initialize()
     }
 
     function getContainer(point) {
         if (thisObject.isVisible !== true) { return }
         let container;
 
-        container = panelTabButton.getContainer(point)
+        container = upDownButton.getContainer(point)
         if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -86,7 +86,7 @@ function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecuti
 
         plot();
 
-        panelTabButton.draw()
+        upDownButton.draw()
 
     }
 

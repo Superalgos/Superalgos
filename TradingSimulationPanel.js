@@ -21,7 +21,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
 
     let currentRecord;
     let lastRecord;
-    let panelTabButton
+    let upDownButton
 
 
     return thisObject;
@@ -34,11 +34,11 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topRight.y;
 
-        panelTabButton = newPanelTabButton()
-        panelTabButton.parentContainer = thisObject.container
-        panelTabButton.container.frame.parentFrame = thisObject.container.frame
-        panelTabButton.fitFunction = thisObject.fitFunction
-        panelTabButton.initialize()
+        upDownButton = newUpDownButton()
+        upDownButton.parentContainer = thisObject.container
+        upDownButton.container.frame.parentFrame = thisObject.container.frame
+        upDownButton.fitFunction = thisObject.fitFunction
+        upDownButton.initialize()
 
     }
 
@@ -53,14 +53,14 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
 
         currentRecord = undefined
         lastRecord = undefined
-        panelTabButton = undefined
+        upDownButton = undefined
     }
 
     function getContainer(point) {
         if (thisObject.isVisible !== true) { return }
         let container;
 
-        container = panelTabButton.getContainer(point)
+        container = upDownButton.getContainer(point)
         if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -93,7 +93,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
 
         plotCurrentRecordInfo();
 
-        panelTabButton.draw()
+        upDownButton.draw()
 
         /* Define panel name */
         if (thisObject.session !== undefined) {

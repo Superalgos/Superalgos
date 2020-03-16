@@ -6,6 +6,7 @@ function newEdgeEditor () {
     fitFunction: undefined,
     isVisible: true,
     isMouseOver: undefined,
+    resetAspectRatio: resetAspectRatio,
     onKeyPressed: onKeyPressed,
     physics: physics,
     drawForeground: drawForeground,
@@ -104,7 +105,18 @@ function newEdgeEditor () {
     thisObject.isMouseOver = false
   }
 
-  function onDoubleClick () {
+  function resetAspectRatio () {
+  /* Resize the Time Machine to match the current screen aspect ration */
+
+    thisObject.container.parentContainer.frame.width = browserCanvas.width / TIME_MACHINE_WIDTH
+    thisObject.container.parentContainer.frame.height = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
+    coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
+    coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
+    coordinateSystem.recalculateScale()
+    thisObject.container.parentContainer.eventHandler.raiseEvent('Dimmensions Changed', event)
+  }
+
+  function onDoubleClick (event) {
     doubleClickCounter = 0
     if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
       canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
@@ -119,7 +131,7 @@ function newEdgeEditor () {
 
   function onDragStarted (event) {
     if (doubleClickCounter > 0) {
-      onDoubleClick()
+      onDoubleClick(event)
       return
     } else {
       doubleClickCounter = 50
@@ -182,6 +194,11 @@ function newEdgeEditor () {
     if (event.shiftKey === false && event.code === 'ArrowRight') {
       thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
       whatHappened = 'left or right arrow key pressed'
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
+      resetAspectRatio()
       return
     }
   }

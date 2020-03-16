@@ -1,4 +1,4 @@
-function newUpDownButton () {
+function newLeftRightButton () {
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
@@ -16,15 +16,15 @@ function newUpDownButton () {
    /* Cointainer stuff */
 
   thisObject.container = newContainer()
-  thisObject.container.name = 'Up Down Button'
+  thisObject.container.name = 'Left Right Button'
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
-  thisObject.container.frame.containerName = 'Up Down Button'
+  thisObject.container.frame.containerName = 'Left Right Button'
 
-  thisObject.status = 'up'
-  let upPosition = {}
-  let downPosition = {}
+  thisObject.status = 'left'
+  let leftPosition = {}
+  let rightPosition = {}
   let transitionPosition = {}
 
   let onMouseClickEventSuscriptionId
@@ -38,8 +38,8 @@ function newUpDownButton () {
     thisObject.parentContainer = undefined
 
     thisObject.status = undefined
-    upPosition = undefined
-    downPosition = undefined
+    leftPosition = undefined
+    rightPosition = undefined
     transitionPosition = undefined
   }
 
@@ -48,20 +48,20 @@ function newUpDownButton () {
     thisObject.container.frame.height = 12
 
     let position = {
-      x: thisObject.container.frame.parentFrame.width * 5.75 / 8 - thisObject.container.frame.width / 2,
+      x: thisObject.container.frame.parentFrame.width * 2.25 / 8 - thisObject.container.frame.width / 2,
       y: 40 * 4 / 8 - thisObject.container.frame.height / 2
     }
 
     thisObject.container.frame.position = position
 
-    upPosition.x = thisObject.parentContainer.frame.position.x
-    upPosition.y = thisObject.parentContainer.frame.position.y
+    leftPosition.x = thisObject.parentContainer.frame.position.x
+    leftPosition.y = thisObject.parentContainer.frame.position.y
 
-    downPosition.x = thisObject.parentContainer.frame.position.x
-    downPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
+    rightPosition.x = thisObject.parentContainer.frame.position.x
+    rightPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
 
-    transitionPosition.x = upPosition.x
-    transitionPosition.y = upPosition.y
+    transitionPosition.x = leftPosition.x
+    transitionPosition.y = leftPosition.y
 
     /* Lets listen to our own events to react when we have a Mouse Click */
     onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -70,53 +70,54 @@ function newUpDownButton () {
   }
 
   function setStatus (value) {
-    if (value === 'up' && thisObject.status === 'down') {
-      thisObject.status = 'going up'
+    if (value === 'left' && thisObject.status === 'right') {
+      thisObject.status = 'going left'
     }
-    if (value === 'down' && thisObject.status === 'up') {
-      thisObject.status = 'going down'
+    if (value === 'right' && thisObject.status === 'left') {
+      thisObject.status = 'going right'
     }
   }
 
   function onMouseClick (event) {
-    if (thisObject.status === 'up') {
-      transitionPosition.x = upPosition.x
-      transitionPosition.y = upPosition.y
+    if (thisObject.status === 'left') {
+      transitionPosition.x = leftPosition.x
+      transitionPosition.y = leftPosition.y
 
-      thisObject.status = 'going down'
+      thisObject.status = 'going right'
     } else {
-      transitionPosition.x = downPosition.x
-      transitionPosition.y = downPosition.y
+      transitionPosition.x = rightPosition.x
+      transitionPosition.y = rightPosition.y
 
-      thisObject.status = 'going up'
+      thisObject.status = 'going left'
     }
   }
 
   function physics () {
+    return
     if (isInitialized === false) { return }
 
-    upPosition.x = thisObject.parentContainer.frame.position.x
-    upPosition.y = canvas.chartingSpace.viewport.visibleArea.topRight.y
+    leftPosition.x = thisObject.parentContainer.frame.position.x
+    leftPosition.y = canvas.chartingSpace.viewport.visibleArea.topRight.y
 
-    downPosition.x = thisObject.parentContainer.frame.position.x
-    downPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
+    rightPosition.x = thisObject.parentContainer.frame.position.x
+    rightPosition.y = canvas.chartingSpace.viewport.visibleArea.bottomRight.y
 
-    if (thisObject.status === 'going down') {
-      if (transitionPosition.y < downPosition.y) {
-        transitionPosition.y = transitionPosition.y + 50
-        thisObject.parentContainer.frame.position.y = transitionPosition.y
+    if (thisObject.status === 'going right') {
+      if (transitionPosition.x < rightPosition.x) {
+        transitionPosition.x = transitionPosition.x + 50
+        thisObject.parentContainer.frame.position.x = transitionPosition.x
       } else {
-        thisObject.parentContainer.frame.position.y = downPosition.y
-        thisObject.status = 'down'
+        thisObject.parentContainer.frame.position.x = rightPosition.x
+        thisObject.status = 'right'
       }
     }
-    if (thisObject.status === 'going up') {
-      if (transitionPosition.y > upPosition.y) {
-        transitionPosition.y = transitionPosition.y - 50
-        thisObject.parentContainer.frame.position.y = transitionPosition.y
+    if (thisObject.status === 'going left') {
+      if (transitionPosition.x > leftPosition.x) {
+        transitionPosition.x = transitionPosition.x - 50
+        thisObject.parentContainer.frame.position.x = transitionPosition.x
       } else {
-        thisObject.parentContainer.frame.position.y = upPosition.y
-        thisObject.status = 'up'
+        thisObject.parentContainer.frame.position.x = leftPosition.x
+        thisObject.status = 'left'
       }
     }
   }
@@ -140,74 +141,74 @@ function newUpDownButton () {
     let point3
 
     switch (thisObject.status) {
-      case 'up': {
+      case 'left': {
         point1 = {
           x: 3,
           y: 3
         }
 
         point2 = {
-          x: thisObject.container.frame.width - 3,
-          y: 3
-        }
-
-        point3 = {
-          x: thisObject.container.frame.width / 2,
-          y: thisObject.container.frame.height - 3
-        }
-        break
-      }
-
-      case 'going down': {
-        point1 = {
-          x: 4,
-          y: 4
-        }
-
-        point2 = {
-          x: thisObject.container.frame.width - 4,
-          y: 4
-        }
-
-        point3 = {
-          x: thisObject.container.frame.width / 2,
-          y: thisObject.container.frame.height - 4
-        }
-        break
-      }
-
-      case 'going up': {
-        point1 = {
-          x: 4,
-          y: thisObject.container.frame.height - 4
-        }
-
-        point2 = {
-          x: thisObject.container.frame.width - 4,
-          y: thisObject.container.frame.height - 4
-        }
-
-        point3 = {
-          x: thisObject.container.frame.width / 2,
-          y: 4
-        }
-        break
-      }
-
-      case 'down': {
-        point1 = {
           x: 3,
           y: thisObject.container.frame.height - 3
         }
 
+        point3 = {
+          x: thisObject.container.frame.width - 3,
+          y: thisObject.container.frame.height / 2
+        }
+        break
+      }
+
+      case 'going right': {
+        point1 = {
+          x: 4,
+          y: 4
+        }
+
+        point2 = {
+          x: 4,
+          y: thisObject.container.frame.height - 4
+        }
+
+        point3 = {
+          x: thisObject.container.frame.width - 4,
+          y: thisObject.container.frame.height / 2
+        }
+        break
+      }
+
+      case 'going left': {
+        point1 = {
+          x: thisObject.container.frame.width - 4,
+          y: 4
+        }
+
+        point2 = {
+          x: thisObject.container.frame.width - 4,
+          y: thisObject.container.frame.height - 4
+        }
+
+        point3 = {
+          x: 4,
+          y: thisObject.container.frame.height / 2
+        }
+        break
+      }
+
+      case 'right': {
+        point1 = {
+          x: thisObject.container.frame.width - 3,
+          y: 3
+        }
+
         point2 = {
           x: thisObject.container.frame.width - 3,
           y: thisObject.container.frame.height - 3
         }
 
         point3 = {
-          x: thisObject.container.frame.width / 2,
-          y: 3
+          x: 3,
+          y: thisObject.container.frame.height / 2
         }
         break
       }

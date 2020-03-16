@@ -7,6 +7,7 @@ function newLayersPanel () {
     payload: undefined,
     isVisible: true,
     upDownButton: undefined,
+    leftRightButton: undefined,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -38,13 +39,23 @@ function newLayersPanel () {
   let posiblePanelHeight = (layerHeight + LAYER_SEPARATION) * posibleVisibleLayers + headerHeight + footerHeight
 
   let onMouseWheelEventSuscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+
+  let isMouseOver
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
     thisObject.upDownButton.finalize()
     thisObject.upDownButton = undefined
+
+    thisObject.leftRightButton.finalize()
+    thisObject.leftRightButton = undefined
+
     layersMap = undefined
     visibleLayers = undefined
 
@@ -75,11 +86,27 @@ function newLayersPanel () {
     thisObject.upDownButton.fitFunction = thisObject.fitFunction
     thisObject.upDownButton.initialize()
 
+    thisObject.leftRightButton = newLeftRightButton()
+    thisObject.leftRightButton.parentContainer = thisObject.container
+    thisObject.leftRightButton.container.frame.parentFrame = thisObject.container.frame
+    thisObject.leftRightButton.fitFunction = thisObject.fitFunction
+    thisObject.leftRightButton.initialize()
+
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     readObjectState()
 
     isInitialized = true
+  }
+
+  function onMouseOver (event) {
+    isMouseOver = true
+  }
+
+  function onMouseNotOver () {
+    isMouseOver = false
   }
 
   function saveObjectStateVisibleLayers () {
@@ -87,7 +114,11 @@ function newLayersPanel () {
   }
 
   function saveObjectStatePanelLocation () {
-    savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', thisObject.upDownButton.status)
+    let panelLocation = {
+      upOrDown: thisObject.upDownButton.status,
+      leftOrRight: thisObject.leftRightButton.status
+    }
+    savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', panelLocation)
   }
 
   function readObjectState () {
@@ -119,11 +150,16 @@ function newLayersPanel () {
       saveObjectStatePanelLocation() // this overrides any invalid value at the config.
       return
     } else {
-      if (storedValue !== 'up' && storedValue !== 'down') {
+      if (storedValue.upOrDown !== 'up' && storedValue.upOrDown !== 'down') {
         saveObjectStatePanelLocation() // this overrides any invalid value at the config.
         return
       }
-      thisObject.upDownButton.setStatus(storedValue)
+      if (storedValue.leftOrRight !== 'left' && storedValue.leftOrRight !== 'right') {
+        saveObjectStatePanelLocation() // this overrides any invalid value at the config.
+        return
+      }
+      thisObject.upDownButton.setStatus(storedValue.upOrDown)
+      thisObject.leftRightButton.setStatus(storedValue.leftOrRight)
       saveObjectStatePanelLocation()
     }
   }
@@ -247,8 +283,13 @@ function newLayersPanel () {
     if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
     let container
 
-    container = thisObject.upDownButton.getContainer(point)
-    if (container !== undefined) { return container }
+    if (isMouseOver === true && purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
+      container = thisObject.upDownButton.getContainer(point)
+      if (container !== undefined) { return container }
+
+      container = thisObject.leftRightButton.getContainer(point)
+      if (container !== undefined) { return container }
+    }
 
      /* First we check if thisObject point is inside thisObject space. */
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -302,6 +343,7 @@ function newLayersPanel () {
     if (thisObject.payload.node === undefined) { return }
 
     thisObject.upDownButton.physics()
+    thisObject.leftRightButton.physics()
     saveFrame(thisObject.payload, thisObject.container.frame)
     syncWithConfigPhysics()
 
@@ -387,7 +429,10 @@ function newLayersPanel () {
       visibleLayers[i].draw()
     }
     drawScrollBar()
-    thisObject.upDownButton.draw()
+    if (isMouseOver === true) {
+      thisObject.upDownButton.draw()
+      thisObject.leftRightButton.draw()
+    }
   }
 
   function drawHeader () {

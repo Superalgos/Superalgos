@@ -56,6 +56,7 @@ function newAppLoader() {
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',
+                'Panels/LeftRightButton.js',
                 'Panels/Layer.js',
                 'Panels/PlotterPanel.js',
                 'Panels/PanelsVisibleButton.js',

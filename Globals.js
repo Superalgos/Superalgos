@@ -45,7 +45,8 @@ const MAC_AMOUNT_FACTOR = 5
 const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
 
 const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
-const DOUBLE_CLICK_ZOOM_IN_LEVEL = 7
+const DOUBLE_CLICK_ZOOM_IN_LEVEL = 6
+const DOUBLE_CLICK_ZOOM_IN_IN_LEVEL = 7
 
 const DEBUG = {}
 const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12

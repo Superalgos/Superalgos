@@ -109,6 +109,11 @@ function newEdgeEditor () {
     if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
       canvas.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
       canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_LEVEL)
+      return
+    }
+    if (canvas.chartingSpace.viewport.zoomLevel === DOUBLE_CLICK_ZOOM_IN_LEVEL) {
+      canvas.chartingSpace.viewport.zoomAtCenter(DOUBLE_CLICK_ZOOM_IN_IN_LEVEL)
+      return
     }
   }
 
@@ -476,7 +481,23 @@ function newEdgeEditor () {
     }
   }
 
+  function testDraw () {
+    let y = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+
+    browserCanvasContext.beginPath()
+    browserCanvasContext.moveTo(0, y)
+    browserCanvasContext.lineTo(2000, y)
+    browserCanvasContext.moveTo(browserCanvas.width / 2, 0)
+    browserCanvasContext.lineTo(browserCanvas.width / 2, 2000)
+    browserCanvasContext.closePath()
+
+    browserCanvasContext.lineWidth = 1
+    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + 1 + ')'
+    browserCanvasContext.stroke()
+  }
+
   function drawForeground () {
+    testDraw()
     let MARGIN = 1
     let edgeSize
     let lineWidth

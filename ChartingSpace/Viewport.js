@@ -137,10 +137,10 @@ function newViewport () {
   function displaceToContainer (container) {
     let targetPoint = {
       x: -container.frame.position.x - container.frame.width / 2,
-      y: -container.frame.position.y - container.frame.height / 2 + TOP_SPACE_HEIGHT
+      y: -container.frame.position.y - container.frame.height / 2
     }
-    position.x = targetPoint.x + thisObject.width / 2
-    position.y = targetPoint.y + thisObject.height / 2
+    position.x = targetPoint.x + browserCanvas.width / 2
+    position.y = targetPoint.y + (browserCanvas.height - COCKPIT_SPACE_HEIGHT - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
   }
 
   function zoomAtCenter (level) {
@@ -152,7 +152,7 @@ function newViewport () {
   function mousePositionPhysics () {
     if (overrideMousePositionCounter > 0) {
       thisObject.mousePosition.x = browserCanvas.width / 2
-      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT) / 2 - TOP_SPACE_HEIGHT / 2
+      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
 
       overrideMousePositionCounter--
       if (overrideMousePositionCounter < 0) {
@@ -413,4 +413,3 @@ function newViewport () {
     }
   }
 }
-

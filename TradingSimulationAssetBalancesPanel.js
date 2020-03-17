@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
+function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAssetBalancesPanel() {
 
     let thisObject = {
         fitFunction: undefined,
@@ -17,7 +17,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
     container.initialize();
     thisObject.container = container;
 
-    container.frame.containerName = "Simulation Panel";
+    container.frame.containerName = "Simulation Asset Balances Panel";
 
     let currentRecord;
     let lastRecord;
@@ -125,7 +125,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
 
         y = y + increment;
         y = y + increment;
-        printLabel('Partial Results', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel('Asset Balances', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         /* Parameters */
         let params

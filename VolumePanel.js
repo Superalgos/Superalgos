@@ -241,47 +241,13 @@ function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
         browserCanvasContext.lineWidth = 1;
         browserCanvasContext.stroke();
 
-
         /* put the labels with the volumes values */
 
-        browserCanvasContext.beginPath();
+        printLabel('Buy Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentVolume.innerVolumeBar.amountBuy, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        printLabel('Buy Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
-        printLabel(currentVolume.innerVolumeBar.amountBuy, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '0.50');
-
-        printLabel('Sell Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '1');
-        printLabel(currentVolume.innerVolumeBar.amountSell, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '0.50');
-
-
-        function printLabel(labelToPrint, x, y, opacity) {
-
-            let labelPoint;
-            let fontSize = 10;
-
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
-
-            let label = '' + labelToPrint;
-            if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
-            }
-
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-            labelPoint = {
-                x: x - xOffset,
-                y: y
-            };
-
-            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-            labelPoint = thisObject.fitFunction(labelPoint)
-
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        }
-
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
+        printLabel('Sell Volume', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentVolume.innerVolumeBar.amountSell, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 

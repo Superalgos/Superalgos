@@ -63,7 +63,7 @@ function newSpeedometer () {
     centerPoint = thisObject.container.frame.frameThisPoint(centerPoint)
 
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0.85 * Math.PI, 2.15 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'

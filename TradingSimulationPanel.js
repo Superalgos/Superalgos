@@ -270,7 +270,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         params.MIN_VALUE = currentRecord.minimunBalanceA
         params.MAX_VALUE = currentRecord.maximunBalanceA
         params.ASSET_LABEL = 'Asset A'
-        params.ASSET_NAME = DEFAULT_MARKET.assetB
+        params.ASSET_NAME = currentRecord.baseAsset
         params.LEFT_OFFSET = 100
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.baseAsset
@@ -284,7 +284,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         params.INIT_VALUE = currentRecord.initialBalanceB
         params.MAX_VALUE = currentRecord.maximunBalanceB
         params.ASSET_LABEL = 'Asset B'
-        params.ASSET_NAME = DEFAULT_MARKET.assetA
+        params.ASSET_NAME = currentRecord.quotedAsset
         params.LEFT_OFFSET = 220
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.baseAsset

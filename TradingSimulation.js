@@ -384,8 +384,9 @@
                         record.minimunBalanceB = dailyFile[i][31];
                         record.maximunBalanceB = dailyFile[i][32];
                         record.baseAsset = dailyFile[i][33];
-                        record.positionPeriods = dailyFile[i][34];
-                        record.positionDays = dailyFile[i][35];
+                        record.quotedAsset = dailyFile[i][34];
+                        record.positionPeriods = dailyFile[i][35];
+                        record.positionDays = dailyFile[i][36];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -475,8 +476,9 @@
                 record.minimunBalanceB = marketFile[i][31];
                 record.maximunBalanceB = marketFile[i][32];
                 record.baseAsset = marketFile[i][33];
-                record.positionPeriods = marketFile[i][34];
-                record.positionDays = marketFile[i][35];
+                record.quotedAsset = marketFile[i][34];
+                record.positionPeriods = marketFile[i][35];
+                record.positionDays = marketFile[i][36];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&

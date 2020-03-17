@@ -2488,6 +2488,7 @@
                     }
 
                     let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
+                    let quotedQuotedAsset = '"' + bot.VALUES_TO_USE.quotedAsset + '"'
 
                     simulationRecord = {
                         begin: candle.begin,
@@ -2524,6 +2525,7 @@
                         minimumBalanceB: bot.VALUES_TO_USE.minimumBalanceB,
                         maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
                         baseAsset: quotedBaseAsset,
+                        quotedAsset: quotedQuotedAsset,
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,
                         distanceToLastTriggerOn: distanceToLast.triggerOn,

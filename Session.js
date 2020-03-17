@@ -287,6 +287,22 @@
                             }
                         }
 
+                        /* Quoted Asset */
+                        {
+                            if (tradingSystem.parameters.quotedAsset !== undefined) {
+                                if (tradingSystem.parameters.quotedAsset.referenceParent !== undefined) {
+                                    if (tradingSystem.parameters.quotedAsset.referenceParent.referenceParent !== undefined) {
+
+                                        let code = tradingSystem.parameters.quotedAsset.referenceParent.referenceParent.code
+
+                                        if (code.codeName !== undefined) {
+                                            bot.VALUES_TO_USE.quotedAsset = code.codeName;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         /* Time Frame */
                         if (tradingSystem.parameters.timeFrame !== undefined) {
                             bot.VALUES_TO_USE.timeFrame = tradingSystem.parameters.timeFrame.code.value
@@ -392,6 +408,22 @@
                                                     bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
                                                     bot.VALUES_TO_USE.maximumBalanceA = 0
                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            /* Quoted Asset. */
+                            {
+                                if (bot.SESSION.parameters.quotedAsset !== undefined) {
+                                    if (bot.SESSION.parameters.quotedAsset.referenceParent !== undefined) {
+                                        if (bot.SESSION.parameters.quotedAsset.referenceParent.referenceParent !== undefined) {
+
+                                            let code = bot.SESSION.parameters.quotedAsset.referenceParent.referenceParent.code
+
+                                            if (code.codeName !== undefined) {
+                                                bot.VALUES_TO_USE.quotedAsset = code.codeName;
                                             }
                                         }
                                     }

@@ -23,7 +23,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
     let lastRecord;
     let upDownButton
 
-    const HEIGHT_FACTOR = 1.5
+    const HEIGHT_FACTOR = 1
 
     return thisObject;
 
@@ -41,6 +41,10 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
         upDownButton.fitFunction = thisObject.fitFunction
         upDownButton.initialize()
 
+        thisObject.assetBalances = newAssetalances()
+        thisObject.assetBalances.container.connectToParent(thisObject.container, true, true)
+        thisObject.assetBalances.initialize()
+
     }
 
     function finalize() {
@@ -55,6 +59,9 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
         currentRecord = undefined
         lastRecord = undefined
         upDownButton = undefined
+
+        thisObject.assetBalances.finalize()
+        thisObject.assetBalances = undefined
     }
 
     function getContainer(point) {
@@ -95,6 +102,8 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
         plotCurrentRecordInfo();
 
         upDownButton.draw()
+
+        thisObject.assetBalances.draw()
 
         /* Define panel name */
         if (thisObject.session !== undefined) {
@@ -143,7 +152,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
         params.MAX_VALUE = currentRecord.maximunBalanceA
         params.ASSET_LABEL = 'Asset A'
         params.ASSET_NAME = currentRecord.baseAsset
-        params.LEFT_OFFSET = 100
+        params.LEFT_OFFSET = X_AXIS
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.baseAsset
         params.DECIMALS = 4
@@ -157,13 +166,14 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationAs
         params.MAX_VALUE = currentRecord.maximunBalanceB
         params.ASSET_LABEL = 'Asset B'
         params.ASSET_NAME = currentRecord.quotedAsset
-        params.LEFT_OFFSET = 220
+        params.LEFT_OFFSET = X_AXIS
         params.POSITION_TAKEN = positionTaken
         params.BASE_ASSET = currentRecord.baseAsset
         params.DECIMALS = 2
 
         paramsArray.push(params)
 
-        canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
+        thisObject.assetBalances.setParamsArray(paramsArray)
+
     }
 }

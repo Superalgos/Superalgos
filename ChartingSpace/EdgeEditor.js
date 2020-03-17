@@ -197,7 +197,7 @@ function newEdgeEditor () {
       return
     }
 
-    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'A' || event.key === 'a')) {
       resetAspectRatio()
       return
     }

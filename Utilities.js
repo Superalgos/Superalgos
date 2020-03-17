@@ -28,6 +28,8 @@ function dynamicDecimals (value) {
   if (Math.trunc(value * 100) < 1) { decimals = 6 }
   if (Math.trunc(value * 10000) < 1) { decimals = 8 }
   if (Math.trunc(value * 1000000) < 1) { decimals = 10 }
+  if (Math.trunc(value * 100000000) < 1) { decimals = 12 }
+  if (Math.trunc(value * 10000000000) < 1) { decimals = 0 }
   return (value - Math.trunc(value)).toFixed(decimals)
 }
 
@@ -203,7 +205,7 @@ function getMilisecondsFromPoint (point, container, coordinateSystem) {
   return point.x
 }
 
-function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition) {
+function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition, fitFunction) {
   let targetPoint = {
     x: currentDate.valueOf(),
     y: currentRate
@@ -237,15 +239,42 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function printLabel (labelToPrint, x, y, opacity, fontSize, color) {
+function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction) {
   let labelPoint
   if (color === undefined) { color = UI_COLOR.DARK }
+  if (fontSize === undefined) { fontSize = 10 };
 
   browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-  let label = '' + labelToPrint
+  let label = labelToPrint
+  if (isNaN(label) === false && label !== '') {
+    label = dynamicDecimals(labelToPrint)
+    label = label.toLocaleString()
+  }
+
   let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+  if (center === true) {
+    labelPoint = {
+      x: x - xOffset,
+      y: y
+    }
+  } else {
+    labelPoint = {
+      x: x,
+      y: y
+    }
+  }
+
+  if (container !== undefined) {
+    labelPoint = container.frame.frameThisPoint(labelPoint)
+  }
+
+  if (fitFunction !== undefined) {
+    labelPoint = fitFunction(labelPoint)
+  }
+
   browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
-  browserCanvasContext.fillText(label, x, y)
+  browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 }
 
 function newUniqueId () {

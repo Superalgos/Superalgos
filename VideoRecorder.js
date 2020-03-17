@@ -17,7 +17,6 @@ function newVideoRecorder () {
 
   function recordCanvas () {
     {
-      console.log(canvas.mouse.action, wheelAnimationCounter)
       const DISTANCE_BETWEEN_ICONS = 35
       const ICON_SIZES = 50
 
@@ -61,7 +60,35 @@ function newVideoRecorder () {
           } else {
             pointerIcon = mousePointerIcon
           }
-
+          let key = canvas.mouse.event.key
+          if (key === undefined) { break }
+          switch (key.toLowerCase()) {
+            case 'Escape':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                break
+              }
+            case 'm':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                break
+              }
+            case 'a':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-a')
+                break
+              }
+            case 'r':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                break
+              }
+            case 'c':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                break
+              }
+          }
           break
         }
         case 'key up': {

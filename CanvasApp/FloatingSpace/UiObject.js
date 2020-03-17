@@ -1172,6 +1172,7 @@ function newUiObject () {
 
   function drawValue () {
     if (hasValue === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
     // if (currentValue === undefined || currentValue === '') { return }
 
 /* Text Follows */
@@ -1538,4 +1539,3 @@ function newUiObject () {
     }
   }
 }
-

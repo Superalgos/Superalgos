@@ -204,6 +204,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "," +
                                 record.distanceToLastTriggerOn + "," +
@@ -547,6 +548,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "]";
 
@@ -651,6 +653,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "]";
 

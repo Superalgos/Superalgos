@@ -33,7 +33,7 @@ function newSessionFunctions () {
     let lightingPath = '' +
     'Trading System->' +
     'Parameters->' +
-    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
     'Exchange Account Asset->Asset->' +
     'Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
@@ -53,7 +53,7 @@ function newSessionFunctions () {
     lightingPath = '' +
     'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
     'Parameters->' +
-    'Base Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
     'Exchange Account Asset->Asset->'
 
     let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)

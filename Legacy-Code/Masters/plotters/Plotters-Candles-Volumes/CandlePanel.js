@@ -202,8 +202,8 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
 
         }
 
-        const leftLimit = thisObject.container.frame.width * 0.40;
-        const rightLimit = thisObject.container.frame.width * 0.60;
+        const leftLimit = thisObject.container.frame.width * 0.42;
+        const rightLimit = thisObject.container.frame.width * 0.58;
 
         if (candlePoint1.x < leftLimit) {
 
@@ -320,73 +320,33 @@ function newMastersPlottersCandlesVolumesCandlesCandlePanel() {
         browserCanvasContext.lineWidth = 1;
         browserCanvasContext.stroke();
 
-
-        browserCanvasContext.beginPath();
-
         /* put the labels with the candles values */
-
-
-
 
         let y;
 
-        printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '1');
-        printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '0.50');
+        printLabel('Max', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentCandle.innerCandle.max, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '1');
-        printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '0.50');
-
+        printLabel('Min', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentCandle.innerCandle.min, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS - currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Open', X_AXIS * 1 / 2, y, '1');
-        printLabel(currentCandle.innerCandle.open, X_AXIS * 1 / 2, y + frameBodyHeight * 0.05, '0.50');
+        printLabel('Open', X_AXIS * 2 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentCandle.innerCandle.open, X_AXIS * 2 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = Y_AXIS + currentCandle.bodyHeight / 2;
 
         if (y < frameTitleHeight + frameBodyHeight * 0.15) { y = frameTitleHeight + frameBodyHeight * 0.15; }
         if (y > frameTitleHeight + frameBodyHeight * 0.80) { y = frameTitleHeight + frameBodyHeight * 0.80; }
 
-        printLabel('Close', X_AXIS * 3 / 2, y, '1');
-        printLabel(currentCandle.innerCandle.close, X_AXIS * 3 / 2, y + frameBodyHeight * 0.05, '0.50');
-
-
-
-        function printLabel(labelToPrint, x, y, opacity) {
-
-            let labelPoint;
-            let fontSize = 10;
-
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY + ' Saira';
-
-            let label = '' + labelToPrint;
-            if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
-            }
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-            labelPoint = {
-                x: x - xOffset,
-                y: y
-            };
-
-            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-            labelPoint = thisObject.fitFunction(labelPoint)
-
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        }
-
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
+        printLabel('Close', X_AXIS * 7 / 5, y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentCandle.innerCandle.close, X_AXIS * 7 / 5, y + frameBodyHeight * 0.05, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
-
-
 }
 
 

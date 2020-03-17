@@ -3,20 +3,7 @@
 
 const CANVAS_APP_NAME = 'Canvas App'
 
-const SUPPORTED_EXCHANGES = ["Poloniex"];
-const SUPPORTED_MARKETS = [
-  {
-      baseAsset: "USDT",
-      quotedAsset: "BTC",
-  }
-];
-const DEFAULT_EXCHANGE = "Poloniex";
-const DEFAULT_MARKET = {
-    baseAsset: "USDT",
-    quotedAsset: "BTC",
-};
-
-UI_COLOR = {
+const UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
     GREY: "150, 150, 150",
@@ -36,7 +23,7 @@ UI_COLOR = {
 
 /* User Interface Fonts */
 
-UI_FONT = {
+const UI_FONT = {
     PRIMARY: "Saira Condensed",
     SECONDARY: "Source Code Pro"
 };
@@ -86,7 +73,7 @@ const DISTANCE_TO_PARENT = {
 
 /* User Interface Panels */
 
-UI_PANEL = {
+const UI_PANEL = {
     WIDTH: {
         SMALL: 100,
         NORMAL: 150,
@@ -132,7 +119,7 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-SHOW_ANIMATION_PERFORMACE = false;
+let SHOW_ANIMATION_PERFORMACE = false;
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY
@@ -145,10 +132,6 @@ if (testUser !== null) {
   LOGGED_IN_USER_LOCAL_STORAGE_KEY =  "user"
   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
-
-const DEFAULT_CONFIG_TEXT = '// Write your config here'
-const DEFAULT_FORMULA_TEXT = '// Write your formula here'
-const DEFAULT_CODE_TEXT = '// Write your code here'
 
 const MAX_DEFAULT_RATE_SCALE_VALUE = 35000; // This is needed to know the scale of the market time line.
 

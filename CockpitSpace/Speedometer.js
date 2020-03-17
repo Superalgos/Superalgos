@@ -56,9 +56,11 @@ function newSpeedometer () {
     const OPACITY = 1
 
     let centerPoint = {
-      x: thisObject.params.LEFT_OFFSET,
-      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2 - 9
+      x: 0,
+      y: 0
     }
+
+    centerPoint = thisObject.container.frame.frameThisPoint(centerPoint)
 
     browserCanvasContext.beginPath()
     browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0.85 * Math.PI, 2.15 * Math.PI)

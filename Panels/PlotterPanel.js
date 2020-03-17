@@ -153,33 +153,8 @@ function newPlotterPanel () {
         valuePosition = panelData.code.valuePosition
       }
 
-      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '1')
-      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '0.50')
+      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction)
     }
-
-    function printLabel (labelToPrint, x, y, opacity) {
-      let labelPoint
-      let fontSize = 10
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
-
-      let label = '' + labelToPrint
-
-      let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-
-      labelPoint = {
-        x: x - xOffset,
-        y: y
-      }
-
-      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-      labelPoint = thisObject.fitFunction(labelPoint)
-
-      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
-      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-    }
-
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
   }
 }

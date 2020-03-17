@@ -26,10 +26,16 @@
     <Compile Include="SimulationExecutionPanel.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SimulationPartialResults.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Strategies.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Trades.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TradingSimulationCurrentPositionPanel.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TradingSimulationPanel.js" />

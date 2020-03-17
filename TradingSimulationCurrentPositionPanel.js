@@ -19,19 +19,20 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCu
     container.initialize();
     thisObject.container = container;
 
-    container.frame.containerName = "Simulation";
+    container.frame.containerName = "Simulation Current Position Panel";
 
     let currentRecord;
     let lastRecord;
     let upDownButton
 
+    const HEIGHT_FACTOR  = 1.5
 
     return thisObject;
 
     function initialize() {
 
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 1;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * HEIGHT_FACTOR;
 
         thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topRight.y;
@@ -123,7 +124,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCu
         /* put the labels with the records values */
 
         let y = 0;
-        let increment = 0.024 * 2.5;
+        let increment = 0.024 / HEIGHT_FACTOR * 2.5;
 
         y = y + increment;
         y = y + increment;
@@ -159,32 +160,19 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCu
         y = y + increment;
         printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
+        y = y + increment;
+        y = y + increment;
+        printLabel('Latest Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        y = y + increment;
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.lastTradeProfitLoss), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        y = y + increment;
+        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

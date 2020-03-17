@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
+function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPartialResultsPanel() {
 
     let thisObject = {
         fitFunction: undefined,
@@ -17,7 +17,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
     container.initialize();
     thisObject.container = container;
 
-    container.frame.containerName = "Simulation Panel";
+    container.frame.containerName = "Simulation Partial Results Panel";
 
     let currentRecord;
     let lastRecord;
@@ -118,6 +118,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
 
+
         /* put the labels with the records values */
 
         let y = 0;
@@ -127,43 +128,50 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         y = y + increment;
         printLabel('Partial Results', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        /* Parameters */
-        let params
-        let paramsArray = []
-        let positionTaken = false
+        y = y + increment;
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        if (currentRecord.positionSize > 0) {
-            positionTaken = true
-        }
+        y = y + increment;
+        printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.roundtrips, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        params = {}
-        params.VALUE = currentRecord.balanceA;
-        params.INIT_VALUE = currentRecord.initialBalanceA
-        params.MIN_VALUE = currentRecord.minimunBalanceA
-        params.MAX_VALUE = currentRecord.maximunBalanceA
-        params.ASSET_LABEL = 'Asset A'
-        params.ASSET_NAME = currentRecord.baseAsset
-        params.LEFT_OFFSET = 100
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 4
+        y = y + increment;
+        printLabel('Hits', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        paramsArray.push(params)
+        y = y + increment;
+        printLabel('Fails', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        params = {}
-        params.VALUE = currentRecord.balanceB;
-        params.MIN_VALUE = currentRecord.minimunBalanceB
-        params.INIT_VALUE = currentRecord.initialBalanceB
-        params.MAX_VALUE = currentRecord.maximunBalanceB
-        params.ASSET_LABEL = 'Asset B'
-        params.ASSET_NAME = currentRecord.quotedAsset
-        params.LEFT_OFFSET = 220
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 2
+        y = y + increment;
+        printLabel('Hit Ratio', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        paramsArray.push(params)
+        y = y + increment;
+        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
+        y = y + increment;
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        y = y + increment;
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        y = y + increment;
+        printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+
     }
 }

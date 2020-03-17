@@ -1,6 +1,8 @@
 ﻿
-function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPanel() {
 
+
+function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCurrentPositionPanel() {
+         
     let thisObject = {
         fitFunction: undefined,
         onRecordChange: onRecordChange,
@@ -29,7 +31,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
     function initialize() {
 
         thisObject.container.frame.width = UI_PANEL.WIDTH.NORMAL * 1;
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.0;
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1;
 
         thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width * 1;
         thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.topRight.y;
@@ -123,71 +125,43 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         browserCanvasContext.beginPath();
 
         let y = 0;
-        let increment = 0.024 / 2  * 2.5;
+        let increment = 0.024 * 2.5;
 
         y = y + increment;
         y = y + increment;
-        printLabel('Latest Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Current Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
 
         y = y + increment;
-        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel((currentRecord.lastTradeProfitLoss), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
+        printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel('Partial Results', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel(currentRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('Profit / Loss', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.profit, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('Trades', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.roundtrips, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
         y = y + increment;
-        printLabel('Hits', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
         y = y + increment;
-        printLabel(currentRecord.hits, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
 
-        y = y + increment;
-        printLabel('Fails', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.fails, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Hit Ratio', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('ROI', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Periods', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.periods, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Days', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.days, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Anualized Rate of Return', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
+    
 
         function printLabel(labelToPrint, x, y, opacity, fontSize) {
 
@@ -221,44 +195,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
         browserCanvasContext.closePath();
         browserCanvasContext.fill();
 
-        /* Parameters */
-        let params
-        let paramsArray = []
-        let positionTaken = false
-
-        if (currentRecord.positionSize > 0) {
-            positionTaken = true
-        }
-
-        params = {}
-        params.VALUE = currentRecord.balanceA;
-        params.INIT_VALUE = currentRecord.initialBalanceA
-        params.MIN_VALUE = currentRecord.minimunBalanceA
-        params.MAX_VALUE = currentRecord.maximunBalanceA
-        params.ASSET_LABEL = 'Asset A'
-        params.ASSET_NAME = currentRecord.baseAsset
-        params.LEFT_OFFSET = 100
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 4
-
-        paramsArray.push(params)
-
-        params = {}
-        params.VALUE = currentRecord.balanceB;
-        params.MIN_VALUE = currentRecord.minimunBalanceB
-        params.INIT_VALUE = currentRecord.initialBalanceB
-        params.MAX_VALUE = currentRecord.maximunBalanceB
-        params.ASSET_LABEL = 'Asset B'
-        params.ASSET_NAME = currentRecord.quotedAsset
-        params.LEFT_OFFSET = 220
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 2
-
-        paramsArray.push(params)
-
-        canvas.cockpitSpace.assetBalances.setParamsArray(paramsArray)
+     
     }
 }
 

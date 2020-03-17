@@ -522,11 +522,11 @@
                 if (record.status === 1) {
                     switch (record.exitType) {
                         case 1: {
-                            line1 = 'Exit: STOP';
+                            line1 = 'Stop Loss';
                             break;
                         }
                         case 2: {
-                            line1 = 'Exit: TP';
+                            line1 = 'Take Profit';
                             break;
                         }
                     }

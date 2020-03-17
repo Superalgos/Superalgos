@@ -542,26 +542,40 @@
                 let imageToDraw = strategyImages[record.number];
 
                 
-                    /* Draw the line that represents the duration of closed strategy */
+                /* Draw the line that represents the duration of closed strategy */
 
-                    browserCanvasContext.beginPath();
+                browserCanvasContext.beginPath();
 
-                    browserCanvasContext.moveTo(recordPoint3.x + imageSize / 2, recordPoint3.y);
-                    browserCanvasContext.lineTo(recordPoint4.x - imageSize / 2, recordPoint4.y);
+                browserCanvasContext.moveTo(recordPoint3.x + imageSize / 2, recordPoint3.y);
+                browserCanvasContext.lineTo(recordPoint4.x - imageSize / 2, recordPoint4.y);
 
-                    browserCanvasContext.closePath();
+                browserCanvasContext.closePath();
 
-                    browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
-                    browserCanvasContext.lineWidth = 1
+                browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.MANGANESE_PURPLE + ', 1)';
+                browserCanvasContext.lineWidth = 1
 
-                    if (record.status === 1) {
-                        browserCanvasContext.setLineDash([0, 0])
-                    } else {
-                        browserCanvasContext.setLineDash([2, 4])
-                    }
-                    browserCanvasContext.stroke()
+                if (record.status === 1) {
+                    browserCanvasContext.setLineDash([0, 0])
+                } else {
+                    browserCanvasContext.setLineDash([2, 4])
+                }
+                browserCanvasContext.stroke()
                  
+                /* Draw the Area */
+                /*
+                browserCanvasContext.beginPath();
 
+                browserCanvasContext.moveTo(recordPoint1.x, recordPoint2.y);
+                browserCanvasContext.lineTo(recordPoint3.x, recordPoint3.y);
+                browserCanvasContext.lineTo(recordPoint4.x, recordPoint4.y);
+                browserCanvasContext.lineTo(recordPoint2.x, recordPoint2.y);                                
+
+                browserCanvasContext.closePath();
+
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + 0.5 + ')';
+                browserCanvasContext.fill();
+                */
+                /* Draw the Sticks */
 
                 drawStick(recordPoint1, recordPoint3);
                 drawStick(recordPoint2, recordPoint4);

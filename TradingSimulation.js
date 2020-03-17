@@ -514,6 +514,14 @@
 
                 record = records[i];
 
+                /* Contributing to Auto-Scale*/
+                if (record.stopLoss !== 0) {
+                    coordinateSystem.reportYValue(record.stopLoss)
+                }
+                if (record.takeProfit !== 0) {
+                    coordinateSystem.reportYValue(record.takeProfit)
+                }
+                
                 /* Send the current record to the panel */
 
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {

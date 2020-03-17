@@ -30,7 +30,8 @@ function dynamicDecimals (value) {
   if (Math.trunc(value * 1000000) < 1) { decimals = 10 }
   if (Math.trunc(value * 100000000) < 1) { decimals = 12 }
   if (Math.trunc(value * 10000000000) < 1) { decimals = 0 }
-  return (value - Math.trunc(value)).toFixed(decimals)
+  let returnValue = Number(value).toFixed(decimals)
+  return returnValue
 }
 
 function savePropertyAtNodeConfig (payload, propertyName, value) {

@@ -120,106 +120,71 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
 
         /* put the labels with the records values */
 
-        browserCanvasContext.beginPath();
-
         let y = 0;
         let increment = 0.024 / 2  * 2.5;
 
         y = y + increment;
         y = y + increment;
-        printLabel('Latest Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Latest Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.lastTradeProfitLoss), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.lastTradeProfitLoss), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.lastTradeROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         y = y + increment;
-        printLabel('Partial Results', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Partial Results', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Profit / Loss', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.profit, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Trades', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.roundtrips, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.profit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Hits', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.hits, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Fails', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.fails, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.roundtrips, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Hit Ratio', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Hits', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('ROI', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Periods', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Fails', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.periods, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Days', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.days, X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Anualized Rate of Return', X_AXIS , frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Hit Ratio', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS , frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
+        y = y + increment;
+        printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        function printLabel(labelToPrint, x, y, opacity, fontSize) {
+        y = y + increment;
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-            let labelPoint;
-            if (fontSize === undefined) { fontSize = 10 };
+        y = y + increment;
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel(currentRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
-
-            let label = '' + labelToPrint;
-            if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
-                if ((label === "-0" || label === "0") && (labelToPrint !== 0) && (labelToPrint !== "0.00")) {
-                    label = Number(labelToPrint).toFixed(6);
-                }
-            }
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-            labelPoint = {
-                x: x - xOffset,
-                y: y
-            };
-
-            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-            labelPoint = thisObject.fitFunction(labelPoint)
-
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        }
-
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
+        y = y + increment;
+        printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         /* Parameters */
         let params

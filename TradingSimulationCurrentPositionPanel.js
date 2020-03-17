@@ -122,80 +122,43 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCu
 
         /* put the labels with the records values */
 
-        browserCanvasContext.beginPath();
-
         let y = 0;
         let increment = 0.024 * 2.5;
 
         y = y + increment;
         y = y + increment;
-        printLabel('Current Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1', 14);
+        printLabel('Current Position', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
-
-        y = y + increment;
-        printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
-        y = y + increment;
-        printLabel(currentRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.sellRate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.stopLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
-        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60');
+        printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14);
+        printLabel(currentRecord.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-    
+        y = y + increment;
+        printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        function printLabel(labelToPrint, x, y, opacity, fontSize) {
+        y = y + increment;
+        printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        y = y + increment;
+        printLabel((currentRecord.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
-            let labelPoint;
-            if (fontSize === undefined) { fontSize = 10 };
-
-            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY;
-
-            let label = '' + labelToPrint;
-            if (isNaN(label) === false) {
-                label = Number(label).toLocaleString();
-                if ((label === "-0" || label === "0") && (labelToPrint !== 0) && (labelToPrint !== "0.00")) {
-                    label = Number(labelToPrint).toFixed(6);
-                }
-            }
-            let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO;
-
-            labelPoint = {
-                x: x - xOffset,
-                y: y
-            };
-
-            labelPoint = thisObject.container.frame.frameThisPoint(labelPoint);
-            labelPoint = thisObject.fitFunction(labelPoint)
-
-            browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')';
-            browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y);
-
-        }
-
-        browserCanvasContext.closePath();
-        browserCanvasContext.fill();
-
-     
     }
 }
 

@@ -23,7 +23,7 @@ function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPa
     let lastRecord;
     let upDownButton
 
-    const HEIGHT_FACTOR = 1.5
+    const HEIGHT_FACTOR = 1.25
 
     return thisObject;
 

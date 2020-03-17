@@ -184,6 +184,7 @@ function newAppLoader() {
             'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulation.js',
             'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
             'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
+            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
             'Plotters/Masters/Plotters-Trading-Simulation/Conditions.js',
             'Plotters/Masters/Plotters-Trading-Simulation/Strategies.js',
             'Plotters/Masters/Plotters-Trading-Simulation/Trades.js',

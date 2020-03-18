@@ -689,7 +689,7 @@
                     browserCanvasContext.save();
                     browserCanvasContext.translate(recordPoint3.x + labelOffset.x, recordPoint3.y + labelOffset.y);
                     browserCanvasContext.rotate(-Math.PI / 2);
-                    printLabel(recordLabel, 0, 0, '1', 8);
+                    printLabel(recordLabel, 0, 0, '1', 8, undefined, undefined, undefined, undefined, true);
                     browserCanvasContext.restore();
                 }
 

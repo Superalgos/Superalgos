@@ -198,8 +198,8 @@ function newSpeedometer () {
     if (isNaN(label) === false) {
       label = Number(label)
 
-      label = Math.trunc(label * Math.pow(10, thisObject.params.DECIMALS)) / Math.pow(10, thisObject.params.DECIMALS)
-      if (label === 0) { label = label.toFixed(2) } else { label = label.toLocaleString() }
+      label = dynamicDecimals(label, 2)
+      if (label === 0) { label = label.toFixed(2) }
     }
 
     // label = label.substring(0, 6)

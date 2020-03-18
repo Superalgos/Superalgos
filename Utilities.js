@@ -241,7 +241,7 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction) {
+function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals) {
   let labelPoint
   if (color === undefined) { color = UI_COLOR.DARK }
   if (fontSize === undefined) { fontSize = 10 };
@@ -251,6 +251,9 @@ function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, conta
   if (isNaN(label) === false && label !== '') {
     label = dynamicDecimals(labelToPrint)
     label = label.toLocaleString()
+    if (noDecimals === true) {
+      label = Math.trunc(label)
+    }
   }
 
   let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO

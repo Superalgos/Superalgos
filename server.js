@@ -267,6 +267,20 @@ global.getPercentage = function (fromDate, currentDate, lastDate) {
     let currentDays = Math.trunc(currentDate.valueOf() / ONE_DAY_IN_MILISECONDS)
     let lastDays = Math.trunc(lastDate.valueOf() / ONE_DAY_IN_MILISECONDS)
     let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
-    return percentage.toFixed(2) + " %"
+    if ((lastDays - fromDays) === 0) {
+        percentage = 100
+    }
+    return percentage.toFixed(0) + "%"
+}
+
+global.areEqualDates = function (date1, date2) {
+    let day1Days = Math.trunc(date1.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let day2Days = Math.trunc(date2.valueOf() / ONE_DAY_IN_MILISECONDS)
+ 
+    if (day1Days === day2Days) {
+        return true
+    } else {
+        return false
+    }
 }
 

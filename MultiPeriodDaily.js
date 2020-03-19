@@ -811,7 +811,9 @@
 
                     bot.hasTheBotJustStarted = false;
 
-                    logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);             
+                    if (global.areEqualDates(bot.multiPeriodDailyProcessDatetime, new Date()) === false) {
+                        logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);
+                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

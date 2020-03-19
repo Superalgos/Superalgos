@@ -181,15 +181,15 @@ function newAppLoader() {
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulation.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/Conditions.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/Strategies.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/Trades.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/SimulationExecution.js',
-            'Plotters/Masters/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecution.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
         ]
     }
 

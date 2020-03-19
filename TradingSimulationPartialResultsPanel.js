@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationPartialResultsPanel() {
+function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimulationPartialResultsPanel() {
 
     let thisObject = {
         fitFunction: undefined,

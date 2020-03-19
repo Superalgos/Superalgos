@@ -20,13 +20,12 @@
     <Compile Include="Conditions.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FinalResults.js" />
+    <Compile Include="FinalResultsPanel.js" />
     <Compile Include="SimulationExecution.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SimulationExecutionPanel.js">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SimulationPartialResults.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Strategies.js">
@@ -35,11 +34,12 @@
     <Compile Include="Trades.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TradingSimulationAssetBalancesPanel.js" />
     <Compile Include="TradingSimulationCurrentPositionPanel.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TradingSimulationPanel.js" />
     <Compile Include="TradingSimulation.js" />
+    <Compile Include="TradingSimulationPartialResultsPanel.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="this.plotter.config.json" />

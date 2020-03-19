@@ -52,6 +52,7 @@
 
     let noDefinitionOnFocusErrorDisplayed = false
 
+    let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
     let dragFinishedEventSubscriptionId
@@ -70,6 +71,7 @@
 
             /* Stop listening to the necesary events. */
 
+            thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             canvas.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             canvas.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
             canvas.eventHandler.stopListening(dragFinishedEventSubscriptionId);
@@ -128,6 +130,7 @@
             dragFinishedEventSubscriptionId = canvas.eventHandler.listenToEvent("Drag Finished", onDragFinished);
             marketFilesUpdatedEventSubscriptionId = marketFiles.eventHandler.listenToEvent("Files Updated", onMarketFilesUpdated);
             dailyFilesUpdatedEventSubscriptionId = dailyFiles.eventHandler.listenToEvent("Files Updated", onDailyFilesUpdated);
+            onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
 
             /* Get ready for plotting. */
 
@@ -524,9 +527,9 @@
 
         for (let i = 0; i < canvas.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
             let rootNode = canvas.designSpace.workspace.workspaceNode.rootNodes[i]
-            if (rootNode.type === 'Definition') {
-                if (rootNode.tradingSystem.id === fileTradingSystem.id) {
-                    designerTradingSystem = rootNode.tradingSystem
+            if (rootNode.type === 'Trading System') {
+                if (rootNode.id === fileTradingSystem.id) {
+                    designerTradingSystem = rootNode
                 }
             }
         }

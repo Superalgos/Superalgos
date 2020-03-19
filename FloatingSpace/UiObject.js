@@ -32,6 +32,7 @@ function newUiObject () {
     highlight: highlight,
     setErrorMessage: setErrorMessage,
     setValue: setValue,
+    setPercentage: setPercentage,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -68,6 +69,9 @@ function newUiObject () {
   let hasValue
   let valueCounter = 0
 
+  let hasPercentage
+  let percentageCounter = 0
+
   let previousDistanceToChainParent
   let readyToChainAttachDisplayCounter = 5
   let readyToChainAttachDisplayIncrement = 0.1
@@ -92,6 +96,7 @@ function newUiObject () {
 
   let errorMessage = ''
   let currentValue = 0
+  let currentPercentage = ''
   let rightDragging = false
 
   let eventSubscriptionIdHeartbeat
@@ -278,6 +283,7 @@ function newUiObject () {
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
+    percentagePhisycs()
     chainDetachingPhysics()
     chainAttachingPhysics()
     referenceDetachingPhysics()
@@ -639,6 +645,14 @@ function newUiObject () {
     }
   }
 
+  function percentagePhisycs () {
+    percentageCounter--
+    if (percentageCounter < 0) {
+      percentageCounter = 0
+      hasPercentage = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
@@ -653,11 +667,27 @@ function newUiObject () {
     }
   }
 
-  function setValue (value) {
+  function setValue (value, counter) {
     if (value !== undefined) {
       currentValue = value
       hasValue = true
-      valueCounter = 100
+      if (counter !== undefined) {
+        valueCounter = counter
+      } else {
+        valueCounter = 100
+      }
+    }
+  }
+
+  function setPercentage (percentage, counter) {
+    if (percentage !== undefined) {
+      currentPercentage = percentage
+      hasPercentage = true
+      if (counter !== undefined) {
+        percentageCounter = counter
+      } else {
+        percentageCounter = 100
+      }
     }
   }
 
@@ -858,6 +888,7 @@ function newUiObject () {
   function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
       drawValue()
+      drawPercentage()
       drawText()
       thisObject.uiObjectTitle.draw()
     }
@@ -936,6 +967,7 @@ function newUiObject () {
 
       drawErrorMessage()
       drawValue()
+      drawPercentage()
       drawText()
 
       if (drawTitle === true) {
@@ -1187,7 +1219,7 @@ function newUiObject () {
       position = canvas.floatingSpace.transformPointToMap(position)
     }
 
-    let radius = thisObject.container.frame.radius * 1.5
+    let radius = thisObject.container.frame.radius * 1.35
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -1202,6 +1234,49 @@ function newUiObject () {
           label = currentValue.toFixed(2)
         }
       }
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawPercentage () {
+    if (hasPercentage === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.75
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 65
+
+      label = currentPercentage
 
       if (label !== undefined) {
         if (label.length > MAX_LABEL_LENGTH) {

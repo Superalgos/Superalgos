@@ -55,7 +55,8 @@ function newCircularProgressBar () {
     if (thisObject.payload === undefined) { return }
     if (thisObject.payload.uiObject === undefined) { return }
     opacityCounters[message.event.seconds] = 2000
-    thisObject.payload.uiObject.setValue(message.event.processingDate)
+    thisObject.payload.uiObject.setValue(message.event.processingDate, 2000)
+    thisObject.payload.uiObject.setPercentage(message.event.percentage, 2000)
   }
 
   function getContainer (point) {

@@ -103,8 +103,6 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
         upDownButton.draw()
 
-        thisObject.assetBalances.draw()
-
         /* Define panel name */
         if (thisObject.session !== undefined) {
             const MAX_LABEL_LENGTH = 25
@@ -145,6 +143,17 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             positionTaken = true
         }
 
+        let testPoint = {
+            x: 0,
+            y: thisObject.container.frame.height
+        }
+
+        testPoint = thisObject.container.frame.frameThisPoint(testPoint)
+        let fitPoint = thisObject.fitFunction(testPoint)
+        if (fitPoint.y !== testPoint.y) {
+            return
+        }
+
         params = {}
         params.VALUE = currentRecord.balanceA;
         params.INIT_VALUE = currentRecord.initialBalanceA
@@ -174,6 +183,6 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         paramsArray.push(params)
 
         thisObject.assetBalances.setParamsArray(paramsArray)
-
+        thisObject.assetBalances.draw()
     }
 }

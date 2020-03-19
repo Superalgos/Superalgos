@@ -247,6 +247,9 @@
 
                     let n;
                     processDate = new Date(contextVariables.lastBandFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    let fromDate = new Date(processDate.valueOf())
+                    let lastDate = new Date()
+
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildBands -> processDate = " + processDate); }
 
                     advanceTime();
@@ -274,6 +277,11 @@
                                 return;
 
                             }
+
+                            /*  Telling the world we are alive and doing well */
+                            let currentDateString = processDate.getUTCFullYear() + '-' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processDate.getUTCDate(), 2);
+                            let currentDate = new Date(processDate)
+                            bot.processHeartBeat(currentDateString, global.getPercentage(fromDate, currentDate, lastDate)) 
 
                             periodsLoop();
 
@@ -864,7 +872,9 @@
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
-                    logger.newInternalLoop(bot.codeName, bot.process, lastFileDate); 
+                    if (global.areEqualDates(lastFileDate, new Date()) === false) {
+                        logger.newInternalLoop(bot.codeName, bot.process, lastFileDate);
+                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

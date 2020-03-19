@@ -59,6 +59,7 @@ function newCircularProgressBar () {
   }
 
   function getContainer (point) {
+    if (canvas.floatingSpace.inMapMode === true) { return }
     let container
 
     for (let i = 0; i < menuItems.length; i++) {
@@ -83,6 +84,7 @@ function newCircularProgressBar () {
   }
 
   function drawBackground (pFloatingObject) {
+    if (canvas.floatingSpace.inMapMode === true) { return }
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {

@@ -1,7 +1,7 @@
 ﻿
 
 
-function newMastersPlottersTradingSimulationTradingSimulationTradingSimulationCurrentPositionPanel() {
+function newTrading-EnginesPlottersTradingSimulationTradingSimulationTradingSimulationCurrentPositionPanel() {
          
     let thisObject = {
         fitFunction: undefined,

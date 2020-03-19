@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersTradingSimulationSimulationExecutionSimulationExecutionPanel() {
+function newTrading-EnginesPlottersTradingSimulationSimulationExecutionSimulationExecutionPanel() {
 
 
     let thisObject = {

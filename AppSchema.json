@@ -1279,7 +1279,7 @@
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Exchange Tasks->"
+            "compatibleTypes": "->Exchange Tasks->Template Structure->"
         },
         "icon": "task-manager",
         "properties": [
@@ -2505,6 +2505,9 @@
         },
         "level": 2,
         "icon": "data-mine",
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here a name with no spaces or dashes.\"\n}"
+        },
         "properties": [
             {
                 "name": "sensorBots",
@@ -3056,6 +3059,7 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 3,
         "referenceAttachesTo": {

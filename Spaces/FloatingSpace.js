@@ -140,10 +140,13 @@ function newFloatingSpace () {
   function onDragStarted (event) {
     if (thisObject.inMapMode === false) {
       if (event.buttons !== 2) { return }
-
+      event.candelDragging = true
       enterMapMode()
     } else {
-      if (event.buttons !== 1) { return }
+      if (event.buttons !== 1) {
+        event.candelDragging = true
+        return
+      }
 
       let mousePosition = {
         x: event.x,

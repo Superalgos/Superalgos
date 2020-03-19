@@ -616,6 +616,12 @@ function newCanvas () {
         containerDragStarted = true
         floatingObjectDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+
+        if (event.candelDragging === true) {
+          containerBeingDragged = undefined
+          containerDragStarted = false
+          floatingObjectDragStarted = false
+        }
         return
       }
 

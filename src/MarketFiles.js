@@ -36,13 +36,15 @@ function newMarketFiles () {
   let intervalHandle
   let finalized = false
 
-  let eventSubscriptionIdDatasetUpdated
+  let eventSubscriptionIdDatasetUpdated = []
 
   return thisObject
 
   function finalize () {
     try {
-      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+      for (let i = 0; i < eventSubscriptionIdDatasetUpdated.length; i++) {
+        systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated[i])
+      }
 
       thisObject.eventHandler.finalize()
       thisObject.eventHandler = undefined
@@ -108,11 +110,11 @@ function newMarketFiles () {
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
                 let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
                 systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
-
+                console.log('Dataset Updated:' + key + '-' + periodName)
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
 
                 function onResponse (message) {
-                  eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId
+                  eventSubscriptionIdDatasetUpdated.push(message.eventSubscriptionId)
                 }
               }
             } catch (err) {
@@ -132,7 +134,7 @@ function newMarketFiles () {
     try {
       if (finalized === true) { return }
       let updatedFiles = 0
-
+      console.log('updateFiles ' + periodName)
             /* Now we will get the market files */
 
       for (let i = 0; i < marketFilesPeriods.length; i++) {

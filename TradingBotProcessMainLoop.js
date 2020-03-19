@@ -1000,10 +1000,11 @@
                 }
             }
 
-            function processHeartBeat(processingDate) {
+            function processHeartBeat(processingDate, percentage) {
                 let event = {
                     seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate
+                    processingDate: processingDate,
+                    percentage: percentage
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }

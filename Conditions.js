@@ -1,4 +1,4 @@
-﻿function newTrading-EnginesPlottersTradingSimulationConditions() {
+﻿function newTradingEnginesPlottersTradingSimulationConditions() {
 
     const MODULE_NAME = "Conditions Plotter";
     const INFO_LOG = false;

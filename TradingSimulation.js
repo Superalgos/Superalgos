@@ -1,4 +1,4 @@
-﻿function newTrading-EnginesPlottersTradingSimulationTradingSimulation() {
+﻿function newTradingEnginesPlottersTradingSimulationTradingSimulation() {
 
     const MODULE_NAME = "Simulation Plotter";
     const ERROR_LOG = true;

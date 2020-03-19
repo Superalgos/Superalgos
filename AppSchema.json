@@ -4953,7 +4953,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the name of the market as it is defined at the CCXT library.\"\n}"
+            "code": "{ \n\"codeName\": \"Write here the name of the market.\"\n}"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Markets->"

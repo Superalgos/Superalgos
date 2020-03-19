@@ -229,7 +229,8 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
             function buildCandles() {
 
                 try {
-
+                    let fromDate = new Date(contextVariables.lastCandleFile.valueOf())
+                    let lastDate = new Date()
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> Entering function."); }
 
                     let outputCandles;
@@ -254,6 +255,11 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                             callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
                         }
+
+                        /*  Telling the world we are alive and doing well */
+                        let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                        let currentDate = new Date(contextVariables.lastCandleFile)
+                        bot.processHeartBeat(currentDateString, global.getPercentage(fromDate, currentDate, lastDate)) 
 
                         /*
 
@@ -784,7 +790,9 @@ Read the candles and volumes from Exchange Raw Data and produce a file for each 
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
-                    logger.newInternalLoop(bot.codeName, bot.process, lastFileDate); 
+                    if (global.areEqualDates(lastFileDate, new Date()) === false) {
+                        logger.newInternalLoop(bot.codeName, bot.process, lastFileDate);
+                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

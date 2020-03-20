@@ -1362,7 +1362,7 @@ function newUiObject () {
         }
 
         labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 15,
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
           y: position.y - radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 

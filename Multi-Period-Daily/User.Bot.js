@@ -281,8 +281,12 @@
                             /*  Telling the world we are alive and doing well */
                             let currentDateString = processDate.getUTCFullYear() + '-' + utilities.pad(processDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processDate.getUTCDate(), 2);
                             let currentDate = new Date(processDate)
-                            bot.processHeartBeat(currentDateString, global.getPercentage(fromDate, currentDate, lastDate)) 
+                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            bot.processHeartBeat(currentDateString, percentage) 
 
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                            }
                             periodsLoop();
 
                         } catch (err) {
@@ -872,9 +876,6 @@
                     thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
                     thisReport.save(callBack);
 
-                    if (global.areEqualDates(lastFileDate, new Date()) === false) {
-                        logger.newInternalLoop(bot.codeName, bot.process, lastFileDate);
-                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

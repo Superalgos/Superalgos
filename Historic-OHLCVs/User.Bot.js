@@ -251,10 +251,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
                         let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate
                         let currentDate = new Date(since)
-                        bot.processHeartBeat(heartBeatText, global.getPercentage(fromDate, currentDate, lastDate)) // tell the world we are alive and doing well
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                        bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
 
                         if (global.areEqualDates(currentDate, new Date()) === false) {
-                            logger.newInternalLoop(bot.codeName, bot.process, new Date(since));
+                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
                         }
 
                         /* Defining if we will query the exchange by Date or Id */

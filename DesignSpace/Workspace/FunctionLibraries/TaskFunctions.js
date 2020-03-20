@@ -81,9 +81,9 @@ function newTaskFunctions () {
       taskId: node.id,
       taskName: node.name
     }
-    systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
     node.payload.uiObject.stop(callBackFunction)
+    systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
     if (node.bot === undefined) { return }
     if (node.bot.processes.length === 0) { return }

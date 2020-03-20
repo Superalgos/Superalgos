@@ -730,13 +730,13 @@ function newUiObject () {
 
     /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, 'UiObject', onResponse, onHeartBeat)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
     function onResponse (message) {
       eventSubscriptionIdHeartbeat = message.eventSubscriptionId
     }
 
-    function onHeartBeat () {
+    function onRunning () {
       if (thisObject.payload === undefined) { return }
       lastHeartBeat = new Date()
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
@@ -1276,7 +1276,7 @@ function newUiObject () {
         }
 
         labelPoint = {
-          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
           y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 

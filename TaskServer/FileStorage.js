@@ -51,7 +51,7 @@ exports.newFileStorage = function newFileStorage(logger) {
 
             function onFileRead(err, text) {
                 let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
-                if (currentRetryGetTextFile < MAX_RETRY - 3) {
+                if (currentRetryGetTextFile > MAX_RETRY - 2) {
                     retryTimeToUse = SLOW_RETRY_TIME_IN_MILISECONDS
                 }
                 if (err) {
@@ -96,6 +96,7 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
 
         function retry() {
+            //console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation )
             if (currentRetryGetTextFile < MAX_RETRY) {
                 currentRetryGetTextFile++
                 logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
@@ -150,7 +151,7 @@ exports.newFileStorage = function newFileStorage(logger) {
 
             function onFileWritenn(err) {
                 let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
-                if (currentRetryWriteTextFile < MAX_RETRY - 3) {
+                if (currentRetryWriteTextFile > MAX_RETRY - 2) {
                     retryTimeToUse = SLOW_RETRY_TIME_IN_MILISECONDS
                 }
                 if (err) {

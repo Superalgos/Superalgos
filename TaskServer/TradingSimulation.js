@@ -4,7 +4,7 @@
     const LOG_FILE_CONTENT = false;
 
     const MODULE_NAME = "Trading Simulation -> " + bot.SESSION.name;
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+    
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {

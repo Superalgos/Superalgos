@@ -32,6 +32,8 @@ function newUiObject () {
     highlight: highlight,
     setErrorMessage: setErrorMessage,
     setValue: setValue,
+    setPercentage: setPercentage,
+    setStatus: setStatus,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -68,6 +70,12 @@ function newUiObject () {
   let hasValue
   let valueCounter = 0
 
+  let hasPercentage
+  let percentageCounter = 0
+
+  let hasStatus
+  let statusCounter = 0
+
   let previousDistanceToChainParent
   let readyToChainAttachDisplayCounter = 5
   let readyToChainAttachDisplayIncrement = 0.1
@@ -92,6 +100,8 @@ function newUiObject () {
 
   let errorMessage = ''
   let currentValue = 0
+  let currentPercentage = ''
+  let currentStatus = ''
   let rightDragging = false
 
   let eventSubscriptionIdHeartbeat
@@ -278,6 +288,8 @@ function newUiObject () {
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
+    percentagePhisycs()
+    statusPhisycs()
     chainDetachingPhysics()
     chainAttachingPhysics()
     referenceDetachingPhysics()
@@ -639,6 +651,22 @@ function newUiObject () {
     }
   }
 
+  function percentagePhisycs () {
+    percentageCounter--
+    if (percentageCounter < 0) {
+      percentageCounter = 0
+      hasPercentage = false
+    }
+  }
+
+  function statusPhisycs () {
+    statusCounter--
+    if (statusCounter < 0) {
+      statusCounter = 0
+      hasStatus = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
@@ -653,11 +681,39 @@ function newUiObject () {
     }
   }
 
-  function setValue (value) {
+  function setValue (value, counter) {
     if (value !== undefined) {
       currentValue = value
       hasValue = true
-      valueCounter = 100
+      if (counter !== undefined) {
+        valueCounter = counter
+      } else {
+        valueCounter = 100
+      }
+    }
+  }
+
+  function setPercentage (percentage, counter) {
+    if (percentage !== undefined) {
+      currentPercentage = percentage
+      hasPercentage = true
+      if (counter !== undefined) {
+        percentageCounter = counter
+      } else {
+        percentageCounter = 100
+      }
+    }
+  }
+
+  function setStatus (status, counter) {
+    if (status !== undefined) {
+      currentStatus = status
+      hasStatus = true
+      if (counter !== undefined) {
+        statusCounter = counter
+      } else {
+        statusCounter = 100
+      }
     }
   }
 
@@ -730,6 +786,9 @@ function newUiObject () {
         thisObject.circularProgressBar = undefined
       }
       thisObject.isRunning = false
+      hasValue = false
+      hasPercentage = false
+      hasStatus = false
       lastHeartBeat = undefined
     }
   }
@@ -858,6 +917,8 @@ function newUiObject () {
   function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
       drawValue()
+      drawPercentage()
+      drawStatus()
       drawText()
       thisObject.uiObjectTitle.draw()
     }
@@ -936,6 +997,8 @@ function newUiObject () {
 
       drawErrorMessage()
       drawValue()
+      drawPercentage()
+      drawStatus()
       drawText()
 
       if (drawTitle === true) {
@@ -1187,7 +1250,7 @@ function newUiObject () {
       position = canvas.floatingSpace.transformPointToMap(position)
     }
 
-    let radius = thisObject.container.frame.radius * 1.5
+    let radius = thisObject.container.frame.radius * 1.35
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -1208,6 +1271,10 @@ function newUiObject () {
           label = label.substring(0, MAX_LABEL_LENGTH) + '...'
         }
 
+        if (label.length > 30) {
+          fontSize = fontSize / 2
+        }
+
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
           y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
@@ -1215,6 +1282,92 @@ function newUiObject () {
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawPercentage () {
+    if (hasPercentage === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.75
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 65
+
+      label = Number(currentPercentage).toFixed(0) + '%'
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawStatus () {
+    if (hasStatus === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.4
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 65
+
+      label = currentStatus
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+          y: position.y - radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
@@ -1539,3 +1692,4 @@ function newUiObject () {
     }
   }
 }
+

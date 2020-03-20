@@ -145,8 +145,8 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10)  
-                        + "      Entered into Main Loop     # " + pad(Number(bot.loopCounter), 8));
+                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8))
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
@@ -964,6 +964,7 @@
                                 logger.persist();
                             }
 
+                            processStopped()
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -982,6 +983,7 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.") 
                                     if(global.WRITE_LOGS_TO_FILES === 'true'){
                                         logger.persist();
                                     }
@@ -993,18 +995,21 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
+                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.") 
                                     logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.") 
                                     logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.") 
                                     logger.persist();
                                 }
                                     break;
@@ -1076,10 +1081,12 @@
                 }
             }
 
-            function processHeartBeat(processingDate) {
+            function processHeartBeat(processingDate, percentage, status) {
                 let event = {
                     seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate
+                    processingDate: processingDate,
+                    percentage: percentage,
+                    status: status
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }

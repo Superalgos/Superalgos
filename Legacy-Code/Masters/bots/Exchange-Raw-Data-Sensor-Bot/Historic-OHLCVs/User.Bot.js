@@ -240,6 +240,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     let lastOHLCVKey = ''
                     let params = undefined
                     let previousSince
+                    let fromDate = new Date(since)
+                    let lastDate = new Date()
 
                     while (true) {
 
@@ -247,7 +249,14 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         let processingDate = new Date(since)
                         processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
-                        bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                        let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate
+                        let currentDate = new Date(since)
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                        bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
+
+                        if (global.areEqualDates(currentDate, new Date()) === false) {
+                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                        }
 
                         /* Defining if we will query the exchange by Date or Id */
                         if (fetchType === "by Id") {
@@ -291,7 +300,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
-                                beginingOfMarket = new Date(Math.trunc (OHLCV[0] / ONE_DAY) * ONE_DAY)  // 'timestamp'
+                                beginingOfMarket = new Date(Math.trunc(OHLCV[0] / ONE_DAY) * ONE_DAY)  // 'timestamp'
+                                fromDate = new Date(beginingOfMarket.valueOf())
                                 fisrtTimeThisProcessRun = false
                             }
                         }

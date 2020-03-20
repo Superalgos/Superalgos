@@ -25,6 +25,8 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
+const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+
 /* Process Events */
 
 process.on('uncaughtException', function (err) {
@@ -257,6 +259,28 @@ function startRoot(processIndex) {
     function onInitialized() {
         //console.log('[INFO] Task Server -> server -> startRoot -> onInitialized -> Entering function. ')
         root.start(processIndex)
+    }
+}
+
+global.getPercentage = function (fromDate, currentDate, lastDate) {
+    let fromDays = Math.trunc(fromDate.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let currentDays = Math.trunc(currentDate.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let lastDays = Math.trunc(lastDate.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
+    if ((lastDays - fromDays) === 0) {
+        percentage = 100
+    }
+    return percentage 
+}
+
+global.areEqualDates = function (date1, date2) {
+    let day1Days = Math.trunc(date1.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let day2Days = Math.trunc(date2.valueOf() / ONE_DAY_IN_MILISECONDS)
+ 
+    if (day1Days === day2Days) {
+        return true
+    } else {
+        return false
     }
 }
 

@@ -378,6 +378,9 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> Entering function."); }
 
+                    let fromDate = new Date(contextVariables.lastCandleFile.valueOf())
+                    let lastDate = new Date()
+
                     /*
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
                     */
@@ -404,9 +407,7 @@
                         contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + ONE_DAY_IN_MILISECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + "."); }
-                         
-                        logger.newInternalLoop(bot.codeName, bot.process, contextVariables.lastCandleFile);                         
-
+                                           
                         /* Validation that we are not going past the head of the market. */
 
                         if (contextVariables.lastCandleFile.valueOf() > contextVariables.maxCandleFile.valueOf()) {
@@ -415,6 +416,16 @@
 
                             callBackFunction(global.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return;
+                        }
+
+                        /*  Telling the world we are alive and doing well */
+                        let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                        let currentDate = new Date(contextVariables.lastCandleFile)
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                        bot.processHeartBeat(currentDateString, percentage) 
+
+                        if (global.areEqualDates(currentDate, new Date()) === false) {
+                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
                         }
 
                         periodsLoop();

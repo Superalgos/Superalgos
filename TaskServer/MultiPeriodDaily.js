@@ -307,6 +307,8 @@
                     let botNeverRan = true;
 
                     bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    let fromDate = new Date(bot.multiPeriodDailyProcessDatetime.valueOf())
+                    let lastDate = new Date()
 
                     advanceTime();
 
@@ -332,6 +334,16 @@
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
 
+                            }
+
+                            /*  Telling the world we are alive and doing well */
+                            let currentDateString = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                            let currentDate = new Date(bot.multiPeriodDailyProcessDatetime)
+                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            bot.processHeartBeat(currentDateString, percentage) 
+
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
                             }
 
                             checkStopTaskGracefully();
@@ -370,10 +382,6 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoop -> Entering function."); }
-
-                            /*  Telling the world we are alive and doing well */
-                            let processingDate = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
-                            bot.processHeartBeat(processingDate) 
 
                             /*
 
@@ -808,7 +816,6 @@
 
                     bot.hasTheBotJustStarted = false;
 
-                    logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);             
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

@@ -339,7 +339,12 @@
                             /*  Telling the world we are alive and doing well */
                             let currentDateString = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                             let currentDate = new Date(bot.multiPeriodDailyProcessDatetime)
-                            bot.processHeartBeat(currentDateString, global.getPercentage(fromDate, currentDate, lastDate)) 
+                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            bot.processHeartBeat(currentDateString, percentage) 
+
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                            }
 
                             checkStopTaskGracefully();
 
@@ -811,9 +816,6 @@
 
                     bot.hasTheBotJustStarted = false;
 
-                    if (global.areEqualDates(bot.multiPeriodDailyProcessDatetime, new Date()) === false) {
-                        logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodDailyProcessDatetime);
-                    }
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

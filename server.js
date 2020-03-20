@@ -270,7 +270,7 @@ global.getPercentage = function (fromDate, currentDate, lastDate) {
     if ((lastDays - fromDays) === 0) {
         percentage = 100
     }
-    return percentage.toFixed(0) + "%"
+    return percentage 
 }
 
 global.areEqualDates = function (date1, date2) {

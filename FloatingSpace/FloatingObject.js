@@ -339,11 +339,11 @@ function newFloatingObject () {
   function thisObjectPhysics () {
                            // The radius also have a target.
 
-    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 15) {
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 10) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 15
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 10
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 15
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 10
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
@@ -479,7 +479,7 @@ function newFloatingObject () {
 
     thisObject.rawRadius = radius
     thisObject.targetRadius = radius
-    thisObject.container.frame.radius = radius / 3
+    thisObject.container.frame.radius = radius / 5
 
     thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
   }

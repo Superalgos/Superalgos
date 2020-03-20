@@ -880,6 +880,7 @@
                             }
 
                             global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                            processStopped()
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
 
@@ -1000,11 +1001,12 @@
                 }
             }
 
-            function processHeartBeat(processingDate, percentage) {
+            function processHeartBeat(processingDate, percentage, status) {
                 let event = {
                     seconds: (new Date()).getSeconds(),
                     processingDate: processingDate,
-                    percentage: percentage
+                    percentage: percentage,
+                    status: status
                 }
                 global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
             }

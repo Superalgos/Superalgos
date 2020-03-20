@@ -418,14 +418,15 @@
                             return;
                         }
 
-                        if (global.areEqualDates(contextVariables.lastCandleFile, new Date()) === false) {
-                            logger.newInternalLoop(bot.codeName, bot.process, contextVariables.lastCandleFile);
-                        }
-
                         /*  Telling the world we are alive and doing well */
                         let currentDateString = contextVariables.lastCandleFile.getUTCFullYear() + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' + utilities.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
                         let currentDate = new Date(contextVariables.lastCandleFile)
-                        bot.processHeartBeat(currentDateString, global.getPercentage(fromDate, currentDate, lastDate)) 
+                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                        bot.processHeartBeat(currentDateString, percentage) 
+
+                        if (global.areEqualDates(currentDate, new Date()) === false) {
+                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                        }
 
                         periodsLoop();
 

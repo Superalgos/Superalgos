@@ -112,7 +112,7 @@
                         global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                        bot.processHeartBeat(undefined, undefined,"Running") 
+                        bot.processHeartBeat(undefined, undefined,"Running...") 
 
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key  + " Finished."); }
                     }

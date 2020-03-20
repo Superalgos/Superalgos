@@ -113,7 +113,7 @@
             function loop() {
 
                 try {
-
+                    processHeartBeat(undefined, undefined, "Running...") 
                     function pad(str, max) {
                         str = str.toString();
                         return str.length < max ? pad(" " + str, max) : str;
@@ -655,9 +655,6 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                         /* We show we reached the end of the loop. */
-
-                        processHeartBeat()
-
                         /* Here we check if we must stop the loop gracefully. */
 
                         shallWeStop(onStop, onContinue);
@@ -690,24 +687,14 @@
 
                             switch (nextWaitTime) {
                                 case 'Normal': {
-                                    if (bot.runAtFixedInterval === true) {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Normal exit point reached."); }
-                                        if (processConfig.deadWaitTime > 0) {
-                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
-                                        }
-                                        if(global.WRITE_LOGS_TO_FILES === 'true'){
-                                            logger.persist();
-                                        }
-                                        return;
-                                    } else {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
-                                        if (processConfig.deadWaitTime > 0) {
-                                            checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
-                                        }
-                                        nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                        if(global.WRITE_LOGS_TO_FILES === 'true'){
-                                            logger.persist();
-                                        }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
+                                    if (processConfig.deadWaitTime > 0) {
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                    }
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.") 
+                                    if(global.WRITE_LOGS_TO_FILES === 'true'){
+                                        logger.persist();
                                     }
                                 }
                                     break;
@@ -717,6 +704,7 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
+                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.") 
                                     logger.persist();
                                 }
                                     break;
@@ -728,6 +716,7 @@
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.") 
                                         logger.persist();
                                     }
                                 }
@@ -740,6 +729,7 @@
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.") 
                                         logger.persist();
                                     }
                                 }

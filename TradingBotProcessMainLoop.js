@@ -906,6 +906,7 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.waitTime / 1000 + " seconds for next execution.")
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }
@@ -917,18 +918,21 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
+                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.") 
                                     logger.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.") 
                                     logger.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.") 
                                     logger.persist();
                                 }
                                     break;

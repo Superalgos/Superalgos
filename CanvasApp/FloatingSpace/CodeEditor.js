@@ -129,8 +129,8 @@ function newCodeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 2
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 1.5
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 1.5
 
     let textAreaPosition = {
       x: 0 - thisObject.container.frame.width / 2,
@@ -162,7 +162,7 @@ function newCodeEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 2
+      let radius = thisObject.container.frame.radius * 1.5
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()

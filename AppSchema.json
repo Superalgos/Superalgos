@@ -787,14 +787,6 @@
         "type": "Condition",
         "menuItems": [
             {
-                "action": "Edit Condition",
-                "label": "Edit Condition",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.conditionEditor.activate"
-            },
-            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "code",

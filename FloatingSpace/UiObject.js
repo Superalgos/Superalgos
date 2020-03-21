@@ -108,6 +108,9 @@ function newUiObject () {
   let eventSubscriptionIdOnRunning
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
+  let onRunningCallBackFunction
+  let onRunningCallBackFunctionWasCalled = false
+
   let newUiObjectCounter = 25
   let referenceLineCounter = 0
   let chainLineCounter = 0
@@ -159,6 +162,8 @@ function newUiObject () {
     chainAttachToNode = undefined
     referenceAttachToNode = undefined
     lastHeartBeat = undefined
+
+    onRunningCallBackFunction = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -721,6 +726,11 @@ function newUiObject () {
   function heartBeat () {
     lastHeartBeat = new Date()
     thisObject.isRunning = true
+
+    if (onRunningCallBackFunctionWasCalled === false) {
+      onRunningCallBackFunctionWasCalled = true
+      onRunningCallBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    }
   }
 
   function run (callBackFunction) {
@@ -738,6 +748,8 @@ function newUiObject () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
+    onRunningCallBackFunction = callBackFunction
+
     function onResponse (message) {
       eventSubscriptionIdOnRunning = message.eventSubscriptionId
     }
@@ -752,6 +764,7 @@ function newUiObject () {
 
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        onRunningCallBackFunctionWasCalled = true
       }
     }
 

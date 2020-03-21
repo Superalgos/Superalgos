@@ -197,6 +197,18 @@ function newEdgeEditor () {
       return
     }
 
+    if (event.shiftKey === false && event.code === 'ArrowUp') {
+      thisObject.container.frame.position.y = thisObject.container.frame.position.y + STEP
+      whatHappened = 'up or down arrow key pressed'
+      return
+    }
+
+    if (event.shiftKey === false && event.code === 'ArrowDown') {
+      thisObject.container.frame.position.y = thisObject.container.frame.position.y - STEP
+      whatHappened = 'up or down arrow key pressed'
+      return
+    }
+
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'A' || event.key === 'a')) {
       resetAspectRatio()
       return
@@ -309,6 +321,7 @@ function newEdgeEditor () {
             }
             coordinateSystem.recalculateScale(event)
           }
+            break
           case 'left or right arrow key pressed': {
             let point = {
               x: -dragVector.x,
@@ -325,6 +338,24 @@ function newEdgeEditor () {
             }
             coordinateSystem.recalculateScale(event)
           }
+            break
+          case 'up or down arrow key pressed': {
+            let point = {
+              x: 0,
+              y: -dragVector.y
+            }
+
+            let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)
+            let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+            coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
+            coordinateSystem.max.y = newMaxRate
+            let event = {
+              type: 'center dragged',
+              dragVector: dragVector
+            }
+            coordinateSystem.recalculateScale(event)
+          }
+            break
         }
         thisObject.container.parentContainer.eventHandler.raiseEvent('onMouseOver', mouse.position)
         break

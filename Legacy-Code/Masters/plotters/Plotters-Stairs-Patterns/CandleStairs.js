@@ -517,7 +517,7 @@
                     let stairsPoint3;
                     let stairsPoint4;
 
-                    if (stairs.direction === 'up') {
+                    if (stairs.direction === 'Up') {
 
                         stairsPoint1 = {
                             x: stairs.begin + timeFrame / 7 * 5.5,
@@ -603,11 +603,11 @@
 
                     let opacity = '0.25';
 
-                    if (stairs.direction === 'up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')'; }
-                    if (stairs.direction === 'down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')'; }
+                    if (stairs.direction === 'Up') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')'; }
+                    if (stairs.direction === 'Down') { browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + opacity + ')'; }
 
-                    if (stairs.direction === 'up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')'; }
-                    if (stairs.direction === 'down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'; }
+                    if (stairs.direction === 'Up') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')'; }
+                    if (stairs.direction === 'Down') { browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'; }
 
                     if (userPositionDate >= stairs.begin && userPositionDate <= stairs.end) {
                         /* highlight the current stairs */

@@ -64,6 +64,8 @@ function newCircularProgressBar () {
     if (message.event.status !== undefined) {
       thisObject.payload.uiObject.setStatus(message.event.status, 200000)
     }
+
+    thisObject.payload.uiObject.heartBeat()
   }
 
   function getContainer (point) {

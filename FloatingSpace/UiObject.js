@@ -25,6 +25,7 @@ function newUiObject () {
     shortcutKey: undefined,
     run: run,
     stop: stop,
+    heartBeat: heartBeat,
     getReadyToChainAttach: getReadyToChainAttach,
     showAvailabilityToChainAttach: showAvailabilityToChainAttach,
     getReadyToReferenceAttach: getReadyToReferenceAttach,
@@ -104,7 +105,7 @@ function newUiObject () {
   let currentStatus = ''
   let rightDragging = false
 
-  let eventSubscriptionIdHeartbeat
+  let eventSubscriptionIdOnRunning
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
   let newUiObjectCounter = 25
@@ -115,7 +116,7 @@ function newUiObject () {
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+    systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
     systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
@@ -717,6 +718,11 @@ function newUiObject () {
     }
   }
 
+  function heartBeat () {
+    lastHeartBeat = new Date()
+    thisObject.isRunning = true
+  }
+
   function run (callBackFunction) {
     /* We setup the circular progress bar. */
     if (thisObject.circularProgressBar !== undefined) {
@@ -733,14 +739,14 @@ function newUiObject () {
     systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
     function onResponse (message) {
-      eventSubscriptionIdHeartbeat = message.eventSubscriptionId
+      eventSubscriptionIdOnRunning = message.eventSubscriptionId
     }
 
     function onRunning () {
       if (thisObject.payload === undefined) { return }
-      lastHeartBeat = new Date()
+
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
 
       thisObject.isRunning = true
 

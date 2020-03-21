@@ -2,7 +2,7 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
+    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
     const MODULE_NAME = "Trading Simulation -> " + bot.SESSION.name;
     
     const GMT_SECONDS = ':00.000 GMT+0000';

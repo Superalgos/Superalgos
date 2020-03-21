@@ -397,7 +397,7 @@ function newViewport () {
     }
 
     function newZoomLevel (level) {
-      thisObject.zoomLevel = level
+      thisObject.zoomLevel = Math.round(level)
       thisObject.zoomTargetLevel = level
       INITIAL_TIME_PERIOD = recalculatePeriod(level)
       saveObjectState()

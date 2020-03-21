@@ -2774,6 +2774,11 @@
         "editors": {
             "config": true
         },
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent Parent"
+        ],
         "level": 3,
         "referenceAttachesTo": {
             "compatibleTypes": "->Status Report->"
@@ -3060,6 +3065,10 @@
             }
         ],
         "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent",
+            "Use Reference Parent"
+        ],
         "addLeftIcons": true,
         "level": 3,
         "referenceAttachesTo": {

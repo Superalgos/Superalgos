@@ -321,7 +321,7 @@ function newFloatingObject () {
 
       thisObject.payload.distance = distanceToParent
 
-      if (distanceToParent > 2000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
+      if (distanceToParent > 3000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
         x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),

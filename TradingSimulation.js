@@ -658,7 +658,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -676,7 +676,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -694,7 +694,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -825,7 +825,7 @@
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode);
+                                                    newCondition(key, condition.javascriptCode, chart);
                                                 }
                                             }
                                         }
@@ -891,7 +891,7 @@
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode);
+                                                    newCondition(key, condition.javascriptCode, chart);
                                                 }
                                             }
                                         }
@@ -967,7 +967,7 @@
                                             let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                             if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode);
+                                                newCondition(key, condition.javascriptCode, chart);
                                             }
                                         }
                                     }
@@ -1034,7 +1034,7 @@
                                             let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                             if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode);
+                                                newCondition(key, condition.javascriptCode, chart);
                                             }
                                         }
                                     }
@@ -1043,7 +1043,7 @@
                         }
                     }
 
-                    function newCondition(key, node) {
+                    function newCondition(key, node, chart) {
 
                         let condition;
                         let error = ''
@@ -1101,6 +1101,14 @@
                         balance = balanceQuotedAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
+                    }
+
+                    if (minimumBalance === undefined) {
+                        minimumBalance = 0
+                    }
+
+                    if (maximumBalance === undefined) {
+                        maximumBalance = 10000000000000000
                     }
 
                     if (balance > minimumBalance && balance < maximumBalance) {

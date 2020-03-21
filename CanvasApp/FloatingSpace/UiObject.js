@@ -25,6 +25,7 @@ function newUiObject () {
     shortcutKey: undefined,
     run: run,
     stop: stop,
+    heartBeat: heartBeat,
     getReadyToChainAttach: getReadyToChainAttach,
     showAvailabilityToChainAttach: showAvailabilityToChainAttach,
     getReadyToReferenceAttach: getReadyToReferenceAttach,
@@ -104,9 +105,12 @@ function newUiObject () {
   let currentStatus = ''
   let rightDragging = false
 
-  let eventSubscriptionIdHeartbeat
+  let eventSubscriptionIdOnRunning
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
+  let onRunningCallBackFunction
+  let onRunningCallBackFunctionWasCalled = false
+
   let newUiObjectCounter = 25
   let referenceLineCounter = 0
   let chainLineCounter = 0
@@ -115,7 +119,7 @@ function newUiObject () {
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+    systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
     systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
@@ -158,6 +162,8 @@ function newUiObject () {
     chainAttachToNode = undefined
     referenceAttachToNode = undefined
     lastHeartBeat = undefined
+
+    onRunningCallBackFunction = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -717,6 +723,16 @@ function newUiObject () {
     }
   }
 
+  function heartBeat () {
+    lastHeartBeat = new Date()
+    thisObject.isRunning = true
+
+    if (onRunningCallBackFunctionWasCalled === false) {
+      onRunningCallBackFunctionWasCalled = true
+      onRunningCallBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+    }
+  }
+
   function run (callBackFunction) {
     /* We setup the circular progress bar. */
     if (thisObject.circularProgressBar !== undefined) {
@@ -732,20 +748,23 @@ function newUiObject () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
+    onRunningCallBackFunction = callBackFunction
+
     function onResponse (message) {
-      eventSubscriptionIdHeartbeat = message.eventSubscriptionId
+      eventSubscriptionIdOnRunning = message.eventSubscriptionId
     }
 
     function onRunning () {
       if (thisObject.payload === undefined) { return }
-      lastHeartBeat = new Date()
+
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
 
       thisObject.isRunning = true
 
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        onRunningCallBackFunctionWasCalled = true
       }
     }
 

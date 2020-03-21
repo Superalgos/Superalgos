@@ -171,9 +171,9 @@
                                                         candle.begin = marketFile[i][4];
                                                         candle.end = marketFile[i][5];
 
-                                                        if (candle.open > candle.close) { candle.direction = 'down'; }
-                                                        if (candle.open < candle.close) { candle.direction = 'up'; }
-                                                        if (candle.open === candle.close) { candle.direction = 'side'; }
+                                                        if (candle.open > candle.close) { candle.direction = 'Down'; }
+                                                        if (candle.open < candle.close) { candle.direction = 'Up'; }
+                                                        if (candle.open === candle.close) { candle.direction = 'Side'; }
 
                                                         candles.push(candle);
 
@@ -203,7 +203,7 @@
                                                         let currentCandle = candles[i];
                                                         let nextCandle = candles[i + 1];
 
-                                                        if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'side') {
+                                                        if (currentCandle.direction === nextCandle.direction && currentCandle.direction !== 'Side') {
 
                                                             if (stairs === undefined) {
 
@@ -234,7 +234,7 @@
                                                                 if (currentCandle.min < nextCandle.min) { stairs.min = currentCandle.min; } else { stairs.min = nextCandle.min; }
                                                                 if (currentCandle.max > nextCandle.max) { stairs.max = currentCandle.max; } else { stairs.max = nextCandle.max; }
 
-                                                                if (stairs.direction === 'up') {
+                                                                if (stairs.direction === 'Up') {
 
                                                                     stairs.firstMin = currentCandle.open;
                                                                     stairs.firstMax = currentCandle.close;
@@ -262,7 +262,7 @@
                                                                 if (stairs.min < nextCandle.min) { stairs.min = currentCandle.min; }
                                                                 if (stairs.max > nextCandle.max) { stairs.max = currentCandle.max; }
 
-                                                                if (stairs.direction === 'up') {
+                                                                if (stairs.direction === 'Up') {
 
                                                                     stairs.lastMin = nextCandle.open;
                                                                     stairs.lastMax = nextCandle.close;
@@ -486,7 +486,7 @@
                                                             };
 
                                                             buyUpStairs.type = 'buy';
-                                                            buyUpStairs.direction = 'up';
+                                                            buyUpStairs.direction = 'Up';
                                                             buyUpStairs.barsCount = 2;
 
                                                             buyUpStairs.begin = currentVolume.begin;
@@ -533,7 +533,7 @@
                                                             };
 
                                                             buyDownStairs.type = 'buy';
-                                                            buyDownStairs.direction = 'down';
+                                                            buyDownStairs.direction = 'Down';
                                                             buyDownStairs.barsCount = 2;
 
                                                             buyDownStairs.begin = currentVolume.begin;
@@ -580,7 +580,7 @@
                                                             };
 
                                                             sellUpStairs.type = 'sell';
-                                                            sellUpStairs.direction = 'up';
+                                                            sellUpStairs.direction = 'Up';
                                                             sellUpStairs.barsCount = 2;
 
                                                             sellUpStairs.begin = currentVolume.begin;
@@ -627,7 +627,7 @@
                                                             };
 
                                                             sellDownStairs.type = 'sell';
-                                                            sellDownStairs.direction = 'down';
+                                                            sellDownStairs.direction = 'Down';
                                                             sellDownStairs.barsCount = 2;
 
                                                             sellDownStairs.begin = currentVolume.begin;

@@ -274,8 +274,8 @@ function newEdgeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    const MIN_WIDTH = 250
-    const MIN_HEIGHT = 120
+    const MIN_WIDTH = 200
+    const MIN_HEIGHT = 100
 
     switch (whereIsMouseOver) {
       case 'center': {
@@ -493,8 +493,14 @@ function newEdgeEditor () {
     }
 
     function snapScalarToGrid (scalar) {
+      let sign
+      if (scalar < 0) {
+        sign = -1
+      } else {
+        sign = 1
+      }
       const GRID_SIZE = 10
-      return Math.trunc(scalar / GRID_SIZE) * GRID_SIZE + GRID_SIZE / 2
+      return Math.trunc(scalar / GRID_SIZE) * GRID_SIZE + GRID_SIZE / 2 * sign
     }
   }
 

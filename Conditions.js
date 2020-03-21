@@ -935,9 +935,9 @@
                     if (condition !== undefined) {
                         condition.payload.uiObject.setErrorMessage(situation.conditions[m].error)
 
-                        if (situation.conditions[m].code !== undefined) {
-                            if (condition.code !== undefined) {
-                                condition.code.payload.uiObject.setErrorMessage(situation.conditions[m].code.error)
+                        if (situation.conditions[m].javascriptCode !== undefined) {
+                            if (condition.javascriptCode !== undefined) {
+                                condition.javascriptCode.payload.uiObject.setErrorMessage(situation.conditions[m].javascriptCode.error)
                             }
                         }
 

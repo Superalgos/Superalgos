@@ -117,6 +117,7 @@
 
                 try {
 
+                    processHeartBeat(undefined, undefined, "Running...") 
                     function pad(str, max) {
                         str = str.toString();
                         return str.length < max ? pad(" " + str, max) : str;
@@ -906,7 +907,7 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.waitTime / 1000 + " seconds for next execution.")
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitTime / 1000 + " seconds for next execution.")
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }

@@ -729,7 +729,9 @@ function newUiObject () {
 
     if (onRunningCallBackFunctionWasCalled === false) {
       onRunningCallBackFunctionWasCalled = true
-      onRunningCallBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      if (onRunningCallBackFunction !== undefined) {
+        onRunningCallBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      }
     }
   }
 

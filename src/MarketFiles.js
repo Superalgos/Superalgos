@@ -134,7 +134,7 @@ function newMarketFiles () {
     try {
       if (finalized === true) { return }
       let updatedFiles = 0
-      console.log('updateFiles ' + periodName)
+
             /* Now we will get the market files */
 
       for (let i = 0; i < marketFilesPeriods.length; i++) {

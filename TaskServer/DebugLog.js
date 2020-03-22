@@ -41,7 +41,7 @@ exports.newDebugLog = function newDebugLog() {
         if (percentage === undefined) {
             percentage = ""
         } else {
-            percentage = percentage.toFixed(0) + "%"
+            percentage = percentage.toFixed(2) + " %"
         }
 
         if (date === undefined) { date = thisObject.bot.processDatetime }

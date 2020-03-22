@@ -387,7 +387,6 @@
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
                                         } else {
@@ -452,8 +451,6 @@
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
                                         } else {
@@ -518,8 +515,6 @@
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runTradingBot -> onInitializeReady -> whenStartFinishes -> botId = " + botId);
-                                            console.log(logDisplace + "Root : [INFO] start -> bootingBot -> runTradingBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.persist();
 
                                         } else {
@@ -558,7 +553,7 @@
             function exitProcessInstance() {
 
                 global.ENDED_PROCESSES_COUNTER++
-                console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
+                //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> exitProcessInstance -> Process #" + global.ENDED_PROCESSES_COUNTER + " from " + global.TOTAL_PROCESS_INSTANCES_CREATED + " exiting.");
 
                 if (global.ENDED_PROCESSES_COUNTER === global.TOTAL_PROCESS_INSTANCES_CREATED) {
                     global.EXIT_NODE_PROCESS()

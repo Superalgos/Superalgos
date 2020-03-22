@@ -159,7 +159,7 @@ function newUiObjectsFromNodes () {
     }
 
     let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
-    if (parentNodeDefinition !== undefined) {
+    if (parentNodeDefinition === undefined) {
       console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
     }
       /* Resolve Initial Values */

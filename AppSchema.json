@@ -5254,6 +5254,7 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "dashboard",

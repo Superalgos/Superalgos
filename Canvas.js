@@ -250,6 +250,29 @@ function newCanvas () {
     thisObject.mouse.action = 'key down'
 
     checkMediaRecording(event)
+    canvas.chartingSpace.onKeyPressed(event)
+
+    if (event.key === 'Escape' && canvas.floatingSpace.inMapMode === true) {
+      canvas.floatingSpace.exitMapMode()
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
+      canvas.floatingSpace.toggleMapMode()
+      event.preventDefault()
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
+      canvas.floatingSpace.toggleDrawReferenceLines()
+      event.preventDefault()
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
+      canvas.floatingSpace.toggleDrawChainLines()
+      event.preventDefault()
+      return
+    }
 
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
@@ -377,7 +400,7 @@ function newCanvas () {
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
-        /* From here we prevent the default behaviour */
+        /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
         event.preventDefault()
 
         let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
@@ -548,13 +571,17 @@ function newCanvas () {
 
            /* We check if the mouse is over a panel/ */
 
-      container = thisObject.panelsSpace.getContainer(point)
+      container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
-      if (container !== undefined && container.isDraggeable === true && event.shiftKey === false) {
-        containerBeingDragged = container
-        containerDragStarted = true
-        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
-        return
+      if (container !== undefined && event.shiftKey === false) {
+        if (container.isDraggeable === true) {
+          containerBeingDragged = container
+          containerDragStarted = true
+          containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+          return
+        } else {
+          return
+        }
       }
 
       if (container !== undefined && container.isClickeable === true) {
@@ -574,7 +601,9 @@ function newCanvas () {
           return
         } else {
           if (container.isClickeable === false) {
-            viewPortBeingDragged = true
+            if (event.buttons === 2) {
+              viewPortBeingDragged = true
+            }
           }
           return
         }
@@ -587,6 +616,12 @@ function newCanvas () {
         containerDragStarted = true
         floatingObjectDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+
+        if (event.candelDragging === true) {
+          containerBeingDragged = undefined
+          containerDragStarted = false
+          floatingObjectDragStarted = false
+        }
         return
       }
 
@@ -641,7 +676,7 @@ function newCanvas () {
 
            /* We check if the mouse is over a panel/ */
 
-      container = thisObject.panelsSpace.getContainer(point)
+      container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)
@@ -751,7 +786,7 @@ function newCanvas () {
 
       let container
 
-      /* We check if the mouse is over an element of the Strategy Space / */
+      /* We check if the mouse is over an element of the Designe Space / */
       if (thisObject.designSpace !== undefined) {
         container = thisObject.designSpace.getContainer(point)
 
@@ -783,7 +818,7 @@ function newCanvas () {
 
        /* We check if the mouse is over a panel/ */
       if (thisObject.panelsSpace !== undefined) {
-        container = thisObject.panelsSpace.getContainer(point)
+        container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()
@@ -835,6 +870,9 @@ function newCanvas () {
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
+      if (IS_MAC) {
+        event.delta = event.delta / MAC_AMOUNT_FACTOR
+      }
 
            /* We try first with panels. */
 
@@ -900,7 +938,7 @@ function newCanvas () {
      floatingObjectDragStarted ||
      viewPortBeingDragged
      ) {
-        ignoreNextClick = true
+        ignoreNextClick = false
       }
            /* Turn off all the possible things that can be dragged. */
 
@@ -922,10 +960,12 @@ function newCanvas () {
   function checkDrag (event) {
     try {
       if (containerDragStarted === true || floatingObjectDragStarted === true || viewPortBeingDragged === true) {
-        thisObject.mouse.event = event
-        thisObject.mouse.position.x = event.pageX
-        thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
-        thisObject.mouse.action = 'dragging'
+        if (event !== undefined) {
+          thisObject.mouse.event = event
+          thisObject.mouse.position.x = event.pageX
+          thisObject.mouse.position.y = event.pageY - CURRENT_TOP_MARGIN
+          thisObject.mouse.action = 'dragging'
+        }
 
         browserCanvas.style.cursor = 'grabbing'
         thisObject.eventHandler.raiseEvent('Dragging', undefined)

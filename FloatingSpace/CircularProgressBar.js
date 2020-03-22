@@ -55,10 +55,21 @@ function newCircularProgressBar () {
     if (thisObject.payload === undefined) { return }
     if (thisObject.payload.uiObject === undefined) { return }
     opacityCounters[message.event.seconds] = 2000
-    thisObject.payload.uiObject.setValue(message.event.processingDate)
+    if (message.event.processingDate !== undefined) {
+      thisObject.payload.uiObject.setValue(message.event.processingDate, 2000)
+    }
+    if (message.event.percentage !== undefined) {
+      thisObject.payload.uiObject.setPercentage(message.event.percentage, 2000)
+    }
+    if (message.event.status !== undefined) {
+      thisObject.payload.uiObject.setStatus(message.event.status, 200000)
+    }
+
+    thisObject.payload.uiObject.heartBeat()
   }
 
   function getContainer (point) {
+    if (canvas.floatingSpace.inMapMode === true) { return }
     let container
 
     for (let i = 0; i < menuItems.length; i++) {
@@ -83,6 +94,7 @@ function newCircularProgressBar () {
   }
 
   function drawBackground (pFloatingObject) {
+    if (canvas.floatingSpace.inMapMode === true) { return }
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {

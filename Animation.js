@@ -61,11 +61,11 @@ function newAnimation () {
     try {
       if (window.canvasApp.visible === true) {
         /* We set the canvas to its normal width and height */
-        browserCanvas.width = window.innerWidth
-        browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+        // browserCanvas.width = window.innerWidth
+        // browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
 
         /* First thing is to clear the actual canvas */
-        // clearBrowserCanvas()
+        clearBrowserCanvas()
 
         /* We loop through the callback functions collections and execute them all. */
         let performanceMap = new Map()
@@ -139,6 +139,7 @@ function newAnimation () {
       }
 
       /* Media Recording */
+      videoRecorder.physics()
       if (areWeRecording === true) {
         videoRecorder.recordCanvas()
       }
@@ -161,12 +162,7 @@ function newAnimation () {
   }
 
   function clearBrowserCanvas () {
-    browserCanvasContext.beginPath()
-
-    browserCanvasContext.rect(0, 0, browserCanvas.width, browserCanvas.height)
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
+    browserCanvasContext.clearRect(0, 0, browserCanvas.width, browserCanvas.height)
   }
 }

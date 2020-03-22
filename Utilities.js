@@ -22,6 +22,22 @@ function drawContainerBackground (container, color, opacity, fitFunction) {
   browserCanvasContext.fill()
 }
 
+function dynamicDecimals (value, minDecimals) {
+  if (minDecimals === undefined) {
+    minDecimals = 0
+  }
+  let decimals = 2
+  if (value < 1) { decimals = 4 }
+  if (Math.abs(Math.trunc(value * 100)) < 1) { decimals = 6 }
+  if (Math.abs(Math.trunc(value * 10000)) < 1) { decimals = 8 }
+  if (Math.abs(Math.trunc(value * 1000000)) < 1) { decimals = 10 }
+  if (Math.abs(Math.trunc(value * 100000000)) < 1) { decimals = 12 }
+  if (Math.abs(Math.trunc(value * 10000000000)) < 1) { value = 0; decimals = 0 }
+  if (Math.trunc(value) === value) { decimals = minDecimals }
+  let returnValue = Number(value).toFixed(decimals)
+  return returnValue
+}
+
 function savePropertyAtNodeConfig (payload, propertyName, value) {
   try {
     let code = JSON.parse(payload.node.code)
@@ -194,7 +210,7 @@ function getMilisecondsFromPoint (point, container, coordinateSystem) {
   return point.x
 }
 
-function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition) {
+function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition, fitFunction) {
   let targetPoint = {
     x: currentDate.valueOf(),
     y: currentRate
@@ -228,15 +244,45 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function printLabel (labelToPrint, x, y, opacity, fontSize, color) {
+function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals) {
   let labelPoint
   if (color === undefined) { color = UI_COLOR.DARK }
+  if (fontSize === undefined) { fontSize = 10 };
 
   browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-  let label = '' + labelToPrint
+  let label = labelToPrint
+  if (isNaN(label) === false && label !== '') {
+    label = dynamicDecimals(labelToPrint)
+    label = label.toLocaleString()
+    if (noDecimals === true) {
+      label = Math.trunc(label)
+    }
+  }
+
   let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+  if (center === true) {
+    labelPoint = {
+      x: x - xOffset,
+      y: y
+    }
+  } else {
+    labelPoint = {
+      x: x,
+      y: y
+    }
+  }
+
+  if (container !== undefined) {
+    labelPoint = container.frame.frameThisPoint(labelPoint)
+  }
+
+  if (fitFunction !== undefined) {
+    labelPoint = fitFunction(labelPoint)
+  }
+
   browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
-  browserCanvasContext.fillText(label, x, y)
+  browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 }
 
 function newUniqueId () {

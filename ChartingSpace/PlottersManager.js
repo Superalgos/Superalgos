@@ -301,9 +301,16 @@ function newPlottersManager () {
   function draw () {
     if (thisObject.connectors === undefined) { return } // We need to wait
         /* First the Product Plotters. */
+    let maxElementsPlotted = 0
     for (let i = 0; i < thisObject.connectors.length; i++) {
       let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
-      connector.plotter.draw()
+      let elementsPlotted = connector.plotter.draw()
+      if (elementsPlotted !== undefined) {
+        if (elementsPlotted > maxElementsPlotted) {
+          maxElementsPlotted = elementsPlotted
+        }
+      }
     }
+    return maxElementsPlotted
   }
 }

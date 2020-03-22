@@ -3,7 +3,11 @@ function newTaskFunctions () {
     runTask: runTask,
     stopTask: stopTask,
     runAllTasks: runAllTasks,
-    stopAllTasks: stopAllTasks
+    stopAllTasks: stopAllTasks,
+    runAllTaskManagers: runAllTaskManagers,
+    stopAllTaskManagers: stopAllTaskManagers,
+    runAllExchangeTasks: runAllExchangeTasks,
+    stopAllExchangeTasks: stopAllExchangeTasks
   }
 
   return thisObject
@@ -77,9 +81,9 @@ function newTaskFunctions () {
       taskId: node.id,
       taskName: node.name
     }
-    systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
     node.payload.uiObject.stop(callBackFunction)
+    systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
 
     if (node.bot === undefined) { return }
     if (node.bot.processes.length === 0) { return }
@@ -105,6 +109,45 @@ function newTaskFunctions () {
       let menu = node.payload.uiObject.menu
 
       menu.internalClick('Stop Task')
+    }
+  }
+
+  function runAllTaskManagers (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.taskManagers.length; i++) {
+      let node = parent.taskManagers[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Run All Tasks')
+      menu.internalClick('Run All Tasks')
+    }
+  }
+
+  function stopAllTaskManagers (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.taskManagers.length; i++) {
+      let node = parent.taskManagers[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Stop All Tasks')
+      menu.internalClick('Stop All Tasks')
+    }
+  }
+  function runAllExchangeTasks (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.exchangeTasks.length; i++) {
+      let node = parent.exchangeTasks[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Run All Task Managers')
+      menu.internalClick('Run All Task Managers')
+    }
+  }
+
+  function stopAllExchangeTasks (parent, functionLibraryProtocolNode) {
+    for (let i = 0; i < parent.exchangeTasks.length; i++) {
+      let node = parent.exchangeTasks[i]
+      let menu = node.payload.uiObject.menu
+
+      menu.internalClick('Stop All Task Managers')
+      menu.internalClick('Stop All Task Managers')
     }
   }
 }

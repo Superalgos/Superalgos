@@ -8,6 +8,7 @@ function newTimeFrameScale () {
     payload: undefined,
     isVisible: true,
     layersOn: undefined,
+    adjustTimeFrame: adjustTimeFrame,
     onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
     draw: draw,
     drawForeground: drawForeground,
@@ -21,7 +22,7 @@ function newTimeFrameScale () {
   const TIME_PERIOD_DEFAULT_VALUE = 0
   const MIN_HEIGHT = 50
 
-  let previousIsVisible = true
+  let displayingRealTimeFrame = true
   let greyOutCoverLayer = false
   let isMouseOver
 
@@ -44,6 +45,10 @@ function newTimeFrameScale () {
     }
   }
   setupContainer()
+
+  let wheelDeltaDirection
+  let wheelDeltaCounter = 0
+
   return thisObject
 
   function setupContainer () {
@@ -119,21 +124,28 @@ function newTimeFrameScale () {
   function physics () {
     readObjectState()
     positioningPhysics()
-    zoomOutPhysics()
   }
 
-  function zoomOutPhysics () {
-    if ((thisObject.isVisible === true && previousIsVisible === false) && (canvas.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+  function adjustTimeFrame (elementsPlotted) {
+    const ELEMENTS_PLOTTED_THREASHOLD = 500
+    if (
+      canvas.chartingSpace.viewport.zoomTargetLevel >= ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+      displayingRealTimeFrame === false
+    ) {
       let event = {}
       event.timeFrame = thisObject.timeFrame
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
-      previousIsVisible = true
+      displayingRealTimeFrame = true
     }
-    if ((thisObject.isVisible === false && previousIsVisible === true) || (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME)) {
+    if (
+      elementsPlotted > ELEMENTS_PLOTTED_THREASHOLD &&
+      canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME &&
+      displayingRealTimeFrame === true
+    ) {
       let event = {}
       event.timeFrame = ONE_DAY_IN_MILISECONDS
       thisObject.container.eventHandler.raiseEvent('Time Frame Value Changed', event)
-      previousIsVisible = false
+      displayingRealTimeFrame = false
     }
   }
 
@@ -212,6 +224,10 @@ function newTimeFrameScale () {
       thisObject.isVisible = false
       thisObject.payload.isVisible = false
     }
+
+    if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES) {
+      thisObject.isVisible = false
+    }
   }
 
   function onViewportZoomChanged (event) {
@@ -237,7 +253,43 @@ function newTimeFrameScale () {
   }
 
   function onMouseWheel (event) {
-    delta = event.wheelDelta
+    if (IS_MAC) {
+      let sensitivity
+      if (event.wheelDelta < 0) {
+        if (event.shiftKey === true) {
+          sensitivity = 20
+        } else {
+          sensitivity = 5
+        }
+        if (wheelDeltaDirection === -1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = -1
+          return
+        }
+      } else {
+        if (wheelDeltaDirection === 1) {
+          wheelDeltaCounter++
+          if (wheelDeltaCounter < sensitivity) {
+            return
+          } else {
+            wheelDeltaCounter = 0
+          }
+        } else {
+          wheelDeltaCounter = 0
+          wheelDeltaDirection = 1
+          return
+        }
+      }
+    }
+
+    let delta = event.wheelDelta
     if (delta < 0) {
       timeFrameIndex--
       if (timeFrameIndex < 0) {

@@ -3,20 +3,7 @@
 
 const CANVAS_APP_NAME = 'Canvas App'
 
-const SUPPORTED_EXCHANGES = ["Poloniex"];
-const SUPPORTED_MARKETS = [
-  {
-      baseAsset: "USDT",
-      quotedAsset: "BTC",
-  }
-];
-const DEFAULT_EXCHANGE = "Poloniex";
-const DEFAULT_MARKET = {
-    baseAsset: "USDT",
-    quotedAsset: "BTC",
-};
-
-UI_COLOR = {
+const UI_COLOR = {
     DARK: "48, 48, 54",
     LIGHT: "234, 226, 222",
     GREY: "150, 150, 150",
@@ -36,15 +23,26 @@ UI_COLOR = {
 
 /* User Interface Fonts */
 
-UI_FONT = {
+const UI_FONT = {
     PRIMARY: "Saira Condensed",
     SECONDARY: "Source Code Pro"
 };
 
+const MAC_AMOUNT_FACTOR = 5
+const IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0
+
+const DOUBLE_CLICK_ZOOM_OUT_LEVEL = 0
+const DOUBLE_CLICK_ZOOM_IN_LEVEL = 6
+const DOUBLE_CLICK_ZOOM_IN_IN_LEVEL = 7
+
 const DEBUG = {}
-const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 5 // This regulates some behavious changes that happens when the user zoom out below this level.
-const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 5  // This help regulate when to change the Time Frame base on the level of zoom out.
-const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 5  
+const ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS = 12
+const ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS = 7 
+const ZOOM_OUT_THRESHOLD_FOR_CHANGING_TIME_FRAME = 3  // This help regulate when to change the Time Frame base on the level of zoom out.
+const ZOOM_OUT_THRESHOLD_FOR_PACKING_OBJECTS_AT_THE_BOTTOM_OR_TOP_OF_VIEWPORT = 2
+const ZOOM_OUT_THRESHOLD_FOR_PLOTTING_IN_LOW_RESOLUTION = 3
+const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED = 5
+const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3
 
 let FONT_ASPECT_RATIO = 0.32;
 
@@ -75,7 +73,7 @@ const DISTANCE_TO_PARENT = {
 
 /* User Interface Panels */
 
-UI_PANEL = {
+const UI_PANEL = {
     WIDTH: {
         SMALL: 100,
         NORMAL: 150,
@@ -121,7 +119,7 @@ let dailyFilePeriods =
 
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
-SHOW_ANIMATION_PERFORMACE = false;
+let SHOW_ANIMATION_PERFORMACE = false;
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY
@@ -134,10 +132,6 @@ if (testUser !== null) {
   LOGGED_IN_USER_LOCAL_STORAGE_KEY =  "user"
   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
-
-const DEFAULT_CONFIG_TEXT = '// Write your config here'
-const DEFAULT_FORMULA_TEXT = '// Write your formula here'
-const DEFAULT_CODE_TEXT = '// Write your code here'
 
 const MAX_DEFAULT_RATE_SCALE_VALUE = 35000; // This is needed to know the scale of the market time line.
 
@@ -164,6 +158,8 @@ const _4_MINUTES_IN_MILISECONDS = 4 * 60 * 1000;
 const _3_MINUTES_IN_MILISECONDS = 3 * 60 * 1000;
 const _2_MINUTES_IN_MILISECONDS = 2 * 60 * 1000;
 const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
+
+
 
 let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
@@ -210,8 +206,8 @@ const PERIOD_01_MIN = "01-min";
 We define here the size of the chartingSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
 */
 
-const TIME_MACHINE_WIDTH = 320;
-const TIME_MACHINE_HEIGHT = 120;
+const TIME_MACHINE_WIDTH = 8;
+const TIME_MACHINE_HEIGHT = 8;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false

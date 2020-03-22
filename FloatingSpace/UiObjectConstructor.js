@@ -84,7 +84,7 @@ function newUiObjectConstructor () {
         for (let j = 0; j < menuItems.length; j++) {
           let item = menuItems[j]
           item.angle = undefined
-          if (item.action.indexOf('Add ') >= 0 && item.action.indexOf('Missing') >= 0) {
+          if (item.action.indexOf('Add Missing Children') >= 0) {
             item.action = 'Add Missing Children'
           }
           if (item.action.indexOf('Delete ') >= 0) {
@@ -134,7 +134,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-fix-pinned',
         iconPathOff: 'menu-fix-unpinned',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -149,7 +149,7 @@ function newUiObjectConstructor () {
         label: undefined,
         visible: true,
         icons: ['angle-to-parent-000', 'angle-to-parent-360', 'angle-to-parent-180', 'angle-to-parent-090', 'angle-to-parent-045'],
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -164,7 +164,7 @@ function newUiObjectConstructor () {
         label: undefined,
         visible: true,
         icons: ['distance-to-parent-000', 'distance-to-parent-025', 'distance-to-parent-050', 'distance-to-parent-100', 'distance-to-parent-150', 'distance-to-parent-200'],
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -180,7 +180,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-mobility-unfreeze',
         iconPathOff: 'menu-mobility-freeze',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -196,7 +196,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-tree-plus',
         iconPathOff: 'menu-tree-minus',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 1
@@ -210,7 +210,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'menu-backup',
         iconPathOff: 'menu-backup',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 2
@@ -224,7 +224,7 @@ function newUiObjectConstructor () {
         visible: true,
         iconPathOn: 'clone',
         iconPathOff: 'clone',
-        rawRadius: 8,
+        rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,
         ring: 2
@@ -239,13 +239,56 @@ function newUiObjectConstructor () {
           visible: true,
           iconPathOn: 'menu-share',
           iconPathOff: 'menu-share',
-          rawRadius: 8,
+          rawRadius: 12,
           targetRadius: 0,
           currentRadius: 0,
           ring: 2
         }
       )
     }
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Parent',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'detach',
+        iconPathOff: 'detach',
+        rawRadius: 12,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+        )
+    menuItemsInitialValues.push(
+      {
+        action: 'Remove Reference',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'delink',
+        iconPathOff: 'delink',
+        rawRadius: 12,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 3
+      }
+            )
+
+    menuItemsInitialValues.push(
+      {
+        action: 'Open Documentation',
+        actionFunction: floatingObject.payload.onMenuItemClick,
+        label: undefined,
+        visible: true,
+        iconPathOn: 'help',
+        iconPathOff: 'help',
+        rawRadius: 12,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 4
+      }
+    )
   }
 
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
@@ -304,7 +347,7 @@ function newUiObjectConstructor () {
         }
 
         if (newMenuItem.rawRadius === undefined) {
-          newMenuItem.rawRadius = 8
+          newMenuItem.rawRadius = 12
         }
 
         if (newMenuItem.targetRadius === undefined) {
@@ -327,7 +370,10 @@ function newUiObjectConstructor () {
   function setFloatingObjectBasicProperties (floatingObject, payload) {
     const FRICTION = 0.95
     const INITIAL_FRICTION = 0.97
-    const INITIAL_FONT_SIZE = 12
+    const INITIAL_FONT_SIZE = 12 * 1.5
+    const INITIAL_RADIOUS = 45 * 1.5
+    const INITIAL_IMAGE_SIZE = 80 * 1.2
+    const INITIAL_HIERARCHY_RING = 20
 
     switch (payload.node.type) {
       case 'Workspace': {
@@ -374,8 +420,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(500)
-      floatingObject.initializeRadius(45)
-      floatingObject.initializeImageSize(80)
+      floatingObject.initializeRadius(INITIAL_RADIOUS)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -385,8 +432,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(600)
-      floatingObject.initializeRadius(45)
-      floatingObject.initializeImageSize(80)
+      floatingObject.initializeRadius(INITIAL_RADIOUS)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
@@ -400,8 +448,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(300)
-      floatingObject.initializeRadius(40)
-      floatingObject.initializeImageSize(70)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 5)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 10)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 1)'
@@ -415,8 +464,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(150)
-      floatingObject.initializeRadius(35)
-      floatingObject.initializeImageSize(60)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 10)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 20)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 1)'
@@ -430,8 +480,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(75)
-      floatingObject.initializeRadius(30)
-      floatingObject.initializeImageSize(50)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 15)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 30)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
@@ -445,8 +496,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(50)
-      floatingObject.initializeRadius(25)
-      floatingObject.initializeImageSize(40)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 20)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 40)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
@@ -456,8 +508,9 @@ function newUiObjectConstructor () {
       floatingObject.friction = INITIAL_FRICTION
 
       floatingObject.initializeMass(25)
-      floatingObject.initializeRadius(20)
-      floatingObject.initializeImageSize(30)
+      floatingObject.initializeRadius(INITIAL_RADIOUS - 25)
+      floatingObject.initializeHierarchyRing(INITIAL_HIERARCHY_RING)
+      floatingObject.initializeImageSize(INITIAL_IMAGE_SIZE - 50)
       floatingObject.initializeFontSize(INITIAL_FONT_SIZE)
 
       floatingObject.fillStyle = 'rgba(' + UI_COLOR.RED + ', 1)'
@@ -467,6 +520,7 @@ function newUiObjectConstructor () {
   }
 
   function destroyUiObject (payload) {
+    if (payload === undefined) { return }
     floatingLayer.removeFloatingObject(payload.floatingObject.handle)
 
     payload.floatingObject.finalize()

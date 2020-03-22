@@ -25,6 +25,7 @@ function newUiObject () {
     shortcutKey: undefined,
     run: run,
     stop: stop,
+    heartBeat: heartBeat,
     getReadyToChainAttach: getReadyToChainAttach,
     showAvailabilityToChainAttach: showAvailabilityToChainAttach,
     getReadyToReferenceAttach: getReadyToReferenceAttach,
@@ -32,6 +33,8 @@ function newUiObject () {
     highlight: highlight,
     setErrorMessage: setErrorMessage,
     setValue: setValue,
+    setPercentage: setPercentage,
+    setStatus: setStatus,
     physics: physics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
@@ -54,7 +57,7 @@ function newUiObject () {
   let executingIcon
 
   let selfFocusEventSubscriptionId
-  let selfNotFocuskEventSubscriptionId
+  let selfNotFocusEventSubscriptionId
   let selfDisplaceEventSubscriptionId
   let selfDragStartedEventSubscriptionId
   let selfDragFinishedEventSubscriptionId
@@ -67,6 +70,12 @@ function newUiObject () {
 
   let hasValue
   let valueCounter = 0
+
+  let hasPercentage
+  let percentageCounter = 0
+
+  let hasStatus
+  let statusCounter = 0
 
   let previousDistanceToChainParent
   let readyToChainAttachDisplayCounter = 5
@@ -92,20 +101,29 @@ function newUiObject () {
 
   let errorMessage = ''
   let currentValue = 0
+  let currentPercentage = ''
+  let currentStatus = ''
   let rightDragging = false
 
-  let eventSubscriptionIdHeartbeat
+  let eventSubscriptionIdOnRunning
   let eventSubscriptionIdOnStopped
+  let lastHeartBeat
+  let onRunningCallBackFunction
+  let onRunningCallBackFunctionWasCalled = false
+
+  let newUiObjectCounter = 25
+  let referenceLineCounter = 0
+  let chainLineCounter = 0
 
   return thisObject
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+    systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
     systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(selfNotFocuskEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(selfNotFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDisplaceEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDragStartedEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfDragFinishedEventSubscriptionId)
@@ -143,6 +161,9 @@ function newUiObject () {
     icon = undefined
     chainAttachToNode = undefined
     referenceAttachToNode = undefined
+    lastHeartBeat = undefined
+
+    onRunningCallBackFunction = undefined
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -166,7 +187,7 @@ function newUiObject () {
     iconPhysics()
 
     selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
-    selfNotFocuskEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
+    selfNotFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
     selfDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
     selfDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
     selfDragFinishedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragFinished', onDragFinished)
@@ -273,10 +294,83 @@ function newUiObject () {
     highlightPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
+    percentagePhisycs()
+    statusPhisycs()
     chainDetachingPhysics()
     chainAttachingPhysics()
     referenceDetachingPhysics()
     referenceAttachingPhysics()
+    childrenRunningPhysics()
+    newObjectPhysics()
+    referenceLinePhysics()
+    chainLinePhysics()
+  }
+
+  function referenceLinePhysics () {
+    referenceLineCounter = referenceLineCounter + 2
+    if (referenceLineCounter > 500) {
+      referenceLineCounter = 0
+    }
+  }
+
+  function chainLinePhysics () {
+    chainLineCounter = chainLineCounter - 5
+    if (chainLineCounter < 0) {
+      chainLineCounter = 500
+    }
+  }
+
+  function newObjectPhysics () {
+    newUiObjectCounter--
+    if (newUiObjectCounter < 0) {
+      newUiObjectCounter = 0
+    }
+  }
+
+  function heartBeatPhysics () {
+    if (lastHeartBeat !== undefined) {
+      const ONE_MIN = 60000
+      nowTimestamp = (new Date()).valueOf()
+      if (nowTimestamp - lastHeartBeat.valueOf() > ONE_MIN) {
+        lastHeartBeat = undefined
+        thisObject.isRunning = false
+        valueCounter = 0
+      }
+    } else {
+      thisObject.isRunning = false
+    }
+  }
+
+  function childrenRunningPhysics () {
+    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    if (nodeDefinition.properties === undefined) { return }
+    let monitorChildrenRunning = false
+    for (let i = 0; i < nodeDefinition.properties.length; i++) {
+      let property = nodeDefinition.properties[i]
+      if (property.monitorChildrenRunning === true) {
+        let children = thisObject.payload.node[property.name]
+        if (children === undefined) { continue }
+        let totalRunning = 0
+        for (let j = 0; j < children.length; j++) {
+          let child = children[j]
+          if (child.payload.uiObject.isRunning === true) {
+            totalRunning++
+          }
+        }
+        if (totalRunning > 0) {
+          setValue(totalRunning + ' / ' + children.length + ' Running')
+          thisObject.isRunning = true
+        } else {
+          thisObject.isRunning = false
+          valueCounter = 0
+        }
+        monitorChildrenRunning = true
+        return
+      }
+    }
+    if (monitorChildrenRunning === false) {
+      heartBeatPhysics()
+    }
   }
 
   function chainAttachingPhysics () {
@@ -563,6 +657,22 @@ function newUiObject () {
     }
   }
 
+  function percentagePhisycs () {
+    percentageCounter--
+    if (percentageCounter < 0) {
+      percentageCounter = 0
+      hasPercentage = false
+    }
+  }
+
+  function statusPhisycs () {
+    statusCounter--
+    if (statusCounter < 0) {
+      statusCounter = 0
+      hasStatus = false
+    }
+  }
+
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
@@ -577,11 +687,51 @@ function newUiObject () {
     }
   }
 
-  function setValue (value) {
+  function setValue (value, counter) {
     if (value !== undefined) {
       currentValue = value
       hasValue = true
-      valueCounter = 500
+      if (counter !== undefined) {
+        valueCounter = counter
+      } else {
+        valueCounter = 100
+      }
+    }
+  }
+
+  function setPercentage (percentage, counter) {
+    if (percentage !== undefined) {
+      currentPercentage = percentage
+      hasPercentage = true
+      if (counter !== undefined) {
+        percentageCounter = counter
+      } else {
+        percentageCounter = 100
+      }
+    }
+  }
+
+  function setStatus (status, counter) {
+    if (status !== undefined) {
+      currentStatus = status
+      hasStatus = true
+      if (counter !== undefined) {
+        statusCounter = counter
+      } else {
+        statusCounter = 100
+      }
+    }
+  }
+
+  function heartBeat () {
+    lastHeartBeat = new Date()
+    thisObject.isRunning = true
+
+    if (onRunningCallBackFunctionWasCalled === false) {
+      onRunningCallBackFunctionWasCalled = true
+      if (onRunningCallBackFunction !== undefined) {
+        onRunningCallBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+      }
     }
   }
 
@@ -598,19 +748,25 @@ function newUiObject () {
 
     /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, 'UiObject', onResponse, onHeartBeat)
+    systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
+
+    onRunningCallBackFunction = callBackFunction
 
     function onResponse (message) {
-      eventSubscriptionIdHeartbeat = message.eventSubscriptionId
+      eventSubscriptionIdOnRunning = message.eventSubscriptionId
     }
 
-    function onHeartBeat () {
+    function onRunning () {
       if (thisObject.payload === undefined) { return }
+
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat, 'UiObject')
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+
+      thisObject.isRunning = true
 
       if (callBackFunction !== undefined) {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
+        onRunningCallBackFunctionWasCalled = true
       }
     }
 
@@ -629,8 +785,6 @@ function newUiObject () {
       type: 'Secondary Action Already Executed'
     }
     stop(callBackFunction, event)
-
-    thisObject.isRunning = true
   }
 
   function stop (callBackFunction, event) {
@@ -653,6 +807,10 @@ function newUiObject () {
         thisObject.circularProgressBar = undefined
       }
       thisObject.isRunning = false
+      hasValue = false
+      hasPercentage = false
+      hasStatus = false
+      lastHeartBeat = undefined
     }
   }
 
@@ -668,8 +826,10 @@ function newUiObject () {
       }
       if (nodeDefinition.alternativeIcons === 'Use Reference Grandparent') {
         if (thisObject.payload.node.payload.referenceParent !== undefined) {
-          if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
-            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+          if (thisObject.payload.node.payload.referenceParent.payload !== undefined) {
+            if (thisObject.payload.node.payload.referenceParent.payload.referenceParent !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
+            }
           }
         }
       }
@@ -778,6 +938,8 @@ function newUiObject () {
   function drawMiddleground () {
     if (thisObject.isOnFocus === false) {
       drawValue()
+      drawPercentage()
+      drawStatus()
       drawText()
       thisObject.uiObjectTitle.draw()
     }
@@ -856,6 +1018,8 @@ function newUiObject () {
 
       drawErrorMessage()
       drawValue()
+      drawPercentage()
+      drawStatus()
       drawText()
 
       if (drawTitle === true) {
@@ -865,6 +1029,7 @@ function newUiObject () {
   }
 
   function drawChainLine () {
+    if (canvas.floatingSpace.drawChainLines === false) { return }
     if (thisObject.payload.chainParent === undefined) { return }
 
     let targetPoint = {
@@ -880,6 +1045,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     if (thisObject.container.frame.radius > 1) {
       let LINE_STYLE = UI_COLOR.TITANIUM_YELLOW
       if (thisObject.payload.floatingObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED) {
@@ -888,6 +1058,18 @@ function newUiObject () {
       if (thisObject.payload.floatingObject.isFrozen === true) {
         LINE_STYLE = UI_COLOR.TURQUOISE
       }
+      if (newUiObjectCounter > 0) {
+        LINE_STYLE = UI_COLOR.GREY
+      }
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(position.x, position.y)
+      browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
+      browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
+      browserCanvasContext.setLineDash([0, chainLineCounter, 2, 3, 0, 500 - chainLineCounter])
+      browserCanvasContext.lineWidth = 2
+      browserCanvasContext.stroke()
+      browserCanvasContext.setLineDash([0, 0])
 
       browserCanvasContext.beginPath()
       browserCanvasContext.moveTo(position.x, position.y)
@@ -920,6 +1102,7 @@ function newUiObject () {
   }
 
   function drawReferenceLine () {
+    if (canvas.floatingSpace.drawReferenceLines === false) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
     if (thisObject.payload.referenceParent.payload === undefined) { return }
     if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
@@ -938,6 +1121,11 @@ function newUiObject () {
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+      targetPoint = canvas.floatingSpace.transformPointToMap(targetPoint)
+    }
+
     let LINE_STYLE = UI_COLOR.GREY
 
     if (thisObject.container.frame.radius > 1) {
@@ -954,7 +1142,7 @@ function newUiObject () {
       browserCanvasContext.moveTo(position.x, position.y)
       browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
       browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-      browserCanvasContext.setLineDash([1, 9, 2, 8, 3, 7, 4, 6, 0, 500])
+      browserCanvasContext.setLineDash([0, referenceLineCounter, 1, 9, 2, 8, 3, 7, 4, 6, 0, 500 - referenceLineCounter])
       browserCanvasContext.lineWidth = 4
       browserCanvasContext.stroke()
       browserCanvasContext.setLineDash([0, 0])
@@ -980,6 +1168,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
             /* Label Text */
     let labelPoint
@@ -1002,6 +1194,16 @@ function newUiObject () {
           y: position.y + radius * 4 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
+        if (canvas.floatingSpace.inMapMode === true) {
+          labelPoint.y = labelPoint.y - 20
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              return
+            }
+          }
+        }
+
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
@@ -1019,6 +1221,10 @@ function newUiObject () {
     }
 
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
 
     let radius = thisObject.container.frame.radius * 3.5
             /* Label Text */
@@ -1050,6 +1256,8 @@ function newUiObject () {
 
   function drawValue () {
     if (hasValue === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+    // if (currentValue === undefined || currentValue === '') { return }
 
 /* Text Follows */
     let position = {
@@ -1059,7 +1267,11 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
-    let radius = thisObject.container.frame.radius * 1.5
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.35
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
@@ -1080,6 +1292,53 @@ function newUiObject () {
           label = label.substring(0, MAX_LABEL_LENGTH) + '...'
         }
 
+        if (label.length > 30) {
+          fontSize = fontSize / 2
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawPercentage () {
+    if (hasPercentage === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.75
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 65
+
+      label = Number(currentPercentage).toFixed(0) + '%'
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 5,
           y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
@@ -1087,6 +1346,49 @@ function newUiObject () {
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
         browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', 1)'
+        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+      }
+    }
+  }
+
+  function drawStatus () {
+    if (hasStatus === false) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
+
+    let position = {
+      x: 0,
+      y: 0
+    }
+
+    position = thisObject.container.frame.frameThisPoint(position)
+
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
+    let radius = thisObject.container.frame.radius * 1.4
+            /* Label Text */
+    let labelPoint
+    let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
+    let label
+
+    if (radius > 6) {
+      const MAX_LABEL_LENGTH = 65
+
+      label = currentStatus
+
+      if (label !== undefined) {
+        if (label.length > MAX_LABEL_LENGTH) {
+          label = label.substring(0, MAX_LABEL_LENGTH) + '...'
+        }
+
+        labelPoint = {
+          x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
+          y: position.y - radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+        }
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
         browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
       }
     }
@@ -1162,6 +1464,10 @@ function newUiObject () {
 
     position = thisObject.container.frame.frameThisPoint(position)
 
+    if (canvas.floatingSpace.inMapMode === true) {
+      position = canvas.floatingSpace.transformPointToMap(position)
+    }
+
     let radius = thisObject.container.frame.radius
 
     if (radius > 0.5) {
@@ -1173,7 +1479,14 @@ function newUiObject () {
       }
 
       visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
-      visiblePosition = thisObject.fitFunction(visiblePosition)
+
+      if (canvas.floatingSpace.inMapMode === true) {
+        visiblePosition = canvas.floatingSpace.transformPointToMap(visiblePosition)
+        radius = canvas.floatingSpace.transformRadiusToMap(radius)
+        VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+      } else {
+        visiblePosition = thisObject.fitFunction(visiblePosition)
+      }
 
       browserCanvasContext.beginPath()
       browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)
@@ -1194,7 +1507,10 @@ function newUiObject () {
       let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
-          VISIBLE_RADIUS = thisObject.container.frame.radius * 2
+          VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.8
+          if (canvas.floatingSpace.inMapMode === true) {
+            VISIBLE_RADIUS = canvas.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+          }
           let OPACITY = 1
 
           browserCanvasContext.beginPath()
@@ -1364,7 +1680,15 @@ function newUiObject () {
         let additionalImageSize = 0
         if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
-
+        if (canvas.floatingSpace.inMapMode === true) {
+          totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
+          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          if (nodeDefinition !== undefined) {
+            if (nodeDefinition.isHierarchyHead !== true) {
+              totalImageSize = totalImageSize / 4
+            }
+          }
+        }
         browserCanvasContext.drawImage(
           icon, position.x - totalImageSize / 2,
           position.y - totalImageSize / 2,
@@ -1389,3 +1713,4 @@ function newUiObject () {
     }
   }
 }
+

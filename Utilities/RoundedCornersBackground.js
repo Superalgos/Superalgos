@@ -105,8 +105,9 @@ function roundedCornersBackground (params) {
   browserCanvasContext.stroke()
 }
 
-function drawLabel (label, xFactor, yFactor, xOffset, yOffset, fontSize, container) {
+function drawLabel (label, xFactor, yFactor, xOffset, yOffset, fontSize, container, fontColor, noFrameX, noFrameY) {
   if (label === undefined) { return }
+  if (fontColor === undefined) { fontColor = UI_COLOR.WHITE }
   let fontOffset = label.length * fontSize * FONT_ASPECT_RATIO + 10
 
   let labelPoint = {
@@ -116,8 +117,16 @@ function drawLabel (label, xFactor, yFactor, xOffset, yOffset, fontSize, contain
 
   labelPoint = container.frame.frameThisPoint(labelPoint)
 
+  if (noFrameX !== undefined) {
+    labelPoint.x = noFrameX + xOffset
+  }
+
+  if (noFrameY !== undefined) {
+    labelPoint.y = noFrameY + yOffset
+  }
+
   browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-  browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+  browserCanvasContext.fillStyle = 'rgba(' + fontColor + ', 1)'
 
   browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
 }

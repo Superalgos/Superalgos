@@ -1,4 +1,4 @@
-function newPanelTabButton () {
+function newUpDownButton () {
   let thisObject = {
     container: undefined,
     fitFunction: undefined,
@@ -16,12 +16,12 @@ function newPanelTabButton () {
    /* Cointainer stuff */
 
   thisObject.container = newContainer()
-  thisObject.container.name = 'Panel Tab Button'
+  thisObject.container.name = 'Up Down Button'
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
-  thisObject.container.frame.containerName = 'Panel Tab Button'
+  thisObject.container.isDraggeable = false
+  thisObject.container.frame.containerName = 'Up Down Button'
 
-  /* Animation to hide the pannel */
   thisObject.status = 'up'
   let upPosition = {}
   let downPosition = {}
@@ -44,12 +44,12 @@ function newPanelTabButton () {
   }
 
   function initialize () {
-    thisObject.container.frame.width = 10
-    thisObject.container.frame.height = 10
+    thisObject.container.frame.width = 12
+    thisObject.container.frame.height = 12
 
-    var position = {
-      x: thisObject.parentContainer.frame.width - 14,
-      y: 1
+    let position = {
+      x: thisObject.container.frame.parentFrame.width * 5.75 / 8 - thisObject.container.frame.width / 2,
+      y: 40 * 4 / 8 - thisObject.container.frame.height / 2
     }
 
     thisObject.container.frame.position = position
@@ -127,19 +127,10 @@ function newPanelTabButton () {
     drawButton()
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     let container
-
-       /* First we check if thisObject point is inside thisObject space. */
-
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-           /* Now we see which is the inner most container that has it */
-
       return thisObject.container
-    } else {
-           /* This point does not belong to thisObject space. */
-
-      return undefined
     }
   }
 

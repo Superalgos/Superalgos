@@ -56,12 +56,14 @@ function newSpeedometer () {
     const OPACITY = 1
 
     let centerPoint = {
-      x: thisObject.params.LEFT_OFFSET,
-      y: COCKPIT_SPACE_POSITION - COCKPIT_SPACE_HEIGHT / 2 - 9
+      x: 0,
+      y: 0
     }
 
+    centerPoint = thisObject.container.frame.frameThisPoint(centerPoint)
+
     browserCanvasContext.beginPath()
-    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0.85 * Math.PI, 2.15 * Math.PI)
+    browserCanvasContext.arc(centerPoint.x, centerPoint.y, RADIUS + RED_LINE_HIGHT, 0 * Math.PI, 2.0 * Math.PI)
     browserCanvasContext.closePath()
 
     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + OPACITY + ')'
@@ -196,8 +198,8 @@ function newSpeedometer () {
     if (isNaN(label) === false) {
       label = Number(label)
 
-      label = Math.trunc(label * Math.pow(10, thisObject.params.DECIMALS)) / Math.pow(10, thisObject.params.DECIMALS)
-      if (label === 0) { label = label.toFixed(2) } else { label = label.toLocaleString() }
+      label = dynamicDecimals(label, 2)
+      if (label === 0) { label = label.toFixed(2) }
     }
 
     // label = label.substring(0, 6)

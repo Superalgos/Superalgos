@@ -1,5 +1,5 @@
 
-function newQuotedAssetalances () {
+function newAssetalances () {
   const MODULE_NAME = 'Asset Balances'
 
   let thisObject = {
@@ -38,6 +38,9 @@ function newQuotedAssetalances () {
       let speedometer = newSpeedometer()
 
       speedometer.initialize()
+      speedometer.container.connectToParent(thisObject.container)
+      speedometer.container.frame.position.x = thisObject.container.frame.width / 2
+      speedometer.container.frame.position.y = thisObject.container.frame.height * (2 + i * 2) / 5
       thisObject.speedometers.push(speedometer)
     }
   }

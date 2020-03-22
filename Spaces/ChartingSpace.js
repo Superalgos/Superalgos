@@ -13,12 +13,13 @@ function newChartingSpace () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
-    visible: undefined,
+    visible: false,
     container: undefined,
     inViewport: undefined,
     timeMachines: undefined,
     viewport: undefined,
     payload: undefined,
+    onKeyPressed: onKeyPressed,
     reset: reset,
     oneScreenUp: oneScreenUp,
     oneScreenDown: oneScreenDown,
@@ -77,8 +78,10 @@ function newChartingSpace () {
     thisObject.container.finalize()
     thisObject.container = undefined
 
-    thisObject.viewport.finalize()
-    thisObject.viewport = undefined
+    if (thisObject.viewport !== undefined) {
+      thisObject.viewport.finalize()
+      thisObject.viewport = undefined
+    }
 
     thisObject.payload = undefined
   }
@@ -112,6 +115,7 @@ function newChartingSpace () {
 
   function getContainer (point, purpose) {
     if (thisObject.visible !== true) { return }
+    if (thisObject.viewport === undefined) { return }
     if (thisObject.viewport.isThisPointInViewport(point) === false) { return }
 
     let container
@@ -134,10 +138,14 @@ function newChartingSpace () {
       container = thisObject.timeMachines[i].getContainer(point, purpose)
       if (container !== undefined) {
         if (purpose !== undefined) {
-          containerFound = container
+          if (containerFound === undefined) {
+            containerFound = container
+          }
         } else {
           if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            containerFound = container
+            if (containerFound === undefined) {
+              containerFound = container
+            }
           }
         }
       }
@@ -162,6 +170,7 @@ function newChartingSpace () {
   }
 
   function oneScreenUp () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: 0,
       y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -171,6 +180,7 @@ function newChartingSpace () {
   }
 
   function oneScreenDown () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: 0,
       y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
@@ -180,6 +190,7 @@ function newChartingSpace () {
   }
 
   function oneScreenLeft () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -189,6 +200,7 @@ function newChartingSpace () {
   }
 
   function oneScreenRight () {
+    if (thisObject.visible === false) { return }
     let displaceVector = {
       x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
       y: 0
@@ -251,13 +263,23 @@ function newChartingSpace () {
   }
 
   function physics () {
+    thisObjectPhysics()
+    if (thisObject.visible !== true) { return }
     if (thisObject.viewport !== undefined) {
       thisObject.viewport.physics()
     }
-
-    thisObjectPhysics()
     childrenPhysics()
     syncWithDesigner()
+  }
+
+  function onKeyPressed (event) {
+    if (thisObject.visible !== true) { return }
+    for (let j = 0; j < thisObject.timeMachines.length; j++) {
+      let timeMachine = thisObject.timeMachines[j]
+      if (timeMachine.onFocus === true) {
+        timeMachine.onKeyPressed(event)
+      }
+    }
   }
 
   function syncWithDesigner () {
@@ -310,8 +332,8 @@ function newChartingSpace () {
       timeMachine.payload.uiObject.setValue('Loading...')
 
       /* Setting up the new time machine. */
-      timeMachine.container.frame.position.x = browserCanvas.width / 2 - TIME_MACHINE_WIDTH / 2
-      timeMachine.container.frame.position.y = browserCanvas.height / 2 - TIME_MACHINE_HEIGHT / 2
+      timeMachine.container.frame.position.x = browserCanvas.width / 2 - browserCanvas.width / TIME_MACHINE_WIDTH / 2
+      timeMachine.container.frame.position.y = browserCanvas.height / 2 - (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT / 2
       timeMachine.initialize(onTimeMachineInitialized)
 
       function onTimeMachineInitialized () {
@@ -327,10 +349,16 @@ function newChartingSpace () {
   function thisObjectPhysics () {
     thisObject.container.frame.height = COCKPIT_SPACE_POSITION
 
-    if (thisObject.container.frame.height <= 0 / 100) {
+    if (thisObject.container.frame.height <= TOP_SPACE_HEIGHT) {
       thisObject.visible = false
+      if (thisObject.viewport !== undefined) {
+        thisObject.viewport.visible = false
+      }
     } else {
       thisObject.visible = true
+      if (thisObject.viewport !== undefined) {
+        thisObject.viewport.visible = true
+      }
     }
 
     if (canvas.chartingSpace.viewport !== undefined) {
@@ -355,6 +383,7 @@ function newChartingSpace () {
   }
 
   function drawBackground () {
+    if (thisObject.visible === false) { return }
     drawSpaceBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {
@@ -364,7 +393,7 @@ function newChartingSpace () {
   }
 
   function draw () {
-    if (thisObject.visible !== true) { return }
+    if (thisObject.visible === false) { return }
     drawBackground()
 
     for (let i = 0; i < thisObject.timeMachines.length; i++) {

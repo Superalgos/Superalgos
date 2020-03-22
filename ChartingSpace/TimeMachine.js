@@ -22,6 +22,8 @@ function newTimeMachine () {
     rateScale: undefined,
     payload: undefined,
     edgeEditor: undefined,
+    onFocus: undefined,
+    onKeyPressed: onKeyPressed,
     timelineCharts: [],
     fitFunction: fitFunction,
     physics: physics,
@@ -42,12 +44,14 @@ function newTimeMachine () {
     }
   }
 
+  let tabAnimation = 0
+  let tabAnimationStatus = 'Close'
+  let tabAnimationCounter = 0
+  let wasOnFocus = false
   let drawScales = false
   let syncWithDesignerLoop = 0
   let timelineChartsMap = new Map()
 
-  let onViewportPositionChangedEventSuscriptionId
-  let onViewportZoomChangedEventSuscriptionId
   let onMouseOverEventSuscriptionId
   let onMouseNotOverEventSuscriptionId
   let timeScaleMouseOverEventSuscriptionId
@@ -67,13 +71,11 @@ function newTimeMachine () {
     thisObject.container.insideViewport = true
     thisObject.container.detectMouseOver = true
 
-    thisObject.container.frame.width = TIME_MACHINE_WIDTH
-    thisObject.container.frame.height = TIME_MACHINE_HEIGHT
+    thisObject.container.frame.width = browserCanvas.width / TIME_MACHINE_WIDTH
+    thisObject.container.frame.height = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
   }
 
   function finalize () {
-    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportPositionChangedEventSuscriptionId)
-    canvas.chartingSpace.viewport.eventHandler.stopListening(onViewportZoomChangedEventSuscriptionId)
     timeMachineCoordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
 
     if (thisObject.timeScale !== undefined) {
@@ -146,8 +148,6 @@ function newTimeMachine () {
 
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-    onViewportPositionChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Position Changed', onViewportPositionChanged)
-    onViewportZoomChangedEventSuscriptionId = canvas.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
     onScaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
 
     thisObject.edgeEditor = newEdgeEditor()
@@ -155,6 +155,10 @@ function newTimeMachine () {
     thisObject.edgeEditor.container.connectToParent(thisObject.container, true, true, false, true, true, true)
 
     callBackFunction()
+  }
+
+  function onKeyPressed (event) {
+    thisObject.edgeEditor.onKeyPressed(event)
   }
 
   function onMouseOver (event) {
@@ -308,36 +312,17 @@ function newTimeMachine () {
     }
   }
 
-  function onViewportZoomChanged (event) {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
-  function onViewportPositionChanged () {
-    if (thisObject.container.frame.isInViewPort()) {
-      recalculateCurrentDatetime()
-    }
-  }
-
   function onScaleChanged () {
     recalculateCurrentDatetime()
   }
 
   function recalculateCurrentDatetime () {
-     /*
-     The view port was moved or the view port zoom level was changed and the center of the screen points to a different datetime that we
-     must calculate.
-     */
     let center = {
-      x: (canvas.chartingSpace.viewport.visibleArea.bottomRight.x - canvas.chartingSpace.viewport.visibleArea.bottomLeft.x) / 2,
-      y: (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topRight.y) / 2
+      x: thisObject.container.frame.width / 2,
+      y: thisObject.container.frame.height / 2
     }
 
-    center = unTransformThisPoint(center, thisObject.container)
-    center = timeMachineCoordinateSystem.unInverseTransform(center, thisObject.container.frame.height)
-
-    datetime = new Date(center.x)
+    datetime = new Date(getDateFromPointAtContainer(center, thisObject.container, timeMachineCoordinateSystem))
 
     for (let i = 0; i < thisObject.timelineCharts.length; i++) {
       let timelineChart = thisObject.timelineCharts[i]
@@ -391,10 +376,59 @@ function newTimeMachine () {
       syncWithDesigner()
     }
     panelPhysics()
+    onFocusPhysics()
+    tabAnimationPhysics()
+  }
+
+  function tabAnimationPhysics () {
+    const MAX_COUNTER_VALUE = 40
+    const STEP = 10
+
+    if (wasOnFocus === true && thisObject.onFocus === false) {
+      tabAnimationStatus = 'Closing'
+    }
+    if (wasOnFocus === false && thisObject.onFocus === true) {
+      tabAnimationStatus = 'Opening'
+    }
+
+    if (tabAnimationStatus === 'Closing') {
+      tabAnimationCounter = tabAnimationCounter - STEP
+      if (tabAnimationCounter <= 0) {
+        tabAnimationCounter = 0
+        tabAnimationStatus = 'Closed'
+      }
+    }
+    if (tabAnimationStatus === 'Opening') {
+      tabAnimationCounter = tabAnimationCounter + STEP
+      if (tabAnimationCounter >= MAX_COUNTER_VALUE) {
+        tabAnimationCounter = MAX_COUNTER_VALUE
+        tabAnimationStatus = 'Open'
+      }
+    }
+  }
+
+  function onFocusPhysics () {
+    wasOnFocus = thisObject.onFocus
+    if (thisObject.edgeEditor.isMouseOver === true) {
+      thisObject.onFocus = true
+    } else {
+      thisObject.onFocus = false
+    }
   }
 
   function panelPhysics () {
-    if (thisObject.container.frame.isInViewPort() && canvas.chartingSpace.viewport.zoomTargetLevel > ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS) {
+    if (
+      thisObject.container.frame.isInViewPort() &&
+      canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_NOT_HIDDING_PANELS) {
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
+      canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
+      return
+    }
+
+    if (
+      thisObject.container.frame.isCenterInViewPort() &&
+      canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_PANELS
+    ) {
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Layers Panel')
       canvas.panelsSpace.unHide(thisObject.payload.node.id, 'Plotter Panel')
     } else {
@@ -514,9 +548,23 @@ function newTimeMachine () {
   function drawBackground () {
     drawChartsBackground()
     if (thisObject.container.frame.isInViewPort()) {
+      if (drawScales === true) {
+        if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) { thisObject.timeScale.drawBackground() }
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawBackground() }
+      }
+
+      let maxElementsPlotted = 0
       for (let i = 0; i < thisObject.timelineCharts.length; i++) {
         let timelineChart = thisObject.timelineCharts[thisObject.timelineCharts.length - i - 1]
-        timelineChart.drawBackground()
+        let elementsPlotted = timelineChart.drawBackground()
+        if (elementsPlotted !== undefined) {
+          if (elementsPlotted > maxElementsPlotted) {
+            maxElementsPlotted = elementsPlotted
+          }
+        }
+      }
+      if (thisObject.timeFrameScale !== undefined) {
+        thisObject.timeFrameScale.adjustTimeFrame(maxElementsPlotted)
       }
     }
   }
@@ -540,24 +588,26 @@ function newTimeMachine () {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.draw() }
       }
     } else {
-      let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-      if (icon !== undefined) {
-        if (icon.canDrawIcon === true) {
-          let imageSize = 40
-          let imagePosition = {
-            x: thisObject.container.frame.width / 2,
-            y: thisObject.container.frame.height / 2
+      if (canvas.chartingSpace.viewport.zoomTargetLevel < ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
+        let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            let imageSize = 40
+            let imagePosition = {
+              x: thisObject.container.frame.width / 2,
+              y: thisObject.container.frame.height / 2
+            }
+
+            imagePosition = transformThisPoint(imagePosition, thisObject.container)
+            imagePosition = thisObject.fitFunction(imagePosition, true)
+
+            browserCanvasContext.drawImage(
+               icon,
+               imagePosition.x - imageSize / 2,
+               imagePosition.y - imageSize / 2,
+               imageSize,
+               imageSize)
           }
-
-          imagePosition = transformThisPoint(imagePosition, thisObject.container)
-          imagePosition = thisObject.fitFunction(imagePosition, true)
-
-          browserCanvasContext.drawImage(
-             icon,
-             imagePosition.x - imageSize / 2,
-             imagePosition.y - imageSize / 2,
-             imageSize,
-             imageSize)
         }
       }
     }
@@ -582,27 +632,171 @@ function newTimeMachine () {
   }
 
   function drawLabel () {
+    if (thisObject.payload.node === undefined) { return }
+    if (thisObject.payload === undefined) { return }
   /* Draw Title Above the Container */
     let position = {
       x: 0,
       y: 0
     }
-    let imageSize = 25
-    let fontSize = 25
+    let imageSize = 13
+    let fontSize = 15
     let opacity = 1
     let icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
 
     position = transformThisPoint(position, thisObject.container)
-    printLabel(thisObject.payload.node.name, position.x + 30, position.y - 10, opacity, fontSize)
+
+    let label = thisObject.payload.node.name
+    let description = loadPropertyFromNodeConfig(thisObject.payload, 'description')
+
+    if (description !== undefined) {
+      label = description
+    }
+    printLabel(label, position.x + 20, position.y - 10, opacity, fontSize)
 
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         browserCanvasContext.drawImage(
-        icon, position.x - 0,
-        position.y - 30,
+        icon, position.x + 5,
+        position.y - 22,
         imageSize,
         imageSize)
       }
+    }
+
+    imageSize = 13
+    fontSize = 15
+    let exchangeMarkets = new Map()
+
+    for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+      let timelinechart = thisObject.timelineCharts[i]
+      if (timelinechart.layersManager !== undefined) {
+        for (let j = 0; j < timelinechart.layersManager.layers.length; j++) {
+          let layer = timelinechart.layersManager.layers[j]
+
+          exchangeMarket = {
+            exchangeName: layer.exchange.name,
+            marketName: layer.market,
+            exchangeIcon: layer.exchangeIcon,
+            baseAssetIcon: layer.baseAssetIcon,
+            quotedAssetIcon: layer.quotedAssetIcon
+          }
+          exchangeMarkets.set(exchangeMarket.exchangeName + '-' + exchangeMarket.marketName, exchangeMarket)
+        }
+      }
+    }
+
+    drawTab(0, 0, exchangeMarkets.size * tabAnimationCounter, 90, thisObject.container)
+
+    const INTER_EXCHANGE_SPACE = 60
+    const INTER_MARKET_SPACE = -100
+
+    if (tabAnimationStatus === 'Open') {
+      drawMarketNames()
+    }
+
+    function drawMarketNames () {
+      exchangeMarkets.forEach((exchangeMarket, i) => {
+        browserCanvasContext.save()
+        browserCanvasContext.translate(position.x, position.y)
+        browserCanvasContext.rotate(-Math.PI / 2)
+
+        let xOffSet = -80
+
+        icon = exchangeMarket.exchangeIcon
+
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -43,
+        imageSize,
+        imageSize)
+          }
+        }
+
+        printLabel(exchangeMarket.exchangeName, -5 + xOffSet, -30, opacity, fontSize, UI_COLOR.GREY)
+
+        position.x = position.x + INTER_EXCHANGE_SPACE
+
+        icon = exchangeMarket.baseAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        -20 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
+        }
+
+        printLabel(exchangeMarket.marketName, -5 + xOffSet, -10, opacity, fontSize, UI_COLOR.GREY)
+
+        icon = exchangeMarket.quotedAssetIcon
+        if (icon !== undefined) {
+          if (icon.canDrawIcon === true) {
+            browserCanvasContext.drawImage(
+        icon,
+        +50 + xOffSet,
+         -22,
+        imageSize,
+        imageSize)
+          }
+        }
+
+        position.x = position.x + INTER_MARKET_SPACE
+
+        browserCanvasContext.restore()
+      })
+    }
+
+    function drawTab (x, y, width, height, container) {
+      const GRADIENT = 0
+      const X_OFFSET = -3
+      const Y_OFFSET = 13
+      const TAB_CORNERS_RADIUS = 5
+
+      let point = {
+        x: x,
+        y: y
+      }
+      point = transformThisPoint(point, container)
+
+      let point1 = {
+        x: point.x + X_OFFSET,
+        y: point.y + Y_OFFSET
+      }
+
+      let point2 = {
+        x: point.x + X_OFFSET,
+        y: point.y + height + Y_OFFSET
+      }
+
+      let point3 = {
+        x: point.x - width + X_OFFSET,
+        y: point.y + height - GRADIENT + Y_OFFSET
+      }
+
+      let point4 = {
+        x: point.x - width + X_OFFSET,
+        y: point.y + GRADIENT + Y_OFFSET
+      }
+
+      browserCanvasContext.beginPath()
+      browserCanvasContext.moveTo(point1.x, point1.y)
+      browserCanvasContext.lineTo(point2.x, point2.y)
+      browserCanvasContext.lineTo(point3.x, point3.y)
+      browserCanvasContext.arc(point3.x, point3.y - TAB_CORNERS_RADIUS, TAB_CORNERS_RADIUS, 0.5 * Math.PI, 1.0 * Math.PI)
+      // browserCanvasContext.lineTo(point4.x, point4.y)
+      browserCanvasContext.arc(point4.x, point4.y + TAB_CORNERS_RADIUS, TAB_CORNERS_RADIUS, 1.0 * Math.PI, 1.5 * Math.PI)
+      browserCanvasContext.closePath()
+      browserCanvasContext.lineWidth = 1
+      browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ''
+      browserCanvasContext.stroke()
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + opacity + ''
+      browserCanvasContext.fill()
     }
   }
 

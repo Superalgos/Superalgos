@@ -24,7 +24,6 @@ function newFloatingLayer () {
     removeFloatingObject: removeFloatingObject,
     getFloatingObject: getFloatingObject,
     physics: physics,
-    changeTargetRepulsion: changeTargetRepulsion,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize,
@@ -200,9 +199,23 @@ function newFloatingLayer () {
     }
   }
 
+  function collapsePhysics (thisObject) {
+    let parent = thisObject.payload.chainParent
+    if (parent === undefined) { return }
+    if (parent.payload === undefined) { return }
+    if (parent.payload.floatingObject === undefined) { return }
+
+    thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
+    if (thisObject.collapsedManually === false) {
+      thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
+    }
+  }
+
   function makeVisible () {
     for (let i = 0; i < invisibleFloatingObjects.length; i++) {
       let floatingObject = invisibleFloatingObjects[i]
+
+      collapsePhysics(floatingObject)
 
       if (floatingObject.isFrozen === false && floatingObject.isParentCollapsed === false) {
         visibleFloatingObjects.push(floatingObject)
@@ -216,6 +229,8 @@ function newFloatingLayer () {
   function makeInvisible () {
     for (let i = 0; i < visibleFloatingObjects.length; i++) {
       let floatingObject = visibleFloatingObjects[i]
+
+      collapsePhysics(floatingObject)
 
       if (floatingObject.isFrozen === true || floatingObject.isParentCollapsed === true) {
         invisibleFloatingObjects.push(floatingObject)
@@ -256,10 +271,8 @@ function newFloatingLayer () {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
         try {
-          for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[i]
-            floatingObject.physics()
-          }
+          DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
+          DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
@@ -602,24 +615,6 @@ function newFloatingLayer () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
-    }
-  }
-
-  function changeTargetRepulsion (pDelta) {
-    try {
-      if (pDelta > 0) {
-        pDelta = 1
-      } else {
-        pDelta = -1
-      }
-
-      maxTargetRepulsionForce = maxTargetRepulsionForce + pDelta / 1000
-
-      if (maxTargetRepulsionForce < 0.0000000001) {
-        maxTargetRepulsionForce = 0.0000000001
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] changeTargetRepulsion -> err= ' + err.stack) }
     }
   }
 

@@ -21,6 +21,7 @@ function newFrame () {
     isThisPointHere: isThisPointHere,   // This function return true is the point received as parameter lives within this frame.
     isThisScreenPointHere: isThisScreenPointHere,
     isInViewPort: isInViewPort,
+    isCenterInViewPort: isCenterInViewPort,
     initialize: initialize,
     finalize: finalize
   }
@@ -65,6 +66,31 @@ function newFrame () {
     }
 
        /* Now the transformations. */
+
+    point1 = transformThisPoint(point1, thisObject.container)
+    point3 = transformThisPoint(point3, thisObject.container)
+
+    if (point1.x < canvas.chartingSpace.viewport.visibleArea.topRight.x && point1.y < canvas.chartingSpace.viewport.visibleArea.bottomRight.y && point3.x > canvas.chartingSpace.viewport.visibleArea.bottomLeft.x && point3.y > canvas.chartingSpace.viewport.visibleArea.topLeft.y) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function isCenterInViewPort () {
+    /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
+
+    point1 = {
+      x: thisObject.width * 40 / 100,
+      y: thisObject.height * 40 / 100
+    }
+
+    point3 = {
+      x: thisObject.width * 40 / 100,
+      y: thisObject.height * 40 / 100
+    }
+
+        /* Now the transformations. */
 
     point1 = transformThisPoint(point1, thisObject.container)
     point3 = transformThisPoint(point3, thisObject.container)
@@ -183,7 +209,7 @@ function newFrame () {
     }
 
    /* Now we check if the resulting point is whin the current Frame. */
-
+    if (isNaN(checkPoint.x) || isNaN(checkPoint.y)) { return false }
     if (thisObject.type === 'Circle') {
       let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
 

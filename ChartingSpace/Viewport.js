@@ -20,6 +20,7 @@ function newViewport () {
   }
 
   let thisObject = {
+    visible: false,
     visibleArea: undefined,
     width: undefined,
     height: undefined,
@@ -29,6 +30,7 @@ function newViewport () {
     mousePosition: undefined,
     margins: MARGINS,
     payload: undefined,
+    zoomAtCenter: zoomAtCenter,
     changeZoom: changeZoom,
     onMouseWheel: onMouseWheel,
     transformThisPoint: transformThisPoint,
@@ -38,6 +40,7 @@ function newViewport () {
     fitIntoVisibleArea: fitIntoVisibleArea,
     fitIntoViewport: fitIntoViewport,
     displace: displace,
+    displaceToContainer: displaceToContainer,
     physics: physics,
     raiseEvents: raiseEvents,
     resize: resize,
@@ -49,14 +52,7 @@ function newViewport () {
     x: 0,
     y: 0
   }
-  let targetPosition = {
-    x: 0,
-    y: 0
-  }
-  let positionIncrement = {
-    x: 0,
-    y: 0
-  }
+
   thisObject.mousePosition = {
     x: 0,
     y: 0
@@ -67,6 +63,8 @@ function newViewport () {
   thisObject.zoomLevel = MIN_ZOOM_LEVEL
   thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
   INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
+
+  let overrideMousePositionCounter = 0
 
   return thisObject
 
@@ -128,6 +126,7 @@ function newViewport () {
   }
 
   function raiseEvents () {
+    if (thisObject.visible === false) { return }
     let event = {
       newPosition: position
     }
@@ -135,13 +134,43 @@ function newViewport () {
     thisObject.eventHandler.raiseEvent('Position Changed', event)
   }
 
+  function displaceToContainer (container) {
+    let targetPoint = {
+      x: -container.frame.position.x - container.frame.width / 2,
+      y: -container.frame.position.y - container.frame.height / 2
+    }
+    position.x = targetPoint.x + browserCanvas.width / 2
+    position.y = targetPoint.y + (browserCanvas.height - COCKPIT_SPACE_HEIGHT - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+  }
+
+  function zoomAtCenter (level) {
+    thisObject.zoomTargetLevel = level
+    overrideMousePositionCounter = 50
+    ANIMATION_INCREMENT = 0.5
+  }
+
+  function mousePositionPhysics () {
+    if (overrideMousePositionCounter > 0) {
+      thisObject.mousePosition.x = browserCanvas.width / 2
+      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+
+      overrideMousePositionCounter--
+      if (overrideMousePositionCounter < 0) {
+        overrideMousePositionCounter = 0
+      }
+    }
+  }
+
   function physics () {
+    if (thisObject.visible === false) { return }
+    mousePositionPhysics()
     animationPhysics()
     positioningPhysics()
     readObjectState()
   }
 
   function positioningPhysics () {
+    if (thisObject.visible === false) { return }
     if (thisObject.payload === undefined) { return }
     /* Save the position at the frame lavel */
     let frame = {}
@@ -152,37 +181,28 @@ function newViewport () {
   function animationPhysics () {
     if (thisObject.zoomLevel < thisObject.zoomTargetLevel) {
       if (thisObject.zoomTargetLevel - thisObject.zoomLevel < ANIMATION_INCREMENT) {
-        ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
+        ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) * 100) / 100
       }
-      thisObject.zoomLevel = thisObject.zoomLevel + ANIMATION_INCREMENT
+      thisObject.zoomLevel = Math.round((thisObject.zoomLevel + ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel - ANIMATION_INCREMENT, thisObject.zoomLevel)
     }
 
     if (thisObject.zoomLevel > thisObject.zoomTargetLevel) {
       if (thisObject.zoomLevel - thisObject.zoomTargetLevel < ANIMATION_INCREMENT) {
-        ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel)
+        ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) * 100) / 100
       }
-      thisObject.zoomLevel = thisObject.zoomLevel - ANIMATION_INCREMENT
+      thisObject.zoomLevel = Math.round((thisObject.zoomLevel - ANIMATION_INCREMENT) * 100) / 100
       changeZoom(thisObject.zoomLevel + ANIMATION_INCREMENT, thisObject.zoomLevel)
-    }
-
-    if (positionIncrement.y !== 0) {
-      if (Math.trunc(Math.abs(targetPosition.y - position.y) * 1000) >= Math.trunc(Math.abs(positionIncrement.y) * 1000)) {
-        position.y = position.y + positionIncrement.y
-      } else {
-        positionIncrement.y = 0
-      }
     }
   }
 
   function onMouseWheel (event) {
+    if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
     let amount = event.delta
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
-    let isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
-    if (isMac) { amount = amount / 5 }
 
     if (thisObject.zoomTargetLevel > 10) {
       amount = amount * 2
@@ -200,9 +220,9 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = thisObject.zoomTargetLevel + amount * morePower
+    thisObject.zoomTargetLevel = Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR
 
-    ANIMATION_INCREMENT = Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS
+    ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 
     let newEvent = {
       newLevel: thisObject.zoomTargetLevel,
@@ -259,6 +279,7 @@ function newViewport () {
   }
 
   function displace (displaceVector, recalculate) {
+    if (thisObject.visible === false) { return }
     position.x = position.x + displaceVector.x
     position.y = position.y + displaceVector.y
 
@@ -273,28 +294,20 @@ function newViewport () {
   }
 
   function changeZoom (oldLevel, newLevel) {
+    if (thisObject.visible === false) { return }
     let oldMouse = unTransformThisPoint(thisObject.mousePosition, oldLevel)
     let newMouse = transformThisPoint(oldMouse, newLevel)
 
     position.x = position.x - newMouse.x + thisObject.mousePosition.x
     position.y = position.y - newMouse.y + thisObject.mousePosition.y
 
-    let testPoint = unTransformThisPoint(thisObject.mousePosition, newLevel)
-
     saveObjectState()
-
-    targetPosition.x = position.x
-    targetPosition.y = position.y
-
-    positionIncrement = {
-      x: 0,
-      y: 0
-    }
 
     thisObject.eventHandler.raiseEvent('Zoom Changed')
   }
 
   function transformThisPoint (point, level) {
+    if (thisObject.visible === false) { return }
     let transformedPoint = {
       x: 0,
       y: 0
@@ -328,6 +341,7 @@ function newViewport () {
   }
 
   function isThisPointVisible (point) {
+    if (thisObject.visible === false) { return }
     if (point.x < thisObject.visibleArea.topLeft.x || point.x > thisObject.visibleArea.bottomRight.x || point.y < thisObject.visibleArea.topLeft.y || point.y > thisObject.visibleArea.bottomRight.y) {
       return false
     } else {
@@ -336,6 +350,7 @@ function newViewport () {
   }
 
   function isThisPointInViewport (point) {
+    if (thisObject.visible === false) { return }
     if (point.y > COCKPIT_SPACE_POSITION) {
       return false
     } else {
@@ -382,7 +397,7 @@ function newViewport () {
     }
 
     function newZoomLevel (level) {
-      thisObject.zoomLevel = level
+      thisObject.zoomLevel = Math.round(level)
       thisObject.zoomTargetLevel = level
       INITIAL_TIME_PERIOD = recalculatePeriod(level)
       saveObjectState()

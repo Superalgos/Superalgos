@@ -1,6 +1,8 @@
 # Superalgos
 
-Superalgos provides a toolbox with many integrated tools that could help you research crypto markets and design / automate trading strategies. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations with it (including indicators), plot the results of your calculations, design, test and automate trading strategies, and more. You can do any of the above individually or alltogether plus reuse all information gathered and generated (standarized in multiple time frames, stored at text files by exchange/market) as an input for your own software / systems. Superalgos runs at your computer, it is free and open source.  
+Superalgos provides a toolbox with many integrated tools that could help you research crypto markets and design / automate trading strategies. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations with it (including indicators), plot the results of your calculations, design, test and automate trading strategies, and more. 
+
+You can do any of the above individually or alltogether plus reuse all information gathered and generated (standarized in multiple time frames, stored at text files by exchange/market) as an input for your own software / systems. Superalgos runs at your computer, it is free and open source.  
 
 ![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 

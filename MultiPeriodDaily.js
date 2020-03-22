@@ -307,6 +307,8 @@
                     let botNeverRan = true;
 
                     bot.multiPeriodDailyProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    let fromDate = new Date(bot.multiPeriodDailyProcessDatetime.valueOf())
+                    let lastDate = new Date()
 
                     advanceTime();
 
@@ -318,11 +320,7 @@
 
                             bot.multiPeriodDailyProcessDatetime = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodDailyProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
-     
-                            if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                logger.newInternalLoop(bot.codeName, bot.process);
-                            }
-
+                             
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> bot.multiPeriodDailyProcessDatetime = " + bot.multiPeriodDailyProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> advanceTime -> previousDay = " + previousDay); }
 
@@ -338,10 +336,43 @@
 
                             }
 
-                            periodsLoop();
+                            /*  Telling the world we are alive and doing well */
+                            let currentDateString = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
+                            let currentDate = new Date(bot.multiPeriodDailyProcessDatetime)
+                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            bot.processHeartBeat(currentDateString, percentage) 
+
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                            }
+
+                            checkStopTaskGracefully();
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> advanceTime -> err = "+ err.stack);
+                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                        }
+                    }
+
+                    function checkStopTaskGracefully() {
+
+                        try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFramesDailyFiles -> checkStopTaskGracefully -> Entering function."); }
+
+                            /* Validation that we dont need to stop. */
+
+                            if (global.STOP_TASK_GRACEFULLY === true) {
+
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+
+                            }
+
+                            periodsLoop();
+
+                        } catch (err) {
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFramesDailyFiles -> checkStopTaskGracefully -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -351,10 +382,6 @@
                         try {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoop -> Entering function."); }
-
-                            /*  Telling the world we are alive and doing well */
-                            let processingDate = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
-                            bot.processHeartBeat(processingDate) 
 
                             /*
 
@@ -432,7 +459,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
                                             }
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName = "Data.json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -502,7 +529,7 @@
                                             } else {
                                                 filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
                                             }
-                                            let fileName = market.baseAsset + '_' + market.quotedAsset + ".json";
+                                            let fileName =  "Data.json";
 
                                             dataset.getTextFile(filePath, fileName, onFileReceived);
 
@@ -736,7 +763,7 @@
 
                     let fileContent = JSON.stringify(dataRange);
 
-                    let fileName = '/Data.Range.' + market.baseAsset + '_' + market.quotedAsset + '.json';
+                    let fileName = '/Data.Range.json';
                     let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
 
                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -754,6 +781,13 @@
                         if (LOG_FILE_CONTENT === true) {
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
+
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName  + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let event = {
+                            dateRange: dataRange
+                        }
+
+                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
 
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }
@@ -781,6 +815,7 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
+
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);

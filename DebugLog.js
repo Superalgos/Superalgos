@@ -37,18 +37,25 @@ exports.newDebugLog = function newDebugLog() {
         }
     }
 
-    function newInternalLoop(pBot, pProcess, date) {
+    function newInternalLoop(pBot, pProcess, date, percentage) {
+        if (percentage === undefined) {
+            percentage = ""
+        } else {
+            percentage = percentage.toFixed(2) + " %"
+        }
 
         if (date === undefined) { date = thisObject.bot.processDatetime }
+        date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
-        console.log(new Date().toISOString() + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30) + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10)
-            + "      Entered into Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date.toISOString(), 30))  
+        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30)
+            + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10)) 
 
         persist();
 
-        function strPad(str, max) {
+        function strPad(str, max, fill) {
+            if (fill === undefined) {fill = " "}
             str = str.toString();
-            return str.length < max ? strPad(" " + str, max) : str;
+            return str.length < max ? strPad(fill + str, max) : str;
         }
     }
 

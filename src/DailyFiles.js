@@ -54,6 +54,14 @@ function newDailyFiles () {
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot)
 
+      /* Some Validations */
+      if (pDataset.code.validTimeFrames === undefined) {
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Market Files for bot ' + pBot.name) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = You need to define validTimeFrames at the Dataset config. ') }
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
             /* First we will get the Data Range */
 
       fileCloud.getFile(pDataMine, pBot, pSession, pDataset, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)

@@ -246,17 +246,20 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     while (true) {
 
                         /* Reporting we are doing well */
-                        let processingDate = new Date(since)
-                        processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
-                        let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate
-                        let currentDate = new Date(since)
-                        let percentage = global.getPercentage(fromDate, currentDate, lastDate)
-                        bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
-
-                        if (global.areEqualDates(currentDate, new Date()) === false) {
-                            logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                        function heartBeat() {
+                            let processingDate = new Date(since)
+                            processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
+                            let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate
+                            let currentDate = new Date(since)
+                            let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                            bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
+                            if (global.areEqualDates(currentDate, new Date()) === false) {
+                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                            }
                         }
+
+                        heartBeat()
 
                         /* Defining if we will query the exchange by Date or Id */
                         if (fetchType === "by Id") {
@@ -312,6 +315,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
                             }
+                            
 
                             lastId = OHLCVs[OHLCVs.length - 1]['id']
 
@@ -326,9 +330,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                 lastOHLCVKey = OHLCVKey
                             }
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
-                            bot.processHeartBeat("Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
-
+                            heartBeat()
                         }
 
                         if (

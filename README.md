@@ -35,4 +35,4 @@ We'd love you to join us in the Dev Team. Please see [CONTRIBUTING.md](CONTRIBUT
 
 ## License
 
-The Superalgos Desktop App is open-source software released under [Apache License 2.0](LICENSE).
+Superalgos is open-source software released under [Apache License 2.0](LICENSE).

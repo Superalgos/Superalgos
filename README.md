@@ -14,8 +14,10 @@ The current version opens up the door to working with multiple exchanges and mul
 | Bitfinex | &#x2611; | &#x2611; | Fully tested. Expect 1 year max of market history. |
 | Bitmex | &#x2611; | &#x2610; | We need to implement the concept of Contracts within the system in order to be able to test trading capabilities. |
 | HitBTC | &#x2610; | &#x2610; | Not tested yet. |
-| Kraken | &#x2611; | &#x2610; | Live trading not tested yet. |
+| Kraken | &#x2610;  | &#x2610; | Historical data only accessed by id (not by date). Live trading not tested yet. |
 | Poloniex | &#x2610; | &#x2610; | At the moment we can not retrieve OHLCVs from Poloniex because we require 1 minute time frame while Poloniex only offers 5 minutes and above. |
+| Bittrex | &#x2611; | &#x2610; | Only 6 Months of historical data is provided. Live trading not tested yet. |
+| Gemini | &#x2611; | &#x2610; | Only a few hours of historical data is provided. Live trading not tested yet. |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.
 

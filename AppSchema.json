@@ -787,14 +787,6 @@
         "type": "Condition",
         "menuItems": [
             {
-                "action": "Edit Condition",
-                "label": "Edit Condition",
-                "iconPathOn": "html",
-                "iconPathOff": "html",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.conditionEditor.activate"
-            },
-            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "code",
@@ -1115,7 +1107,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Market->"
+            "compatibleTypes": "->Super Actions->Market->"
         },
         "referenceAttachesTo": {
             "compatibleTypes": "->Master Script->"
@@ -1147,6 +1139,7 @@
         "addLeftIcons": true,
         "level": 1,
         "icon": "network",
+        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#network",
         "properties": [
             {
                 "name": "networkNodes",
@@ -1278,7 +1271,7 @@
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->Template Structure->"
+            "compatibleTypes": "->Exchange Tasks->Template Structure->"
         },
         "icon": "task-manager",
         "properties": [
@@ -1788,7 +1781,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "loading",
+        "icon": "asset",
         "alternativeIcons": "Use Reference Grandparent",
         "title": [
             "Use Reference Grandparent"
@@ -1830,7 +1823,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Parameters->"
         },
-        "icon": "loading",
+        "icon": "asset",
         "alternativeIcons": "Use Reference Grandparent",
         "title": [
             "Use Reference Grandparent"
@@ -1859,7 +1852,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market->"
         },
-        "icon": "loading",
+        "icon": "asset",
         "alternativeIcons": "Use Reference Parent",
         "title": [
             "Use Reference Parent"
@@ -1888,7 +1881,7 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Market->"
         },
-        "icon": "loading",
+        "icon": "asset",
         "alternativeIcons": "Use Reference Parent",
         "title": [
             "Use Reference Parent"
@@ -2504,6 +2497,9 @@
         },
         "level": 2,
         "icon": "data-mine",
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here a name with no spaces or dashes.\"\n}"
+        },
         "properties": [
             {
                 "name": "sensorBots",
@@ -2770,6 +2766,11 @@
         "editors": {
             "config": true
         },
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent Parent"
+        ],
         "level": 3,
         "referenceAttachesTo": {
             "compatibleTypes": "->Status Report->"
@@ -3054,6 +3055,11 @@
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
             }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent",
+            "Use Reference Parent"
         ],
         "addLeftIcons": true,
         "level": 3,
@@ -4426,10 +4432,16 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "cryptoExchanges",
                 "label": "Add Crypto Exchanges",
                 "relatedUiObject": "Crypto Exchanges",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "superActions",
+                "label": "Add Super Actions",
+                "relatedUiObject": "Super Actions",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4449,8 +4461,48 @@
         "properties": [
             {
                 "name": "cryptoExchanges",
+                "type": "array",
+                "childType": "Crypto Exchanges"
+            },
+            {
+                "name": "superActions",
                 "type": "node",
-                "childType": "Network Node"
+                "childType": "Super Actions"
+            }
+        ]
+    },
+    {
+        "type": "Super Actions",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Super Action",
+                "relatedUiObject": "Super Action",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Super Actions",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "propertyNameAtParent": "superActions",
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Ecosystem->"
+        },
+        "icon": "super-action",
+        "properties": [
+            {
+                "name": "superActions",
+                "type": "array",
+                "childType": "Super Action"
             }
         ]
     },
@@ -4464,6 +4516,15 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add Missing Crypto Exchanges",
+                "label": "Add Missing Exchanges",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Crypto Exchange",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4473,6 +4534,7 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "crypto-exchanges",
@@ -4569,43 +4631,43 @@
         ],
         "alternativeIcons": [
             {
-                "codeName": "Bitfinex",
+                "codeName": "bitfinex",
                 "iconName": "bitfinex"
             },
             {
-                "codeName": "Binance",
+                "codeName": "binance",
                 "iconName": "binance"
             },
             {
-                "codeName": "Kucoin",
+                "codeName": "kucoin",
                 "iconName": "kucoin"
             },
             {
-                "codeName": "Bittrex",
+                "codeName": "bittrex",
                 "iconName": "bittrex"
             },
             {
-                "codeName": "Kraken",
+                "codeName": "kraken",
                 "iconName": "kraken"
             },
             {
-                "codeName": "Poloniex",
+                "codeName": "poloniex",
                 "iconName": "poloniex"
             },
             {
-                "codeName": "Upbit",
+                "codeName": "upbit",
                 "iconName": "upbit"
             },
             {
-                "codeName": "Bitmex",
+                "codeName": "bitmex",
                 "iconName": "bitmex"
             },
             {
-                "codeName": "Liquid",
+                "codeName": "liquid",
                 "iconName": "liquid"
             },
             {
-                "codeName": "HitBTC",
+                "codeName": "hitbtc",
                 "iconName": "hitbtc"
             }
         ]
@@ -4614,8 +4676,24 @@
         "type": "Exchange Assets",
         "menuItems": [
             {
+                "action": "Config Exchange Assets",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Exchange Assets",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Asset",
+                "relatedUiObject": "Asset",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Assets",
+                "label": "Add Missing Assets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
                 "relatedUiObject": "Asset",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -4629,6 +4707,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"addMissingAssets\": { \"quotedAsset\": \"USDT\"} \n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "icon": "exchange-assets",
@@ -4640,8 +4724,7 @@
             {
                 "name": "assets",
                 "type": "array",
-                "childType": "Asset",
-                "autoAdd": true
+                "childType": "Asset"
             }
         ]
     },
@@ -4750,8 +4833,24 @@
         "type": "Exchange Markets",
         "menuItems": [
             {
+                "action": "Config Market",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Market",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Market",
+                "relatedUiObject": "Market",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add Missing Markets",
+                "label": "Add Missing Markets",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Request Sent",
                 "relatedUiObject": "Market",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -4765,6 +4864,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"Write here the code name of the Market here.\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "icon": "exchange-markets",
@@ -4776,14 +4881,20 @@
             {
                 "name": "markets",
                 "type": "array",
-                "childType": "Market",
-                "autoAdd": true
+                "childType": "Market"
             }
         ]
     },
     {
         "type": "Market",
         "menuItems": [
+            {
+                "action": "Config Market",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Market",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -4805,13 +4916,6 @@
                 "label": "Add Super Action",
                 "relatedUiObject": "Super Action",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Config Market",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Market",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
             },
             {
                 "action": "Delete UI Object",
@@ -4850,7 +4954,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the name of the market as it is defined at the CCXT library.\"\n}"
+            "code": "{ \n\"codeName\": \"Write here the name of the market.\"\n}"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Markets->"
@@ -4975,8 +5079,7 @@
             {
                 "name": "assets",
                 "type": "array",
-                "childType": "Exchange Account Asset",
-                "autoAdd": true
+                "childType": "Exchange Account Asset"
             }
         ],
         "isPersonalData": true
@@ -5151,6 +5254,7 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "dashboard",
@@ -5623,7 +5727,7 @@
         ]
     },
     {
-        "type": "Data Mining",
+        "type": "Exchange Tasks",
         "menuItems": [
             {
                 "action": "Run All Task Managers",
@@ -5655,6 +5759,69 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Exchange Tasks",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "crypto-exchange",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environmnet->Template Structure->"
+        },
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "propertyNameAtParent": "exchangeTasks",
+        "properties": [
+            {
+                "name": "taskManagers",
+                "type": "array",
+                "childType": "Task Manager",
+                "monitorChildrenRunning": true
+            }
+        ]
+    },
+    {
+        "type": "Data Mining",
+        "menuItems": [
+            {
+                "action": "Run All Exchange Tasks",
+                "label": "Run All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Exchange Tasks",
+                "label": "Stop All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Exchange Tasks",
+                "relatedUiObject": "Exchange Tasks",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
                 "label": "Delete Data Mining",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
@@ -5670,9 +5837,9 @@
         "propertyNameAtParent": "dataMining",
         "properties": [
             {
-                "name": "taskManagers",
+                "name": "exchangeTasks",
                 "type": "array",
-                "childType": "Task Manager",
+                "childType": "Exchange Tasks",
                 "autoAdd": true,
                 "monitorChildrenRunning": true
             }
@@ -5682,9 +5849,29 @@
         "type": "Testing Environment",
         "menuItems": [
             {
+                "action": "Run All Exchange Tasks",
+                "label": "Run All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Exchange Tasks",
+                "label": "Stop All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Add UI Object",
-                "label": "Add Task Manager",
-                "relatedUiObject": "Task Manager",
+                "label": "Add Exchange Tasks",
+                "relatedUiObject": "Exchange Tasks",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5710,6 +5897,13 @@
                 "type": "array",
                 "childType": "Task Manager",
                 "autoAdd": true
+            },
+            {
+                "name": "exchangeTasks",
+                "type": "array",
+                "childType": "Exchange Tasks",
+                "autoAdd": true,
+                "monitorChildrenRunning": true
             }
         ]
     },
@@ -5717,9 +5911,29 @@
         "type": "Production Environment",
         "menuItems": [
             {
+                "action": "Run All Exchange Tasks",
+                "label": "Run All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Run",
+                "workDoneLabel": "Run Request Sent",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Stop All Exchange Tasks",
+                "label": "Stop All Exchange Tasks",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Stop",
+                "workDoneLabel": "Stop Request Sent",
+                "iconPathOn": "stop",
+                "iconPathOff": "stop",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Add UI Object",
-                "label": "Add Task Manager",
-                "relatedUiObject": "Task Manager",
+                "label": "Add Exchange Tasks",
+                "relatedUiObject": "Exchange Tasks",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5745,6 +5959,55 @@
                 "type": "array",
                 "childType": "Task Manager",
                 "autoAdd": true
+            },
+            {
+                "name": "exchangeTasks",
+                "type": "array",
+                "childType": "Exchange Tasks",
+                "autoAdd": true,
+                "monitorChildrenRunning": true
+            }
+        ]
+    },
+    {
+        "type": "Exchange Data Products",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Single Market Data",
+                "relatedUiObject": "Single Market Data",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Data Storage",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "crypto-exchange",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Session Independent Data->"
+        },
+        "propertyNameAtParent": "exchangeDataProducts",
+        "properties": [
+            {
+                "name": "singleMarketData",
+                "type": "array",
+                "childType": "Single Market Data"
             }
         ]
     },
@@ -5753,8 +6016,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Single Market Data",
-                "relatedUiObject": "Single Market Data",
+                "label": "Add Exchange",
+                "relatedUiObject": "Exchange Data Products",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5776,10 +6039,45 @@
         "propertyNameAtParent": "sessionIndependentData",
         "properties": [
             {
-                "name": "singleMarketData",
+                "name": "exchangeDataProducts",
                 "type": "array",
-                "childType": "Single Market Data",
-                "autoAdd": true
+                "childType": "Exchange Data Products"
+            }
+        ]
+    },
+    {
+        "type": "Exchange Sessions",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Exchange Sessions",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "alternativeIcons": "Use Reference Parent",
+        "title": [
+            "Use Reference Parent"
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 3,
+        "icon": "crypto-exchange",
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Crypto Exchange->"
+        },
+        "chainAttachesTo": {
+            "compatibleTypes": "->Data Storage->"
+        },
+        "propertyNameAtParent": "exchangeSessions",
+        "properties": [
+            {
+                "name": "sessionReferences",
+                "type": "array",
+                "childType": "Session Reference"
             }
         ]
     },
@@ -5788,8 +6086,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Session Reference",
-                "relatedUiObject": "Session Reference",
+                "label": "Add Exchange Sessions",
+                "relatedUiObject": "Exchange Sessions",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -5814,6 +6112,12 @@
                 "name": "sessionReferences",
                 "type": "array",
                 "childType": "Session Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "exchangeSessions",
+                "type": "array",
+                "childType": "Exchange Sessions",
                 "autoAdd": true
             }
         ]
@@ -5852,7 +6156,7 @@
             "compatibleTypes": "->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Based Data->Template Structure->"
+            "compatibleTypes": "->Exchange Sessions->Template Structure->"
         },
         "propertyNameAtParent": "sessionReferences",
         "properties": [
@@ -5895,7 +6199,7 @@
             "compatibleTypes": "->Market->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Session Independent Data->Session Reference->Template Structure->"
+            "compatibleTypes": "->Exchange Data Products->Session Reference->Template Structure->"
         },
         "propertyNameAtParent": "singleMarketData",
         "properties": [

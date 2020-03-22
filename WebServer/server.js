@@ -121,11 +121,104 @@ function onBrowserRequest (request, response) {
 
   switch (requestParameters[1]) {
 
+      case 'CCXT':
+          {
+                  getBody(processRequest)
+
+                  function getBody(callback) {
+                      let body = ''
+
+                      request.on('data', function (data) {
+                          body += data
+                          // Too much POST data
+                          if (body.length > 1e6) {
+                              request.connection.destroy()
+                          }
+                      })
+
+                      request.on('end', function () {
+                          callback(body)
+                      })
+                  }
+                  async function processRequest(body) {
+                      try {
+                      let params = JSON.parse(body)
+
+                      const ccxt = require('ccxt')
+                      
+                      switch (params.method) {
+                          case 'fetchMarkets': {
+
+                              const exchangeClass = ccxt[params.exchangeId]
+                              const exchangeConstructorParams = {
+                                  'timeout': 30000,
+                                  'enableRateLimit': true,
+                                  verbose: false
+                              }
+
+                              let ccxtExchange = new exchangeClass(exchangeConstructorParams)
+                              let ccxtMarkets = []
+
+                              if (ccxtExchange.has.fetchMarkets === true) {
+                                  ccxtMarkets = await ccxtExchange.fetchMarkets()
+                              }
+                              respondWithContent(JSON.stringify(ccxtMarkets), response)
+                              return
+                          }
+                          case 'listExchanges': {
+                              let exchanges = []
+                              for (let i = 0; i < ccxt.exchanges.length; i++) {
+                                  let exchangeId = ccxt.exchanges[i]
+
+                                  const exchangeClass = ccxt[exchangeId]
+                                  const exchangeConstructorParams = {
+                                      'timeout': 30000,
+                                      'enableRateLimit': true,
+                                      verbose: false
+                                  }
+                                  let ccxtExchange 
+                                  try { ccxtExchange = new exchangeClass(exchangeConstructorParams)}
+                                  catch (err) {}
+                                  if (ccxtExchange === undefined) {continue}
+                                  
+
+                                    if (ccxtExchange.has.fetchOHLCV === params.has.fetchOHLCV) {
+                                        if (ccxtExchange.has.fetchMarkets === params.has.fetchMarkets) {
+                                            if (ccxtExchange.timeframes['1m'] !== undefined) {
+                                                let exchange = {
+                                                    name: ccxtExchange.name,
+                                                    id: ccxtExchange.id
+                                                }
+                                                exchanges.push(exchange)
+                                            }
+                                        }
+                                    }
+                              }
+                              respondWithContent(JSON.stringify(exchanges), response)
+                              return
+                          }
+                      }
+
+                      let content = {
+                          err: global.DEFAULT_FAIL_RESPONSE // method not supported
+                      }
+                      } catch (err) {
+                          if (CONSOLE_LOG === true) { console.log('[INFO] server -> CCXT FetchMarkets -> Could not fetch markets.') }
+                          let error = {
+                              result: 'Fail Because',
+                              message: err.message
+                          }
+                          respondWithContent(JSON.stringify(error), response)
+                      }
+                  }
+                  break
+          }
+
     case 'ResetLogsAndData':
       {
         try {
             let rimraf = require('rimraf')
-            rimraf.sync(process.env.STORAGE_PATH + '/AAMasters/AAMasters/AAJason.1.0')
+            rimraf.sync(process.env.STORAGE_PATH + '/Masters/Masters/AAJason.1.0')
             rimraf.sync(process.env.LOG_PATH)
 
           respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
@@ -169,13 +262,6 @@ function onBrowserRequest (request, response) {
           }
           respondWithContent(JSON.stringify(error), response)
         }
-        break
-      }
-    case 'MQService':
-      {
-        let filePath = process.env.PATH_TO_WEB_SERVER +  'node_modules/@superalgos/mqservice/orderLifeCicle/webDependency.js'
-
-        respondWithFile(filePath, response)
         break
       }
 
@@ -339,7 +425,7 @@ function onBrowserRequest (request, response) {
             let fs = require('fs')
 
             try {
-                let filePath =  './AppSchema.json'
+                let filePath = process.env.APP_SCHEMA_PATH + 'AppSchema.json'
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the App Schema.', e)
@@ -361,7 +447,7 @@ function onBrowserRequest (request, response) {
             let fs = require('fs')
 
             try {
-                let filePath =  './Workspace.json'
+                let filePath = process.env.WORKSPACE_PATH + 'Workspace.json'
                 fs.readFile(filePath, onFileRead)
             } catch (e) {
                 console.log('[ERROR] Error reading the Workspace.', e)

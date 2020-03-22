@@ -14,7 +14,7 @@
 
     return thisObject;
 
-    function raiseEvents(statusDependencies, callBackFunction) {
+    function raiseEvents(lastFile, callBackFunction) {
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] raiseEvents -> Entering function."); }
@@ -81,11 +81,9 @@
                         let product = outputDataset.referenceParent.parentNode.code.codeName
                         let dataset = outputDataset.referenceParent.code.codeName
 
-                        let statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
-
-                        key = dataMine + "-" + botName + "-" + product + "-" + dataset
+                        key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {
-                            lastFile: statusReport.file.lastFile
+                            lastFile: lastFile
                         }
                         global.SYSTEM_EVENT_HANDLER.createEventHandler(key, 'Dataset Updated')
                         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)

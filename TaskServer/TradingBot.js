@@ -103,7 +103,7 @@
                 }
             }
 
-            /* From here we have more or less the same we used to have at JASON */
+           
             const TRADING_SIMULATION = require('./TradingSimulation.js');
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);
 
@@ -204,6 +204,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "," +
                                 record.distanceToLastTriggerOn + "," +
@@ -219,10 +220,8 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -297,10 +296,9 @@
 
                         fileContent = "[" + fileContent + "]";
                         fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -367,10 +365,9 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -440,10 +437,9 @@
                         }
 
                         fileContent = "[" + fileContent + "]";
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
 
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -465,9 +461,6 @@
                                     return;
 
                                 }
-
-                                /* Emit event that signals that simulation files were updated */
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -555,6 +548,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "]";
 
@@ -566,10 +560,8 @@
 
                         fileContent = "[" + fileContent + "]";
 
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -661,6 +653,7 @@
                                 record.minimumBalanceB + "," +
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
+                                record.quotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "]";
 
@@ -673,10 +666,8 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -761,10 +752,8 @@
                         fileContent = "[" + JSON.stringify(tradingSystem) + "," + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + CONDITIONS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -838,10 +827,8 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + STRATEGIES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -918,10 +905,8 @@
                         fileContent = "[" + fileContent + "]";
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
-                        let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
-
-                        let filePathRoot = bot.dataMine + "/" + bot.codeName + "/" + bot.exchange;
-                        let filePath = filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
+                        let fileName = 'Data.json';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + TRADES_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -943,9 +928,6 @@
                                     return;
 
                                 }
-
-                                /* Emit event that signals that simulation files were updated */
-                                global.SYSTEM_EVENT_HANDLER.raiseEvent('Jason-Multi-Period', 'Simulation Files Updated')
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
 

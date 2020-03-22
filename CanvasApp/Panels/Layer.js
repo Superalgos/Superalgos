@@ -20,6 +20,7 @@ function newLayer () {
     plotterTypeIcon: undefined,
     baseAssetIcon: undefined,
     quotedAssetIcon: undefined,
+    checkStatusAtShutDown: checkStatusAtShutDown,
     physics: physics,
     draw: draw,
     turnOff: turnOff,
@@ -227,6 +228,17 @@ function newLayer () {
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+    }
+  }
+
+  function checkStatusAtShutDown () {
+    /* Mechanism to recover a layer that was left loading the last time the browser was shut dowm. */
+    let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
+    if (storedValue !== undefined) {
+      if (storedValue === LAYER_STATUS.LOADING) {
+        resetProgressBars()
+        changeStatusTo(LAYER_STATUS.LOADING)
+      }
     }
   }
 

@@ -24,7 +24,6 @@ function newPlotter () {
   thisObject.container = container
 
   let coordinateSystem
-  let plotterModuleConfig
   let slotHeight = (canvas.chartingSpace.viewport.visibleArea.bottomRight.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y) / 10  // This is the amount of slots available
   let mustRecalculateDataPoints = false
   let atMousePositionFillStyles = new Map()
@@ -82,7 +81,6 @@ function newPlotter () {
 
       finalizeCoordinateSystem()
       coordinateSystem = undefined
-      plotterModuleConfig = undefined
       slotHeight = undefined
       mustRecalculateDataPoints = undefined
       atMousePositionFillStyles = undefined
@@ -498,6 +496,10 @@ function newPlotter () {
       for (let i = 0; i < records.length; i++) {
         let record = records[i]
 
+        /*
+        In the formulas to create plotters, we allos users to reference the previous record.
+        To enable that we need to link all records to the previous one in this way.
+        */
         if (i == 0) {
           record.previous = record
         } else {
@@ -555,7 +557,7 @@ function newPlotter () {
           if (logged === false) {
             logged = true
           }
-          /* Only calculate the datapoints for this record, if we have not calculate it before. */
+          /* It seems we need to calculate the data points this time. */
           for (let k = 0; k < productDefinition.referenceParent.shapes.chartPoints.length; k++) {
             let chartPoints = productDefinition.referenceParent.shapes.chartPoints[k]
             for (let j = 0; j < chartPoints.points.length; j++) {
@@ -582,13 +584,6 @@ function newPlotter () {
 
               /* Store the data point at the local map */
                 dataPoints.set(point.id, dataPoint)
-
-                if (plotterModuleConfig !== undefined) {
-                  if (plotterModuleConfig.slot !== undefined) {
-                  /* We reset the y coordinate since it will be transformed with another coordinate system to fit into a slot. */
-                    dataPoint.y = (-1) * y * coordinateSystem.scale.y + (plotterModuleConfig.slot.number - 1) * slotHeight + canvas.chartingSpace.viewport.visibleArea.topLeft.y
-                  }
-                }
               }
             }
           }
@@ -769,7 +764,7 @@ function newPlotter () {
         }
       }
 
-      if (coordinateSystem.autoMinYScale === true || coordinateSystem.autosMaxScale === true) {
+      if (coordinateSystem.autoMinYScale === true || coordinateSystem.autoMinYScale === true) {
         mustRecalculateDataPoints = true
       } else {
         mustRecalculateDataPoints = false

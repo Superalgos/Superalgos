@@ -136,6 +136,20 @@ function newUiObjectTitle () {
             }
             break
           }
+          case 'Use Reference Parent Parent Parent': {
+            let nodeToUse = thisObject.payload.node.payload.referenceParent
+            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+              nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+              if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
+                if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                  thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                  thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                }
+              }
+            }
+            break
+          }
           default: {
             if (titleReference.indexOf('Use Child @') === 0) {
               let propertyName = titleReference.substring(titleReference.indexOf('@') + 1, titleReference.length)
@@ -215,6 +229,8 @@ function newUiObjectTitle () {
         thisObject.payload.node.name = input.value
       }
     }
+    let inputDiv = document.getElementById('inputDiv')
+    inputDiv.style = 'position:absolute; top:' + '-100' + 'px; left:' + '-100' + 'px; z-index:1; '
   }
 
   function enterEditMode () {
@@ -292,6 +308,19 @@ function newUiObjectTitle () {
 
           labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
 
+          if (canvas.floatingSpace.inMapMode === true) {
+            labelPoint = canvas.floatingSpace.transformPointToMap(labelPoint)
+            labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
+            labelPoint.y = labelPoint.y - 35
+
+            let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+            if (nodeDefinition !== undefined) {
+              if (nodeDefinition.isHierarchyHead !== true) {
+                return
+              }
+            }
+          }
+
           browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
           browserCanvasContext.fillStyle = thisObject.payload.floatingObject.labelStrokeStyle
           browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
@@ -309,3 +338,4 @@ function newUiObjectTitle () {
     return title
   }
 }
+

@@ -29,7 +29,6 @@ function newAppLoader() {
  
                 'AppSchema.js',
                 'Workspace.js',
-                'MQService',
 
                 'ChartingSpace/EdgeEditor.js',
                 'ChartingSpace/ChartUtilities.js',
@@ -51,11 +50,13 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
-                
+                'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
+                               
                 'Utilities/RoundedCornersBackground.js',
 
                 'Panels/LayersPanel.js',
-                'Panels/PanelTabButton.js',
+                'Panels/UpDownButton.js',
+                'Panels/LeftRightButton.js',
                 'Panels/Layer.js',
                 'Panels/PlotterPanel.js',
                 'Panels/PanelsVisibleButton.js',
@@ -171,22 +172,24 @@ function newAppLoader() {
 
     function defaultPlotters() {
         return [  
-            'Plotters/AAMasters/Plotters-Candles-Volumes/Candles.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/CandlePanel.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/Volumes.js',
-            'Plotters/AAMasters/Plotters-Candles-Volumes/VolumePanel.js',
-            'Plotters/AAMasters/Plotters-Stairs-Patterns/CandleStairs.js',
-            'Plotters/AAMasters/Plotters-Stairs-Patterns/VolumeStairs.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBands.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
-            'Plotters/AAMasters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulation.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/TradingSimulationPanel.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Conditions.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Strategies.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/Trades.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecution.js',
-            'Plotters/AAMasters/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
+            'Plotters/Masters/Plotters-Candles-Volumes/Candles.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/CandlePanel.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/Volumes.js',
+            'Plotters/Masters/Plotters-Candles-Volumes/VolumePanel.js',
+            'Plotters/Masters/Plotters-Stairs-Patterns/CandleStairs.js',
+            'Plotters/Masters/Plotters-Stairs-Patterns/VolumeStairs.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
+            'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecution.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
         ]
     }
 

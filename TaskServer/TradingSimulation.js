@@ -2,9 +2,9 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-
-    const MODULE_NAME = "Trading Simulation -> " + bot.SESSION.name;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+    const MODULE_NAME = "Trading Simulation -> " + bot.SESSION.name;
+    
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
@@ -570,7 +570,7 @@
                     let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate) }
-                    console.log("Jason -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate)
+                    console.log("Trading-Engine -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate)
 
                     bot.sessionHeartBeat(processingDate) // tell the world we are alive and doing well
                 }
@@ -658,7 +658,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -676,7 +676,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -694,7 +694,7 @@
                                     let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
                                     if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode);
+                                        newCondition(key, condition.javascriptCode, chart);
                                     }
                                 }
                             }
@@ -825,7 +825,7 @@
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode);
+                                                    newCondition(key, condition.javascriptCode, chart);
                                                 }
                                             }
                                         }
@@ -891,7 +891,7 @@
                                                 let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                                 if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode);
+                                                    newCondition(key, condition.javascriptCode, chart);
                                                 }
                                             }
                                         }
@@ -967,7 +967,7 @@
                                             let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m;
 
                                             if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode);
+                                                newCondition(key, condition.javascriptCode, chart);
                                             }
                                         }
                                     }
@@ -1034,7 +1034,7 @@
                                             let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m;
 
                                             if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode);
+                                                newCondition(key, condition.javascriptCode, chart);
                                             }
                                         }
                                     }
@@ -1043,7 +1043,7 @@
                         }
                     }
 
-                    function newCondition(key, node) {
+                    function newCondition(key, node, chart) {
 
                         let condition;
                         let error = ''
@@ -1101,6 +1101,14 @@
                         balance = balanceQuotedAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
+                    }
+
+                    if (minimumBalance === undefined) {
+                        minimumBalance = 0
+                    }
+
+                    if (maximumBalance === undefined) {
+                        maximumBalance = 10000000000000000
                     }
 
                     if (balance > minimumBalance && balance < maximumBalance) {
@@ -2488,6 +2496,7 @@
                     }
 
                     let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
+                    let quotedQuotedAsset = '"' + bot.VALUES_TO_USE.quotedAsset + '"'
 
                     simulationRecord = {
                         begin: candle.begin,
@@ -2524,6 +2533,7 @@
                         minimumBalanceB: bot.VALUES_TO_USE.minimumBalanceB,
                         maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
                         baseAsset: quotedBaseAsset,
+                        quotedAsset: quotedQuotedAsset,
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,
                         distanceToLastTriggerOn: distanceToLast.triggerOn,

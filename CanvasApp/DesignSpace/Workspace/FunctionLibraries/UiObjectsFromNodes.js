@@ -159,112 +159,92 @@ function newUiObjectsFromNodes () {
     }
 
     let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
-    if (parentNodeDefinition !== undefined) {
+    if (parentNodeDefinition === undefined) {
+      console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+    }
       /* Resolve Initial Values */
-      let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+    let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
 
-      if (nodeDefinition.isHierarchyHead === true) {
-        parentNode.rootNodes.push(object)
-        createUiObject(true, object.type, object.name, object, parentNode, undefined)
-        return object
+    if (nodeDefinition === undefined) {
+      console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
+    }
+
+    if (nodeDefinition.initialValues !== undefined) {
+      if (nodeDefinition.initialValues.code !== undefined) {
+        object.code = nodeDefinition.initialValues.code
       }
+    }
+
+    if (nodeDefinition.isHierarchyHead === true) {
+      parentNode.rootNodes.push(object)
+      createUiObject(true, object.type, object.name, object, parentNode, undefined)
+      return object
+    }
 
       /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
-      let chainParent = parentNode
-      if (nodeDefinition.chainedToSameType === true) {
-        if (parentNodeDefinition.properties !== undefined) {
-          for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
-            let property = parentNodeDefinition.properties[i]
-            if (property.childType === type) {
-              if (property.type === 'array') {
-                if (parentNode[property.name] !== undefined) {
-                  if (parentNode[property.name].length > 0) {
-                    let nodeChildren = parentNode[property.name]
-                    chainParent = nodeChildren[nodeChildren.length - 1]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      /* Create Empty Arrays for properties of type Array */
-      if (nodeDefinition.properties !== undefined) {
-        for (let i = 0; i < nodeDefinition.properties.length; i++) {
-          let property = nodeDefinition.properties[i]
-          if (property.type === 'array') {
-            object[property.name] = []
-          }
-        }
-      }
-
-      if (nodeDefinition !== undefined) {
-        if (nodeDefinition.initialValues !== undefined) {
-          if (nodeDefinition.initialValues.code !== undefined) {
-            object.code = nodeDefinition.initialValues.code
-          }
-        }
-      }
-
-      /* Connect to Parent */
+    let chainParent = parentNode
+    if (nodeDefinition.chainedToSameType === true) {
       if (parentNodeDefinition.properties !== undefined) {
-        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
         for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
           let property = parentNodeDefinition.properties[i]
           if (property.childType === type) {
-            switch (property.type) {
-              case 'node': {
-                if (property.name !== previousPropertyName) {
-                  parentNode[property.name] = object
-                  previousPropertyName = property.name
+            if (property.type === 'array') {
+              if (parentNode[property.name] !== undefined) {
+                if (parentNode[property.name].length > 0) {
+                  let nodeChildren = parentNode[property.name]
+                  chainParent = nodeChildren[nodeChildren.length - 1]
                 }
               }
-                break
-              case 'array': {
-                if (parentNode[property.name] === undefined) {
-                  parentNode[property.name] = []
-                }
-                if (property.maxItems !== undefined) {
-                  if (parentNode[property.name].length < property.maxItems) {
-                    parentNode[property.name].push(object)
-                  } else {
-                    return // Object can not be created.
-                  }
-                } else {
-                  parentNode[property.name].push(object)
-                }
-              }
-                break
             }
           }
         }
       }
+    }
 
-      createUiObject(true, object.type, object.name, object, parentNode, chainParent)
+      /* Create Empty Arrays for properties of type Array */
+    if (nodeDefinition.properties !== undefined) {
+      for (let i = 0; i < nodeDefinition.properties.length; i++) {
+        let property = nodeDefinition.properties[i]
+        if (property.type === 'array') {
+          object[property.name] = []
+        }
+      }
+    }
 
-      /* Auto Add more Children */
-      if (nodeDefinition.properties !== undefined) {
-        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-        for (let i = 0; i < nodeDefinition.properties.length; i++) {
-          let property = nodeDefinition.properties[i]
+    if (nodeDefinition !== undefined) {
+      if (nodeDefinition.initialValues !== undefined) {
+        if (nodeDefinition.initialValues.code !== undefined) {
+          object.code = nodeDefinition.initialValues.code
+        }
+      }
+    }
 
+      /* Connect to Parent */
+    if (parentNodeDefinition.properties !== undefined) {
+      let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+      for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
+        let property = parentNodeDefinition.properties[i]
+        if (property.childType === type) {
           switch (property.type) {
             case 'node': {
               if (property.name !== previousPropertyName) {
-                if (property.autoAdd === true) {
-                  addUIObject(object, property.childType)
-                  previousPropertyName = property.name
-                }
+                parentNode[property.name] = object
+                previousPropertyName = property.name
               }
             }
               break
             case 'array': {
-              if (property.autoAdd === true) {
-                if (object[property.name] === undefined) {
-                  object[property.name] = []
+              if (parentNode[property.name] === undefined) {
+                parentNode[property.name] = []
+              }
+              if (property.maxItems !== undefined) {
+                if (parentNode[property.name].length < property.maxItems) {
+                  parentNode[property.name].push(object)
+                } else {
+                  return // Object can not be created.
                 }
-                addUIObject(object, property.childType)
+              } else {
+                parentNode[property.name].push(object)
               }
             }
               break
@@ -272,6 +252,38 @@ function newUiObjectsFromNodes () {
         }
       }
     }
+
+    createUiObject(true, object.type, object.name, object, parentNode, chainParent)
+
+      /* Auto Add more Children */
+    if (nodeDefinition.properties !== undefined) {
+      let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+      for (let i = 0; i < nodeDefinition.properties.length; i++) {
+        let property = nodeDefinition.properties[i]
+
+        switch (property.type) {
+          case 'node': {
+            if (property.name !== previousPropertyName) {
+              if (property.autoAdd === true) {
+                addUIObject(object, property.childType)
+                previousPropertyName = property.name
+              }
+            }
+          }
+            break
+          case 'array': {
+            if (property.autoAdd === true) {
+              if (object[property.name] === undefined) {
+                object[property.name] = []
+              }
+              addUIObject(object, property.childType)
+            }
+          }
+            break
+        }
+      }
+    }
+
     return object
   }
 
@@ -399,6 +411,27 @@ function newUiObjectsFromNodes () {
     node.payload = payload
     node.type = uiObjectType
 
+    /*
+    Now we copy the possible frame saved to the payload where it can be used. A saved frame stores the position of a a chartingSpace object related to a node.
+    This will prevent that if those charting space objects never get activated, that the frame information is lost when the workspace is saved.
+    */
+    if (node.savedPayload !== undefined) {
+      if (node.savedPayload.frame !== undefined) {
+        let frame = {
+          position: {
+            x: 0,
+            y: 0
+          }
+        }
+        frame.position.x = node.savedPayload.frame.position.x
+        frame.position.y = node.savedPayload.frame.position.y
+        frame.width = node.savedPayload.frame.width
+        frame.height = node.savedPayload.frame.height
+        frame.radius = node.savedPayload.frame.radius
+        saveFrame(payload, frame)
+      }
+    }
+
     /* Now we mount the floating object where the UIOBject will be laying on top of */
     canvas.floatingSpace.uiObjectConstructor.createUiObject(userAddingNew, payload)
 
@@ -407,7 +440,9 @@ function newUiObjectsFromNodes () {
     /* Check if there are tasks to run */
     if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
       if (node.savedPayload.uiObject.isRunning === true) {
-        tasksToRun.push(node)
+        if (node.payload.parentNode !== undefined) {
+          tasksToRun.push(node)
+        }
       }
     }
 
@@ -415,7 +450,9 @@ function newUiObjectsFromNodes () {
     if (userAddingNew === false && node.savedPayload !== undefined) {
       if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Fordward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
         if (node.savedPayload.uiObject.isRunning === true) {
-          sessionsToRun.push(node)
+          if (node.payload.parentNode !== undefined) {
+            sessionsToRun.push(node)
+          }
         }
       }
     }

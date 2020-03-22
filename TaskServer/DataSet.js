@@ -104,7 +104,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "/" + bot.exchange;
+            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataDependencyNode.dataMine + "/" + dataDependencyNode.bot;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -146,7 +146,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = dataDependencyNode.dataMine + "/" + dataDependencyNode.bot + "/" + bot.exchange;
+            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataDependencyNode.dataMine + "/" + dataDependencyNode.bot;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);

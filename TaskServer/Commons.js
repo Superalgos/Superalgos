@@ -469,14 +469,14 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeFile -> Entering function."); }
 
             let market = bot.market;
-            let fileName = '' + market.baseAsset + '_' + market.quotedAsset + '.json';
+            let fileName = 'Data.json';
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
                 dateForPath = "/" + currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
             }
 
-            let filePathRoot = contextSummary.dataMine + "/" + contextSummary.bot + "/" + bot.exchange;
+            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + contextSummary.dataMine + "/" + contextSummary.bot;
             let filePath = filePathRoot + "/Output/" + contextSummary.product + "/" + contextSummary.dataset + "/" + timeFrameLabel + dateForPath;
             filePath += '/' + fileName
 

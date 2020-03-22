@@ -378,9 +378,17 @@ function newTimelineChart () {
 
   function drawBackground () {
     if (thisObject.container.frame.isInViewPort()) {
+      if (drawScales === true) {
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) { thisObject.rateScale.drawBackground() }
+      }
       drawChartsBackground()
       if (thisObject.plotterManager !== undefined) {
-        thisObject.plotterManager.draw()
+        let elementsPlotted = thisObject.plotterManager.draw()
+        if (thisObject.timeFrameScale !== undefined) {
+          thisObject.timeFrameScale.adjustTimeFrame(elementsPlotted)
+        } else {
+          return elementsPlotted
+        }
       }
     }
   }

@@ -81,13 +81,13 @@ function newFrame () {
     /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the canvas.chartingSpace.viewport */
 
     point1 = {
-      x: thisObject.width * 25 / 100,
-      y: thisObject.height * 25 / 100
+      x: thisObject.width * 40 / 100,
+      y: thisObject.height * 40 / 100
     }
 
     point3 = {
-      x: thisObject.width * 75 / 100,
-      y: thisObject.height * 75 / 100
+      x: thisObject.width * 40 / 100,
+      y: thisObject.height * 40 / 100
     }
 
         /* Now the transformations. */
@@ -209,7 +209,7 @@ function newFrame () {
     }
 
    /* Now we check if the resulting point is whin the current Frame. */
-
+    if (isNaN(checkPoint.x) || isNaN(checkPoint.y)) { return false }
     if (thisObject.type === 'Circle') {
       let distance = Math.sqrt(Math.pow(thisObject.position.x - point.x, 2) + Math.pow(thisObject.position.y - point.y, 2))
 

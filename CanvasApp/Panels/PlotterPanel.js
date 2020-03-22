@@ -22,7 +22,7 @@ function newPlotterPanel () {
 
   let heightFactor = 1
   let currentRecord
-  let panelTabButton
+  let upDownButton
   let panelNode
 
   return thisObject
@@ -35,8 +35,8 @@ function newPlotterPanel () {
 
     heightFactor = undefined
     currentRecord = undefined
-    panelTabButton.finalize()
-    panelTabButton = undefined
+    upDownButton.finalize()
+    upDownButton = undefined
     panelNode = undefined
   }
 
@@ -50,18 +50,18 @@ function newPlotterPanel () {
     thisObject.container.frame.position.x = canvas.chartingSpace.viewport.visibleArea.topRight.x - thisObject.container.frame.width - thisObject.container.frame.width * Math.random() * 8
     thisObject.container.frame.position.y = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - thisObject.container.frame.height - thisObject.container.frame.height * Math.random() * 1.5
 
-    panelTabButton = newPanelTabButton()
-    panelTabButton.parentContainer = thisObject.container
-    panelTabButton.container.frame.parentFrame = thisObject.container.frame
-    panelTabButton.fitFunction = thisObject.fitFunction
-    panelTabButton.initialize()
+    upDownButton = newUpDownButton()
+    upDownButton.parentContainer = thisObject.container
+    upDownButton.container.frame.parentFrame = thisObject.container.frame
+    upDownButton.fitFunction = thisObject.fitFunction
+    upDownButton.initialize()
   }
 
   function getContainer (point) {
     if (thisObject.isVisible !== true) { return }
     let container
 
-    container = panelTabButton.getContainer(point)
+    container = upDownButton.getContainer(point)
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -87,7 +87,7 @@ function newPlotterPanel () {
 
     thisObject.container.frame.draw(false, false, true, thisObject.fitFunction)
     plotCurrentRecordData()
-    panelTabButton.draw()
+    upDownButton.draw()
   }
 
   function plotCurrentRecordData () {
@@ -153,33 +153,8 @@ function newPlotterPanel () {
         valuePosition = panelData.code.valuePosition
       }
 
-      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '1')
-      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '0.50')
+      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction)
     }
-
-    function printLabel (labelToPrint, x, y, opacity) {
-      let labelPoint
-      let fontSize = 10
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.SECONDARY
-
-      let label = '' + labelToPrint
-
-      let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
-
-      labelPoint = {
-        x: x - xOffset,
-        y: y
-      }
-
-      labelPoint = thisObject.container.frame.frameThisPoint(labelPoint)
-      labelPoint = thisObject.fitFunction(labelPoint)
-
-      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK + ', ' + opacity + ')'
-      browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-    }
-
-    browserCanvasContext.closePath()
-    browserCanvasContext.fill()
   }
 }

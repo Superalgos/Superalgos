@@ -45,6 +45,7 @@ function newFloatingObject () {
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
     initializeFontSize: initializeFontSize,
+    initializeHierarchyRing: initializeHierarchyRing,
     initializeCurrentPosition: initializeCurrentPosition,
     radomizeCurrentSpeed: radomizeCurrentSpeed,
     drawBackground: drawBackground,
@@ -107,6 +108,7 @@ function newFloatingObject () {
 
   function getContainer (point) {
     if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.inMapMode === true) { return }
     let container
 
     container = thisObject.payload.uiObject.getContainer(point)
@@ -219,12 +221,13 @@ function newFloatingObject () {
   }
 
   function physics () {
-    collapsePhysics()
     frozenPhysics()
     /* From here on, only if they are not too far. */
     if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
     thisObjectPhysics()
-    thisObject.payload.uiObject.physics()
+    if (thisObject.payload.uiObject !== undefined) {
+      thisObject.payload.uiObject.physics()
+    }
     positionContraintsPhysics()
   }
 
@@ -238,18 +241,6 @@ function newFloatingObject () {
           thisObject.isFrozen = parent.payload.floatingObject.isFrozen
         }
       }
-    }
-  }
-
-  function collapsePhysics () {
-    let parent = thisObject.payload.chainParent
-    if (parent === undefined) { return }
-    if (parent.payload === undefined) { return }
-    if (parent.payload.floatingObject === undefined) { return }
-
-    thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
-    if (thisObject.collapsedManually === false) {
-      thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
     }
   }
 
@@ -330,7 +321,7 @@ function newFloatingObject () {
 
       thisObject.payload.distance = distanceToParent
 
-      if (distanceToParent > 2000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
+      if (distanceToParent > 3000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
 
       newPosition = {
         x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),
@@ -348,11 +339,11 @@ function newFloatingObject () {
   function thisObjectPhysics () {
                            // The radius also have a target.
 
-    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 15) {
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 10) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 15
+        thisObject.container.frame.radius = thisObject.container.frame.radius + 10
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 15
+        thisObject.container.frame.radius = thisObject.container.frame.radius - 10
       }
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
@@ -377,6 +368,14 @@ function newFloatingObject () {
       }
     }
 
+    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= 10) {
+      if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + 10
+      } else {
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - 10
+      }
+    }
+
     /* Floating object position in screen coordinates */
 
     thisObject.payload.position.x = thisObject.container.frame.position.x
@@ -388,6 +387,7 @@ function newFloatingObject () {
       thisObject.targetRadius = thisObject.rawRadius * 6.0
       thisObject.targetImageSize = thisObject.rawImageSize * 2.0
       thisObject.targetFontSize = thisObject.rawFontSize * 2.0
+      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 8.0
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onFocus', point)
 
@@ -420,6 +420,7 @@ function newFloatingObject () {
       thisObject.targetRadius = thisObject.rawRadius * 1
       thisObject.targetImageSize = thisObject.rawImageSize * 1
       thisObject.targetFontSize = thisObject.rawFontSize * 1
+      thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
 
       thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
 
@@ -478,13 +479,13 @@ function newFloatingObject () {
 
     thisObject.rawRadius = radius
     thisObject.targetRadius = radius
-    thisObject.container.frame.radius = radius / 3
+    thisObject.container.frame.radius = radius / 5
 
     thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
   }
 
   function initializeImageSize (suggestedValue) {
-    var size = suggestedValue
+    let size = suggestedValue
     if (size < 2) {
       size = 2
     }
@@ -495,7 +496,7 @@ function newFloatingObject () {
   }
 
   function initializeFontSize (suggestedValue) {
-    var size = suggestedValue
+    let size = suggestedValue
     if (size < 3) {
       size = 3
     }
@@ -503,6 +504,17 @@ function newFloatingObject () {
     thisObject.rawFontSize = size
     thisObject.targetFontSize = size
     thisObject.currentFontSize = size / 3
+  }
+
+  function initializeHierarchyRing (suggestedValue) {
+    let radius = suggestedValue
+    if (radius < 3) {
+      radius = 3
+    }
+
+    thisObject.rawHierarchyRing = radius
+    thisObject.targetHierarchyRing = radius
+    thisObject.currentHierarchyRing = radius
   }
 
   function initializeCurrentPosition (arroundPoint) {

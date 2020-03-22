@@ -1,9 +1,19 @@
 function newVideoRecorder () {
   let thisObject = {
-    recordCanvas: recordCanvas
+    recordCanvas: recordCanvas,
+    physics: physics
   }
   let lastAction
+  let wheelAnimationCounter = 0
+  let lastWheelPointerIcon
   return thisObject
+
+  function physics () {
+    wheelAnimationCounter--
+    if (wheelAnimationCounter < 0) {
+      wheelAnimationCounter = 0
+    }
+  }
 
   function recordCanvas () {
     {
@@ -33,16 +43,52 @@ function newVideoRecorder () {
           break
         }
         case 'wheel': {
+          wheelAnimationCounter = 25
           if (canvas.mouse.event.delta > 0) {
             pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-up')
+            lastWheelPointerIcon = pointerIcon
           } else {
             pointerIcon = canvas.designSpace.iconCollection.get('mouse-wheel-down')
+            lastWheelPointerIcon = pointerIcon
           }
 
           break
         }
         case 'key down': {
-          pointerIcon = mousePointerIcon
+          if (wheelAnimationCounter > 0) {
+            pointerIcon = lastWheelPointerIcon
+          } else {
+            pointerIcon = mousePointerIcon
+          }
+          let key = canvas.mouse.event.key
+          if (key === undefined) { break }
+          switch (key.toLowerCase()) {
+            case 'Escape':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                break
+              }
+            case 'm':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-m')
+                break
+              }
+            case 'a':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-a')
+                break
+              }
+            case 'r':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                break
+              }
+            case 'c':
+              {
+                pointerIcon = canvas.designSpace.iconCollection.get('key-r')
+                break
+              }
+          }
           break
         }
         case 'key up': {
@@ -170,4 +216,3 @@ function newVideoRecorder () {
     }
   }
 }
-

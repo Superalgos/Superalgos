@@ -252,6 +252,28 @@ function newCanvas () {
     checkMediaRecording(event)
     canvas.chartingSpace.onKeyPressed(event)
 
+    if (event.key === 'Escape' && canvas.floatingSpace.inMapMode === true) {
+      canvas.floatingSpace.exitMapMode()
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
+      canvas.floatingSpace.toggleMapMode()
+      event.preventDefault()
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
+      canvas.floatingSpace.toggleDrawReferenceLines()
+      event.preventDefault()
+      return
+    }
+
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
+      canvas.floatingSpace.toggleDrawChainLines()
+      event.preventDefault()
+      return
+    }
+
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
@@ -378,7 +400,7 @@ function newCanvas () {
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
-        /* From here we prevent the default behaviour */
+        /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
         event.preventDefault()
 
         let nodeUsingThisKey = canvas.designSpace.workspace.getNodeByShortcutKey(event.key)
@@ -594,6 +616,12 @@ function newCanvas () {
         containerDragStarted = true
         floatingObjectDragStarted = true
         containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+
+        if (event.candelDragging === true) {
+          containerBeingDragged = undefined
+          containerDragStarted = false
+          floatingObjectDragStarted = false
+        }
         return
       }
 
@@ -758,7 +786,7 @@ function newCanvas () {
 
       let container
 
-      /* We check if the mouse is over an element of the Strategy Space / */
+      /* We check if the mouse is over an element of the Designe Space / */
       if (thisObject.designSpace !== undefined) {
         container = thisObject.designSpace.getContainer(point)
 
@@ -842,6 +870,9 @@ function newCanvas () {
            // cross-browser wheel delta
       var event = window.event || event // old IE support
       event.delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail))
+      if (IS_MAC) {
+        event.delta = event.delta / MAC_AMOUNT_FACTOR
+      }
 
            /* We try first with panels. */
 
@@ -907,7 +938,7 @@ function newCanvas () {
      floatingObjectDragStarted ||
      viewPortBeingDragged
      ) {
-        ignoreNextClick = true
+        ignoreNextClick = false
       }
            /* Turn off all the possible things that can be dragged. */
 

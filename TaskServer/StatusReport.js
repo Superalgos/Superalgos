@@ -1,4 +1,4 @@
-﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES) {
+﻿exports.newStatusReport = function newStatusReport(BOT, logger, UTILITIES, PROCESS_OUTPUT) {
 
     /*
 
@@ -136,14 +136,16 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] load -> Entering function."); }
 
-            let fileName = "Status.Report." + bot.market.baseAsset + '_' + bot.market.quotedAsset + ".json";
+            let fileName = "Status.Report.json";
             let filePath;
 
             let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
             let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
-                let rootPath = statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + "/" + bot.exchange;
+
+                let rootPath = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot
+
                 filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process ;
             } else {
                 filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process ;
@@ -233,7 +235,7 @@
                 return;
             }
 
-            let fileName = "Status.Report." + bot.market.baseAsset + '_' + bot.market.quotedAsset + ".json";
+            let fileName = "Status.Report.json";
             let filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
 
             filePath += '/' + fileName
@@ -255,7 +257,12 @@
                     logger.write(MODULE_NAME, "[INFO] save -> onFileCreated ->  Content written = " + fileContent);
                 }
 
-                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                /* All good, lets emit the event that means data has been updated. */
+
+                let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
+
+                processOutput.raiseEvents(thisObject.file.lastFile, callBackFunction);
+
                 return;
             }
 

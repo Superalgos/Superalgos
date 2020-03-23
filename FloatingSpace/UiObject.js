@@ -36,6 +36,7 @@ function newUiObject () {
     setPercentage: setPercentage,
     setStatus: setStatus,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
@@ -254,6 +255,10 @@ function newUiObject () {
     } else {
       return undefined
     }
+  }
+
+  function invisiblePhysics () {
+    childrenRunningPhysics()
   }
 
   function physics () {

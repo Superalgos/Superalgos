@@ -41,6 +41,7 @@ function newFloatingObject () {
     angleToParentToggle: angleToParentToggle,
     distanceToParentToggle: distanceToParentToggle,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     initializeMass: initializeMass,
     initializeRadius: initializeRadius,
     initializeImageSize: initializeImageSize,
@@ -218,6 +219,12 @@ function newFloatingObject () {
     }
 
     return thisObject.distanceToParent
+  }
+
+  function invisiblePhysics () {
+    if (thisObject.payload.uiObject !== undefined) {
+      thisObject.payload.uiObject.invisiblePhysics()
+    }
   }
 
   function physics () {

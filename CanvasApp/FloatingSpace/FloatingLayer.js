@@ -265,7 +265,23 @@ function newFloatingLayer () {
     try {
       makeVisible()
       makeInvisible()
+      invisiblePhysics()
+      visiblePhysics()
       applyPhysics()
+
+      function invisiblePhysics () {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+          let floatingObject = invisibleFloatingObjects[i]
+          floatingObject.invisiblePhysics()
+        }
+      }
+
+      function visiblePhysics () {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+          let floatingObject = visibleFloatingObjects[i]
+          floatingObject.physics()
+        }
+      }
 
       function applyPhysics () {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
@@ -276,7 +292,6 @@ function newFloatingLayer () {
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
-            floatingObject.physics()
 
             /* From here on, only if they are not too far. */
             if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }

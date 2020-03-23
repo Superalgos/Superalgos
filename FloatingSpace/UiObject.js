@@ -751,7 +751,7 @@ function newUiObject () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
+    /* We will wait to hear the Running event in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
@@ -1371,7 +1371,7 @@ function newUiObject () {
       position = canvas.floatingSpace.transformPointToMap(position)
     }
 
-    let radius = thisObject.container.frame.radius * 1.4
+    let radius = thisObject.container.frame.radius * 0.9
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
@@ -1389,7 +1389,7 @@ function newUiObject () {
 
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-          y: position.y - radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

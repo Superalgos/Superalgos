@@ -246,7 +246,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     while (true) {
 
                         /* Reporting we are doing well */
-                        function heartBeat() {
+                        function heartBeat(noNewInternalLoop) {
                             let processingDate = new Date(since)
                             processingDate = processingDate.getUTCFullYear() + '-' + utilities.pad(processingDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(processingDate.getUTCDate(), 2);
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + bot.exchange + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit) }
@@ -255,7 +255,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             let percentage = global.getPercentage(fromDate, currentDate, lastDate)
                             bot.processHeartBeat(heartBeatText, percentage) // tell the world we are alive and doing well
                             if (global.areEqualDates(currentDate, new Date()) === false) {
-                                logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                                if (noNewInternalLoop !== true) {
+                                    logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                                }
                             }
                         }
 
@@ -330,7 +332,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                 lastOHLCVKey = OHLCVKey
                             }
 
-                            heartBeat()
+                            heartBeat(true)
                         }
 
                         if (

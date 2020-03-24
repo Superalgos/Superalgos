@@ -144,7 +144,7 @@ function newViewport () {
   }
 
   function zoomAtCenter (level) {
-    thisObject.zoomTargetLevel = Math.roung(level)
+    thisObject.zoomTargetLevel = Math.round(level)
     overrideMousePositionCounter = 50
     ANIMATION_INCREMENT = 0.5
   }

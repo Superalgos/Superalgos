@@ -105,6 +105,10 @@ function newCoordinateSystem () {
 
       /* Reseting this to start over at each cycle. */
       noXValueReported = true
+
+      if (mustRecalculate === true) {
+        thisObject.eventHandler.raiseEvent('X-Range Changed')
+      }
     }
 
     if ((thisObject.autoMinYScale === true || thisObject.autoMaxYScale === true) && noYValueReported === false) {

@@ -61,7 +61,7 @@ function newViewport () {
 
 /* Initial default value */
   thisObject.zoomLevel = MIN_ZOOM_LEVEL
-  thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+  thisObject.zoomTargetLevel = Math.round(MIN_ZOOM_LEVEL)
   INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
 
   let overrideMousePositionCounter = 0
@@ -144,7 +144,7 @@ function newViewport () {
   }
 
   function zoomAtCenter (level) {
-    thisObject.zoomTargetLevel = level
+    thisObject.zoomTargetLevel = Math.round(level)
     overrideMousePositionCounter = 50
     ANIMATION_INCREMENT = 0.5
   }
@@ -220,7 +220,7 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR
+    thisObject.zoomTargetLevel = Math.round(Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR)
 
     ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 
@@ -398,7 +398,7 @@ function newViewport () {
 
     function newZoomLevel (level) {
       thisObject.zoomLevel = Math.round(level)
-      thisObject.zoomTargetLevel = level
+      thisObject.zoomTargetLevel = Math.round(level)
       INITIAL_TIME_PERIOD = recalculatePeriod(level)
       saveObjectState()
       ANIMATION_INCREMENT = 0

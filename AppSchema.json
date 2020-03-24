@@ -806,7 +806,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "code",
+                "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
                 "relatedUiObject": "Javascript Code",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3305,7 +3305,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "code",
+                "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
                 "relatedUiObject": "Javascript Code",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3343,7 +3343,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "code",
+                "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
                 "relatedUiObject": "Javascript Code",
                 "actionFunction": "payload.onMenuItemClick"

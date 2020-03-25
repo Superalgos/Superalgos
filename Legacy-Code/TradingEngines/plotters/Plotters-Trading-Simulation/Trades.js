@@ -370,6 +370,7 @@
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
                         record.exitType = dailyFile[i][6];
+                        record.takePositionSituation = dailyFile[i][7];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -435,6 +436,7 @@
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
                 record.exitType = marketFile[i][6];
+                record.takePositionSituation = marketFile[i][7];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
@@ -516,6 +518,7 @@
                 recordPoint2 = thisObject.fitFunction(recordPoint2);
                 recordPoint3 = thisObject.fitFunction(recordPoint3);
 
+                let line0 = record.takePositionSituation
                 let line1 = '';
                 let line2 = '';
 
@@ -595,7 +598,7 @@
                     // we do not write any text
                 } else {
 
-
+                    printLabel(line0, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y - 15, '1', 12);
                     printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y, '1', 12);
                     printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, point.y + 15, '1', 12);
 

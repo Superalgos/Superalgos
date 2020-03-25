@@ -356,7 +356,8 @@
                                 record.status + "," +
                                 record.number + "," +
                                 record.beginRate + "," +
-                                record.endRate + "]";
+                                record.endRate + "," +
+                                '"' + record.triggerOnSituation + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 
@@ -428,7 +429,8 @@
                                 record.lastTradeROI + "," +
                                 record.beginRate + "," +
                                 record.endRate + "," +
-                                record.exitType + "]";
+                                record.exitType + "," +
+                                '"' + record.takePositionSituation + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 
@@ -816,7 +818,8 @@
                                 record.status + "," +
                                 record.number + "," +
                                 record.beginRate + "," +
-                                record.endRate + "]";
+                                record.endRate + "," +
+                                '"' + record.triggerOnSituation + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 
@@ -894,7 +897,8 @@
                                 record.lastTradeROI + "," +
                                 record.beginRate + "," +
                                 record.endRate + "," +
-                                record.exitType + "]";
+                                record.exitType + "," +
+                                '"' + record.takePositionSituation + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 

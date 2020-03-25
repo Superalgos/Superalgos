@@ -141,7 +141,8 @@
                 status: 0,
                 number: 0,
                 beginRate: 0,
-                endRate: 0
+                endRate: 0,
+                triggerOnSituation: ''
             }
 
             let currentTrade = {
@@ -151,7 +152,8 @@
                 profit: 0,
                 exitType: 0,
                 beginRate: 0,
-                endRate: 0
+                endRate: 0, 
+                takePositionSituation: ''
             }
 
             let balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA;
@@ -211,7 +213,8 @@
                 status: 0,
                 number: 0,
                 beginRate: 0,
-                endRate: 0
+                endRate: 0,
+                triggerOnSituation: ''
             }
 
             yesterday.currentTrade = {
@@ -221,7 +224,8 @@
                 profit: 0,
                 exitType: 0,
                 beginRate: 0,
-                endRate: 0
+                endRate: 0,
+                takePositionSituation: ''
             }
 
             yesterday.balanceBaseAsset = balanceBaseAsset;
@@ -279,7 +283,8 @@
                     status: 0,
                     number: 0,
                     beginRate: 0,
-                    endRate: 0
+                    endRate: 0,
+                    triggerOnSituation: ''
                 }
 
                 interExecutionMemory.currentTrade = {
@@ -289,7 +294,8 @@
                     profit: 0,
                     exitType: 0,
                     beginRate: 0,
-                    endRate: 0
+                    endRate: 0,
+                    takePositionSituation: ''
                 }
 
                 interExecutionMemory.balanceBaseAsset = balanceBaseAsset;
@@ -349,7 +355,8 @@
                     status: interExecutionMemory.currentStrategy.status,
                     number: interExecutionMemory.currentStrategy.number,
                     beginRate: interExecutionMemory.currentStrategy.beginRate,
-                    endRate: interExecutionMemory.currentStrategy.endRate
+                    endRate: interExecutionMemory.currentStrategy.endRate,
+                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation
                 }
 
                 currentTrade = {
@@ -359,7 +366,8 @@
                     profit: interExecutionMemory.currentTrade.profit,
                     exitType: interExecutionMemory.currentTrade.exitType,
                     beginRate: interExecutionMemory.currentTrade.beginRate,
-                    endRate: interExecutionMemory.currentTrade.endRate
+                    endRate: interExecutionMemory.currentTrade.endRate,
+                    takePositionSituation: interExecutionMemory.currentTrade.takePositionSituation
                 }
 
                 if (currentDay) {
@@ -422,7 +430,8 @@
                     status: currentStrategy.status,
                     number: currentStrategy.number,
                     beginRate: currentStrategy.beginRate,
-                    endRate: currentStrategy.endRate
+                    endRate: currentStrategy.endRate,
+                    triggerOnSituation: currentStrategy.triggerOnSituation
                 }
 
                 yesterday.currentTrade = {
@@ -432,7 +441,8 @@
                     profit: currentTrade.profit,
                     exitType: currentTrade.exitType,
                     beginRate: currentTrade.beginRate,
-                    endRate: currentTrade.endRate
+                    endRate: currentTrade.endRate,
+                    takePositionSituation: currentTrade.takePositionSituation
                 }
 
                 yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
@@ -1159,6 +1169,7 @@
                                             currentStrategy.begin = candle.begin;
                                             currentStrategy.beginRate = candle.min;
                                             currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                            currentStrategy.triggerOnSituation = situation.name
 
                                             if (processingDailyFiles) {
                                                 if (positionedAtYesterday) {
@@ -1167,6 +1178,7 @@
                                                     yesterday.currentStrategy.begin = currentStrategy.begin;
                                                     yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
                                                     yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                                    yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
                                                 }
                                             }
 
@@ -1315,6 +1327,7 @@
                                     }
 
                                     takePositionNow = true
+                                    currentTrade.takePositionSituation = situation.name
 
                                     checkAnnouncements(triggerStage.takePosition)
 
@@ -2578,7 +2591,8 @@
                             status: 0,
                             number: 0,
                             beginRate: 0,
-                            endRate: 0
+                            endRate: 0,
+                            triggerOnSituation: ''
                         }
 
                         if (processingDailyFiles) {
@@ -2589,7 +2603,8 @@
                                     status: 0,
                                     number: 0,
                                     beginRate: 0,
-                                    endRate: 0
+                                    endRate: 0,
+                                    triggerOnSituation: ''
                                 }
                             }
                         }
@@ -2626,7 +2641,8 @@
                             lastTradeROI: 0,
                             exitType: 0,
                             beginRate: 0,
-                            endRate: 0
+                            endRate: 0,
+                            takePositionSituation: ''
                         }
 
                         if (processingDailyFiles) {
@@ -2638,7 +2654,8 @@
                                     lastTradeROI: 0,
                                     exitType: 0,
                                     beginRate: 0,
-                                    endRate: 0
+                                    endRate: 0,
+                                    takePositionSituation: ''
                                 }
                             }
                         }
@@ -2791,7 +2808,8 @@
                             status: yesterday.currentStrategy.status,
                             number: yesterday.currentStrategy.number,
                             beginRate: yesterday.currentStrategy.beginRate,
-                            endRate: yesterday.currentStrategy.endRate
+                            endRate: yesterday.currentStrategy.endRate,
+                            triggerOnSituation: yesterday.curre.triggerOnSituation
                         }
 
                         interExecutionMemory.currentTrade = {
@@ -2801,7 +2819,8 @@
                             profit: yesterday.currentTrade.profit,
                             exitType: yesterday.currentTrade.exitType,
                             beginRate: yesterday.currentTrade.beginRate,
-                            endRate: yesterday.currentTrade.endRate
+                            endRate: yesterday.currentTrade.endRate,
+                            takePositionSituation: yesterday.currentTrade.takePositionSituation
                         }
 
                         interExecutionMemory.balanceBaseAsset = yesterday.balanceBaseAsset;

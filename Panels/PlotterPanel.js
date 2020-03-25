@@ -113,18 +113,20 @@ function newPlotterPanel () {
       }
     }
 
+    printLabel('Indicator Properties', X_AXIS, PANEL_HEIGHT * 17 / 100 / 1.25, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
+
     /* Second we go through the panel data. */
     if (panelNode.panelData === undefined) { return }
     for (let i = 0; i < panelNode.panelData.length; i++) {
       let panelData = panelNode.panelData[i]
 
       let labelText = panelData.name
-      let labelPosition = i * 10 + 10
-      let valuePosition = i * 10 + 15
+      let labelPosition = i * 10 + 25
+      let valuePosition = i * 10 + 30
       let value = 'No value defined.'
 
       if (valuePosition > 100) {
-        heightFactor = 2
+        heightFactor = 1.25
         thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * heightFactor
       }
 
@@ -154,7 +156,7 @@ function newPlotterPanel () {
       }
 
       printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
     }
   }
 }

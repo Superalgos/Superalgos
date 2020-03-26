@@ -191,6 +191,8 @@ function newCCXTFunctions () {
             newMarket.baseAsset.payload.referenceParent = baseAsset
             newMarket.quotedAsset.payload.referenceParent = quotedAsset
 
+            currentMarkets.set(name, newMarket)
+
             let superActions = node.payload.parentNode.payload.parentNode.payload.parentNode.superActions
 
             for (let j = 0; j < superActions.superActions.length; j++) {

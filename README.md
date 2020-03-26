@@ -22,7 +22,7 @@ The current version opens up the door to working with multiple exchanges and mul
 | HitBTC | &#x2610; | &#x2610; | Not tested yet. |
 | Kraken | &#x2610;  | &#x2610; | Historical data only accessed by id (not by date). Live trading not tested yet. |
 | Poloniex | &#x2610; | &#x2610; | At the moment we can not retrieve OHLCVs from Poloniex because we require 1 minute time frame while Poloniex only offers 5 minutes and above. |
-| Bittrex | &#x2611; | &#x2610; | Only 6 Months of historical data is provided. Live trading not tested yet. |
+| Bittrex | &#x2611; | &#x2610; | Only 6 Months of historical data is provided. Live trading not available because Bittrex allows limit orders only and Superalgos is placing only market orders for now. |
 | Gemini | &#x2611; | &#x2610; | Only a few hours of historical data is provided. Live trading not tested yet. |
 
 [*] The ability to fetch historic data for backtesting purposes has been verified.

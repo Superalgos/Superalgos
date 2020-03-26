@@ -217,7 +217,7 @@ function newFloatingLayer () {
 
       collapsePhysics(floatingObject)
 
-      if (floatingObject.isFrozen === false && floatingObject.isParentCollapsed === false) {
+      if (floatingObject.isParentCollapsed === false) {
         visibleFloatingObjects.push(floatingObject)
         invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
         makeVisible()
@@ -232,7 +232,7 @@ function newFloatingLayer () {
 
       collapsePhysics(floatingObject)
 
-      if (floatingObject.isFrozen === true || floatingObject.isParentCollapsed === true) {
+      if (floatingObject.isParentCollapsed === true) {
         invisibleFloatingObjects.push(floatingObject)
         visibleFloatingObjects.splice(i, 1)  // Delete item from array.
         makeInvisible()
@@ -292,6 +292,7 @@ function newFloatingLayer () {
 
           for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
+            if (floatingObject.isFrozen === true) { continue }
 
             /* From here on, only if they are not too far. */
             if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }

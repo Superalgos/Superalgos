@@ -512,7 +512,7 @@
                             for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
-                                    let code = JSON.parse(announcement.code)
+                                    let code = announcement.code
                                     if (socialBot.id === announcement.referenceParent.id) {
                                         if (socialBot.type === "Telegram Bot") {
                                             if (announcement.formulaValue !== undefined) {

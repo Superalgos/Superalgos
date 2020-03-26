@@ -4485,7 +4485,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "initialValues": {
             "code": "{ \n\"text\": \"Write here what you want to announce when there is no Formula.\"\n}"
         },

@@ -279,7 +279,11 @@ function newCircularMenuItem () {
       /* A Click during confirmation executes the pre-defined action. */
       if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
         executeAction()
-        setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 100, STATUS_SECONDARY_WORK_DONE)
+        if (thisObject.workDoneLabel !== undefined) {
+          setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 100, STATUS_SECONDARY_WORK_DONE)
+        } else {
+          setStatus('Done', UI_COLOR.PATINATED_TURQUOISE, 100, STATUS_SECONDARY_WORK_DONE)
+        }
         return
       }
     }

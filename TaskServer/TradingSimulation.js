@@ -2746,7 +2746,9 @@
                         }
                         announcement.formulaValue = formulaValue
 
-                        bot.SESSION.socialBots.announce(announcement)
+                        if (bot.SESSION.socialBots !== undefined) {
+                            bot.SESSION.socialBots.announce(announcement)
+                        }
                     }
                 }
             }

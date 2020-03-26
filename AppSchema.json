@@ -4485,7 +4485,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "initialValues": {
             "code": "{ \n\"text\": \"Write here what you want to announce when there is no Formula.\"\n}"
         },
@@ -4500,7 +4499,7 @@
         "properties": [
             {
                 "name": "formula",
-                "type": "nide",
+                "type": "node",
                 "childType": "Formula",
                 "autoAdd": true
             }

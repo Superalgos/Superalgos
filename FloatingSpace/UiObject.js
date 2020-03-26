@@ -120,8 +120,13 @@ function newUiObject () {
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
-    systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+
+    if (eventSubscriptionIdOnRunning !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+    }
+    if (eventSubscriptionIdOnStopped !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+    }
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocusEventSubscriptionId)

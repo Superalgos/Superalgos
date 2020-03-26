@@ -31,7 +31,9 @@ function newCircularProgressBar () {
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
+    if (eventSubscriptionIdHeartbeat !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
+    }
 
     thisObject.container = undefined
     thisObject.payload = undefined

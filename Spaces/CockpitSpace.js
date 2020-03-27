@@ -1,11 +1,15 @@
 
  function newCockpitSpace () {
    const MODULE_NAME = 'CockpitSpace'
-
+   const STATUS_TYPES = {
+     ALL_GOOD: 1
+   }
    let thisObject = {
      container: undefined,
      status: 'BOTTOM',
      fullscreen: undefined,
+     statusTypes: STATUS_TYPES,
+     setStatus: setStatus,
      toTop: toTop,
      toBottom: toBottom,
      toMiddle: toMiddle,
@@ -30,6 +34,10 @@
 
    let selfMouseClickEventSubscriptionId
    let canvasBrowserResizedEventSubscriptionId
+
+   let statusCounter = 0
+   let statusText
+   let statusType
 
    return thisObject
 
@@ -70,6 +78,12 @@
 
    function onMouseClick (event) {
 
+   }
+
+   function setStatus (text, counter, type) {
+     statusCounter = counter
+     statusText = text
+     statusType = type
    }
 
    function resize () {
@@ -114,9 +128,19 @@
      }
    }
 
+   function statusPhysics () {
+     statusCounter--
+     if (statusCounter < 0) {
+       statusCounter = 0
+       statusText = undefined,
+    statusType = undefined
+     }
+   }
+
    function physics () {
      thisObjectPhysics()
      childrenPhysics()
+     statusPhysics()
    }
 
    function childrenPhysics () {
@@ -195,13 +219,24 @@
 
      zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 
-     let barColor
-     let statusText
-     if (systemEventHandler.isConnected()) {
-       barColor = UI_COLOR.DARK_TURQUOISE
-     } else {
+     let barColor = UI_COLOR.DARK_TURQUOISE // default
+     let textColor
+
+     if (statusType !== undefined) {
+       switch (statusType) {
+         case STATUS_TYPES.ALL_GOOD:
+           {
+             barColor = UI_COLOR.PATINATED_TURQUOISE
+             textColor = UI_COLOR.WHITE
+             break
+           }
+       }
+     }
+
+     if (systemEventHandler.isConnected() !== true) {
        barColor = UI_COLOR.RED
        statusText = 'Lost connection with the local backend. Please check that all localhost servers are running.'
+       textColor = UI_COLOR.TITANIUM_YELLOW
      }
 
      browserCanvasContext.beginPath()
@@ -227,7 +262,7 @@
          x: thisObject.container.frame.width / 2,
          y: thisObject.container.frame.height / 2 + 5
        }
-       printLabel(statusText, position.x, position.y, 1, 15, UI_COLOR.TITANIUM_YELLOW, true, thisObject.container)
+       printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
      }
 
      if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {

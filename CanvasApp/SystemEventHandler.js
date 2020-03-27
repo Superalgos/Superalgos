@@ -44,7 +44,9 @@ function newSystemEventHandler () {
       responseWaiters.set(command.callerId, responseCallBack)
     }
 
-    WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) { // 1 means connected and ready.
+      WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    }
   }
 
   function createEventHandler (eventHandlerName, callerId, responseCallBack) {

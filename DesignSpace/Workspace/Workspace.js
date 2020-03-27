@@ -7,7 +7,6 @@ function newWorkspace () {
 
   let thisObject = {
     workspaceNode: undefined,
-    tradingSystem: undefined,
     container: undefined,
     enabled: false,
     nodeChildren: undefined,

@@ -195,9 +195,18 @@
 
      zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 
+     let barColor
+     let statusText
+     if (systemEventHandler.isConnected()) {
+       barColor = UI_COLOR.DARK_TURQUOISE
+     } else {
+       barColor = UI_COLOR.RED
+       statusText = 'Lost connection with the local backend. Please check that all localhost servers are running.'
+     }
+
      browserCanvasContext.beginPath()
      browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + opacity + ')'
+     browserCanvasContext.fillStyle = 'rgba(' + barColor + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
@@ -213,7 +222,15 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     if (canvas.designSpace.workspace.enabled === true) {
+     if (statusText !== undefined) {
+       let position = {
+         x: thisObject.container.frame.width / 2,
+         y: thisObject.container.frame.height / 2 + 5
+       }
+       printLabel(statusText, position.x, position.y, 1, 15, UI_COLOR.TITANIUM_YELLOW, true, thisObject.container)
+     }
+
+     if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {
        arrow()
      }
    }

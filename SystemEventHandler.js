@@ -12,6 +12,7 @@ function newSystemEventHandler () {
   let WEB_SOCKETS_CONNECTION
 
   let thisObject = {
+    isConnected: isConnected,
     initialize: initialize,
     physics: physics,
     createEventHandler: createEventHandler,
@@ -28,6 +29,14 @@ function newSystemEventHandler () {
 
   function initialize (callBackFunction) {
     setuptWebSockets(callBackFunction)
+  }
+
+  function isConnected () {
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) {
+      return true
+    } else {
+      return false
+    }
   }
 
   function sendCommand (command, responseCallBack, eventsCallBack) {

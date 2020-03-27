@@ -274,6 +274,12 @@ function newCanvas () {
       return
     }
 
+    if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
+      canvas.designSpace.workspace.save()
+      event.preventDefault()
+      return
+    }
+
     let nodeOnFocus = canvas.designSpace.workspace.getNodeThatIsOnFocus()
     if (nodeOnFocus !== undefined) {
       if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {

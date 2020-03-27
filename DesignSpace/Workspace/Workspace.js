@@ -11,6 +11,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
@@ -90,7 +91,7 @@ function newWorkspace () {
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
 
-      setInterval(saveWorkspace, 10000)
+      setInterval(saveWorkspace, 60000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }

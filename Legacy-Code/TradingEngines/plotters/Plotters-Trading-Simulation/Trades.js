@@ -522,6 +522,10 @@
                 let line1 = '';
                 let line2 = '';
 
+                if (line0 === 'My Situation') {
+                    line0 = ''
+                }
+
                 if (record.status === 1) {
                     switch (record.exitType) {
                         case 1: {

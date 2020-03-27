@@ -46,6 +46,8 @@ function newSystemEventHandler () {
 
     if (WEB_SOCKETS_CONNECTION.readyState === 1) { // 1 means connected and ready.
       WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    } else {
+      console.log('WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
     }
   }
 

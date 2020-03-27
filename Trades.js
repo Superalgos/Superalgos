@@ -602,11 +602,11 @@
                     // we do not write any text
                 } else {
 
-                    printLabel(line0, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y - 15, '1', 12);
-                    printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y, '1', 12);
-                    printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, point.y + 15, '1', 12);
-
-
+                    if (canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_CHARTS_LABELS) {
+                        printLabel(line0, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y - 15, '1', 12);
+                        printLabel(line1, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line1.length * FONT_ASPECT_RATIO, point.y, '1', 12);
+                        printLabel(line2, recordPoint2.x - (recordPoint2.x - recordPoint1.x) / 2 - line2.length * FONT_ASPECT_RATIO, point.y + 15, '1', 12);
+                    }
                 }
             }
 

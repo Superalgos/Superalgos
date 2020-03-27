@@ -201,6 +201,11 @@ function newViewport () {
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
     let amount = event.delta
+
+    if (IS_MAC) {
+      event.delta = event.delta * MAC_AMOUNT_FACTOR
+    }
+
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
 
@@ -220,7 +225,7 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = Math.round(Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR)
+    thisObject.zoomTargetLevel = Math.round(thisObject.zoomTargetLevel + amount * morePower)
 
     ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 

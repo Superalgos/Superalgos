@@ -2,7 +2,8 @@
  function newCockpitSpace () {
    const MODULE_NAME = 'CockpitSpace'
    const STATUS_TYPES = {
-     ALL_GOOD: 1
+     ALL_GOOD: 1,
+     WARNING: 2
    }
    let thisObject = {
      container: undefined,
@@ -230,13 +231,13 @@
              textColor = UI_COLOR.WHITE
              break
            }
+         case STATUS_TYPES.WARNING:
+           {
+             barColor = UI_COLOR.RED
+             textColor = UI_COLOR.TITANIUM_YELLOW
+             break
+           }
        }
-     }
-
-     if (systemEventHandler.isConnected() !== true) {
-       barColor = UI_COLOR.RED
-       statusText = 'Lost connection with the local backend. Please check that all localhost servers are running.'
-       textColor = UI_COLOR.TITANIUM_YELLOW
      }
 
      browserCanvasContext.beginPath()

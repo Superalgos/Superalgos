@@ -66,6 +66,9 @@ function newWorkspace () {
   let circularProgressBar = newBusyProgressBar()
   circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
   let droppedNode
+  let sessionTimestamp = (new Date()).valueOf()
+  window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+  console.log(sessionTimestamp)
 
   return thisObject
 
@@ -113,8 +116,15 @@ function newWorkspace () {
   }
 
   function saveWorkspace () {
-    let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+    let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
+    if (Number(savedSessionTimestamp) !== sessionTimestamp) {
+      canvas.cockpitSpace.setStatus('Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+    } else {
+      let textToSave = stringifyWorkspace()
+      window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+      window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+      return true
+    }
   }
 
   function physics () {

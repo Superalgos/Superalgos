@@ -275,8 +275,11 @@ function newCanvas () {
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
-      canvas.designSpace.workspace.save()
-      canvas.cockpitSpace.setStatus('Workspace Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+      let saved = canvas.designSpace.workspace.save()
+      if (saved === true) {
+        canvas.cockpitSpace.setStatus('Workspace Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+      }
+
       event.preventDefault()
       return
     }

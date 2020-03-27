@@ -581,8 +581,10 @@
                 /* Situation Name */
                 let digit = record.begin.toFixed(0).substring(7,8)
                 let positionY = recordPoint3.y - (recordPoint3.y - recordPoint1.y) / 2 + (Number(digit) * 10 - 50)
-                if (record.triggerOnSituation !== "My Situation") {
-                    printLabel(record.triggerOnSituation, recordPoint1.x + 5, positionY, '1', 12);
+                if (canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_CHARTS_LABELS) {
+                    if (record.triggerOnSituation !== "My Situation") {
+                        printLabel(record.triggerOnSituation, recordPoint1.x + 5, positionY, '1', 12);
+                    }
                 }
 
                 /* Draw the Sticks */

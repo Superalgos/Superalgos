@@ -41,6 +41,9 @@ function newChartingSpace () {
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
 
   initialSetup()
+
+  let isInitialized = false
+
   return thisObject
 
   function reset () {
@@ -87,6 +90,8 @@ function newChartingSpace () {
   }
 
   function initialize () {
+    if (isInitialized === true) { return }
+
     let rootNodes = canvas.designSpace.workspace.workspaceNode.rootNodes
     for (let i = 0; i < rootNodes.length; i++) {
       let rootNode = rootNodes[i]
@@ -96,7 +101,7 @@ function newChartingSpace () {
     }
 
     if (thisObject.payload === undefined) {
-      if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refreash your browser. ') }
+      // if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refreash your browser. ') }
       return
     }
 
@@ -111,6 +116,8 @@ function newChartingSpace () {
     thisObject.viewport.initialize()
 
     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    isInitialized = true
   }
 
   function getContainer (point, purpose) {
@@ -263,6 +270,7 @@ function newChartingSpace () {
   }
 
   function physics () {
+    initialize()
     thisObjectPhysics()
     if (thisObject.visible !== true) { return }
     if (thisObject.viewport !== undefined) {

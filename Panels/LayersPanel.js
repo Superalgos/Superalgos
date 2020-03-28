@@ -227,7 +227,7 @@ function newLayersPanel () {
   }
 
   function panelSizePhysics () {
-    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
+    if (isInitialized === false || thisObject.isHidden === true) { return }
 
     let viewPortHeight = canvas.chartingSpace.viewport.visibleArea.bottomLeft.y - canvas.chartingSpace.viewport.visibleArea.topLeft.y
 
@@ -236,6 +236,8 @@ function newLayersPanel () {
     } else {
       thisObject.visible = true
     }
+
+    if (thisObject.visible === false) { return }
 
     if (desiredPanelHeight > viewPortHeight) {
       posibleVisibleLayers = Math.trunc((viewPortHeight - headerHeight - footerHeight) / (layerHeight + LAYER_SEPARATION))

@@ -200,11 +200,12 @@ function newViewport () {
     if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
-    let amount = event.delta
 
     if (IS_MAC) {
       event.delta = event.delta * MAC_AMOUNT_FACTOR
     }
+
+    let amount = event.delta
 
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */

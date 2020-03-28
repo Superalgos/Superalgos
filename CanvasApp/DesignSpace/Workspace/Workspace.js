@@ -68,7 +68,6 @@ function newWorkspace () {
   let droppedNode
   let sessionTimestamp = (new Date()).valueOf()
   window.localStorage.setItem('Session Timestamp', sessionTimestamp)
-  console.log(sessionTimestamp)
 
   return thisObject
 

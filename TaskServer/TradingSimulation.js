@@ -14,21 +14,9 @@
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let percentageBandwidthAt = {}
-    let bollingerBandsAt = {}
-    let bollingerChannelsAt = {}
-    let bollingerSubChannelsAt = {}
-    let candlesAt = {}
-
-
     return thisObject;
 
     function finalize() {
-        percentageBandwidthAt = undefined
-        bollingerBandsAt = undefined
-        bollingerChannelsAt = undefined
-        bollingerSubChannelsAt = undefined
-        candlesAt = undefined
         thisObject = undefined
     }
 

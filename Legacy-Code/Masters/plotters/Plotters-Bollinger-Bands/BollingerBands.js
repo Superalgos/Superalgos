@@ -331,6 +331,7 @@
             let currentDate = new Date(farLeftDate.valueOf());
 
             bands = [];
+            let lastBand 
 
             while (currentDate.valueOf() <= farRightDate.valueOf() + ONE_DAY_IN_MILISECONDS) {
 
@@ -355,6 +356,14 @@
                         band.movingAverage = dailyFile[i][2];
                         band.standardDeviation = dailyFile[i][3];
                         band.deviation = dailyFile[i][4];
+
+                        if (lastBand !== undefined) {
+                            if (lastBand.movingAverage > band.movingAverage) { band.direction = "Down" }
+                            if (lastBand.movingAverage < band.movingAverage) { band.direction = "Up" }
+                            if (lastBand.movingAverage === band.movingAverage) { band.direction = "Side" }
+                        }
+
+                        lastBand = band
 
                         if (
                             (band.begin >= farLeftDate.valueOf() && band.end <= farRightDate.valueOf()) &&
@@ -386,13 +395,9 @@
                 if (bands[0].begin > lowerEnd || bands[bands.length - 1].end < upperEnd) {
 
                     setTimeout(recalculate, 2000);
-
-                    //console.log("File missing while calculating bands, scheduling a recalculation in 2 seconds.");
-
                 }
             }
 
-            //console.log("Olivia > recalculateUsingDailyFiles > total bands generated : " + bands.length);
 
         } catch (err) {
 
@@ -417,6 +422,7 @@
             rightDate = new Date(rightDate.valueOf() + dateDiff * 1.5);
 
             bands = [];
+            let lastBand 
 
             for (let i = 0; i < marketFile.length; i++) {
 
@@ -433,6 +439,14 @@
                 band.movingAverage = marketFile[i][2];
                 band.standardDeviation = marketFile[i][3];
                 band.deviation = marketFile[i][4];
+
+                if (lastBand !== undefined) {
+                    if (lastBand.movingAverage > band.movingAverage) { band.direction = "Down" }
+                    if (lastBand.movingAverage < band.movingAverage) { band.direction = "Up" }
+                    if (lastBand.movingAverage === band.movingAverage) { band.direction = "Side" }
+                }
+
+                lastBand = band
 
                 if (
                     (band.begin >= leftDate.valueOf() && band.end <= rightDate.valueOf()) &&

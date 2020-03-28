@@ -120,8 +120,8 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
         /* Extra bounderies due to constrained space */
 
-        const upperLimit = frameTitleHeight + frameBodyHeight * 0.15;
-        const downLimit = frameTitleHeight + frameBodyHeight * 0.85;
+        const upperLimit = frameTitleHeight + frameBodyHeight * 0.25;
+        const downLimit = frameTitleHeight + frameBodyHeight * 0.75;
 
         if (bandPoint1.y > downLimit) { bandPoint1.y = downLimit; }
         if (bandPoint4.y > downLimit) { bandPoint4.y = downLimit; }
@@ -201,11 +201,20 @@ function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel () {
 
         let y;
 
-        printLabel('Moving Average', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentBand.innerBand.movingAverage, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
-        printLabel('Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
-        printLabel(currentBand.innerBand.deviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        if (currentBand.innerBand.direction !== undefined) {
+           printLabel('Direction', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+           printLabel(currentBand.innerBand.direction, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+        }
+
+        printLabel('Moving Average', X_AXIS, frameTitleHeight + frameBodyHeight * 0.15, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentBand.innerBand.movingAverage, X_AXIS, frameTitleHeight + frameBodyHeight * 0.20, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        printLabel('Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.85, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentBand.innerBand.deviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.80, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
+
+        printLabel('Standard Deviation', X_AXIS, frameTitleHeight + frameBodyHeight * 0.95, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(currentBand.innerBand.standardDeviation, X_AXIS, frameTitleHeight + frameBodyHeight * 0.90, '1.00', 15, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 }

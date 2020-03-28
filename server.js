@@ -464,6 +464,12 @@ function onBrowserRequest (request, response) {
         }
         break
 
+    case 'DataMines':
+          {
+              respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2] + '.json', response)
+        }
+        break
+
     case 'Storage':
       {
         respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)

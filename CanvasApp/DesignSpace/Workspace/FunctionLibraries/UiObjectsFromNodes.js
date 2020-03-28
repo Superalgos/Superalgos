@@ -19,26 +19,69 @@ function newUiObjectsFromNodes () {
     tasksToRun = []
     sessionsToRun = []
 
-   /* Create the workspace UI OBject and then continue with the root nodes. */
-    createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
-    if (node.rootNodes !== undefined) {
-      for (let i = 0; i < node.rootNodes.length; i++) {
-        let rootNode = node.rootNodes[i]
-        createUiObjectFromNode(rootNode, undefined, undefined)
+    addIncludedNodes()
+
+    function addIncludedNodes () {
+      blobService = newFileStorage()
+
+      if (node.code === undefined) {
+        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"]\n}'
+      }
+
+      let code = JSON.parse(node.code)
+      let includeDataMines = code.includeDataMines
+
+      let totalIncluded = 0
+
+      for (let i = 0; i < includeDataMines.length; i++) {
+        let dataMine = includeDataMines[i]
+        blobService.getBlobToText('DataMines' + '/' + dataMine, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + dataMine + '. The workspace can not be loaded.')
+            return
+          }
+          let includedDataMine = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Data Mine') {
+              let code = JSON.parse(rootNode.code)
+              if (code.name === dataMine) {
+                rootNodes.splice(i, 1)
+              }
+            }
+          }
+          node.rootNodes.push(includedDataMine)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length) {
+            addUserDefinedNodes()
+          }
+        }
       }
     }
 
-    tryToConnectChildrenWithReferenceParents()
+    function addUserDefinedNodes () {
+  /* Create the workspace UI OBject and then continue with the root nodes. */
+      createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
+      if (node.rootNodes !== undefined) {
+        for (let i = 0; i < node.rootNodes.length; i++) {
+          let rootNode = node.rootNodes[i]
+          createUiObjectFromNode(rootNode, undefined, undefined)
+        }
+      }
 
-    if (replacingCurrentWorkspace === true) {
-      // We need to wait all tasks that were potentially running to stop
-      setTimeout(runTasks, 70000)
-      // We give a few seconds for the tasks to start
-      setTimeout(runSessions, 80000)
-    } else {
-      runTasks()
-      // We give a few seconds for the tasks to start
-      setTimeout(runSessions, 10000)
+      tryToConnectChildrenWithReferenceParents()
+
+      if (replacingCurrentWorkspace === true) {
+     // We need to wait all tasks that were potentially running to stop
+        setTimeout(runTasks, 70000)
+     // We give a few seconds for the tasks to start
+        setTimeout(runSessions, 80000)
+      } else {
+        runTasks()
+     // We give a few seconds for the tasks to start
+        setTimeout(runSessions, 10000)
+      }
     }
   }
 

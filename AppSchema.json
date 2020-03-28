@@ -714,6 +714,13 @@
                 "ring": 1
             },
             {
+                "action": "Configure Workspace",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Workspace",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Trading System",
                 "relatedUiObject": "Trading System",
@@ -729,18 +736,6 @@
                 "action": "Add UI Object",
                 "label": "Add Data Mine",
                 "relatedUiObject": "Data Mine",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Crypto Ecosystem",
-                "relatedUiObject": "Crypto Ecosystem",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Charting Space",
-                "relatedUiObject": "Charting Space",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -761,7 +756,13 @@
         "addLeftIcons": false,
         "isPinned": true,
         "positionLocked": true,
-        "icon": "design-tool"
+        "icon": "design-tool",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"includeDataMines\": [\"Masters\", \"Sparta\", \"TradingEngines\"]\n}"
+        }
     },
     {
         "type": "Situation",
@@ -4524,15 +4525,6 @@
                 "label": "Add Super Actions",
                 "relatedUiObject": "Super Actions",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Crypto Ecosystem",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isHierarchyHead": true,
@@ -5300,15 +5292,6 @@
                 "label": "Add Dashboard",
                 "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Charting Space",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isHierarchyHead": true,
@@ -5469,15 +5452,6 @@
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Viewport",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "initialValues": {

@@ -169,12 +169,26 @@ function newWorkspace () {
   }
 
   function stringifyWorkspace (removePersonalData) {
+    let code
+    if (thisObject.workspaceNode.code === undefined) {
+      thisObject.workspaceNode.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"]\n}'
+    }
+    code = JSON.parse(thisObject.workspaceNode.code)
+    let includeDataMines = code.includeDataMines
+
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
       let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
       if (node) {
-        stringifyReadyNodes.push(node)
+        if (node.type !== 'Data Mine') {
+          stringifyReadyNodes.push(node)
+        } else {
+          code = JSON.parse(node.code)
+          if (includeDataMines.includes(code.codeName) === false) {
+            stringifyReadyNodes.push(node)
+          }
+        }
       }
     }
     let workspace = {

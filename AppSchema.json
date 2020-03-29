@@ -3085,6 +3085,11 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent",
+            "Use Reference Parent Parent",
+        ],
         "addLeftIcons": true,
         "level": 3,
         "referenceAttachesTo": {
@@ -3192,6 +3197,9 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\",\n\"isString\": false,\n\"isCalculated\": false\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "editors": {

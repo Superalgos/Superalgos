@@ -121,7 +121,7 @@ function newSystemEventHandler () {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Lost connection with the local backend. Please check that all localhost servers are running.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connection with the local backend lost. Please check that all localhost servers are running.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     }
   }
 

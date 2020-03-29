@@ -263,6 +263,7 @@ function newUiObject () {
   }
 
   function invisiblePhysics () {
+    thisObject.menu.invisiblePhysics()
     childrenRunningPhysics()
   }
 
@@ -1723,4 +1724,3 @@ function newUiObject () {
     }
   }
 }
-

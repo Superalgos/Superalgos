@@ -41,6 +41,7 @@ function newCircularMenuItem () {
     isEnabled: true,
     internalClick: internalClick,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -133,6 +134,24 @@ function newCircularMenuItem () {
     }
   }
 
+  function invisiblePhysics () {
+    temporaryStatusPhysics()
+  }
+
+  function temporaryStatusPhysics () {
+  /* Temporary Status impacts on the label to use and the background of that label */
+    if (temporaryStatusCounter > 0) {
+      temporaryStatusCounter--
+    }
+
+    if (temporaryStatusCounter === 0) {
+      temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
+      labelToPrint = thisObject.label
+      backgroundColorToUse = defaultBackgroudColor
+      thisObject.nextAction = thisObject.action
+    }
+  }
+
   function physics () {
     if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
@@ -173,17 +192,7 @@ function newCircularMenuItem () {
     thisObject.container.frame.position.x = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
     thisObject.container.frame.position.y = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
-    /* Temporary Status impacts on the label to use and the background of that label */
-    if (temporaryStatusCounter > 0) {
-      temporaryStatusCounter--
-    }
-
-    if (temporaryStatusCounter === 0) {
-      temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
-      labelToPrint = thisObject.label
-      backgroundColorToUse = defaultBackgroudColor
-      thisObject.nextAction = thisObject.action
-    }
+    temporaryStatusPhysics()
 
     /* Here we will check if we need to monitor a property that influences the status of the Menu Item. */
     if (thisObject.disableIfPropertyIsDefined === true) {

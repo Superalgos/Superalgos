@@ -7,6 +7,7 @@ function newCircularMenu () {
     isDeployed: undefined,
     internalClick: internalClick,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -168,6 +169,13 @@ function newCircularMenu () {
           menuItem.internalClick()
         }
       }
+    }
+  }
+
+  function invisiblePhysics () {
+    for (let i = 0; i < menuItems.length; i++) {
+      let menuItem = menuItems[i]
+      menuItem.invisiblePhysics()
     }
   }
 

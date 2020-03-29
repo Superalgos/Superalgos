@@ -25,35 +25,89 @@ function newUiObjectsFromNodes () {
       blobService = newFileStorage()
 
       if (node.code === undefined) {
-        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"]\n}'
+        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["WHB-BTC-USDT", "WHB-ETH-USDT", "BRR-BTC-USDT"],\n"includeSuperScripts": ["Superalgos"]\n }'
       }
 
       let code = JSON.parse(node.code)
       let includeDataMines = code.includeDataMines
+      let includeTradingSystems = code.includeTradingSystems
+      let includeSuperScripts = code.includeSuperScripts
 
       let totalIncluded = 0
 
       for (let i = 0; i < includeDataMines.length; i++) {
-        let dataMine = includeDataMines[i]
-        blobService.getBlobToText('DataMines' + '/' + dataMine, undefined, onFileReceived, true)
+        let name = includeDataMines[i]
+        blobService.getBlobToText('DataMines' + '/' + name, undefined, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-            console.log('Cannot load included Data Mine ' + dataMine + '. The workspace can not be loaded.')
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
             return
           }
-          let includedDataMine = JSON.parse(text)
+          let receivedNode = JSON.parse(text)
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Data Mine') {
               let code = JSON.parse(rootNode.code)
-              if (code.name === dataMine) {
+              if (code.name === name) {
                 rootNodes.splice(i, 1)
               }
             }
           }
-          node.rootNodes.push(includedDataMine)
+          node.rootNodes.push(receivedNode)
           totalIncluded++
-          if (totalIncluded === includeDataMines.length) {
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+            addUserDefinedNodes()
+          }
+        }
+      }
+
+      for (let i = 0; i < includeTradingSystems.length; i++) {
+        let name = includeTradingSystems[i]
+        blobService.getBlobToText('TradingSystems' + '/' + name, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+            return
+          }
+          let receivedNode = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Trading System') {
+              let code = JSON.parse(rootNode.code)
+              if (code.name === name) {
+                rootNodes.splice(i, 1)
+              }
+            }
+          }
+          node.rootNodes.push(receivedNode)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+            addUserDefinedNodes()
+          }
+        }
+      }
+
+      for (let i = 0; i < includeSuperScripts.length; i++) {
+        let name = includeSuperScripts[i]
+        blobService.getBlobToText('SuperScripts' + '/' + name, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+            return
+          }
+          let receivedNode = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Super Scripts') {
+              let code = JSON.parse(rootNode.code)
+              if (code.name === name) {
+                rootNodes.splice(i, 1)
+              }
+            }
+          }
+          node.rootNodes.push(receivedNode)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
             addUserDefinedNodes()
           }
         }

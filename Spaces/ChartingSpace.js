@@ -49,6 +49,7 @@ function newChartingSpace () {
   function reset () {
     finalize()
     initialSetup()
+    isInitialized = false
     initialize()
   }
 

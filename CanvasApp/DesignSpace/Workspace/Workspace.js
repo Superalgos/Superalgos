@@ -171,23 +171,41 @@ function newWorkspace () {
   function stringifyWorkspace (removePersonalData) {
     let code
     if (thisObject.workspaceNode.code === undefined) {
-      thisObject.workspaceNode.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"]\n}'
+      thisObject.workspaceNode.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["WHB-BTC-USDT", "WHB-ETH-USDT", "BRR-BTC-USDT"],\n"includeSuperScripts": ["Superalgos"]\n }'
     }
     code = JSON.parse(thisObject.workspaceNode.code)
     let includeDataMines = code.includeDataMines
+    let includeTradingSystems = code.includeTradingSystems
+    let includeSuperScripts = code.includeSuperScripts
 
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
       let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
       if (node) {
-        if (node.type !== 'Data Mine') {
-          stringifyReadyNodes.push(node)
-        } else {
-          code = JSON.parse(node.code)
-          if (includeDataMines.includes(code.codeName) === false) {
-            stringifyReadyNodes.push(node)
+        switch (node.type) {
+          case 'Data Mine': {
+            code = JSON.parse(node.code)
+            if (includeDataMines.includes(code.codeName) === false) {
+              stringifyReadyNodes.push(node)
+            }
+            break
           }
+          case 'Trading System': {
+            code = JSON.parse(node.code)
+            if (includeTradingSystems.includes(code.codeName) === false) {
+              stringifyReadyNodes.push(node)
+            }
+            break
+          }
+          case 'Super Scripts': {
+            code = JSON.parse(node.code)
+            if (includeSuperScripts.includes(code.codeName) === false) {
+              stringifyReadyNodes.push(node)
+            }
+            break
+          }
+          default: stringifyReadyNodes.push(node)
         }
       }
     }

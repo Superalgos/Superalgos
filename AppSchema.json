@@ -129,6 +129,7 @@
         "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#plotter-panel",
         "icon": "plotter-panel",
         "level": 4,
+        "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "panels",
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
@@ -759,9 +760,6 @@
         "icon": "design-tool",
         "editors": {
             "config": true
-        },
-        "initialValues": {
-            "code": "{ \n\"includeDataMines\": [\"Masters\", \"Sparta\", \"TradingEngines\"]\n}"
         }
     },
     {
@@ -845,6 +843,13 @@
         "type": "Super Scripts",
         "menuItems": [
             {
+                "action": "Configure Super Scripts",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Super Scripts",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Scripts Library",
                 "disableIfPropertyIsDefined": true,
@@ -862,11 +867,17 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": false,
+        "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "super-scripts",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "properties": [
             {
                 "name": "scriptsLibrary",
@@ -3547,6 +3558,13 @@
         "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trading-system",
         "menuItems": [
             {
+                "action": "Configure Trading System",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Trading System",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Strategy",
                 "relatedUiObject": "Strategy",
@@ -3575,6 +3593,12 @@
         "addLeftIcons": true,
         "level": 0,
         "icon": "analysis",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "properties": [
             {
                 "name": "strategies",

@@ -468,6 +468,18 @@ function onBrowserRequest (request, response) {
           {
               respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2] + '.json', response)
         }
+          break
+
+    case 'TradingSystems':
+        {
+            respondWithFile(process.env.TRADING_SYSTEMS_PATH + '/' + requestParameters[2] + '.json', response)
+        }
+        break
+
+    case 'SuperScripts':
+        {
+            respondWithFile(process.env.SUPER_SCRIPTS_PATH + '/' + requestParameters[2] + '.json', response)
+        }
         break
 
     case 'Storage':

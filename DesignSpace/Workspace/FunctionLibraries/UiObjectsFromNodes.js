@@ -47,9 +47,11 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Data Mine') {
-              let code = JSON.parse(rootNode.code)
-              if (code.name === name) {
-                rootNodes.splice(i, 1)
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
               }
             }
           }
@@ -73,9 +75,11 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Trading System') {
-              let code = JSON.parse(rootNode.code)
-              if (code.name === name) {
-                rootNodes.splice(i, 1)
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
               }
             }
           }
@@ -99,9 +103,11 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Super Scripts') {
-              let code = JSON.parse(rootNode.code)
-              if (code.name === name) {
-                rootNodes.splice(i, 1)
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
               }
             }
           }

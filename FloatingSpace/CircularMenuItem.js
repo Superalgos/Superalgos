@@ -39,6 +39,7 @@ function newCircularMenuItem () {
     relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     isEnabled: true,
+    shorcutNumber: undefined,
     internalClick: internalClick,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
@@ -255,13 +256,20 @@ function newCircularMenuItem () {
     } else {
       isMouseOver = false
     }
+    MENU_ITEM_ON_FOCUS = thisObject
   }
 
   function onMouseNotOver (point) {
     isMouseOver = false
+    MENU_ITEM_ON_FOCUS = undefined
   }
 
   function internalClick () {
+    if (thisObject.shorcutNumber !== undefined) {
+      let label = thisObject.payload.node.name + ' ' + labelToPrint
+      canvas.cockpitSpace.setStatus(label, 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+    }
+
     onMouseClick()
   }
 
@@ -435,6 +443,11 @@ function newCircularMenuItem () {
         /* Menu Label */
 
       if (thisObject.type === 'Icon & Text') {
+        label = labelToPrint
+        if (thisObject.shorcutNumber !== undefined) {
+          label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+        }
+
         let labelPoint
         let fontSize = 15
 
@@ -448,7 +461,7 @@ function newCircularMenuItem () {
 
           browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
           browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-          browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
         }
       }
     }

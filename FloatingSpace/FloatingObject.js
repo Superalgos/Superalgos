@@ -345,41 +345,45 @@ function newFloatingObject () {
 
   function thisObjectPhysics () {
                            // The radius also have a target.
+    let ANIMATION_STEP = Math.abs(thisObject.targetRadius - thisObject.rawRadius) / 5
 
-    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= 10) {
+    if (ANIMATION_STEP === 0) { ANIMATION_STEP = 10 }
+
+    if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= ANIMATION_STEP) {
       if (thisObject.container.frame.radius < thisObject.targetRadius) {
-        thisObject.container.frame.radius = thisObject.container.frame.radius + 10
+        thisObject.container.frame.radius = thisObject.container.frame.radius + ANIMATION_STEP
       } else {
-        thisObject.container.frame.radius = thisObject.container.frame.radius - 10
+        thisObject.container.frame.radius = thisObject.container.frame.radius - ANIMATION_STEP
       }
+
       thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }
 
                            // The imageSize also have a target.
 
-    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= 10) {
+    if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= ANIMATION_STEP) {
       if (thisObject.currentImageSize < thisObject.targetImageSize) {
-        thisObject.currentImageSize = thisObject.currentImageSize + 10
+        thisObject.currentImageSize = thisObject.currentImageSize + ANIMATION_STEP
       } else {
-        thisObject.currentImageSize = thisObject.currentImageSize - 10
+        thisObject.currentImageSize = thisObject.currentImageSize - ANIMATION_STEP
       }
     }
 
                            // The fontSize also have a target.
 
-    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= 1) {
+    if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= ANIMATION_STEP / 10) {
       if (thisObject.currentFontSize < thisObject.targetFontSize) {
-        thisObject.currentFontSize = thisObject.currentFontSize + 1
+        thisObject.currentFontSize = thisObject.currentFontSize + ANIMATION_STEP / 10
       } else {
-        thisObject.currentFontSize = thisObject.currentFontSize - 1
+        thisObject.currentFontSize = thisObject.currentFontSize - ANIMATION_STEP / 10
       }
     }
 
-    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= 10) {
+    if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= ANIMATION_STEP) {
       if (thisObject.currentHierarchyRing < thisObject.targetHierarchyRing) {
-        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + 10
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing + ANIMATION_STEP
       } else {
-        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - 10
+        thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - ANIMATION_STEP
       }
     }
 

@@ -1502,6 +1502,7 @@
 
                     if (parentNode !== undefined) {
                         let phase = parentNode.takeProfit.phases[p];
+                        if (phase === undefined) {return} // trying to jump to a phase that does not exists.
 
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {

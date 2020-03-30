@@ -433,7 +433,7 @@ function newFloatingObject () {
       thisObject.targetFontSize = thisObject.rawFontSize * 1
       thisObject.targetHierarchyRing = thisObject.rawHierarchyRing * 1
 
-      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus')
+      thisObject.payload.uiObject.container.eventHandler.raiseEvent('onNotFocus', thisObject.container)
 
       if (thisObject.isPinned !== true) {
         thisObject.positionLocked = false

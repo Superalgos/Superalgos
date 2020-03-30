@@ -332,9 +332,13 @@
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFramesMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFramesMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
-                                                        callBackFunction(err);
+                                                        if (err.message === 'File does not exist.') {
+                                                            logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
+                                                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                                        } else {
+                                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFramesMarketFiles -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
+                                                            callBackFunction(err);
+                                                        }                                                        
                                                         return;
                                                     }
 
@@ -660,7 +664,7 @@
 
                                                     if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFramesDailyFiles -> periodsLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
                                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                                                         return;
                                                     }

@@ -169,19 +169,19 @@ function newCircularMenuItem () {
     if (thisObject.type === 'Icon Only') {
       switch (thisObject.ring) {
         case 1: {
-          radiusGrowthFactor = 6.5
+          radiusGrowthFactor = 5.5
           break
         }
         case 2: {
-          radiusGrowthFactor = 5.0
+          radiusGrowthFactor = 4.0
           break
         }
         case 3: {
-          radiusGrowthFactor = 3.5
+          radiusGrowthFactor = 3.0
           break
         }
         case 4: {
-          radiusGrowthFactor = 2.5
+          radiusGrowthFactor = 2.0
           break
         }
       }
@@ -189,8 +189,8 @@ function newCircularMenuItem () {
       radiusGrowthFactor = 4
     }
 
-    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+    thisObject.container.frame.position.x = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
+    thisObject.container.frame.position.y = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
     temporaryStatusPhysics()
 

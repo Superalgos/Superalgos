@@ -185,25 +185,25 @@ function newEdgeEditor () {
   function onKeyPressed (event) {
     const STEP = 10
 
-    if (event.shiftKey === false && event.code === 'ArrowLeft') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowLeft') {
       thisObject.container.frame.position.x = thisObject.container.frame.position.x + STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowRight') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowRight') {
       thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowUp') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowUp') {
       thisObject.container.frame.position.y = thisObject.container.frame.position.y + STEP
       whatHappened = 'up or down arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowDown') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowDown') {
       thisObject.container.frame.position.y = thisObject.container.frame.position.y - STEP
       whatHappened = 'up or down arrow key pressed'
       return

@@ -39,6 +39,7 @@ function newCircularMenuItem () {
     relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     isEnabled: true,
+    numberShorcut: undefined,
     internalClick: internalClick,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
@@ -255,10 +256,12 @@ function newCircularMenuItem () {
     } else {
       isMouseOver = false
     }
+    MENU_ITEM_ON_FOCUS = thisObject
   }
 
   function onMouseNotOver (point) {
     isMouseOver = false
+    MENU_ITEM_ON_FOCUS = undefined
   }
 
   function internalClick () {
@@ -435,6 +438,11 @@ function newCircularMenuItem () {
         /* Menu Label */
 
       if (thisObject.type === 'Icon & Text') {
+        label = labelToPrint
+        if (thisObject.numberShorcut !== undefined) {
+          label = '' + thisObject.numberShorcut + '- ' + labelToPrint
+        }
+
         let labelPoint
         let fontSize = 15
 
@@ -448,7 +456,7 @@ function newCircularMenuItem () {
 
           browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
           browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-          browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
         }
       }
     }

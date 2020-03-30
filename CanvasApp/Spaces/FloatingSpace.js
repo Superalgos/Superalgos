@@ -62,16 +62,12 @@ function newFloatingSpace () {
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   let onDragStartedEventSubscriptionId
   let spaceFocusAquiredEventSubscriptionId
-  let floatingObjetOnFocusEventSubscriptionId
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
     canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
-    if (floatingObjetOnFocus !== undefined) {
-      floatingObjetOnFocus.eventHandler.stopListening(floatingObjetOnFocusEventSubscriptionId)
-    }
 
     thisObject.floatingLayer.finalize()
     thisObject.uiObjectConstructor.finalize()
@@ -100,18 +96,6 @@ function newFloatingSpace () {
       return
     }
     floatingObjetOnFocus = floatingObject
-    floatingObjetOnFocusEventSubscriptionId = floatingObjetOnFocus.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
-  }
-
-  function onNotFocus (container) {
-    if (container !== undefined) {
-      container.eventHandler.stopListening(floatingObjetOnFocusEventSubscriptionId)
-    }
-    if (floatingObjetOnFocus !== undefined) {
-      if (floatingObjetOnFocus.container.id === container.id) {
-        floatingObjetOnFocus = undefined
-      }
-    }
   }
 
   function toggleDrawReferenceLines () {

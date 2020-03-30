@@ -109,7 +109,7 @@ function newEdgeEditor () {
   /* Resize the Time Machine to match the current screen aspect ration */
 
     thisObject.container.parentContainer.frame.width = browserCanvas.width / TIME_MACHINE_WIDTH
-    thisObject.container.parentContainer.frame.height = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
+    thisObject.container.parentContainer.frame.height = (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
     coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
     coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
     coordinateSystem.recalculateScale()

@@ -57,20 +57,20 @@ function newFloatingSpace () {
   thisObject.container.frame.position.y = browserCanvas.height / 2 - thisObject.container.frame.height / 2
 
   let visible = false
-  let containerOnFocus
+  let floatingObjetOnFocus
 
   const PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT = 25
   let onDragStartedEventSubscriptionId
   let spaceFocusAquiredEventSubscriptionId
-  let containerOnFocusEventSubscriptionId
+  let floatingObjetOnFocusEventSubscriptionId
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
     canvas.floatingSpace.container.eventHandler.stopListening(spaceFocusAquiredEventSubscriptionId)
-    if (containerOnFocus !== undefined) {
-      containerOnFocus.eventHandler.stopListening(containerOnFocusEventSubscriptionId)
+    if (floatingObjetOnFocus !== undefined) {
+      floatingObjetOnFocus.eventHandler.stopListening(floatingObjetOnFocusEventSubscriptionId)
     }
 
     thisObject.floatingLayer.finalize()
@@ -81,7 +81,7 @@ function newFloatingSpace () {
     thisObject.uiObjectConstructor = undefined
     thisObject.container = undefined
 
-    containerOnFocus = undefined
+    floatingObjetOnFocus = undefined
   }
 
   function initialize (callBackFunction) {
@@ -95,21 +95,21 @@ function newFloatingSpace () {
     spaceFocusAquiredEventSubscriptionId = canvas.floatingSpace.container.eventHandler.listenToEvent('onFocusAquired', someoneAquiredFocus)
   }
 
-  function someoneAquiredFocus (container) {
-    if (container === undefined) {
+  function someoneAquiredFocus (floatingObject) {
+    if (floatingObject === undefined || floatingObject.container === undefined) {
       return
     }
-    containerOnFocus = container
-    containerOnFocusEventSubscriptionId = containerOnFocus.eventHandler.listenToEvent('onNotFocus', onNotFocus)
+    floatingObjetOnFocus = floatingObject
+    floatingObjetOnFocusEventSubscriptionId = floatingObjetOnFocus.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
   }
 
   function onNotFocus (container) {
     if (container !== undefined) {
-      container.eventHandler.stopListening(containerOnFocusEventSubscriptionId)
+      container.eventHandler.stopListening(floatingObjetOnFocusEventSubscriptionId)
     }
-    if (containerOnFocus !== undefined) {
-      if (containerOnFocus.id === container.id) {
-        containerOnFocus = undefined
+    if (floatingObjetOnFocus !== undefined) {
+      if (floatingObjetOnFocus.container.id === container.id) {
+        floatingObjetOnFocus = undefined
       }
     }
   }
@@ -379,10 +379,11 @@ function newFloatingSpace () {
 
     let container
 
-    if (containerOnFocus !== undefined) {
-      if (containerOnFocus.frame.isThisScreenPointHere(point) === true) {
-        containerOnFocus.space = 'Floating Space'
-        return containerOnFocus
+    if (floatingObjetOnFocus !== undefined) {
+      container = floatingObjetOnFocus.getContainer(point)
+      if (container !== undefined) {
+        container.space = 'Floating Space'
+        return container
       }
     }
 

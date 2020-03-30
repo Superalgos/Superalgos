@@ -413,14 +413,14 @@ function newFloatingObject () {
     removeFocus()
   }
 
-  function someoneAquiredFocus (container) {
-    if (container === undefined) {
+  function someoneAquiredFocus (floatingObject) {
+    if (floatingObject === undefined || floatingObject.container === undefined) {
       return
     }
     if (thisObject.container === undefined) {
       return
     }
-    if (container.id !== thisObject.container.id) {
+    if (floatingObject.container.id !== thisObject.container.id) {
       removeFocus()
     }
   }

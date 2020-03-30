@@ -39,7 +39,7 @@ function newCircularMenuItem () {
     relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     isEnabled: true,
-    numberShorcut: undefined,
+    shorcutNumber: undefined,
     internalClick: internalClick,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
@@ -265,6 +265,11 @@ function newCircularMenuItem () {
   }
 
   function internalClick () {
+    if (thisObject.shorcutNumber !== undefined) {
+      let label = thisObject.payload.node.name + ' ' + labelToPrint
+      canvas.cockpitSpace.setStatus(label, 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+    }
+
     onMouseClick()
   }
 
@@ -439,8 +444,8 @@ function newCircularMenuItem () {
 
       if (thisObject.type === 'Icon & Text') {
         label = labelToPrint
-        if (thisObject.numberShorcut !== undefined) {
-          label = '' + thisObject.numberShorcut + '- ' + labelToPrint
+        if (thisObject.shorcutNumber !== undefined) {
+          label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
         }
 
         let labelPoint

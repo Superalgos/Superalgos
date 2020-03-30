@@ -40,7 +40,7 @@ function newCanvas () {
     designSpace: undefined,
     animation: undefined,
     mouse: undefined,
-    numbersShorcuts: new Map(),
+    shorcutNumbers: new Map(),
     initialize: initialize,
     finalize: finalize
   }
@@ -65,7 +65,7 @@ function newCanvas () {
     try {
       thisObject.chartingSpace.finalize()
       thisObject.floatingSpace.finalize()
-      thisObject.numbersShorcuts = undefined
+      thisObject.shorcutNumbers = undefined
 
       browserCanvas.removeEventListener('mousedown', onMouseDown, false)
       browserCanvas.removeEventListener('mouseup', onMouseUp, false)
@@ -259,14 +259,14 @@ function newCanvas () {
     if ((event.keyCode >= 48 && event.keyCode <= 57)) {
       let number = event.key
       if (MENU_ITEM_ON_FOCUS !== undefined) {
-        let menuItem = thisObject.numbersShorcuts.get(number)
+        let menuItem = thisObject.shorcutNumbers.get(number)
         if (menuItem !== undefined) {
-          menuItem.numberShorcut = undefined
+          menuItem.shorcutNumber = undefined
         }
-        thisObject.numbersShorcuts.set(number, MENU_ITEM_ON_FOCUS)
-        MENU_ITEM_ON_FOCUS.numberShorcut = number
+        thisObject.shorcutNumbers.set(number, MENU_ITEM_ON_FOCUS)
+        MENU_ITEM_ON_FOCUS.shorcutNumber = number
       } else {
-        let menuItem = thisObject.numbersShorcuts.get(number)
+        let menuItem = thisObject.shorcutNumbers.get(number)
         if (menuItem !== undefined) {
           menuItem.internalClick()
         }

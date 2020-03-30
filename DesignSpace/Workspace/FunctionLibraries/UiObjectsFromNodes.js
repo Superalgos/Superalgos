@@ -55,6 +55,7 @@ function newUiObjectsFromNodes () {
               }
             }
           }
+          receivedNode.isIncluded = true
           node.rootNodes.push(receivedNode)
           totalIncluded++
           if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
@@ -83,6 +84,7 @@ function newUiObjectsFromNodes () {
               }
             }
           }
+          receivedNode.isIncluded = true
           node.rootNodes.push(receivedNode)
           totalIncluded++
           if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
@@ -111,6 +113,7 @@ function newUiObjectsFromNodes () {
               }
             }
           }
+          receivedNode.isIncluded = true
           node.rootNodes.push(receivedNode)
           totalIncluded++
           if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {

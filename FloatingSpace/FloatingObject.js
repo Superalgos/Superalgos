@@ -404,7 +404,7 @@ function newFloatingObject () {
 
       thisObject.positionLocked = true
 
-      canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject.container)
+      canvas.floatingSpace.container.eventHandler.raiseEvent('onFocusAquired', thisObject)
       thisObject.isOnFocus = true
     }
   }

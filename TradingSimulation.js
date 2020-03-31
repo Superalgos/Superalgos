@@ -2800,7 +2800,7 @@
                             number: yesterday.currentStrategy.number,
                             beginRate: yesterday.currentStrategy.beginRate,
                             endRate: yesterday.currentStrategy.endRate,
-                            triggerOnSituation: yesterday.curre.triggerOnSituation
+                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation
                         }
 
                         interExecutionMemory.currentTrade = {

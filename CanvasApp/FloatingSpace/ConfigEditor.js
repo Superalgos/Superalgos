@@ -79,6 +79,7 @@ function newConfigEditor () {
         thisObject.payload.uiObject.setErrorMessage(err.message, 10)
       }
     }
+    EDITOR_ON_FOCUS = false
   }
 
   function activate (payload) {
@@ -104,6 +105,7 @@ function newConfigEditor () {
                      'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
+    EDITOR_ON_FOCUS = true
   }
 
   function getContainer (point) {

@@ -129,6 +129,7 @@
         "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#plotter-panel",
         "icon": "plotter-panel",
         "level": 4,
+        "isTitleAllwaysVisible": true,
         "propertyNameAtParent": "panels",
         "chainAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
@@ -714,6 +715,13 @@
                 "ring": 1
             },
             {
+                "action": "Configure Workspace",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Workspace",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Trading System",
                 "relatedUiObject": "Trading System",
@@ -729,18 +737,6 @@
                 "action": "Add UI Object",
                 "label": "Add Data Mine",
                 "relatedUiObject": "Data Mine",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Crypto Ecosystem",
-                "relatedUiObject": "Crypto Ecosystem",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Charting Space",
-                "relatedUiObject": "Charting Space",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -761,7 +757,10 @@
         "addLeftIcons": false,
         "isPinned": true,
         "positionLocked": true,
-        "icon": "design-tool"
+        "icon": "design-tool",
+        "editors": {
+            "config": true
+        }
     },
     {
         "type": "Situation",
@@ -844,6 +843,13 @@
         "type": "Super Scripts",
         "menuItems": [
             {
+                "action": "Configure Super Scripts",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Super Scripts",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Scripts Library",
                 "disableIfPropertyIsDefined": true,
@@ -861,11 +867,17 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": false,
+        "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 1,
         "icon": "super-scripts",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "properties": [
             {
                 "name": "scriptsLibrary",
@@ -3084,6 +3096,11 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent",
+            "Use Reference Parent Parent",
+        ],
         "addLeftIcons": true,
         "level": 3,
         "referenceAttachesTo": {
@@ -3191,6 +3208,9 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\",\n\"isString\": false,\n\"isCalculated\": false\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "editors": {
@@ -3538,6 +3558,13 @@
         "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trading-system",
         "menuItems": [
             {
+                "action": "Configure Trading System",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure Trading System",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "label": "Add Strategy",
                 "relatedUiObject": "Strategy",
@@ -3566,6 +3593,12 @@
         "addLeftIcons": true,
         "level": 0,
         "icon": "analysis",
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "properties": [
             {
                 "name": "strategies",
@@ -4524,15 +4557,6 @@
                 "label": "Add Super Actions",
                 "relatedUiObject": "Super Actions",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Crypto Ecosystem",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isHierarchyHead": true,
@@ -5300,15 +5324,6 @@
                 "label": "Add Dashboard",
                 "relatedUiObject": "Dashboard",
                 "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Charting Space",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "isHierarchyHead": true,
@@ -5469,15 +5484,6 @@
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
                 "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Viewport",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
             }
         ],
         "initialValues": {

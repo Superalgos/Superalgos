@@ -14,21 +14,9 @@
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
 
-    let percentageBandwidthAt = {}
-    let bollingerBandsAt = {}
-    let bollingerChannelsAt = {}
-    let bollingerSubChannelsAt = {}
-    let candlesAt = {}
-
-
     return thisObject;
 
     function finalize() {
-        percentageBandwidthAt = undefined
-        bollingerBandsAt = undefined
-        bollingerChannelsAt = undefined
-        bollingerSubChannelsAt = undefined
-        candlesAt = undefined
         thisObject = undefined
     }
 
@@ -1514,6 +1502,7 @@
 
                     if (parentNode !== undefined) {
                         let phase = parentNode.takeProfit.phases[p];
+                        if (phase === undefined) {return} // trying to jump to a phase that does not exists.
 
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {

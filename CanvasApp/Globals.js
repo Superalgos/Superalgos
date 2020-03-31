@@ -46,7 +46,7 @@ const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED = 5
 const ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_SCALES = 3
 
 let FONT_ASPECT_RATIO = 0.32;
-
+let ANIMATION_FRAME_PER_SECONDS
 
 const GET_CONTAINER_PURPOSE = {
   MOUSE_OVER: 1,
@@ -121,6 +121,7 @@ let dailyFilePeriods =
 dailyFilePeriods = JSON.parse(dailyFilePeriods);
 
 let SHOW_ANIMATION_PERFORMACE = false;
+let MENU_ITEM_ON_FOCUS
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY

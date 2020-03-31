@@ -96,7 +96,8 @@ function newPlotterPanel () {
 
     const X_AXIS = thisObject.container.frame.width / 2
     const Y_AXIS = frameTitleHeight + frameBodyHeight / 2
-    const PANEL_HEIGHT = frameTitleHeight + frameBodyHeight
+
+    const PANEL_HEIGHT = UI_PANEL.HEIGHT.NORMAL
 
     if (currentRecord === undefined) { return }
     if (currentRecord.data === undefined) { return }
@@ -113,7 +114,7 @@ function newPlotterPanel () {
       }
     }
 
-    printLabel('Indicator Properties', X_AXIS, PANEL_HEIGHT * 17 / 100 / 1.25, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
+    printLabel('Indicator Properties', X_AXIS, UI_PANEL.HEIGHT.NORMAL * 17 / 100, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
 
     /* Second we go through the panel data. */
     if (panelNode.panelData === undefined) { return }
@@ -126,8 +127,19 @@ function newPlotterPanel () {
       let value = 'No value defined.'
 
       if (valuePosition > 100) {
-        heightFactor = 1.25
-        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * heightFactor
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.25
+      }
+
+      if (valuePosition > 125) {
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.50
+      }
+
+      if (valuePosition > 150) {
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.75
+      }
+
+      if (valuePosition > 175) {
+        thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.00
       }
 
       if (panelData.dataFormula !== undefined) {
@@ -140,7 +152,11 @@ function newPlotterPanel () {
       }
 
       if (panelData.code.valueDecimals !== undefined) {
-        value = value.toFixed(panelData.code.valueDecimals)
+        if (value !== undefined) {
+          if (isNaN(value) === false) {
+            value = value.toFixed(panelData.code.valueDecimals)
+          }
+        }
       }
 
       if (panelData.code.labelText !== undefined) {
@@ -155,8 +171,8 @@ function newPlotterPanel () {
         valuePosition = panelData.code.valuePosition
       }
 
-      printLabel(labelText, X_AXIS, PANEL_HEIGHT * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-      printLabel(value, X_AXIS, PANEL_HEIGHT * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
     }
   }
 }

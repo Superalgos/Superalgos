@@ -140,7 +140,7 @@ function newViewport () {
       y: -container.frame.position.y - container.frame.height / 2
     }
     position.x = targetPoint.x + browserCanvas.width / 2
-    position.y = targetPoint.y + (browserCanvas.height - COCKPIT_SPACE_HEIGHT - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+    position.y = targetPoint.y + (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
   }
 
   function zoomAtCenter (level) {
@@ -152,7 +152,7 @@ function newViewport () {
   function mousePositionPhysics () {
     if (overrideMousePositionCounter > 0) {
       thisObject.mousePosition.x = browserCanvas.width / 2
-      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+      thisObject.mousePosition.y = (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
 
       overrideMousePositionCounter--
       if (overrideMousePositionCounter < 0) {
@@ -200,11 +200,12 @@ function newViewport () {
     if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
-    let amount = event.delta
 
     if (IS_MAC) {
       event.delta = event.delta * MAC_AMOUNT_FACTOR
     }
+
+    let amount = event.delta
 
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */

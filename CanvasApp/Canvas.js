@@ -40,6 +40,7 @@ function newCanvas () {
     designSpace: undefined,
     animation: undefined,
     mouse: undefined,
+    shorcutNumbers: new Map(),
     initialize: initialize,
     finalize: finalize
   }
@@ -57,12 +58,14 @@ function newCanvas () {
     },
     action: ''
   }
+
   return thisObject
 
   function finalize () {
     try {
       thisObject.chartingSpace.finalize()
       thisObject.floatingSpace.finalize()
+      thisObject.shorcutNumbers = undefined
 
       browserCanvas.removeEventListener('mousedown', onMouseDown, false)
       browserCanvas.removeEventListener('mouseup', onMouseUp, false)
@@ -252,6 +255,24 @@ function newCanvas () {
     checkMediaRecording(event)
     canvas.chartingSpace.onKeyPressed(event)
 
+    /* Shourcuts to Menu Items */
+    if ((event.keyCode >= 48 && event.keyCode <= 57)) {
+      let number = event.key
+      if (MENU_ITEM_ON_FOCUS !== undefined) {
+        let menuItem = thisObject.shorcutNumbers.get(number)
+        if (menuItem !== undefined) {
+          menuItem.shorcutNumber = undefined
+        }
+        thisObject.shorcutNumbers.set(number, MENU_ITEM_ON_FOCUS)
+        MENU_ITEM_ON_FOCUS.shorcutNumber = number
+      } else {
+        let menuItem = thisObject.shorcutNumbers.get(number)
+        if (menuItem !== undefined) {
+          menuItem.internalClick()
+        }
+      }
+    }
+
     if (event.key === 'Escape' && canvas.floatingSpace.inMapMode === true) {
       canvas.floatingSpace.exitMapMode()
     }
@@ -409,6 +430,7 @@ function newCanvas () {
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.altKey === true) {
+      /* Shortcuts to nodes */
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
         /* From here we prevent the default behaviour. Putting it earlier prevents imput box and text area to receive keystrokes */
         event.preventDefault()

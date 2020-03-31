@@ -68,7 +68,6 @@ function newWorkspace () {
   let droppedNode
   let sessionTimestamp = (new Date()).valueOf()
   window.localStorage.setItem('Session Timestamp', sessionTimestamp)
-  console.log(sessionTimestamp)
 
   return thisObject
 
@@ -173,8 +172,9 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
-      if (node) {
+
+      if (rootNode.isIncluded !== true) {
+        let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
         stringifyReadyNodes.push(node)
       }
     }
@@ -194,15 +194,15 @@ function newWorkspace () {
         if (rootNode.networkNodes !== undefined) {
           for (let j = 0; j < rootNode.networkNodes.length; j++) {
             let networkNode = rootNode.networkNodes[j]
-            if (networkNode.dataMining !== undefined) {
+            if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
               networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
-            if (networkNode.testingEnvironment !== undefined) {
+            if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
               networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
-            if (networkNode.productionEnvironment !== undefined) {
+            if (networkNode.productionEnvironment !== undefined && networkNode.productionEnvironment.payload !== undefined) {
               networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }

@@ -29,11 +29,15 @@ function newFileStorage () {
 
   return thisObject
 
-  async function getBlobToText (filePath, host, callBackFunction) {
+  async function getBlobToText (filePath, host, callBackFunction, pathComplete) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
 
-      callServer(undefined, 'Storage/' + filePath, (response, fileContent) => {
+      let folder = ''
+      if (pathComplete === false || pathComplete === undefined) {
+        folder = 'Storage/'
+      }
+      callServer(undefined, folder + filePath, (response, fileContent) => {
         if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
         } else {

@@ -263,6 +263,7 @@ function newUiObject () {
   }
 
   function invisiblePhysics () {
+    thisObject.menu.invisiblePhysics()
     childrenRunningPhysics()
   }
 
@@ -1536,7 +1537,11 @@ function newUiObject () {
           browserCanvasContext.closePath()
           browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
           browserCanvasContext.lineWidth = 1
-          browserCanvasContext.setLineDash([20, 20])
+          if (thisObject.payload.node.isIncluded === true) {
+            browserCanvasContext.setLineDash([0, 0])
+          } else {
+            browserCanvasContext.setLineDash([20, 20])
+          }
           browserCanvasContext.stroke()
         }
       }
@@ -1723,4 +1728,3 @@ function newUiObject () {
     }
   }
 }
-

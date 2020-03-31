@@ -39,8 +39,10 @@ function newCircularMenuItem () {
     relatedUiObject: undefined,
     dontShowAtFullscreen: undefined,
     isEnabled: true,
+    shorcutNumber: undefined,
     internalClick: internalClick,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -133,10 +135,29 @@ function newCircularMenuItem () {
     }
   }
 
+  function invisiblePhysics () {
+    temporaryStatusPhysics()
+  }
+
+  function temporaryStatusPhysics () {
+  /* Temporary Status impacts on the label to use and the background of that label */
+    if (temporaryStatusCounter > 0) {
+      temporaryStatusCounter--
+    }
+
+    if (temporaryStatusCounter === 0) {
+      temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
+      labelToPrint = thisObject.label
+      backgroundColorToUse = defaultBackgroudColor
+      thisObject.nextAction = thisObject.action
+    }
+  }
+
   function physics () {
     if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
 
-    const INCREASE_STEP = 2
+    let INCREASE_STEP = 2 // (thisObject.targetRadius - thisObject.rawRadius) / 4
+    // if (INCREASE_STEP === 0) { INCREASE_STEP = 2 }
 
     if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= INCREASE_STEP) {
       if (thisObject.currentRadius < thisObject.targetRadius) {
@@ -150,19 +171,19 @@ function newCircularMenuItem () {
     if (thisObject.type === 'Icon Only') {
       switch (thisObject.ring) {
         case 1: {
-          radiusGrowthFactor = 6.5
+          radiusGrowthFactor = 5.5
           break
         }
         case 2: {
-          radiusGrowthFactor = 5.0
+          radiusGrowthFactor = 4.0
           break
         }
         case 3: {
-          radiusGrowthFactor = 3.5
+          radiusGrowthFactor = 3.0
           break
         }
         case 4: {
-          radiusGrowthFactor = 2.5
+          radiusGrowthFactor = 2.0
           break
         }
       }
@@ -170,20 +191,10 @@ function newCircularMenuItem () {
       radiusGrowthFactor = 4
     }
 
-    thisObject.container.frame.position.x = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
-    thisObject.container.frame.position.y = thisObject.container.frame.radius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
+    thisObject.container.frame.position.x = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.cos(toRadians(thisObject.angle)) - thisObject.currentRadius * 1.5
+    thisObject.container.frame.position.y = thisObject.payload.floatingObject.targetRadius * radiusGrowthFactor / 7 * Math.sin(toRadians(thisObject.angle)) - thisObject.container.frame.height / 2
 
-    /* Temporary Status impacts on the label to use and the background of that label */
-    if (temporaryStatusCounter > 0) {
-      temporaryStatusCounter--
-    }
-
-    if (temporaryStatusCounter === 0) {
-      temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
-      labelToPrint = thisObject.label
-      backgroundColorToUse = defaultBackgroudColor
-      thisObject.nextAction = thisObject.action
-    }
+    temporaryStatusPhysics()
 
     /* Here we will check if we need to monitor a property that influences the status of the Menu Item. */
     if (thisObject.disableIfPropertyIsDefined === true) {
@@ -245,13 +256,20 @@ function newCircularMenuItem () {
     } else {
       isMouseOver = false
     }
+    MENU_ITEM_ON_FOCUS = thisObject
   }
 
   function onMouseNotOver (point) {
     isMouseOver = false
+    MENU_ITEM_ON_FOCUS = undefined
   }
 
   function internalClick () {
+    if (thisObject.shorcutNumber !== undefined) {
+      let label = thisObject.payload.node.name + ' ' + labelToPrint
+      canvas.cockpitSpace.setStatus(label, 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+    }
+
     onMouseClick()
   }
 
@@ -425,6 +443,11 @@ function newCircularMenuItem () {
         /* Menu Label */
 
       if (thisObject.type === 'Icon & Text') {
+        label = labelToPrint
+        if (thisObject.shorcutNumber !== undefined) {
+          label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+        }
+
         let labelPoint
         let fontSize = 15
 
@@ -438,7 +461,7 @@ function newCircularMenuItem () {
 
           browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
           browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-          browserCanvasContext.fillText(labelToPrint, labelPoint.x, labelPoint.y)
+          browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
         }
       }
     }

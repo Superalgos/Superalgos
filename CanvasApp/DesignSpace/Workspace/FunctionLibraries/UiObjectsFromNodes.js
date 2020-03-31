@@ -19,26 +19,132 @@ function newUiObjectsFromNodes () {
     tasksToRun = []
     sessionsToRun = []
 
-   /* Create the workspace UI OBject and then continue with the root nodes. */
-    createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
-    if (node.rootNodes !== undefined) {
-      for (let i = 0; i < node.rootNodes.length; i++) {
-        let rootNode = node.rootNodes[i]
-        createUiObjectFromNode(rootNode, undefined, undefined)
+    addIncludedNodes()
+
+    function addIncludedNodes () {
+      blobService = newFileStorage()
+
+      if (node.code === undefined) {
+        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["WHB-BTC-USDT", "WHB-ETH-USDT", "BRR-BTC-USDT"],\n"includeSuperScripts": ["Superalgos"]\n }'
+      }
+
+      let code = JSON.parse(node.code)
+      let includeDataMines = code.includeDataMines
+      let includeTradingSystems = code.includeTradingSystems
+      let includeSuperScripts = code.includeSuperScripts
+
+      let totalIncluded = 0
+
+      for (let i = 0; i < includeDataMines.length; i++) {
+        let name = includeDataMines[i]
+        blobService.getBlobToText('DataMines' + '/' + name, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+            return
+          }
+          let receivedNode = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Data Mine') {
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
+              }
+            }
+          }
+          receivedNode.isIncluded = true
+          node.rootNodes.push(receivedNode)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+            addUserDefinedNodes()
+          }
+        }
+      }
+
+      for (let i = 0; i < includeTradingSystems.length; i++) {
+        let name = includeTradingSystems[i]
+        blobService.getBlobToText('TradingSystems' + '/' + name, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+            return
+          }
+          let receivedNode = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Trading System') {
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
+              }
+            }
+          }
+          receivedNode.isIncluded = true
+          node.rootNodes.push(receivedNode)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+            addUserDefinedNodes()
+          }
+        }
+      }
+
+      for (let i = 0; i < includeSuperScripts.length; i++) {
+        let name = includeSuperScripts[i]
+        blobService.getBlobToText('SuperScripts' + '/' + name, undefined, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
+            return
+          }
+          let receivedNode = JSON.parse(text)
+          for (let i = 0; i < node.rootNodes.length; i++) {
+            let rootNode = node.rootNodes[i]
+            if (rootNode.type === 'Super Scripts') {
+              if (rootNode.code !== undefined) {
+                let code = JSON.parse(rootNode.code)
+                if (code.name === name) {
+                  rootNodes.splice(i, 1)
+                }
+              }
+            }
+          }
+          receivedNode.isIncluded = true
+          node.rootNodes.push(receivedNode)
+          totalIncluded++
+          if (totalIncluded === includeDataMines.length + includeTradingSystems.length + includeSuperScripts.length) {
+            addUserDefinedNodes()
+          }
+        }
       }
     }
 
-    tryToConnectChildrenWithReferenceParents()
+    function addUserDefinedNodes () {
+  /* Create the workspace UI OBject and then continue with the root nodes. */
+      createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
+      if (node.rootNodes !== undefined) {
+        for (let i = 0; i < node.rootNodes.length; i++) {
+          let rootNode = node.rootNodes[i]
+          createUiObjectFromNode(rootNode, undefined, undefined)
+        }
+      }
 
-    if (replacingCurrentWorkspace === true) {
-      // We need to wait all tasks that were potentially running to stop
-      setTimeout(runTasks, 70000)
-      // We give a few seconds for the tasks to start
-      setTimeout(runSessions, 80000)
-    } else {
-      runTasks()
-      // We give a few seconds for the tasks to start
-      setTimeout(runSessions, 10000)
+      tryToConnectChildrenWithReferenceParents()
+
+      if (replacingCurrentWorkspace === true) {
+     // We need to wait all tasks that were potentially running to stop
+        setTimeout(runTasks, 70000)
+     // We give a few seconds for the tasks to start
+        setTimeout(runSessions, 80000)
+      } else {
+        runTasks()
+     // We give a few seconds for the tasks to start
+        setTimeout(runSessions, 10000)
+      }
     }
   }
 

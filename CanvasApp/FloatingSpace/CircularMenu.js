@@ -7,6 +7,7 @@ function newCircularMenu () {
     isDeployed: undefined,
     internalClick: internalClick,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
     getContainer: getContainer,
@@ -171,6 +172,13 @@ function newCircularMenu () {
     }
   }
 
+  function invisiblePhysics () {
+    for (let i = 0; i < menuItems.length; i++) {
+      let menuItem = menuItems[i]
+      menuItem.invisiblePhysics()
+    }
+  }
+
   function physics () {
     for (let i = 0; i < menuItems.length; i++) {
       let menuItem = menuItems[i]
@@ -190,7 +198,7 @@ function newCircularMenu () {
   function onNotFocus () {
     for (let i = 0; i < menuItems.length; i++) {
       let menuItem = menuItems[i]
-      menuItem.targetRadius = menuItem.rawRadius * 0 - i * 4
+      menuItem.targetRadius = menuItem.rawRadius * 0 - i * 1.5
       menuItem.isDeployed = false
     }
     thisObject.isDeployed = false

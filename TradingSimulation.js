@@ -568,9 +568,19 @@
                     let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate) }
-                    console.log("Trading-Engine -> " + MODULE_NAME + " -> runSimulation -> loop -> Simulation " + bot.sessionKey + " Loop # " + currentCandleIndex + " @ " + processingDate)
 
-                    bot.sessionHeartBeat(processingDate) // tell the world we are alive and doing well
+                    /*  Telling the world we are alive and doing well */
+                    let fromDate = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
+                    let lastDate = new Date(bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf())
+
+                    let currentDateString = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2);
+                    let currentDate = new Date(loopingDay)
+                    let percentage = global.getPercentage(fromDate, currentDate, lastDate)
+                    bot.processHeartBeat(currentDateString, percentage)
+
+                    if (global.areEqualDates(currentDate, new Date()) === false) {
+                        logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage);
+                    }
                 }
                 previousLoopingDay = loopingDay.valueOf()
 
@@ -2749,8 +2759,15 @@
 
                 /* Checking if we should continue processing this loop or not.*/
                 if (bot.STOP_SESSION === true) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing."); }
-                    console.log("[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing.")
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session."); }
+                    console.log("[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.")
+                    afterLoop()
+                    return
+                }
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task."); }
+                    console.log("[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.")
                     afterLoop()
                     return
                 }

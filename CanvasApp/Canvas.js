@@ -249,6 +249,7 @@ function newCanvas () {
   }
 
   function onKeyDown (event) {
+    if (EDITOR_ON_FOCUS === true) { return }
     thisObject.mouse.event = event
     thisObject.mouse.action = 'key down'
 

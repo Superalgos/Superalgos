@@ -513,17 +513,15 @@
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
                                     let code = announcement.code
-                                    if (announcement.referenceParent !== undefined) {
-                                        if (socialBot.id === announcement.referenceParent.id) {
-                                            if (socialBot.type === "Telegram Bot") {
-                                                if (announcement.formulaValue !== undefined) {
-                                                    socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
-                                                } else {
-                                                    socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
-                                                }
-                                            }
+                                     
+                                    if (socialBot.type === "Telegram Bot") {
+                                        if (announcement.formulaValue !== undefined) {
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
+                                        } else {
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
                                         }
                                     }
+                                   
                                 } catch (err) {
                                     parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> err = " + err.stack);
                                 }

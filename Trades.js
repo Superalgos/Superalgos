@@ -522,7 +522,7 @@
                 let line1 = '';
                 let line2 = '';
 
-                if (line0 === 'My Situation') {
+                if (line0 === 'New Situation') {
                     line0 = ''
                 }
 

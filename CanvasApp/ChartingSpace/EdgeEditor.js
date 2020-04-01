@@ -268,6 +268,7 @@ function newEdgeEditor () {
   }
 
   function draggingPhysics () {
+    if (coordinateSystemWhenDragStarted === undefined) { return }
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
     let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouse.position)
@@ -324,7 +325,7 @@ function newEdgeEditor () {
             break
           case 'left or right arrow key pressed': {
             let point = {
-              x: -dragVector.x,
+              x: -dragVector.x + thisObject.container.frame.width * coordinateSystem.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2,
               y: 0
             }
 
@@ -342,7 +343,7 @@ function newEdgeEditor () {
           case 'up or down arrow key pressed': {
             let point = {
               x: 0,
-              y: -dragVector.y
+              y: -dragVector.y + thisObject.container.frame.height * coordinateSystem.VERTICAL_MARGIN_INVERSE_FACTOR / 2
             }
 
             let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)

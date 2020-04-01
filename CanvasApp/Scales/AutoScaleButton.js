@@ -85,10 +85,10 @@ function newAutoScaleButton () {
       currentStatus = 2
     }
     if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-      currentStatus = 3
+      currentStatus = 4
     }
     if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-      currentStatus = 4
+      currentStatus = 6
     }
   }
   function onMouseWheel (event) {
@@ -100,8 +100,8 @@ function newAutoScaleButton () {
       delta = 1
     }
     currentStatus = currentStatus + delta
-    if (currentStatus === 5) { currentStatus = 1 }
-    if (currentStatus === 0) { currentStatus = 4 }
+    if (currentStatus === 7) { currentStatus = 1 }
+    if (currentStatus === 0) { currentStatus = 6 }
 
     switch (currentStatus) {
       case 1: {
@@ -118,11 +118,23 @@ function newAutoScaleButton () {
       }
       case 3: {
         thisObject.autoMinScale = false
-        thisObject.autoMaxScale = true
+        thisObject.autoMaxScale = false
         update()
         return
       }
       case 4: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = true
+        update()
+        return
+      }
+      case 5: {
+        thisObject.autoMinScale = false
+        thisObject.autoMaxScale = false
+        update()
+        return
+      }
+      case 6: {
         thisObject.autoMinScale = true
         thisObject.autoMaxScale = true
         update()

@@ -19,6 +19,10 @@ function newCoordinateSystem () {
     autoMaxXScale: true,
     autoMinYScale: true,
     autoMaxYScale: true,
+    HORIZONTAL_MARGIN_FACTOR: 0.80,
+    VERTICAL_MARGIN_FACTOR: 0.90,
+    HORIZONTAL_MARGIN_INVERSE_FACTOR: 0.20,
+    VERTICAL_MARGIN_INVERSE_FACTOR: 0.10,
     physics: physics,
     reportXValue: reportXValue,
     reportYValue: reportYValue,
@@ -193,8 +197,8 @@ function newCoordinateSystem () {
   }
 
   function recalculateScale (event) {
-    thisObject.scale.x = thisObject.maxWidth / (thisObject.max.x - thisObject.min.x)
-    thisObject.scale.y = thisObject.maxHeight / (thisObject.max.y - thisObject.min.y)
+    thisObject.scale.x = thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_FACTOR / (thisObject.max.x - thisObject.min.x)
+    thisObject.scale.y = thisObject.maxHeight * thisObject.VERTICAL_MARGIN_FACTOR / (thisObject.max.y - thisObject.min.y)
 
     thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
@@ -230,8 +234,8 @@ function newCoordinateSystem () {
         */
 
     point = {
-      x: (point.x - thisObject.min.x) * thisObject.scale.x,
-      y: thisObject.maxHeight - (point.y - thisObject.min.y) * thisObject.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x + thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2,
+      y: thisObject.maxHeight - (point.y - thisObject.min.y) * thisObject.scale.y - thisObject.maxHeight * thisObject.VERTICAL_MARGIN_INVERSE_FACTOR / 2
     }
 
     return point
@@ -239,8 +243,8 @@ function newCoordinateSystem () {
 
   function transformThisPoint2 (point) {
     point = {
-      x: (point.x - thisObject.min.x) * thisObject.scale.x,
-      y: (thisObject.maxHeight - point.y - thisObject.min.y) * thisObject.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x + thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2,
+      y: (thisObject.maxHeight - point.y - thisObject.min.y) * thisObject.scale.y - thisObject.maxHeight * thisObject.VERTICAL_MARGIN_INVERSE_FACTOR / 2
     }
 
     return point
@@ -248,8 +252,8 @@ function newCoordinateSystem () {
 
   function unInverseTransform (point, inverseY) {
     point = {
-      x: (point.x / thisObject.scale.x) + thisObject.min.x,
-      y: (inverseY - point.y) / thisObject.scale.y + thisObject.min.y
+      x: ((point.x - thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2) / thisObject.scale.x) + thisObject.min.x,
+      y: (inverseY * thisObject.VERTICAL_MARGIN_FACTOR - point.y + thisObject.maxHeight * thisObject.VERTICAL_MARGIN_INVERSE_FACTOR / 2) / thisObject.scale.y + thisObject.min.y
     }
 
     return point
@@ -257,8 +261,8 @@ function newCoordinateSystem () {
 
   function inverseTransformUncappedY (point, inverseY) {
     point = {
-      x: (point.x - thisObject.min.x) * thisObject.scale.x,
-      y: (inverseY - point.y) * thisObject.scale.y
+      x: (point.x - thisObject.min.x) * thisObject.scale.x + thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2,
+      y: (inverseY * thisObject.VERTICAL_MARGIN_FACTOR - point.y) * thisObject.scale.y - thisObject.maxHeight * thisObject.VERTICAL_MARGIN_INVERSE_FACTOR / 2
     }
 
     return point

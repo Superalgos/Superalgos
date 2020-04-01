@@ -3681,6 +3681,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3714,6 +3720,11 @@
                 "type": "node",
                 "childType": "Take Position Event",
                 "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
             }
         ],
         "propertyNameAtParent": "triggerStage"
@@ -3880,6 +3891,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3907,6 +3924,11 @@
                 "type": "node",
                 "childType": "Open Execution",
                 "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
             }
         ],
         "propertyNameAtParent": "openStage"
@@ -4326,6 +4348,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -4353,6 +4381,11 @@
                 "type": "node",
                 "childType": "Take Profit",
                 "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
             }
         ],
         "propertyNameAtParent": "manageStage"
@@ -4367,6 +4400,12 @@
                 "propertyToCheckFor": "closeExecution",
                 "label": "Add Close Execution",
                 "relatedUiObject": "Close Execution",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4391,6 +4430,11 @@
                 "type": "node",
                 "childType": "Close Execution",
                 "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
             }
         ],
         "propertyNameAtParent": "closeStage"
@@ -4523,11 +4567,8 @@
         },
         "addLeftIcons": true,
         "level": 4,
-        "referenceAttachesTo": {
-            "compatibleTypes": "->Telegram Bot->"
-        },
         "chainAttachesTo": {
-            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Phase->"
+            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
         },
         "properties": [
             {

@@ -1167,6 +1167,8 @@
                                         if (passed) {
 
                                             strategyStage = 'Trigger Stage';
+                                            checkAnnouncements(triggerStage)
+
                                             currentStrategyIndex = j;
                                             currentStrategy.begin = candle.begin;
                                             currentStrategy.beginRate = candle.min;
@@ -1313,6 +1315,8 @@
                                     type = '"Take Position"';
 
                                     strategyStage = 'Open Stage';
+                                    checkAnnouncements(strategy.openStage)
+
                                     stopLossStage = 'Open Stage';
                                     takeProfitStage = 'Open Stage';
                                     stopLossPhase = 0;
@@ -1330,7 +1334,7 @@
 
                                     takePositionNow = true
                                     currentTrade.takePositionSituation = situation.name
-
+                                    
                                     checkAnnouncements(triggerStage.takePosition)
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
@@ -1411,7 +1415,10 @@
 
                                     stopLossPhase++;
                                     stopLossStage = 'Manage Stage'
-                                    if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
+                                    if (takeProfitPhase > 0) {
+                                        strategyStage = 'Manage Stage'
+                                        checkAnnouncements(manageStage, 'Take Profit')
+                                    }
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1543,7 +1550,10 @@
 
                                     takeProfitPhase++;
                                     takeProfitStage = 'Manage Stage'
-                                    if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
+                                    if (stopLossPhase > 0) {
+                                        strategyStage = 'Manage Stage'
+                                        checkAnnouncements(manageStage, 'Stop')
+                                    }
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1745,6 +1755,8 @@
                         marketRate = closeRate;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
+                        checkAnnouncements(strategy.closeStage, 'Stop')
+
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
@@ -1814,6 +1826,8 @@
                         marketRate = closeRate;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
+                        checkAnnouncements(strategy.closeStage, 'Take Profit')
+
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
 
@@ -2669,7 +2683,7 @@
 
                 function checkAnnouncements(node, value) {
                     /*
-                    Value is an optional parameter that represents the value that the announcement is monitoring for change.
+                    Value is an optional parameter that represents the value that the announcement is monitoring for change (for numeric values only).
                     If we do receive this value, we will only make the annoucement if the variance is grater than the user pre-defined value
                     for this variance.
                     */
@@ -2693,18 +2707,20 @@
 
                             if (periods > lastPeriodAnnounced) {
 
-                                /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
-                                let valueVariation
-                        
-                                let code = announcement.code
-                                valueVariation = code.valueVariation
-      
-                                if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
-                                    let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
-                                    let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100
-                                    if (value > lowerLimit && value < upperLimit) {
-                                        /* There is not enough variation to announce this again. */
-                                        return
+                                if (isNaN(value) === false) {
+                                    /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
+                                    let valueVariation
+
+                                    let code = announcement.code
+                                    valueVariation = code.valueVariation
+
+                                    if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
+                                        let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
+                                        let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100
+                                        if (value > lowerLimit && value < upperLimit) {
+                                            /* There is not enough variation to announce this again. */
+                                            return
+                                        }
                                     }
                                 }
 
@@ -2712,6 +2728,7 @@
                                 We store the announcement temporarily at an Array to differ its execution, becasue we need to evaulate its formula
                                 and at this point in time the potential variables used at the formula are still not set.
                                 */
+                                announcement.value = value
                                 announcementsToBeMade.push(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
@@ -2739,6 +2756,7 @@
                         let formulaValue
                         if (announcement.formula !== undefined) {
                             try {
+                                let value = announcement.value
                                 formulaValue = eval(announcement.formula.code);
                             } catch (err) {
                                 announcement.formula.error = err.message

@@ -2695,13 +2695,10 @@
 
                                 /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
                                 let valueVariation
-                                try {
-                                    let code = JSON.parse(announcement.code)
-                                    valueVariation = code.valueVariation
-                                } catch (err) {
-                                    announcement.error = err.message
-                                }
-
+                        
+                                let code = announcement.code
+                                valueVariation = code.valueVariation
+      
                                 if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
                                     let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
                                     let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100

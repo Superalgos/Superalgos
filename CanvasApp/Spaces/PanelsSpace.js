@@ -71,7 +71,7 @@ function newPanelsSpace () {
     panel.owner = pOwner
     thisObject.panels.push(panel)
 
-    panel.handle = Math.floor((Math.random() * 10000000) + 1)
+    panel.handle = newUniqueId()
 
     return panel.handle
   }

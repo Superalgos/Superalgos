@@ -12,6 +12,7 @@ function newUiObjectTitle () {
     editMode: undefined,
     container: undefined,
     payload: undefined,
+    isDefault: undefined,
     enterEditMode: enterEditMode,
     exitEditMode: exitEditMode,
     physics: physics,
@@ -81,6 +82,19 @@ function newUiObjectTitle () {
   }
 
   function physics () {
+    inheritancePhysics()
+    defaultPhysics()
+  }
+
+  function defaultPhysics () {
+    if (thisObject.payload.title !== 'New ' + thisObject.payload.node.type && thisObject.payload.title !== 'My ' + thisObject.payload.node.type) {
+      thisObject.isDefault = false
+    } else {
+      thisObject.isDefault = true
+    }
+  }
+
+  function inheritancePhysics () {
     if (thisObject.payload.title === undefined) { return }
 
     /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
@@ -255,7 +269,7 @@ function newUiObjectTitle () {
   }
 
   function draw () {
-    if (thisObject.isOnFocus === true || thisObject.allwaysVisible === true) {
+    if (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false) {
       if (thisObject.payload.uiObject.codeEditor !== undefined) {
         if (thisObject.payload.uiObject.codeEditor.visible !== true) {
           drawTitleBackground()
@@ -291,7 +305,7 @@ function newUiObjectTitle () {
       let fontSize = thisObject.payload.floatingObject.currentFontSize
       let label
 
-      if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true)) {
+      if (radius > 6 && (thisObject.isOnFocus === true || thisObject.allwaysVisible === true || thisObject.isDefault === false)) {
         browserCanvasContext.strokeStyle = thisObject.payload.floatingObject.labelStrokeStyle
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY

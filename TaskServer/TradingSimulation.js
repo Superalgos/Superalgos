@@ -173,6 +173,10 @@
             let orderId = 0;
             let messageId = 0;
 
+            /* Allowing these to be accesible at formulas */
+            baseAsset = bot.VALUES_TO_USE.baseAsset
+            quotedAsset = bot.VALUES_TO_USE.quotedAsset
+
             let yesterday = {};
 
             /* Initialization */
@@ -714,7 +718,7 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             positionSize = balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
@@ -737,13 +741,13 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === bot.market.baseAsset) {
                                                 positionSize = balanceBaseAsset;
                                             } else {
                                                 positionSize = balanceQuotedAsset;
                                             }
                                         } else {
-                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === bot.market.baseAsset) {
                                                 if (positionSize > balanceBaseAsset) { positionSize = balanceBaseAsset }
                                             } else {
                                                 if (positionSize > balanceQuotedAsset) { positionSize = balanceQuotedAsset }
@@ -764,7 +768,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === bot.market.baseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -1101,7 +1105,7 @@
                     let maximumBalance
                     let balance
 
-                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                    if (baseAsset === bot.market.baseAsset) {
                         balance = balanceBaseAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
@@ -1163,6 +1167,8 @@
                                         if (passed) {
 
                                             strategyStage = 'Trigger Stage';
+                                            checkAnnouncements(triggerStage)
+
                                             currentStrategyIndex = j;
                                             currentStrategy.begin = candle.begin;
                                             currentStrategy.beginRate = candle.min;
@@ -1309,6 +1315,8 @@
                                     type = '"Take Position"';
 
                                     strategyStage = 'Open Stage';
+                                    checkAnnouncements(strategy.openStage)
+
                                     stopLossStage = 'Open Stage';
                                     takeProfitStage = 'Open Stage';
                                     stopLossPhase = 0;
@@ -1326,7 +1334,7 @@
 
                                     takePositionNow = true
                                     currentTrade.takePositionSituation = situation.name
-
+                                    
                                     checkAnnouncements(triggerStage.takePosition)
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
@@ -1407,7 +1415,10 @@
 
                                     stopLossPhase++;
                                     stopLossStage = 'Manage Stage'
-                                    if (takeProfitPhase > 0) { strategyStage = 'Manage Stage' }
+                                    if (takeProfitPhase > 0) {
+                                        strategyStage = 'Manage Stage'
+                                        checkAnnouncements(manageStage, 'Take Profit')
+                                    }
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1539,7 +1550,10 @@
 
                                     takeProfitPhase++;
                                     takeProfitStage = 'Manage Stage'
-                                    if (stopLossPhase > 0) { strategyStage = 'Manage Stage' }
+                                    if (stopLossPhase > 0) {
+                                        strategyStage = 'Manage Stage'
+                                        checkAnnouncements(manageStage, 'Stop')
+                                    }
 
                                     if (processingDailyFiles) {
                                         if (positionedAtYesterday) {
@@ -1695,7 +1709,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.max >= stopLoss) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.min <= stopLoss)) {
+                    if ((baseAsset === bot.market.baseAsset && candle.max >= stopLoss) || (baseAsset !== bot.market.baseAsset && candle.min <= stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1705,7 +1719,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             if (stopLoss < candle.min) {
                                 stopLoss = candle.min
                                 if (processingDailyFiles) {
@@ -1730,7 +1744,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1741,6 +1755,8 @@
                         marketRate = closeRate;
                         type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
+                        checkAnnouncements(strategy.closeStage, 'Stop')
+
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         currentTrade.end = candle.end;
@@ -1765,7 +1781,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset && candle.min <= takeProfit) || (bot.VALUES_TO_USE.baseAsset !== bot.market.baseAsset && candle.max >= takeProfit)) {
+                    if ((baseAsset === bot.market.baseAsset && candle.min <= takeProfit) || (baseAsset !== bot.market.baseAsset && candle.max >= takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1775,7 +1791,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             if (takeProfit > candle.max) {
                                 takeProfit = candle.max
                                 if (processingDailyFiles) {
@@ -1799,7 +1815,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1810,6 +1826,8 @@
                         marketRate = closeRate;
                         type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
+                        checkAnnouncements(strategy.closeStage, 'Take Profit')
+
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
 
@@ -1860,7 +1878,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                    if (baseAsset === bot.market.baseAsset) {
                         tradePositionRate = tradePositionRate - slippageAmount
                     } else {
                         tradePositionRate = tradePositionRate + slippageAmount
@@ -1988,7 +2006,7 @@
                         let orderSide
  
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             orderSide = "sell"
 
                             orderPrice = tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
@@ -2082,7 +2100,7 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
 
                             feePaid = tradePositionSize * tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
@@ -2194,7 +2212,7 @@
                         let amountB
                         let orderSide
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             orderSide = "buy"
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -2276,7 +2294,7 @@
 
                         let feePaid = 0
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             strategy.positionSize = balanceQuotedAsset / closeRate;
                             strategy.positionRate = closeRate;
 
@@ -2302,7 +2320,7 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             lastTradeProfitLoss = balanceBaseAsset - previousBalanceBaseAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
                             if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
@@ -2349,7 +2367,7 @@
                             }
                         }
 
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             ROI = (bot.VALUES_TO_USE.initialBalanceA + profit) / bot.VALUES_TO_USE.initialBalanceA - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
@@ -2507,8 +2525,8 @@
                         balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
-                    let quotedBaseAsset = '"' + bot.VALUES_TO_USE.baseAsset + '"'
-                    let quotedQuotedAsset = '"' + bot.VALUES_TO_USE.quotedAsset + '"'
+                    let quotedBaseAsset = '"' + baseAsset + '"'
+                    let quotedQuotedAsset = '"' + quotedAsset + '"'
 
                     simulationRecord = {
                         begin: candle.begin,
@@ -2619,7 +2637,7 @@
                         currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing ROI */
-                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === bot.market.baseAsset) {
                             currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
                         } else {
                             currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100
@@ -2665,7 +2683,7 @@
 
                 function checkAnnouncements(node, value) {
                     /*
-                    Value is an optional parameter that represents the value that the announcement is monitoring for change.
+                    Value is an optional parameter that represents the value that the announcement is monitoring for change (for numeric values only).
                     If we do receive this value, we will only make the annoucement if the variance is grater than the user pre-defined value
                     for this variance.
                     */
@@ -2689,21 +2707,20 @@
 
                             if (periods > lastPeriodAnnounced) {
 
-                                /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
-                                let valueVariation
-                                try {
-                                    let code = JSON.parse(announcement.code)
-                                    valueVariation = code.valueVariation
-                                } catch (err) {
-                                    announcement.error = err.message
-                                }
+                                if (isNaN(value) === false) {
+                                    /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
+                                    let valueVariation
 
-                                if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
-                                    let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
-                                    let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100
-                                    if (value > lowerLimit && value < upperLimit) {
-                                        /* There is not enough variation to announce this again. */
-                                        return
+                                    let code = announcement.code
+                                    valueVariation = code.valueVariation
+
+                                    if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
+                                        let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100
+                                        let lowerLimit = newAnnouncementRecord.value - newAnnouncementRecord.value * valueVariation / 100
+                                        if (value > lowerLimit && value < upperLimit) {
+                                            /* There is not enough variation to announce this again. */
+                                            return
+                                        }
                                     }
                                 }
 
@@ -2711,6 +2728,7 @@
                                 We store the announcement temporarily at an Array to differ its execution, becasue we need to evaulate its formula
                                 and at this point in time the potential variables used at the formula are still not set.
                                 */
+                                announcement.value = value
                                 announcementsToBeMade.push(announcement)
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
@@ -2738,6 +2756,7 @@
                         let formulaValue
                         if (announcement.formula !== undefined) {
                             try {
+                                let value = announcement.value
                                 formulaValue = eval(announcement.formula.code);
                             } catch (err) {
                                 announcement.formula.error = err.message

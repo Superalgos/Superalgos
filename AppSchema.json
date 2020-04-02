@@ -3571,14 +3571,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "parameters",
-                "label": "Add Parameters",
-                "relatedUiObject": "Parameters",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3604,12 +3596,6 @@
                 "name": "strategies",
                 "type": "array",
                 "childType": "Strategy",
-                "autoAdd": true
-            },
-            {
-                "name": "parameters",
-                "type": "node",
-                "childType": "Parameters",
                 "autoAdd": true
             }
         ],

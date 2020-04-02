@@ -22,8 +22,8 @@ function newFloatingObject () {
     targetRadius: 0,                        // This is the target radius of the floating object with zoom applied. It should be animated until reaching this value.
     isPinned: false,
     isFrozen: false,
-    angleToParent: ANGLE_TO_PARENT.RANGE_90,
-    distanceToParent: DISTANCE_TO_PARENT.PARENT_100X,
+    angleToParent: undefined,
+    distanceToParent: undefined,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,

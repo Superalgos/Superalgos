@@ -24,6 +24,7 @@ function newFloatingObject () {
     isFrozen: false,
     angleToParent: undefined,
     distanceToParent: undefined,
+    arrangementStyle: ARRANGEMENT_STYLE.CIRCULAR,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -33,6 +34,7 @@ function newFloatingObject () {
     getCollapseStatus: getCollapseStatus,
     getAngleToParent: getAngleToParent,
     getDistanceToParent: getDistanceToParent,
+    getArrangementStyle: getArrangementStyle,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
@@ -40,6 +42,7 @@ function newFloatingObject () {
     collapseToggle: collapseToggle,
     angleToParentToggle: angleToParentToggle,
     distanceToParentToggle: distanceToParentToggle,
+    arrangementStyleToggle: arrangementStyleToggle,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
     initializeMass: initializeMass,
@@ -153,6 +156,10 @@ function newFloatingObject () {
     return thisObject.distanceToParent
   }
 
+  function getArrangementStyle () {
+    return thisObject.arrangementStyle
+  }
+
   function freezeToggle () {
     if (thisObject.isFrozen !== true) {
       thisObject.isFrozen = true
@@ -220,6 +227,22 @@ function newFloatingObject () {
     }
 
     return thisObject.distanceToParent
+  }
+
+  function arrangementStyleToggle () {
+    switch (thisObject.arrangementStyle) {
+      case ARRANGEMENT_STYLE.CIRCULAR:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.VERTICAL
+        break
+      case ARRANGEMENT_STYLE.VERTICAL:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.HORIZONTAL
+        break
+      case ARRANGEMENT_STYLE.HORIZONTAL:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.CIRCULAR
+        break
+    }
+
+    return thisObject.arrangementStyle
   }
 
   function invisiblePhysics () {

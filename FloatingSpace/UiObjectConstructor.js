@@ -63,6 +63,9 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.distanceToParent !== undefined) {
         floatingObject.distanceToParent = payload.node.savedPayload.floatingObject.distanceToParent
       }
+      if (payload.node.savedPayload.floatingObject.arrangementStyle !== undefined) {
+        floatingObject.arrangementStyle = payload.node.savedPayload.floatingObject.arrangementStyle
+      }
     }
 
     /*
@@ -83,6 +86,7 @@ function newUiObjectConstructor () {
               if (closestSibling !== undefined) {
                 floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
                 floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
                 break
               }
             }
@@ -98,6 +102,7 @@ function newUiObjectConstructor () {
                   if (closestSibling !== undefined) {
                     floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
                     floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                    floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
                     break
                   }
                 }
@@ -106,6 +111,7 @@ function newUiObjectConstructor () {
                 if (closestSibling !== undefined) {
                   floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
                   floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
                   break
                 }
               }
@@ -120,6 +126,7 @@ function newUiObjectConstructor () {
                   if (closestSibling !== undefined) {
                     floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
                     floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                    floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
                     break
                   }
                 }
@@ -128,6 +135,7 @@ function newUiObjectConstructor () {
                 if (closestSibling !== undefined) {
                   floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
                   floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
                   break
                 }
               }
@@ -138,6 +146,7 @@ function newUiObjectConstructor () {
       if (floatingObject.angleToParent === undefined) {
         floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
         floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
+        floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
       }
     }
 
@@ -240,6 +249,21 @@ function newUiObjectConstructor () {
         ring: 1
       }
         )
+    menuItemsInitialValues.push(
+      {
+        action: 'change Arrangement Style',
+        actionFunction: floatingObject.arrangementStyleToggle,
+        actionStatus: floatingObject.getArrangementStyle,
+        currentStatus: true,
+        label: undefined,
+        visible: true,
+        icons: ['shapes-polygon', 'shapes-polygon-body', 'shapes-polygon-border'],
+        rawRadius: 12,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 1
+      }
+            )
     menuItemsInitialValues.push(
       {
         action: 'Freeze / Unfreeze',

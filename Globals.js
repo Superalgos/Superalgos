@@ -72,6 +72,12 @@ const DISTANCE_TO_PARENT = {
   PARENT_200X: 5
 }
 
+const ARRANGEMENT_STYLE = {
+  CIRCULAR: 0,
+  VERTICAL: 1,
+  HORIZONTAL: 2
+}
+
 /* User Interface Panels */
 
 const UI_PANEL = {

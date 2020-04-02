@@ -110,6 +110,28 @@ function newUiObjectConstructor () {
                 }
               }
             }
+            for (let j = i + 1; j < definition.properties.length; j++) {
+              let siblingProperty = definition.properties[j]
+              let parentNode = payload.parentNode
+              let parentNodeProperty = parentNode[siblingProperty.name]
+              if (siblingProperty.type === 'array') {
+                if (parentNodeProperty.length > 0) {
+                  let closestSibling = parentNodeProperty[parentNodeProperty.length - 1]
+                  if (closestSibling !== undefined) {
+                    floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                    floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                    break
+                  }
+                }
+              } else {
+                let closestSibling = parentNodeProperty
+                if (closestSibling !== undefined) {
+                  floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                  floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  break
+                }
+              }
+            }
           }
         }
       }

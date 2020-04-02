@@ -146,7 +146,7 @@ function newUiObjectConstructor () {
       if (floatingObject.angleToParent === undefined) {
         floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
         floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
-        floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+        floatingObject.arrangementStyle = payload.parentNode.payload.floatingObject.arrangementStyle
       }
     }
 
@@ -257,7 +257,7 @@ function newUiObjectConstructor () {
         currentStatus: true,
         label: undefined,
         visible: true,
-        icons: ['shapes-polygon', 'shapes-polygon-body', 'shapes-polygon-border'],
+        icons: ['shapes-polygon', 'shapes-polygon-body', 'shapes-polygon-border', 'clone', 'layer-manager', 'process'],
         rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,

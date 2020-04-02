@@ -186,24 +186,28 @@ function newEdgeEditor () {
     const STEP = 10
 
     if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowLeft') {
+      onDragStarted(event)
       thisObject.container.frame.position.x = thisObject.container.frame.position.x + STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
     if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowRight') {
+      onDragStarted(event)
       thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
     if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowUp') {
+      onDragStarted(event)
       thisObject.container.frame.position.y = thisObject.container.frame.position.y + STEP
       whatHappened = 'up or down arrow key pressed'
       return
     }
 
     if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowDown') {
+      onDragStarted(event)
       thisObject.container.frame.position.y = thisObject.container.frame.position.y - STEP
       whatHappened = 'up or down arrow key pressed'
       return

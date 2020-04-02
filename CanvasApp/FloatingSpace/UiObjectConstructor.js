@@ -65,10 +65,80 @@ function newUiObjectConstructor () {
       }
     }
 
-    /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
+    /*
+    For brand new objects being created directly by the user, we will make them inherit some properties
+    from their closest siblings, and if they don't have, from their parents.
+    */
+
     if (userAddingNew === true) {
-      floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
-      floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
+      let definition = APP_SCHEMA_MAP.get(payload.parentNode.type)
+      for (let i = 0; i < definition.properties.length; i++) {
+        let property = definition.properties[i]
+        if (property.childType === payload.node.type) {
+          if (property.type === 'array') {
+            let parentNode = payload.parentNode
+            let parentNodeArray = parentNode[property.name]
+            if (parentNodeArray.length > 1) { // the new node was already added
+              let closestSibling = parentNodeArray[parentNodeArray.length - 2]
+              if (closestSibling !== undefined) {
+                floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                break
+              }
+            }
+          }
+          if (floatingObject.angleToParent === undefined) {
+            for (let j = i - 1; j >= 0; j--) {
+              let siblingProperty = definition.properties[j]
+              let parentNode = payload.parentNode
+              let parentNodeProperty = parentNode[siblingProperty.name]
+              if (siblingProperty.type === 'array') {
+                if (parentNodeProperty.length > 0) {
+                  let closestSibling = parentNodeProperty[parentNodeProperty.length - 1]
+                  if (closestSibling !== undefined) {
+                    floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                    floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                    break
+                  }
+                }
+              } else {
+                let closestSibling = parentNodeProperty
+                if (closestSibling !== undefined) {
+                  floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                  floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  break
+                }
+              }
+            }
+            for (let j = i + 1; j < definition.properties.length; j++) {
+              let siblingProperty = definition.properties[j]
+              let parentNode = payload.parentNode
+              let parentNodeProperty = parentNode[siblingProperty.name]
+              if (siblingProperty.type === 'array') {
+                if (parentNodeProperty.length > 0) {
+                  let closestSibling = parentNodeProperty[parentNodeProperty.length - 1]
+                  if (closestSibling !== undefined) {
+                    floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                    floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                    break
+                  }
+                }
+              } else {
+                let closestSibling = parentNodeProperty
+                if (closestSibling !== undefined) {
+                  floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                  floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  break
+                }
+              }
+            }
+          }
+        }
+      }
+      if (floatingObject.angleToParent === undefined) {
+        floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
+        floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
+      }
     }
 
     let uiObject = newUiObject()

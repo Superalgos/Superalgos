@@ -17,7 +17,7 @@ function newEventHandler () {
   }
 
   function listenToEvent (eventType, handler, extraData) {
-    let eventSubscriptionId = Math.trunc(Math.random() * 1000000)
+    let eventSubscriptionId = newUniqueId()
     eventHandlers.push([eventType, handler, extraData, eventSubscriptionId])
     return eventSubscriptionId
   }

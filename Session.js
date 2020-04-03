@@ -187,13 +187,6 @@
 
                 /* Set all default values */
                 bot.VALUES_TO_USE = {
-                    baseAsset: "BTC",
-                    initialBalanceA: 0.001,
-                    initialBalanceB: 0,
-                    minimumBalanceA: 0.0005,
-                    minimumBalanceB: 0,
-                    maximumBalanceA: 0.002,
-                    maximumBalanceB: 0,
                     slippage: {
                         positionRate: 0,
                         stopLoss: 0,
@@ -237,132 +230,6 @@
                 let tradingSystem = bot.TRADING_SYSTEM 
 
                 if (tradingSystem !== undefined) {
-
-                    /* Applying Trading System Level Parameters */
-                    if (tradingSystem.parameters !== undefined) {
-
-                        /* Base Asset and Initial Balances. */
-                        {
-                            if (tradingSystem.parameters.baseAsset !== undefined) {
-                                if (tradingSystem.parameters.baseAsset.referenceParent !== undefined) {
-                                    if (tradingSystem.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
-
-                                        let code = tradingSystem.parameters.baseAsset.referenceParent.referenceParent.code
-
-                                        if (code.codeName !== undefined) {
-                                            bot.VALUES_TO_USE.baseAsset = code.codeName;
-                                        }
-
-                                        code = tradingSystem.parameters.baseAsset.code
-
-                                        if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
-                                            if (code.initialBalance !== undefined) {
-                                                bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
-                                                bot.VALUES_TO_USE.initialBalanceB = 0
-                                            }
-                                            if (code.minimumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
-                                                bot.VALUES_TO_USE.minimumBalanceB = 0
-                                            }
-                                            if (code.maximumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
-                                                bot.VALUES_TO_USE.maximumBalanceB = 0
-                                            }
-                                        } else {
-                                            if (code.initialBalance !== undefined) {
-                                                bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
-                                                bot.VALUES_TO_USE.initialBalanceA = 0
-                                            }
-                                            if (code.minimumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
-                                                bot.VALUES_TO_USE.minimumBalanceA = 0
-                                            }
-                                            if (code.maximumBalance !== undefined) {
-                                                bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
-                                                bot.VALUES_TO_USE.maximumBalanceA = 0
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        /* Quoted Asset */
-                        {
-                            if (tradingSystem.parameters.quotedAsset !== undefined) {
-                                if (tradingSystem.parameters.quotedAsset.referenceParent !== undefined) {
-                                    if (tradingSystem.parameters.quotedAsset.referenceParent.referenceParent !== undefined) {
-
-                                        let code = tradingSystem.parameters.quotedAsset.referenceParent.referenceParent.code
-
-                                        if (code.codeName !== undefined) {
-                                            bot.VALUES_TO_USE.quotedAsset = code.codeName;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        /* Time Frame */
-                        if (tradingSystem.parameters.timeFrame !== undefined) {
-                            bot.VALUES_TO_USE.timeFrame = tradingSystem.parameters.timeFrame.code.value
-                        }
-
-                        /* Slippage */
-                        if (tradingSystem.parameters.slippage !== undefined) {
-                            if (tradingSystem.parameters.slippage.code !== undefined) {
-
-                                let code = tradingSystem.parameters.slippage.code
-
-                                if (code.positionRate !== undefined) {
-                                    bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
-                                }
-                                if (code.stopLoss !== undefined) {
-                                    bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
-                                }
-                                if (code.takeProfit !== undefined) {
-                                    bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
-                                }
-                            }
-                        }
-
-                        /* Fee Structure */
-                        if (tradingSystem.parameters.feeStructure !== undefined) {
-                            if (tradingSystem.parameters.feeStructure.code !== undefined) {
-                     
-                                let code = tradingSystem.parameters.feeStructure.code
-
-                                if (code.maker !== undefined) {
-                                    bot.VALUES_TO_USE.feeStructure.maker = code.maker
-                                }
-                                if (code.taker !== undefined) {
-                                    bot.VALUES_TO_USE.feeStructure.taker = code.taker
-                                }
-                            }
-                        }
-
-                        /* Time Range */
-                        if (tradingSystem.parameters.timeRange !== undefined) {
-                            if (tradingSystem.parameters.timeRange.code !== undefined) {
- 
-                                let code = tradingSystem.parameters.timeRange.code
-                                if (code.initialDatetime !== undefined) {
-                                    if (isNaN(Date.parse(code.initialDatetime)) === true) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Trading System Parameters because it is not a valid Date.");
-                                    } else {
-                                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
-                                    }
-                                }
-                                if (code.finalDatetime !== undefined) {
-                                    if (isNaN(Date.parse(code.finalDatetime)) === true) {
-                                        parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Trading System Parameters because it is not a valid Date.");
-                                    } else {
-                                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
-                                    }
-                                }
-                            }
-                        }
-                    }
 
                     /* Applying Session Level Parameters */
                     if (bot.SESSION !== undefined) {
@@ -408,6 +275,23 @@
                                                     bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
                                                     bot.VALUES_TO_USE.maximumBalanceA = 0
                                                 }
+                                            }
+
+                                            /* Solve when values are missing. */
+                                            if (bot.VALUES_TO_USE.minimumBalanceA === undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceA = 0
+                                            }
+
+                                            if (bot.VALUES_TO_USE.minimumBalanceB === undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceB = 0
+                                            }
+
+                                            if (bot.VALUES_TO_USE.maximumBalanceA === undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceA = 10000000000000000
+                                            }
+
+                                            if (bot.VALUES_TO_USE.maximumBalanceB === undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceB = 10000000000000000
                                             }
                                         }
                                     }
@@ -512,16 +396,16 @@
                             for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
-                                    let code = JSON.parse(announcement.code)
-                                    if (socialBot.id === announcement.referenceParent.id) {
-                                        if (socialBot.type === "Telegram Bot") {
-                                            if (announcement.formulaValue !== undefined) {
-                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
-                                            } else {
-                                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
-                                            }
+                                    let code = announcement.code
+                                     
+                                    if (socialBot.type === "Telegram Bot") {
+                                        if (announcement.formulaValue !== undefined) {
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
+                                        } else {
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
                                         }
                                     }
+                                   
                                 } catch (err) {
                                     parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> err = " + err.stack);
                                 }

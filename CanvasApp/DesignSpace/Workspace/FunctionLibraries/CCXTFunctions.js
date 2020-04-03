@@ -52,6 +52,9 @@ function newCCXTFunctions () {
           newExchange.exchangeAssets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
           newExchange.exchangeMarkets.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
           newExchange.exchangeAccounts.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_025X
+          newExchange.exchangeAssets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+          newExchange.exchangeMarkets.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+          newExchange.exchangeAccounts.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
         }
       }
     }
@@ -114,6 +117,7 @@ function newCCXTFunctions () {
             newAsseet.code = '{ \n\"codeName\": \"' + name + '\"\n}'
             newAsseet.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
             newAsseet.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
+            newAsseet.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
           }
         }
       }
@@ -184,10 +188,13 @@ function newCCXTFunctions () {
             newMarket.code = '{ \n\"codeName\": \"' + name + '\"\n}'
             newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
             newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
+            newMarket.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
             newMarket.baseAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
             newMarket.quotedAsset.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
             newMarket.baseAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
             newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_150X
+            newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+            newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
             newMarket.baseAsset.payload.referenceParent = baseAsset
             newMarket.quotedAsset.payload.referenceParent = quotedAsset
 

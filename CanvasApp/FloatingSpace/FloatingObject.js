@@ -24,6 +24,7 @@ function newFloatingObject () {
     isFrozen: false,
     angleToParent: undefined,
     distanceToParent: undefined,
+    arrangementStyle: ARRANGEMENT_STYLE.CONCAVE,
     isCollapsed: false,
     isParentCollapsed: false,
     frozenManually: false,
@@ -33,6 +34,7 @@ function newFloatingObject () {
     getCollapseStatus: getCollapseStatus,
     getAngleToParent: getAngleToParent,
     getDistanceToParent: getDistanceToParent,
+    getArrangementStyle: getArrangementStyle,
     nearbyFloatingObjects: [],
     setPosition: setPosition,
     pinToggle: pinToggle,
@@ -40,6 +42,7 @@ function newFloatingObject () {
     collapseToggle: collapseToggle,
     angleToParentToggle: angleToParentToggle,
     distanceToParentToggle: distanceToParentToggle,
+    arrangementStyleToggle: arrangementStyleToggle,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
     initializeMass: initializeMass,
@@ -153,6 +156,10 @@ function newFloatingObject () {
     return thisObject.distanceToParent
   }
 
+  function getArrangementStyle () {
+    return thisObject.arrangementStyle
+  }
+
   function freezeToggle () {
     if (thisObject.isFrozen !== true) {
       thisObject.isFrozen = true
@@ -220,6 +227,31 @@ function newFloatingObject () {
     }
 
     return thisObject.distanceToParent
+  }
+
+  function arrangementStyleToggle () {
+    switch (thisObject.arrangementStyle) {
+      case ARRANGEMENT_STYLE.CONCAVE:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.CONVEX
+        break
+      case ARRANGEMENT_STYLE.CONVEX:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.VERTICAL_RIGHT
+        break
+      case ARRANGEMENT_STYLE.VERTICAL_RIGHT:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.VERTICAL_LEFT
+        break
+      case ARRANGEMENT_STYLE.VERTICAL_LEFT:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.HORIZONTAL_BOTTOM
+        break
+      case ARRANGEMENT_STYLE.HORIZONTAL_BOTTOM:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.HORIZONTAL_TOP
+        break
+      case ARRANGEMENT_STYLE.HORIZONTAL_TOP:
+        thisObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+        break
+    }
+
+    return thisObject.arrangementStyle
   }
 
   function invisiblePhysics () {
@@ -331,10 +363,51 @@ function newFloatingObject () {
 
       if (distanceToParent > 3000 || thisObject.isPinned === true) { return } // this is introduced to avoid edges cases when importing workspaces.
 
-      newPosition = {
-        x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),
-        y: parent.payload.position.y + distanceToParent * Math.sin(toRadians(thisObject.payload.angle))
+      switch (thisObject.arrangementStyle) {
+        case ARRANGEMENT_STYLE.CONCAVE: {
+          newPosition = {
+            x: parent.payload.position.x + distanceToParent * Math.cos(toRadians(thisObject.payload.angle)),
+            y: parent.payload.position.y + distanceToParent * Math.sin(toRadians(thisObject.payload.angle))
+          }
+          break
+        }
+        case ARRANGEMENT_STYLE.CONVEX: {
+          newPosition = {
+            x: parent.payload.position.x + 2 * distanceToParent * Math.cos(toRadians(lastParentAngle)) + distanceToParent * Math.cos(toRadians(thisObject.payload.angle + 180)),
+            y: parent.payload.position.y + 2 * distanceToParent * Math.sin(toRadians(lastParentAngle)) + distanceToParent * Math.sin(toRadians(thisObject.payload.angle + 180))
+          }
+          break
+        }
+        case ARRANGEMENT_STYLE.HORIZONTAL_BOTTOM: {
+          newPosition = {
+            x: parent.payload.position.x + distanceToParent * Math.tan(toRadians(thisObject.payload.angle)),
+            y: parent.payload.position.y + distanceToParent
+          }
+          break
+        }
+        case ARRANGEMENT_STYLE.HORIZONTAL_TOP: {
+          newPosition = {
+            x: parent.payload.position.x - distanceToParent * Math.tan(toRadians(thisObject.payload.angle)),
+            y: parent.payload.position.y - distanceToParent
+          }
+          break
+        }
+        case ARRANGEMENT_STYLE.VERTICAL_RIGHT: {
+          newPosition = {
+            x: parent.payload.position.x + distanceToParent,
+            y: parent.payload.position.y + distanceToParent * Math.tan(toRadians(thisObject.payload.angle))
+          }
+          break
+        }
+        case ARRANGEMENT_STYLE.VERTICAL_LEFT: {
+          newPosition = {
+            x: parent.payload.position.x - distanceToParent,
+            y: parent.payload.position.y - distanceToParent * Math.tan(toRadians(thisObject.payload.angle))
+          }
+          break
+        }
       }
+
       if (isNaN(newPosition.x) === false) {
         thisObject.container.frame.position.x = newPosition.x
       }

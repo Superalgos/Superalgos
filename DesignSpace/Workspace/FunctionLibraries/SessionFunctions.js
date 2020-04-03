@@ -37,7 +37,7 @@ function newSessionFunctions () {
     'Exchange Account Asset->Asset->' +
     'Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-    'Announcement->Telegram Bot->' +
+    'Announcement->Formula->' +
     'Open Stage->Initial Definition->Open Execution->' +
     'Position Size->Position Rate->Formula->' +
     'Initial Stop->Initial Take Profit->' +
@@ -45,8 +45,8 @@ function newSessionFunctions () {
     'Stop->Take Profit->' +
     'Phase->Formula->Next Phase Event->' +
     'Situation->Condition->Javascript Code->' +
-    'Announcement->Telegram Bot->' +
-    'Close Stage->Close Execution->'
+    'Close Stage->Close Execution->' +
+    'Announcement->Formula->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -54,7 +54,8 @@ function newSessionFunctions () {
     'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
     'Parameters->' +
     'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
-    'Exchange Account Asset->Asset->'
+    'Exchange Account Asset->Asset->' +
+    'Social Bots->Telegram Bot->'
 
     let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 

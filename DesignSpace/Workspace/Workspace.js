@@ -7,10 +7,10 @@ function newWorkspace () {
 
   let thisObject = {
     workspaceNode: undefined,
-    tradingSystem: undefined,
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
@@ -66,6 +66,8 @@ function newWorkspace () {
   let circularProgressBar = newBusyProgressBar()
   circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
   let droppedNode
+  let sessionTimestamp = (new Date()).valueOf()
+  window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
   return thisObject
 
@@ -90,7 +92,7 @@ function newWorkspace () {
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
       thisObject.enabled = true
 
-      setInterval(saveWorkspace, 10000)
+      setInterval(saveWorkspace, 60000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -113,8 +115,15 @@ function newWorkspace () {
   }
 
   function saveWorkspace () {
-    let textToSave = stringifyWorkspace()
-    window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+    let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
+    if (Number(savedSessionTimestamp) !== sessionTimestamp) {
+      canvas.cockpitSpace.setStatus('Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+    } else {
+      let textToSave = stringifyWorkspace()
+      window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
+      window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+      return true
+    }
   }
 
   function physics () {
@@ -163,8 +172,9 @@ function newWorkspace () {
     let stringifyReadyNodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
-      if (node) {
+
+      if (rootNode.isIncluded !== true) {
+        let node = functionLibraryProtocolNode.getProtocolNode(rootNode, removePersonalData, false, true, true, true)
         stringifyReadyNodes.push(node)
       }
     }
@@ -184,15 +194,15 @@ function newWorkspace () {
         if (rootNode.networkNodes !== undefined) {
           for (let j = 0; j < rootNode.networkNodes.length; j++) {
             let networkNode = rootNode.networkNodes[j]
-            if (networkNode.dataMining !== undefined) {
+            if (networkNode.dataMining !== undefined && networkNode.dataMining.payload !== undefined) {
               networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.dataMining.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
-            if (networkNode.testingEnvironment !== undefined) {
+            if (networkNode.testingEnvironment !== undefined && networkNode.testingEnvironment.payload !== undefined) {
               networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.testingEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }
-            if (networkNode.productionEnvironment !== undefined) {
+            if (networkNode.productionEnvironment !== undefined && networkNode.productionEnvironment.payload !== undefined) {
               networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
               networkNode.productionEnvironment.payload.uiObject.menu.internalClick('Stop All Exchange Tasks')
             }

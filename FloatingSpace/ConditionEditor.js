@@ -72,6 +72,7 @@ function newConditionEditor () {
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
     }
+    EDITOR_ON_FOCUS = false
   }
 
   function activate (payload) {
@@ -97,6 +98,7 @@ function newConditionEditor () {
                      'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
+    EDITOR_ON_FOCUS = true
   }
 
   function getContainer (point) {

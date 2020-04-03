@@ -1,11 +1,16 @@
 
  function newCockpitSpace () {
    const MODULE_NAME = 'CockpitSpace'
-
+   const STATUS_TYPES = {
+     ALL_GOOD: 1,
+     WARNING: 2
+   }
    let thisObject = {
      container: undefined,
      status: 'BOTTOM',
      fullscreen: undefined,
+     statusTypes: STATUS_TYPES,
+     setStatus: setStatus,
      toTop: toTop,
      toBottom: toBottom,
      toMiddle: toMiddle,
@@ -30,6 +35,10 @@
 
    let selfMouseClickEventSubscriptionId
    let canvasBrowserResizedEventSubscriptionId
+
+   let statusCounter = 0
+   let statusText
+   let statusType
 
    return thisObject
 
@@ -70,6 +79,12 @@
 
    function onMouseClick (event) {
 
+   }
+
+   function setStatus (text, counter, type) {
+     statusCounter = counter
+     statusText = text
+     statusType = type
    }
 
    function resize () {
@@ -114,9 +129,19 @@
      }
    }
 
+   function statusPhysics () {
+     statusCounter--
+     if (statusCounter < 0) {
+       statusCounter = 0
+       statusText = undefined,
+    statusType = undefined
+     }
+   }
+
    function physics () {
      thisObjectPhysics()
      childrenPhysics()
+     statusPhysics()
    }
 
    function childrenPhysics () {
@@ -195,9 +220,29 @@
 
      zeroPoint = thisObject.container.frame.frameThisPoint(zeroPoint)
 
+     let barColor = UI_COLOR.DARK_TURQUOISE // default
+     let textColor
+
+     if (statusType !== undefined) {
+       switch (statusType) {
+         case STATUS_TYPES.ALL_GOOD:
+           {
+             barColor = UI_COLOR.PATINATED_TURQUOISE
+             textColor = UI_COLOR.WHITE
+             break
+           }
+         case STATUS_TYPES.WARNING:
+           {
+             barColor = UI_COLOR.RED
+             textColor = UI_COLOR.TITANIUM_YELLOW
+             break
+           }
+       }
+     }
+
      browserCanvasContext.beginPath()
      browserCanvasContext.rect(zeroPoint.x, zeroPoint.y, thisObject.container.frame.width, thisObject.container.frame.height)
-     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + opacity + ')'
+     browserCanvasContext.fillStyle = 'rgba(' + barColor + ', ' + opacity + ')'
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
@@ -213,7 +258,15 @@
      browserCanvasContext.closePath()
      browserCanvasContext.fill()
 
-     if (canvas.designSpace.workspace.enabled === true) {
+     if (statusText !== undefined) {
+       let position = {
+         x: thisObject.container.frame.width / 2,
+         y: thisObject.container.frame.height / 2 + 5
+       }
+       printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
+     }
+
+     if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {
        arrow()
      }
    }

@@ -245,6 +245,7 @@ function removeTime (datetime) {
 }
 
 function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals) {
+  if (labelToPrint === undefined) { return }
   let labelPoint
   if (color === undefined) { color = UI_COLOR.DARK }
   if (fontSize === undefined) { fontSize = 10 };

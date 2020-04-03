@@ -25,11 +25,15 @@ function newCircularProgressBar () {
 
   let eventSubscriptionIdHeartbeat
 
+  let needToDrawRing = true
+
   return thisObject
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
+    if (eventSubscriptionIdHeartbeat !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
+    }
 
     thisObject.container = undefined
     thisObject.payload = undefined
@@ -62,6 +66,7 @@ function newCircularProgressBar () {
       thisObject.payload.uiObject.setPercentage(message.event.percentage, 2000)
     }
     if (message.event.status !== undefined) {
+      needToDrawRing = false
       thisObject.payload.uiObject.setStatus(message.event.status, 200000)
     }
 
@@ -95,6 +100,8 @@ function newCircularProgressBar () {
 
   function drawBackground (pFloatingObject) {
     if (canvas.floatingSpace.inMapMode === true) { return }
+    if (needToDrawRing !== true) { return }
+
     const VISIBLE_RADIUS = thisObject.container.frame.radius * 2
 
     let visiblePosition = {

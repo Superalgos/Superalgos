@@ -111,6 +111,10 @@ function newAnimation () {
           }
         }
 
+        /* Frame per Seconds */
+
+        ANIMATION_FRAME_PER_SECONDS = Math.trunc(1000 / totalTimeConsumed)
+
         /* Performance Check */
         if (SHOW_ANIMATION_PERFORMACE === true) {
           row = 0
@@ -132,6 +136,8 @@ function newAnimation () {
           printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
           row++
           printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          row++
+          printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
         }
       } else {
         browserCanvas.width = 1

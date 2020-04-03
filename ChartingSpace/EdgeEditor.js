@@ -109,7 +109,7 @@ function newEdgeEditor () {
   /* Resize the Time Machine to match the current screen aspect ration */
 
     thisObject.container.parentContainer.frame.width = browserCanvas.width / TIME_MACHINE_WIDTH
-    thisObject.container.parentContainer.frame.height = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
+    thisObject.container.parentContainer.frame.height = (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / TIME_MACHINE_HEIGHT
     coordinateSystem.maxHeight = thisObject.container.parentContainer.frame.height
     coordinateSystem.maxWidth = thisObject.container.parentContainer.frame.width
     coordinateSystem.recalculateScale()
@@ -185,25 +185,29 @@ function newEdgeEditor () {
   function onKeyPressed (event) {
     const STEP = 10
 
-    if (event.shiftKey === false && event.code === 'ArrowLeft') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowLeft') {
+      onDragStarted(event)
       thisObject.container.frame.position.x = thisObject.container.frame.position.x + STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowRight') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowRight') {
+      onDragStarted(event)
       thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
       whatHappened = 'left or right arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowUp') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowUp') {
+      onDragStarted(event)
       thisObject.container.frame.position.y = thisObject.container.frame.position.y + STEP
       whatHappened = 'up or down arrow key pressed'
       return
     }
 
-    if (event.shiftKey === false && event.code === 'ArrowDown') {
+    if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowDown') {
+      onDragStarted(event)
       thisObject.container.frame.position.y = thisObject.container.frame.position.y - STEP
       whatHappened = 'up or down arrow key pressed'
       return
@@ -268,6 +272,7 @@ function newEdgeEditor () {
   }
 
   function draggingPhysics () {
+    if (coordinateSystemWhenDragStarted === undefined) { return }
     if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) { return }
 
     let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouse.position)
@@ -324,7 +329,7 @@ function newEdgeEditor () {
             break
           case 'left or right arrow key pressed': {
             let point = {
-              x: -dragVector.x,
+              x: -dragVector.x + thisObject.container.frame.width * coordinateSystem.HORIZONTAL_MARGIN_INVERSE_FACTOR / 2,
               y: 0
             }
 
@@ -342,7 +347,7 @@ function newEdgeEditor () {
           case 'up or down arrow key pressed': {
             let point = {
               x: 0,
-              y: -dragVector.y
+              y: -dragVector.y + thisObject.container.frame.height * coordinateSystem.VERTICAL_MARGIN_INVERSE_FACTOR / 2
             }
 
             let newMaxRate = getRateFromPointAtContainer(point, thisObject.container.parentContainer, coordinateSystem)

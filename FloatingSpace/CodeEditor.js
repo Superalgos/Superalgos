@@ -34,6 +34,7 @@ function newCodeEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
+  let SIZE_FACTOR = 1.4
 
   return thisObject
 
@@ -72,6 +73,7 @@ function newCodeEditor () {
       textArea.style.display = 'none'
       thisObject.payload.node.code = textArea.value
     }
+    EDITOR_ON_FOCUS = false
   }
 
   function activate (payload) {
@@ -97,6 +99,7 @@ function newCodeEditor () {
                      'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
+    EDITOR_ON_FOCUS = true
   }
 
   function getContainer (point) {
@@ -129,8 +132,8 @@ function newCodeEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 1.5
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 1.4
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * SIZE_FACTOR
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * SIZE_FACTOR
 
     let textAreaPosition = {
       x: 0 - thisObject.container.frame.width / 2,
@@ -162,7 +165,7 @@ function newCodeEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 1.5
+      let radius = thisObject.container.frame.radius * SIZE_FACTOR
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()

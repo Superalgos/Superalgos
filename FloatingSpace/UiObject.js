@@ -36,6 +36,7 @@ function newUiObject () {
     setPercentage: setPercentage,
     setStatus: setStatus,
     physics: physics,
+    invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
     drawMiddleground: drawMiddleground,
     drawForeground: drawForeground,
@@ -119,8 +120,13 @@ function newUiObject () {
 
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
-    systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+
+    if (eventSubscriptionIdOnRunning !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+    }
+    if (eventSubscriptionIdOnStopped !== undefined) {
+      systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+    }
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocusEventSubscriptionId)
@@ -254,6 +260,11 @@ function newUiObject () {
     } else {
       return undefined
     }
+  }
+
+  function invisiblePhysics () {
+    thisObject.menu.invisiblePhysics()
+    childrenRunningPhysics()
   }
 
   function physics () {
@@ -746,7 +757,7 @@ function newUiObject () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to hear the first onHeartBeat in order to confirm the execution was really started */
+    /* We will wait to hear the Running event in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
@@ -1366,7 +1377,7 @@ function newUiObject () {
       position = canvas.floatingSpace.transformPointToMap(position)
     }
 
-    let radius = thisObject.container.frame.radius * 1.4
+    let radius = thisObject.container.frame.radius * 0.9
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 6 / 4 / 2
@@ -1384,7 +1395,7 @@ function newUiObject () {
 
         labelPoint = {
           x: position.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO - 10,
-          y: position.y - radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
+          y: position.y + radius * 7 / 5 + fontSize * FONT_ASPECT_RATIO + 15
         }
 
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
@@ -1526,7 +1537,11 @@ function newUiObject () {
           browserCanvasContext.closePath()
           browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
           browserCanvasContext.lineWidth = 1
-          browserCanvasContext.setLineDash([20, 20])
+          if (thisObject.payload.node.isIncluded === true) {
+            browserCanvasContext.setLineDash([0, 0])
+          } else {
+            browserCanvasContext.setLineDash([20, 20])
+          }
           browserCanvasContext.stroke()
         }
       }
@@ -1713,4 +1728,3 @@ function newUiObject () {
     }
   }
 }
-

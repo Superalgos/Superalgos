@@ -146,7 +146,8 @@ function newNodeCloning () {
         isFrozen: (node.payload.floatingObject.isFrozen && node.payload.floatingObject.frozenManually),
         isCollapsed: (node.payload.floatingObject.isCollapsed && node.payload.floatingObject.collapsedManually),
         angleToParent: (node.payload.floatingObject.angleToParent),
-        distanceToParent: (node.payload.floatingObject.distanceToParent)
+        distanceToParent: (node.payload.floatingObject.distanceToParent),
+        arrangementStyle: (node.payload.floatingObject.arrangementStyle)
       },
       uiObject: {
         isRunning: node.payload.uiObject.isRunning,

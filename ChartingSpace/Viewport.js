@@ -61,7 +61,7 @@ function newViewport () {
 
 /* Initial default value */
   thisObject.zoomLevel = MIN_ZOOM_LEVEL
-  thisObject.zoomTargetLevel = MIN_ZOOM_LEVEL
+  thisObject.zoomTargetLevel = Math.round(MIN_ZOOM_LEVEL)
   INITIAL_TIME_PERIOD = recalculatePeriod(thisObject.zoomLevel)
 
   let overrideMousePositionCounter = 0
@@ -140,11 +140,11 @@ function newViewport () {
       y: -container.frame.position.y - container.frame.height / 2
     }
     position.x = targetPoint.x + browserCanvas.width / 2
-    position.y = targetPoint.y + (browserCanvas.height - COCKPIT_SPACE_HEIGHT - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+    position.y = targetPoint.y + (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
   }
 
   function zoomAtCenter (level) {
-    thisObject.zoomTargetLevel = level
+    thisObject.zoomTargetLevel = Math.round(level)
     overrideMousePositionCounter = 50
     ANIMATION_INCREMENT = 0.5
   }
@@ -152,7 +152,7 @@ function newViewport () {
   function mousePositionPhysics () {
     if (overrideMousePositionCounter > 0) {
       thisObject.mousePosition.x = browserCanvas.width / 2
-      thisObject.mousePosition.y = (browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
+      thisObject.mousePosition.y = (COCKPIT_SPACE_POSITION - TOP_SPACE_HEIGHT) / 2 + TOP_SPACE_HEIGHT
 
       overrideMousePositionCounter--
       if (overrideMousePositionCounter < 0) {
@@ -200,7 +200,13 @@ function newViewport () {
     if (thisObject.visible === false) { return }
     if ((event.ctrlKey === true || event.metaKey === true)) { return }
     let morePower = 1
+
+    if (IS_MAC) {
+      event.delta = event.delta * MAC_AMOUNT_FACTOR
+    }
+
     let amount = event.delta
+
     if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
        /* We adjust the sensitivity for Mac Users */
 
@@ -220,7 +226,7 @@ function newViewport () {
     if (thisObject.zoomTargetLevel + amount * morePower < MIN_ZOOM_LEVEL) {
       return false
     }
-    thisObject.zoomTargetLevel = Math.round((thisObject.zoomTargetLevel + amount * morePower) * MAC_AMOUNT_FACTOR) / MAC_AMOUNT_FACTOR
+    thisObject.zoomTargetLevel = Math.round(thisObject.zoomTargetLevel + amount * morePower)
 
     ANIMATION_INCREMENT = Math.round(Math.abs(thisObject.zoomTargetLevel - thisObject.zoomLevel) / ANIMATION_STEPS * 100) / 100
 
@@ -398,7 +404,7 @@ function newViewport () {
 
     function newZoomLevel (level) {
       thisObject.zoomLevel = Math.round(level)
-      thisObject.zoomTargetLevel = level
+      thisObject.zoomTargetLevel = Math.round(level)
       INITIAL_TIME_PERIOD = recalculatePeriod(level)
       saveObjectState()
       ANIMATION_INCREMENT = 0

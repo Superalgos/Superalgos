@@ -12,6 +12,7 @@ function newSystemEventHandler () {
   let WEB_SOCKETS_CONNECTION
 
   let thisObject = {
+    isConnected: isConnected,
     initialize: initialize,
     physics: physics,
     createEventHandler: createEventHandler,
@@ -30,6 +31,14 @@ function newSystemEventHandler () {
     setuptWebSockets(callBackFunction)
   }
 
+  function isConnected () {
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   function sendCommand (command, responseCallBack, eventsCallBack) {
     if (command.action === 'listenToEvent') {
       let key
@@ -44,7 +53,11 @@ function newSystemEventHandler () {
       responseWaiters.set(command.callerId, responseCallBack)
     }
 
-    WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) { // 1 means connected and ready.
+      WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    } else {
+      console.log('WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
+    }
   }
 
   function createEventHandler (eventHandlerName, callerId, responseCallBack) {
@@ -105,6 +118,10 @@ function newSystemEventHandler () {
           if (INFO_LOG === true) { logger.write('[INFO] setuptWebSockets -> Found Web Sockets Connection Closed. Reconnected to WebSockets Server.') }
         }
       }
+    }
+
+    if (thisObject.isConnected() !== true) {
+      canvas.cockpitSpace.setStatus('Connection with the local backend lost. Please check that all localhost servers are running.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     }
   }
 

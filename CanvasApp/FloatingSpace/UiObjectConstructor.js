@@ -63,12 +63,98 @@ function newUiObjectConstructor () {
       if (payload.node.savedPayload.floatingObject.distanceToParent !== undefined) {
         floatingObject.distanceToParent = payload.node.savedPayload.floatingObject.distanceToParent
       }
+      if (payload.node.savedPayload.floatingObject.arrangementStyle !== undefined) {
+        floatingObject.arrangementStyle = payload.node.savedPayload.floatingObject.arrangementStyle
+      }
     }
 
-    /* For brand new objects being created directly by the user, we will make them inherit some properties from their parents. */
+    /*
+    For brand new objects being created directly by the user, we will make them inherit some properties
+    from their closest siblings, and if they don't have, from their parents.
+    */
+
     if (userAddingNew === true) {
-      floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
-      floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
+      let definition = APP_SCHEMA_MAP.get(payload.parentNode.type)
+      if (definition.properties !== undefined) {
+        for (let i = 0; i < definition.properties.length; i++) {
+          let property = definition.properties[i]
+          if (property.childType === payload.node.type) {
+            if (property.type === 'array') {
+              let parentNode = payload.parentNode
+              let parentNodeArray = parentNode[property.name]
+              if (parentNodeArray.length > 1) { // the new node was already added
+                let closestSibling = parentNodeArray[parentNodeArray.length - 2]
+                if (closestSibling !== undefined) {
+                  floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                  floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                  floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+                  break
+                }
+              }
+            }
+            if (floatingObject.angleToParent === undefined) {
+              for (let j = i - 1; j >= 0; j--) {
+                let siblingProperty = definition.properties[j]
+                let parentNode = payload.parentNode
+                let parentNodeProperty = parentNode[siblingProperty.name]
+                if (parentNodeProperty !== undefined) {
+                  if (siblingProperty.type === 'array') {
+                    if (parentNodeProperty.length > 0) {
+                      let closestSibling = parentNodeProperty[parentNodeProperty.length - 1]
+                      if (closestSibling !== undefined) {
+                        floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                        floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                        floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+                        break
+                      }
+                    }
+                  } else {
+                    let closestSibling = parentNodeProperty
+                    if (closestSibling !== undefined) {
+                      floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                      floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                      floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+                      break
+                    }
+                  }
+                }
+              }
+              for (let j = i + 1; j < definition.properties.length; j++) {
+                let siblingProperty = definition.properties[j]
+                let parentNode = payload.parentNode
+                let parentNodeProperty = parentNode[siblingProperty.name]
+                if (parentNodeProperty !== undefined) {
+                  if (siblingProperty.type === 'array') {
+                    if (parentNodeProperty.length > 0) {
+                      let closestSibling = parentNodeProperty[parentNodeProperty.length - 1]
+                      if (closestSibling !== undefined) {
+                        floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                        floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                        floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+                        break
+                      }
+                    }
+                  } else {
+                    let closestSibling = parentNodeProperty
+                    if (closestSibling !== undefined) {
+                      floatingObject.angleToParent = closestSibling.payload.floatingObject.angleToParent
+                      floatingObject.distanceToParent = closestSibling.payload.floatingObject.distanceToParent
+                      floatingObject.arrangementStyle = closestSibling.payload.floatingObject.arrangementStyle
+                      break
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      if (floatingObject.angleToParent === undefined) {
+        floatingObject.angleToParent = payload.parentNode.payload.floatingObject.angleToParent
+        floatingObject.distanceToParent = payload.parentNode.payload.floatingObject.distanceToParent
+        floatingObject.arrangementStyle = payload.parentNode.payload.floatingObject.arrangementStyle
+      }
     }
 
     let uiObject = newUiObject()
@@ -170,6 +256,21 @@ function newUiObjectConstructor () {
         ring: 1
       }
         )
+    menuItemsInitialValues.push(
+      {
+        action: 'change Arrangement Style',
+        actionFunction: floatingObject.arrangementStyleToggle,
+        actionStatus: floatingObject.getArrangementStyle,
+        currentStatus: true,
+        label: undefined,
+        visible: true,
+        icons: ['arrangement-concave', 'arrangement-convex', 'arrangement-vertical-right', 'arrangement-vertical-left', 'arrangement-horizontal-bottom', 'arrangement-horizontal-top'],
+        rawRadius: 12,
+        targetRadius: 0,
+        currentRadius: 0,
+        ring: 1
+      }
+            )
     menuItemsInitialValues.push(
       {
         action: 'Freeze / Unfreeze',

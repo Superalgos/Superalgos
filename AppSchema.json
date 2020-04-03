@@ -1807,7 +1807,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "code": "{\n\"initialBalance\": 0.001,\n\"minimumBalance\": 0.0001,\n\"maximumBalance\": 0.1\n}"
+            "code": "{\n\"initialBalance\": 1,\n\"minimumBalance\": 0.5\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -1849,7 +1849,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "code": "{\n\"initialBalance\": 0,\n\"minimumBalance\": 0,\n\"maximumBalance\": 100\n}"
+            "code": "{\n\"initialBalance\": 0\n}"
         },
         "addLeftIcons": true,
         "editors": {

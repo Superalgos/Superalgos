@@ -278,7 +278,13 @@ function newDesignSpace () {
       'help',
       'key-a',
       'key-m',
-      'key-r'
+      'key-r',
+      'arrangement-horizontal-top',
+      'arrangement-convex',
+      'arrangement-horizontal-bottom',
+      'arrangement-vertical-right',
+      'arrangement-vertical-left',
+      'arrangement-concave'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

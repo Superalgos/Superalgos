@@ -369,13 +369,14 @@ function newFloatingObject () {
 
       if (thisObject.isPinned === true) {
         /* When an object is pinned, its angle to its parent needs to be calculated since it depends on where the user places the node. */
+        /*
         if (thisObject.payload.chainParent !== undefined) {
           let x = thisObject.container.frame.position.x - thisObject.payload.chainParent.payload.floatingObject.container.frame.position.x
           let y = thisObject.container.frame.position.y - thisObject.payload.chainParent.payload.floatingObject.container.frame.position.y
 
           thisObject.payload.angle = Math.atan(y / x)
         }
-
+        */
         return
       }
 

@@ -34,7 +34,7 @@ function newConfigEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
-  let SIZE_FACTOR = 0.8
+  let SIZE_FACTOR = 1
 
   return thisObject
 

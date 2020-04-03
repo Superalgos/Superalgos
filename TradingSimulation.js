@@ -1114,104 +1114,101 @@
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
-
-                    if (minimumBalance === undefined) {
-                        minimumBalance = 0
+                    
+                    let stopRunningDate = new Date(candle.begin)
+                    if (balance <= minimumBalance) {
+                        tradingSystem.error = "Min Balance @ " + stopRunningDate.toLocaleString()
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> " + tradingSystem.error ); }
+                        afterLoop()
+                        return
                     }
 
-                    if (maximumBalance === undefined) {
-                        maximumBalance = 10000000000000000
+                    if (balance >= maximumBalance) {
+                        tradingSystem.error = "Max Balance @ " + stopRunningDate.toLocaleString()
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> " + tradingSystem.error); }
+                        afterLoop()
+                        return
                     }
 
-                    if (balance > minimumBalance && balance < maximumBalance) {
-
-                        /*
-                        Here we need to pick a strategy, or if there is not suitable strategy for the current
-                        market conditions, we pass until the next period.
+                    /*
+                    Here we need to pick a strategy, or if there is not suitable strategy for the current
+                    market conditions, we pass until the next period.
                 
-                        To pick a new strategy we will evaluate what we call the trigger on. Once we enter
-                        into one strategy, we will ignore market conditions for others. However there is also
-                        a strategy trigger off which can be hit before taking a position. If hit, we would
-                        be outside a strategy again and looking for the condition to enter all over again.
+                    To pick a new strategy we will evaluate what we call the trigger on. Once we enter
+                    into one strategy, we will ignore market conditions for others. However there is also
+                    a strategy trigger off which can be hit before taking a position. If hit, we would
+                    be outside a strategy again and looking for the condition to enter all over again.
             
-                        */
+                    */
 
-                        for (let j = 0; j < tradingSystem.strategies.length; j++) {
+                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
-                            let strategy = tradingSystem.strategies[j];
+                        let strategy = tradingSystem.strategies[j];
 
-                            let triggerStage = strategy.triggerStage
+                        let triggerStage = strategy.triggerStage
 
-                            if (triggerStage !== undefined) {
+                        if (triggerStage !== undefined) {
 
-                                if (triggerStage.triggerOn !== undefined) {
+                            if (triggerStage.triggerOn !== undefined) {
 
-                                    for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
-                                        let situation = triggerStage.triggerOn.situations[k];
-                                        let passed = true;
+                                    let situation = triggerStage.triggerOn.situations[k];
+                                    let passed = true;
 
-                                        for (let m = 0; m < situation.conditions.length; m++) {
+                                    for (let m = 0; m < situation.conditions.length; m++) {
 
-                                            let condition = situation.conditions[m];
-                                            let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m;
 
-                                            let value = false
-                                            if (conditions.get(key) !== undefined) {
-                                                value = conditions.get(key).value;
-                                            }
-
-                                            if (value === false) { passed = false; }
+                                        let value = false
+                                        if (conditions.get(key) !== undefined) {
+                                            value = conditions.get(key).value;
                                         }
 
-                                        if (passed) {
+                                        if (value === false) { passed = false; }
+                                    }
 
-                                            strategyStage = 'Trigger Stage';
-                                            checkAnnouncements(triggerStage)
+                                    if (passed) {
 
-                                            currentStrategyIndex = j;
-                                            currentStrategy.begin = candle.begin;
-                                            currentStrategy.beginRate = candle.min;
-                                            currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                            currentStrategy.triggerOnSituation = situation.name
+                                        strategyStage = 'Trigger Stage';
+                                        checkAnnouncements(triggerStage)
 
-                                            if (processingDailyFiles) {
-                                                if (positionedAtYesterday) {
-                                                    yesterday.strategyStage = strategyStage;
-                                                    yesterday.currentStrategyIndex = currentStrategyIndex;
-                                                    yesterday.currentStrategy.begin = currentStrategy.begin;
-                                                    yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
-                                                    yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                                    yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
-                                                }
+                                        currentStrategyIndex = j;
+                                        currentStrategy.begin = candle.begin;
+                                        currentStrategy.beginRate = candle.min;
+                                        currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                        currentStrategy.triggerOnSituation = situation.name
+
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.strategyStage = strategyStage;
+                                                yesterday.currentStrategyIndex = currentStrategyIndex;
+                                                yesterday.currentStrategy.begin = currentStrategy.begin;
+                                                yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
+                                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
+                                                yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
                                             }
-
-                                            distanceToLast.triggerOn = 1;
-
-                                            if (processingDailyFiles) {
-                                                if (positionedAtYesterday) {
-                                                    yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
-                                                }
-                                            }
-
-                                            checkAnnouncements(triggerStage.triggerOn)
-
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
-                                            break;
                                         }
+
+                                        distanceToLast.triggerOn = 1;
+
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
+                                            }
+                                        }
+
+                                        checkAnnouncements(triggerStage.triggerOn)
+
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
+                                        break;
                                     }
                                 }
                             }
                         }
-                    } else {
-                        let stopRunningDate = new Date(candle.begin)
-                        if (balance <= minimumBalance) {
-                            tradingSystem.error = "Min Balance @ " + stopRunningDate.toLocaleString()
-                        }
-                        if (balance >= maximumBalance) {
-                            tradingSystem.error = "Max Balance @ " + stopRunningDate.toLocaleString()
-                        }
                     }
+                     
                 }
 
                 /* Trigger Off Condition */

@@ -187,13 +187,6 @@
 
                 /* Set all default values */
                 bot.VALUES_TO_USE = {
-                    baseAsset: "BTC",
-                    initialBalanceA: 0.001,
-                    initialBalanceB: 0,
-                    minimumBalanceA: 0.0005,
-                    minimumBalanceB: 0,
-                    maximumBalanceA: 0.002,
-                    maximumBalanceB: 0,
                     slippage: {
                         positionRate: 0,
                         stopLoss: 0,
@@ -282,6 +275,23 @@
                                                     bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
                                                     bot.VALUES_TO_USE.maximumBalanceA = 0
                                                 }
+                                            }
+
+                                            /* Solve when values are missing. */
+                                            if (bot.VALUES_TO_USE.minimumBalanceA === undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceA = 0
+                                            }
+
+                                            if (bot.VALUES_TO_USE.minimumBalanceB === undefined) {
+                                                bot.VALUES_TO_USE.minimumBalanceB = 0
+                                            }
+
+                                            if (bot.VALUES_TO_USE.maximumBalanceA === undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceA = 10000000000000000
+                                            }
+
+                                            if (bot.VALUES_TO_USE.maximumBalanceB === undefined) {
+                                                bot.VALUES_TO_USE.maximumBalanceB = 10000000000000000
                                             }
                                         }
                                     }

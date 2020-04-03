@@ -257,7 +257,7 @@ function newUiObjectConstructor () {
         currentStatus: true,
         label: undefined,
         visible: true,
-        icons: ['shapes-polygon', 'shapes-polygon-body', 'shapes-polygon-border', 'clone', 'layer-manager', 'process'],
+        icons: ['arrangement-concave', 'arrangement-convex', 'arrangement-vertical-right', 'arrangement-vertical-left', 'arrangement-horizontal-bottom', 'arrangement-horizontal-top'],
         rawRadius: 12,
         targetRadius: 0,
         currentRadius: 0,

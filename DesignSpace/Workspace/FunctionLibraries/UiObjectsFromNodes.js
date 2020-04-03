@@ -25,7 +25,7 @@ function newUiObjectsFromNodes () {
       blobService = newFileStorage()
 
       if (node.code === undefined) {
-        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["WHB-BTC-USDT", "WHB-ETH-USDT", "BRR-BTC-USDT"],\n"includeSuperScripts": ["Superalgos"]\n }'
+        node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Masters-WHB-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
       }
 
       let code = JSON.parse(node.code)

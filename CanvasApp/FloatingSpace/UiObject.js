@@ -1113,11 +1113,11 @@ function newUiObject () {
   }
 
   function drawReferenceLine () {
-    if (canvas.floatingSpace.drawReferenceLines === false) { return }
+    if (canvas.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
     if (thisObject.payload.referenceParent.payload === undefined) { return }
     if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
-    if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true) { return }
+    if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true && thisObject.isOnFocus === false) { return }
 
     let targetPoint = {
       x: thisObject.payload.referenceParent.payload.position.x,

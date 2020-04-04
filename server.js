@@ -27,8 +27,6 @@ global.CUSTOM_FAIL_RESPONSE = {
 
 const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
-/* Process Events */
-
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
@@ -122,6 +120,7 @@ function preLoader() {
         try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
             global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
+            global.SYSTEM_EVENT_HANDLER.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
                 global.TASK_NODE = JSON.parse(message.event.definition)

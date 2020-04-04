@@ -24,6 +24,9 @@ function newSystemEventHandler () {
 
   let eventListeners = new Map()
   let responseWaiters = new Map()
+  let commandsWaitingConfirmation = new Map()
+  let commandsSentByTimestamp = new Map()
+  let nonce = 0
 
   return thisObject
 
@@ -53,11 +56,23 @@ function newSystemEventHandler () {
       responseWaiters.set(command.callerId, responseCallBack)
     }
 
-    if (WEB_SOCKETS_CONNECTION.readyState === 1) { // 1 means connected and ready.
-      WEB_SOCKETS_CONNECTION.send(JSON.stringify(command))
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) {
+ // 1 means connected and ready.
+      sendToWebSocketServer(command)
     } else {
       console.log('WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
     }
+  }
+
+  function sendToWebSocketServer (command) {
+    nonce++
+    let stringNonce = nonce.toString()
+    let timestamp = (new Date()).valueOf()
+    commandsWaitingConfirmation.set(stringNonce, command)
+    commandsSentByTimestamp.set(stringNonce, timestamp)
+
+    let messageToWebSocketServer = stringNonce + '->' + JSON.stringify(command)
+    WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
   }
 
   function createEventHandler (eventHandlerName, callerId, responseCallBack) {
@@ -110,6 +125,23 @@ function newSystemEventHandler () {
     sendCommand(eventCommand, responseCallBack)
   }
 
+  function retryCommandsPhysics () {
+    commandsSentByTimestamp.forEach(checkTimestamp)
+
+    function checkTimestamp (timestamp, nonce) {
+      const MILISECONDS_TO_WAIT_FOR_RETRYING_A_COMMAND = 10000
+      let now = (new Date()).valueOf()
+
+      if ((now - timestamp) > MILISECONDS_TO_WAIT_FOR_RETRYING_A_COMMAND) {
+        let command = commandsWaitingConfirmation.get(nonce)
+        commandsWaitingConfirmation.delete(nonce)
+        commandsSentByTimestamp.delete(nonce)
+
+        sendToWebSocketServer(command)
+      }
+    }
+  }
+
   function physics () {
     if (WEB_SOCKETS_CONNECTION !== undefined) {
       if (WEB_SOCKETS_CONNECTION.readyState === 3) { // Connection closed. May happen after computer goes to sleep.
@@ -122,7 +154,11 @@ function newSystemEventHandler () {
 
     if (thisObject.isConnected() !== true) {
       canvas.cockpitSpace.setStatus('Connection with the local backend lost. Please check that all localhost servers are running.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+    } else {
+      retryCommandsPhysics()
     }
+
+    DEBUG.variable4 = 'Commands Waiting For Confirmation from WS Server: ' + commandsWaitingConfirmation.size
   }
 
   function setuptWebSockets (callBackFunction) {
@@ -163,6 +199,12 @@ function newSystemEventHandler () {
           if (handler) {
             handler(message)
           }
+          return
+        }
+
+        if (message.action === 'Acknowledge') {
+          commandsWaitingConfirmation.delete(message.nonce)
+          commandsSentByTimestamp.delete(message.nonce)
           return
         }
       }

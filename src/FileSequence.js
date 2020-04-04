@@ -83,7 +83,7 @@ function newFileSequence () {
 
             /* First we will get the sequence max number */
 
-      fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, file) {
         try {
@@ -128,7 +128,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files */
 
           for (let i = 0; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {
@@ -193,7 +193,7 @@ function newFileSequence () {
 
       let currentMaxSequence = maxSequence
 
-      fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
+      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, 'Sequence', undefined, onSequenceFileReceived)
 
       function onSequenceFileReceived (err, sequenceFile) {
         try {
@@ -229,7 +229,7 @@ function newFileSequence () {
                     /* Now we will get the sequence of files, but in this case only from the currentMaxSequence and above. */
 
           for (let i = currentMaxSequence; i <= maxSequence; i++) {
-            fileCloud.getFile(dataMine, bot, session, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
+            fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, undefined, undefined, i, undefined, onFileReceived)
 
             function onFileReceived (err, file) {
               try {

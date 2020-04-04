@@ -346,12 +346,18 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 } catch (err) {
                     if (err.stack.toString().indexOf('ERR_RATE_LIMIT') >= 0) {
                         logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is saying you are requesting data too often. I will retry the request later, no action is required. To avoid this happening again please increase the rateLimit at the Exchange node config. You might continue seeing this if you are retrieving data from multiple markets at the same time. In this case I tried to get 1 min OHLCVs from " + symbol);
-                    } else {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
+                        return
+                    }  
+
+                    if (err.stack.toString().indexOf('RequestTimeout') >= 0) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data." );
+                        return
                     }
-                    
+
+                    logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                     abort = true
+                    return
                 }
             }
 

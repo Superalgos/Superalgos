@@ -25,15 +25,15 @@ function newFileCloud () {
     blobService = newFileStorage()
   }
 
-  function getFile (pDataMine, pBot, pSession, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+  function getFile (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] getFile -> Entering function.') }
 
       const MAX_RETRIES = 3
 
-      getFileRecursively(0, pDataMine, pBot, pSession, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+      getFileRecursively(0, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pDataset.code.filePath + '-' + pDataset.code.fileName) }
@@ -103,6 +103,8 @@ function newFileCloud () {
           }
 
           filePath = filePath.replace('@Period', pPeriodName)
+          filePath = filePath.replace('@Dataset', pDataset.code.codeName)
+          filePath = filePath.replace('@Product', pProduct.code.codeName)
 
           if (pDatetime !== undefined) {
             filePath = filePath.replace('@Year', pDatetime.getUTCFullYear())

@@ -2502,7 +2502,7 @@
         "menuItems": [
             {
                 "action": "Configure Data Mine",
-                "label": "Configigure Data Mine",
+                "label": "Configure Data Mine",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,

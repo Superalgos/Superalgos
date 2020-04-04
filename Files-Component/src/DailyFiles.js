@@ -64,7 +64,7 @@ function newDailyFiles () {
 
             /* First we will get the Data Range */
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pDataset, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)
+      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)
 
       function onDataRangeReceived (err, pFile) {
         try {

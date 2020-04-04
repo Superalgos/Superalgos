@@ -33,6 +33,9 @@ try {
             ipc.of.world.on(
                 'connect',
                 function () {
+
+                    let lastNonce = -1
+
                     ipc.log('## connected to world ##'.rainbow, ipc.config.delay);
 
                     let eventCommand = {
@@ -54,16 +57,58 @@ try {
                                 console.log(`Received message from browser => ${message}`)
                             }
 
+                            //console.log('Message Received From Browser: ' + message)
+
+                            let dividerPosition = message.indexOf('->')
+                            let nonce = message.substring(0, dividerPosition)
+                            let messageToEventServer = message.substring(dividerPosition + 2, message.length)
+
+                            if (isNaN(nonce) || nonce === "") {
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce is not a Number. message = ' + message)
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce is not a Number. nonce = ' + nonce)
+                                return
+                            }
+
+                            if (Number(nonce) < Number(lastNonce)) {
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce received is less than Last Nonce. message = ' + message)
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce received is less than Last Nonce. nonce = ' + nonce)
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
+                                return
+                            }
+
+                            lastNonce = nonce
+
+                            try {
+                                let jsonCheck = JSON.parse(messageToEventServer)
+                            } catch (err) {
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Message received from the browser is not a valid JSON. message = ' + message)
+                                console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
+                                return
+                            }
+
+                            let acknowledgeMessage = {
+                                action: 'Acknowledge',
+                                nonce: nonce
+                            }
+
+                            ws.send(JSON.stringify(acknowledgeMessage))
+                                                        
                             ipc.of.world.emit(
                                 'message',
-                                message
+                                messageToEventServer
                             )
                         })
 
                         ipc.of.world.on(
                             'message',
                             function (data) {
-                                ipc.log('got a message from world : '.debug, data);
+                                ipc.log('got a message from Event Server : '.debug, data);
+
+                                try {
+                                    let jsonCheck = JSON.parse(data)
+                                } catch (err) {
+                                    console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromEventServer -> Data received from the Event Server is not a valid JSON. data = ' + data)
+                                }
 
                                 ws.send(data)
                             }

@@ -47,7 +47,6 @@ process.on('exit', function (code) {
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
     global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Task Stopped
-    global.SYSTEM_EVENT_HANDLER.deleteEventHandler(key)
     global.SYSTEM_EVENT_HANDLER.finalize()
     global.SYSTEM_EVENT_HANDLER = undefined
 

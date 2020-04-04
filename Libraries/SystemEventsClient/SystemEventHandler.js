@@ -1,4 +1,7 @@
 ﻿exports.newSystemEventHandler = function newSystemEventHandler(ipc) {
+
+    const MODULE = "Task Manager -> System Event Handler -> "
+
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -26,7 +29,7 @@
                 ipc.of.world.on(
                     'connect',
                     function () {
-                        ipc.log('## Connected to Superalgos Event Server ##'.rainbow, ipc.config.delay);
+                        ipc.log(MODULE + '## Connected to Superalgos Event Server ##'.rainbow, ipc.config.delay);
 
                         let eventCommand = {
                             action: 'greetings',
@@ -41,13 +44,13 @@
                 ipc.of.world.on(
                     'disconnect',
                     function () {
-                        ipc.log('Disconnected from Superalgos Event Server '.notice);
+                        ipc.log(MODULE + 'Disconnected from Superalgos Event Server '.notice);
                     }
                 );
                 ipc.of.world.on(
                     'message',  // here is where all incomming messages are processed.
                     function (data) {
-                        ipc.log('Got a message from Superalgos Event Server: '.debug, data);
+                        ipc.log(MODULE + 'Got a message from Superalgos Event Server: '.debug, data);
 
                         let message = JSON.parse(data)
 
@@ -62,8 +65,8 @@
                             if (handler) {
                                 handler.callBack(message)
                             } else {
-                                console.log(key + ' not found so could not deliver event raised.')
-                                console.log(' Message = ' + data)
+                                console.log(MODULE + key + ' not found so could not deliver event raised.')
+                                console.log(MODULE + ' Message = ' + data)
                             }
                             return
                         }

@@ -72,7 +72,7 @@ function runTask(message) {
         id: message.event.taskId,
         name: message.event.taskName
     }
-    
+
     tasks.set(message.event.taskId, task) 
 
     task.childProcess.on('error', (err) => {
@@ -86,7 +86,7 @@ function runTask(message) {
         tasks.delete(task.id)
     })
 
-    setTimeout(sendStartingEvent, 3000)
+    global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Manager - ' + message.event.taskId, 'Nodejs Process Ready for Task', undefined, undefined, undefined, sendStartingEvent)
 
     function sendStartingEvent() {
         //console.log('[INFO] Task Manager -> server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)

@@ -147,7 +147,7 @@ function newPlotterPanel () {
           value = eval(panelData.dataFormula.code)
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
-          if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> dataFormula.code = ' + panelNode.dataFormula.code) }
+          if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> dataFormula.code = ' + panelData.dataFormula.code) }
         }
       }
 

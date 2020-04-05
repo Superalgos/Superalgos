@@ -294,6 +294,8 @@
                                         getVolumes();
 
                                     } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> fileName = " + fileName);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> filePath = " + filePath);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);
@@ -336,6 +338,8 @@
                                         controlLoop();
 
                                     } catch (err) {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> fileName = " + fileName);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> filePath = " + filePath);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
                                         logger.write(MODULE_NAME, "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(global.DEFAULT_RETRY_RESPONSE);

@@ -69,6 +69,10 @@ try {
                                 return
                             }
 
+                            if (nonce === "1") { // this happens once the browser is restarted, and the server is running since a previous session.
+                                lastNonce = 0
+                            }
+
                             if (Number(nonce) < Number(lastNonce)) {
                                 console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce received is less than Last Nonce. message = ' + message)
                                 console.log('[ERROR] Web Sockets Server -> server -> connectTo -> onMessageFromBrowser -> Nonce received is less than Last Nonce. nonce = ' + nonce)

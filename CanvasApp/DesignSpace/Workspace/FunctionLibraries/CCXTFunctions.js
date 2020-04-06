@@ -92,12 +92,12 @@ function newCCXTFunctions () {
 
           if (queryParams !== undefined) {
             if (queryParams.baseAsset !== undefined) {
-              if (market.base.indexOf(queryParams.baseAsset) >= 0) {
+              if (market.base.indexOf(queryParams.baseAsset) < 0) {
                 continue
               }
             }
             if (queryParams.quotedAsset !== undefined) {
-              if (market.quote.indexOf(queryParams.quotedAsset) >= 0) {
+              if (market.quote.indexOf(queryParams.quotedAsset) < 0) {
                 continue
               }
             }

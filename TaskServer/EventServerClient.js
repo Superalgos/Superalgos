@@ -47,7 +47,7 @@
                 }
             }
             WEB_SOCKETS_CLIENT.onmessage = e => {
-
+                
                 try {
                     if (INFO_LOG === true) {
                         console.log('Websocket Message Received: ' + e.data)
@@ -63,7 +63,7 @@
                             key = message.eventHandlerName + '-' + message.eventType
                         }
                         let handler = eventListeners.get(key)
-                        if (handler) {
+                        if (handler) {             
                             handler.callBack(message)
                         }
                         return

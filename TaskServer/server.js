@@ -121,7 +121,7 @@ function preLoader() {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
-            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
+            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
@@ -136,7 +136,7 @@ function preLoader() {
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
         try { 
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
-            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
+            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
                 global.TASK_NODE = JSON.parse(message.event.definition) 

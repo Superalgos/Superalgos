@@ -70,7 +70,7 @@
                     let eventHandler = eventHandlers.get(command.eventHandlerName)
                     if (eventHandler === undefined) {
                         /*
-                        We will create event handlers which were not created before if a listener tries to listen to a handler that does noet
+                        We will create event handlers which were not created before if a listener tries to listen to a handler that does not
                         exist before the emitter comes and create it. This is to aviod syncronization problems and also problems with emitters life
                         cycles with higher frecuency that the ones of listeners. Created in this way, event handlers are marked for deletion if
                         all listeners stop listening at one point in time.
@@ -182,7 +182,18 @@
 
         function listenToEvent(eventHandlerName, eventType, callerId, handler, extraData) {
             let eventSubscriptionId = Math.trunc(Math.random() * 1000000)
-            thisObject.listeners.push([eventHandlerName, eventType, callerId, handler, extraData, eventSubscriptionId])
+
+            let found = false
+            for (let i = 0; i < thisObject.listeners.length; i++) {
+                if (eventHandlerName === thisObject.listeners[i][0] && eventType === thisObject.listeners[i][1] && callerId === thisObject.listeners[i][2]) {
+                    found = true
+                }
+            }
+
+            if (found === false) {
+                thisObject.listeners.push([eventHandlerName, eventType, callerId, handler, extraData, eventSubscriptionId])
+            }
+
             return eventSubscriptionId
         }
 

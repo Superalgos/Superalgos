@@ -123,7 +123,7 @@
         }
 
         if (WEB_SOCKETS_CLIENT.readyState === 1) { // 1 means connected and ready.
-            WEB_SOCKETS_CLIENT.send("Task Server||" + JSON.stringify(command))
+            WEB_SOCKETS_CLIENT.send("Task Server" + "|*|" + "|*|"  + JSON.stringify(command))
         } else {
             console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
         }

@@ -7,6 +7,7 @@ function newUiObjectTitle () {
   logger.fileName = MODULE_NAME
 
   let thisObject = {
+    fitFunction: undefined,
     isVisibleFunction: undefined,
     allwaysVisible: undefined,
     editMode: undefined,
@@ -43,6 +44,7 @@ function newUiObjectTitle () {
     thisObject.container = undefined
     thisObject.payload = undefined
     thisObject.isVisibleFunction = undefined
+    thisObject.fitFunction = undefined
   }
 
   function initialize (payload) {

@@ -19,6 +19,10 @@ function newReferenceAttachDetach () {
   }
 
   function completeDetachment (node) {
+    if (node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
+      node.payload.referenceParent.payload.uiObject.isShowing = false
+    }
+
     node.payload.referenceParent = undefined
     if (node.savedPayload !== undefined) {
       node.savedPayload.referenceParent = undefined

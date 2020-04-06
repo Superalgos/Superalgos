@@ -353,41 +353,49 @@ function newCanvas () {
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
       thisObject.cockpitSpace.toTop()
+      event.preventDefault()
       return
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
       thisObject.cockpitSpace.toBottom()
+      event.preventDefault()
       return
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowLeft') {
       thisObject.cockpitSpace.moveUp()
+      event.preventDefault()
       return
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowRight') {
       thisObject.cockpitSpace.moveDown()
+      event.preventDefault()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowLeft') {
+    if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowLeft') {
       canvas.chartingSpace.oneScreenLeft()
+      event.preventDefault()
       return
     }
 
-    if (event.shiftKey === true && event.ctrlKey === false && event.code === 'ArrowRight') {
+    if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowRight') {
       canvas.chartingSpace.oneScreenRight()
+      event.preventDefault()
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowUp') {
+    if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowUp') {
       canvas.chartingSpace.oneScreenUp()
+      event.preventDefault()
       return
     }
 
-    if (event.shiftKey === true && event.code === 'ArrowDown') {
+    if (event.shiftKey === true && (event.ctrlKey === false && event.metaKey === false) && event.code === 'ArrowDown') {
       canvas.chartingSpace.oneScreenDown()
+      event.preventDefault()
       return
     }
 
@@ -396,6 +404,7 @@ function newCanvas () {
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
       checkDrag()
+      event.preventDefault()
       return
     }
 
@@ -404,22 +413,25 @@ function newCanvas () {
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
       checkDrag()
+      event.preventDefault()
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowUp') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowUp') {
       let displaceVector = canvas.floatingSpace.oneScreenUp()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
       checkDrag()
+      event.preventDefault()
       return
     }
 
-    if ((event.ctrlKey === true || event.metaKey === true) && event.code === 'ArrowDown') {
+    if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowDown') {
       let displaceVector = canvas.floatingSpace.oneScreenDown()
       dragVector.downX = dragVector.downX + displaceVector.x
       dragVector.downY = dragVector.downY + displaceVector.y
       checkDrag()
+      event.preventDefault()
       return
     }
 

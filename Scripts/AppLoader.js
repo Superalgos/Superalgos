@@ -103,7 +103,7 @@ function newAppLoader() {
                 'CockpitSpace/Speedometer.js',
                 'CockpitSpace/FullScreen.js',
 
-                'SystemEventHandler.js',
+                'EventsServerClient.js',
 
                 'VideoRecorder.js',
                 'Plotter.js',

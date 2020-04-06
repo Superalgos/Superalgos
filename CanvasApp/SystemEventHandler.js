@@ -1,5 +1,5 @@
 
-function newSystemEventHandler () {
+function newEventsServerClient () {
   /* Web Sockets Connection */
 
   const MODULE_NAME = 'System Event Handler'
@@ -71,7 +71,7 @@ function newSystemEventHandler () {
     commandsWaitingConfirmation.set(stringNonce, command)
     commandsSentByTimestamp.set(stringNonce, timestamp)
 
-    let messageToWebSocketServer = stringNonce + '->' + JSON.stringify(command)
+    let messageToWebSocketServer = 'Web Browser|' + stringNonce + '|' + JSON.stringify(command)
     WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
   }
 
@@ -164,9 +164,6 @@ function newSystemEventHandler () {
   function setuptWebSockets (callBackFunction) {
     try {
       WEB_SOCKETS_CONNECTION = new WebSocket(WEB_SOCKETS_URL)
-      WEB_SOCKETS_CONNECTION.onopen = () => {
-        console.log('Websocket connection opened.')
-      }
       WEB_SOCKETS_CONNECTION.onerror = error => {
         console.log('WebSocket error:' + JSON.stringify(error))
       }

@@ -40,13 +40,15 @@ process.on('unhandledRejection', (reason, p) => {
 })
 
 process.on('exit', function (code) {
-    
-    /* We send an event signaling that the Task is being terminated. */
-    let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
-    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Task Stopped
-    global.SYSTEM_EVENT_HANDLER.finalize()
-    global.SYSTEM_EVENT_HANDLER = undefined
+    if (global.TASK_NODE !== undefined) {
+        /* We send an event signaling that the Task is being terminated. */
+        let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
+
+        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Task Stopped
+        global.EVENT_SERVER_CLIENT.finalize()
+        global.EVENT_SERVER_CLIENT = undefined
+    }
 
     //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
 })
@@ -77,7 +79,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         let process = global.TASK_NODE.bot.processes[i]
 
         key = process.name + '-' + process.type + '-' + process.id
-        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Stopped') // Meaning Process Stopped
+        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
     //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
@@ -108,10 +110,10 @@ let taskId = process.argv[2] // reading what comes as an argument of the nodejs 
 
 /* Setting up the global Event Handler */
 
-const EVENT_HANDLER_MODULE = require('./SystemEventHandler.js');
-const IPC = require('node-ipc');
-global.SYSTEM_EVENT_HANDLER = EVENT_HANDLER_MODULE.newSystemEventHandler(IPC)
-global.SYSTEM_EVENT_HANDLER.initialize('Task Server', preLoader)
+let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
+ 
+global.EVENT_SERVER_CLIENT = EVENT_SERVER_CLIENT.newEventsServerClient()
+global.EVENT_SERVER_CLIENT.initialize(preLoader)
 global.STOP_TASK_GRACEFULLY = false;
 
 function preLoader() {
@@ -119,8 +121,8 @@ function preLoader() {
         /* The Task Manager sent the info via a process argument. In this case we listen to an event with the Task Info that should be emitted at the UI */
         try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Listening to starting event -> key = ' + 'Task Server - ' + taskId)
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
-            global.SYSTEM_EVENT_HANDLER.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
+            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, undefined, undefined, eventReceived)
+            global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
                 global.TASK_NODE = JSON.parse(message.event.definition)
@@ -134,7 +136,7 @@ function preLoader() {
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
         try { 
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
-            global.SYSTEM_EVENT_HANDLER.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
+            global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, undefined, undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
                 global.TASK_NODE = JSON.parse(message.event.definition) 
@@ -153,8 +155,8 @@ function bootLoader() {
 
     let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
 
-    global.SYSTEM_EVENT_HANDLER.createEventHandler(key)
-    global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Running') // Meaning Task Running
+    global.EVENT_SERVER_CLIENT.createEventHandler(key)
+    global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Running') // Meaning Task Running
     global.HEARTBEAT_INTERVAL_HANDLER = setInterval(taskHearBeat, 1000)
 
     function taskHearBeat() {
@@ -163,7 +165,7 @@ function bootLoader() {
         let event = {
             seconds: (new Date()).getSeconds()
         }
-         global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Heartbeat', event)
+         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
     }
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {

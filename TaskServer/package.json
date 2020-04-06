@@ -13,9 +13,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ccxt": "^1.22.39",
+    "ccxt": "^1.25.80",
     "dotenv": "^8.2.0",
-    "node-ipc": "^9.1.1",
-    "telegraf": "^3.36.0"
+    "telegraf": "^3.37.0",
+    "ws": "^7.1.2"
   }
 }

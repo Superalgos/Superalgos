@@ -37,7 +37,7 @@ function newFileSequence () {
 
   function finalize () {
     try {
-      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+      eventsServerClient.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
 
       thisObject.eventHandler.finalize()
       thisObject.eventHandler = undefined
@@ -75,7 +75,7 @@ function newFileSequence () {
       callerId = newUniqueId()
 
       let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
-      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
+      eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
       function onResponse (message) {
         eventSubscriptionIdDatasetUpdated = message.eventSubscriptionId

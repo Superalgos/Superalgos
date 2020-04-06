@@ -32,7 +32,7 @@ function newCircularProgressBar () {
   function finalize () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     if (eventSubscriptionIdHeartbeat !== undefined) {
-      systemEventHandler.stopListening(key, eventSubscriptionIdHeartbeat)
+      eventsServerClient.stopListening(key, eventSubscriptionIdHeartbeat)
     }
 
     thisObject.container = undefined
@@ -48,7 +48,7 @@ function newCircularProgressBar () {
     }
 
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Heartbeat', undefined, key, onResponse, onHeartBeat)
+    eventsServerClient.listenToEvent(key, 'Heartbeat', undefined, key, onResponse, onHeartBeat)
 
     function onResponse (message) {
       eventSubscriptionIdHeartbeat = message.eventSubscriptionId

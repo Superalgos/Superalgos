@@ -44,8 +44,8 @@ function newFileCursor () {
 
   function finalize () {
     try {
-      systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
-      systemEventHandler.stopListening('Data Range Updated', eventSubscriptionIdDataRangeUpdated)
+      eventsServerClient.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated)
+      eventsServerClient.stopListening('Data Range Updated', eventSubscriptionIdDataRangeUpdated)
 
       thisObject.eventHandler = undefined
 
@@ -90,10 +90,10 @@ function newFileCursor () {
       endDateRange = pEndDateRange
 
       let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
-      systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponseDataSet, updateFiles)
+      eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponseDataSet, updateFiles)
 
       key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
-      systemEventHandler.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
+      eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, key, onResponseDataRange, updateDataRange)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
 

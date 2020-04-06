@@ -122,10 +122,10 @@ function newUiObject () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
 
     if (eventSubscriptionIdOnRunning !== undefined) {
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
     }
     if (eventSubscriptionIdOnStopped !== undefined) {
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
     }
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
@@ -759,7 +759,7 @@ function newUiObject () {
 
     /* We will wait to hear the Running event in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
+    eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
     onRunningCallBackFunction = callBackFunction
 
@@ -771,7 +771,7 @@ function newUiObject () {
       if (thisObject.payload === undefined) { return }
 
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
 
       thisObject.isRunning = true
 
@@ -801,7 +801,7 @@ function newUiObject () {
   function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
+    eventsServerClient.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
 
     function onResponse (message) {
       eventSubscriptionIdOnStopped = message.eventSubscriptionId

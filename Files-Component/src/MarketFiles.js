@@ -109,7 +109,8 @@ function newMarketFiles () {
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
                 let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
-                eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
+                let callerId = key + '-' + periodName + newUniqueId()
+                eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
 

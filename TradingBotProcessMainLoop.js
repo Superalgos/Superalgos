@@ -164,12 +164,12 @@
                     /* Checking if we need to need to emit any event */
 
                     if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Running')
+                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Running')
                         bot.SESSION_STATUS = 'Running'
                     }
 
                     if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                         bot.SESSION_STATUS = 'Stopped'
                     }
 
@@ -880,7 +880,7 @@
                                 logger.persist();
                             }
 
-                            global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                             processStopped()
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
@@ -1013,7 +1013,7 @@
                     percentage: percentage,
                     status: status
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
             function sessionHeartBeat(processingDate) {
@@ -1021,7 +1021,7 @@
                     seconds: (new Date()).getSeconds(),
                     processingDate: processingDate
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true
@@ -1029,12 +1029,12 @@
             }
 
             function processStopped() {
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
             }
 
             function sessionStopped() {
                 if (bot.SESSION_STATUS === 'Running') {
-                    global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.sessionKey, 'Stopped')
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                     bot.SESSION_STATUS = 'Stopped'
                 }
             }

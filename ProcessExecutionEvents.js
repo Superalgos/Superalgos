@@ -81,7 +81,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key); }
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
 
-                global.SYSTEM_EVENT_HANDLER.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
+                global.EVENT_SERVER_CLIENT.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
                 bot.processHeartBeat(undefined, undefined, "Waiting for " + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.code.codeName + "->" + processThisDependsOn.code.codeName)  
 
@@ -102,15 +102,15 @@
                     /* We continue the normal flow after we learn the dependent process has finished its execution. */
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. "); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId); }
-                    global.SYSTEM_EVENT_HANDLER.stopListening(key, 'Process Execution Finished', subscriptionId)
+                    global.EVENT_SERVER_CLIENT.stopListening(key, 'Process Execution Finished', subscriptionId)
 
                     if (message.event.err.result === global.DEFAULT_OK_RESPONSE.result) {
                         /* We emit our own event that the process started. */
                         let event = {
                             err: global.DEFAULT_OK_RESPONSE
                         }
-                        global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                        global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
+                        global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                         bot.processHeartBeat(undefined, undefined,"Running...") 
 
@@ -125,8 +125,8 @@
                 let event = {
                     err: global.DEFAULT_OK_RESPONSE
                 }
-                global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Started')
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Started', event)
+                global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
+                global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started " ); }
 
@@ -149,8 +149,8 @@
                 err: global.DEFAULT_OK_RESPONSE
             }
 
-            global.SYSTEM_EVENT_HANDLER.createEventHandler(currentProcessKey, 'Process Execution Finished')
-            global.SYSTEM_EVENT_HANDLER.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
+            global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Finished')
+            global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " ); }
 

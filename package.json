@@ -15,7 +15,7 @@
   "dependencies": {
     "ccxt": "^1.25.80",
     "dotenv": "^8.2.0",
-    "node-ipc": "^9.1.1",
-    "telegraf": "^3.37.0"
+    "telegraf": "^3.37.0",
+    "ws": "^7.1.2"
   }
 }

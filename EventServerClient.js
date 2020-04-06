@@ -1,6 +1,8 @@
-﻿exports.newSystemEventHandler = function newSystemEventHandler(ipc) {
+﻿exports.newEventsServerClient = function newEventsServerClient() {
 
-    const MODULE = "Task Server -> System Event Handler -> "
+    const MODULE = "Task Server "
+    const ERROR_LOG = true
+    const INFO_LOG = false
 
     let thisObject = {
         initialize: initialize,
@@ -15,74 +17,72 @@
     let eventListeners = new Map()
     let responseWaiters = new Map()
 
-    ipc.config.id = 'Task Server';
-    ipc.config.retry = 1500;
-    ipc.config.silent = true;
+    let WEB_SOCKETS_CLIENT
+    const WEB_SOCKET = require('ws')
+    let port = process.env.WEB_SOCKETS_SERVER_PORT  
 
     return thisObject
 
-    function initialize(canllerName, callBackFunction) {
+    function initialize(callBackFunction) {
 
-        ipc.connectTo(
-            'world',
-            function () {
-                ipc.of.world.on(
-                    'connect',
-                    function () {
-                        ipc.log(MODULE + '## Connected to Superalgos Event Server ##'.rainbow, ipc.config.delay);
+        setuptWebSockets(callBackFunction)
 
-                        let eventCommand = {
-                            action: 'greetings',
-                            from: canllerName
-                        }
+    }
 
-                        sendCommand(eventCommand)
+    function setuptWebSockets(callBackFunction) {
+        try {
 
-                        callBackFunction()
-                    }
-                );
-                ipc.of.world.on(
-                    'disconnect',
-                    function () {
-                        ipc.log(MODULE + 'Disconnected from Superalgos Event Server '.notice);
-                    }
-                );
-                ipc.of.world.on(
-                    'message',  // here is where all incomming messages are processed.
-                    function (data) {
-                        ipc.log('Got a message from Superalgos Event Server: '.debug, data);
-                        
-                        let message = JSON.parse(data)
+            WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://localhost:' + port ) 
 
-                        if (message.action === 'Event Raised') {
-
-                            let key
-                            if (message.callerId) {
-                                key = message.eventHandlerName + '-' + message.eventType + '-' + message.callerId
-                            } else {
-                                key = message.eventHandlerName + '-' + message.eventType
-                            }
-                            let handler = eventListeners.get(key)
-                            if (handler) {
-                                handler.callBack(message)
-                            } else {
-                                console.log(MODULE + key + ' not found so could not deliver event raised.')
-                                console.log(MODULE + ' Message = ' + data)
-                            }
-                            return
-                        }
-
-                        if (message.action === 'Event Server Response') {
-                            let handler = responseWaiters.get(message.callerId)
-                            if (handler) {
-                                handler(message)
-                            }
-                            return
-                        }
-                    }
-                );
+            WEB_SOCKETS_CLIENT.onerror = error => {
+                console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + JSON.stringify(error))
             }
-        );
+            WEB_SOCKETS_CLIENT.onopen = () => {
+                if (INFO_LOG === true) {
+                    console.log('Websocket connection opened.')
+                }
+
+                if (callBackFunction !== undefined) {
+                    callBackFunction()
+                }
+            }
+            WEB_SOCKETS_CLIENT.onmessage = e => {
+
+                try {
+                    if (INFO_LOG === true) {
+                        console.log('Websocket Message Received: ' + e.data)
+                    }
+
+                    let message = JSON.parse(e.data)
+
+                    if (message.action === 'Event Raised') {
+                        let key
+                        if (message.callerId !== undefined) {
+                            key = message.eventHandlerName + '-' + message.eventType + '-' + message.callerId
+                        } else {
+                            key = message.eventHandlerName + '-' + message.eventType
+                        }
+                        let handler = eventListeners.get(key)
+                        if (handler) {
+                            handler.callBack(message)
+                        }
+                        return
+                    }
+
+                    if (message.action === 'Event Server Response') {
+                        let handler = responseWaiters.get(message.callerId)
+                        if (handler) {
+                            handler(message)
+                        }
+                        return
+                    }
+                } catch (err) {
+                    if (ERROR_LOG === true) { logger.write('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  onmessage -> err = ' + err.stack) }
+                }
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] Task Server -> Event Server Client -> setuptWebSockets ->  err = ' + err.stack) }
+        }
     }
 
     function finalize() {
@@ -98,7 +98,7 @@
             }
             sendCommand(eventCommand)
         }
-        ipc.disconnect('world');
+        WEB_SOCKETS_CLIENT.disconnect();
     }
 
     function sendCommand(command, responseCallBack, eventsCallBack) {
@@ -122,10 +122,11 @@
             responseWaiters.set(command.callerId, responseCallBack)
         }
 
-        ipc.of.world.emit(
-            'message',
-            JSON.stringify(command)
-        )
+        if (WEB_SOCKETS_CLIENT.readyState === 1) { // 1 means connected and ready.
+            WEB_SOCKETS_CLIENT.send("Task Server||" + JSON.stringify(command))
+        } else {
+            console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> sendCommand -> WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
+        }
     }
 
     function createEventHandler(eventHandlerName, callerId, responseCallBack) {

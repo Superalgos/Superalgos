@@ -1,5 +1,5 @@
 
-function newSystemEventHandler () {
+function newEventsServerClient () {
   /* Web Sockets Connection */
 
   const MODULE_NAME = 'System Event Handler'

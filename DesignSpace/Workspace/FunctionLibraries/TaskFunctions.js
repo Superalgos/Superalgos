@@ -68,12 +68,12 @@ function newTaskFunctions () {
 
     if (node.payload.parentNode === undefined) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      systemEventHandler.raiseEvent('Task Server', 'Debug Task Started', event)
+      eventsServerClient.raiseEvent('Task Server', 'Debug Task Started', event)
       return
     }
 
     node.payload.uiObject.run(callBackFunction)
-    systemEventHandler.raiseEvent('Task Manager', 'Run Task', event)
+    eventsServerClient.raiseEvent('Task Manager', 'Run Task', event)
   }
 
   function stopTask (node, functionLibraryProtocolNode, callBackFunction) {
@@ -83,7 +83,7 @@ function newTaskFunctions () {
     }
 
     node.payload.uiObject.stop(callBackFunction)
-    systemEventHandler.raiseEvent('Task Manager', 'Stop Task', event)
+    eventsServerClient.raiseEvent('Task Manager', 'Stop Task', event)
 
     if (node.bot === undefined) { return }
     if (node.bot.processes.length === 0) { return }

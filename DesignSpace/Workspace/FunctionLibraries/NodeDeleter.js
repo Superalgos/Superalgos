@@ -24,6 +24,11 @@ function newNodeDeleter () {
   }
 
   function deleteUIObject (node, rootNodes) {
+    /* First we restore the reference parent to its default state */
+    if (node.payload.referenceParent.payload !== undefined && node.payload.referenceParent.payload.uiObject !== undefined) {
+      node.payload.referenceParent.payload.uiObject.isShowing = false
+    }
+
     let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
     if (nodeDefinition !== undefined) {
       /* Remove all of its own children nodes. */

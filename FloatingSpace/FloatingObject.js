@@ -560,20 +560,32 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawForeground()
   }
 

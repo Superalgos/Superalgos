@@ -50,7 +50,7 @@
                             console.log('Message Received: ' + message)
                         }
 
-                        let messageArray = message.split('|')
+                        let messageArray = message.split('|*|')
 
                         let origin = messageArray[0]
                         let nonce = messageArray[1]

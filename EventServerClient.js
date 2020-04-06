@@ -98,7 +98,7 @@
             }
             sendCommand(eventCommand)
         }
-        WEB_SOCKETS_CLIENT.disconnect();
+        WEB_SOCKETS_CLIENT.close();
     }
 
     function sendCommand(command, responseCallBack, eventsCallBack) {

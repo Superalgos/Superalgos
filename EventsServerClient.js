@@ -71,7 +71,7 @@ function newEventsServerClient () {
     commandsWaitingConfirmation.set(stringNonce, command)
     commandsSentByTimestamp.set(stringNonce, timestamp)
 
-    let messageToWebSocketServer = 'Web Browser|' + stringNonce + '|' + JSON.stringify(command)
+    let messageToWebSocketServer = 'Web Browser' + '|*|' + stringNonce + '|*|' + JSON.stringify(command)
     WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
   }
 

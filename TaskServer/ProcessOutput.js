@@ -85,8 +85,8 @@
                         let event = {
                             lastFile: lastFile
                         }
-                        global.SYSTEM_EVENT_HANDLER.createEventHandler(key, 'Dataset Updated')
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Dataset Updated', event)
+                        global.EVENT_SERVER_CLIENT.createEventHandler(key, 'Dataset Updated')
+                        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Dataset Updated', event)
 
                     }
                 }

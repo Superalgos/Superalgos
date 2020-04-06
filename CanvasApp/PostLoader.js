@@ -1,6 +1,6 @@
 let canvas
 let markets
-let systemEventHandler
+let eventsServerClient
 
 let APP_SCHEMA_MAP = new Map()
 let APP_SCHEMA_ARRAY = []
@@ -24,8 +24,8 @@ function newDashboard () {
     try {
       setBrowserEvents()
 
-      systemEventHandler = newSystemEventHandler()
-      systemEventHandler.initialize(setUpAppSchema)
+      eventsServerClient = newEventsServerClient()
+      eventsServerClient.initialize(setUpAppSchema)
 
       function setUpAppSchema () {
         APP_SCHEMA_ARRAY = getAppSchema()

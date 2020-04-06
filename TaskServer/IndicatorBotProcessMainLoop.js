@@ -1088,11 +1088,11 @@
                     percentage: percentage,
                     status: status
                 }
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Heartbeat', event)
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
             function processStopped() {
-                global.SYSTEM_EVENT_HANDLER.raiseEvent(bot.processKey, 'Stopped')
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
             }
 
         } catch (err) {

@@ -65,7 +65,7 @@ function newSessionFunctions () {
       tradingSystem: JSON.stringify(tradingSystem)
     }
 
-    systemEventHandler.raiseEvent(key, 'Run Session', event)
+    eventsServerClient.raiseEvent(key, 'Run Session', event)
 
     if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
@@ -75,7 +75,7 @@ function newSessionFunctions () {
 
   function stopSession (node, functionLibraryProtocolNode, callBackFunction) {
     let key = node.name + '-' + node.type + '-' + node.id
-    systemEventHandler.raiseEvent(key, 'Stop Session')
+    eventsServerClient.raiseEvent(key, 'Stop Session')
 
     node.payload.uiObject.stop(callBackFunction)
   }

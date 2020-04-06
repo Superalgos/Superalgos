@@ -1009,7 +1009,7 @@
                             dateRange: dataRange
                         }
  
-                        global.SYSTEM_EVENT_HANDLER.raiseEvent(key, 'Data Range Updated', event)
+                        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
 
                         callBack(global.DEFAULT_OK_RESPONSE);
                     }

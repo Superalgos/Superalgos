@@ -4970,13 +4970,6 @@
         "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-markets",
         "menuItems": [
             {
-                "action": "Config Market",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Market",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add Market",
                 "relatedUiObject": "Market",
@@ -5001,12 +4994,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the code name of the Market here.\"\n}"
-        },
         "addLeftIcons": true,
         "level": 3,
         "icon": "exchange-markets",
@@ -5271,12 +5258,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete Asset",
-                "visible": true,
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
-                "rawRadius": 8,
-                "targetRadius": 0,
-                "currentRadius": 0,
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],

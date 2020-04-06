@@ -43,7 +43,7 @@ function newMarketFiles () {
   function finalize () {
     try {
       for (let i = 0; i < eventSubscriptionIdDatasetUpdated.length; i++) {
-        systemEventHandler.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated[i])
+        eventsServerClient.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated[i])
       }
 
       thisObject.eventHandler.finalize()
@@ -109,7 +109,8 @@ function newMarketFiles () {
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
                 let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
-                systemEventHandler.listenToEvent(key, 'Dataset Updated', undefined, key + '-' + periodName, onResponse, updateFiles)
+                let callerId = key + '-' + periodName + newUniqueId()
+                eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
 

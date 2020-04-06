@@ -92,12 +92,12 @@ function newCCXTFunctions () {
 
           if (queryParams !== undefined) {
             if (queryParams.baseAsset !== undefined) {
-              if (market.base.indexOf(queryParams.baseAsset) >= 0) {
+              if (market.base.indexOf(queryParams.baseAsset) < 0) {
                 continue
               }
             }
             if (queryParams.quotedAsset !== undefined) {
-              if (market.quote.indexOf(queryParams.quotedAsset) >= 0) {
+              if (market.quote.indexOf(queryParams.quotedAsset) < 0) {
                 continue
               }
             }
@@ -115,9 +115,6 @@ function newCCXTFunctions () {
             let newAsseet = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Asset')
             newAsseet.name = name
             newAsseet.code = '{ \n\"codeName\": \"' + name + '\"\n}'
-            newAsseet.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
-            newAsseet.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_200X
-            newAsseet.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
           }
         }
       }

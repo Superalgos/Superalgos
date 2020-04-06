@@ -107,9 +107,8 @@
 
                     if (eventHandler === undefined) {
 
-                        console.log("[WARN] BackendServers -> Events Server -> onMessage -> Cannot to stop listening to events at an Event Handler that does not exist. Command = " + JSON.stringify(command))
-
-                        sendResponse(global.DEFAULT_FAIL_RESPONSE)
+                        /* If the event handler does not exist anymore, then there is no need to perform further actiions.  */
+                        sendResponse(global.DEFAULT_OK_RESPONSE)
                         return
                     }
 

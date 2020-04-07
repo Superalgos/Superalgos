@@ -224,22 +224,22 @@ function newCoordinateSystem () {
       maxY = thisObject.childrenMax.y
     }
 
-    if (minX !== 0 && thisObject.min.x !== minX) {
+    if (minX !== 0 && thisObject.min.x !== minX && thisObject.autoMinXScale === true) {
       thisObject.min.x = minX
       mustRecalculate = true
     }
 
-    if (minY !== 0 && thisObject.min.y !== minY) {
+    if (minY !== 0 && thisObject.min.y !== minY && thisObject.autoMinYScale === true) {
       thisObject.min.y = minY
       mustRecalculate = true
     }
 
-    if (maxX !== 0 && thisObject.max.x !== maxX) {
+    if (maxX !== 0 && thisObject.max.x !== maxX && thisObject.autoMaxXScale === true) {
       thisObject.max.x = maxX
       mustRecalculate = true
     }
 
-    if (maxY !== 0 && thisObject.max.y !== maxY) {
+    if (maxY !== 0 && thisObject.max.y !== maxY && thisObject.autoMaxYScale === true) {
       thisObject.max.y = maxY
       mustRecalculate = true
     }

@@ -11,6 +11,10 @@ function newCoordinateSystem () {
   let thisObject = {
     min: undefined,
     max: undefined,
+    parentMin: undefined,
+    parentMax: undefined,
+    childrenMin: undefined,
+    childrenMax: undefined,
     maxHeight: undefined,
     maxWidth: undefined,
     scale: undefined,
@@ -24,6 +28,8 @@ function newCoordinateSystem () {
     HORIZONTAL_MARGIN_INVERSE_FACTOR: 0.20,
     VERTICAL_MARGIN_INVERSE_FACTOR: 0.10,
     physics: physics,
+    reportParentXValue: reportParentXValue,
+    reportParentYValue: reportParentYValue,
     reportXValue: reportXValue,
     reportYValue: reportYValue,
     zoomX: zoomX,
@@ -47,6 +53,23 @@ function newCoordinateSystem () {
     x: 0,
     y: 0
   }
+  thisObject.parentMin = {
+    x: 0,
+    y: 0
+  }
+  thisObject.parentMax = {
+    x: 0,
+    y: 0
+  }
+  thisObject.childrenMin = {
+    x: 0,
+    y: 0
+  }
+  thisObject.childrenMax = {
+    x: 0,
+    y: 0
+  }
+
   thisObject.scale = {
     x: 0,
     y: 0
@@ -57,11 +80,12 @@ function newCoordinateSystem () {
 
   let newXMax = -VERY_LARGE_NUMBER
   let newXMin = VERY_LARGE_NUMBER
-  let noXValueReported = true
 
   let newYMax = -VERY_LARGE_NUMBER
   let newYMin = VERY_LARGE_NUMBER
-  let noYValueReported = true
+
+  let parentMinChanged = false
+  let parentMaxChanged = false
 
   return thisObject
 
@@ -84,59 +108,140 @@ function newCoordinateSystem () {
     recalculateScale()
   }
 
+  function reportXValue (value) {
+    if (thisObject.autoMinXScale === true) {
+      if (value < newXMin) {
+        newXMin = value
+      }
+    }
+    if (thisObject.autoMaxXScale === true) {
+      if (value > newXMax) {
+        newXMax = value
+      }
+    }
+  }
+
+  function reportYValue (value) {
+    if (thisObject.autoMinYScale === true) {
+      if (value < newYMin) {
+        newYMin = value
+      }
+    }
+    if (thisObject.autoMaxYScale === true) {
+      if (value > newYMax) {
+        newYMax = value
+      }
+    }
+  }
+
+  function reportParentXValue (min, max) {
+    if (thisObject.autoMinXScale === true) {
+      if (thisObject.parentMin.x !== min) {
+        thisObject.parentMin.x = min
+      }
+    }
+    if (thisObject.autoMaxXScale === true) {
+      if (thisObject.parentMax.x !== max) {
+        thisObject.parentMax.x = max
+      }
+    }
+  }
+
+  function reportParentYValue (min, max) {
+    if (thisObject.autoMinYScale === true) {
+      if (thisObject.parentMin.y !== min) {
+        thisObject.parentMin.y = min
+      }
+    }
+    if (thisObject.autoMaxYScale === true) {
+      if (thisObject.parentMax.y !== max) {
+        thisObject.parentMax.y = max
+      }
+    }
+  }
+
   function physics () {
     let mustRecalculate = false
 
-    if ((thisObject.autoMinXScale === true || thisObject.autoMaxXScale === true) && noXValueReported === false) {
-      if (thisObject.autoMaxXScale === true && thisObject.max.x !== newXMax) {
-        thisObject.max.x = newXMax
-        mustRecalculate = true
+    if ((thisObject.autoMinXScale === true || thisObject.autoMaxXScale === true)) {
+      if (thisObject.autoMaxXScale === true && thisObject.childrenMax.x !== newXMax && newXMax !== -VERY_LARGE_NUMBER) {
+        thisObject.childrenMax.x = newXMax
       }
 
       if (thisObject.autoMaxXScale === true) {
         newXMax = -VERY_LARGE_NUMBER
       }
 
-      if (thisObject.autoMinXScale === true && thisObject.min.x !== newXMin) {
-        thisObject.min.x = newXMin
+      if (thisObject.autoMinXScale === true && thisObject.childrenMin.x !== newXMin && newXMin !== VERY_LARGE_NUMBER) {
+        thisObject.childrenMin.x = newXMin
         newXMin = VERY_LARGE_NUMBER
-        mustRecalculate = true
       }
 
       if (thisObject.autoMinXScale === true) {
         newXMin = VERY_LARGE_NUMBER
       }
-
-      /* Reseting this to start over at each cycle. */
-      noXValueReported = true
-
-      if (mustRecalculate === true) {
-        thisObject.eventHandler.raiseEvent('X-Range Changed')
-      }
     }
 
-    if ((thisObject.autoMinYScale === true || thisObject.autoMaxYScale === true) && noYValueReported === false) {
-      if (thisObject.autoMaxYScale === true && thisObject.max.y !== newYMax) {
-        thisObject.max.y = newYMax
-        mustRecalculate = true
+    if ((thisObject.autoMinYScale === true || thisObject.autoMaxYScale === true)) {
+      if (thisObject.autoMaxYScale === true && thisObject.childrenMax.y !== newYMax && newYMax !== -VERY_LARGE_NUMBER) {
+        thisObject.childrenMax.y = newYMax
       }
 
       if (thisObject.autoMaxYScale === true) {
         newYMax = -VERY_LARGE_NUMBER
       }
 
-      if (thisObject.autoMinYScale === true && thisObject.min.y !== newYMin) {
-        thisObject.min.y = newYMin
+      if (thisObject.autoMinYScale === true && thisObject.childrenMin.y !== newYMin && newYMin !== VERY_LARGE_NUMBER) {
+        thisObject.childrenMin.y = newYMin
         newYMin = VERY_LARGE_NUMBER
-        mustRecalculate = true
       }
 
       if (thisObject.autoMinYScale === true) {
         newYMin = VERY_LARGE_NUMBER
       }
+    }
 
-      /* Reseting this to start over at each cycle. */
-      noYValueReported = true
+    /* Here we will see if any of the children or parent values modify the current status quo */
+    /* Min */
+    let minX = Math.min(thisObject.childrenMin.x, thisObject.parentMin.x)
+    let minY = Math.min(thisObject.childrenMin.y, thisObject.parentMin.y)
+    let maxX = Math.max(thisObject.childrenMax.x, thisObject.parentMax.x)
+    let maxY = Math.max(thisObject.childrenMax.y, thisObject.parentMax.y)
+
+    if (thisObject.parentMin.x === 0) {
+      minX = thisObject.childrenMin.x
+    }
+
+    if (thisObject.parentMin.y === 0) {
+      minY = thisObject.childrenMin.y
+    }
+
+    if (thisObject.parentMax.x === 0) {
+      maxX = thisObject.childrenMax.x
+    }
+
+    if (thisObject.parentMax.y === 0) {
+      maxY = thisObject.childrenMax.y
+    }
+
+    if (minX !== 0 && thisObject.min.x !== minX) {
+      thisObject.min.x = minX
+      mustRecalculate = true
+    }
+
+    if (minY !== 0 && thisObject.min.y !== minY) {
+      thisObject.min.y = minY
+      mustRecalculate = true
+    }
+
+    if (maxX !== 0 && thisObject.max.x !== maxX) {
+      thisObject.max.x = maxX
+      mustRecalculate = true
+    }
+
+    if (maxY !== 0 && thisObject.max.y !== maxY) {
+      thisObject.max.y = maxY
+      mustRecalculate = true
     }
 
     if (mustRecalculate === true) {
@@ -144,26 +249,11 @@ function newCoordinateSystem () {
     }
   }
 
-  function reportXValue (value) {
-    if (thisObject.autoMinXScale === true) {
-      if (value < newXMin) { newXMin = value }
-      noXValueReported = false
-    }
-    if (thisObject.autoMaxXScale === true) {
-      if (value > newXMax) { newXMax = value }
-      noXValueReported = false
-    }
-  }
+  function recalculateScale (event) {
+    thisObject.scale.x = thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_FACTOR / (thisObject.max.x - thisObject.min.x)
+    thisObject.scale.y = thisObject.maxHeight * thisObject.VERTICAL_MARGIN_FACTOR / (thisObject.max.y - thisObject.min.y)
 
-  function reportYValue (value) {
-    if (thisObject.autoMinYScale === true) {
-      if (value < newYMin) { newYMin = value }
-      noYValueReported = false
-    }
-    if (thisObject.autoMaxYScale === true) {
-      if (value > newYMax) { newYMax = value }
-      noYValueReported = false
-    }
+    thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
 
   function zoomX (factor, mousePosition, container) {
@@ -194,13 +284,6 @@ function newCoordinateSystem () {
       thisObject.max.y = max
       thisObject.recalculateScale()
     }
-  }
-
-  function recalculateScale (event) {
-    thisObject.scale.x = thisObject.maxWidth * thisObject.HORIZONTAL_MARGIN_FACTOR / (thisObject.max.x - thisObject.min.x)
-    thisObject.scale.y = thisObject.maxHeight * thisObject.VERTICAL_MARGIN_FACTOR / (thisObject.max.y - thisObject.min.y)
-
-    thisObject.eventHandler.raiseEvent('Scale Changed', event)
   }
 
   function initializeX (minValue, maxValue, maxWidth) {

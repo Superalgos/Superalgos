@@ -130,11 +130,13 @@ function newEdgeEditor () {
   }
 
   function onDragStarted (event) {
-    if (doubleClickCounter > 0) {
-      onDoubleClick(event)
-      return
-    } else {
-      doubleClickCounter = 50
+    if (event.buttons === 1) {
+      if (doubleClickCounter > 0) {
+        onDoubleClick(event)
+        return
+      } else {
+        doubleClickCounter = 50
+      }
     }
 
     mouseWhenDragStarted = {

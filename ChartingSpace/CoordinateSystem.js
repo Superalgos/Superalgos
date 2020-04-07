@@ -110,12 +110,12 @@ function newCoordinateSystem () {
 
   function reportXValue (value) {
     if (thisObject.autoMinXScale === true) {
-      if (value < newXMin) {
+      if (value < newXMin && value !== 0) {
         newXMin = value
       }
     }
     if (thisObject.autoMaxXScale === true) {
-      if (value > newXMax) {
+      if (value > newXMax && value !== 0) {
         newXMax = value
       }
     }
@@ -265,9 +265,18 @@ function newCoordinateSystem () {
     let max = thisObject.max.x - diff * factor * rightDistance / (container.frame.width / 2)
 
     if (min < max) {
-      thisObject.min.x = min
-      thisObject.max.x = max
-      thisObject.recalculateScale()
+      let mustRecalculate = false
+      if (thisObject.autoMinXScale === false) {
+        thisObject.min.x = min
+        mustRecalculate = true
+      }
+      if (thisObject.autoMaxXScale === false) {
+        thisObject.max.x = max
+        mustRecalculate = true
+      }
+      if (mustRecalculate === true) {
+        thisObject.recalculateScale()
+      }
     }
   }
 
@@ -280,9 +289,18 @@ function newCoordinateSystem () {
     let max = thisObject.max.y - diff * factor * topDistance / (container.frame.height / 2)
 
     if (min < max) {
-      thisObject.min.y = min
-      thisObject.max.y = max
-      thisObject.recalculateScale()
+      let mustRecalculate = false
+      if (thisObject.autoMinYScale === false) {
+        thisObject.min.y = min
+        mustRecalculate = true
+      }
+      if (thisObject.autoMaxYScale === false) {
+        thisObject.max.y = max
+        mustRecalculate = true
+      }
+      if (mustRecalculate === true) {
+        thisObject.recalculateScale()
+      }
     }
   }
 

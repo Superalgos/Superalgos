@@ -320,11 +320,11 @@ function newTimelineChart () {
   }
 
   function thisObjectPhysics () {
-    timelineChartCoordinateSystem.reportParentXValue(timeMachineCoordinateSystem.min.x, timeMachineCoordinateSystem.max.x)
-    timelineChartCoordinateSystem.physics()
-
     /* Only if the plotter manager has some layer turned on, we will pass the min and max upstream. */
     if (thisObject.plotterManager !== undefined && thisObject.plotterManager.connectors.length > 0) {
+      timelineChartCoordinateSystem.reportParentXValue(timeMachineCoordinateSystem.min.x, timeMachineCoordinateSystem.max.x)
+      timelineChartCoordinateSystem.physics()
+
       timeMachineCoordinateSystem.reportXValue(timelineChartCoordinateSystem.childrenMin.x)
       timeMachineCoordinateSystem.reportXValue(timelineChartCoordinateSystem.childrenMax.x)
     }

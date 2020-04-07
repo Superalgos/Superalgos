@@ -1,7 +1,7 @@
 [
     {
         "type": "Plotter Module",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#plotter-module",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#plotter-module",
         "properties": [
             {
                 "name": "javascriptCode",
@@ -78,7 +78,7 @@
     },
     {
         "type": "Shapes",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#shapes",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#shapes",
         "icon": "shapes",
         "level": 4,
         "propertyNameAtParent": "shapes",
@@ -126,7 +126,7 @@
     },
     {
         "type": "Plotter Panel",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#plotter-panel",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#plotter-panel",
         "icon": "plotter-panel",
         "level": 4,
         "isTitleAllwaysVisible": true,
@@ -189,7 +189,7 @@
     },
     {
         "type": "Panel Data",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#panel-data",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#panel-data",
         "icon": "data-entry",
         "level": 4,
         "propertyNameAtParent": "panelData",
@@ -241,7 +241,7 @@
     },
     {
         "type": "Data Formula",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#data-formula",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-formula",
         "icon": "data-formula",
         "level": 4,
         "propertyNameAtParent": "dataFormula",
@@ -276,7 +276,7 @@
     },
     {
         "type": "Javascript Code",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#javascript-code",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#javascript-code",
         "icon": "html",
         "level": 4,
         "propertyNameAtParent": "javascriptCode",
@@ -311,7 +311,7 @@
     },
     {
         "type": "Chart Points",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#chart-points",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#chart-points",
         "icon": "chart-points",
         "level": 4,
         "propertyNameAtParent": "chartPoints",
@@ -348,7 +348,7 @@
     },
     {
         "type": "Point",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#point",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#point",
         "icon": "chart-point",
         "level": 4,
         "propertyNameAtParent": "points",
@@ -388,7 +388,7 @@
     },
     {
         "type": "Point Formula",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#point-formula",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#point-formula",
         "icon": "chart-point-formula",
         "level": 4,
         "propertyNameAtParent": "pointFormula",
@@ -423,7 +423,7 @@
     },
     {
         "type": "Polygon",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#polygon",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#polygon",
         "icon": "shapes-polygon",
         "level": 3,
         "propertyNameAtParent": "polygons",
@@ -488,7 +488,7 @@
     },
     {
         "type": "Polygon Body",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#polygon-body",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#polygon-body",
         "icon": "shapes-polygon-body",
         "level": 4,
         "propertyNameAtParent": "polygonBody",
@@ -537,7 +537,7 @@
     },
     {
         "type": "Polygon Border",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#polygon-border",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#polygon-border",
         "icon": "shapes-polygon-border",
         "level": 4,
         "propertyNameAtParent": "polygonBorder",
@@ -586,7 +586,7 @@
     },
     {
         "type": "Style Condition",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#style-condition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#style-condition",
         "icon": "style-condition",
         "level": 4,
         "propertyNameAtParent": "styleConditions",
@@ -637,7 +637,7 @@
     },
     {
         "type": "Style",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#style",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#style",
         "icon": "style",
         "level": 4,
         "propertyNameAtParent": "style",
@@ -672,7 +672,7 @@
     },
     {
         "type": "Polygon Vertex",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#polygon-vertex",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#polygon-vertex",
         "icon": "shapes-polygon-vertex",
         "level": 4,
         "propertyNameAtParent": "polygonVertexes",
@@ -764,7 +764,7 @@
     },
     {
         "type": "Situation",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#situation",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#situation",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -800,7 +800,7 @@
     },
     {
         "type": "Condition",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#condition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#condition",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -841,6 +841,7 @@
     },
     {
         "type": "Super Scripts",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#super-scripts",
         "menuItems": [
             {
                 "action": "Configure Super Scripts",
@@ -889,6 +890,7 @@
     },
     {
         "type": "Scripts Library",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#scripts-library",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -925,6 +927,7 @@
     },
     {
         "type": "Master Script",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#master-script",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -974,6 +977,7 @@
     },
     {
         "type": "Template Script",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#template-script",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1040,6 +1044,7 @@
     },
     {
         "type": "Template Structure",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#template-structure",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1084,6 +1089,7 @@
     },
     {
         "type": "Template Target",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#template-target",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1110,6 +1116,7 @@
     },
     {
         "type": "Super Action",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#super-action",
         "menuItems": [
             {
                 "action": "Run Super Action",
@@ -1146,7 +1153,7 @@
     },
     {
         "type": "Network",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#network",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1179,7 +1186,7 @@
     },
     {
         "type": "Network Node",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#network-node",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1260,7 +1267,7 @@
     },
     {
         "type": "Task Manager",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#task-manager",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#task-manager",
         "menuItems": [
             {
                 "action": "Run All Tasks",
@@ -1318,7 +1325,7 @@
     },
     {
         "type": "Task",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#task",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#task",
         "menuItems": [
             {
                 "action": "Run Task",
@@ -1398,7 +1405,7 @@
     },
     {
         "type": "Trading Bot Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#trading-bot-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#trading-bot-instance",
         "menuItems": [
             {
                 "action": "Configure Bot Instance",
@@ -1448,7 +1455,7 @@
     },
     {
         "type": "Sensor Process Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#sensor-process-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#sensor-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1493,7 +1500,7 @@
     },
     {
         "type": "Indicator Process Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#indicator-process-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#indicator-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1538,7 +1545,7 @@
     },
     {
         "type": "Trading Process Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#trading-process-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#trading-process-instance",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1635,7 +1642,7 @@
     },
     {
         "type": "Backtesting Session",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#backtesting-session",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#backtesting-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -1720,7 +1727,7 @@
     },
     {
         "type": "Parameters",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#parameters",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#parameters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -1786,7 +1793,7 @@
     },
     {
         "type": "Base Asset",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#base-asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#base-asset",
         "menuItems": [
             {
                 "action": "Configure Base Asset",
@@ -1871,7 +1878,7 @@
     },
     {
         "type": "Market Base Asset",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#market-base-asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market-base-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1901,7 +1908,7 @@
     },
     {
         "type": "Market Quoted Asset",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#market-quoted-asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market-quoted-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1931,7 +1938,7 @@
     },
     {
         "type": "Market Reference",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#market-reference",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#market-reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -1976,7 +1983,7 @@
     },
     {
         "type": "Time Range",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#time-range",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#time-range",
         "menuItems": [
             {
                 "action": "Configure Time Range",
@@ -2011,7 +2018,7 @@
     },
     {
         "type": "Time Frame",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#time-frame",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#time-frame",
         "menuItems": [
             {
                 "action": "Configure Time Frame",
@@ -2046,7 +2053,7 @@
     },
     {
         "type": "Slippage",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#slippage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#slippage",
         "menuItems": [
             {
                 "action": "Configure Slippage",
@@ -2081,7 +2088,7 @@
     },
     {
         "type": "Fee Structure",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#fee-structure",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#fee-structure",
         "menuItems": [
             {
                 "action": "Configure Fee Structure",
@@ -2116,7 +2123,7 @@
     },
     {
         "type": "Paper Trading Session",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#paper-trading-session",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#paper-trading-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -2201,7 +2208,7 @@
     },
     {
         "type": "Forward Testing Session",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#forward-testing-session",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#forward-testing-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -2286,7 +2293,7 @@
     },
     {
         "type": "Key Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#key-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#key-instance",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -2314,7 +2321,7 @@
     },
     {
         "type": "Live Trading Session",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#live-trading-session",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#live-trading-session",
         "menuItems": [
             {
                 "action": "Run Session",
@@ -2396,7 +2403,7 @@
     },
     {
         "type": "Sensor Bot Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#sensor-bot-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#sensor-bot-instance",
         "menuItems": [
             {
                 "action": "Configure Bot Instance",
@@ -2447,7 +2454,7 @@
     },
     {
         "type": "Indicator Bot Instance",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#indicator-bot-instance",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#indicator-bot-instance",
         "menuItems": [
             {
                 "action": "Configure Bot Instance",
@@ -2498,7 +2505,7 @@
     },
     {
         "type": "Data Mine",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#data-mine",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-mine",
         "menuItems": [
             {
                 "action": "Configure Data Mine",
@@ -2640,7 +2647,7 @@
     },
     {
         "type": "Process Definition",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#process-definition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#process-definition",
         "menuItems": [
             {
                 "action": "Configure Process",
@@ -2712,7 +2719,7 @@
     },
     {
         "type": "Process Output",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#process-output",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#process-output",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -2748,7 +2755,7 @@
     },
     {
         "type": "Process Dependencies",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#process-dependencies",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#process-dependencies",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -2796,7 +2803,7 @@
     },
     {
         "type": "Status Dependency",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#status-dependency",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#status-dependency",
         "menuItems": [
             {
                 "action": "Configure Status Dependency",
@@ -2840,7 +2847,7 @@
     },
     {
         "type": "Status Report",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#status-report",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#status-report",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -2862,7 +2869,7 @@
     },
     {
         "type": "Execution Started Event",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#execution-started-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#execution-started-event",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -2887,7 +2894,7 @@
     },
     {
         "type": "Execution Finished Event",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#execution-finished-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#execution-finished-event",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -2909,7 +2916,7 @@
     },
     {
         "type": "Product Definition",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#product-definition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#product-definition",
         "menuItems": [
             {
                 "action": "Configure Product",
@@ -2990,7 +2997,7 @@
     },
     {
         "type": "Dataset Definition",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#dataset-definition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#dataset-definition",
         "menuItems": [
             {
                 "action": "Configure Definition",
@@ -3024,7 +3031,7 @@
     },
     {
         "type": "Indicator Bot",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#indicator-bot",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#indicator-bot",
         "menuItems": [
             {
                 "action": "Configure Bot",
@@ -3084,7 +3091,7 @@
     },
     {
         "type": "Output Dataset",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#output-dataset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#output-dataset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -3114,7 +3121,7 @@
     },
     {
         "type": "Data Dependency",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#data-dependency",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-dependency",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -3144,7 +3151,7 @@
     },
     {
         "type": "Record Definition",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#record-definition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#record-definition",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3180,7 +3187,7 @@
     },
     {
         "type": "Record Property",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#record-property",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#record-property",
         "menuItems": [
             {
                 "action": "Configure Property",
@@ -3232,7 +3239,7 @@
     },
     {
         "type": "Formula",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#formula",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#formula",
         "menuItems": [
             {
                 "action": "Edit Formula",
@@ -3268,7 +3275,7 @@
     },
     {
         "type": "Calculations Procedure",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#calculations-procedure",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#calculations-procedure",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3320,7 +3327,7 @@
     },
     {
         "type": "Procedure Initialization",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#procedure-initialization",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#procedure-initialization",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3358,7 +3365,7 @@
     },
     {
         "type": "Procedure Loop",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#procedure-loop",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#procedure-loop",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3396,7 +3403,7 @@
     },
     {
         "type": "Data Building Procedure",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#data-building-procedure",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-building-procedure",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3507,7 +3514,7 @@
     },
     {
         "type": "Plotter",
-        "docURL": "https://docs.superalgos.org/suite-data-mine-hierarchy.html#plotter",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#plotter",
         "menuItems": [
             {
                 "action": "Configure Plotter",
@@ -3555,7 +3562,7 @@
     },
     {
         "type": "Trading System",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trading-system",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trading-system",
         "menuItems": [
             {
                 "action": "Configure Trading System",
@@ -3603,7 +3610,7 @@
     },
     {
         "type": "Strategy",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#strategy",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#strategy",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3658,7 +3665,7 @@
     },
     {
         "type": "Trigger Stage",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trigger-stage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trigger-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3717,7 +3724,7 @@
     },
     {
         "type": "Trigger On Event",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trigger-on-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trigger-on-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3764,7 +3771,7 @@
     },
     {
         "type": "Trigger Off Event",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#trigger-off-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trigger-off-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3811,7 +3818,7 @@
     },
     {
         "type": "Take Position Event",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#take-position-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#take-position-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3858,7 +3865,7 @@
     },
     {
         "type": "Open Stage",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#open-stage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#open-stage",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -3921,7 +3928,7 @@
     },
     {
         "type": "Initial Definition",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#initial-definition",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-definition",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3973,7 +3980,7 @@
     },
     {
         "type": "Stop",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#stop",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#stop",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4009,7 +4016,7 @@
     },
     {
         "type": "Initial Stop",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#initial-stop",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-stop",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4046,7 +4053,7 @@
     },
     {
         "type": "Phase",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#phase-0",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#phase-0",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4109,7 +4116,7 @@
     },
     {
         "type": "Next Phase Event",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#next-phase-event",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#next-phase-event",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4156,7 +4163,7 @@
     },
     {
         "type": "Take Profit",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#take-profit",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#take-profit",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4192,7 +4199,7 @@
     },
     {
         "type": "Initial Take Profit",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#initial-take-profit",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#initial-take-profit",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4229,7 +4236,7 @@
     },
     {
         "type": "Position Size",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#position-size",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#position-size",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4266,7 +4273,7 @@
     },
     {
         "type": "Position Rate",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#position-rate",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#position-rate",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4303,7 +4310,7 @@
     },
     {
         "type": "Open Execution",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#open-execution",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#open-execution",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -4325,7 +4332,7 @@
     },
     {
         "type": "Manage Stage",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#manage-stage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#manage-stage",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -4378,7 +4385,7 @@
     },
     {
         "type": "Close Stage",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#close-stage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#close-stage",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4427,7 +4434,7 @@
     },
     {
         "type": "Close Execution",
-        "docURL": "https://docs.superalgos.org/suite-trading-system-hierarchy.html#close-execution",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#close-execution",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -4569,7 +4576,7 @@
     },
     {
         "type": "Crypto Ecosystem",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#crypto-ecosystem",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#crypto-ecosystem",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4605,6 +4612,7 @@
     },
     {
         "type": "Super Actions",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#super-actions",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4640,7 +4648,7 @@
     },
     {
         "type": "Crypto Exchanges",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#crypto-exchanges",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#crypto-exchanges",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -4686,7 +4694,7 @@
     },
     {
         "type": "Crypto Exchange",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#crypto-exchange",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#crypto-exchange",
         "menuItems": [
             {
                 "action": "Config Crypto Exchange",
@@ -4808,7 +4816,7 @@
     },
     {
         "type": "Exchange Assets",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-assets",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-assets",
         "menuItems": [
             {
                 "action": "Config Exchange Assets",
@@ -4865,7 +4873,7 @@
     },
     {
         "type": "Asset",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#asset",
         "menuItems": [
             {
                 "action": "Config Asset",
@@ -4967,7 +4975,7 @@
     },
     {
         "type": "Exchange Markets",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-markets",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-markets",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5011,7 +5019,7 @@
     },
     {
         "type": "Market",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#market",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market",
         "menuItems": [
             {
                 "action": "Config Market",
@@ -5088,7 +5096,7 @@
     },
     {
         "type": "Exchange Accounts",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-accounts",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-accounts",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5125,7 +5133,7 @@
     },
     {
         "type": "User Account",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#user-account",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#user-account",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5178,7 +5186,7 @@
     },
     {
         "type": "User Assets",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#user-assets",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#user-assets",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5214,7 +5222,7 @@
     },
     {
         "type": "User Keys",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#user-keys",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#user-keys",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5251,7 +5259,7 @@
     },
     {
         "type": "Exchange Account Asset",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-account-asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-account-asset",
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -5282,7 +5290,7 @@
     },
     {
         "type": "Exchange Account Key",
-        "docURL": "https://docs.superalgos.org/suite-crypto-ecosystem-hierarchy.html#exchange-account-key",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-account-key",
         "menuItems": [
             {
                 "action": "Configure Key",
@@ -5319,7 +5327,7 @@
     },
     {
         "type": "Charting Space",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#charting-space",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#charting-space",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5356,7 +5364,7 @@
     },
     {
         "type": "Dashboard",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#dashboard",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#dashboard",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5392,7 +5400,7 @@
     },
     {
         "type": "Time Machine",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#time-machine",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-machine",
         "menuItems": [
             {
                 "action": "Configure Time Machine",
@@ -5485,7 +5493,7 @@
     },
     {
         "type": "Viewport",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#viewport",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#viewport",
         "menuItems": [
             {
                 "action": "Configure Viewport",
@@ -5512,7 +5520,7 @@
     },
     {
         "type": "Time Scale",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#time-scale",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-scale",
         "menuItems": [
             {
                 "action": "Configure Time Scale",
@@ -5548,7 +5556,7 @@
     },
     {
         "type": "Rate Scale",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#rate-scale",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#rate-scale",
         "menuItems": [
             {
                 "action": "Configure Rate Scale",
@@ -5584,7 +5592,7 @@
     },
     {
         "type": "Time Frame Scale",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#time-frame-scale",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-frame-scale",
         "menuItems": [
             {
                 "action": "Configure Frame Scale",
@@ -5620,7 +5628,7 @@
     },
     {
         "type": "Timeline Chart",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#timeline-chart",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#timeline-chart",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5688,7 +5696,7 @@
     },
     {
         "type": "Layers Manager",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#layers-manager",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layers-manager",
         "menuItems": [
             {
                 "action": "Configure Layers Manager",
@@ -5738,7 +5746,7 @@
     },
     {
         "type": "Layer",
-        "docURL": "https://docs.superalgos.org/suite-charting-space-hierarchy.html#layer",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layer",
         "menuItems": [
             {
                 "action": "Configure Layer",
@@ -5796,7 +5804,7 @@
     },
     {
         "type": "Data Storage",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#data-storage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#data-storage",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -5911,7 +5919,7 @@
     },
     {
         "type": "Data Mining",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#data-mining",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#data-mining",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -5968,7 +5976,7 @@
     },
     {
         "type": "Testing Environment",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#testing-environment",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#testing-environment",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -6031,7 +6039,7 @@
     },
     {
         "type": "Production Environment",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#production-environment",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#production-environment",
         "menuItems": [
             {
                 "action": "Run All Exchange Tasks",
@@ -6136,7 +6144,7 @@
     },
     {
         "type": "Session Independent Data",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#session-independent-data",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#session-independent-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -6207,7 +6215,7 @@
     },
     {
         "type": "Session Based Data",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#session-based-data",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#session-based-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -6249,7 +6257,7 @@
     },
     {
         "type": "Session Reference",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#session-reference",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#session-reference",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -6296,7 +6304,7 @@
     },
     {
         "type": "Single Market Data",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#single-market-data",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#single-market-data",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -6340,7 +6348,7 @@
     },
     {
         "type": "Data Product",
-        "docURL": "https://docs.superalgos.org/suite-network-hierarchy.html#data-product",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#data-product",
         "menuItems": [
             {
                 "action": "Delete UI Object",

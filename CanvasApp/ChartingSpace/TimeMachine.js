@@ -36,6 +36,7 @@ function newTimeMachine () {
   }
 
   let timeMachineCoordinateSystem = newCoordinateSystem()
+  timeMachineCoordinateSystem.name = 'TIME MACHINE'
 
   let mouse = {
     position: {

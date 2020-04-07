@@ -80,7 +80,7 @@ function newPlottersManager () {
   }
 
   function initialize (pLayersPanel) {
-    /* Remember the Layers Panel */
+    /* Remember this */
     layersPanel = pLayersPanel
 
     /* Listen to the event of change of status */
@@ -244,7 +244,7 @@ function newPlottersManager () {
       }
     }
     if (layer.status === LAYER_STATUS.OFF) {
-            /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
+      /* If the plotter of this card is not on our Active Plotters list, then we remove it. */
       for (let i = 0; i < thisObject.connectors.length; i++) {
         let connector = thisObject.connectors[i]
         if (connector.layer.payload.node.id === layer.payload.node.id) {

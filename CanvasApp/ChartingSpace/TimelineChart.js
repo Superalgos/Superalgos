@@ -31,6 +31,8 @@ function newTimelineChart () {
 
   let timeMachineCoordinateSystem
   let timelineChartCoordinateSystem = newCoordinateSystem()
+  timelineChartCoordinateSystem.name = 'TIMELINE CHART'
+
   let coordinateSystem
 
   let layersPanel
@@ -43,7 +45,6 @@ function newTimelineChart () {
   let timeFrameScaleEventSuscriptionId
   let timeFrameScaleMouseOverEventSuscriptionId
   let scaleChangedEventSubscriptionId
-  let xRangeChangedEventSubscriptionId
 
   let drawScales = false
   let mouse = {
@@ -63,8 +64,7 @@ function newTimelineChart () {
   }
 
   function finalize () {
-    coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
-    timelineChartCoordinateSystem.eventHandler.stopListening(xRangeChangedEventSubscriptionId)
+    timeMachineCoordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
 
     if (thisObject.layersManager !== undefined) {
       finalizeLayersManager()
@@ -147,7 +147,6 @@ function newTimelineChart () {
     onMouseOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     scaleChangedEventSubscriptionId = timeMachineCoordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
-    xRangeChangedEventSubscriptionId = timelineChartCoordinateSystem.eventHandler.listenToEvent('X-Range Changed', xRangeChanged)
   }
 
   function initializeCoordinateSystem () {
@@ -231,15 +230,6 @@ function newTimelineChart () {
 
     function timeFrameScaleMouseOver (event) {
       thisObject.container.eventHandler.raiseEvent('onChildrenMouseOver', event)
-    }
-  }
-
-  function xRangeChanged (event) {
-    if (thisObject.rateScale !== undefined) {
-      /* We need to re trasmit the changes on the x Range of the timelinechart coordinate system to the time machine coordinate system so that its scale is syncronized. */
-      timeMachineCoordinateSystem.min.x = timelineChartCoordinateSystem.min.x
-      timeMachineCoordinateSystem.max.x = timelineChartCoordinateSystem.max.x
-      timeMachineCoordinateSystem.recalculateScale()
     }
   }
 
@@ -330,9 +320,14 @@ function newTimelineChart () {
   }
 
   function thisObjectPhysics () {
-    timelineChartCoordinateSystem.reportXValue(timeMachineCoordinateSystem.min.x)
-    timelineChartCoordinateSystem.reportXValue(timeMachineCoordinateSystem.max.x)
-    timelineChartCoordinateSystem.physics()
+    /* Only if the plotter manager has some layer turned on, we will pass the min and max upstream. */
+    if (thisObject.plotterManager !== undefined && thisObject.plotterManager.connectors.length > 0) {
+      timelineChartCoordinateSystem.reportParentXValue(timeMachineCoordinateSystem.min.x, timeMachineCoordinateSystem.max.x)
+      timelineChartCoordinateSystem.physics()
+
+      timeMachineCoordinateSystem.reportXValue(timelineChartCoordinateSystem.childrenMin.x)
+      timeMachineCoordinateSystem.reportXValue(timelineChartCoordinateSystem.childrenMax.x)
+    }
   }
 
   function syncWithDesignerLayersManager () {

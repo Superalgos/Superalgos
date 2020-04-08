@@ -43,16 +43,28 @@ function newRateScale () {
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
   let onScaleChangedEventSubscriptionId
+  let onDragStartedEventSubscriptionId
 
   let coordinateSystem
+  let coordinateSystemWhenDragStarted
+
   let limitingContainer
   let rateCalculationsContainer
 
-  let mouse = {
+  mouseWhenDragStarted = {
     position: {
       x: 0,
       y: 0
     }
+  }
+
+  parentFrameWhenDragStarted = {
+    position: {
+      x: 0,
+      y: 0
+    },
+    width: 0,
+    height: 0
   }
 
   let scaleDisplayTimer = 0
@@ -68,16 +80,25 @@ function newRateScale () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
     coordinateSystem.eventHandler.stopListening(onScaleChangedEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
     thisObject.payload = undefined
 
+    if (coordinateSystemWhenDragStarted !== undefined) {
+      coordinateSystemWhenDragStarted.finalize()
+    }
+
+    coordinateSystemWhenDragStarted = undefined
+
     coordinateSystem = undefined
     limitingContainer = undefined
     rateCalculationsContainer = undefined
-    mouse = undefined
+
+    mouseWhenDragStarted = undefined
+    parentFrameWhenDragStarted = undefined
 
     autoScaleButton.finalize()
     autoScaleButton = undefined
@@ -95,6 +116,7 @@ function newRateScale () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
     onScaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
+    onDragStartedEventSubscriptionId = draggeableContainer.eventHandler.listenToEvent('onDragStarted', onDragStarted)
 
     autoScaleButton = newAutoScaleButton()
     autoScaleButton.container.connectToParent(thisObject.container)
@@ -113,12 +135,6 @@ function newRateScale () {
       } else {
         visible = false
         turnOnCounter = 0
-      }
-    }
-    mouse = {
-      position: {
-        x: event.x,
-        y: event.y
       }
     }
   }
@@ -195,6 +211,38 @@ function newRateScale () {
     scaleDisplayTimer = 100
   }
 
+  function onDragStarted (event) {
+    mouseWhenDragStarted = {
+      position: {
+        x: event.x,
+        y: event.y
+      }
+    }
+
+    parentFrameWhenDragStarted = {
+      position: {
+        x: limitingContainer.frame.position.x,
+        y: limitingContainer.frame.position.y
+      },
+      width: limitingContainer.frame.width,
+      height: limitingContainer.frame.height
+    }
+
+    coordinateSystemWhenDragStarted = newCoordinateSystem()
+
+    let minValue = {
+      x: coordinateSystem.min.x,
+      y: coordinateSystem.min.y
+    }
+
+    let maxValue = {
+      x: coordinateSystem.max.x,
+      y: coordinateSystem.max.y
+    }
+
+    coordinateSystemWhenDragStarted.initialize(minValue, maxValue, coordinateSystem.maxWidth, coordinateSystem.maxHeight)
+  }
+
   function getContainer (point, purpose) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       if (purpose === GET_CONTAINER_PURPOSE.DRAGGING) {
@@ -262,26 +310,38 @@ function newRateScale () {
   }
 
   function draggingPhysics () {
+    if (coordinateSystemWhenDragStarted === undefined) { return }
     if (draggeableContainer.frame.position.y === 0) { return }
 
+    let mouseNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(canvas.mouse.position)
+    let mouseWhenDragStartedNoZoom = canvas.chartingSpace.viewport.unTransformThisPoint(mouseWhenDragStarted.position)
+
+    let dragVectorWhenDragStarted = {
+      x: 0,
+      y: mouseNoZoom.y - mouseWhenDragStartedNoZoom.y
+    }
+
     let dragVector = {
-      x: draggeableContainer.frame.position.x,
+      x: 0,
       y: draggeableContainer.frame.position.y
     }
 
-    draggeableContainer.frame.position.x = 0
     draggeableContainer.frame.position.y = 0
 
     let point = {
       x: 0,
-      y: -dragVector.y
+      y: (-dragVectorWhenDragStarted.y)
     }
 
-    let newMaxRate = getRateFromPointAtContainer(point, limitingContainer, coordinateSystem)
-    let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
+    let newMaxRate = getRateFromPointAtContainer(point, limitingContainer, coordinateSystemWhenDragStarted)
+    let yDifferenceMaxMin = coordinateSystemWhenDragStarted.max.y - coordinateSystemWhenDragStarted.min.y
 
     coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
     coordinateSystem.max.y = newMaxRate
+    let event = {
+      type: 'center dragged',
+      dragVector: dragVector
+    }
     coordinateSystem.recalculateScale()
   }
 
@@ -375,7 +435,7 @@ function newRateScale () {
     /* Mouse Position Rate Calculation */
     let ratePoint = {
       x: 0,
-      y: mouse.position.y
+      y: canvas.mouse.position.y
     }
 
     thisObject.rate = getRateFromPointAtBrowserCanvas(ratePoint, rateCalculationsContainer, coordinateSystem)
@@ -387,7 +447,7 @@ function newRateScale () {
     }
 
     ratePoint = transformThisPoint(ratePoint, limitingContainer.frame.container)
-    ratePoint.y = mouse.position.y - thisObject.container.frame.height / 2 + thisObject.container.frame.height
+    ratePoint.y = canvas.mouse.position.y - thisObject.container.frame.height / 2 + thisObject.container.frame.height
 
     /* Checking against the container limits. */
     if (ratePoint.x < upCorner.x) { ratePoint.x = upCorner.x }

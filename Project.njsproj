@@ -51,6 +51,7 @@
     <Compile Include="Session.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EventServerClient.js" />
     <Compile Include="TradingBot.js">
       <SubType>Code</SubType>
     </Compile>

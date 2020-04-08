@@ -38,12 +38,6 @@ function newTimeFrameScale () {
 
   let limitingContainer
 
-  let mouse = {
-    position: {
-      x: 0,
-      y: 0
-    }
-  }
   setupContainer()
 
   let wheelDeltaDirection
@@ -76,7 +70,6 @@ function newTimeFrameScale () {
     thisObject.payload = undefined
 
     limitingContainer = undefined
-    mouse = undefined
   }
 
   function initialize (pLimitingContainer) {
@@ -101,12 +94,6 @@ function newTimeFrameScale () {
       } else {
         greyOutCoverLayer = true
         turnOnCounter = 0
-      }
-    }
-    mouse = {
-      position: {
-        x: event.x,
-        y: event.y
       }
     }
   }
@@ -201,7 +188,7 @@ function newTimeFrameScale () {
     }
 
     timePoint = transformThisPoint(timePoint, limitingContainer.frame.container)
-    timePoint.x = mouse.position.x - thisObject.container.frame.width / 2
+    timePoint.x = canvas.mouse.position.x - thisObject.container.frame.width / 2
 
     /* Checking against the container limits. */
     if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }

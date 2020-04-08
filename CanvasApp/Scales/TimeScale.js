@@ -42,13 +42,6 @@ function newTimeScale () {
   let coordinateSystem
   let limitingContainer
 
-  let mouse = {
-    position: {
-      x: 0,
-      y: 0
-    }
-  }
-
   let wheelDeltaDirection
   let wheelDeltaCounter = 0
 
@@ -67,7 +60,6 @@ function newTimeScale () {
 
     coordinateSystem = undefined
     limitingContainer = undefined
-    mouse = undefined
 
     autoScaleButton.finalize()
     autoScaleButton = undefined
@@ -99,12 +91,6 @@ function newTimeScale () {
       } else {
         visible = false
         turnOnCounter = 0
-      }
-    }
-    mouse = {
-      position: {
-        x: event.x,
-        y: event.y
       }
     }
   }
@@ -253,7 +239,7 @@ function newTimeScale () {
 
     /* Mouse Position Date Calculation */
     let timePoint = {
-      x: mouse.position.x,
+      x: canvas.mouse.position.x,
       y: 0
     }
 
@@ -268,7 +254,7 @@ function newTimeScale () {
     }
 
     timePoint = transformThisPoint(timePoint, limitingContainer.frame.container)
-    timePoint.x = mouse.position.x - thisObject.container.frame.width / 2
+    timePoint.x = canvas.mouse.position.x - thisObject.container.frame.width / 2
 
     /* Checking against the container limits. */
     if (timePoint.x < upCorner.x) { timePoint.x = upCorner.x }

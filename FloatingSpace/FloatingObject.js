@@ -286,6 +286,7 @@ function newFloatingObject () {
 
   function positionContraintsPhysics () {
     const MAX_DISTANCE_TO_PARENT = 3000
+    const MIN_DISTANCE_TO_PARENT = 100
 
     if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {
       let parent = thisObject.payload.chainParent
@@ -322,6 +323,10 @@ function newFloatingObject () {
 
       if (distanceToParent > MAX_DISTANCE_TO_PARENT) {
         distanceToParent = MAX_DISTANCE_TO_PARENT
+      }
+
+      if (distanceToParent < MIN_DISTANCE_TO_PARENT) {
+        distanceToParent = MIN_DISTANCE_TO_PARENT
       }
 
       switch (thisObject.angleToParent) {
@@ -560,20 +565,32 @@ function newFloatingObject () {
   }
 
   function drawBackground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawBackground()
   }
 
   function drawMiddleground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawMiddleground()
   }
 
   function drawForeground () {
-    if (canvas.floatingSpace.isItFar(thisObject.payload)) { return }
-    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) { return }
+    if (canvas.floatingSpace.isItFar(thisObject.payload) && thisObject.payload.uiObject.isShowing === false) { return }
+    if ((thisObject.isCollapsed === true && thisObject.collapsedManually === false) || thisObject.isParentCollapsed === true) {
+      if (thisObject.payload.uiObject.isShowing !== true) {
+        return
+      }
+    }
     thisObject.payload.uiObject.drawForeground()
   }
 

@@ -23,6 +23,7 @@ function newUiObject () {
     isExecuting: undefined,
     isRunning: undefined,
     shortcutKey: undefined,
+    isShowing: undefined,
     run: run,
     stop: stop,
     heartBeat: heartBeat,
@@ -122,10 +123,10 @@ function newUiObject () {
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
 
     if (eventSubscriptionIdOnRunning !== undefined) {
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
     }
     if (eventSubscriptionIdOnStopped !== undefined) {
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
     }
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
@@ -186,6 +187,7 @@ function newUiObject () {
     thisObject.uiObjectTitle = newUiObjectTitle()
     thisObject.uiObjectTitle.isVisibleFunction = thisObject.isVisibleFunction
     thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
+    thisObject.uiObjectTitle.fitFunction = thisObject.fitFunction
     thisObject.uiObjectTitle.initialize(thisObject.payload)
 
 /* Load UI Object Image */
@@ -364,8 +366,10 @@ function newUiObject () {
         let totalRunning = 0
         for (let j = 0; j < children.length; j++) {
           let child = children[j]
-          if (child.payload.uiObject.isRunning === true) {
-            totalRunning++
+          if (child.payload !== undefined) {
+            if (child.payload.uiObject.isRunning === true) {
+              totalRunning++
+            }
           }
         }
         if (totalRunning > 0) {
@@ -759,7 +763,7 @@ function newUiObject () {
 
     /* We will wait to hear the Running event in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
+    eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
     onRunningCallBackFunction = callBackFunction
 
@@ -771,7 +775,7 @@ function newUiObject () {
       if (thisObject.payload === undefined) { return }
 
       let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-      systemEventHandler.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+      eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
 
       thisObject.isRunning = true
 
@@ -801,7 +805,7 @@ function newUiObject () {
   function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    systemEventHandler.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
+    eventsServerClient.listenToEvent(key, 'Stopped', undefined, 'UiObject', onResponse, onStopped)
 
     function onResponse (message) {
       eventSubscriptionIdOnStopped = message.eventSubscriptionId
@@ -870,6 +874,10 @@ function newUiObject () {
 
   function onFocus () {
     thisObject.isOnFocus = true
+
+    if (thisObject.payload !== undefined && thisObject.isOnFocus === true && thisObject.payload.referenceParent !== undefined) {
+      thisObject.payload.referenceParent.payload.uiObject.isShowing = true
+    }
   }
 
   function onNotFocus () {
@@ -885,6 +893,10 @@ function newUiObject () {
     }
     if (thisObject.formulaEditor !== undefined) {
       thisObject.formulaEditor.deactivate()
+    }
+
+    if (thisObject.payload !== undefined && thisObject.isOnFocus === false && thisObject.payload.referenceParent !== undefined) {
+      thisObject.payload.referenceParent.payload.uiObject.isShowing = false
     }
   }
 
@@ -1113,11 +1125,11 @@ function newUiObject () {
   }
 
   function drawReferenceLine () {
-    if (canvas.floatingSpace.drawReferenceLines === false) { return }
+    if (canvas.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
     if (thisObject.payload.referenceParent.payload === undefined) { return }
     if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
-    if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true) { return }
+    if (thisObject.payload.referenceParent.payload.floatingObject.isParentCollapsed === true && thisObject.isOnFocus === false) { return }
 
     let targetPoint = {
       x: thisObject.payload.referenceParent.payload.position.x,
@@ -1131,6 +1143,10 @@ function newUiObject () {
 
     targetPoint = canvas.floatingSpace.container.frame.frameThisPoint(targetPoint)
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (thisObject.isOnFocus === true) {
+      targetPoint = thisObject.fitFunction(targetPoint)
+    }
 
     if (canvas.floatingSpace.inMapMode === true) {
       position = canvas.floatingSpace.transformPointToMap(position)
@@ -1268,6 +1284,9 @@ function newUiObject () {
   function drawValue () {
     if (hasValue === false) { return }
     if (canvas.floatingSpace.inMapMode === true) { return }
+    if (thisObject.payload === undefined) { return }
+    if ((thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) || thisObject.payload.floatingObject.isParentCollapsed === true) { return }
+
     // if (currentValue === undefined || currentValue === '') { return }
 
 /* Text Follows */
@@ -1322,6 +1341,8 @@ function newUiObject () {
   function drawPercentage () {
     if (hasPercentage === false) { return }
     if (canvas.floatingSpace.inMapMode === true) { return }
+    if (thisObject.payload === undefined) { return }
+    if ((thisObject.payload.floatingObject.isCollapsed === true && thisObject.payload.floatingObject.collapsedManually === false) || thisObject.payload.floatingObject.isParentCollapsed === true) { return }
 
     let position = {
       x: 0,
@@ -1474,6 +1495,10 @@ function newUiObject () {
     }
 
     position = thisObject.container.frame.frameThisPoint(position)
+
+    if (thisObject.isShowing === true) {
+      position = thisObject.fitFunction(position)
+    }
 
     if (canvas.floatingSpace.inMapMode === true) {
       position = canvas.floatingSpace.transformPointToMap(position)
@@ -1704,6 +1729,11 @@ function newUiObject () {
             }
           }
         }
+
+        if (thisObject.isShowing === true) {
+          totalImageSize = 50
+        }
+
         browserCanvasContext.drawImage(
           icon, position.x - totalImageSize / 2,
           position.y - totalImageSize / 2,

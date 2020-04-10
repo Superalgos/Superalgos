@@ -20,9 +20,11 @@ function newReferenceAttachDetach () {
 
   function completeDetachment (node) {
     if (node.payload !== undefined !== undefined) {
-      if (node.payload.referenceParent.payload !== undefined) {
-        if (node.payload.referenceParent.payload.uiObject !== undefined) {
-          node.payload.referenceParent.payload.uiObject.isShowing = false
+      if (node.payload.referenceParent !== undefined) {
+        if (node.payload.referenceParent.payload !== undefined) {
+          if (node.payload.referenceParent.payload.uiObject !== undefined) {
+            node.payload.referenceParent.payload.uiObject.isShowing = false
+          }
         }
       }
     }

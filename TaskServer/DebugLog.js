@@ -61,7 +61,7 @@ exports.newDebugLog = function newDebugLog() {
 
     function persist() {
 
-        /* Here we actually write the content of the in-memory log to a blob */
+        /* Here we actually write the content of the in-memory log to a file */
 
         try {
 
@@ -96,7 +96,9 @@ exports.newDebugLog = function newDebugLog() {
             writeLog();
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
-            thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+            if (contentToPersist.indexOf('[ERROR]') < 0) {
+                thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+            }
             if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)

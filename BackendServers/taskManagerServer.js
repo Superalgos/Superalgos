@@ -66,7 +66,8 @@
             }
 
             if (tasks.get(message.event.taskId) !== undefined) {
-                //console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Task Already Running -> taskId = ' + message.event.taskId)
+                let key = message.event.taskName + '-' + 'Task' + '-' + message.event.taskId
+                eventsServerClient.raiseEvent(key, 'Running') // Meaning Task Running
                 return
             }
             //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)

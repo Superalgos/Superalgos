@@ -183,16 +183,20 @@
         function listenToEvent(eventHandlerName, eventType, callerId, handler, extraData) {
             let eventSubscriptionId = Math.trunc(Math.random() * 1000000)
 
-            let found = false
+            /*
+            We can not allow to have the exact same listener more than once. In case that we find a listener trying to listen again, the first record will
+            be deleted and we are just going to consider the last one comming in.
+            */
             for (let i = 0; i < thisObject.listeners.length; i++) {
                 if (eventHandlerName === thisObject.listeners[i][0] && eventType === thisObject.listeners[i][1] && callerId === thisObject.listeners[i][2]) {
-                    found = true
+                    thisObject.listeners.splice(i, 1)
+                    break
                 }
             }
 
-            if (found === false) {
-                thisObject.listeners.push([eventHandlerName, eventType, callerId, handler, extraData, eventSubscriptionId])
-            }
+             
+            thisObject.listeners.push([eventHandlerName, eventType, callerId, handler, extraData, eventSubscriptionId])
+         
 
             return eventSubscriptionId
         }

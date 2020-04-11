@@ -153,7 +153,21 @@
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(filePath, onFileReceived);
+            let canUserPrevious
+            /*
+            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not the latest one, because it might contain
+            transactioinal information related to the context of the operations the trading engine is doing.
+
+            On the contraty, if we are running a Sensor bot or an Indicator bot, we might, if necesary, use a previous version of a Status Report since
+            there will be no big impact, just some reprocessing.
+            */
+            if (bot.SESSION !== undefined) {
+                canUserPrevious = false
+            } else {
+                canUserPrevious = true
+            }
+
+            fileStorage.getTextFile(filePath, onFileReceived, undefined, canUserPrevious);
 
             function onFileReceived(err, text) {
 
@@ -241,7 +255,7 @@
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true);
 
             function onFileCreated(err) {
 

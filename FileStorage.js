@@ -24,13 +24,13 @@ exports.newFileStorage = function newFileStorage(logger) {
 
   return thisObject
 
-    function getTextFile(filePath, callBackFunction, noRetry) {
+    function getTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
 
       let currentRetryGetTextFile = 0
 
-        recursiveGetTextFile(filePath, callBackFunction, noRetry)
+        recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious)
 
-        function recursiveGetTextFile(filePath, callBackFunction, noRetry) {
+        function recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious) {
 
             logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> Entering Function.')
 
@@ -38,10 +38,13 @@ exports.newFileStorage = function newFileStorage(logger) {
 
             /* Choose path for either bots or data */
             let fileLocation
+            let mustBeJason
             if (filePath.indexOf("/bots/") > 0) {
                 fileLocation = process.env.BOTS_PATH + '/' + filePath
+                mustBeJason = false
             } else {
                 fileLocation = process.env.STORAGE_PATH + '/' + filePath
+                mustBeJason = true
             }
 
             try {
@@ -83,13 +86,59 @@ exports.newFileStorage = function newFileStorage(logger) {
                         return
                     }
 
-                    if (text.toString() === "") {
+                    /*
+                    It might happen that we try to read a file just at the moment it is being written by another process. It that case we might get
+                    an empty file. If we are not allowed to use the Previous version of the file in this case, then we will retry to read it again
+                    a little bit later.
+                    */
+                    if (text.toString() === "" && canUsePrevious !== true) {
                         logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Read and Empty File -> filePath = ' + filePath)
                         setTimeout(retry, retryTimeToUse)
                         return
                     }
 
-                    callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                    if (mustBeJason === false) {
+                        /* In this case there is nothing else to check. */
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                        return 
+                    }
+
+                    /*
+                    We are going to check if the file is a valir JSON object
+                    */
+                    try {
+                        let jsonCheck = JSON.parse(text.toString())
+
+                        /* The file was correctly read and could be parsed. */
+                        callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                        return 
+
+                    } catch (err) {
+
+                        if (canUsePrevious === true) {
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON. Will try to read the PREVIOUS version instead. -> file = ' + fileLocation)
+
+                            fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
+
+                            function onPreviousFileRead(err, text) {
+
+                                if (err) {
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> Could not read the Previous file either. Giving up.')
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> err = ' + err.stack)
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                                } else {
+                                    /* Returning the previous file */
+                                    callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                                    return 
+                                }
+                            }
+                        } else {
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON.')
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> err = ' + err.stack)
+                            setTimeout(retry, retryTimeToUse)
+                            return
+                        }
+                    }                    
                 }
 
             } catch (err) {
@@ -103,7 +152,7 @@ exports.newFileStorage = function newFileStorage(logger) {
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)
-                    recursiveGetTextFile(filePath, callBackFunction)
+                    recursiveGetTextFile(filePath, callBackFunction, noRetry, canUsePrevious)
                 } else {
                     currentRetryGetTextFile = 0
 
@@ -116,6 +165,7 @@ exports.newFileStorage = function newFileStorage(logger) {
                         callBackFunction(customResponse)
                         return
                     } else {
+
                         logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> Max retries reached reading a file. Giving up.')
                         logger.write(MODULE_NAME, '[ERROR] FileStorage -> getTextFile -> retry -> file = ' + fileLocation)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
@@ -126,13 +176,13 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
     }
 
-    function createTextFile(filePath, fileContent, callBackFunction) {
+    function createTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
 
         let currentRetryWriteTextFile = 0
 
-        recursiveCreateTextFile(filePath, fileContent, callBackFunction)
+        recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
 
-        function recursiveCreateTextFile(filePath, fileContent, callBackFunction) {
+        function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
 
             logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> Entering Function.')
 
@@ -165,37 +215,84 @@ exports.newFileStorage = function newFileStorage(logger) {
                         retryTimeToUse = SLOW_RETRY_TIME_IN_MILISECONDS
                     }
                     if (err) {
-                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> Error writing file -> file = ' + fileLocation)
+                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> Error writing file -> file = ' + fileLocation + '.tmp')
                         logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> Error writing file -> err = ' + err.stack)
                         setTimeout(retry, retryTimeToUse)
                     } else {
 
-                        const fs = require('fs')
-                        fs.unlink(fileLocation, onUnlinked)
+                        if (keepPrevious === true) {
+                            /*
+                            In some cases, we are going to keep a copy of the previous version of the file being written. This will be usefull to recover from crashes
+                            when the file written gets corrupted for any reason.
+                            */
+                            fs.unlink(fileLocation + '.Previous.json', onUnlinked)
 
-                        function onUnlinked(err) {
-                            let code = ''
-                            if (err) {
-                                code = err.code
+                            function onUnlinked(err) {
+                                let code = ''
+                                if (err) {
+                                    code = err.code
+                                }
+                                if (code !== '' && code !== 'ENOENT') {
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation + '.Previous.json')
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
+                                    setTimeout(retry, retryTimeToUse)
+                                } else {
+
+                                    fs.rename(fileLocation, fileLocation + '.Previous.json', onOriginalRenamed)
+
+                                    function onOriginalRenamed(err) {
+                                        if (err) {
+                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> file = ' + fileLocation)
+                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> err = ' + err.stack)
+                                            setTimeout(retry, retryTimeToUse)
+                                        } else {
+
+                                            fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
+
+                                            function onTempRenamed(err) {
+                                                if (err) {
+                                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> file = ' + fileLocation + '.tmp')
+                                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> err = ' + err.stack)
+                                                    setTimeout(retry, retryTimeToUse)
+                                                } else {
+
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                            if (code !== '' && code !== 'ENOENT') {
-                                logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error renaming file -> file = ' + fileLocation)
-                                logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error renaming file -> err = ' + err.stack)
-                                setTimeout(retry, retryTimeToUse)
-                            } else {
+                        } else {
 
-                                const fs = require('fs')
-                                fs.rename(fileLocation + '.tmp', fileLocation, onRenamed)
+                            /* In this case, there is no need to keep a copy of the file being replaced, so we just delete and that's it. */
 
-                                function onRenamed(err) {
-                                    if (err) {
-                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onRenamed -> Error renaming file -> file = ' + fileLocation + '.tmp')
-                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onRenamed -> Error renaming file -> err = ' + err.stack)
-                                        setTimeout(retry, retryTimeToUse)
-                                    } else {
+                            fs.unlink(fileLocation , onUnlinked)
 
-                                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+                            function onUnlinked(err) {
+                                let code = ''
+                                if (err) {
+                                    code = err.code
+                                }
+                                if (code !== '' && code !== 'ENOENT') {
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation )
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
+                                    setTimeout(retry, retryTimeToUse)
+                                } else {
 
+                                    fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
+
+                                    function onTempRenamed(err) {
+                                        if (err) {
+                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> file = ' + fileLocation + '.tmp')
+                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> err = ' + err.stack)
+                                            setTimeout(retry, retryTimeToUse)
+                                        } else {
+
+                                            callBackFunction(global.DEFAULT_OK_RESPONSE)
+
+                                        }
                                     }
                                 }
                             }
@@ -213,7 +310,7 @@ exports.newFileStorage = function newFileStorage(logger) {
                 if (currentRetryWriteTextFile < MAX_RETRY) {
                     currentRetryWriteTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> retry -> Will try to write the file again -> Retry #: ' + currentRetryWriteTextFile)
-                    recursiveCreateTextFile(filePath, fileContent, callBackFunction)
+                    recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
                 } else {
                     currentRetryWriteTextFile = 0
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')

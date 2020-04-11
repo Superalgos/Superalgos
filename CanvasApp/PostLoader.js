@@ -73,8 +73,21 @@ function newDashboard () {
   }
 
   function setBrowserEvents () {
-    window.onbeforeunload = onBrowserClosed
-    function onBrowserClosed () {
+    window.onbeforeunload = saveWorkspace
+
+    /* handles backspace and refresh(F5) from keyboard */
+    window.manageBackRefresh = function (event) {
+      var tag = event.target.tagName.toLowerCase()
+      if (event.keyCode == 8 && tag != 'input' && tag != 'textarea') { // Backbutton pressed
+        saveWorkspace()
+      } else if (event.keyCode == 116) { // F5 pressed
+        saveWorkspace()
+      }
+    }
+
+    window.addEventListener('keydown', window.manageBackRefresh)
+
+    function saveWorkspace () {
       canvas.designSpace.workspace.save()
     }
   }

@@ -71,12 +71,12 @@ exports.newFileStorage = function newFileStorage(logger) {
                                 }
                                 callBackFunction(customResponse)
                                 return
-                            } else {
-                                fileDoesNotExist = true
-                                logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Retrying. ')
-                                setTimeout(retry, retryTimeToUse)
-                                return
-                            }
+                            } 
+
+                            fileDoesNotExist = true
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> File does not exist. Retrying. ')
+                            setTimeout(retry, retryTimeToUse)
+                            return
                         }
 
                         logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Error reading file -> err = ' + err.stack)
@@ -126,11 +126,12 @@ exports.newFileStorage = function newFileStorage(logger) {
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> Could not read the Previous file either. Giving up.')
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> canUsePrevious -> err = ' + err.stack)
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                                } else {
-                                    /* Returning the previous file */
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
-                                    return 
-                                }
+                                    return
+                                } 
+
+                                /* Returning the previous file */
+                                callBackFunction(global.DEFAULT_OK_RESPONSE, text.toString())
+                                return 
                             }
                         } else {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON.')
@@ -236,51 +237,25 @@ exports.newFileStorage = function newFileStorage(logger) {
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation + '.Previous.json')
                                     logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
                                     setTimeout(retry, retryTimeToUse)
-                                } else {
+                                    return
+                                }  
 
-                                    fs.rename(fileLocation, fileLocation + '.Previous.json', onOriginalRenamed)
+                                /* Rename de Original into Previous */
+                                fs.rename(fileLocation, fileLocation + '.Previous.json', onOriginalRenamed)
 
-                                    function onOriginalRenamed(err) {
-                                        if (err) {
-                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> file = ' + fileLocation)
-                                            logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> err = ' + err.stack)
-                                            setTimeout(retry, retryTimeToUse)
-                                        } else {
-
-                                            fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
-
-                                            function onTempRenamed(err) {
-                                                if (err) {
-                                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> file = ' + fileLocation + '.tmp')
-                                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> err = ' + err.stack)
-                                                    setTimeout(retry, retryTimeToUse)
-                                                } else {
-
-                                                    callBackFunction(global.DEFAULT_OK_RESPONSE)
-
-                                                }
-                                            }
-                                        }
+                                function onOriginalRenamed(err) {
+                                    let code = ''
+                                    if (err) {
+                                        code = err.code
                                     }
-                                }
-                            }
-                        } else {
+                                    if (code !== '' && code !== 'ENOENT') { // Unless the file does not exists we do this...
+                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> file = ' + fileLocation)
+                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> Error renaming original file -> err = ' + err.stack)
+                                        setTimeout(retry, retryTimeToUse)
+                                        return 
+                                    }
 
-                            /* In this case, there is no need to keep a copy of the file being replaced, so we just delete and that's it. */
-
-                            fs.unlink(fileLocation , onUnlinked)
-
-                            function onUnlinked(err) {
-                                let code = ''
-                                if (err) {
-                                    code = err.code
-                                }
-                                if (code !== '' && code !== 'ENOENT') {
-                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation )
-                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
-                                    setTimeout(retry, retryTimeToUse)
-                                } else {
-
+                                    /* Rename de Temp into Original */
                                     fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
 
                                     function onTempRenamed(err) {
@@ -293,6 +268,38 @@ exports.newFileStorage = function newFileStorage(logger) {
                                             callBackFunction(global.DEFAULT_OK_RESPONSE)
 
                                         }
+                                    }                                        
+                                }
+                            }
+                        } else {
+
+                            /* In this case, there is no need to keep a copy of the file being replaced, so we just delete and that's it. */
+                            fs.unlink(fileLocation , onUnlinked)
+
+                            function onUnlinked(err) {
+                                let code = ''
+                                if (err) {
+                                    code = err.code
+                                }
+                                if (code !== '' && code !== 'ENOENT') {
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> file = ' + fileLocation )
+                                    logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> Error deleting file -> err = ' + err.stack)
+                                    setTimeout(retry, retryTimeToUse)
+                                    return
+                                } 
+
+                                /* Rename de Temp into Original */
+                                fs.rename(fileLocation + '.tmp', fileLocation, onTempRenamed)
+
+                                function onTempRenamed(err) {
+                                    if (err) {
+                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> file = ' + fileLocation + '.tmp')
+                                        logger.write(MODULE_NAME, '[WARN] FileStorage -> createTextFile -> onFileWriten -> onUnlinked -> onOriginalRenamed -> onTempRenamed -> Error renaming temp file -> err = ' + err.stack)
+                                        setTimeout(retry, retryTimeToUse)
+                                    } else {
+
+                                        callBackFunction(global.DEFAULT_OK_RESPONSE)
+
                                     }
                                 }
                             }

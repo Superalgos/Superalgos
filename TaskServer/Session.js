@@ -115,11 +115,11 @@
 
             function checkDatetimes() {
                 if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
                     bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
                 }
                 if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
                     bot.VALUES_TO_USE.timeRange.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
                 }
             }
@@ -148,14 +148,14 @@
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
-                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
+                pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
             }
 
             function startFordwardTesting(message) {
 
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }

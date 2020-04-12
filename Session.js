@@ -10,7 +10,7 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
@@ -148,6 +148,7 @@
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
             }
 
@@ -181,6 +182,9 @@
                
                 bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
+
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
+
                 return true
             }
 
@@ -191,7 +195,29 @@
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
+            }
+
+            function getTimeFrameFromLabel(timeFrameLabel) {
+
+                for (let i = 0; i < global.marketFilesPeriods.length; i++) {
+                    let value = global.marketFilesPeriods[i][0]
+                    let label = global.marketFilesPeriods[i][1]
+
+                    if (timeFrameLabel === label) {
+                        return value
+                    }
+                }
+
+                for (let i = 0; i < global.dailyFilePeriods.length; i++) {
+                    let value = global.dailyFilePeriods[i][0]
+                    let label = global.dailyFilePeriods[i][1]
+
+                    if (timeFrameLabel === label) {
+                        return value
+                    }
+                }
             }
 
             function setValuesToUse(message) {

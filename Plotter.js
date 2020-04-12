@@ -203,7 +203,7 @@ function newPlotter () {
             marketFile = newMarketFile
             recalculate()
           } else {
-            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame
+            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
           }
         } else {
           let newFileCursor = dailyFiles.getFileCursor(pTimeFrame)
@@ -212,7 +212,7 @@ function newPlotter () {
             fileCursor = newFileCursor
             recalculate()
           } else {
-            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame
+            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
           }
         }
       }

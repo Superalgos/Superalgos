@@ -354,6 +354,11 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         return
                     }
 
+                    if (err.stack.toString().indexOf('ExchangeNotAvailable') >= 0) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        return
+                    }
+                    
                     logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                     abort = true

@@ -43,7 +43,7 @@
 
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(onSessionInitialized)
+                session.initialize(processConfig, onSessionInitialized)
 
                 function onSessionInitialized(err) {
                     callBackFunction(err);
@@ -902,12 +902,18 @@
                                         waitTime = processConfig.normalWaitTime
                                     }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000) + " seconds."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
                                     if (processConfig.deadWaitTime > 0) {
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitTime / 1000 + " seconds for next execution.")
+                                    let waitingTime = waitTime / 1000 / 60
+                                    let label = 'minute/s'
+                                    if (waitingTime < 1) {
+                                        waitingTime = waitTime / 1000
+                                        label = 'seconds'
+                                    }
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for next execution.")
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }

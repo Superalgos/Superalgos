@@ -2881,6 +2881,11 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent Parent",
+            "Use Reference Parent Parent"
+        ],
         "addLeftIcons": true,
         "level": 3,
         "referenceAttachesTo": {

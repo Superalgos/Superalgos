@@ -202,6 +202,8 @@ function newPlotter () {
           if (newMarketFile !== undefined) {
             marketFile = newMarketFile
             recalculate()
+          } else {
+            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
           }
         } else {
           let newFileCursor = dailyFiles.getFileCursor(pTimeFrame)
@@ -209,6 +211,8 @@ function newPlotter () {
           if (newFileCursor !== undefined) {
             fileCursor = newFileCursor
             recalculate()
+          } else {
+            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
           }
         }
       }

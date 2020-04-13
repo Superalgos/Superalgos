@@ -21,7 +21,7 @@ function newSessionFunctions () {
     }
 
     if (node.payload.referenceParent === undefined) {
-      node.payload.uiObject.setErrorMessage('Parent Process Instance need to reference a Process Definition.')
+      node.payload.uiObject.setErrorMessage('Session needs to reference a Trading System.')
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       return
     }

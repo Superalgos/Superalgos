@@ -214,7 +214,7 @@
                             return;
                         }
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
+                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate !== undefined && processConfig.framework.startDate.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();

@@ -876,7 +876,11 @@ function newUiObject () {
     thisObject.isOnFocus = true
 
     if (thisObject.payload !== undefined && thisObject.isOnFocus === true && thisObject.payload.referenceParent !== undefined) {
-      thisObject.payload.referenceParent.payload.uiObject.isShowing = true
+      if (thisObject.payload.referenceParent.payload !== undefined) {
+        if (thisObject.payload.referenceParent.payload.uiObject !== undefined) {
+          thisObject.payload.referenceParent.payload.uiObject.isShowing = true
+        }
+      }
     }
   }
 

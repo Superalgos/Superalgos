@@ -176,8 +176,6 @@ function newAppLoader() {
             'Plotters/Masters/Plotters-Candles-Volumes/CandlePanel.js',
             'Plotters/Masters/Plotters-Candles-Volumes/Volumes.js',
             'Plotters/Masters/Plotters-Candles-Volumes/VolumePanel.js',
-            'Plotters/Masters/Plotters-Stairs-Patterns/CandleStairs.js',
-            'Plotters/Masters/Plotters-Stairs-Patterns/VolumeStairs.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js',

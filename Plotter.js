@@ -720,6 +720,10 @@ function newPlotter () {
             let polygonVertex = polygon.polygonVertexes[k]
             if (polygonVertex.referenceParent !== undefined) {
               let dataPointObject = dataPoints.get(polygonVertex.referenceParent.id)
+              if (dataPointObject === undefined) {
+                console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
+                continue
+              }
               let dataPoint = {
                 x: dataPointObject.x,
                 y: dataPointObject.y

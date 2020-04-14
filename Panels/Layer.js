@@ -525,7 +525,7 @@ function newLayer () {
     let label3 = thisObject.status.toUpperCase()
 
     if (label1 !== undefined) {
-      label1 = label1.substring(0, 22)
+      label1 = label1.substring(0, 30)
     }
 
     let backgroundColor = UI_COLOR.BLACK
@@ -545,7 +545,15 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 17, thisObject.container)
+    let label1FontSize
+
+    if (label1.length > 20) {
+      label1FontSize = 12
+    } else {
+      label1FontSize = 15
+    }
+
+    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
     drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
     drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
 
@@ -560,3 +568,4 @@ function newLayer () {
     drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
+

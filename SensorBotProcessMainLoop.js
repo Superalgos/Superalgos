@@ -148,7 +148,7 @@
 
                     /* High level log entry  */ 
 
-                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10)  + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) 
+                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10)  + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30) 
                         + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) )
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */

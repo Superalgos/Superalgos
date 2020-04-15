@@ -195,6 +195,26 @@ function newLayer () {
       thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
       thisObject.market = thisObject.baseAsset.code.codeName + '/' + thisObject.quotedAsset.code.codeName
       thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
+
+      /* Some basic validations. */
+      if (thisObject.definition.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.type + ' ' + thisObject.definition.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
+      if (thisObject.definition.referenceParent.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.type + ' ' + thisObject.definition.referenceParent.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
+      if (thisObject.definition.referenceParent.referenceParent.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.referenceParent.type + ' ' + thisObject.definition.referenceParent.referenceParent.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
       thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
       thisObject.exchangeIcon = getIcon(thisObject.exchange)

@@ -5920,7 +5920,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environmnet->Template Structure->"
+            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environment->Template Structure->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [

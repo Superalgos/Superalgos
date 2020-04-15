@@ -47,7 +47,7 @@ exports.newDebugLog = function newDebugLog() {
         if (date === undefined) { date = thisObject.bot.processDatetime }
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
-        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30)
+        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 30) + " " + strPad(pProcess, 30)
             + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10)) 
 
         persist();

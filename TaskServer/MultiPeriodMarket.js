@@ -90,22 +90,6 @@
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             };
 
-            if (processConfig.framework.startDate.fixedDate !== undefined) {
-
-                /* The starting date is fixed, we will start from there. */
-
-                contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate);
-
-            }
-
-            if (processConfig.framework.endDate.fixedDate !== undefined) {
-
-                /* The ending date is fixed, we will end there. */
-
-                contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate);
-
-            }
-
             processTimeFrames();
 
             function processTimeFrames() {

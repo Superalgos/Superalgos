@@ -347,17 +347,14 @@ function newRateScale () {
 
   function onUpstreamScaleChanged (event) {
     if (event === undefined) { return }
+    if (event.dragVector.y === 0) { return }
     if (event.type === 'center dragged') {
       let point = {
         x: event.dragVector.x,
         y: -event.dragVector.y
       }
-      let newMinDate = getDateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
       let newMaxRate = getRateFromPointAtContainer(point, rateCalculationsContainer, coordinateSystem)
-      let xDifferenceMaxMin = coordinateSystem.max.x - coordinateSystem.min.x
       let yDifferenceMaxMin = coordinateSystem.max.y - coordinateSystem.min.y
-      coordinateSystem.min.x = newMinDate.valueOf()
-      coordinateSystem.max.x = newMinDate.valueOf() + xDifferenceMaxMin
       coordinateSystem.min.y = newMaxRate - yDifferenceMaxMin
       coordinateSystem.max.y = newMaxRate
 

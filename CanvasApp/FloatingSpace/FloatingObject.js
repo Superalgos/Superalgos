@@ -285,7 +285,7 @@ function newFloatingObject () {
   }
 
   function positionContraintsPhysics () {
-    const MAX_DISTANCE_TO_PARENT = 3000
+    const MAX_DISTANCE_TO_PARENT = 5000
     const MIN_DISTANCE_TO_PARENT = 100
 
     if (thisObject.angleToParent !== ANGLE_TO_PARENT.NOT_FIXED && thisObject.isOnFocus !== true) {

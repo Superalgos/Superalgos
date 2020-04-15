@@ -683,6 +683,9 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Polygon->"
         },
+        "title": [
+            "Use Reference Parent"
+        ],
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -1477,6 +1480,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -1522,6 +1526,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -1599,6 +1604,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -2622,7 +2628,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"repo\": \"If this is a legacy bot, write here the repository name in order to locate its code.\"\n}"
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 0,
         "chainAttachesTo": {
@@ -3073,6 +3079,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
@@ -3496,6 +3505,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
@@ -3549,6 +3561,9 @@
         "addLeftIcons": true,
         "editors": {
             "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 2,
         "icon": "plotter",

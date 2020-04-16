@@ -59,6 +59,7 @@ function newWorkspace () {
   let functionLibraryOnFocus = newOnFocus()
   let functionLibrarySuperScripts = newSuperScriptsFunctions()
   let functionLibraryCCXTFunctions = newCCXTFunctions()
+  let functionLibraryWebhookFunctions = newWebhookFunctions()
 
   thisObject.nodeChildren = newNodeChildren()
 
@@ -411,7 +412,11 @@ function newWorkspace () {
           functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
         }
         break
-
+      case 'Send Webhook Test Message':
+        {
+          functionLibraryWebhookFunctions.sendTestMessage(payload.node)
+        }
+        break
       case 'Run Session':
         {
           functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)

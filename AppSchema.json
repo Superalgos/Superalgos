@@ -4606,6 +4606,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Signals Providers",
+                "relatedUiObject": "Signals Providers",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "superActions",
                 "label": "Add Super Actions",
@@ -4622,6 +4628,11 @@
                 "name": "cryptoExchanges",
                 "type": "array",
                 "childType": "Crypto Exchanges"
+            },
+            {
+                "name": "signalsProviders",
+                "type": "array",
+                "childType": "Signals Providers"
             },
             {
                 "name": "superActions",
@@ -4665,6 +4676,84 @@
                 "childType": "Super Action"
             }
         ]
+    },
+    {
+        "type": "Signals Providers",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Signals Provider",
+                "relatedUiObject": "Signals Provider",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Signals Providers",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "targeting",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Ecosystem->"
+        },
+        "propertyNameAtParent": "signalsProviders",
+        "properties": [
+            {
+                "name": "signalsProviders",
+                "type": "array",
+                "childType": "Signals Provider",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Signals Provider",
+        "menuItems": [
+            {
+                "action": "Config Signals Provider",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Signals Provider",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Send Webhook Test Message",
+                "label": "Send Test Message",
+                "workDoneLabel": "Message Sent",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Signals Provider",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "template-target",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Signals Providers->"
+        },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"webhookURL\": \"Webhook/New-Message\",\n\"testMessage\": \"\" \n}"
+        },
+        "propertyNameAtParent": "signalsProviders",
+        "properties": []
     },
     {
         "type": "Crypto Exchanges",
@@ -6200,6 +6289,12 @@
     {
         "type": "Exchange Sessions",
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Session Reference",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,

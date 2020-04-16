@@ -20,6 +20,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     let http = require('http')
     let isHttpServerStarted = false
     let cloneExecutorChildProcess
+    let webhookMessages = []
 
     return thisObject
 
@@ -53,6 +54,22 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     function onBrowserRequest(request, response) {
         if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] webServer -> onBrowserRequest -> request.url = ' + request.url) }
 
+        function getBody(callback) { // Gets the de body from a POST request to the web server
+            let body = ''
+
+            request.on('data', function (data) {
+                body += data
+                // Too much POST data
+                if (body.length > 1e6) {
+                    request.connection.destroy()
+                }
+            })
+
+            request.on('end', function () {
+                callback(body)
+            })
+        }
+
         let requestParameters = request.url.split('/')
 
         if (requestParameters[1].indexOf('index.html') >= 0) {
@@ -80,21 +97,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 {
                     getBody(processRequest)
 
-                    function getBody(callback) {
-                        let body = ''
-
-                        request.on('data', function (data) {
-                            body += data
-                            // Too much POST data
-                            if (body.length > 1e6) {
-                                request.connection.destroy()
-                            }
-                        })
-
-                        request.on('end', function () {
-                            callback(body)
-                        })
-                    }
                     async function processRequest(body) {
                         try {
                             let params = JSON.parse(body)
@@ -169,6 +171,31 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     break
                 }
 
+            case 'Webhook': {
+                console.log('ARRIVED')
+                console.log(JSON.stringify(requestParameters))
+                switch (requestParameters[2]) {
+                    case 'Fetch-Messages': {
+                        console.log('Fetch-Messages')
+                        respondWithContent(JSON.stringify(webhookMessages), response)
+                        webhookMessages = []
+                        break
+                    }
+                    case 'New-Message': {
+                        console.log('New-Message')
+                        getBody(processRequest)
+
+                        function processRequest(body) {
+                            console.log(body)
+                            webhookMessages.push(body)
+                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+                        }
+                        break
+                    }
+                }
+
+                break
+            }
             case 'ResetLogsAndData':
                 {
                     try {

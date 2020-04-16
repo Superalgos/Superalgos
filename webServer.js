@@ -355,7 +355,7 @@ function onBrowserRequest (request, response) {
 
     case 'externalScripts': // This means the WebServer folder.
         {
-              respondWithFile(process.env.PATH_TO_WEB_SERVER + 'externalScripts/' + requestParameters[2], response)
+              respondWithFile(process.env.PATH_TO_WEB_SERVER + 'WebServer/externalScripts/' + requestParameters[2], response)
         }
         break
 

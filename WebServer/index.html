@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Superalgos</title>
+    <meta name="description"
+          content="Crypto Trading on an Industrial Scale">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,600|Saira:300,600&amp;subset=latin-ext,vietnamese"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
+
+    <script type="text/javascript" src="WebServer/require.js"></script>
+    <script type="text/javascript" src="WebServer/AppPreLoader.js"></script>
+    <script src="externalScripts/CCapture.all.min.js"></script>
+
+    <script type="text/javascript">
+        function loadCanvas() {
+            if (window.canvasApp.visible === undefined) {
+                window.canvasApp = {
+                    version: '',  // This is used to avoid catching problems at the browser level.
+                    sessionToken: '',
+                    visible: true,
+                    topMargin: 0,
+                    urlPrefix: 'http://localhost:WEB_SERVER_PORT/',
+                    graphQL: {
+                        masterAppApiUrl: 'https://demo-api-dev.superalgos.org/graphql',
+                    },
+                    context: {}
+                };
+
+                try {
+                    loadSuperalgos();
+                } catch (err) {
+                    console.log("[ERROR] CanvasApp can not be started. Please check that WebServer is running.", err);
+                }
+            }
+        }
+
+        function onResize() {
+            try {
+                if (canvas === undefined) { return }
+                if (canvas.eventHandler === undefined) { return }
+                canvas.eventHandler.raiseEvent('Browser Resized')
+            } catch (err) {
+
+            }
+
+        }
+    </script>
+</head>
+
+<body id="body" onload="loadCanvas()"
+      style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+      onresize="onResize()">
+     
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
+    <div id="textAreaDiv"></div>
+    <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
+</body>
+
+</html>

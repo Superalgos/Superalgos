@@ -2684,6 +2684,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 1,
         "chainAttachesTo": {
             "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->"
@@ -2972,6 +2975,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 3,
         "referenceAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
@@ -3032,6 +3038,9 @@
         "addLeftIcons": true,
         "editors": {
             "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 2,
         "chainAttachesTo": {
@@ -4725,7 +4734,9 @@
             {
                 "action": "Send Webhook Test Message",
                 "label": "Send Test Message",
+                "workingLabel": "Seinding Message",
                 "workDoneLabel": "Message Sent",
+                "workFailedLabel": "Message not Delived",
                 "iconPathOn": "paper-plane",
                 "iconPathOff": "paper-plane",
                 "actionFunction": "payload.onMenuItemClick"

@@ -1,6 +1,6 @@
 {
-  "displayName": "Exchange Raw Data",
-  "codeName": "Exchange-Raw-Data",
+  "displayName": "Webhooks",
+  "codeName": "Webhooks",
   "type": "Sensor Bot",
   "version": {
     "major": 1,
@@ -8,12 +8,11 @@
     "patch": 0
   },
   "dataMine": "Masters",
-  "profilePicture": "Exchange Raw Data.png",
   "dataSetVersion": "dataSet.V1",
   "processes": [
     {
-      "name": "Live-Trades",
-      "description": "Retrieves the trades done at the current and the previous minute and saves them at the storage account.",
+      "name": "Check-Webhook",
+      "description": "",
       "startMode": {
         "allMonths": {
           "run": "false",
@@ -41,134 +40,12 @@
       "statusDependencies": [
         {
           "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
+          "bot": "Webhooks",
           "botVersion": {
             "major": 1,
             "minor": 0
           },
-          "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1"
-        }
-      ]
-    },
-    {
-      "name": "Historic-Trades",
-      "description": "Retrieves and saves the historical trades in batches going backwards from the current time until reaching the begining of the market.",
-      "startMode": {
-        "allMonths": {
-          "run": "false",
-          "minYear": "2014",
-          "maxYear": "2020"
-        },
-        "oneMonth": {
-          "run": "true",
-          "year": "2018",
-          "month": "01"
-        },
-        "noTime": {
-          "run": "false"
-        },
-        "fixedInterval": {
-          "run": "false",
-          "interval": 0
-        }
-      },
-      "deadWaitTime": 0,
-      "normalWaitTime": 60000,
-      "retryWaitTime": 10000,
-      "sleepWaitTime": 3600000,
-      "comaWaitTime": 86400000,
-      "statusDependencies": [
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
-        }
-      ]
-    },
-    {
-      "name": "Hole-Fixing",
-      "description": "Scans the trades saved by the Live Trades and Historic Trades processes searching for missing records. Once a hole is found on the data set, it patches it by retrieving the missing records from the exchange.",
-      "startMode": {
-        "allMonths": {
-          "run": "true",
-          "minYear": "2019",
-          "maxYear": "2019"
-        },
-        "oneMonth": {
-          "run": "false",
-          "year": "2019",
-          "month": "10"
-        },
-        "noTime": {
-          "run": "false"
-        },
-        "fixedInterval": {
-          "run": "false",
-          "interval": 0
-        }
-      },
-      "deadWaitTime": 0,
-      "normalWaitTime": 0,
-      "retryWaitTime": 10000,
-      "sleepWaitTime": 3600000,
-      "comaWaitTime": 86400000,
-      "statusDependencies": [
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Live-Trades",
-          "dataSetVersion": "dataSet.V1",
-          "waitUntilNextUpdate": true
-        },
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-Trades",
-          "dataSetVersion": "dataSet.V1"
-        },
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Hole-Fixing",
-          "dataSetVersion": "dataSet.V1",
-          "dataSetSection": "Month"
-        },
-        {
-          "dataMine": "Masters",
-          "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Hole-Fixing",
+          "process": "Check-Webhook",
           "dataSetVersion": "dataSet.V1"
         }
       ]

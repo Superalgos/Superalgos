@@ -3,11 +3,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-    const GMT_SECONDS = ':00.000 GMT+0000';
-    const GMT_MILI_SECONDS = '.000 GMT+0000';
     const MODULE_NAME = "User Bot";
-    const CANDLES_FOLDER_NAME = "Candles/One-Min";
-    const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
+    const FOLDER_NAME = "Signals";
 
     thisObject = {
         initialize: initialize,
@@ -17,32 +14,6 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
     let utilities = UTILITIES.newCloudUtilities(bot, logger)
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
     let statusDependencies
-
-    const ONE_MIN = 60000
-    const ONE_DAY = ONE_MIN * 60 * 24
-    
-    const MAX_OHLCVs_PER_EXECUTION =   10000000
-    const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
-    const ccxt = require('ccxt')
-
-    let fetchType = "by Time"
-    let lastId
-    let firstId
-    let allOHLCVs = []
-    let thisReport;
-    let since
-    let initialProcessTimestamp
-    let beginingOfMarket
-    let lastFile
-    let exchangeId
-    let options = {}
-    let rateLimit = 500
-    let exchange
-    let uiStartDate = new Date(bot.uiStartDate)
-    let fisrtTimeThisProcessRun = false
-    let limit = 1000 // This is the default value
-    let hostname
-    let lastCandleOfTheDay
 
     return thisObject;
 
@@ -70,15 +41,17 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 return
             }
 
-            getContextVariables()
-            saveMessages()
+            let fileContent
+
+            getContextVariables(saveMessages)
  
-            function getContextVariables() {
+            function getContextVariables(callBack) {
 
                 try {
                     let reportKey;
 
-                    reportKey = "Masters" + "-" + "Webhooks" + "-" + "Record-Messages" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Webhooks" + "-" + "Check-Webhook" + "-" + "dataSet.V1";
+
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
@@ -88,6 +61,26 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
+
+                    if (thisReport.file.lasrRun !== undefined) {
+                        let fileName = 'Data.json'
+                        let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME
+                        fileStorage.getTextFile(filePath + '/' + fileName, onFileReceived);
+
+                        function onFileReceived(err, text) {
+                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> onFileReceived -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            } else {
+
+                                fileContent = text
+                                callBack()
+                            }
+                        }
+                    } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
+                        callBack()
+                    } 
+
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> err = " + err.stack);
@@ -103,40 +96,54 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
             function saveMessages() {
                 try {
 
-                    const https = require('https')
-                    const options = {
-                        hostname: process.env.WEB_SERVER_URL,
-                        port: process.env.WEB_SERVER_PORT,
-                        path: 'Webhook/Fetch-Messages',
-                        method: 'GET'
-                    }
+                    let http = require('http');
 
-                    const req = https.request(options, onRequestSent)
+                    http.get('http://' + process.env.WEB_SERVER_URL + ':' + process.env.WEB_SERVER_PORT + '/Webhook/Fetch-Messages', onResponse);
 
-                    function onRequestSent(response) {
+                    function onResponse(response) {
+
+                        const chunks = []
 
                         response.on('data', onMessegesArrived)
+                        response.on('end', onEnd)
 
-                        function onMessegesArrived(messages) {
-                            console.log(messages)
+                        function onMessegesArrived(chunk) {
+                            chunks.push(chunk)
+                        }
+
+                        function onEnd() {
+                            let messages = Buffer.concat(chunks).toString('utf8')
+
+                            if (fileContent !== undefined) {
+                                // we are going to append the curernt messages to the existing file.
+                                let fileContentArray = JSON.parse(fileContent)
+                                let messagesArray = JSON.parse(messages) 
+
+                                for (let i = 0; i < messagesArray.length; i++) {
+                                    let message = messagesArray[i]
+                                    fileContentArray.push(message)
+                                }
+
+                                fileContent = JSON.stringify(fileContentArray)
+                            } else {
+                                // we are going to save the current messages.
+                                fileContent = messages
+                            }
 
                             let fileName = 'Data.json'
-                            fileStorage.createTextFile(getFilePath(day * ONE_DAY, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
-                            let filePath = bot.filePathRoot + "/Output/" + folderName + '/' + dateForPath;
+                            let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME
+                            fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {
-
-                                console.log('on file created err: ' + err)
-                                writeStatusReport()
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> saveMessages -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
+                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                } else {
+                                    writeStatusReport()
+                                }
                             }
                         }
                     }
-
-                    req.on('error', error => {
-                        console.error(error)
-                    })
-
-                    req.end()
 
                 } catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> saveMessages -> err = " + err.stack);
@@ -148,7 +155,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
             function writeStatusReport() {
                 try {
    
-                    thisReport.file = {};
+                    thisReport.file = {
+                        lasrRun: (new Date()).toISOString()
+                    };
 
                     thisReport.save(onSaved);
 

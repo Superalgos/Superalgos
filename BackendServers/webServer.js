@@ -172,22 +172,19 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
 
             case 'Webhook': {
-                console.log('ARRIVED')
-                console.log(JSON.stringify(requestParameters))
                 switch (requestParameters[2]) {
                     case 'Fetch-Messages': {
-                        console.log('Fetch-Messages')
                         respondWithContent(JSON.stringify(webhookMessages), response)
                         webhookMessages = []
                         break
                     }
                     case 'New-Message': {
-                        console.log('New-Message')
                         getBody(processRequest)
 
-                        function processRequest(body) {
-                            console.log(body)
-                            webhookMessages.push(body)
+                        function processRequest(messageReceived) {
+                            let timestamp = (new Date()).valueOf()
+
+                            webhookMessages.push([timestamp,messageReceived])
                             respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
                         }
                         break

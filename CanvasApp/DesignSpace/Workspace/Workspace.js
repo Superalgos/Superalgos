@@ -415,7 +415,7 @@ function newWorkspace () {
         break
       case 'Send Webhook Test Message':
         {
-          functionLibraryWebhookFunctions.sendTestMessage(payload.node)
+          functionLibraryWebhookFunctions.sendTestMessage(payload.node, callBackFunction)
         }
         break
       case 'Run Session':

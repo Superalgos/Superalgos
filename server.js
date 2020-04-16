@@ -267,19 +267,19 @@ function onBrowserRequest (request, response) {
 
     case 'LegacyPlotter.js':
       {
-        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'LegacyPlotter.js', response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'WebServer/LegacyPlotter.js', response)
       }
       break
 
     case 'PlotterPanel.js':
       {
-        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'PlotterPanel.js', response)
+              respondWithFile(process.env.PATH_TO_WEB_SERVER +  'WebServer/PlotterPanel.js', response)
       }
       break
 
     case 'Images': // This means the Images folder.
       {
-        let path = process.env.PATH_TO_WEB_SERVER  +  'Images/' + requestParameters[2]
+              let path = process.env.PATH_TO_WEB_SERVER +  'WebServer/Images/' + requestParameters[2]
 
         if (requestParameters[3] !== undefined) {
           path = path + '/' + requestParameters[3]
@@ -301,7 +301,7 @@ function onBrowserRequest (request, response) {
 
     case 'favicon.ico': // This means the Scripts folder.
       {
-              respondWithImage(process.env.PATH_TO_WEB_SERVER +  'Images/' + 'favicon.ico', response)
+              respondWithImage(process.env.PATH_TO_WEB_SERVER +  'WebServer/Images/' + 'favicon.ico', response)
       }
       break
 
@@ -538,7 +538,7 @@ function onBrowserRequest (request, response) {
     if (requestParameters[1] === '') {
       let fs = require('fs')
       try {
-          let fileName = process.env.PATH_TO_WEB_SERVER  + 'index.html'
+          let fileName = process.env.PATH_TO_WEB_SERVER  + 'WebServer/index.html'
         fs.readFile(fileName, onFileRead)
 
         function onFileRead (err, file) {

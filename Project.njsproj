@@ -41,13 +41,11 @@
     </Compile>
     <Compile Include="Scripts\require.js" />
     <Compile Include="server.js" />
-    <Compile Include="Server\FileCloud.js" />
     <Content Include=".env" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />
-    <Folder Include="Server\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

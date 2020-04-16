@@ -127,7 +127,7 @@ function loadSuperalgos() {
 
             if (INFO_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[INFO] loadModules -> Entering function."); }
 
-            let path = window.canvasApp.urlPrefix + "Scripts/AppLoader.js";
+            let path = window.canvasApp.urlPrefix + "WebServer/AppLoader.js";
 
             REQUIREJS([path], onRequired);
 

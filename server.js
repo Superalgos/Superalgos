@@ -277,7 +277,7 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'Images': // This means the Scripts folder.
+    case 'Images': // This means the Images folder.
       {
         let path = process.env.PATH_TO_WEB_SERVER  +  'Images/' + requestParameters[2]
 
@@ -347,13 +347,13 @@ function onBrowserRequest (request, response) {
       }
       break
 
-    case 'Scripts': // This means the Scripts folder.
+    case 'WebServer': // This means the WebServer folder.
       {
-        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'Scripts/' + requestParameters[2], response)
+        respondWithFile(process.env.PATH_TO_WEB_SERVER +  'WebServer/' + requestParameters[2], response)
       }
       break
 
-    case 'externalScripts': // This means the Scripts folder.
+    case 'externalScripts': // This means the WebServer folder.
         {
               respondWithFile(process.env.PATH_TO_WEB_SERVER + 'externalScripts/' + requestParameters[2], response)
         }

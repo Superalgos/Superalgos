@@ -899,7 +899,11 @@ function newUiObject () {
       thisObject.formulaEditor.deactivate()
     }
 
-    if (thisObject.payload !== undefined && thisObject.isOnFocus === false && thisObject.payload.referenceParent !== undefined) {
+    if (thisObject.payload !== undefined &&
+      thisObject.isOnFocus === false &&
+      thisObject.payload.referenceParent !== undefined &&
+      thisObject.payload.referenceParent.payload !== undefined &&
+      thisObject.payload.referenceParent.payload.uiObject !== undefined) {
       thisObject.payload.referenceParent.payload.uiObject.isShowing = false
     }
   }

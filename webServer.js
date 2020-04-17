@@ -20,7 +20,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
     let http = require('http')
     let isHttpServerStarted = false
     let cloneExecutorChildProcess
-    let webhookMessages = []
+    let webhook = new Map()
 
     return thisObject
 
@@ -172,11 +172,33 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
 
             case 'Webhook': {
-                switch (requestParameters[2]) {
+                switch (requestParameters[2]) { // switch by command
                     case 'Fetch-Messages': {
-                        console.log('Fetch-Messages')
+                        let exchange = requestParameters[3]
+                        let market = requestParameters[4]
+
+                        if (exchange === undefined) {
+                            console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
+                        }
+                        if (market === undefined) {
+                            console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                            return
+                        }
+
+                        let key = exchange + '-' + market
+
+                        let webhookMessages = webhook.get(key)
+                        if (webhookMessages === undefined) {
+                            webhookMessages = []
+                        }
+
                         respondWithContent(JSON.stringify(webhookMessages), response)
                         webhookMessages = []
+
+                        webhook.set(key, webhookMessages)
                         break
                     }
                     case 'New-Message': {
@@ -184,8 +206,37 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                         function processRequest(messageReceived) {
                             let timestamp = (new Date()).valueOf()
+                            let source = requestParameters[3]
+                            let exchange = requestParameters[4]
+                            let market = requestParameters[5]
 
-                            webhookMessages.push([timestamp,messageReceived])
+                            /* Some validations */
+                            if (source === undefined) {
+                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
+                            }
+                            if (exchange === undefined) {
+                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
+                            }
+                            if (market === undefined) {
+                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
+                            }
+
+                            let key = exchange + '-' + market
+
+                            let webhookMessages = webhook.get(key)
+                            if (webhookMessages === undefined) {
+                                webhookMessages = []
+                            }
+
+                            webhookMessages.push([timestamp, source, messageReceived])
+                            webhook.set(key, webhookMessages)
+
                             respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
                         }
                         break

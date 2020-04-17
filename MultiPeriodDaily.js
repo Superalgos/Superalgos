@@ -15,8 +15,7 @@
     let utilities = UTILITIES.newCloudUtilities(logger);
 
     let statusDependencies;
-    let dataDependencies;
-    let datasets = [];
+    let dataDependenciesModule;
     let dataFiles = new Map;
 
     let botInstance;
@@ -40,26 +39,8 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
-            dataDependencies = pDataDependencies;
+            dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
-
-            for (let i = 0; i < dataDependencies.nodeArray.length; i++) {
-
-                let key;
-                let dataset;
-                let dependency = dataDependencies.nodeArray[i];
-
-                key = dependency.dataMine + "-" +
-                    dependency.bot + "-" +
-                    dependency.product + "-" +
-                    dependency.dataSet + "-" +
-                    dependency.dataSetVersion
-
-                dataset = dataDependencies.dataSets.get(key);
-
-                datasets.push(dataset);
-
-            }
 
             let USER_BOT_MODULE = require("./IndicatorBot")
 
@@ -73,10 +54,9 @@
     }
 
     function finalize() {
-        datasets = undefined
         dataFiles = undefined
         statusDependencies = undefined
-        dataDependencies = undefined
+        dataDependenciesModule = undefined
         botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
@@ -413,7 +393,7 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
-                                    let dependency = dataDependencies.nodeArray[dependencyIndex];
+                                    let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
 
                                     if (dependency === undefined ) {
 
@@ -422,7 +402,7 @@
                                         return;
                                     }
 
-                                    let dataset = datasets[dependencyIndex];
+                                    let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
 
                                     let previousFile;
                                     let currentFile;
@@ -442,14 +422,14 @@
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let filePath
-                                            if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName  + "/" + dateForPath;
                                             }
                                             let fileName = "Data.json";
 
-                                            dataset.getTextFile(filePath, fileName, onFileReceived);
+                                            datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -512,14 +492,14 @@
 
                                             let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                                             let filePath
-                                            if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
                                             }
                                             let fileName =  "Data.json";
 
-                                            dataset.getTextFile(filePath, fileName, onFileReceived);
+                                            datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -588,7 +568,7 @@
 
                                     dependencyIndex++;
 
-                                    if (dependencyIndex < dataDependencies.nodeArray.length) {
+                                    if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
 
                                         dependencyLoopBody();
 

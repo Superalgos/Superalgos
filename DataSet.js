@@ -5,12 +5,11 @@ exports.newDataSet = function newDataSet(BOT, logger) {
     let bot = BOT;
 
     let thisObject = {
+        node: undefined,
         initialize: initialize,
         getTextFile: getTextFile,
         createTextFile: createTextFile
     };
-
-    let dataDependencyNode;
 
     /* Storage account to be used here. */
 
@@ -19,76 +18,63 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
     return thisObject;
 
-    function initialize(pDataDependencyNode, callBackFunction) {
+    function initialize(dataDependency, callBackFunction) {
 
         try {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
-            dataDependencyNode = pDataDependencyNode;
-            logger.fileName = MODULE_NAME + "." + dataDependencyNode.type + "." + dataDependencyNode.name + "." + dataDependencyNode.id;
+            thisObject.node = dataDependency.referenceParent;
+            logger.fileName = MODULE_NAME + "." + thisObject.node.type + "." + thisObject.node.name + "." + thisObject.node.id;
 
             /* Some very basic validations that we have all the information needed. */
-            if (dataDependencyNode.referenceParent === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent. Data Dependency = " + JSON.stringify(dataDependencyNode));
+            if (thisObject.node === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Dependency without Reference Parent -> dataDependency = " + JSON.stringify(dataDependency));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined. Product Dataset = " + JSON.stringify(dataDependencyNode.referenceParent));
+            if (thisObject.node.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset not attached to a Product Definition. Dataset = " + JSON.stringify(dataDependencyNode.referenceParent));
+            if (thisObject.node.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset not attached to a Product Definition -> Dataset = " + JSON.stringify(thisObject.node));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
+            if (thisObject.node.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition not attached to a Bot. Product Definition = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode));
+            if (thisObject.node.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition not attached to a Bot -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
+            if (thisObject.node.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode));
+            if (thisObject.node.parentNode.parentNode.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
-            if (dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(dataDependencyNode.referenceParent.parentNode.parentNode.parentNode));
+            if (thisObject.node.parentNode.parentNode.parentNode.code.codeName === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
-
-            /* Simplifying the access to basic info */
-            dataDependencyNode.dataSet = dataDependencyNode.referenceParent.code.codeName
-            dataDependencyNode.product = dataDependencyNode.referenceParent.parentNode.code.codeName
-            dataDependencyNode.bot = dataDependencyNode.referenceParent.parentNode.parentNode.code.codeName
-            dataDependencyNode.dataMine = dataDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
-
-            /* This stuff is still hardcoded and unresolved. */
-            dataDependencyNode.botVersion = {
-                "major": 1,
-                "minor": 0
-            }
-            dataDependencyNode.dataSetVersion = "dataSet.V1"
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 
@@ -104,7 +90,10 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataDependencyNode.dataMine + "/" + dataDependencyNode.bot;
+            let dataMineCodeName = thisObject.node.parentNode.parentNode.parentNode.code.codeName
+            let botCodeName = thisObject.node.parentNode.parentNode.code.codeName
+
+            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataMineCodeName + "/" + botCodeName;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -132,7 +121,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName); }
 
-            let ownerId = dataDependencyNode.dataMine + "-" + dataDependencyNode.bot + "-" + dataDependencyNode.botVersion.major + "-" + dataDependencyNode.botVersion.minor + "-" + dataDependencyNode.dataSetVersion;
+            let ownerId = thisObject.node.dataMine + "-" + thisObject.node.bot + "-" + thisObject.node.botVersion.major + "-" + thisObject.node.botVersion.minor + "-" + thisObject.node.dataSetVersion;
             let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
 
             if (ownerId !== botId) {
@@ -146,7 +135,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return;
             }
 
-            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataDependencyNode.dataMine + "/" + dataDependencyNode.bot;
+            let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot;
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);

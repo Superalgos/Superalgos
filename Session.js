@@ -459,6 +459,7 @@
             }
 
             function finalizeSocialBots() {
+                if (bot.SESSION.socialBots === undefined) {return}
                 if (bot.SESSION.socialBots.bots !== undefined) {
                     for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                         let socialBot = bot.SESSION.socialBots.bots[i]

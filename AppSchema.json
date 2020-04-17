@@ -4761,7 +4761,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"webhookURL\": \"Webhook/New-Message\",\n\"testMessage\": \"\" \n}"
+            "code": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
         "properties": []

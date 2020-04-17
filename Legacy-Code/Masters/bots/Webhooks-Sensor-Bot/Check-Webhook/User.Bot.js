@@ -97,8 +97,13 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 try {
 
                     let http = require('http');
+                    let url =   'http://' + process.env.WEB_SERVER_URL +
+                                ':' + process.env.WEB_SERVER_PORT +
+                                '/Webhook/Fetch-Messages/' +
+                                bot.exchange + "/" +
+                                bot.market.baseAsset + "-" + bot.market.quotedAsset
 
-                    http.get('http://' + process.env.WEB_SERVER_URL + ':' + process.env.WEB_SERVER_PORT + '/Webhook/Fetch-Messages', onResponse);
+                    http.get(url, onResponse);
 
                     function onResponse(response) {
 

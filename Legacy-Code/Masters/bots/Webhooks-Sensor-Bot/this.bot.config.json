@@ -33,7 +33,7 @@
         }
       },
       "deadWaitTime": 0,
-      "normalWaitTime": 60000,
+      "normalWaitTime": 30000,
       "retryWaitTime": 10000,
       "sleepWaitTime": 3600000,
       "comaWaitTime": 86400000,

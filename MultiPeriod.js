@@ -71,7 +71,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let currentTimeFrame
-            let currentOutputPeriodName  
+            let currentTimeFrameLabel  
 
             let market = bot.market;
             let botNeverRan = true;
@@ -246,21 +246,21 @@
                             getFile();
 
                             function getFile() {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> Entering function."); }
 
-                                    let fileName = "Data.json";
-
                                     if (datasetModule.node.code.codeName !== "Single-File") {
-
                                         dependencyControlLoop();
                                         return
                                     }
 
-                                    let filePath = datasetModule.node.parentNode.code.codeName + '/' + datasetModule.node.code.codeName;
+                                    if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.code.singularVariableName) !== true) {
+                                        dependencyControlLoop();
+                                        return
+                                    }
 
+                                    let fileName = "Data.json";
+                                    let filePath = datasetModule.node.parentNode.code.codeName + '/' + datasetModule.node.code.codeName;
                                     datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                     function onFileReceived(err, text) {
@@ -356,9 +356,7 @@
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoop -> Entering function."); }
 
                             /*
-
                             We will iterate through all posible timeFrames.
-
                             */
 
                             n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
@@ -386,7 +384,7 @@
 
                             if (bot.VALUES_TO_USE.timeFrame === timeFrameLabel) {
                                 currentTimeFrame = global.marketFilesPeriods[n][0];
-                                currentOutputPeriodName = global.marketFilesPeriods[n][1];
+                                currentTimeFrameLabel = global.marketFilesPeriods[n][1];
                             }
                             dependencyLoopBody();
 
@@ -402,21 +400,21 @@
                                     getFile();
 
                                     function getFile() {
-
                                         try {
-
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
-                                            let fileName =  "Data.json";
-
                                             if (dependency.referenceParent.code.codeName !== "Multi-Period-Market") {
-
                                                 dependencyControlLoop();
                                                 return
                                             }
 
-                                            let filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel;
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
+                                                dependencyControlLoop();
+                                                return
+                                            }
 
+                                            let fileName = "Data.json";
+                                            let filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel;
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
@@ -685,7 +683,7 @@
 
                             if (bot.VALUES_TO_USE.timeFrame === timeFrameLabel) {
                                 currentTimeFrame = global.dailyFilePeriods[n][0];
-                                currentOutputPeriodName = global.dailyFilePeriods[n][1];
+                                currentTimeFrameLabel = global.dailyFilePeriods[n][1];
                             }
 
                             let dependencyIndex = 0;
@@ -712,13 +710,15 @@
                                     }
 
                                     function getPreviousFile() {
-
                                         try {
-
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> Entering function."); }
 
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Market") {
+                                            if (dependency.referenceParent.code.codeName !== "Multi-Period-Daily") {
+                                                dependencyControlLoop();
+                                                return
+                                            }
 
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
                                                 dependencyControlLoop();
                                                 return
                                             }
@@ -932,7 +932,7 @@
                             botInstance.start(
                                 multiPeriodDataFiles,
                                 currentTimeFrame,
-                                currentOutputPeriodName,
+                                currentTimeFrameLabel,
                                 bot.multiPeriodProcessDatetime,
                                 interExecutionMemoryArray[n],
                                 onBotFinished);
@@ -954,7 +954,7 @@
                                         writeMarketStatusReport(onMarketStatusReport)
 
                                     } else {
-                                        writeDataRanges(currentOutputPeriodName, onWritten);
+                                        writeDataRanges(currentTimeFrameLabel, onWritten);
                                     }
 
                                     function onWritten(err) {
@@ -1035,7 +1035,7 @@
                 }
             }
 
-            function writeDataRanges(currentOutputPeriodName, callBack) {
+            function writeDataRanges(currentTimeFrameLabel, callBack) {
 
                 try {
 
@@ -1046,7 +1046,7 @@
 
                     function productLoopBody() {
                         let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
-                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, productCodeName, currentOutputPeriodName, controlLoop);
+                        writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, productCodeName, currentTimeFrameLabel, controlLoop);
                     }
 
                     function controlLoop() {
@@ -1067,7 +1067,7 @@
 
             }
 
-            function writeDataRange(pBegin, pEnd, productCodeName, currentOutputPeriodName, callBack) {
+            function writeDataRange(pBegin, pEnd, productCodeName, currentTimeFrameLabel, callBack) {
 
                 try {
 

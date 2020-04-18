@@ -177,6 +177,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         let exchange = requestParameters[3]
                         let market = requestParameters[4]
 
+                        /* Some validations */
                         if (exchange === undefined) {
                             console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                             respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)

@@ -253,7 +253,7 @@
 
                                     let fileName = "Data.json";
 
-                                    if (datasetModule.node.code.type !== "Single File") {
+                                    if (datasetModule.node.code.codeName !== "Single-File") {
 
                                         dependencyControlLoop();
                                         return

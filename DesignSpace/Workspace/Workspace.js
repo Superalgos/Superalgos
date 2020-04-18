@@ -60,6 +60,7 @@ function newWorkspace () {
   let functionLibrarySuperScripts = newSuperScriptsFunctions()
   let functionLibraryCCXTFunctions = newCCXTFunctions()
   let functionLibraryWebhookFunctions = newWebhookFunctions()
+  let functionLibraryDependenciesFilter = newDependenciesFilter()
 
   thisObject.nodeChildren = newNodeChildren()
 
@@ -420,7 +421,7 @@ function newWorkspace () {
         break
       case 'Run Session':
         {
-          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction)
         }
         break
       case 'Stop Session':

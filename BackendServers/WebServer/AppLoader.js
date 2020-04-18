@@ -51,7 +51,8 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
                 'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
+                'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js', 
+                'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                                
                 'Utilities/RoundedCornersBackground.js',
 

@@ -571,7 +571,10 @@
                     let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                     let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                     let elementArray = thisChart[pluralVariableName]
-                    let currentElement = elementArray[elementArray.length - 1]
+                    let currentElement
+                    if (elementArray !== undefined) {
+                        currentElement = elementArray[elementArray.length - 1]
+                    }
                     thisChart[singularVariableName] = currentElement
                 }
 
@@ -615,6 +618,7 @@
                 previousLoopingDay = loopingDay.valueOf()
 
                 /* If any of the needed data dependencies is missing for this particular candle, then we jump the candle*/
+                /*
                 for (let k = 0; k < dataDependencies.length; k++) {
                     let dataDependencyNode = dataDependencies[k]
                     let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
@@ -629,6 +633,7 @@
                         return
                     }
                 }
+                */
 
                 periods++;
                 days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
@@ -2905,7 +2910,7 @@
             }
 
             function getElement(pArray, currentCandle, datasetName) {
-
+                if (pArray === undefined) {return}
                 try {
                     let element;
                     for (let i = 0; i < pArray.length; i++) {
@@ -2938,6 +2943,7 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> datasetName = " + datasetName);
+                    logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

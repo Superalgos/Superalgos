@@ -409,8 +409,10 @@
                                             }
 
                                             if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
-                                                dependencyControlLoop();
-                                                return
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                                    dependencyControlLoop();
+                                                    return
+                                                }
                                             }
 
                                             let fileName = "Data.json";
@@ -719,8 +721,10 @@
                                             }
 
                                             if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
-                                                dependencyControlLoop();
-                                                return
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                                    dependencyControlLoop();
+                                                    return
+                                                }
                                             }
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
@@ -789,15 +793,19 @@
                                     }
 
                                     function getCurrentFile() {
-
                                         try {
-
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Market") {
-
+                                            if (dependency.referenceParent.code.codeName !== "Multi-Period-Daily") {
                                                 dependencyControlLoop();
                                                 return
+                                            }
+
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                                    dependencyControlLoop();
+                                                    return
+                                                }
                                             }
 
                                             let dateForPath = bot.multiPeriodProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);

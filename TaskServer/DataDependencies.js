@@ -8,11 +8,9 @@
 
     let thisObject = {
         nodeArray: undefined,
-        dataSets: new Map(),
-        initialize: initialize,
-        keys: []
+        dataSetsModulesArray: [],
+        initialize: initialize
     };
-
 
     return thisObject;
 
@@ -77,14 +75,7 @@
 
                     addCount++;
 
-                    let key;
-
-                    key = thisObject.nodeArray[i].dataMine + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].product + "-" + thisObject.nodeArray[i].dataSet + "-" + thisObject.nodeArray[i].dataSetVersion;
-
-                    thisObject.keys.push(key);
-                    thisObject.dataSets.set(key, dataSetModule);
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addDataSet -> DataSet added to Map. -> key = " + key); }
+                    thisObject.dataSetsModulesArray.push(dataSetModule);
 
                     if (addCount === thisObject.nodeArray.length) {
                         if (alreadyCalledBack === false) {

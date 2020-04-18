@@ -526,6 +526,7 @@
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k] 
+                            if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Daily') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                             let currentElement = getElement(thisChart[pluralVariableName], candle, 'Daily' + '-' + mapKey + '-' + pluralVariableName)
@@ -534,6 +535,7 @@
                     }
                 }
 
+                /* Finding the Current Element on Market Files */
                 for (let j = 0; j < global.marketFilesPeriods.length; j++) {
 
                     let mapKey = marketFilesPeriods[j][1]
@@ -542,11 +544,35 @@
 
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
+                        if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Market') {continue}
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                         let currentElement = getElement(thisChart[pluralVariableName], candle, 'Market' + '-' + mapKey + '-' + pluralVariableName)
                         thisChart[singularVariableName] = currentElement
                     }
+                }
+
+                /* Finding the Current Element on Single Files */
+
+                function isItInside(elementWithTimestamp, elementWithBeginEnd) {
+                    if (elementWithTimestamp.timestamp >= elementWithBeginEnd.begin && elementWithTimestamp.timestamp <= elementWithBeginEnd.end) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+
+                let propertyName = 'atAnyTimeFrame' 
+                let thisChart = chart[propertyName]
+
+                for (let k = 0; k < dataDependencies.length; k++) {
+                    let dataDependencyNode = dataDependencies[k]
+                    if (dataDependencyNode.referenceParent.code.codeName !== 'Single-File') { continue }
+                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
+                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
+                    let elementArray = thisChart[pluralVariableName]
+                    let currentElement = elementArray[elementArray.length - 1]
+                    thisChart[singularVariableName] = currentElement
                 }
 
                 /* While we are processing the previous day. */

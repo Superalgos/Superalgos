@@ -4,7 +4,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "User Bot";
-    const FOLDER_NAME = "Signals";
+    const FOLDER_NAME = "External-Signals";
 
     thisObject = {
         initialize: initialize,
@@ -63,8 +63,9 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.lasrRun !== undefined) {
+                  
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME
+                        let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
                         fileStorage.getTextFile(filePath + '/' + fileName, onFileReceived);
 
                         function onFileReceived(err, text) {
@@ -136,7 +137,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                             }
 
                             let fileName = 'Data.json'
-                            let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME
+                            let filePath = bot.filePathRoot + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
                             fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
 
                             function onFileCreated(err) {

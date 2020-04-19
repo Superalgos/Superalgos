@@ -298,8 +298,8 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                         if (OHLCVs.length > 0) {
                             let beginDate = new Date(OHLCVs[0].timestamp)
                             let endDate = new Date(OHLCVs[OHLCVs.length - 1].timestamp)
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate) }
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate) }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0].timestamp) }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1].timestamp) }
 
                             if (fisrtTimeThisProcessRun === true) {
                                 let OHLCV = OHLCVs[0]
@@ -355,7 +355,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                     }
 
                     if (err.stack.toString().indexOf('ExchangeNotAvailable') >= 0) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not responding at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
+                        logger.write(MODULE_NAME, "[ERROR] start -> getOHLCVs -> Retrying Later -> The Exchange " + bot.exchange + " is not available at the moment. I will save the data already fetched and try to reconnect later to fetch the rest of the missing data.");
                         return
                     }
                     
@@ -436,7 +436,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                                 headOfTheMarketReached = true
                                 saveFile(currentDay)
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
                                 bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
 
                                 /* We exit the loop and we aint comming back*/
@@ -503,7 +503,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                              heartBeatCounter--
                             if (heartBeatCounter <= 0) {
                                 heartBeatCounter = 1440
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length) }
                                 bot.processHeartBeat("Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + bot.exchange + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
                             }
                             /* End Reporting */
@@ -605,9 +605,23 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
 
                         currentDay++
 
-                        if (headOfTheMarketReached === false) {
+                        /*
+                        One possible exit is when we reached the amount of candles downloaded. This not necesary happens at the end of the market
+                        if the process was canceled for any reason at the middle.
+                        */
+
+                        if (i >= allOHLCVs.length - 1) {
+                            writeStatusReport()
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because i reached the end of the candles array. ") }
+                            return
+                        }
+
+
+                        /* The natural exit is at the end of the market */
+                        if (headOfTheMarketReached === false ) {
                             setImmediate(loop)
                         } else {
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ") }
                             writeStatusReport()
                         }
                     }

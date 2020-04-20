@@ -565,17 +565,43 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    let label1FontSize
+    let parentLabel1FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
+    let parentLabel2FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+    let parentLabel3FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
 
-    if (label1.length > 20) {
-      label1FontSize = 12
-    } else {
-      label1FontSize = 15
+    let label1FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
+    let label2FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
+    let label3FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
+
+    if (parentLabel1FontSize !== undefined) {
+      label1FontSize = parentLabel1FontSize
+    }
+    if (parentLabel2FontSize !== undefined) {
+      label2FontSize = parentLabel2FontSize
+    }
+    if (parentLabel3FontSize !== undefined) {
+      label3FontSize = parentLabel3FontSize
+    }
+
+    if (label1FontSize === undefined) {
+      if (label1.length > 20) {
+        label1FontSize = 12
+      } else {
+        label1FontSize = 15
+      }
+    }
+
+    if (label2FontSize === undefined) {
+      label2FontSize = 10
+    }
+
+    if (label3FontSize === undefined) {
+      label3FontSize = 9
     }
 
     drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
-    drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
-    drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
+    drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
+    drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
     drawProgressBar(marketFileProgressBar, 1, -45)
     drawProgressBar(dailyFileProgressBar, 1, -46)
@@ -588,4 +614,3 @@ function newLayer () {
     drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
   }
 }
-

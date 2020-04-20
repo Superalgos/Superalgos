@@ -565,9 +565,23 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
+    let parentLabel1FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
+    let parentLabel2FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+    let parentLabel3FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
+
     let label1FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
     let label2FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
     let label3FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
+
+    if (parentLabel1FontSize !== undefined) {
+      label1FontSize = parentLabel1FontSize
+    }
+    if (parentLabel2FontSize !== undefined) {
+      label2FontSize = parentLabel2FontSize
+    }
+    if (parentLabel3FontSize !== undefined) {
+      label3FontSize = parentLabel3FontSize
+    }
 
     if (label1FontSize === undefined) {
       if (label1.length > 20) {
@@ -578,7 +592,7 @@ function newLayer () {
     }
 
     if (label2FontSize === undefined) {
-      label2FontSize = 9
+      label2FontSize = 10
     }
 
     if (label3FontSize === undefined) {

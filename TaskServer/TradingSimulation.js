@@ -873,6 +873,28 @@
                                             }
                                         }
                                     }
+
+                                    /* move to phase events */
+                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                        if (moveToPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                                let situation = moveToPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                    if (condition.javascriptCode !== undefined) {
+                                                        newCondition(key, condition.javascriptCode, chart);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
 
@@ -935,6 +957,28 @@
 
                                                 if (condition.javascriptCode !== undefined) {
                                                     newCondition(key, condition.javascriptCode, chart);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    /* move to phase events */
+                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                        if (moveToPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                                let situation = moveToPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                    if (condition.javascriptCode !== undefined) {
+                                                        newCondition(key, condition.javascriptCode, chart);
+                                                    }
                                                 }
                                             }
                                         }
@@ -1015,6 +1059,28 @@
                                         }
                                     }
                                 }
+
+                                /* move to phase events */
+                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                    if (moveToPhaseEvent !== undefined) {
+
+                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                            let situation = moveToPhaseEvent.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode, chart);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -1078,6 +1144,28 @@
 
                                             if (condition.javascriptCode !== undefined) {
                                                 newCondition(key, condition.javascriptCode, chart);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                /* move to phase events */
+                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                    if (moveToPhaseEvent !== undefined) {
+
+                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                            let situation = moveToPhaseEvent.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode, chart);
+                                                }
                                             }
                                         }
                                     }
@@ -1418,6 +1506,7 @@
                     if (parentNode !== undefined) {
                         let phase = parentNode.stopLoss.phases[p];
 
+                        /* Check the next Phase Event. */
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {
 
@@ -1458,6 +1547,64 @@
 
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
+                                }
+                            }
+                        }
+
+                        /* Check the Move to Phase Events. */
+                        for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                            let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                            if (moveToPhaseEvent !== undefined) {
+
+                                for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                    let situation = moveToPhaseEvent.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                        let value = false
+                                        if (conditions.get(key) !== undefined) {
+                                            value = conditions.get(key).value;
+                                        }
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        let moveToPhase = moveToPhaseEvent.referenceParent
+                                        if (moveToPhase !== undefined) {
+                                            for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
+                                                if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
+                                                    stopLossPhase = q + 1
+                                                }
+                                            }
+                                        } else {
+                                            moveToPhaseEvent.error = "This Node needs to reference a Phase."
+                                            continue
+                                        }
+
+                                        stopLossStage = 'Manage Stage'
+                                        if (takeProfitPhase > 0) {
+                                            strategyStage = 'Manage Stage'
+                                            checkAnnouncements(manageStage, 'Take Profit')
+                                        }
+                                        
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.stopLossPhase = stopLossPhase;
+                                                yesterday.stopLossStage = stopLossStage;
+                                                yesterday.strategyStage = strategyStage;
+                                            }
+                                        }
+
+                                        checkAnnouncements(moveToPhaseEvent)
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -1553,6 +1700,7 @@
                         let phase = parentNode.takeProfit.phases[p];
                         if (phase === undefined) {return} // trying to jump to a phase that does not exists.
 
+                        /* Check the next Phase Event. */
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {
 
@@ -1593,6 +1741,64 @@
 
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
+                                }
+                            }
+                        }
+
+                        /* Check the Move to Phase Events. */
+                        for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                            let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                            if (moveToPhaseEvent !== undefined) {
+
+                                for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                    let situation = moveToPhaseEvent.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                        let value = false
+                                        if (conditions.get(key) !== undefined) {
+                                            value = conditions.get(key).value;
+                                        }
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        let moveToPhase = moveToPhaseEvent.referenceParent
+                                        if (moveToPhase !== undefined) {
+                                            for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
+                                                if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
+                                                    takeProfitPhase = q + 1
+                                                }
+                                            }
+                                        } else {
+                                            moveToPhaseEvent.error = "This Node needs to reference a Phase."
+                                            continue
+                                        }
+
+                                        takeProfitStage = 'Manage Stage'
+                                        if (stopLossPhase > 0) {
+                                            strategyStage = 'Manage Stage'
+                                            checkAnnouncements(manageStage, 'Stop')
+                                        }
+
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.takeProfitPhase = takeProfitPhase;
+                                                yesterday.takeProfitStage = takeProfitStage;
+                                                yesterday.strategyStage = strategyStage;
+                                            }
+                                        }
+
+                                        checkAnnouncements(moveToPhaseEvent)
+                                        return;
+                                    }
                                 }
                             }
                         }

@@ -252,6 +252,10 @@ function newUiObjectsFromNodes () {
               }
                 break
             }
+          } else {
+            if (property.type === 'array') {
+              node[property.name] = []
+            }
           }
         }
       }

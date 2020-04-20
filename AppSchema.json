@@ -788,7 +788,7 @@
         "addLeftIcons": true,
         "level": 0,
         "chainAttachesTo": {
-            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->"
+            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move to Phase Event->"
         },
         "icon": "pyramid",
         "properties": [
@@ -4102,6 +4102,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Move to Phase Event",
+                "relatedUiObject": "Move to Phase Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Announcement",
                 "relatedUiObject": "Announcement",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4134,6 +4140,11 @@
                 "name": "nextPhaseEvent",
                 "type": "node",
                 "childType": "Next Phase Event"
+            },
+            {
+                "name": "moveToPhaseEvents",
+                "type": "array",
+                "childType": "Move to Phase Event"
             },
             {
                 "name": "announcements",
@@ -4189,6 +4200,56 @@
             }
         ],
         "propertyNameAtParent": "nextPhaseEvent"
+    },
+    {
+        "type": "Move to Phase Event",
+        "docURL": "",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Phase->"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Phase->"
+        },
+        "icon": "move-to-phase-event",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "moveToPhaseEvents"
     },
     {
         "type": "Take Profit",
@@ -4590,7 +4651,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
+            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Move to Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
         },
         "properties": [
             {

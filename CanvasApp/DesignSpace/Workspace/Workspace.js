@@ -59,6 +59,8 @@ function newWorkspace () {
   let functionLibraryOnFocus = newOnFocus()
   let functionLibrarySuperScripts = newSuperScriptsFunctions()
   let functionLibraryCCXTFunctions = newCCXTFunctions()
+  let functionLibraryWebhookFunctions = newWebhookFunctions()
+  let functionLibraryDependenciesFilter = newDependenciesFilter()
 
   thisObject.nodeChildren = newNodeChildren()
 
@@ -82,9 +84,10 @@ function newWorkspace () {
 
   function initialize () {
     try {
+      let reset = window.localStorage.getItem('Reset')
       let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
 
-      if (savedWorkspace === null) {
+      if (savedWorkspace === null || reset !== null) {
         thisObject.workspaceNode = getWorkspace()
       } else {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
@@ -411,10 +414,14 @@ function newWorkspace () {
           functionLibraryCCXTFunctions.addMissingMarkets(payload.node, functionLibraryUiObjectsFromNodes, functionLibraryNodeCloning)
         }
         break
-
+      case 'Send Webhook Test Message':
+        {
+          functionLibraryWebhookFunctions.sendTestMessage(payload.node, callBackFunction)
+        }
+        break
       case 'Run Session':
         {
-          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, callBackFunction)
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction)
         }
         break
       case 'Stop Session':

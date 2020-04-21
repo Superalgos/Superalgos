@@ -6,7 +6,7 @@ function newSessionFunctions () {
 
   return thisObject
 
-  function runSession (node, functionLibraryProtocolNode, callBackFunction) {
+  function runSession (node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction) {
     /* We can not run a sessionif its parent process is not running. Less if it does not have a parent. */
     if (node.payload.parentNode === undefined) {
       node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be able to run.')
@@ -43,7 +43,7 @@ function newSessionFunctions () {
     'Initial Stop->Initial Take Profit->' +
     'Manage Stage->' +
     'Stop->Take Profit->' +
-    'Phase->Formula->Next Phase Event->' +
+    'Phase->Formula->Next Phase Event->Move to Phase Event->Phase->' +
     'Situation->Condition->Javascript Code->' +
     'Close Stage->Close Execution->' +
     'Announcement->Formula->'
@@ -59,10 +59,13 @@ function newSessionFunctions () {
 
     let session = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
+    let dependencyFilter = functionLibraryDependenciesFilter.createFilter(node.payload.referenceParent)
+
     /* Raise event to run the session */
     let event = {
       session: JSON.stringify(session),
-      tradingSystem: JSON.stringify(tradingSystem)
+      tradingSystem: JSON.stringify(tradingSystem),
+      dependencyFilter: JSON.stringify(dependencyFilter)
     }
 
     eventsServerClient.raiseEvent(key, 'Run Session', event)

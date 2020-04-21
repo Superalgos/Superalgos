@@ -683,6 +683,9 @@
         "chainAttachesTo": {
             "compatibleTypes": "->Polygon->"
         },
+        "title": [
+            "Use Reference Parent"
+        ],
         "menuItems": [
             {
                 "action": "Delete UI Object",
@@ -785,7 +788,7 @@
         "addLeftIcons": true,
         "level": 0,
         "chainAttachesTo": {
-            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->"
+            "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move to Phase Event->"
         },
         "icon": "pyramid",
         "properties": [
@@ -1189,6 +1192,14 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
+                "action": "Configure Network Node",
+                "label": "Configure Network Node",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "dataStorage",
@@ -1230,6 +1241,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"ipAddress\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
@@ -1477,6 +1494,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -1522,6 +1540,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -1599,6 +1618,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "title": [
+            "Use Reference Parent Parent",
             "Use Reference Parent"
         ],
         "addLeftIcons": true,
@@ -2622,7 +2642,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"repo\": \"If this is a legacy bot, write here the repository name in order to locate its code.\"\n}"
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 0,
         "chainAttachesTo": {
@@ -2677,6 +2697,9 @@
         "addLeftIcons": true,
         "editors": {
             "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 1,
         "chainAttachesTo": {
@@ -2966,6 +2989,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 3,
         "referenceAttachesTo": {
             "compatibleTypes": "->Plotter Module->"
@@ -3027,6 +3053,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 2,
         "chainAttachesTo": {
             "compatibleTypes": "->Product Definition->"
@@ -3072,6 +3101,9 @@
         "addLeftIcons": true,
         "editors": {
             "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 3,
         "chainAttachesTo": {
@@ -3496,6 +3528,9 @@
         "editors": {
             "config": true
         },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
+        },
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Data Mine->"
@@ -3549,6 +3584,9 @@
         "addLeftIcons": true,
         "editors": {
             "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"codeName\": \"\"\n}"
         },
         "level": 2,
         "icon": "plotter",
@@ -4078,6 +4116,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Move to Phase Event",
+                "relatedUiObject": "Move to Phase Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Announcement",
                 "relatedUiObject": "Announcement",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4110,6 +4154,11 @@
                 "name": "nextPhaseEvent",
                 "type": "node",
                 "childType": "Next Phase Event"
+            },
+            {
+                "name": "moveToPhaseEvents",
+                "type": "array",
+                "childType": "Move to Phase Event"
             },
             {
                 "name": "announcements",
@@ -4165,6 +4214,56 @@
             }
         ],
         "propertyNameAtParent": "nextPhaseEvent"
+    },
+    {
+        "type": "Move to Phase Event",
+        "docURL": "",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Situation",
+                "relatedUiObject": "Situation",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Announcement",
+                "relatedUiObject": "Announcement",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This Event",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Phase->"
+        },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Phase->"
+        },
+        "icon": "move-to-phase-event",
+        "properties": [
+            {
+                "name": "situations",
+                "type": "array",
+                "childType": "Situation",
+                "autoAdd": true
+            },
+            {
+                "name": "announcements",
+                "type": "array",
+                "childType": "Announcement"
+            }
+        ],
+        "propertyNameAtParent": "moveToPhaseEvents"
     },
     {
         "type": "Take Profit",
@@ -4566,7 +4665,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
+            "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Move to Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
         },
         "properties": [
             {
@@ -4591,6 +4690,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add Signals Providers",
+                "relatedUiObject": "Signals Providers",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "superActions",
                 "label": "Add Super Actions",
@@ -4607,6 +4712,11 @@
                 "name": "cryptoExchanges",
                 "type": "array",
                 "childType": "Crypto Exchanges"
+            },
+            {
+                "name": "signalsProviders",
+                "type": "array",
+                "childType": "Signals Providers"
             },
             {
                 "name": "superActions",
@@ -4650,6 +4760,86 @@
                 "childType": "Super Action"
             }
         ]
+    },
+    {
+        "type": "Signals Providers",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Signals Provider",
+                "relatedUiObject": "Signals Provider",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Signals Providers",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "icon": "targeting",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Crypto Ecosystem->"
+        },
+        "propertyNameAtParent": "signalsProviders",
+        "properties": [
+            {
+                "name": "signalsProviders",
+                "type": "array",
+                "childType": "Signals Provider",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Signals Provider",
+        "menuItems": [
+            {
+                "action": "Config Signals Provider",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Config Signals Provider",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Send Webhook Test Message",
+                "label": "Send Test Message",
+                "workingLabel": "Seinding Message",
+                "workDoneLabel": "Message Sent",
+                "workFailedLabel": "Message not Delived",
+                "iconPathOn": "paper-plane",
+                "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Signals Provider",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "icon": "template-target",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Signals Providers->"
+        },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+        },
+        "propertyNameAtParent": "signalsProviders",
+        "properties": []
     },
     {
         "type": "Crypto Exchanges",
@@ -5905,7 +6095,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environmnet->Template Structure->"
+            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environment->Template Structure->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -6185,6 +6375,12 @@
     {
         "type": "Exchange Sessions",
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Session Reference",
+                "relatedUiObject": "Session Reference",
+                "actionFunction": "payload.onMenuItemClick"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,

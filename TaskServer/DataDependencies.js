@@ -8,11 +8,12 @@
 
     let thisObject = {
         nodeArray: undefined,
-        dataSets: new Map(),
-        initialize: initialize,
-        keys: []
+        dataSetsModulesArray: [],
+        isItADepenency: isItADepenency, 
+        initialize: initialize
     };
 
+    let filter = new Map()
 
     return thisObject;
 
@@ -44,10 +45,17 @@
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return;
             }
+
+            /* Session based dependency filters */
+            if (bot.DEPENDENCY_FILTER !== undefined) {
+                for (let i = 0; i < bot.DEPENDENCY_FILTER.length; i++) {
+                    let key = bot.DEPENDENCY_FILTER[i]
+                        filter.set(key, true)
+                }
+            }
+
             /*
-
             For each dependency declared at the nodeArray, we will initialize a DataSet as part of this initialization process.
-
             */
             let alreadyCalledBack = false;
             let addCount = 0;
@@ -77,14 +85,7 @@
 
                     addCount++;
 
-                    let key;
-
-                    key = thisObject.nodeArray[i].dataMine + "-" + thisObject.nodeArray[i].bot + "-" + thisObject.nodeArray[i].product + "-" + thisObject.nodeArray[i].dataSet + "-" + thisObject.nodeArray[i].dataSetVersion;
-
-                    thisObject.keys.push(key);
-                    thisObject.dataSets.set(key, dataSetModule);
-
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addDataSet -> DataSet added to Map. -> key = " + key); }
+                    thisObject.dataSetsModulesArray.push(dataSetModule);
 
                     if (addCount === thisObject.nodeArray.length) {
                         if (alreadyCalledBack === false) {
@@ -100,5 +101,11 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function isItADepenency(timeFrame, product) {
+        let key = timeFrame + '-' + product 
+
+        return filter.get(key)
     }
 };

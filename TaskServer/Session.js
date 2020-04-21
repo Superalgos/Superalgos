@@ -54,6 +54,7 @@
                     /* We are going to run the Definition comming at the event. */
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                     bot.SESSION = JSON.parse(message.event.session)
+                    bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
 
                     /* Set the folderName for logging, reports, context and data output */
                     let code
@@ -459,6 +460,7 @@
             }
 
             function finalizeSocialBots() {
+                if (bot.SESSION.socialBots === undefined) {return}
                 if (bot.SESSION.socialBots.bots !== undefined) {
                     for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                         let socialBot = bot.SESSION.socialBots.bots[i]

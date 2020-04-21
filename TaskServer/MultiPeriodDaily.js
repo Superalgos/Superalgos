@@ -15,8 +15,7 @@
     let utilities = UTILITIES.newCloudUtilities(logger);
 
     let statusDependencies;
-    let dataDependencies;
-    let datasets = [];
+    let dataDependenciesModule;
     let dataFiles = new Map;
 
     let botInstance;
@@ -40,26 +39,8 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
 
             statusDependencies = pStatusDependencies;
-            dataDependencies = pDataDependencies;
+            dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
-
-            for (let i = 0; i < dataDependencies.nodeArray.length; i++) {
-
-                let key;
-                let dataset;
-                let dependency = dataDependencies.nodeArray[i];
-
-                key = dependency.dataMine + "-" +
-                    dependency.bot + "-" +
-                    dependency.product + "-" +
-                    dependency.dataSet + "-" +
-                    dependency.dataSetVersion
-
-                dataset = dataDependencies.dataSets.get(key);
-
-                datasets.push(dataset);
-
-            }
 
             let USER_BOT_MODULE = require("./IndicatorBot")
 
@@ -73,10 +54,9 @@
     }
 
     function finalize() {
-        datasets = undefined
         dataFiles = undefined
         statusDependencies = undefined
-        dataDependencies = undefined
+        dataDependenciesModule = undefined
         botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
@@ -115,94 +95,74 @@
                     let reportKey;
                     let statusReport;
 
-                    if (processConfig.framework.startDate.fixedDate !== undefined) {
+                    /*
+                        We look first for the bot who knows the begining of the market in order to get when the market starts.
+                    */
 
-                        /* The starting date is fixed, we will start from there. */
+                    statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined startDate. -> startDate = " + processConfig.framework.startDate.fixedDate); }
-                        contextVariables.dateBeginOfMarket = new Date(processConfig.framework.startDate.fixedDate);
-
-                    } else {
-
-                        /*
-                            We look first for the bot who knows the begining of the market in order to get when the market starts.
-                        */
-
-                        statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
-
-                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Starting Point -> Status Report does not exist or Market Starting Point not defined. Retrying Later. ");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-
-                        if (statusReport.status === "Status Report is corrupt.") {
-                            logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-
-                        thisReport = statusReport.file;
-
-                        if (thisReport.beginingOfMarket === undefined) {
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                            logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
-
-                            let customOK = {
-                                result: global.CUSTOM_OK_RESPONSE.result,
-                                message: "Dependency does not exist."
-                            }
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                            callBackFunction(customOK);
-                            return;
-                        }
-
-                        contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
-
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Starting Point -> Status Report does not exist or Market Starting Point not defined. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
                     }
 
-                    if (processConfig.framework.endDate.fixedDate !== undefined) {
-
-                        /* The ending date is fixed, we will end there. */
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> We have got a user defined endDate. -> endDate = " + processConfig.framework.endDate.fixedDate); }
-                        contextVariables.dateEndOfMarket = new Date(processConfig.framework.endDate.fixedDate); 
-
-                    } else {
-
-                        /*
-                          Here we get the status report from the bot who knows which is the end of the market.
-                        */
-
-                        statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
-
-                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Ending Point -> Status Report does not exist or Market Ending Point not defined. Retrying Later. ");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-
-                        if (statusReport.status === "Status Report is corrupt.") {
-                            logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                            return;
-                        }
-
-                        thisReport = statusReport.file;
-
-                        if (thisReport.lastFile === undefined) {
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-
-                            let customOK = {
-                                result: global.CUSTOM_OK_RESPONSE.result,
-                                message: "Dependency not ready."
-                            }
-                            logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                            callBackFunction(customOK);
-                            return;
-                        }
-
-                        contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
                     }
+
+                    thisReport = statusReport.file;
+
+                    if (thisReport.beginingOfMarket === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency does not exist."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket.year + "-" + thisReport.beginingOfMarket.month + "-" + thisReport.beginingOfMarket.days + " " + thisReport.beginingOfMarket.hours + ":" + thisReport.beginingOfMarket.minutes + GMT_SECONDS);
+
+                    /*
+                        Here we get the status report from the bot who knows which is the end of the market.
+                    */
+
+                    statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
+
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Market Ending Point -> Status Report does not exist or Market Ending Point not defined. Retrying Later. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    if (statusReport.status === "Status Report is corrupt.") {
+                        logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                        return;
+                    }
+
+                    thisReport = statusReport.file;
+
+                    if (thisReport.lastFile === undefined) {
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+
+                        let customOK = {
+                            result: global.CUSTOM_OK_RESPONSE.result,
+                            message: "Dependency not ready."
+                        }
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                        callBackFunction(customOK);
+                        return;
+                    }
+
+                    contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
 
                     /* Finally we get our own Status Report. */
 
@@ -234,7 +194,7 @@
                             return;
                         }
 
-                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate.resumeExecution === false) {
+                        if (bot.hasTheBotJustStarted === true && processConfig.framework.startDate !== undefined && processConfig.framework.startDate.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
@@ -433,8 +393,16 @@
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> Entering function."); }
 
-                                    let dependency = dataDependencies.nodeArray[dependencyIndex];
-                                    let dataset = datasets[dependencyIndex];
+                                    let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
+
+                                    if (dependency === undefined ) {
+
+                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> You need to add at least one Data Dependency to the process Multi Period Daily. Aborting process." );
+                                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                                        return;
+                                    }
+
+                                    let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
 
                                     let previousFile;
                                     let currentFile;
@@ -454,14 +422,14 @@
 
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let filePath
-                                            if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.product + '/' + dependency.dataSet  + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName  + "/" + dateForPath;
                                             }
                                             let fileName = "Data.json";
 
-                                            dataset.getTextFile(filePath, fileName, onFileReceived);
+                                            datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -524,14 +492,14 @@
 
                                             let dateForPath = bot.multiPeriodDailyProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodDailyProcessDatetime.getUTCDate(), 2);
                                             let filePath
-                                            if (dependency.dataSet === "Multi-Period-Daily") {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.product + '/' + dependency.dataSet + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
                                             }
                                             let fileName =  "Data.json";
 
-                                            dataset.getTextFile(filePath, fileName, onFileReceived);
+                                            datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
 
@@ -600,7 +568,7 @@
 
                                     dependencyIndex++;
 
-                                    if (dependencyIndex < dataDependencies.nodeArray.length) {
+                                    if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
 
                                         dependencyLoopBody();
 

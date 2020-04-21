@@ -254,20 +254,24 @@
 
                     if (processConfig.framework !== undefined) {
                         if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
-                            processConfig.framework.startDate.resumeExecution = true;
-                            if (processConfig.startMode.noTime !== undefined) {
-                                if (processConfig.startMode.noTime.run === "true") {
-                                    if (processConfig.startMode.noTime.beginDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
-                                        processConfig.framework.startDate.resumeExecution = true;
+                            if (processConfig.framework.startDate !== undefined) {
+                                processConfig.framework.startDate.resumeExecution = true;
+                                if (processConfig.startMode.noTime !== undefined) {
+                                    if (processConfig.startMode.noTime.run === "true") {
+                                        if (processConfig.startMode.noTime.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.noTime.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = true;
+                                        }
                                     }
                                 }
                             }
-                            if (processConfig.startMode.userDefined !== undefined) {
-                                if (processConfig.startMode.userDefined.run === "true") {
-                                    if (processConfig.startMode.userDefined.beginDatetime !== undefined) {
-                                        processConfig.framework.startDate.fixedDate = processConfig.startMode.userDefined.beginDatetime;
-                                        processConfig.framework.startDate.resumeExecution = processConfig.startMode.userDefined.resumeExecution;
+                            if (processConfig.startMode !== undefined) {
+                                if (processConfig.startMode.userDefined !== undefined) {
+                                    if (processConfig.startMode.userDefined.run === "true") {
+                                        if (processConfig.startMode.userDefined.beginDatetime !== undefined) {
+                                            processConfig.framework.startDate.fixedDate = processConfig.startMode.userDefined.beginDatetime;
+                                            processConfig.framework.startDate.resumeExecution = processConfig.startMode.userDefined.resumeExecution;
+                                        }
                                     }
                                 }
                             }
@@ -275,6 +279,30 @@
                     }
 
                     try {
+
+                        if (processConfig.startMode === undefined) { // Default 
+
+                            botConfig.hasTheBotJustStarted = true;
+                              
+                            switch (botConfig.type) {
+                                case 'Sensor Bot': {
+                                    runSensorBot(botConfig, processConfig);
+                                    break;
+                                }
+                                case 'Indicator Bot': {
+                                    runIndicatorBot(botConfig, processConfig);
+                                    break;
+                                }
+                                case 'Trading Bot': {
+                                    runTradingBot(botConfig, processConfig);
+                                    break;
+                                }
+                                default: {
+                                    console.log(logDisplace + "Root : [ERROR] start -> bootingBot -> Unexpected bot type. -> botConfig.type = " + botConfig.type);
+                                }
+                            }
+                            return
+                        }
 
                         if (processConfig.startMode.noTime !== undefined) {
 

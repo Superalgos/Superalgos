@@ -55,13 +55,6 @@
 
             let chart = {}
             let mainDependency = {}
-            let processingDailyFiles
-
-            if (currentDay !== undefined) {
-                processingDailyFiles = true
-            } else {
-                processingDailyFiles = false
-            }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
             let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
@@ -103,6 +96,21 @@
                 }
             }
 
+            /* Single Files */
+
+            let dataFiles = multiPeriodDataFiles.get('Single Files')
+            let products = {}
+
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Inflating Data Files from Single Files."); }
+
+            if (dataFiles !== undefined) {
+                commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+
+                let propertyName = 'atAnyTimeFrame';
+                chart[propertyName] = products
+            }
+
+            /* Simulation */
            
             const TRADING_SIMULATION = require('./TradingSimulation.js');
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES);

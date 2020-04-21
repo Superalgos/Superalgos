@@ -37,7 +37,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeDataMines.length; i++) {
         let name = includeDataMines[i]
-        blobService.getBlobToText('DataMines' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('DataMines' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
@@ -66,7 +66,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeTradingSystems.length; i++) {
         let name = includeTradingSystems[i]
-        blobService.getBlobToText('TradingSystems' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('TradingSystems' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
@@ -95,7 +95,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeSuperScripts.length; i++) {
         let name = includeSuperScripts[i]
-        blobService.getBlobToText('SuperScripts' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('SuperScripts' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')

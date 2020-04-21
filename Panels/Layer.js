@@ -20,6 +20,7 @@ function newLayer () {
     plotterTypeIcon: undefined,
     baseAssetIcon: undefined,
     quotedAssetIcon: undefined,
+    networkNode: undefined,
     checkStatusAtShutDown: checkStatusAtShutDown,
     physics: physics,
     draw: draw,
@@ -128,6 +129,7 @@ function newLayer () {
     thisObject.plotterTypeIcon = undefined
     thisObject.baseAssetIcon = undefined
     thisObject.quotedAssetIcon = undefined
+    thisObject.networkNode = undefined
   }
 
   function initialize (callBackFunction) {
@@ -151,8 +153,9 @@ function newLayer () {
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
                         '->Layer->' +
-                        'Data Product->Single Market Data->' +
+                        'Data Product->Single Market Data->Exchange Data Products->' +
                         'Session Independent Data->Session Based Data->' +
+                        'Data Storage->Network Node->' +
                         'Session Reference->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
@@ -186,6 +189,10 @@ function newLayer () {
       if (thisObject.definition.referenceParent.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.referenceParent.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode === undefined) { return }
 
        /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -225,6 +232,12 @@ function newLayer () {
 
       thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
       thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
+
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.type === 'Data Storage') {
+        thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode
+      } else {
+        thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
+      }
 
       function getIcon (node) {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)

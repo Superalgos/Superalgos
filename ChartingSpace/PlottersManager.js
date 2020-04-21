@@ -146,6 +146,11 @@ function newPlottersManager () {
         }
       }
 
+      let host = layer.networkNode.code.host
+      let webPort = layer.networkNode.code.webPort
+      if (host === undefined) { host = 'localhost' }
+      if (webPort === undefined) { webPort = window.location.port }
+
       storage.initialize(
         dataMine,
         bot,
@@ -155,6 +160,8 @@ function newPlottersManager () {
         market,
         datetime,
         timeFrame,
+        host,
+        webPort,
         onProductStorageInitialized
       )
 

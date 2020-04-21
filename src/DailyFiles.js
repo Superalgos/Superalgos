@@ -45,14 +45,14 @@ function newDailyFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
       let exchange = pExchange
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot)
+      fileCloud.initialize(pBot, pHost, pPort)
 
       /* Some Validations */
       if (pDataset.code.validTimeFrames === undefined) {

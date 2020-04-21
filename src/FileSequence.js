@@ -59,7 +59,7 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pHost, pPort, callBackFunction) {
     try {
       exchange = pExchange
       market = pMarket
@@ -70,7 +70,7 @@ function newFileSequence () {
       product = pProduct
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(bot)
+      fileCloud.initialize(bot, pHost, pPort)
 
       callerId = newUniqueId()
 

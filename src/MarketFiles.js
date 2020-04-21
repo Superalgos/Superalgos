@@ -67,7 +67,7 @@ function newMarketFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pHost, pPort, callBackFunction) {
     try {
       exchange = pExchange
       market = pMarket
@@ -78,7 +78,7 @@ function newMarketFiles () {
       product = pProduct
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot)
+      fileCloud.initialize(pBot, pHost, pPort)
 
       /* Some Validations */
       if (dataset.code.validTimeFrames === undefined) {

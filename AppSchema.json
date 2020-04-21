@@ -1192,6 +1192,14 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
+                "action": "Configure Network Node",
+                "label": "Configure Network Node",
+                "iconPathOn": "html",
+                "iconPathOff": "html",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "dataStorage",
@@ -1233,6 +1241,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "code": "{ \n\"ipAddress\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,

@@ -16,7 +16,18 @@ function newSingleFile () {
 
   return thisObject
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pHost, pPort, callBackFunction) {
+  function initialize (
+    pDataMine,
+    pBot,
+    pSession,
+    pProduct,
+    pDataset,
+    pExchange,
+    pMarket,
+    pHost,
+    pPort,
+    pEventsServerClient,
+    callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }

@@ -37,6 +37,7 @@ function newMarketFiles () {
   let finalized = false
 
   let eventSubscriptionIdDatasetUpdated = []
+  let eventsServerClient
 
   return thisObject
 
@@ -60,6 +61,7 @@ function newMarketFiles () {
       dataset = undefined
       product = undefined
       periodName = undefined
+      eventsServerClient = undefined
 
       finalized = true
     } catch (err) {
@@ -67,7 +69,18 @@ function newMarketFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pHost, pPort, callBackFunction) {
+  function initialize (
+    pDataMine,
+    pBot,
+    pSession,
+    pProduct,
+    pDataset,
+    pExchange,
+    pMarket,
+    pHost,
+    pPort,
+    pEventsServerClient,
+    callBackFunction) {
     try {
       exchange = pExchange
       market = pMarket
@@ -76,6 +89,7 @@ function newMarketFiles () {
       session = pSession
       dataset = pDataset
       product = pProduct
+      eventsServerClient = pEventsServerClient
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot, pHost, pPort)

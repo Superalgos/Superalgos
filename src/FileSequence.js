@@ -32,6 +32,7 @@ function newFileSequence () {
 
   let eventSubscriptionIdDatasetUpdated
   let callerId
+  let eventsServerClient
 
   return thisObject
 
@@ -52,6 +53,7 @@ function newFileSequence () {
       session = undefined
       dataset = undefined
       product = undefined
+      eventsServerClient = undefined
 
       finalized = true
     } catch (err) {
@@ -59,7 +61,18 @@ function newFileSequence () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pHost, pPort, callBackFunction) {
+  function initialize (
+    pDataMine,
+    pBot,
+    pSession,
+    pProduct,
+    pDataset,
+    pExchange,
+    pMarket,
+    pHost,
+    pPort,
+    pEventsServerClient,
+    callBackFunction) {
     try {
       exchange = pExchange
       market = pMarket
@@ -68,6 +81,7 @@ function newFileSequence () {
       session = pSession
       dataset = pDataset
       product = pProduct
+      eventsServerClient = pEventsServerClient
 
       fileCloud = newFileCloud()
       fileCloud.initialize(bot, pHost, pPort)

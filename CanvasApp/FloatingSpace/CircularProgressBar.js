@@ -22,26 +22,34 @@ function newCircularProgressBar () {
   thisObject.container.frame.position.y = 0
 
   let opacityCounters = []
-
   let eventSubscriptionIdHeartbeat
-
   let needToDrawRing = true
+  let eventsServerClient
 
   return thisObject
 
   function finalize () {
-    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-    if (eventSubscriptionIdHeartbeat !== undefined) {
-      eventsServerClient.stopListening(key, eventSubscriptionIdHeartbeat)
-    }
+    finalizeEventsServerClient()
 
     thisObject.container = undefined
     thisObject.payload = undefined
     thisObject.fitFunction = undefined
   }
 
-  function initialize (payload) {
+  function finalizeEventsServerClient () {
+    if (eventsServerClient !== undefined) {
+      let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+      if (eventSubscriptionIdHeartbeat !== undefined) {
+        eventsServerClient.stopListening(key, eventSubscriptionIdHeartbeat)
+      }
+    }
+  }
+
+  function initialize (payload, pEventsServerClient) {
     thisObject.payload = payload
+
+    finalizeEventsServerClient()
+    eventsServerClient = pEventsServerClient
 
     for (let i = 0; i < 60; i++) {
       opacityCounters.push(0)

@@ -130,8 +130,6 @@ function newCanvas () {
       animation.initialize()
 
       thisObject.animation = animation
-      /* Low Level Infraestructure First */
-      animation.addCallBackFunction('System Event Handler Physics', eventsServerClient.physics)
 
       /* Spcaces Physics */
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)

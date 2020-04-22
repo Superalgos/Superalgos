@@ -1,4 +1,4 @@
-function newFileStorage () {
+function newFileStorage (host, port) {
   const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
@@ -24,20 +24,25 @@ function newFileStorage () {
   ]
 
   let thisObject = {
-    getBlobToText: getBlobToText
+    getFileFromHost: getFileFromHost
   }
 
   return thisObject
 
-  async function getBlobToText (filePath, host, callBackFunction, pathComplete) {
+  async function getFileFromHost (filePath, callBackFunction, pathComplete) {
     try {
-      if (INFO_LOG === true) { logger.write('[INFO] getBlobToText -> Entering function.') }
+      if (INFO_LOG === true) { logger.write('[INFO] getFileFromHost -> Entering function.') }
 
       let folder = ''
       if (pathComplete === false || pathComplete === undefined) {
         folder = 'Storage/'
       }
-      callServer(undefined, folder + filePath, (response, fileContent) => {
+      let url = folder + filePath
+      if (host !== undefined) {
+        url = 'http://' + host + ':' + port + '/' + folder + filePath
+      }
+
+      callServer(undefined, url, (response, fileContent) => {
         if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)
         } else {
@@ -48,7 +53,7 @@ function newFileStorage () {
       if (verifyRetry(err.code) && currentRetry < MAX_RETRY) {
         currentRetry++
         if (INFO_LOG === true) { console.log('[INFO] getTextFile -> Retrying connection to the server because received error: ' + err.code + '. Retry #: ' + currentRetry) }
-        getBlobToText(filePath, host, callBackFunction)
+        getFileFromHost(filePath, callBackFunction)
       } else if (err.message === 'Request aborted') {
         let err = { code: 'The specified key does not exist.' }
         callBackFunction(err)

@@ -1245,7 +1245,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"ipAddress\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
+            "code": "{ \n\"host\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
@@ -1322,7 +1322,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
@@ -1358,6 +1357,16 @@
                 "secondaryIcon": "stop",
                 "iconPathOn": "paper-plane",
                 "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Debug Task",
+                "label": "Debug",
+                "workingLabel": "Debugging",
+                "workDoneLabel": "Debug Request Sent",
+                "workFailedLabel": "Task Cannot be Debugged",
+                "iconPathOn": "status-dependency",
+                "iconPathOff": "status-dependency",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -6218,12 +6227,6 @@
         "propertyNameAtParent": "testingEnvironment",
         "properties": [
             {
-                "name": "taskManagers",
-                "type": "array",
-                "childType": "Task Manager",
-                "autoAdd": true
-            },
-            {
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
@@ -6280,12 +6283,6 @@
         },
         "propertyNameAtParent": "productionEnvironment",
         "properties": [
-            {
-                "name": "taskManagers",
-                "type": "array",
-                "childType": "Task Manager",
-                "autoAdd": true
-            },
             {
                 "name": "exchangeTasks",
                 "type": "array",
@@ -6442,12 +6439,6 @@
         },
         "propertyNameAtParent": "sessionBasedData",
         "properties": [
-            {
-                "name": "sessionReferences",
-                "type": "array",
-                "childType": "Session Reference",
-                "autoAdd": true
-            },
             {
                 "name": "exchangeSessions",
                 "type": "array",

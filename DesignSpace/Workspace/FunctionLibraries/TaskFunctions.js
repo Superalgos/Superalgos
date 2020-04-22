@@ -12,7 +12,7 @@ function newTaskFunctions () {
 
   return thisObject
 
-  function runTask (node, functionLibraryProtocolNode, callBackFunction) {
+  function runTask (node, functionLibraryProtocolNode, isDebugging, callBackFunction) {
     if (validations(node) !== true) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       return
@@ -64,8 +64,8 @@ function newTaskFunctions () {
       definition: JSON.stringify(definition) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
     }
 
-    if (node.payload.parentNode === undefined) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    if (isDebugging === true) {
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       eventsServerClient.raiseEvent('Task Server', 'Debug Task Started', event)
       return
     }

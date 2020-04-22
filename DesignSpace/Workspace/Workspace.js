@@ -407,9 +407,14 @@ function newWorkspace () {
         }
 
         break
+      case 'Debug Task':
+        {
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, true, callBackFunction)
+        }
+        break
       case 'Run Task':
         {
-          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, callBackFunction)
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, false, callBackFunction)
         }
         break
       case 'Stop Task':

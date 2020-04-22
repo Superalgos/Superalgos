@@ -151,6 +151,8 @@ function newPlottersManager () {
       if (host === undefined) { host = 'localhost' }
       if (webPort === undefined) { webPort = window.location.port }
 
+      let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(layer.networkNode.id)
+
       storage.initialize(
         dataMine,
         bot,
@@ -162,6 +164,7 @@ function newPlottersManager () {
         timeFrame,
         host,
         webPort,
+        eventsServerClient,
         onProductStorageInitialized
       )
 

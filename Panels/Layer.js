@@ -154,9 +154,9 @@ function newLayer () {
       let lightingPath =
                         '->Layer->' +
                         'Data Product->Single Market Data->Exchange Data Products->' +
-                        'Session Independent Data->Session Based Data->' +
+                        'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                         'Data Storage->Network Node->' +
-                        'Session Reference->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +

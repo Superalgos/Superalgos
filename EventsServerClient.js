@@ -1,5 +1,5 @@
 
-function newEventsServerClient () {
+function newEventsServerClient (host, port) {
   /* Web Sockets Connection */
 
   const MODULE_NAME = 'System Event Handler'
@@ -8,7 +8,7 @@ function newEventsServerClient () {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
-  const WEB_SOCKETS_URL = 'ws://localhost:8080'
+  const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
   let WEB_SOCKETS_CONNECTION
 
   let thisObject = {
@@ -56,12 +56,7 @@ function newEventsServerClient () {
       responseWaiters.set(command.callerId, responseCallBack)
     }
 
-    if (WEB_SOCKETS_CONNECTION.readyState === 1) {
- // 1 means connected and ready.
-      sendToWebSocketServer(command)
-    } else {
-      console.log('WebSocket message could not be sent because the connection was not ready. Message = ' + JSON.stringify(command))
-    }
+    sendToWebSocketServer(command)
   }
 
   function sendToWebSocketServer (command) {
@@ -72,7 +67,12 @@ function newEventsServerClient () {
     commandsSentByTimestamp.set(stringNonce, timestamp)
 
     let messageToWebSocketServer = 'Web Browser' + '|*|' + stringNonce + '|*|' + JSON.stringify(command)
-    WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
+
+    if (WEB_SOCKETS_CONNECTION.readyState === 1) {
+      WEB_SOCKETS_CONNECTION.send(messageToWebSocketServer)
+    } else {
+      console.log('WebSocket message could not be sent because the connection was not ready. Will retry soon. Message = ' + JSON.stringify(command))
+    }
   }
 
   function createEventHandler (eventHandlerName, callerId, responseCallBack) {
@@ -153,7 +153,7 @@ function newEventsServerClient () {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Connection with the local backend lost. Please check that all localhost servers are running.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connecting with ' + host + '. Please hold on until the connection can be stablished.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     } else {
       retryCommandsPhysics()
     }

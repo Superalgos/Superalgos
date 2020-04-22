@@ -13,19 +13,17 @@ function newTaskFunctions () {
   return thisObject
 
   function runTask (node, functionLibraryProtocolNode, callBackFunction) {
-    /* Check if it is possible to Run or not */
-    if (node.bot === undefined) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      return
-    }
-    if (node.bot.processes.length === 0) {
+    if (validations(node) !== true) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       return
     }
 
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
     for (let i = 0; i < node.bot.processes.length; i++) {
       let process = node.bot.processes[i]
-      process.payload.uiObject.run()
+      process.payload.uiObject.run(eventsServerClient)
     }
 
     let lightingPath = '->Task->' +
@@ -72,11 +70,19 @@ function newTaskFunctions () {
       return
     }
 
-    node.payload.uiObject.run(callBackFunction)
+    node.payload.uiObject.run(eventsServerClient, callBackFunction)
     eventsServerClient.raiseEvent('Task Manager', 'Run Task', event)
   }
 
   function stopTask (node, functionLibraryProtocolNode, callBackFunction) {
+    if (validations(node) !== true) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
     let event = {
       taskId: node.id,
       taskName: node.name
@@ -92,6 +98,38 @@ function newTaskFunctions () {
       let process = node.bot.processes[i]
       process.payload.uiObject.stop()
     }
+  }
+
+  function validations (node) {
+    if (node.bot === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to have a Bot Instance.')
+      return
+    }
+    if (node.bot.processes.length === 0) {
+      node.payload.uiObject.setErrorMessage('Task Bot Instance needs to have al least once Process Instance.')
+      return
+    }
+
+    if (node.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Task Manager.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside Exchange Tasks.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Testing or Production Environment or a Data Mining node.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Network Node.')
+      return
+    }
+    return true
   }
 
   function runAllTasks (taskManager, functionLibraryProtocolNode) {

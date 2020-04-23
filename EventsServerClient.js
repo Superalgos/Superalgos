@@ -153,7 +153,7 @@ function newEventsServerClient (host, port) {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Connecting with ' + host + '. Please hold on until the connection can be stablished.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connecting to ' + host + '. Please hold on until the connection can be stablished.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     } else {
       retryCommandsPhysics()
     }

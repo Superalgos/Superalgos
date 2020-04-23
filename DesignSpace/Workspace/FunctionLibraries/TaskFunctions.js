@@ -26,7 +26,7 @@ function newTaskFunctions () {
       process.payload.uiObject.run(eventsServerClient)
     }
 
-    let lightingPath = '->Task->' +
+    let taskLightingPath = '->Task->' +
     'Sensor Bot Instance->' +
     'Indicator Bot Instance->' +
     'Trading Bot Instance->' +
@@ -56,12 +56,22 @@ function newTaskFunctions () {
     'Trading Bot->' +
     'Data Mine->'
 
-    let definition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+    let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
+
+    let networkLightingPath = '->Task->Task Manager->' +
+   'Exchange Tasks->' +
+   'Data Mining->Testing Environment->Production Environment->' +
+   'Network Node->Network->Network Node->' +
+   'Data Storage->Session Independent Data->Exchange Data Products->' +
+   'Single Market Data->Data Product->Product Definition->'
+
+    let networkDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, networkLightingPath)
 
     let event = {
       taskId: node.id,
       taskName: node.name,
-      definition: JSON.stringify(definition) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
+      taskDefinition: JSON.stringify(taskDefinition),
+      networkDefinition: JSON.stringify(networkDefinition)
     }
 
     if (isDebugging === true) {
@@ -129,6 +139,28 @@ function newTaskFunctions () {
       node.payload.uiObject.setErrorMessage('Task needs to be inside a Network Node.')
       return
     }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Network.')
+      return
+    }
+
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
+      return
+    }
+
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'webPort') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
+      return
+    }
+
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'webSocketsPort') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
+      return
+    }
+
     return true
   }
 

@@ -125,7 +125,8 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition)
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {
@@ -139,7 +140,8 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition) 
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {

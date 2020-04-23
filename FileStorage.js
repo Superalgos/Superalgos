@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage(logger) {
+exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 30
@@ -51,9 +51,15 @@ exports.newFileStorage = function newFileStorage(logger) {
 
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> fileLocation: ' + fileLocation)
 
-                /* Here we actually write the file. */
-                const fs = require('fs')
-                fs.readFile(fileLocation, onFileRead)
+                /* Here we actually reaad the file. */
+                if (host === undefined) {
+                    /* We read the file from the local file system. */
+                    const fs = require('fs')
+                    fs.readFile(fileLocation, onFileRead)
+                } else {
+                    /* We read the file via a web server over http */
+                    getFileViaHTTP(fileLocation, onFileRead)
+                }
 
                 function onFileRead(err, text) {
                     let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
@@ -390,9 +396,8 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
     }
 
- /* Function to create folders of missing folders at any path. */
-
-  function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
+    /* Function to create folders of missing folders at any path. */
+    function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
     const sep = '/';
     const initDir = path.isAbsolute(targetDir) ? sep : '';
     const baseDir = isRelativeToScript ? __dirname : '.';
@@ -420,5 +425,41 @@ exports.newFileStorage = function newFileStorage(logger) {
 
       return curDir;
     }, initDir);
-  }
+    }
+
+    function getFileViaHTTP(filePath, callback) {
+        try {
+
+            let http = require('http');
+            let url = 'http://' + host +
+                ':' + port +
+                '/Storage/' +
+                filePath
+
+            http.get(url, onResponse);
+
+            function onResponse(response) {
+
+                const chunks = []
+
+                response.on('data', onMessegesArrived)
+                response.on('end', onEnd)
+
+                function onMessegesArrived(chunk) {
+                    chunks.push(chunk)
+                }
+
+                function onEnd() {
+                    let fileContent = Buffer.concat(chunks).toString('utf8')
+
+                    callback(global.DEFAULT_OK_RESPONSE, fileContent)
+                }
+            }
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> err = " + err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            abort = true
+        }
+    }
 }

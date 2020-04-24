@@ -125,9 +125,9 @@
                     if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
                     if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
-                    function checkThisBranch() {
-                        for (let j = 0; j < networkNode.dataMining.exchangeTasks.length; j++) {
-                            let exchangeTasks = networkNode.dataMining.exchangeTasks[j]
+                    function checkThisBranch(branch) {
+                        for (let j = 0; j < branch.exchangeTasks.length; j++) {
+                            let exchangeTasks = branch.exchangeTasks[j]
                             for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
                                 let taskManager = exchangeTasks.taskManagers[k]
                                 for (let m = 0; m < taskManager.tasks.length; m++) {

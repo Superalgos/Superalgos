@@ -120,32 +120,39 @@
             for (let i = 0; i < network.networkNodes.length; i++) {
                 let networkNode = network.networkNodes[i]
                 if (networkNode.dataMining !== undefined) {
-                    for (let j = 0; j < networkNode.dataMining.exchangeTasks.length; j++) {
-                        let exchangeTasks = networkNode.dataMining.exchangeTasks[j]
-                        for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
-                            let taskManager = exchangeTasks.taskManagers[k]
-                            for (let m = 0; m < taskManager.tasks.length; m++) {
-                                let task = taskManager.tasks[m]
-                                if (task.bot !== undefined) {
-                                    for (let n = 0; n < task.bot.processes.length; n++) {
-                                        let process = task.bot.processes[n]
-                                        if (process.marketReference !== undefined) {
-                                            if (process.marketReference.referenceParent !== undefined) {
-                                                let market = process.marketReference.referenceParent
-                                                let currentProcessMarket = bot.processNode.marketReference.referenceParent
-                                                if (currentProcessMarket.id === market.id) {
-                                                    if (process.referenceParent !== undefined) {
-                                                        let processDefinition = process.referenceParent
-                                                        if (processThisDependsOn.id === processDefinition.id) {
 
-                                                            /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
+                    if (checkThisBranch(networkNode.dataMining) === true) { return }
+                    if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
+                    if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
-                                                            thisObject.networkNode = networkNode
-                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+                    function checkThisBranch() {
+                        for (let j = 0; j < networkNode.dataMining.exchangeTasks.length; j++) {
+                            let exchangeTasks = networkNode.dataMining.exchangeTasks[j]
+                            for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
+                                let taskManager = exchangeTasks.taskManagers[k]
+                                for (let m = 0; m < taskManager.tasks.length; m++) {
+                                    let task = taskManager.tasks[m]
+                                    if (task.bot !== undefined) {
+                                        for (let n = 0; n < task.bot.processes.length; n++) {
+                                            let process = task.bot.processes[n]
+                                            if (process.marketReference !== undefined) {
+                                                if (process.marketReference.referenceParent !== undefined) {
+                                                    let market = process.marketReference.referenceParent
+                                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
+                                                    if (currentProcessMarket.id === market.id) {
+                                                        if (process.referenceParent !== undefined) {
+                                                            let processDefinition = process.referenceParent
+                                                            if (processThisDependsOn.id === processDefinition.id) {
 
-                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
-                                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                            return
+                                                                /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
+
+                                                                thisObject.networkNode = networkNode
+                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+
+                                                                fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                                return true
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -160,6 +167,11 @@
             }
 
             logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine);
+
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {

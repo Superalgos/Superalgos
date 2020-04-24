@@ -11,6 +11,7 @@
         statusReports: new Map(),
         reportsByMainUtility: new Map(),
         initialize: initialize,
+        finalize: finalize,
         keys: []
     };
 
@@ -165,4 +166,13 @@
         }
     }
 
+    function finalize() {
+        thisObject.statusReports.forEach(forEachStatusDependency)
+        function forEachStatusDependency(statusDependency) {
+            statusDependency.finalize()
+        }
+        thisObject.statusReports = undefined
+        bot = undefined
+        thisObject = undefined
+    }
 };

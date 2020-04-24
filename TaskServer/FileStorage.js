@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-exports.newFileStorage = function newFileStorage(logger) {
+exports.newFileStorage = function newFileStorage(logger, host, port) {
 
     const MODULE_NAME = 'FileStorage'
     const MAX_RETRY = 30
@@ -51,9 +51,15 @@ exports.newFileStorage = function newFileStorage(logger) {
 
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> fileLocation: ' + fileLocation)
 
-                /* Here we actually write the file. */
-                const fs = require('fs')
-                fs.readFile(fileLocation, onFileRead)
+                /* Here we actually reaad the file. */
+                if (host === undefined || host === 'localhost') {
+                    /* We read the file from the local file system. */
+                    const fs = require('fs')
+                    fs.readFile(fileLocation, onFileRead)
+                } else {
+                    /* We read the file via a web server over http */
+                    getFileViaHTTP(fileLocation, onFileRead)
+                }
 
                 function onFileRead(err, text) {
                     let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
@@ -118,7 +124,14 @@ exports.newFileStorage = function newFileStorage(logger) {
                         if (canUsePrevious === true) {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON. Will try to read the PREVIOUS version instead. -> file = ' + fileLocation)
 
-                            fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
+                            if (host === undefined || host === 'localhost') {
+                                /* We read the file from the local file system. */
+                                const fs = require('fs')
+                                fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
+                            } else {
+                                /* We read the file via a web server over http */
+                                getFileViaHTTP(fileLocation + '.Previous.json', onPreviousFileRead)
+                            }
 
                             function onPreviousFileRead(err, text) {
 
@@ -136,6 +149,7 @@ exports.newFileStorage = function newFileStorage(logger) {
                         } else {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON.')
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> err = ' + err.stack)
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> text.toString() = ' + text.toString())
                             setTimeout(retry, retryTimeToUse)
                             return
                         }
@@ -390,9 +404,8 @@ exports.newFileStorage = function newFileStorage(logger) {
         }
     }
 
- /* Function to create folders of missing folders at any path. */
-
-  function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
+    /* Function to create folders of missing folders at any path. */
+    function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
     const sep = '/';
     const initDir = path.isAbsolute(targetDir) ? sep : '';
     const baseDir = isRelativeToScript ? __dirname : '.';
@@ -420,5 +433,50 @@ exports.newFileStorage = function newFileStorage(logger) {
 
       return curDir;
     }, initDir);
-  }
+    }
+
+    function getFileViaHTTP(filePath, callback) {
+        try {
+
+            /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
+            filePath = filePath.substring(15, filePath.length)
+
+            let http = require('http');
+            let url = 'http://' + host +
+                ':' + port +
+                '/Storage/' +
+                filePath
+
+            http.get(url, onResponse);
+
+            function onResponse(response) {
+
+                const chunks = []
+
+                response.on('data', onMessegesArrived)
+                response.on('end', onEnd)
+
+                function onMessegesArrived(chunk) {
+                    chunks.push(chunk)
+                }
+
+                function onEnd() {
+                    let fileContent = Buffer.concat(chunks).toString('utf8')
+                    let err = null
+                    if (fileContent === 'The specified key does not exist.') {
+                        err = {
+                            code: "ENOENT" // This is how fs would have returned upon this situation.
+                        }
+                        fileContent = undefined
+                    }
+                    callback(err, fileContent)
+                }
+            }
+
+        } catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> err = " + err.stack);
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            abort = true
+        }
+    }
 }

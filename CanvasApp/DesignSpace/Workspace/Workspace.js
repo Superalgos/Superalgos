@@ -126,7 +126,7 @@ function newWorkspace () {
           if (host === undefined) { host = 'localhost' }
           if (webSocketsPort === undefined) { webSocketsPort = '8080' }
 
-          let eventsServerClient = newEventsServerClient(host, webSocketsPort)
+          let eventsServerClient = newEventsServerClient(host, webSocketsPort, networkNode.name)
           eventsServerClient.initialize()
 
           thisObject.eventsServerClients.set(networkNode.id, eventsServerClient)

@@ -51,17 +51,17 @@
             //console.log('[INFO] BackendServers -> Task Manager Server -> runTask -> Entering function.') 
 
             if (message.event === undefined) {
-                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message))
+                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message))
+                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
-            if (message.event.definition === undefined) {
-                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without Definition -> message = ' + JSON.stringify(message))
+            if (message.event.taskDefinition === undefined) {
+                console.log('[WARN] BackendServers -> Task Manager Server -> runTask -> Message Received Without taskDefinition -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
@@ -116,12 +116,12 @@
             //console.log('[INFO] BackendServers -> Task Manager Server -> stopTask -> Entering function.')
 
             if (message.event === undefined) {
-                console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message))
+                console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message))
+                console.log('[WARN] BackendServers -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 

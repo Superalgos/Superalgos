@@ -125,12 +125,13 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition)
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
@@ -139,12 +140,13 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition) 
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
 }

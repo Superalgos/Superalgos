@@ -6,7 +6,9 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
     let thisObject = {
         node: undefined,
+        networkNode: undefined,
         initialize: initialize,
+        finalize: finalize,
         getTextFile: getTextFile,
         createTextFile: createTextFile
     };
@@ -14,7 +16,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
     /* Storage account to be used here. */
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let fileStorage 
 
     return thisObject;
 
@@ -76,12 +78,60 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return
             }
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            /* Now we will see where do we need to fetch this data from. */
+            let network = global.TASK_NETWORK 
+            let datasetProductDefinition = thisObject.node.parentNode
+
+            for (let i = 0; i < network.networkNodes.length; i++) {
+                let networkNode = network.networkNodes[i]
+                if (networkNode.dataStorage !== undefined) {
+                    if (networkNode.dataStorage.sessionIndependentData !== undefined) {
+                        for (let j = 0; j < networkNode.dataStorage.sessionIndependentData.exchangeDataProducts.length; j++) {
+                            let exchangeDataProduct = networkNode.dataStorage.sessionIndependentData.exchangeDataProducts[j]
+                            for (let k = 0; k < exchangeDataProduct.singleMarketData.length; k++) {
+                                let singleMarketData = exchangeDataProduct.singleMarketData[k]
+                                if (singleMarketData.referenceParent !== undefined) {
+                                    let market = singleMarketData.referenceParent
+                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
+
+                                    if (currentProcessMarket.id === market.id) {
+                                        for (let m = 0; m < singleMarketData.dataProducts.length; m++) {
+                                            let dataProduct = singleMarketData.dataProducts[m]
+                                            if (dataProduct.referenceParent !== undefined) {
+                                                let productDefinition = dataProduct.referenceParent
+                                                if (datasetProductDefinition.id === productDefinition.id) {
+
+                                                    /* We found where the data is located on the network. */
+                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        fileStorage = undefined
+        thisObject.networkNode = undefined
+        bot = undefined
+        thisObject = undefined
     }
 
     function getTextFile(pFolderPath, pFileName, callBackFunction) {

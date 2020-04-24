@@ -10,7 +10,8 @@
         nodeArray: undefined,
         dataSetsModulesArray: [],
         isItADepenency: isItADepenency, 
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
     let filter = new Map()
@@ -101,6 +102,17 @@
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        for (let i = 0; i < thisObject.dataSetsModulesArray.length; i++) {
+            let dataSetModule = thisObject.dataSetsModulesArray[i] 
+            dataSetModule.finalize()
+        }
+        thisObject.dataSetsModulesArray = undefined
+        filter = undefined
+        bot = undefined
+        thisObject = undefined
     }
 
     function isItADepenency(timeFrame, product) {

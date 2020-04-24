@@ -126,6 +126,7 @@
                     if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
                     function checkThisBranch(branch) {
+                        if (branch === undefined) {return}
                         for (let j = 0; j < branch.exchangeTasks.length; j++) {
                             let exchangeTasks = branch.exchangeTasks[j]
                             for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {

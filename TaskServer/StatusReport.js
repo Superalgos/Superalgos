@@ -159,9 +159,8 @@
                 }
             }
 
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
-
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);

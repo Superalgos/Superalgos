@@ -252,6 +252,12 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
+
+                                            if (global.STOP_TASK_GRACEFULLY === true) {
+                                                loopControl()
+                                                return
+                                            }
+
                                             initializeStatusDependencies();
                                             return;
                                         }

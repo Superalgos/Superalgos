@@ -1245,7 +1245,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"host\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
+            "code": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34247\", \n\"webSocketsPort\": \"8080\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,

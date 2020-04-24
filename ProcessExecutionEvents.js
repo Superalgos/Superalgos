@@ -37,26 +37,32 @@
             logger.fileName = MODULE_NAME + "." + name;
 
             if (bot.processNode.referenceParent !== undefined) {
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
+                return
+            }
 
-                let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
-                currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
+            let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
+            currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
 
-                if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
-                    if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
-                        if (bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
-                            processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
+            if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
+                if (bot.processNode.referenceParent.executionStartedEvent.referenceParent !== undefined) {
+                    if (bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode !== undefined) {
+                        processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
 
-                            name = processThisDependsOn.name
-                            if (processThisDependsOn.code.monthlyInstances === true) {
-                                logger.fileName = MODULE_NAME + "." + name;
-                            }
-                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
+                        name = processThisDependsOn.name
+                        if (processThisDependsOn.code.monthlyInstances === true) {
+                            logger.fileName = MODULE_NAME + "." + name;
                         }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
                     }
                 }
+            }
+
+            if (processThisDependsOn !== undefined) {
 
                 /* We need to find at which network node is running the process that we need to hear from when it finished. */
-                let network = global.TASK_NETWORK 
+                let network = global.TASK_NETWORK
 
                 for (let i = 0; i < network.networkNodes.length; i++) {
                     let networkNode = network.networkNodes[i]
@@ -75,7 +81,7 @@
                                                     let market = process.marketReference.referenceParent
                                                     let currentProcessMarket = bot.processNode.marketReference.referenceParent
 
-                                                    if (currentProcessMarket.id === market.id) { 
+                                                    if (currentProcessMarket.id === market.id) {
                                                         if (process.referenceParent !== undefined) {
                                                             let processDefinition = process.referenceParent
                                                             if (processThisDependsOn.id === processDefinition.id) {
@@ -98,7 +104,7 @@
                                                             }
                                                         }
                                                     }
-                                                } 
+                                                }
                                             }
                                         }
                                     }
@@ -112,7 +118,7 @@
                 return
             }
             callBackFunction(global.DEFAULT_OK_RESPONSE);
-
+            
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);

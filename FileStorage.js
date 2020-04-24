@@ -149,6 +149,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                         } else {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON.')
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> err = ' + err.stack)
+                            logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> text.toString() = ' + text.toString())
                             setTimeout(retry, retryTimeToUse)
                             return
                         }
@@ -437,6 +438,9 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
     function getFileViaHTTP(filePath, callback) {
         try {
 
+            /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
+            filePath = filePath.substring(15, filePath.length)
+
             let http = require('http');
             let url = 'http://' + host +
                 ':' + port +
@@ -458,8 +462,14 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
                 function onEnd() {
                     let fileContent = Buffer.concat(chunks).toString('utf8')
-
-                    callback(null, fileContent)
+                    let err = null
+                    if (fileContent === 'The specified key does not exist.') {
+                        err = {
+                            code: "ENOENT" // This is how fs would have returned upon this situation.
+                        }
+                        fileContent = undefined
+                    }
+                    callback(err, fileContent)
                 }
             }
 

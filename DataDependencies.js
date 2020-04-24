@@ -105,10 +105,11 @@
     }
 
     function finalize() {
-        for (let i = 0; i < dataSetsModulesArray.length; i++) {
-            dataSetsModule = dataSetsModulesArray[i] 
+        for (let i = 0; i < thisObject.dataSetsModulesArray.length; i++) {
+            let dataSetModule = thisObject.dataSetsModulesArray[i] 
             dataSetModule.finalize()
         }
+        thisObject.dataSetsModulesArray = undefined
         filter = undefined
         bot = undefined
         thisObject = undefined

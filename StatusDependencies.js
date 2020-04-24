@@ -167,10 +167,11 @@
     }
 
     function finalize() {
-        statusReports.forEach(forEachStatusDependency)
+        thisObject.statusReports.forEach(forEachStatusDependency)
         function forEachStatusDependency(statusDependency) {
             statusDependency.finalize()
         }
+        thisObject.statusReports = undefined
         bot = undefined
         thisObject = undefined
     }

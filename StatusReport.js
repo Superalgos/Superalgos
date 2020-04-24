@@ -258,6 +258,7 @@
                     */
 
                     logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text);
 
                     let customFail = {
                         result: global.CUSTOM_FAIL_RESPONSE.result,

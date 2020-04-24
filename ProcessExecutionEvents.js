@@ -24,6 +24,7 @@
     let currentProcessKey
 
     let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
+    let eventServerClient
 
     return thisObject;
 
@@ -36,7 +37,7 @@
             let name = 'Not Depends on any Process'
             logger.fileName = MODULE_NAME + "." + name;
 
-            if (bot.processNode.referenceParent !== undefined) {
+            if (bot.processNode.referenceParent === undefined) {
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because the Process Instance needs to have a Reference Parent.");
                 return
@@ -91,8 +92,8 @@
                                                                 thisObject.networkNode = networkNode
                                                                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webSocketsPort + '.'); }
 
-                                                                EVENT_SERVER_CLIENT = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.code.host, networkNode.code.webSocketsPort)
-                                                                EVENT_SERVER_CLIENT.initialize(onConnected)
+                                                                eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.code.host, networkNode.code.webSocketsPort)
+                                                                eventServerClient.initialize(onConnected)
 
                                                                 function onConnected() {
                                                                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webSocketsPort + '.'); }
@@ -126,8 +127,11 @@
     }
 
     function finalize() {
-        EVENT_SERVER_CLIENT.finalize()
-        EVENT_SERVER_CLIENT = undefined
+        if (eventServerClient !== undefined) {
+            eventServerClient.finalize()
+            eventServerClient = undefined
+        }
+
         processThisDependsOn = undefined
         currentProcessKey = undefined
         thisObject.networkNode = undefined
@@ -157,7 +161,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> key = " + key); }
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> waitForDependantProcess -> callerId = " + callerId); }
 
-                EVENT_SERVER_CLIENT.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
+                eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
                 bot.processHeartBeat(undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.code.codeName + "->" + processThisDependsOn.code.codeName)  
 
@@ -178,7 +182,7 @@
                     /* We continue the normal flow after we learn the dependent process has finished its execution. */
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> stopListening to Process Execution Finished. "); }
                     if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> subscriptionId = " + subscriptionId); }
-                    EVENT_SERVER_CLIENT.stopListening(key, 'Process Execution Finished', subscriptionId)
+                    eventServerClient.stopListening(key, 'Process Execution Finished', subscriptionId)
 
                     if (message.event.err.result === global.DEFAULT_OK_RESPONSE.result) {
                         /* We emit our own event that the process started. */

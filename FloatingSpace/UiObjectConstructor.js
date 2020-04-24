@@ -157,6 +157,17 @@ function newUiObjectConstructor () {
       }
     }
 
+    /* Default Values in case there was no way to set a value previous to this. */
+    if (floatingObject.angleToParent === undefined) {
+      floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
+    }
+    if (floatingObject.distanceToParent === undefined) {
+      floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+    }
+    if (floatingObject.arrangementStyle === undefined) {
+      floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+    }
+
     let uiObject = newUiObject()
     payload.uiObject = uiObject
     uiObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
@@ -243,7 +254,7 @@ function newUiObjectConstructor () {
       )
     menuItemsInitialValues.push(
       {
-        action: 'change Distance to Paarent',
+        action: 'Change Distance to Paarent',
         actionFunction: floatingObject.distanceToParentToggle,
         actionStatus: floatingObject.getDistanceToParent,
         currentStatus: true,
@@ -258,7 +269,7 @@ function newUiObjectConstructor () {
         )
     menuItemsInitialValues.push(
       {
-        action: 'change Arrangement Style',
+        action: 'Change Arrangement Style',
         actionFunction: floatingObject.arrangementStyleToggle,
         actionStatus: floatingObject.getArrangementStyle,
         currentStatus: true,

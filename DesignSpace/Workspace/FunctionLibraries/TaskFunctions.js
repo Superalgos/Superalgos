@@ -58,14 +58,18 @@ function newTaskFunctions () {
 
     let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
-    let networkLightingPath = '->Task->Task Manager->' +
-   'Exchange Tasks->' +
-   'Data Mining->Testing Environment->Production Environment->' +
-   'Network Node->Network->Network Node->' +
+    let networkLightingPath = '->Network->Network Node->' +
    'Data Storage->Session Independent Data->Exchange Data Products->' +
-   'Single Market Data->Data Product->Product Definition->'
+   'Single Market Data->Data Product->Product Definition->' +
+   'Data Mining->Testing Environment->Production Environment->' +
+   'Exchange Tasks->Crypto Exchange->' +
+   'Task Manager->Task->' +
+   'Indicator Bot Instance->Sensor Bot Instance->' +
+   'Indicator Process Instance->Sensor Process Instance->' +
+   'Market Reference->Market->' +
+   'Process Definition->'
 
-    let networkDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, networkLightingPath)
+    let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
     let event = {
       taskId: node.id,

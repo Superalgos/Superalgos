@@ -1,5 +1,5 @@
 
-function newEventsServerClient (host, port) {
+function newEventsServerClient (host, port, hostName) {
   /* Web Sockets Connection */
 
   const MODULE_NAME = 'System Event Handler'
@@ -153,7 +153,7 @@ function newEventsServerClient (host, port) {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Connecting to ' + host + '. Please hold on until the connection can be stablished.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connecting to ' + hostName + ' Network Node. Please hold on until the connection can be stablished.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     } else {
       retryCommandsPhysics()
     }

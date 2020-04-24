@@ -24,23 +24,19 @@ function newProtocolNode () {
 
       /* Children Nodes */
       if (nodeDefinition.properties !== undefined) {
-        let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
         for (let i = 0; i < nodeDefinition.properties.length; i++) {
           let property = nodeDefinition.properties[i]
 
           switch (property.type) {
             case 'node': {
               if (node[property.name] !== undefined) {
-                if (property.name !== previousPropertyName) {
-                  if (lightingPath === undefined) {
-                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
-                  } else {
-                    let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
-                    if (newLightingPath !== undefined) {
-                      object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
-                    }
+                if (lightingPath === undefined) {
+                  object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
+                } else {
+                  let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
+                  if (newLightingPath !== undefined) {
+                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
                   }
-                  previousPropertyName = property.name
                 }
               }
               break

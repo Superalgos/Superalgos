@@ -52,7 +52,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> fileLocation: ' + fileLocation)
 
                 /* Here we actually reaad the file. */
-                if (host === undefined) {
+                if (host === undefined || host === 'localhost') {
                     /* We read the file from the local file system. */
                     const fs = require('fs')
                     fs.readFile(fileLocation, onFileRead)
@@ -124,7 +124,14 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                         if (canUsePrevious === true) {
                             logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> onFileRead -> Could read the file, but could not parse it as it is not a valid JSON. Will try to read the PREVIOUS version instead. -> file = ' + fileLocation)
 
-                            fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
+                            if (host === undefined || host === 'localhost') {
+                                /* We read the file from the local file system. */
+                                const fs = require('fs')
+                                fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
+                            } else {
+                                /* We read the file via a web server over http */
+                                getFileViaHTTP(fileLocation + '.Previous.json', onPreviousFileRead)
+                            }
 
                             function onPreviousFileRead(err, text) {
 
@@ -452,7 +459,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 function onEnd() {
                     let fileContent = Buffer.concat(chunks).toString('utf8')
 
-                    callback(global.DEFAULT_OK_RESPONSE, fileContent)
+                    callback(null, fileContent)
                 }
             }
 

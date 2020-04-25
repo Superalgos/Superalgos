@@ -8,6 +8,9 @@ function newEventsServerClient (host, port, hostName) {
   const logger = newWebDebugLog()
   logger.fileName = MODULE_NAME
 
+  if (host === '' || host === undefined) { host = 'localhost' }
+  if (port === '' || port === undefined) { port = '8080' }
+
   const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
   let WEB_SOCKETS_CONNECTION
 

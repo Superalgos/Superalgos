@@ -64,8 +64,9 @@ function newTaskFunctions () {
    'Data Mining->Testing Environment->Production Environment->' +
    'Exchange Tasks->Crypto Exchange->' +
    'Task Manager->Task->' +
-   'Indicator Bot Instance->Sensor Bot Instance->' +
-   'Indicator Process Instance->Sensor Process Instance->' +
+   'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
+   'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
+   'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->' +
    'Market Reference->Market->' +
    'Process Definition->'
 

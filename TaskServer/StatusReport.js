@@ -144,6 +144,15 @@
                                                         if (process.referenceParent !== undefined) {
                                                             let processDefinition = process.referenceParent
                                                             if (processThisDependsOn.id === processDefinition.id) {
+                                                                if (process.type === 'Trading Process Instance') {
+                                                                    if (process.session !== undefined) {
+                                                                        if (bot.processNode.session.id !== process.session.id) {
+                                                                            continue
+                                                                        }
+                                                                    } else {
+                                                                        continue
+                                                                    }
+                                                                }
 
                                                                 /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
 

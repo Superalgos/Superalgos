@@ -115,10 +115,43 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                             }
                         }
                     }
+                    if (networkNode.dataStorage.sessionBasedData !== undefined) {
+                        for (let j = 0; j < networkNode.dataStorage.sessionBasedData.exchangeDataProducts.length; j++) {
+                            let exchangeDataProduct = networkNode.dataStorage.sessionBasedData.exchangeDataProducts[j]
+                            for (let s = 0; s < exchangeDataProduct.sessionReferences.length; s++) {
+                                let sessionReference = exchangeDataProduct.sessionReferences[s]
+                                let singleMarketData = sessionReference.singleMarketData
+                                if (singleMarketData.referenceParent !== undefined) {
+                                    let market = singleMarketData.referenceParent
+                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
+
+                                    if (currentProcessMarket.id === market.id) {
+                                        for (let m = 0; m < singleMarketData.dataProducts.length; m++) {
+                                            let dataProduct = singleMarketData.dataProducts[m]
+                                            if (dataProduct.referenceParent !== undefined) {
+                                                let productDefinition = dataProduct.referenceParent
+                                                if (datasetProductDefinition.id === productDefinition.id) {
+
+                                                    /* We found where the data is located on the network. */
+                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                    return
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
             logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
+            logger.write(MODULE_NAME, "[ERROR] initialize -> Could not find where " + datasetProductDefinition.name + " for " + bot.exchange + " " + bot.market.baseAsset + "/" + bot.market.quotedAsset + " is stored within the network.");
+
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {

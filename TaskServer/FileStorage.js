@@ -463,7 +463,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 function onEnd() {
                     let fileContent = Buffer.concat(chunks).toString('utf8')
                     let err = null
-                    if (fileContent === 'The specified key does not exist.') {
+                    if (fileContent.indexOf('does not exist') >= 0) {
                         err = {
                             code: "ENOENT" // This is how fs would have returned upon this situation.
                         }

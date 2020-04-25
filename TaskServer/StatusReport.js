@@ -119,50 +119,48 @@
 
             for (let i = 0; i < network.networkNodes.length; i++) {
                 let networkNode = network.networkNodes[i]
-                if (networkNode.dataMining !== undefined) {
+               
+                if (checkThisBranch(networkNode.dataMining) === true) { return }
+                if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
+                if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
-                    if (checkThisBranch(networkNode.dataMining) === true) { return }
-                    if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
-                    if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
-
-                    function checkThisBranch(branch) {
-                        if (branch === undefined) {return}
-                        for (let j = 0; j < branch.exchangeTasks.length; j++) {
-                            let exchangeTasks = branch.exchangeTasks[j]
-                            for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
-                                let taskManager = exchangeTasks.taskManagers[k]
-                                for (let m = 0; m < taskManager.tasks.length; m++) {
-                                    let task = taskManager.tasks[m]
-                                    if (task.bot !== undefined) {
-                                        for (let n = 0; n < task.bot.processes.length; n++) {
-                                            let process = task.bot.processes[n]
-                                            if (process.marketReference !== undefined) {
-                                                if (process.marketReference.referenceParent !== undefined) {
-                                                    let market = process.marketReference.referenceParent
-                                                    let currentProcessMarket = bot.processNode.marketReference.referenceParent
-                                                    if (currentProcessMarket.id === market.id) {
-                                                        if (process.referenceParent !== undefined) {
-                                                            let processDefinition = process.referenceParent
-                                                            if (processThisDependsOn.id === processDefinition.id) {
-                                                                if (process.type === 'Trading Process Instance') {
-                                                                    if (process.session !== undefined) {
-                                                                        if (bot.processNode.session.id !== process.session.id) {
-                                                                            continue
-                                                                        }
-                                                                    } else {
+                function checkThisBranch(branch) {
+                    if (branch === undefined) {return}
+                    for (let j = 0; j < branch.exchangeTasks.length; j++) {
+                        let exchangeTasks = branch.exchangeTasks[j]
+                        for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
+                            let taskManager = exchangeTasks.taskManagers[k]
+                            for (let m = 0; m < taskManager.tasks.length; m++) {
+                                let task = taskManager.tasks[m]
+                                if (task.bot !== undefined) {
+                                    for (let n = 0; n < task.bot.processes.length; n++) {
+                                        let process = task.bot.processes[n]
+                                        if (process.marketReference !== undefined) {
+                                            if (process.marketReference.referenceParent !== undefined) {
+                                                let market = process.marketReference.referenceParent
+                                                let currentProcessMarket = bot.processNode.marketReference.referenceParent
+                                                if (currentProcessMarket.id === market.id) {
+                                                    if (process.referenceParent !== undefined) {
+                                                        let processDefinition = process.referenceParent
+                                                        if (processThisDependsOn.id === processDefinition.id) {
+                                                            if (process.type === 'Trading Process Instance') {
+                                                                if (process.session !== undefined) {
+                                                                    if (bot.processNode.session.id !== process.session.id) {
                                                                         continue
                                                                     }
+                                                                } else {
+                                                                    continue
                                                                 }
-
-                                                                /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
-
-                                                                thisObject.networkNode = networkNode
-                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
-
-                                                                fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
-                                                                callBackFunction(global.DEFAULT_OK_RESPONSE);
-                                                                return true
                                                             }
+
+                                                            /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
+
+                                                            thisObject.networkNode = networkNode
+                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+
+                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                            return true
                                                         }
                                                     }
                                                 }

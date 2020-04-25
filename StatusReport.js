@@ -125,9 +125,10 @@
                     if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
                     if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
-                    function checkThisBranch() {
-                        for (let j = 0; j < networkNode.dataMining.exchangeTasks.length; j++) {
-                            let exchangeTasks = networkNode.dataMining.exchangeTasks[j]
+                    function checkThisBranch(branch) {
+                        if (branch === undefined) {return}
+                        for (let j = 0; j < branch.exchangeTasks.length; j++) {
+                            let exchangeTasks = branch.exchangeTasks[j]
                             for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
                                 let taskManager = exchangeTasks.taskManagers[k]
                                 for (let m = 0; m < taskManager.tasks.length; m++) {
@@ -143,6 +144,15 @@
                                                         if (process.referenceParent !== undefined) {
                                                             let processDefinition = process.referenceParent
                                                             if (processThisDependsOn.id === processDefinition.id) {
+                                                                if (process.type === 'Trading Process Instance') {
+                                                                    if (process.session !== undefined) {
+                                                                        if (bot.processNode.session.id !== process.session.id) {
+                                                                            continue
+                                                                        }
+                                                                    } else {
+                                                                        continue
+                                                                    }
+                                                                }
 
                                                                 /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
 

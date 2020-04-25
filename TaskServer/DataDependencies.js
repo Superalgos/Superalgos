@@ -112,7 +112,6 @@
         thisObject.dataSetsModulesArray = undefined
         filter = undefined
         bot = undefined
-        thisObject = undefined
     }
 
     function isItADepenency(timeFrame, product) {

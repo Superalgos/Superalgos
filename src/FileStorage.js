@@ -27,6 +27,9 @@ function newFileStorage (host, port) {
     getFileFromHost: getFileFromHost
   }
 
+  if (host === '' || host === undefined) { host = 'localhost' }
+  if (port === '' || port === undefined) { port = '34247' }
+
   return thisObject
 
   async function getFileFromHost (filePath, callBackFunction, pathComplete) {

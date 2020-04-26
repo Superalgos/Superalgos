@@ -1,3 +1,7 @@
+# Contact Us
+
+Please join our Telegram Community to contact us there: https://t.me/superalgoscommunity
+
 # Superalgos
 
 Superalgos provides a toolbox with many integrated tools that could help you research crypto markets and design / automate trading strategies. You can use Superalgos to download market data from crypto exchanges, make arbitrary calculations with it (including indicators), plot the results of your calculations, design, test and automate trading strategies, and more. 

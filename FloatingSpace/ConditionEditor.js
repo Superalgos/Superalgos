@@ -34,6 +34,8 @@ function newConditionEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
+  let operator1
+  let operator2
 
   return thisObject
 
@@ -92,13 +94,68 @@ function newConditionEditor () {
                      'overflow:hidden;' +
                      'font-family: ' + UI_FONT.PRIMARY + ';' +
                      'font-size: 14px;' +
-                     'background-color: rgb(' + UI_COLOR.GREEN + ');' +
+                     'background-color: rgb(' + UI_COLOR.GREY + ');' +
                      'color:rgb(255, 255, 255);' +
                     'width: ' + thisObject.container.frame.width + 'px;' +
                      'height: ' + thisObject.container.frame.height + 'px'
     textArea.style.display = 'block'
     textArea.focus()
+
+    scanDataMines()
     EDITOR_ON_FOCUS = true
+  }
+
+  function scanDataMines () {
+    let selector = {}
+
+    let workspace = canvas.designSpace.workspace.workspaceNode
+
+    for (let i = 0; i < workspace.rootNodes.length; i++) {
+      let rootNode = workspace.rootNodes[i]
+      if (rootNode.type !== 'Data Mine') { continue }
+      let dataMine = rootNode
+      let dataMineName = loadPropertyFromNodeConfig(dataMine.payload, 'codeName')
+      selector[dataMineName] = {}
+      let bots = dataMine.sensorBots.concat(dataMine.indicatorBots)
+      for (let j = 0; j < bots.length; j++) {
+        let bot = bots[j]
+        let botName = loadPropertyFromNodeConfig(bot.payload, 'codeName')
+        let selectorDataMine = selector[dataMineName]
+        selectorDataMine[botName] = {}
+        for (let k = 0; k < bot.products.length; k++) {
+          let product = bot.products[k]
+          let productName = loadPropertyFromNodeConfig(product.payload, 'singularVariableName')
+          if (productName === undefined) { continue }
+          let selectorProduct = selectorDataMine[botName]
+          selectorProduct[productName] = {}
+          if (product.record === undefined) { continue }
+          for (let m = 0; m < product.record.properties.length; m++) {
+            let property = product.record.properties[m]
+            let propertyName = loadPropertyFromNodeConfig(property.payload, 'codeName')
+            let selectorProperty = selectorProduct[productName]
+            selectorProperty[propertyName] = {}
+            let possibleValues = loadPropertyFromNodeConfig(property.payload, 'possibleValues')
+            if (possibleValues === undefined) { possibleValues = [] }
+            let selectorPossibleValue = selectorProperty[propertyName]
+            selectorPossibleValue.possibleValues = possibleValues
+          }
+          let productKeys = Object.keys(selectorProduct[productName])
+          if (productKeys.length === 0) {
+            selectorProduct[productName] = undefined
+          }
+        }
+        let botKeys = Object.keys(selectorDataMine[botName])
+        if (botKeys.length === 0) {
+          selectorDataMine[botName] = undefined
+        }
+      }
+      let dataMineKeys = Object.keys(selector[dataMineName])
+      if (dataMineKeys.length === 0) {
+        selector[dataMineName] = undefined
+      }
+    }
+    operator1 = JSON.parse(JSON.stringify(selector))
+    operator2 = JSON.parse(JSON.stringify(selector))
   }
 
   function getContainer (point) {
@@ -176,7 +233,7 @@ function newConditionEditor () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + 1 + ')'
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
         browserCanvasContext.fill()
       }
     }

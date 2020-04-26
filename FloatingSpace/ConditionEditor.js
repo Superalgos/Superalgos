@@ -32,8 +32,8 @@ function newConditionEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
-  let operator1
-  let operator2
+  let operatorA = {}
+  let operatorB = {}
 
   return thisObject
 
@@ -64,6 +64,7 @@ function newConditionEditor () {
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     scanDataMines()
+    setUpPickers()
     EDITOR_ON_FOCUS = true
   }
 
@@ -116,8 +117,16 @@ function newConditionEditor () {
         selector[dataMineName] = undefined
       }
     }
-    operator1 = JSON.parse(JSON.stringify(selector))
-    operator2 = JSON.parse(JSON.stringify(selector))
+    operatorA.selector = JSON.parse(JSON.stringify(selector))
+    operatorB.selector = JSON.parse(JSON.stringify(selector))
+  }
+
+  function setUpPickers () {
+    operatorA.dataMinePicker = newPicker()
+    operatorA.dataMinePicker.container.connectToParent(thisObject.container)
+    operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2
+    operatorA.dataMinePicker.container.frame.position.y = 0 - operatorA.dataMinePicker.container.frame.height / 2
+    operatorA.dataMinePicker.initialize(Object.keys(operatorA.selector))
   }
 
   function getContainer (point) {
@@ -139,6 +148,17 @@ function newConditionEditor () {
   }
 
   function physics () {
+    thisObjectphysics()
+    operatorsPhysics()
+  }
+
+  function operatorsPhysics () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.physics()
+    }
+  }
+
+  function thisObjectphysics () {
     if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= 0.5) {
       if (thisObject.currentRadius < thisObject.targetRadius) {
         thisObject.currentRadius = thisObject.currentRadius + 0.5
@@ -150,11 +170,22 @@ function newConditionEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2
     thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
   }
 
   function drawBackground () {
+    thisObjectDrawBackground()
+    childrenDrawBackground()
+  }
+
+  function childrenDrawBackground () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.drawBackground()
+    }
+  }
+
+  function thisObjectDrawBackground () {
     if (thisObject.visible === true) {
       let position = {
         x: 0,
@@ -163,7 +194,7 @@ function newConditionEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 2
+      let radius = thisObject.container.frame.radius * 1
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()
@@ -180,10 +211,22 @@ function newConditionEditor () {
       }
     }
   }
+
   function drawForeground () {
+    thisObjectDrawForeground()
+    childrenDrawForeground()
+  }
+
+  function childrenDrawForeground () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.drawForeground()
+    }
+  }
+
+  function thisObjectDrawForeground () {
     let iconPosition = {
       x: 0,
-      y: thisObject.currentRadius * 1.5
+      y: thisObject.currentRadius * 1
     }
 
     iconPosition = thisObject.container.frame.frameThisPoint(iconPosition)

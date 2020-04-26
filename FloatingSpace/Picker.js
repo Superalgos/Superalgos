@@ -4,6 +4,7 @@ function newPicker () {
 
   let thisObject = {
     container: undefined,
+    selectedItem: 0,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -31,7 +32,7 @@ function newPicker () {
     optionsList = undefined
   }
 
-  function initialize (pOptionsList, payload) {
+  function initialize (pOptionsList) {
     optionsList = pOptionsList
   }
 
@@ -47,15 +48,15 @@ function newPicker () {
 
   }
 
-  function drawBackground (pFloatingObject) {
+  function drawBackground () {
 
   }
 
-  function drawForeground (pFloatingObject) {
+  function drawForeground () {
     const FONT_SIZE = 15
 
     for (let i = 0; i < optionsList.length; i++) {
-      drawLabel(optionsList[i], 1 / 2, i / optionsList.length, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.BLACK, undefined, undefined)
+      drawLabel(optionsList[i], 1 / 2, i / optionsList.length, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.WHITE, undefined, undefined)
     }
   }
 }

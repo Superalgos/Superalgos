@@ -4,8 +4,6 @@ function newConditionEditor () {
 
   let thisObject = {
     isVisibleFunction: undefined,
-    iconOK: undefined,
-    iconNOT_OK: undefined,
     visible: false,
     imagePathOK: undefined,
     imagePathNOT_OK: undefined,
@@ -42,37 +40,17 @@ function newConditionEditor () {
   function finalize () {
     thisObject.container.finalize()
     thisObject.container = undefined
-    thisObject.iconOK = undefined
-    thisObject.iconNOT_OK = undefined
     thisObject.payload = undefined
     thisObject.isVisibleFunction = undefined
   }
 
   function initialize () {
-    /* Load Images */
 
-    thisObject.iconOK = new Image()
-    thisObject.iconOK.onload = onImageLoad
-
-    function onImageLoad () {
-      thisObject.iconNOT_OK = new Image()
-      thisObject.iconNOT_OK.onload = onImageLoad
-
-      function onImageLoad () {
-        thisObject.canDrawIcon = true
-      }
-      thisObject.iconNOT_OK.src = window.canvasApp.urlPrefix + thisObject.imagePathNOT_OK
-    }
-    // thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
-    // thisObject.icon = thisObject.iconOK // The default value is ON.
   }
 
   function deactivate () {
     if (thisObject.visible === true) {
       thisObject.visible = false
-      let textArea = document.getElementById('textArea')
-      textArea.style.display = 'none'
-      thisObject.payload.node.code = textArea.value
     }
     EDITOR_ON_FOCUS = false
   }
@@ -84,22 +62,6 @@ function newConditionEditor () {
     thisObject.targetRadius = thisObject.container.frame.radius
     thisObject.currentRadius = 0
     thisObject.payload.uiObject.setErrorMessage('', 0)
-
-    let textArea = document.getElementById('textArea')
-    textArea.value = payload.node.code
-    textArea.style = 'resize: none;' +
-                     ' border: none;' +
-                     ' outline: none;' +
-                     'box-shadow: none;' +
-                     'overflow:hidden;' +
-                     'font-family: ' + UI_FONT.PRIMARY + ';' +
-                     'font-size: 14px;' +
-                     'background-color: rgb(' + UI_COLOR.GREY + ');' +
-                     'color:rgb(255, 255, 255);' +
-                    'width: ' + thisObject.container.frame.width + 'px;' +
-                     'height: ' + thisObject.container.frame.height + 'px'
-    textArea.style.display = 'block'
-    textArea.focus()
 
     scanDataMines()
     EDITOR_ON_FOCUS = true
@@ -190,26 +152,6 @@ function newConditionEditor () {
 
     thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 2
     thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
-
-    let textAreaPosition = {
-      x: 0 - thisObject.container.frame.width / 2,
-      y: 0 - thisObject.container.frame.height * 3 / 7 + CURRENT_TOP_MARGIN
-    }
-
-    textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
-    if (thisObject.visible === true) {
-      let checkPosition = {
-        x: textAreaPosition.x,
-        y: textAreaPosition.y - CURRENT_TOP_MARGIN
-      }
-      if (thisObject.isVisibleFunction(checkPosition) === false) {
-        deactivate()
-      }
-    }
-    if (thisObject.visible === true) {
-      let textAreaDiv = document.getElementById('textAreaDiv')
-      textAreaDiv.style = 'position:fixed; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
-    }
   }
 
   function drawBackground () {

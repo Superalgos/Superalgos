@@ -447,6 +447,8 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 '/Storage/' +
                 filePath
 
+            logger.write(MODULE_NAME, '[INFO] FileStorage -> getFileViaHTTP -> url = ' + url)
+
             http.get(url, onResponse);
 
             function onResponse(response) {

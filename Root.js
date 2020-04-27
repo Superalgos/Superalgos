@@ -391,6 +391,7 @@
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();
+                            global.LOGGER_MAP.set('runSensorBot', logger)
                             logger.bot = pBotConfig;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> Entering function."); }
@@ -455,6 +456,7 @@
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();
+                            global.LOGGER_MAP.set('runIndicatorBot', logger)
                             logger.bot = pBotConfig;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> Entering function."); }
@@ -517,6 +519,7 @@
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();
+                            global.LOGGER_MAP.set('runTradingBot', logger)
                             logger.bot = pBotConfig;
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runTradingBot -> Entering function."); }

@@ -152,6 +152,17 @@ function newWorkspace () {
   }
 
   function saveWorkspace () {
+    /*  When there is an exception while loading the app, the rootNodes of the workspace get into null value. To avoid saving a corrupt staate we are going to verufy we are not in that situation before saving. */
+    let workspace = canvas.designSpace.workspace.workspaceNode
+
+    for (let i = 0; i < workspace.rootNodes.length; i++) {
+      let rootNode = workspace.rootNodes[i]
+      if (rootNode === null) {
+        canvas.cockpitSpace.setStatus('Could not save the Workspace. The state of the workspace in memory is corrupt, please reload the App.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        return
+      }
+    }
+
     let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
     if (Number(savedSessionTimestamp) !== sessionTimestamp) {
       canvas.cockpitSpace.setStatus('Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.', 150, canvas.cockpitSpace.statusTypes.WARNING)

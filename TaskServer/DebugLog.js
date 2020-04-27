@@ -17,7 +17,8 @@ exports.newDebugLog = function newDebugLog() {
         write: write,
         newInternalLoop: newInternalLoop,
         persist: persist,           // This method is executed at the end of each Main Loop.
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
     let accumulatedLog = "[";
@@ -35,6 +36,10 @@ exports.newDebugLog = function newDebugLog() {
         } catch (err) {
             console.log("[ERROR] Debug Log -> initialize -> err = "+ err.stack);
         }
+    }
+
+    function finalize() {
+        persist()
     }
 
     function newInternalLoop(pBot, pProcess, date, percentage) {
@@ -64,6 +69,7 @@ exports.newDebugLog = function newDebugLog() {
         /* Here we actually write the content of the in-memory log to a file */
 
         try {
+            if (accumulatedLog === "[") {return} // nothing to persist at the moment.
 
             internalLoopCounter++;
 

@@ -121,7 +121,11 @@
 
                     /* For each loop we want to create a new log file. */
 
+                    if (logger !== undefined) {
+                        logger.finalize()
+                    }
                     logger = DEBUG_MODULE.newDebugLog();
+                    global.LOGGER_MAP.set(MODULE_NAME, logger)
                     logger.bot = bot;
                     logger.initialize();
 

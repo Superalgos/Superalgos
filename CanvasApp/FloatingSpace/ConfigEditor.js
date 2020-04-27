@@ -4,8 +4,6 @@ function newConfigEditor () {
 
   let thisObject = {
     isVisibleFunction: undefined,
-    iconOK: undefined,
-    iconNOT_OK: undefined,
     visible: false,
     imagePathOK: undefined,
     imagePathNOT_OK: undefined,
@@ -41,29 +39,12 @@ function newConfigEditor () {
   function finalize () {
     thisObject.container.finalize()
     thisObject.container = undefined
-    thisObject.iconOK = undefined
-    thisObject.iconNOT_OK = undefined
     thisObject.payload = undefined
     thisObject.isVisibleFunction = undefined
   }
 
   function initialize () {
-    /* Load Images */
 
-    thisObject.iconOK = new Image()
-    thisObject.iconOK.onload = onImageLoad
-
-    function onImageLoad () {
-      thisObject.iconNOT_OK = new Image()
-      thisObject.iconNOT_OK.onload = onImageLoad
-
-      function onImageLoad () {
-        thisObject.canDrawIcon = true
-      }
-      thisObject.iconNOT_OK.src = window.canvasApp.urlPrefix + thisObject.imagePathNOT_OK
-    }
-    // thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
-    // thisObject.icon = thisObject.iconOK // The default value is ON.
   }
 
   function deactivate () {

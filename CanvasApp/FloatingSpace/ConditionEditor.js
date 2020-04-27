@@ -4,8 +4,6 @@ function newConditionEditor () {
 
   let thisObject = {
     isVisibleFunction: undefined,
-    iconOK: undefined,
-    iconNOT_OK: undefined,
     visible: false,
     imagePathOK: undefined,
     imagePathNOT_OK: undefined,
@@ -34,43 +32,25 @@ function newConditionEditor () {
   thisObject.container.frame.position.y = 0
 
   let isMouseOver = false
+  let operatorA = {}
+  let operatorB = {}
 
   return thisObject
 
   function finalize () {
     thisObject.container.finalize()
     thisObject.container = undefined
-    thisObject.iconOK = undefined
-    thisObject.iconNOT_OK = undefined
     thisObject.payload = undefined
     thisObject.isVisibleFunction = undefined
   }
 
   function initialize () {
-    /* Load Images */
 
-    thisObject.iconOK = new Image()
-    thisObject.iconOK.onload = onImageLoad
-
-    function onImageLoad () {
-      thisObject.iconNOT_OK = new Image()
-      thisObject.iconNOT_OK.onload = onImageLoad
-
-      function onImageLoad () {
-        thisObject.canDrawIcon = true
-      }
-      thisObject.iconNOT_OK.src = window.canvasApp.urlPrefix + thisObject.imagePathNOT_OK
-    }
-    // thisObject.iconOK.src = window.canvasApp.urlPrefix + thisObject.imagePathOK
-    // thisObject.icon = thisObject.iconOK // The default value is ON.
   }
 
   function deactivate () {
     if (thisObject.visible === true) {
       thisObject.visible = false
-      let textArea = document.getElementById('textArea')
-      textArea.style.display = 'none'
-      thisObject.payload.node.code = textArea.value
     }
     EDITOR_ON_FOCUS = false
   }
@@ -83,22 +63,70 @@ function newConditionEditor () {
     thisObject.currentRadius = 0
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
-    let textArea = document.getElementById('textArea')
-    textArea.value = payload.node.code
-    textArea.style = 'resize: none;' +
-                     ' border: none;' +
-                     ' outline: none;' +
-                     'box-shadow: none;' +
-                     'overflow:hidden;' +
-                     'font-family: ' + UI_FONT.PRIMARY + ';' +
-                     'font-size: 14px;' +
-                     'background-color: rgb(' + UI_COLOR.GREEN + ');' +
-                     'color:rgb(255, 255, 255);' +
-                    'width: ' + thisObject.container.frame.width + 'px;' +
-                     'height: ' + thisObject.container.frame.height + 'px'
-    textArea.style.display = 'block'
-    textArea.focus()
+    scanDataMines()
+    setUpPickers()
     EDITOR_ON_FOCUS = true
+  }
+
+  function scanDataMines () {
+    let selector = {}
+
+    let workspace = canvas.designSpace.workspace.workspaceNode
+
+    for (let i = 0; i < workspace.rootNodes.length; i++) {
+      let rootNode = workspace.rootNodes[i]
+      if (rootNode.type !== 'Data Mine') { continue }
+      let dataMine = rootNode
+      let dataMineName = loadPropertyFromNodeConfig(dataMine.payload, 'codeName')
+      selector[dataMineName] = {}
+      let bots = dataMine.sensorBots.concat(dataMine.indicatorBots)
+      for (let j = 0; j < bots.length; j++) {
+        let bot = bots[j]
+        let botName = loadPropertyFromNodeConfig(bot.payload, 'codeName')
+        let selectorDataMine = selector[dataMineName]
+        selectorDataMine[botName] = {}
+        for (let k = 0; k < bot.products.length; k++) {
+          let product = bot.products[k]
+          let productName = loadPropertyFromNodeConfig(product.payload, 'singularVariableName')
+          if (productName === undefined) { continue }
+          let selectorProduct = selectorDataMine[botName]
+          selectorProduct[productName] = {}
+          if (product.record === undefined) { continue }
+          for (let m = 0; m < product.record.properties.length; m++) {
+            let property = product.record.properties[m]
+            let propertyName = loadPropertyFromNodeConfig(property.payload, 'codeName')
+            let selectorProperty = selectorProduct[productName]
+            selectorProperty[propertyName] = {}
+            let possibleValues = loadPropertyFromNodeConfig(property.payload, 'possibleValues')
+            if (possibleValues === undefined) { possibleValues = [] }
+            let selectorPossibleValue = selectorProperty[propertyName]
+            selectorPossibleValue.possibleValues = possibleValues
+          }
+          let productKeys = Object.keys(selectorProduct[productName])
+          if (productKeys.length === 0) {
+            selectorProduct[productName] = undefined
+          }
+        }
+        let botKeys = Object.keys(selectorDataMine[botName])
+        if (botKeys.length === 0) {
+          selectorDataMine[botName] = undefined
+        }
+      }
+      let dataMineKeys = Object.keys(selector[dataMineName])
+      if (dataMineKeys.length === 0) {
+        selector[dataMineName] = undefined
+      }
+    }
+    operatorA.selector = JSON.parse(JSON.stringify(selector))
+    operatorB.selector = JSON.parse(JSON.stringify(selector))
+  }
+
+  function setUpPickers () {
+    operatorA.dataMinePicker = newPicker()
+    operatorA.dataMinePicker.container.connectToParent(thisObject.container)
+    operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2
+    operatorA.dataMinePicker.container.frame.position.y = 0 - operatorA.dataMinePicker.container.frame.height / 2
+    operatorA.dataMinePicker.initialize(Object.keys(operatorA.selector))
   }
 
   function getContainer (point) {
@@ -120,6 +148,17 @@ function newConditionEditor () {
   }
 
   function physics () {
+    thisObjectphysics()
+    operatorsPhysics()
+  }
+
+  function operatorsPhysics () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.physics()
+    }
+  }
+
+  function thisObjectphysics () {
     if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= 0.5) {
       if (thisObject.currentRadius < thisObject.targetRadius) {
         thisObject.currentRadius = thisObject.currentRadius + 0.5
@@ -131,31 +170,22 @@ function newConditionEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1.8 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2
     thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
-
-    let textAreaPosition = {
-      x: 0 - thisObject.container.frame.width / 2,
-      y: 0 - thisObject.container.frame.height * 3 / 7 + CURRENT_TOP_MARGIN
-    }
-
-    textAreaPosition = thisObject.container.frame.frameThisPoint(textAreaPosition)
-    if (thisObject.visible === true) {
-      let checkPosition = {
-        x: textAreaPosition.x,
-        y: textAreaPosition.y - CURRENT_TOP_MARGIN
-      }
-      if (thisObject.isVisibleFunction(checkPosition) === false) {
-        deactivate()
-      }
-    }
-    if (thisObject.visible === true) {
-      let textAreaDiv = document.getElementById('textAreaDiv')
-      textAreaDiv.style = 'position:fixed; top:' + textAreaPosition.y + 'px; left:' + textAreaPosition.x + 'px; z-index:1; '
-    }
   }
 
   function drawBackground () {
+    thisObjectDrawBackground()
+    childrenDrawBackground()
+  }
+
+  function childrenDrawBackground () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.drawBackground()
+    }
+  }
+
+  function thisObjectDrawBackground () {
     if (thisObject.visible === true) {
       let position = {
         x: 0,
@@ -164,7 +194,7 @@ function newConditionEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 2
+      let radius = thisObject.container.frame.radius * 1
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()
@@ -176,15 +206,27 @@ function newConditionEditor () {
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
         browserCanvasContext.closePath()
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + 1 + ')'
+        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
         browserCanvasContext.fill()
       }
     }
   }
+
   function drawForeground () {
+    thisObjectDrawForeground()
+    childrenDrawForeground()
+  }
+
+  function childrenDrawForeground () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.drawForeground()
+    }
+  }
+
+  function thisObjectDrawForeground () {
     let iconPosition = {
       x: 0,
-      y: thisObject.currentRadius * 1.5
+      y: thisObject.currentRadius * 1
     }
 
     iconPosition = thisObject.container.frame.frameThisPoint(iconPosition)

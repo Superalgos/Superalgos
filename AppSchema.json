@@ -806,11 +806,18 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#condition",
         "menuItems": [
             {
+                "action": "Edit Condition",
+                "actionFunction": "uiObject.conditionEditor.activate",
+                "label": "Edit Condition",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
-                "relatedUiObject": "Javascript Code",
+                "relatedUiObject": "Condition",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -4020,12 +4027,14 @@
             {
                 "name": "positionSize",
                 "type": "node",
-                "childType": "Position Size"
+                "childType": "Position Size",
+                "autoAdd": true
             },
             {
                 "name": "positionRate",
                 "type": "node",
-                "childType": "Position Rate"
+                "childType": "Position Rate",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "initialDefinition"
@@ -4379,7 +4388,8 @@
             {
                 "name": "formula",
                 "type": "node",
-                "childType": "Formula"
+                "childType": "Formula",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "positionSize"
@@ -4416,7 +4426,8 @@
             {
                 "name": "formula",
                 "type": "node",
-                "childType": "Formula"
+                "childType": "Formula",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "positionRate"

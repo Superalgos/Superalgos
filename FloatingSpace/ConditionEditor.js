@@ -49,6 +49,8 @@ function newConditionEditor () {
   }
 
   function deactivate () {
+    finalizePickers()
+
     if (thisObject.visible === true) {
       thisObject.visible = false
     }
@@ -64,7 +66,7 @@ function newConditionEditor () {
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     scanDataMines()
-    setUpPickers()
+    initializePickers()
     EDITOR_ON_FOCUS = true
   }
 
@@ -121,7 +123,7 @@ function newConditionEditor () {
     operatorB.selector = JSON.parse(JSON.stringify(selector))
   }
 
-  function setUpPickers () {
+  function initializePickers () {
     operatorA.dataMinePicker = newPicker()
     operatorA.dataMinePicker.container.connectToParent(thisObject.container)
     operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2
@@ -129,14 +131,19 @@ function newConditionEditor () {
     operatorA.dataMinePicker.initialize(Object.keys(operatorA.selector))
   }
 
+  function finalizePickers () {
+    if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.finalize()
+      operatorA.dataMinePicker = undefined
+    }
+  }
+
   function getContainer (point) {
     let container
     if (thisObject.visible === true) {
-      if (point.x === VERY_LARGE_NUMBER) {
-        /* The the mouse leaves the canvas, and event of mouse over with a ridiculous coordinate is triggered so that
-        anyone can react. In our case, the code editor has a text area that is not part of the canvas, so the event is
-        triggered. We compensate recognizing this coordinate and returning our container. */
-        return thisObject.container
+      if (operatorA.dataMinePicker !== undefined) {
+        container = operatorA.dataMinePicker.getContainer(point)
+        if (container !== undefined) { return container }
       }
 
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {

@@ -449,32 +449,43 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
             logger.write(MODULE_NAME, '[INFO] FileStorage -> getFileViaHTTP -> url = ' + url)
 
-            http.get(url, onResponse);
+            let request = http.get(url, onResponse);
+
+            request.on('error', function (err) {
+                logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> err = " + err.stack);
+                logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onError -> Failed to fetch file via HTTP. Will retry later. ");
+                callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+            }) 
 
             function onResponse(response) {
 
-                const chunks = []
+                try {
+                    const chunks = []
 
-                response.on('data', onMessegesArrived)
-                response.on('end', onEnd)
+                    response.on('data', onMessegesArrived)
+                    response.on('end', onEnd)
 
-                function onMessegesArrived(chunk) {
-                    chunks.push(chunk)
-                }
-
-                function onEnd() {
-                    let fileContent = Buffer.concat(chunks).toString('utf8')
-                    let err = null
-                    if (fileContent.indexOf('does not exist') >= 0) {
-                        err = {
-                            code: "ENOENT" // This is how fs would have returned upon this situation.
-                        }
-                        fileContent = undefined
+                    function onMessegesArrived(chunk) {
+                        chunks.push(chunk)
                     }
-                    callback(err, fileContent)
+
+                    function onEnd() {
+                        let fileContent = Buffer.concat(chunks).toString('utf8')
+                        let err = null
+                        if (fileContent.indexOf('does not exist') >= 0) {
+                            err = {
+                                code: "ENOENT" // This is how fs would have returned upon this situation.
+                            }
+                            fileContent = undefined
+                        }
+                        callback(err, fileContent)
+                    }
+                } catch (err) {
+                    logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onResponse -> err = " + err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> onResponse -> Failed to fetch file via HTTP. Will retry later. ");
+                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
                 }
             }
-
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> err = " + err.stack);
             logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> Failed to fetch file via HTTP. Will retry later. ");

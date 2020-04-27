@@ -58,7 +58,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                     fs.readFile(fileLocation, onFileRead)
                 } else {
                     /* We read the file via a web server over http */
-                    getFileViaHTTP(fileLocation, onFileRead)
+                    getFileViaHTTP(fileLocation, onFileRead, callBackFunction)
                 }
 
                 function onFileRead(err, text) {
@@ -130,7 +130,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                                 fs.readFile(fileLocation + '.Previous.json', onPreviousFileRead)
                             } else {
                                 /* We read the file via a web server over http */
-                                getFileViaHTTP(fileLocation + '.Previous.json', onPreviousFileRead)
+                                getFileViaHTTP(fileLocation + '.Previous.json', onPreviousFileRead, callBackFunction)
                             }
 
                             function onPreviousFileRead(err, text) {
@@ -435,7 +435,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
     }, initDir);
     }
 
-    function getFileViaHTTP(filePath, callback) {
+    function getFileViaHTTP(filePath, callback, callBackFunction) {
         try {
 
             /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
@@ -477,8 +477,8 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> err = " + err.stack);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            abort = true
+            logger.write(MODULE_NAME, "[ERROR] getFileViaHTTP -> Failed to fetch file via HTTP. Will retry later. ");
+            callBackFunction(global.DEFAULT_RETRY_RESPONSE);
         }
     }
 }

@@ -27,6 +27,7 @@ global.CUSTOM_FAIL_RESPONSE = {
 
 const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 global.LOGGER_MAP = new Map()
+global.SESSION_MAP = new Map()
 
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
@@ -45,6 +46,14 @@ function finalizeLoggers() {
 
     function forEachLogger(logger) {
         logger.finalize()
+    }
+}
+
+function finalizeSessions() {
+    global.SESSION_MAP.forEach(forEachSession)
+
+    function forEachSession(session) {
+        global.EVENT_SERVER_CLIENT.raiseEvent(session, 'Stopped')
     }
 }
 
@@ -84,6 +93,9 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
 
     if (shuttingDownProcess === true) { return }
     shuttingDownProcess = true
+
+    /* Signal that all sessions are stopping. */
+    finalizeSessions()
 
     /* Cleaning Before Exiting. */
     clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)

@@ -124,17 +124,73 @@ function newConditionEditor () {
   }
 
   function initializePickers () {
+    let properties
+    let parent
+    let current
+
     operatorA.dataMinePicker = newPicker()
     operatorA.dataMinePicker.container.connectToParent(thisObject.container)
-    operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2
-    operatorA.dataMinePicker.container.frame.position.y = 0 - operatorA.dataMinePicker.container.frame.height / 2
-    operatorA.dataMinePicker.initialize(Object.keys(operatorA.selector))
+    operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2 - operatorA.dataMinePicker.container.frame.width * 1.5
+    operatorA.dataMinePicker.container.frame.position.y = 0 - operatorA.dataMinePicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    current = operatorA.selector
+    properties = Object.keys(current)
+    operatorA.dataMinePicker.initialize(properties)
+    parent = current
+
+    operatorA.botPicker = newPicker()
+    operatorA.botPicker.container.connectToParent(thisObject.container)
+    operatorA.botPicker.container.frame.position.x = 0 - operatorA.botPicker.container.frame.width / 2 - operatorA.botPicker.container.frame.width * 0.5
+    operatorA.botPicker.container.frame.position.y = 0 - operatorA.botPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    current = parent[properties[0]]
+    properties = Object.keys(current)
+    operatorA.botPicker.initialize(properties, parent)
+    parent = current
+
+    operatorA.productPicker = newPicker()
+    operatorA.productPicker.container.connectToParent(thisObject.container)
+    operatorA.productPicker.container.frame.position.x = 0 - operatorA.productPicker.container.frame.width / 2 + operatorA.productPicker.container.frame.width * 0.5
+    operatorA.productPicker.container.frame.position.y = 0 - operatorA.productPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    current = parent[properties[0]]
+    properties = Object.keys(current)
+    operatorA.productPicker.initialize(properties, parent)
+    parent = current
+
+    operatorA.propertyPicker = newPicker()
+    operatorA.propertyPicker.container.connectToParent(thisObject.container)
+    operatorA.propertyPicker.container.frame.position.x = 0 - operatorA.propertyPicker.container.frame.width / 2 + operatorA.propertyPicker.container.frame.width * 1.5
+    operatorA.propertyPicker.container.frame.position.y = 0 - operatorA.propertyPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    current = parent[properties[0]]
+    properties = Object.keys(current)
+    operatorA.propertyPicker.initialize(properties, parent)
+    parent = current
+
+    operatorA.dataMinePicker.eventSuscriptionId = operatorA.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.botPicker.onParentChanged)
+    operatorA.botPicker.eventSuscriptionId = operatorA.botPicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.productPicker.onParentChanged)
+    operatorA.productPicker.eventSuscriptionId = operatorA.productPicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.propertyPicker.onParentChanged)
   }
 
   function finalizePickers () {
     if (operatorA.dataMinePicker !== undefined) {
+      operatorA.dataMinePicker.container.eventHandler.stopListening(operatorA.dataMinePicker.eventSuscriptionId)
       operatorA.dataMinePicker.finalize()
       operatorA.dataMinePicker = undefined
+    }
+
+    if (operatorA.botPicker !== undefined) {
+      operatorA.botPicker.container.eventHandler.stopListening(operatorA.botPicker.eventSuscriptionId)
+      operatorA.botPicker.finalize()
+      operatorA.botPicker = undefined
+    }
+
+    if (operatorA.productPicker !== undefined) {
+      operatorA.productPicker.container.eventHandler.stopListening(operatorA.productPicker.eventSuscriptionId)
+      operatorA.productPicker.finalize()
+      operatorA.productPicker = undefined
+    }
+
+    if (operatorA.propertyPicker !== undefined) {
+      operatorA.propertyPicker.finalize()
+      operatorA.propertyPicker = undefined
     }
   }
 
@@ -143,6 +199,21 @@ function newConditionEditor () {
     if (thisObject.visible === true) {
       if (operatorA.dataMinePicker !== undefined) {
         container = operatorA.dataMinePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorA.botPicker !== undefined) {
+        container = operatorA.botPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorA.productPicker !== undefined) {
+        container = operatorA.productPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorA.propertyPicker !== undefined) {
+        container = operatorA.propertyPicker.getContainer(point)
         if (container !== undefined) { return container }
       }
 
@@ -159,9 +230,25 @@ function newConditionEditor () {
     operatorsPhysics()
   }
 
+  function selectionPhysics () {
+
+  }
+
   function operatorsPhysics () {
     if (operatorA.dataMinePicker !== undefined) {
       operatorA.dataMinePicker.physics()
+    }
+
+    if (operatorA.botPicker !== undefined) {
+      operatorA.botPicker.physics()
+    }
+
+    if (operatorA.productPicker !== undefined) {
+      operatorA.productPicker.physics()
+    }
+
+    if (operatorA.propertyPicker !== undefined) {
+      operatorA.propertyPicker.physics()
     }
   }
 
@@ -177,8 +264,8 @@ function newConditionEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2 * 2
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2 * 2
   }
 
   function drawBackground () {
@@ -189,6 +276,18 @@ function newConditionEditor () {
   function childrenDrawBackground () {
     if (operatorA.dataMinePicker !== undefined) {
       operatorA.dataMinePicker.drawBackground()
+    }
+
+    if (operatorA.botPicker !== undefined) {
+      operatorA.botPicker.drawBackground()
+    }
+
+    if (operatorA.productPicker !== undefined) {
+      operatorA.productPicker.drawBackground()
+    }
+
+    if (operatorA.propertyPicker !== undefined) {
+      operatorA.propertyPicker.drawBackground()
     }
   }
 
@@ -201,7 +300,7 @@ function newConditionEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 1
+      let radius = thisObject.container.frame.radius * 2
 
       if (radius > 0.5) {
         browserCanvasContext.beginPath()
@@ -227,6 +326,18 @@ function newConditionEditor () {
   function childrenDrawForeground () {
     if (operatorA.dataMinePicker !== undefined) {
       operatorA.dataMinePicker.drawForeground()
+    }
+
+    if (operatorA.botPicker !== undefined) {
+      operatorA.botPicker.drawForeground()
+    }
+
+    if (operatorA.productPicker !== undefined) {
+      operatorA.productPicker.drawForeground()
+    }
+
+    if (operatorA.propertyPicker !== undefined) {
+      operatorA.propertyPicker.drawForeground()
     }
   }
 

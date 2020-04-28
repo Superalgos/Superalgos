@@ -150,7 +150,7 @@ function newConditionEditor () {
     operator.dataMinePicker = newPicker()
     operator.dataMinePicker.name = 'Data Mine'
     operator.dataMinePicker.container.connectToParent(thisObject.container)
-    operator.dataMinePicker.container.frame.position.x = 0 - operator.dataMinePicker.container.frame.width / 2 - operator.dataMinePicker.container.frame.width * 1.5
+    operator.dataMinePicker.container.frame.position.x = 0 - operator.dataMinePicker.container.frame.width / 2 - operator.dataMinePicker.container.frame.width * 2.5
     operator.dataMinePicker.container.frame.position.y = 0 - operator.dataMinePicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = operator.selector
     properties = Object.keys(current)
@@ -160,7 +160,7 @@ function newConditionEditor () {
     operator.botPicker = newPicker()
     operator.botPicker.name = 'Bot'
     operator.botPicker.container.connectToParent(thisObject.container)
-    operator.botPicker.container.frame.position.x = 0 - operator.botPicker.container.frame.width / 2 - operator.botPicker.container.frame.width * 0.5
+    operator.botPicker.container.frame.position.x = 0 - operator.botPicker.container.frame.width / 2 - operator.botPicker.container.frame.width * 1.5
     operator.botPicker.container.frame.position.y = 0 - operator.botPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = parent[properties[0]]
     properties = Object.keys(current)
@@ -170,38 +170,52 @@ function newConditionEditor () {
     operator.productPicker = newPicker()
     operator.productPicker.name = 'Product'
     operator.productPicker.container.connectToParent(thisObject.container)
-    operator.productPicker.container.frame.position.x = 0 - operator.productPicker.container.frame.width / 2 + operator.productPicker.container.frame.width * 0.5
+    operator.productPicker.container.frame.position.x = 0 - operator.productPicker.container.frame.width / 2 - operator.productPicker.container.frame.width * 0.5
     operator.productPicker.container.frame.position.y = 0 - operator.productPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = parent[properties[0]]
     properties = Object.keys(current)
     operator.productPicker.initialize(properties, current, parent)
     parent = current
 
+    let productParent = parent
+    let productProperties = properties
+
     operator.propertyPicker = newPicker()
     operator.propertyPicker.name = 'Property'
     operator.propertyPicker.container.connectToParent(thisObject.container)
-    operator.propertyPicker.container.frame.position.x = 0 - operator.propertyPicker.container.frame.width / 2 + operator.propertyPicker.container.frame.width * 1.5
+    operator.propertyPicker.container.frame.position.x = 0 - operator.propertyPicker.container.frame.width / 2 + operator.propertyPicker.container.frame.width * 0.5
     operator.propertyPicker.container.frame.position.y = 0 - operator.propertyPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
-    current = parent[properties[0]]
+    current = productParent[productProperties[0]]
     current = current.properties
     properties = Object.keys(current)
-    operator.propertyPicker.initialize(properties, current, parent, 'properties')
+    operator.propertyPicker.initialize(properties, current, productParent, 'properties')
     parent = current
 
     operator.valuePicker = newPicker()
     operator.valuePicker.name = 'Value'
     operator.valuePicker.container.connectToParent(thisObject.container)
-    operator.valuePicker.container.frame.position.x = 0 - operator.valuePicker.container.frame.width / 2 + operator.valuePicker.container.frame.width * 2.5
+    operator.valuePicker.container.frame.position.x = 0 - operator.valuePicker.container.frame.width / 2 + operator.valuePicker.container.frame.width * 1.5
     operator.valuePicker.container.frame.position.y = 0 - operator.valuePicker.container.frame.height / 2 + operator.valuePicker.container.frame.height * ySign
     current = parent[properties[0]]
     properties = current.possibleValues
     operator.valuePicker.initialize(properties, current, parent, 'possibleValues')
     parent = current
 
+    operator.timeFramePicker = newPicker()
+    operator.timeFramePicker.name = 'Time Frame'
+    operator.timeFramePicker.container.connectToParent(thisObject.container)
+    operator.timeFramePicker.container.frame.position.x = 0 - operator.timeFramePicker.container.frame.width / 2 + operator.timeFramePicker.container.frame.width * 2.5
+    operator.timeFramePicker.container.frame.position.y = 0 - operator.timeFramePicker.container.frame.height / 2 + operator.timeFramePicker.container.frame.height * ySign
+    current = productParent[productProperties[0]]
+    properties = current.validTimeFrames
+    operator.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
+    parent = current
+
     operator.botPicker.eventSuscriptionId = operator.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operator.botPicker.onParentChanged)
     operator.productPicker.eventSuscriptionId = operator.botPicker.container.eventHandler.listenToEvent('onParentChanged', operator.productPicker.onParentChanged)
     operator.propertyPicker.eventSuscriptionId = operator.productPicker.container.eventHandler.listenToEvent('onParentChanged', operator.propertyPicker.onParentChanged)
     operator.valuePicker.eventSuscriptionId = operator.propertyPicker.container.eventHandler.listenToEvent('onParentChanged', operator.valuePicker.onParentChanged)
+    operator.timeFramePicker.eventSuscriptionId = operator.productPicker.container.eventHandler.listenToEvent('onParentChanged', operator.timeFramePicker.onParentChanged)
   }
 
   function finalizePickers () {
@@ -224,12 +238,13 @@ function newConditionEditor () {
 
     if (operator.productPicker !== undefined) {
       operator.productPicker.container.eventHandler.stopListening(operator.propertyPicker.eventSuscriptionId)
-      operator.productPicker.container.eventHandler.stopListening(operator.valuePicker.eventSuscriptionId)
+      operator.productPicker.container.eventHandler.stopListening(operator.timeFramePicker.eventSuscriptionId)
       operator.productPicker.finalize()
       operator.productPicker = undefined
     }
 
     if (operator.propertyPicker !== undefined) {
+      operator.propertyPicker.container.eventHandler.stopListening(operator.valuePicker.eventSuscriptionId)
       operator.propertyPicker.finalize()
       operator.propertyPicker = undefined
     }
@@ -237,6 +252,11 @@ function newConditionEditor () {
     if (operator.valuePicker !== undefined) {
       operator.valuePicker.finalize()
       operator.valuePicker = undefined
+    }
+
+    if (operator.timeFramePicker !== undefined) {
+      operator.timeFramePicker.finalize()
+      operator.timeFramePicker = undefined
     }
   }
 
@@ -268,6 +288,11 @@ function newConditionEditor () {
         if (container !== undefined) { return container }
       }
 
+      if (operatorA.timeFramePicker !== undefined) {
+        container = operatorA.timeFramePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
       if (operatorB.dataMinePicker !== undefined) {
         container = operatorB.dataMinePicker.getContainer(point)
         if (container !== undefined) { return container }
@@ -290,6 +315,11 @@ function newConditionEditor () {
 
       if (operatorB.valuePicker !== undefined) {
         container = operatorB.valuePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorB.timeFramePicker !== undefined) {
+        container = operatorB.timeFramePicker.getContainer(point)
         if (container !== undefined) { return container }
       }
 
@@ -330,6 +360,10 @@ function newConditionEditor () {
 
     if (operator.valuePicker !== undefined) {
       operator.valuePicker.physics()
+    }
+
+    if (operator.timeFramePicker !== undefined) {
+      operator.timeFramePicker.physics()
     }
   }
 
@@ -378,6 +412,10 @@ function newConditionEditor () {
 
     if (operator.valuePicker !== undefined) {
       operator.valuePicker.drawBackground()
+    }
+
+    if (operator.timeFramePicker !== undefined) {
+      operator.timeFramePicker.drawBackground()
     }
   }
 
@@ -437,6 +475,10 @@ function newConditionEditor () {
 
     if (operator.valuePicker !== undefined) {
       operator.valuePicker.drawForeground()
+    }
+
+    if (operator.timeFramePicker !== undefined) {
+      operator.timeFramePicker.drawForeground()
     }
   }
 

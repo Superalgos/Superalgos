@@ -24,7 +24,7 @@ function newPicker () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
   thisObject.container.frame.width = 250
-  thisObject.container.frame.height = 200
+  thisObject.container.frame.height = 150
 
   let optionsList
   let parent

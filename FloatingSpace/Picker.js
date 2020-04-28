@@ -28,6 +28,7 @@ function newPicker () {
 
   let optionsList
   let parent
+  let propertyName
   let selected = 0
   let lastSelected = 0
   let onMouseWheelEventSubscriptionId
@@ -42,9 +43,10 @@ function newPicker () {
     parent = undefined
   }
 
-  function initialize (pOptionsList, pParent) {
+  function initialize (pOptionsList, pParent, pPropertyName) {
     optionsList = pOptionsList
     parent = pParent
+    propertyName = pPropertyName
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
   }
 
@@ -55,7 +57,13 @@ function newPicker () {
 
     selected = 0
     let parentKeys = Object.keys(parent)
-    optionsList = Object.keys(parent[parentKeys[event.selected]])
+
+    if (propertyName !== undefined) {
+      optionsList = parent[parentKeys[event.selected]]
+      optionsList = Object.keys(optionsList[propertyName])
+    } else {
+      optionsList = Object.keys(parent[parentKeys[event.selected]])
+    }
 
     event = {
       selected: selected,
@@ -119,7 +127,7 @@ function newPicker () {
       if (index >= 0 && index < optionsList.length) {
         label = optionsList[index]
       }
-      fontColor = UI_COLOR.WHITE
+      fontColor = UI_COLOR.LIGHT_GREY
       switch (i) {
         case 0: fontSize = FONT_SIZE - 15
           break

@@ -92,18 +92,32 @@ function newConditionEditor () {
           let productName = loadPropertyFromNodeConfig(product.payload, 'singularVariableName')
           if (productName === undefined) { continue }
           let selectorProduct = selectorDataMine[botName]
-          selectorProduct[productName] = {}
+          selectorProduct[productName] = {
+            properties: {}
+          }
           if (product.record === undefined) { continue }
           for (let m = 0; m < product.record.properties.length; m++) {
             let property = product.record.properties[m]
             let propertyName = loadPropertyFromNodeConfig(property.payload, 'codeName')
             let selectorProperty = selectorProduct[productName]
+            selectorProperty = selectorProperty.properties
             selectorProperty[propertyName] = {}
             let possibleValues = loadPropertyFromNodeConfig(property.payload, 'possibleValues')
             if (possibleValues === undefined) { possibleValues = [] }
             let selectorPossibleValue = selectorProperty[propertyName]
             selectorPossibleValue.possibleValues = possibleValues
           }
+          let allPossibleTimeFrames = []
+          for (let m = 0; m < product.datasets.length; m++) {
+            let dataset = product.datasets[m]
+            let validTimeFrames = loadPropertyFromNodeConfig(dataset.payload, 'validTimeFrames')
+            if (validTimeFrames !== undefined) {
+              allPossibleTimeFrames = allPossibleTimeFrames.concat(validTimeFrames)
+            }
+          }
+          let selectorValidTimeFrames = selectorProduct[productName]
+          selectorValidTimeFrames.validTimeFrames = allPossibleTimeFrames
+
           let productKeys = Object.keys(selectorProduct[productName])
           if (productKeys.length === 0) {
             selectorProduct[productName] = undefined
@@ -124,73 +138,84 @@ function newConditionEditor () {
   }
 
   function initializePickers () {
+    initializeOperator(operatorA, -0.5)
+    initializeOperator(operatorB, 0.5)
+  }
+
+  function initializeOperator (operator, ySign) {
     let properties
     let parent
     let current
 
-    operatorA.dataMinePicker = newPicker()
-    operatorA.dataMinePicker.container.connectToParent(thisObject.container)
-    operatorA.dataMinePicker.container.frame.position.x = 0 - operatorA.dataMinePicker.container.frame.width / 2 - operatorA.dataMinePicker.container.frame.width * 1.5
-    operatorA.dataMinePicker.container.frame.position.y = 0 - operatorA.dataMinePicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
-    current = operatorA.selector
+    operator.dataMinePicker = newPicker()
+    operator.dataMinePicker.container.connectToParent(thisObject.container)
+    operator.dataMinePicker.container.frame.position.x = 0 - operator.dataMinePicker.container.frame.width / 2 - operator.dataMinePicker.container.frame.width * 1.5
+    operator.dataMinePicker.container.frame.position.y = 0 - operator.dataMinePicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
+    current = operator.selector
     properties = Object.keys(current)
-    operatorA.dataMinePicker.initialize(properties)
+    operator.dataMinePicker.initialize(properties)
     parent = current
 
-    operatorA.botPicker = newPicker()
-    operatorA.botPicker.container.connectToParent(thisObject.container)
-    operatorA.botPicker.container.frame.position.x = 0 - operatorA.botPicker.container.frame.width / 2 - operatorA.botPicker.container.frame.width * 0.5
-    operatorA.botPicker.container.frame.position.y = 0 - operatorA.botPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    operator.botPicker = newPicker()
+    operator.botPicker.container.connectToParent(thisObject.container)
+    operator.botPicker.container.frame.position.x = 0 - operator.botPicker.container.frame.width / 2 - operator.botPicker.container.frame.width * 0.5
+    operator.botPicker.container.frame.position.y = 0 - operator.botPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = parent[properties[0]]
     properties = Object.keys(current)
-    operatorA.botPicker.initialize(properties, parent)
+    operator.botPicker.initialize(properties, parent)
     parent = current
 
-    operatorA.productPicker = newPicker()
-    operatorA.productPicker.container.connectToParent(thisObject.container)
-    operatorA.productPicker.container.frame.position.x = 0 - operatorA.productPicker.container.frame.width / 2 + operatorA.productPicker.container.frame.width * 0.5
-    operatorA.productPicker.container.frame.position.y = 0 - operatorA.productPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    operator.productPicker = newPicker()
+    operator.productPicker.container.connectToParent(thisObject.container)
+    operator.productPicker.container.frame.position.x = 0 - operator.productPicker.container.frame.width / 2 + operator.productPicker.container.frame.width * 0.5
+    operator.productPicker.container.frame.position.y = 0 - operator.productPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = parent[properties[0]]
     properties = Object.keys(current)
-    operatorA.productPicker.initialize(properties, parent)
+    operator.productPicker.initialize(properties, parent)
     parent = current
 
-    operatorA.propertyPicker = newPicker()
-    operatorA.propertyPicker.container.connectToParent(thisObject.container)
-    operatorA.propertyPicker.container.frame.position.x = 0 - operatorA.propertyPicker.container.frame.width / 2 + operatorA.propertyPicker.container.frame.width * 1.5
-    operatorA.propertyPicker.container.frame.position.y = 0 - operatorA.propertyPicker.container.frame.height / 2 - operatorA.dataMinePicker.container.frame.height
+    operator.propertyPicker = newPicker()
+    operator.propertyPicker.container.connectToParent(thisObject.container)
+    operator.propertyPicker.container.frame.position.x = 0 - operator.propertyPicker.container.frame.width / 2 + operator.propertyPicker.container.frame.width * 1.5
+    operator.propertyPicker.container.frame.position.y = 0 - operator.propertyPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
     current = parent[properties[0]]
+    current = current.properties
     properties = Object.keys(current)
-    operatorA.propertyPicker.initialize(properties, parent)
+    operator.propertyPicker.initialize(properties, parent, 'properties')
     parent = current
 
-    operatorA.dataMinePicker.eventSuscriptionId = operatorA.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.botPicker.onParentChanged)
-    operatorA.botPicker.eventSuscriptionId = operatorA.botPicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.productPicker.onParentChanged)
-    operatorA.productPicker.eventSuscriptionId = operatorA.productPicker.container.eventHandler.listenToEvent('onParentChanged', operatorA.propertyPicker.onParentChanged)
+    operator.dataMinePicker.eventSuscriptionId = operator.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operator.botPicker.onParentChanged)
+    operator.botPicker.eventSuscriptionId = operator.botPicker.container.eventHandler.listenToEvent('onParentChanged', operator.productPicker.onParentChanged)
+    operator.productPicker.eventSuscriptionId = operator.productPicker.container.eventHandler.listenToEvent('onParentChanged', operator.propertyPicker.onParentChanged)
   }
 
   function finalizePickers () {
-    if (operatorA.dataMinePicker !== undefined) {
-      operatorA.dataMinePicker.container.eventHandler.stopListening(operatorA.dataMinePicker.eventSuscriptionId)
-      operatorA.dataMinePicker.finalize()
-      operatorA.dataMinePicker = undefined
+    finalizeOperator(operatorA)
+    finalizeOperator(operatorB)
+  }
+
+  function finalizeOperator (operator) {
+    if (operator.dataMinePicker !== undefined) {
+      operator.dataMinePicker.container.eventHandler.stopListening(operator.dataMinePicker.eventSuscriptionId)
+      operator.dataMinePicker.finalize()
+      operator.dataMinePicker = undefined
     }
 
-    if (operatorA.botPicker !== undefined) {
-      operatorA.botPicker.container.eventHandler.stopListening(operatorA.botPicker.eventSuscriptionId)
-      operatorA.botPicker.finalize()
-      operatorA.botPicker = undefined
+    if (operator.botPicker !== undefined) {
+      operator.botPicker.container.eventHandler.stopListening(operator.botPicker.eventSuscriptionId)
+      operator.botPicker.finalize()
+      operator.botPicker = undefined
     }
 
-    if (operatorA.productPicker !== undefined) {
-      operatorA.productPicker.container.eventHandler.stopListening(operatorA.productPicker.eventSuscriptionId)
-      operatorA.productPicker.finalize()
-      operatorA.productPicker = undefined
+    if (operator.productPicker !== undefined) {
+      operator.productPicker.container.eventHandler.stopListening(operator.productPicker.eventSuscriptionId)
+      operator.productPicker.finalize()
+      operator.productPicker = undefined
     }
 
-    if (operatorA.propertyPicker !== undefined) {
-      operatorA.propertyPicker.finalize()
-      operatorA.propertyPicker = undefined
+    if (operator.propertyPicker !== undefined) {
+      operator.propertyPicker.finalize()
+      operator.propertyPicker = undefined
     }
   }
 
@@ -217,6 +242,26 @@ function newConditionEditor () {
         if (container !== undefined) { return container }
       }
 
+      if (operatorB.dataMinePicker !== undefined) {
+        container = operatorB.dataMinePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorB.botPicker !== undefined) {
+        container = operatorB.botPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorB.productPicker !== undefined) {
+        container = operatorB.productPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
+      if (operatorB.propertyPicker !== undefined) {
+        container = operatorB.propertyPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
         return thisObject.container
       } else {
@@ -227,28 +272,29 @@ function newConditionEditor () {
 
   function physics () {
     thisObjectphysics()
-    operatorsPhysics()
+    operatorsPhysics(operatorA)
+    operatorsPhysics(operatorB)
   }
 
   function selectionPhysics () {
 
   }
 
-  function operatorsPhysics () {
-    if (operatorA.dataMinePicker !== undefined) {
-      operatorA.dataMinePicker.physics()
+  function operatorsPhysics (operator) {
+    if (operator.dataMinePicker !== undefined) {
+      operator.dataMinePicker.physics()
     }
 
-    if (operatorA.botPicker !== undefined) {
-      operatorA.botPicker.physics()
+    if (operator.botPicker !== undefined) {
+      operator.botPicker.physics()
     }
 
-    if (operatorA.productPicker !== undefined) {
-      operatorA.productPicker.physics()
+    if (operator.productPicker !== undefined) {
+      operator.productPicker.physics()
     }
 
-    if (operatorA.propertyPicker !== undefined) {
-      operatorA.propertyPicker.physics()
+    if (operator.propertyPicker !== undefined) {
+      operator.propertyPicker.physics()
     }
   }
 
@@ -264,8 +310,8 @@ function newConditionEditor () {
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
 
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2 * 2
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2 * 2
+    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2 * 4
+    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2 * 4
   }
 
   function drawBackground () {
@@ -274,20 +320,25 @@ function newConditionEditor () {
   }
 
   function childrenDrawBackground () {
-    if (operatorA.dataMinePicker !== undefined) {
-      operatorA.dataMinePicker.drawBackground()
+    operatorDrawBackground(operatorA)
+    operatorDrawBackground(operatorB)
+  }
+
+  function operatorDrawBackground (operator) {
+    if (operator.dataMinePicker !== undefined) {
+      operator.dataMinePicker.drawBackground()
     }
 
-    if (operatorA.botPicker !== undefined) {
-      operatorA.botPicker.drawBackground()
+    if (operator.botPicker !== undefined) {
+      operator.botPicker.drawBackground()
     }
 
-    if (operatorA.productPicker !== undefined) {
-      operatorA.productPicker.drawBackground()
+    if (operator.productPicker !== undefined) {
+      operator.productPicker.drawBackground()
     }
 
-    if (operatorA.propertyPicker !== undefined) {
-      operatorA.propertyPicker.drawBackground()
+    if (operator.propertyPicker !== undefined) {
+      operator.propertyPicker.drawBackground()
     }
   }
 
@@ -324,20 +375,25 @@ function newConditionEditor () {
   }
 
   function childrenDrawForeground () {
-    if (operatorA.dataMinePicker !== undefined) {
-      operatorA.dataMinePicker.drawForeground()
+    operatorDrawForeground(operatorA)
+    operatorDrawForeground(operatorB)
+  }
+
+  function operatorDrawForeground (operator) {
+    if (operator.dataMinePicker !== undefined) {
+      operator.dataMinePicker.drawForeground()
     }
 
-    if (operatorA.botPicker !== undefined) {
-      operatorA.botPicker.drawForeground()
+    if (operator.botPicker !== undefined) {
+      operator.botPicker.drawForeground()
     }
 
-    if (operatorA.productPicker !== undefined) {
-      operatorA.productPicker.drawForeground()
+    if (operator.productPicker !== undefined) {
+      operator.productPicker.drawForeground()
     }
 
-    if (operatorA.propertyPicker !== undefined) {
-      operatorA.propertyPicker.drawForeground()
+    if (operator.propertyPicker !== undefined) {
+      operator.propertyPicker.drawForeground()
     }
   }
 

@@ -28,6 +28,8 @@ function newPicker () {
 
   let optionsList
   let parent
+  let current
+  let parentSelected = 0
   let propertyName
   let selected = 0
   let lastSelected = 0
@@ -41,10 +43,12 @@ function newPicker () {
     thisObject.container = undefined
     optionsList = undefined
     parent = undefined
+    current = undefined
   }
 
-  function initialize (pOptionsList, pParent, pPropertyName) {
+  function initialize (pOptionsList, pCurrent, pParent, pPropertyName) {
     optionsList = pOptionsList
+    current = pCurrent
     parent = pParent
     propertyName = pPropertyName
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
@@ -54,22 +58,34 @@ function newPicker () {
     if (event.parent !== undefined) {
       parent = event.parent
     }
+    parentSelected = event.selected
 
     selected = 0
-    let parentKeys = Object.keys(parent)
+    let parentKeys
 
-    if (propertyName !== undefined) {
-      optionsList = parent[parentKeys[event.selected]]
-      optionsList = Object.keys(optionsList[propertyName])
-    } else {
-      optionsList = Object.keys(parent[parentKeys[event.selected]])
+    parentKeys = Object.keys(parent)
+    checkPropertyName()
+
+    function checkPropertyName () {
+      if (propertyName === undefined) {
+        current = parent[parentKeys[parentSelected]]
+        checkArray()
+      } else {
+        current = parent[parentKeys[parentSelected]]
+        current = current[propertyName]
+        checkArray()
+      }
     }
 
-    event = {
-      selected: selected,
-      parent: parent[parentKeys[event.selected]]
+    function checkArray () {
+      if (Array.isArray(current) === false) {
+        optionsList = Object.keys(current)
+      } else {
+        optionsList = current
+      }
     }
-    thisObject.container.eventHandler.raiseEvent('onParentChanged', event)
+
+    raiseEventParentChanged()
   }
 
   function getContainer (point) {
@@ -99,12 +115,18 @@ function newPicker () {
     }
 
     if (selected !== lastSelected) {
-      let event = {
-        selected: selected
-      }
-      thisObject.container.eventHandler.raiseEvent('onParentChanged', event)
       lastSelected = selected
+      raiseEventParentChanged()
     }
+  }
+
+  function raiseEventParentChanged () {
+    let event = {
+      selected: selected,
+      parent: current,
+      propertyName: propertyName
+    }
+    thisObject.container.eventHandler.raiseEvent('onParentChanged', event)
   }
 
   function physics () {

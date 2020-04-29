@@ -54,12 +54,57 @@ function newConditionEditor () {
   }
 
   function deactivate () {
+    convertToCode()
     finalizePickers()
 
     if (thisObject.visible === true) {
       thisObject.visible = false
     }
     EDITOR_ON_FOCUS = false
+  }
+
+  function convertToCode () {
+    if (operatorA === undefined || operatorB === undefined || operationPicker === undefined) { return }
+
+    // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
+    let code = ''
+
+    code = code + 'chart.at' + operatorA.timeFramePicker.getValue().replace('-', '')
+    code = code + '.' + operatorA.productPicker.getValue()
+    code = code + '.' + operatorA.propertyPicker.getValue()
+
+    switch (operationPicker.getValue()) {
+      case 'Greater Than': {
+        code = code + ' > '
+        break
+      }
+      case 'Less Than': {
+        code = code + ' < '
+        break
+      }
+      case 'Greater or Equal Than': {
+        code = code + ' >= '
+        break
+      }
+      case 'Less or Equal Than': {
+        code = code + ' <= '
+        break
+      }
+      case 'Equal To': {
+        code = code + ' === '
+        break
+      }
+    }
+
+    if (operationPicker.getValue() === 'Equal To') {
+      code = code + '"' + operatorA.valuePicker.getValue() + '"'
+    } else {
+      code = code + 'chart.at' + operatorB.timeFramePicker.getValue().replace('-', '')
+      code = code + '.' + operatorB.productPicker.getValue()
+      code = code + '.' + operatorB.propertyPicker.getValue()
+    }
+
+    thisObject.payload.node.code = code
   }
 
   function activate (payload) {
@@ -245,15 +290,18 @@ function newConditionEditor () {
     finalizeOperator(operatorA)
     finalizeOperator(operatorB)
 
-    operationPicker.container.eventHandler.stopListening(operationPicker.eventSuscriptionId)
+    operatorA = undefined
+    operatorB = undefined
 
     if (operationPicker !== undefined) {
+      operationPicker.container.eventHandler.stopListening(operationPicker.eventSuscriptionId)
       operationPicker.finalize()
       operationPicker = undefined
     }
   }
 
   function finalizeOperator (operator) {
+    if (operator === undefined) { return }
     if (operator.dataMinePicker !== undefined) {
       operator.dataMinePicker.container.eventHandler.stopListening(operator.botPicker.eventSuscriptionId)
       operator.dataMinePicker.finalize()

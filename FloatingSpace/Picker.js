@@ -5,6 +5,7 @@ function newPicker () {
   let thisObject = {
     container: undefined,
     selectedItem: 0,
+    getValue: getValue,
     onParentChanged: onParentChanged,
     getSelected: getSelected,
     physics: physics,
@@ -52,6 +53,10 @@ function newPicker () {
     parent = pParent
     propertyName = pPropertyName
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function getValue () {
+    return optionsList[selected]
   }
 
   function onParentChanged (event) {

@@ -33,8 +33,8 @@ function newConditionEditor () {
 
   let isMouseOver = false
   let operationPicker
-  let operatorA = {}
-  let operatorB = {}
+  let operatorA
+  let operatorB
 
   return thisObject
 
@@ -70,6 +70,8 @@ function newConditionEditor () {
     thisObject.currentRadius = 0
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
+    operatorA = {}
+    operatorB = {}
     scanDataMines()
     initializePickers()
     EDITOR_ON_FOCUS = true
@@ -151,8 +153,10 @@ function newConditionEditor () {
     operationPicker.container.connectToParent(thisObject.container)
     operationPicker.container.frame.position.x = 0 - operationPicker.container.frame.width / 2
     operationPicker.container.frame.position.y = 0 - operationPicker.container.frame.height / 2
-    current = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal Than']
+    current = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
     operationPicker.initialize(current, current)
+
+    operationPicker.eventSuscriptionId = operationPicker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
   }
 
   function initializeOperator (operator, ySign) {
@@ -169,6 +173,7 @@ function newConditionEditor () {
     properties = Object.keys(current)
     operator.dataMinePicker.initialize(properties, current)
     parent = current
+    operator.dataMinePicker.visible = true
 
     operator.botPicker = newPicker()
     operator.botPicker.name = 'Bot'
@@ -179,6 +184,7 @@ function newConditionEditor () {
     properties = Object.keys(current)
     operator.botPicker.initialize(properties, current, parent)
     parent = current
+    operator.botPicker.visible = true
 
     operator.productPicker = newPicker()
     operator.productPicker.name = 'Product'
@@ -189,6 +195,7 @@ function newConditionEditor () {
     properties = Object.keys(current)
     operator.productPicker.initialize(properties, current, parent)
     parent = current
+    operator.productPicker.visible = true
 
     let productParent = parent
     let productProperties = properties
@@ -203,6 +210,7 @@ function newConditionEditor () {
     properties = Object.keys(current)
     operator.propertyPicker.initialize(properties, current, productParent, 'properties')
     parent = current
+    operator.propertyPicker.visible = true
 
     operator.valuePicker = newPicker()
     operator.valuePicker.name = 'Value'
@@ -213,6 +221,7 @@ function newConditionEditor () {
     properties = current.possibleValues
     operator.valuePicker.initialize(properties, current, parent, 'possibleValues')
     parent = current
+    operator.valuePicker.visible = false
 
     operator.timeFramePicker = newPicker()
     operator.timeFramePicker.name = 'Time Frame'
@@ -223,6 +232,7 @@ function newConditionEditor () {
     properties = current.validTimeFrames
     operator.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
     parent = current
+    operator.timeFramePicker.visible = true
 
     operator.botPicker.eventSuscriptionId = operator.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operator.botPicker.onParentChanged)
     operator.productPicker.eventSuscriptionId = operator.botPicker.container.eventHandler.listenToEvent('onParentChanged', operator.productPicker.onParentChanged)
@@ -234,14 +244,16 @@ function newConditionEditor () {
   function finalizePickers () {
     finalizeOperator(operatorA)
     finalizeOperator(operatorB)
-  }
 
-  function finalizeOperator (operator) {
+    operationPicker.container.eventHandler.stopListening(operationPicker.eventSuscriptionId)
+
     if (operationPicker !== undefined) {
       operationPicker.finalize()
       operationPicker = undefined
     }
+  }
 
+  function finalizeOperator (operator) {
     if (operator.dataMinePicker !== undefined) {
       operator.dataMinePicker.container.eventHandler.stopListening(operator.botPicker.eventSuscriptionId)
       operator.dataMinePicker.finalize()
@@ -278,6 +290,24 @@ function newConditionEditor () {
     }
   }
 
+  function onParentChanged (event) {
+    if (event.selected === 4) { // this means Equal To
+      operatorA.valuePicker.visible = true
+      operatorB.dataMinePicker.visible = false
+      operatorB.botPicker.visible = false
+      operatorB.productPicker.visible = false
+      operatorB.propertyPicker.visible = false
+      operatorB.timeFramePicker.visible = false
+    } else {
+      operatorA.valuePicker.visible = false
+      operatorB.dataMinePicker.visible = true
+      operatorB.botPicker.visible = true
+      operatorB.productPicker.visible = true
+      operatorB.propertyPicker.visible = true
+      operatorB.timeFramePicker.visible = true
+    }
+  }
+
   function getContainer (point) {
     let container
     if (thisObject.visible === true) {
@@ -286,64 +316,91 @@ function newConditionEditor () {
         if (container !== undefined) { return container }
       }
 
-      if (operatorA.dataMinePicker !== undefined) {
-        container = operatorA.dataMinePicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+      if (operatorA !== undefined) {
+        if (operatorA.dataMinePicker !== undefined) {
+          if (operatorA.dataMinePicker.visible === true) {
+            container = operatorA.dataMinePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorA.botPicker !== undefined) {
-        container = operatorA.botPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorA.botPicker !== undefined) {
+          if (operatorA.botPicker.visible === true) {
+            container = operatorA.botPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorA.productPicker !== undefined) {
-        container = operatorA.productPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorA.productPicker !== undefined) {
+          if (operatorA.productPicker.visible === true) {
+            container = operatorA.productPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorA.propertyPicker !== undefined) {
-        container = operatorA.propertyPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorA.propertyPicker !== undefined) {
+          if (operatorA.propertyPicker.visible === true) {
+            container = operatorA.propertyPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorA.valuePicker !== undefined) {
-        container = operatorA.valuePicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorA.valuePicker !== undefined) {
+          if (operatorA.valuePicker.visible === true) {
+            container = operatorA.valuePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorA.timeFramePicker !== undefined) {
-        container = operatorA.timeFramePicker.getContainer(point)
-        if (container !== undefined) { return container }
+        if (operatorA.timeFramePicker !== undefined) {
+          if (operatorA.timeFramePicker.visible === true) {
+            container = operatorA.timeFramePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
       }
+      if (operatorB !== undefined) {
+        if (operatorB.dataMinePicker !== undefined) {
+          if (operatorB.dataMinePicker.visible === true) {
+            container = operatorB.dataMinePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorB.dataMinePicker !== undefined) {
-        container = operatorB.dataMinePicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorB.botPicker !== undefined) {
+          if (operatorB.botPicker.visible === true) {
+            container = operatorB.botPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorB.botPicker !== undefined) {
-        container = operatorB.botPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorB.productPicker !== undefined) {
+          if (operatorB.productPicker.visible === true) {
+            container = operatorB.productPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorB.productPicker !== undefined) {
-        container = operatorB.productPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorB.propertyPicker !== undefined) {
+          if (operatorB.propertyPicker.visible === true) {
+            container = operatorB.propertyPicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorB.propertyPicker !== undefined) {
-        container = operatorB.propertyPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
+        if (operatorB.valuePicker !== undefined) {
+          if (operatorB.valuePicker.visible === true) {
+            container = operatorB.valuePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
 
-      if (operatorB.valuePicker !== undefined) {
-        container = operatorB.valuePicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
-
-      if (operatorB.timeFramePicker !== undefined) {
-        container = operatorB.timeFramePicker.getContainer(point)
-        if (container !== undefined) { return container }
+        if (operatorB.timeFramePicker !== undefined) {
+          if (operatorB.timeFramePicker.visible === true) {
+            container = operatorB.timeFramePicker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
       }
 
       if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
@@ -369,6 +426,8 @@ function newConditionEditor () {
   }
 
   function operatorsPhysics (operator) {
+    if (operator === undefined) { return }
+
     if (operator.dataMinePicker !== undefined) {
       operator.dataMinePicker.physics()
     }
@@ -425,28 +484,42 @@ function newConditionEditor () {
   }
 
   function operatorDrawBackground (operator) {
+    if (operator === undefined) { return }
+
     if (operator.dataMinePicker !== undefined) {
-      operator.dataMinePicker.drawBackground()
+      if (operator.dataMinePicker.visible === true) {
+        operator.dataMinePicker.drawBackground()
+      }
     }
 
     if (operator.botPicker !== undefined) {
-      operator.botPicker.drawBackground()
+      if (operator.botPicker.visible === true) {
+        operator.botPicker.drawBackground()
+      }
     }
 
     if (operator.productPicker !== undefined) {
-      operator.productPicker.drawBackground()
+      if (operator.productPicker.visible === true) {
+        operator.productPicker.drawBackground()
+      }
     }
 
     if (operator.propertyPicker !== undefined) {
-      operator.propertyPicker.drawBackground()
+      if (operator.propertyPicker.visible === true) {
+        operator.propertyPicker.drawBackground()
+      }
     }
 
     if (operator.valuePicker !== undefined) {
-      operator.valuePicker.drawBackground()
+      if (operator.valuePicker.visible === true) {
+        operator.valuePicker.drawBackground()
+      }
     }
 
     if (operator.timeFramePicker !== undefined) {
-      operator.timeFramePicker.drawBackground()
+      if (operator.timeFramePicker.visible === true) {
+        operator.timeFramePicker.drawBackground()
+      }
     }
   }
 
@@ -492,28 +565,42 @@ function newConditionEditor () {
   }
 
   function operatorDrawForeground (operator) {
+    if (operator === undefined) { return }
+
     if (operator.dataMinePicker !== undefined) {
-      operator.dataMinePicker.drawForeground()
+      if (operator.dataMinePicker.visible === true) {
+        operator.dataMinePicker.drawForeground()
+      }
     }
 
     if (operator.botPicker !== undefined) {
-      operator.botPicker.drawForeground()
+      if (operator.botPicker.visible === true) {
+        operator.botPicker.drawForeground()
+      }
     }
 
     if (operator.productPicker !== undefined) {
-      operator.productPicker.drawForeground()
+      if (operator.productPicker.visible === true) {
+        operator.productPicker.drawForeground()
+      }
     }
 
     if (operator.propertyPicker !== undefined) {
-      operator.propertyPicker.drawForeground()
+      if (operator.propertyPicker.visible === true) {
+        operator.propertyPicker.drawForeground()
+      }
     }
 
     if (operator.valuePicker !== undefined) {
-      operator.valuePicker.drawForeground()
+      if (operator.valuePicker.visible === true) {
+        operator.valuePicker.drawForeground()
+      }
     }
 
     if (operator.timeFramePicker !== undefined) {
-      operator.timeFramePicker.drawForeground()
+      if (operator.timeFramePicker.visible === true) {
+        operator.timeFramePicker.drawForeground()
+      }
     }
   }
 

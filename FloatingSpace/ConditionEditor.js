@@ -7,9 +7,6 @@ function newConditionEditor () {
     visible: false,
     imagePathOK: undefined,
     imagePathNOT_OK: undefined,
-    rawRadius: undefined,
-    targetRadius: undefined,
-    currentRadius: undefined,
     container: undefined,
     payload: undefined,
     deactivate: deactivate,
@@ -23,13 +20,12 @@ function newConditionEditor () {
   }
 
   thisObject.container = newContainer()
-  thisObject.container.initialize(MODULE_NAME)
+  thisObject.container.initialize(MODULE_NAME, 'Circle')
   thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.detectMouseOver = false
-  thisObject.container.frame.radius = 0
-  thisObject.container.frame.position.x = 0
-  thisObject.container.frame.position.y = 0
+  thisObject.container.frame.radius = 750
+  thisObject.container.frame.containerName = MODULE_NAME
 
   let isMouseOver = false
   let operationPicker
@@ -110,9 +106,6 @@ function newConditionEditor () {
   function activate (payload) {
     thisObject.visible = true
     thisObject.payload = payload
-    thisObject.rawRadius = 8
-    thisObject.targetRadius = thisObject.container.frame.radius
-    thisObject.currentRadius = 0
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     operatorA = {}
@@ -451,7 +444,7 @@ function newConditionEditor () {
         }
       }
 
-      if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
+      if (thisObject.container.frame.isThisPointHere(point, true) === true) {
         return thisObject.container
       } else {
         return undefined
@@ -502,19 +495,7 @@ function newConditionEditor () {
   }
 
   function thisObjectphysics () {
-    if (Math.abs(thisObject.currentRadius - thisObject.targetRadius) >= 0.5) {
-      if (thisObject.currentRadius < thisObject.targetRadius) {
-        thisObject.currentRadius = thisObject.currentRadius + 0.5
-      } else {
-        thisObject.currentRadius = thisObject.currentRadius - 0.5
-      }
-    }
 
-    thisObject.container.frame.position.x = 0
-    thisObject.container.frame.position.y = 0
-
-    thisObject.container.frame.width = thisObject.container.frame.radius * 1 * 2 * 4
-    thisObject.container.frame.height = thisObject.container.frame.radius * 1 * 2 * 4
   }
 
   function drawBackground () {
@@ -580,21 +561,19 @@ function newConditionEditor () {
 
       position = thisObject.container.frame.frameThisPoint(position)
 
-      let radius = thisObject.container.frame.radius * 2
+      let radius = thisObject.container.frame.radius
 
-      if (radius > 0.5) {
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(position.x, position.y, radius * 1.3 + 3, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
-        browserCanvasContext.fill()
+      browserCanvasContext.beginPath()
+      browserCanvasContext.arc(position.x, position.y, radius + 3, 0, Math.PI * 2, true)
+      browserCanvasContext.closePath()
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
+      browserCanvasContext.fill()
 
-        browserCanvasContext.beginPath()
-        browserCanvasContext.arc(position.x, position.y, radius * 1.3, 0, Math.PI * 2, true)
-        browserCanvasContext.closePath()
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
-        browserCanvasContext.fill()
-      }
+      browserCanvasContext.beginPath()
+      browserCanvasContext.arc(position.x, position.y, radius, 0, Math.PI * 2, true)
+      browserCanvasContext.closePath()
+      browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
+      browserCanvasContext.fill()
     }
   }
 
@@ -653,36 +632,6 @@ function newConditionEditor () {
   }
 
   function thisObjectDrawForeground () {
-    let iconPosition = {
-      x: 0,
-      y: thisObject.currentRadius * 1
-    }
 
-    iconPosition = thisObject.container.frame.frameThisPoint(iconPosition)
-
-      /* Menu  Item */
-
-    if (thisObject.canDrawIcon === true && thisObject.currentRadius > 1) {
-      browserCanvasContext.drawImage(thisObject.icon, iconPosition.x - thisObject.currentRadius, iconPosition.y - thisObject.currentRadius, thisObject.currentRadius * 2, thisObject.currentRadius * 2)
-
-      /* Menu Label */
-
-      let label = 'Code looks good!'
-      let labelPoint
-      let fontSize = 10
-
-      browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-      if (label !== undefined && thisObject.currentRadius >= thisObject.targetRadius) {
-        labelPoint = {
-          x: iconPosition.x + thisObject.currentRadius + 10,
-          y: iconPosition.y + fontSize * FONT_ASPECT_RATIO
-        }
-
-        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-        browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
-        browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-      }
-    }
   }
 }

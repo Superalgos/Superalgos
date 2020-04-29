@@ -65,11 +65,11 @@ function newConditionEditor () {
     // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
     let code = ''
 
-    code = code + 'chart.at' + operatorA.timeFramePicker.getValue().replace('-', '')
-    code = code + '.' + operatorA.productPicker.getValue()
-    code = code + '.' + operatorA.propertyPicker.getValue()
+    code = code + 'chart.at' + operatorA.timeFramePicker.getSelected().replace('-', '')
+    code = code + '.' + operatorA.productPicker.getSelected()
+    code = code + '.' + operatorA.propertyPicker.getSelected()
 
-    switch (operationPicker.getValue()) {
+    switch (operationPicker.getSelected()) {
       case 'Greater Than': {
         code = code + ' > '
         break
@@ -92,12 +92,12 @@ function newConditionEditor () {
       }
     }
 
-    if (operationPicker.getValue() === 'Equal To') {
-      code = code + '"' + operatorA.valuePicker.getValue() + '"'
+    if (operationPicker.getSelected() === 'Equal To') {
+      code = code + '"' + operatorA.valuePicker.getSelected() + '"'
     } else {
-      code = code + 'chart.at' + operatorB.timeFramePicker.getValue().replace('-', '')
-      code = code + '.' + operatorB.productPicker.getValue()
-      code = code + '.' + operatorB.propertyPicker.getValue()
+      code = code + 'chart.at' + operatorB.timeFramePicker.getSelected().replace('-', '')
+      code = code + '.' + operatorB.productPicker.getSelected()
+      code = code + '.' + operatorB.propertyPicker.getSelected()
     }
 
     thisObject.payload.node.code = code
@@ -112,7 +112,100 @@ function newConditionEditor () {
     operatorB = {}
     scanDataMines()
     initializePickers()
+
+    loadFromCode()
     EDITOR_ON_FOCUS = true
+  }
+
+  function loadFromCode () {
+    if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
+
+    let code = thisObject.payload.node.code
+    let codeA
+    let codeB
+
+    if (code.indexOf(' > ') > 0) {
+      let codeArray = code.split(' > ')
+      codeA = codeArray[0]
+      codeB = codeArray[1]
+    }
+
+    if (code.indexOf(' < ') > 0) {
+      let codeArray = code.split(' < ')
+      codeA = codeArray[0]
+      codeB = codeArray[1]
+    }
+
+    if (code.indexOf(' >= ') > 0) {
+      let codeArray = code.split(' >= ')
+      codeA = codeArray[0]
+      codeB = codeArray[1]
+    }
+
+    if (code.indexOf(' <= ') > 0) {
+      let codeArray = code.split(' <= ')
+      codeA = codeArray[0]
+      codeB = codeArray[1]
+    }
+
+    if (code.indexOf(' === ') > 0) {
+      let codeArray = code.split(' === ')
+      codeA = codeArray[0]
+      codeB = codeArray[1]
+    }
+
+    let codeAArray = codeA.split('.')
+    let codeBArray = codeB.split('.')
+
+    if (code.indexOf(' === ') > 0) {
+    } else {
+      updatePickers(operatorA, codeAArray)
+      updatePickers(operatorB, codeBArray)
+
+      function updatePickers (operator, codeArray) {
+        let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
+        let codeProduct = codeArray[2]
+        let codeProperty = codeArray[3]
+        let codeValue = ''
+
+        let dataMines = Object.keys(operator.selector)
+        for (let i = 0; i < dataMines.length; i++) {
+          let dataMine = dataMines[i]
+          let dataMineObject = operator.selector[dataMine]
+          let bots = Object.keys(dataMineObject)
+          for (let j = 0; j < bots.length; j++) {
+            let bot = bots[j]
+            let botObject = dataMineObject[bot]
+            let products = Object.keys(botObject)
+            for (let k = 0; k < products.length; k++) {
+              let product = products[k]
+              let productObject = botObject[product]
+              if (codeProduct === product) {
+                operator.dataMinePicker.setSelected(dataMines, operator.selector, undefined, i)
+                operator.botPicker.setSelected(bots, dataMineObject, operator.selector, j)
+                operator.productPicker.setSelected(products, botObject, dataMineObject, k)
+                let properties = Object.keys(productObject.properties)
+                for (let m = 0; m < properties.length; m++) {
+                  let property = properties[m]
+                  let propertyObject = productObject.properties[property]
+                  if (codeProperty === property) {
+                    operator.propertyPicker.setSelected(properties, productObject.properties, botObject, m)
+                    let values = propertyObject.possibleValues
+                    for (let n = 0; n < values.length; n++) {
+                      let value = values[n]
+                      let valueObject = propertyObject[value]
+                      if (codeValue === value) {
+                        operator.valuePicker.setSelected(propevaluesrties, propertyObject, productObject, n)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   function scanDataMines () {

@@ -25,7 +25,7 @@ function newPicker () {
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
   thisObject.container.frame.width = 250
-  thisObject.container.frame.height = 150
+  thisObject.container.frame.height = 120
 
   let optionsList
   let parent
@@ -150,10 +150,11 @@ function newPicker () {
   }
 
   function drawForeground () {
-    const FONT_SIZE = 25
+    const FONT_SIZE = 22
     const VISIBLE_LABELS = 5
     let fontSize
     let fontColor
+    let opacity
 
     for (let i = 0; i < VISIBLE_LABELS; i++) {
       let index = i - 2 + selected
@@ -163,19 +164,29 @@ function newPicker () {
       }
       fontColor = UI_COLOR.LIGHT_GREY
       switch (i) {
-        case 0: fontSize = FONT_SIZE - 15
+        case 0:
+          fontSize = FONT_SIZE - 12
+          opacity = 0.4
           break
-        case 1: fontSize = FONT_SIZE - 8
+        case 1:
+          fontSize = FONT_SIZE - 8
+          opacity = 0.5
           break
-        case 2: fontSize = FONT_SIZE - 0
+        case 2:
+          fontSize = FONT_SIZE - 0
           fontColor = UI_COLOR.BLACK
+          opacity = 1
           break
-        case 3: fontSize = FONT_SIZE - 8
+        case 3:
+          fontSize = FONT_SIZE - 8
+          opacity = 0.5
           break
-        case 4: fontSize = FONT_SIZE - 15
+        case 4:
+          fontSize = FONT_SIZE - 12
+          opacity = 0.4
           break
       }
-      drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined)
+      drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
     }
   }
 }

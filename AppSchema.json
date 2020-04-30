@@ -2224,7 +2224,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-paper-trading",
         "properties": [
@@ -2309,7 +2309,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-forward-testing",
         "properties": [
@@ -2419,7 +2419,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-live-trading",
         "properties": [
@@ -4829,7 +4829,7 @@
             {
                 "action": "Send Webhook Test Message",
                 "label": "Send Test Message",
-                "workingLabel": "Seinding Message",
+                "workingLabel": "Sending Message",
                 "workDoneLabel": "Message Sent",
                 "workFailedLabel": "Message not Delived",
                 "iconPathOn": "paper-plane",
@@ -6115,7 +6115,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environment->Template Structure->"
+            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->Template Structure->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -6184,7 +6184,6 @@
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6241,7 +6240,6 @@
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6298,7 +6296,6 @@
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6453,8 +6450,7 @@
             {
                 "name": "exchangeSessions",
                 "type": "array",
-                "childType": "Exchange Sessions",
-                "autoAdd": true
+                "childType": "Exchange Sessions"
             }
         ]
     },

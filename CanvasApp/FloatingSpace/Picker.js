@@ -5,6 +5,9 @@ function newPicker () {
   let thisObject = {
     container: undefined,
     selectedItem: 0,
+    onParentChanged: onParentChanged,
+    getSelected: getSelected,
+    setSelected: setSelected,
     physics: physics,
     drawBackground: drawBackground,
     drawForeground: drawForeground,
@@ -17,23 +20,93 @@ function newPicker () {
   thisObject.container.initialize(MODULE_NAME)
   thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
+  thisObject.container.isWheelable = true
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 50
-  thisObject.container.frame.height = 100
+  thisObject.container.frame.width = 250
+  thisObject.container.frame.height = 120
 
   let optionsList
+  let parent
+  let current
+  let parentSelected = 0
+  let propertyName
+  let selected = 0
+  let lastSelected = 0
+  let onMouseWheelEventSubscriptionId
+
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
     thisObject.container.finalize()
     thisObject.container = undefined
     optionsList = undefined
+    parent = undefined
+    current = undefined
   }
 
-  function initialize (pOptionsList) {
+  function initialize (pOptionsList, pCurrent, pParent, pPropertyName) {
     optionsList = pOptionsList
+    current = pCurrent
+    parent = pParent
+    propertyName = pPropertyName
+    onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+  }
+
+  function getSelected () {
+    return optionsList[selected]
+  }
+
+  function setSelected (pOptionsList, pCurrent, pParent, pSelected) {
+    if (pOptionsList !== undefined) {
+      optionsList = pOptionsList
+    }
+    if (pCurrent !== undefined) {
+      current = pCurrent
+    }
+    if (pParent !== undefined) {
+      parent = pParent
+    }
+    if (pSelected !== undefined) {
+      selected = pSelected
+    }
+    raiseEventParentChanged()
+  }
+
+  function onParentChanged (event) {
+    if (event.parent !== undefined) {
+      parent = event.parent
+    }
+    parentSelected = event.selected
+
+    selected = 0
+    let parentKeys
+
+    parentKeys = Object.keys(parent)
+    checkPropertyName()
+
+    function checkPropertyName () {
+      if (propertyName === undefined) {
+        current = parent[parentKeys[parentSelected]]
+        checkArray()
+      } else {
+        current = parent[parentKeys[parentSelected]]
+        current = current[propertyName]
+        checkArray()
+      }
+    }
+
+    function checkArray () {
+      if (Array.isArray(current) === false) {
+        optionsList = Object.keys(current)
+      } else {
+        optionsList = current
+      }
+    }
+
+    raiseEventParentChanged()
   }
 
   function getContainer (point) {
@@ -42,6 +115,39 @@ function newPicker () {
     if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
       return thisObject.container
     }
+  }
+
+  function getSelected () {
+    return optionsList[selected]
+  }
+
+  function onMouseWheel () {
+    delta = event.wheelDelta
+    if (delta > 0) {
+      delta = -1
+    } else {
+      delta = 1
+    }
+
+    selected = selected + delta
+    if (selected < 0) { selected = 0 }
+    if (selected > optionsList.length - 1) {
+      selected = optionsList.length - 1
+    }
+
+    if (selected !== lastSelected) {
+      lastSelected = selected
+      raiseEventParentChanged()
+    }
+  }
+
+  function raiseEventParentChanged () {
+    let event = {
+      selected: selected,
+      parent: current,
+      propertyName: propertyName
+    }
+    thisObject.container.eventHandler.raiseEvent('onParentChanged', event)
   }
 
   function physics () {
@@ -53,10 +159,43 @@ function newPicker () {
   }
 
   function drawForeground () {
-    const FONT_SIZE = 15
+    const FONT_SIZE = 22
+    const VISIBLE_LABELS = 5
+    let fontSize
+    let fontColor
+    let opacity
 
-    for (let i = 0; i < optionsList.length; i++) {
-      drawLabel(optionsList[i], 1 / 2, i / optionsList.length, 0, 0, FONT_SIZE, thisObject.container, UI_COLOR.WHITE, undefined, undefined)
+    for (let i = 0; i < VISIBLE_LABELS; i++) {
+      let index = i - 2 + selected
+      let label = ''
+      if (index >= 0 && index < optionsList.length) {
+        label = optionsList[index]
+      }
+      fontColor = UI_COLOR.LIGHT_GREY
+      switch (i) {
+        case 0:
+          fontSize = FONT_SIZE - 12
+          opacity = 0.4
+          break
+        case 1:
+          fontSize = FONT_SIZE - 8
+          opacity = 0.5
+          break
+        case 2:
+          fontSize = FONT_SIZE - 0
+          fontColor = UI_COLOR.BLACK
+          opacity = 1
+          break
+        case 3:
+          fontSize = FONT_SIZE - 8
+          opacity = 0.5
+          break
+        case 4:
+          fontSize = FONT_SIZE - 12
+          opacity = 0.4
+          break
+      }
+      drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
     }
   }
 }

@@ -412,26 +412,26 @@ function newUiObjectConstructor () {
         if (nodeDefinition.editors.config === true) {
           uiObject.configEditor = newConfigEditor()
           uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.configEditor.initialize()
           uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.configEditor.initialize()
         }
         if (nodeDefinition.editors.code === true) {
           uiObject.codeEditor = newCodeEditor()
           uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.codeEditor.initialize()
           uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.codeEditor.initialize()
         }
         if (nodeDefinition.editors.formula === true) {
           uiObject.formulaEditor = newFormulaEditor()
           uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.formulaEditor.initialize()
           uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.formulaEditor.initialize()
         }
         if (nodeDefinition.editors.condition === true) {
           uiObject.conditionEditor = newConditionEditor()
           uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
+          uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, false, true, false, false, false, false)
           uiObject.conditionEditor.initialize()
-          uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         }
       }
       if (nodeDefinition.addLeftIcons === true) {

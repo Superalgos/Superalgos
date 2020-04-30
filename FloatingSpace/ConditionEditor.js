@@ -198,7 +198,33 @@ function newConditionEditor () {
     function updatePickers (operator, codeArray) {
       let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
       let codeProduct = codeArray[2]
-      let codeProperty = codeArray[3]
+
+      /* Parse When */
+      let propertyDisplacement = 0
+      let codeWhen = 'Current'
+      if (codeArray[3] === 'previous') {
+        propertyDisplacement++
+        codeWhen = '1 Previous'
+      }
+      if (codeArray[4] === 'previous') {
+        propertyDisplacement++
+        codeWhen = '2 Previous'
+      }
+      if (codeArray[5] === 'previous') {
+        propertyDisplacement++
+        codeWhen = '3 Previous'
+      }
+      if (codeArray[6] === 'previous') {
+        propertyDisplacement++
+        codeWhen = '4 Previous'
+      }
+      if (codeArray[7] === 'previous') {
+        propertyDisplacement++
+        codeWhen = '5 Previous'
+      }
+      operator.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
+
+      let codeProperty = codeArray[3 + propertyDisplacement]
       let codeValue = codeBArray[0].replace('"', '').replace('"', '')
 
       let dataMines = Object.keys(operator.selector)

@@ -128,85 +128,87 @@ function newConditionEditor () {
       let codeArray = code.split(' > ')
       codeA = codeArray[0]
       codeB = codeArray[1]
+      operationPicker.setSelected(undefined, undefined, undefined, 0)
     }
 
     if (code.indexOf(' < ') > 0) {
       let codeArray = code.split(' < ')
       codeA = codeArray[0]
       codeB = codeArray[1]
+      operationPicker.setSelected(undefined, undefined, undefined, 1)
     }
 
     if (code.indexOf(' >= ') > 0) {
       let codeArray = code.split(' >= ')
       codeA = codeArray[0]
       codeB = codeArray[1]
+      operationPicker.setSelected(undefined, undefined, undefined, 2)
     }
 
     if (code.indexOf(' <= ') > 0) {
       let codeArray = code.split(' <= ')
       codeA = codeArray[0]
       codeB = codeArray[1]
+      operationPicker.setSelected(undefined, undefined, undefined, 3)
     }
 
     if (code.indexOf(' === ') > 0) {
       let codeArray = code.split(' === ')
       codeA = codeArray[0]
       codeB = codeArray[1]
+      operationPicker.setSelected(undefined, undefined, undefined, 4)
     }
 
     let codeAArray = codeA.split('.')
     let codeBArray = codeB.split('.')
 
-    if (code.indexOf(' === ') > 0) {
-    } else {
-      updatePickers(operatorA, codeAArray)
-      updatePickers(operatorB, codeBArray)
+    updatePickers(operatorA, codeAArray)
+    updatePickers(operatorB, codeBArray)
 
-      function updatePickers (operator, codeArray) {
-        let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
-        let codeProduct = codeArray[2]
-        let codeProperty = codeArray[3]
-        let codeValue = ''
+    function updatePickers (operator, codeArray) {
+      let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
+      let codeProduct = codeArray[2]
+      let codeProperty = codeArray[3]
+      let codeValue = codeBArray[0].replace('"', '').replace('"', '')
 
-        let dataMines = Object.keys(operator.selector)
-        for (let i = 0; i < dataMines.length; i++) {
-          let dataMine = dataMines[i]
-          let dataMineObject = operator.selector[dataMine]
-          let bots = Object.keys(dataMineObject)
-          for (let j = 0; j < bots.length; j++) {
-            let bot = bots[j]
-            let botObject = dataMineObject[bot]
-            let products = Object.keys(botObject)
-            for (let k = 0; k < products.length; k++) {
-              let product = products[k]
-              let productObject = botObject[product]
-              if (codeProduct === product) {
-                operator.dataMinePicker.setSelected(dataMines, operator.selector, undefined, i)
-                operator.botPicker.setSelected(bots, dataMineObject, operator.selector, j)
-                operator.productPicker.setSelected(products, botObject, dataMineObject, k)
-                let properties = Object.keys(productObject.properties)
-                for (let m = 0; m < properties.length; m++) {
-                  let property = properties[m]
-                  let propertyObject = productObject.properties[property]
-                  if (codeProperty === property) {
-                    operator.propertyPicker.setSelected(properties, productObject.properties, botObject, m)
-                    let values = propertyObject.possibleValues
-                    for (let n = 0; n < values.length; n++) {
-                      let value = values[n]
-                      let valueObject = propertyObject[value]
-                      if (codeValue === value) {
-                        operator.valuePicker.setSelected(propevaluesrties, propertyObject, productObject, n)
-                      }
+      let dataMines = Object.keys(operator.selector)
+      for (let i = 0; i < dataMines.length; i++) {
+        let dataMine = dataMines[i]
+        let dataMineObject = operator.selector[dataMine]
+        let bots = Object.keys(dataMineObject)
+        for (let j = 0; j < bots.length; j++) {
+          let bot = bots[j]
+          let botObject = dataMineObject[bot]
+          let products = Object.keys(botObject)
+          for (let k = 0; k < products.length; k++) {
+            let product = products[k]
+            let productObject = botObject[product]
+            if (codeProduct === product) {
+              operator.dataMinePicker.setSelected(dataMines, operator.selector, undefined, i)
+              operator.botPicker.setSelected(bots, dataMineObject, operator.selector, j)
+              operator.productPicker.setSelected(products, botObject, dataMineObject, k)
+              let properties = Object.keys(productObject.properties)
+              for (let m = 0; m < properties.length; m++) {
+                let property = properties[m]
+                let propertyObject = productObject.properties[property]
+                if (codeProperty === property) {
+                  operator.propertyPicker.setSelected(properties, productObject.properties, botObject, m)
+                  let values = propertyObject.possibleValues
+                  for (let n = 0; n < values.length; n++) {
+                    let value = values[n]
+                    let valueObject = propertyObject[value]
+                    if (codeValue === value) {
+                      operator.valuePicker.setSelected(values, propertyObject, productObject, n)
                     }
                   }
                 }
-                let timeFrames = productObject.validTimeFrames
-                for (let m = 0; m < timeFrames.length; m++) {
-                  let timeFrame = timeFrames[m]
-                  let timeFrameObject = productObject.validTimeFrames[timeFrame]
-                  if (codeTimeFrame === timeFrame) {
-                    operator.timeFramePicker.setSelected(timeFrames, productObject, botObject, m)
-                  }
+              }
+              let timeFrames = productObject.validTimeFrames
+              for (let m = 0; m < timeFrames.length; m++) {
+                let timeFrame = timeFrames[m]
+                let timeFrameObject = productObject.validTimeFrames[timeFrame]
+                if (codeTimeFrame === timeFrame) {
+                  operator.timeFramePicker.setSelected(timeFrames, productObject, botObject, m)
                 }
               }
             }

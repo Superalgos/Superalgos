@@ -60,10 +60,19 @@ function newPicker () {
   }
 
   function setSelected (pOptionsList, pCurrent, pParent, pSelected) {
-    optionsList = pOptionsList
-    current = pCurrent
-    parent = pParent
-    selected = pSelected
+    if (pOptionsList !== undefined) {
+      optionsList = pOptionsList
+    }
+    if (pCurrent !== undefined) {
+      current = pCurrent
+    }
+    if (pParent !== undefined) {
+      parent = pParent
+    }
+    if (pSelected !== undefined) {
+      selected = pSelected
+    }
+    raiseEventParentChanged()
   }
 
   function onParentChanged (event) {

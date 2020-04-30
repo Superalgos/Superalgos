@@ -49,6 +49,20 @@ function newConditionEditor () {
 
   }
 
+  function activate (payload) {
+    thisObject.visible = true
+    thisObject.payload = payload
+    thisObject.payload.uiObject.setErrorMessage('', 0)
+
+    operatorA = {}
+    operatorB = {}
+    scanDataMines()
+    initializePickers()
+
+    loadFromCode()
+    EDITOR_ON_FOCUS = true
+  }
+
   function deactivate () {
     convertToCode()
     finalizePickers()
@@ -101,20 +115,6 @@ function newConditionEditor () {
     }
 
     thisObject.payload.node.code = code
-  }
-
-  function activate (payload) {
-    thisObject.visible = true
-    thisObject.payload = payload
-    thisObject.payload.uiObject.setErrorMessage('', 0)
-
-    operatorA = {}
-    operatorB = {}
-    scanDataMines()
-    initializePickers()
-
-    loadFromCode()
-    EDITOR_ON_FOCUS = true
   }
 
   function loadFromCode () {
@@ -198,6 +198,14 @@ function newConditionEditor () {
                         operator.valuePicker.setSelected(propevaluesrties, propertyObject, productObject, n)
                       }
                     }
+                  }
+                }
+                let timeFrames = productObject.validTimeFrames
+                for (let m = 0; m < timeFrames.length; m++) {
+                  let timeFrame = timeFrames[m]
+                  let timeFrameObject = productObject.validTimeFrames[timeFrame]
+                  if (codeTimeFrame === timeFrame) {
+                    operator.timeFramePicker.setSelected(timeFrames, productObject, botObject, m)
                   }
                 }
               }

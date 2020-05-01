@@ -6408,7 +6408,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Storage->"
+            "compatibleTypes": "->Session Based Data->"
         },
         "propertyNameAtParent": "exchangeSessions",
         "properties": [

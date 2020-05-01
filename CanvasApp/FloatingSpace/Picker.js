@@ -21,12 +21,14 @@ function newPicker () {
   thisObject.container.isClickeable = false
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = true
+  thisObject.container.detectMouseOver = true
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 250
+  thisObject.container.frame.width = 200
   thisObject.container.frame.height = 120
 
+  let isMouseOver
   let optionsList
   let parent
   let current
@@ -35,11 +37,15 @@ function newPicker () {
   let selected = 0
   let lastSelected = 0
   let onMouseWheelEventSubscriptionId
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
 
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
     thisObject.container.finalize()
     thisObject.container = undefined
     optionsList = undefined
@@ -53,6 +59,16 @@ function newPicker () {
     parent = pParent
     propertyName = pPropertyName
     onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+  }
+
+  function onMouseOver (event) {
+    isMouseOver = true
+  }
+
+  function onMouseNotOver () {
+    isMouseOver = false
   }
 
   function getSelected () {
@@ -159,7 +175,7 @@ function newPicker () {
   }
 
   function drawForeground () {
-    const FONT_SIZE = 22
+    const FONT_SIZE = 20
     const VISIBLE_LABELS = 5
     let fontSize
     let fontColor
@@ -174,11 +190,11 @@ function newPicker () {
       fontColor = UI_COLOR.LIGHT_GREY
       switch (i) {
         case 0:
-          fontSize = FONT_SIZE - 12
+          fontSize = FONT_SIZE - 10
           opacity = 0.4
           break
         case 1:
-          fontSize = FONT_SIZE - 8
+          fontSize = FONT_SIZE - 5
           opacity = 0.5
           break
         case 2:
@@ -187,15 +203,18 @@ function newPicker () {
           opacity = 1
           break
         case 3:
-          fontSize = FONT_SIZE - 8
+          fontSize = FONT_SIZE - 5
           opacity = 0.5
           break
         case 4:
-          fontSize = FONT_SIZE - 12
+          fontSize = FONT_SIZE - 10
           opacity = 0.4
           break
       }
-      drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+
+      if (i === 2 || isMouseOver === true) {
+        drawLabel(label, 1 / 2, i / VISIBLE_LABELS, 0, 0, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+      }
     }
   }
 }

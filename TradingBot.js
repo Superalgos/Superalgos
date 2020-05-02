@@ -213,6 +213,8 @@
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
                                 record.quotedAsset + "," +
+                                record.marketBaseAsset + "," +
+                                record.marketQuotedAsset + "," +
                                 record.positionPeriods + "," +
                                 record.positionDays + "," +
                                 record.distanceToLastTriggerOn + "," +
@@ -559,8 +561,14 @@
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
                                 record.quotedAsset + "," +
+                                record.marketBaseAsset + "," +
+                                record.marketQuotedAsset + "," +
                                 record.positionPeriods + "," +
-                                record.positionDays + "]";
+                                record.positionDays + "," +
+                                record.distanceToLastTriggerOn + "," +
+                                record.distanceToLastTriggerOff + "," +
+                                record.distanceToLastTakePosition + "," +
+                                record.distanceToLastClosePosition + "]";
 
                             if (separator === "") { separator = ","; }
 
@@ -664,8 +672,14 @@
                                 record.maximumBalanceB + "," +
                                 record.baseAsset + "," +
                                 record.quotedAsset + "," +
+                                record.marketBaseAsset + "," +
+                                record.marketQuotedAsset + "," +
                                 record.positionPeriods + "," +
-                                record.positionDays + "]";
+                                record.positionDays + "," +
+                                record.distanceToLastTriggerOn + "," +
+                                record.distanceToLastTriggerOff + "," +
+                                record.distanceToLastTakePosition + "," +
+                                record.distanceToLastClosePosition + "]";
 
                             if (separator === "") { separator = ","; }
 

@@ -150,10 +150,10 @@ function newConditionEditor () {
       checkAlgebra(logicOperand, logicOperand.comparison.operandB)
     }
 
-    function checkAlgebra (logicOperand, comparisonOperand, logicOperandIndex, comparisonOperandIndex) {
+    function checkAlgebra (logicOperand, comparisonOperand) {
       comparisonOperand.algebra = {
-        operandA: {},
-        operandB: {}
+        operandA: { index: 0},
+        operandB: { index: 1}
       }
 
       /* The default situation is that there is no Algebraic operation, meaning we will setup a Algebraic operation only with operandA */
@@ -194,19 +194,19 @@ function newConditionEditor () {
         comparisonOperand.algebra.operatorIndex = 4
       }
 
-      initializePickersSet(comparisonOperand.algebra.operandA, logicOperandIndex, comparisonOperandIndex, 0)
-      initializePickersSet(comparisonOperand.algebra.operandB, logicOperandIndex, comparisonOperandIndex, 1)
-      updatePickers(comparisonOperand.algebra.operandA, comparisonOperand, logicOperand)
-      updatePickers(comparisonOperand.algebra.operandB, comparisonOperand, logicOperand)
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
     }
 
-    function initializePickersSet (algebraOperand, logicOperandIndex, comparisonOperandIndex, algebraOperandIndex) {
+    function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
       /* Get the ySign */
       let ySign
-      if (algebraOperandIndex === 0) {
+      if (algebraOperand.index === 0) {
         ySign = -1
       }
-      if (algebraOperandIndex === 1) {
+      if (algebraOperand.index === 1) {
         ySign = 1
       }
 
@@ -309,7 +309,7 @@ function newConditionEditor () {
       algebraOperand.timeFramePicker.eventSuscriptionId = algebraOperand.productPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.timeFramePicker.onParentChanged)
     }
 
-    function updatePickers (algebraOperand, comparisonOperand, logicOperand) {
+    function updatePickers (logicOperand, comparisonOperand, algebraOperand) {
       let codeArray = algebraOperand.code.split('.')
 
       let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
@@ -341,7 +341,7 @@ function newConditionEditor () {
       algebraOperand.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
 
       let codeProperty = codeArray[3 + propertyDisplacement]
-      let codeValue = codeBArray[0].replace('"', '').replace('"', '')
+      let codeValue = comparisonOperand.algebra.operandB.code.replace('"', '').replace('"', '')
 
       let dataMines = Object.keys(scanResult)
       for (let i = 0; i < dataMines.length; i++) {

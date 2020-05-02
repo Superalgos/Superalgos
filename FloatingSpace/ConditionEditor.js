@@ -28,9 +28,8 @@ function newConditionEditor () {
   thisObject.container.frame.containerName = MODULE_NAME
 
   let isMouseOver = false
-  let operationPicker
-  let operatorA
-  let operatorB
+  let conditionStructure
+  let scanResult
 
   return thisObject
 
@@ -40,9 +39,8 @@ function newConditionEditor () {
     thisObject.payload = undefined
     thisObject.isVisibleFunction = undefined
 
-    operationPicker = undefined
-    operatorA = undefined
-    operatorB = undefined
+    conditionStructure = undefined
+    scanResult = undefined
   }
 
   function initialize () {
@@ -54,11 +52,12 @@ function newConditionEditor () {
     thisObject.payload = payload
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
-    operatorA = {}
-    operatorB = {}
-    scanDataMines()
-    initializePickers()
+    conditionStructure = {
+      code: thisObject.payload.node.code,
+      orOperands: []
+    }
 
+    scanDataMines()
     loadFromCode()
     EDITOR_ON_FOCUS = true
   }
@@ -67,135 +66,252 @@ function newConditionEditor () {
     convertToCode()
     finalizePickers()
 
+    conditionStructure = undefined
+
     if (thisObject.visible === true) {
       thisObject.visible = false
     }
     EDITOR_ON_FOCUS = false
   }
 
-  function convertToCode () {
-    if (operatorA === undefined || operatorB === undefined || operationPicker === undefined) { return }
-
-    // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
-    let code = ''
-
-    code = code + 'chart.at' + operatorA.timeFramePicker.getSelected().replace('-', '')
-    code = code + '.' + operatorA.productPicker.getSelected()
-    insertWhen(operatorA)
-    code = code + '.' + operatorA.propertyPicker.getSelected()
-
-    switch (operationPicker.getSelected()) {
-      case 'Greater Than': {
-        code = code + ' > '
-        break
-      }
-      case 'Less Than': {
-        code = code + ' < '
-        break
-      }
-      case 'Greater or Equal Than': {
-        code = code + ' >= '
-        break
-      }
-      case 'Less or Equal Than': {
-        code = code + ' <= '
-        break
-      }
-      case 'Equal To': {
-        code = code + ' === '
-        break
-      }
-    }
-
-    if (operationPicker.getSelected() === 'Equal To') {
-      code = code + '"' + operatorA.valuePicker.getSelected() + '"'
-    } else {
-      code = code + 'chart.at' + operatorB.timeFramePicker.getSelected().replace('-', '')
-      code = code + '.' + operatorB.productPicker.getSelected()
-      insertWhen(operatorB)
-      code = code + '.' + operatorB.propertyPicker.getSelected()
-    }
-
-    thisObject.payload.node.code = code
-
-    function insertWhen (operator) {
-      switch (operator.whenPicker.getSelected()) {
-        case 'Current': {
-          return
-        }
-        case '1 Previous': {
-          code = code + '.previous'
-          return
-        }
-        case '2 Previous': {
-          code = code + '.previous.previous'
-          return
-        }
-        case '3 Previous': {
-          code = code + '.previous.previous.previous'
-          return
-        }
-        case '4 Previous': {
-          code = code + '.previous.previous.previous.previous'
-          return
-        }
-        case '5 Previous': {
-          code = code + '.previous.previous.previous.previous.previous'
-          return
-        }
-      }
-    }
-  }
-
   function loadFromCode () {
     if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
 
-    let code = thisObject.payload.node.code
-    let codeA
-    let codeB
-
-    if (code.indexOf(' > ') > 0) {
-      let codeArray = code.split(' > ')
-      codeA = codeArray[0]
-      codeB = codeArray[1]
-      operationPicker.setSelected(undefined, undefined, undefined, 0)
+    /* LOGICAL ORs */
+    let orArray = conditionStructure.code.split(' || ')
+    for (let j = 0; j < orArray.length; j++) {
+      let logicOperand = {
+        code: orArray[j],
+        index: j,
+        comparison: {}
+      }
+      checkComparison(logicOperand, j)
+      conditionStructure.orOperands.push(logicOperand)
     }
 
-    if (code.indexOf(' < ') > 0) {
-      let codeArray = code.split(' < ')
-      codeA = codeArray[0]
-      codeB = codeArray[1]
-      operationPicker.setSelected(undefined, undefined, undefined, 1)
+    function checkComparison (logicOperand) {
+    /* We are going to decompose the  code into 2 comparison operators */
+      logicOperand.comparison.operandA = { index: 0}
+      logicOperand.comparison.operandB = { index: 1}
+
+      if (logicOperand.code.indexOf(' > ') > 0) {
+        let codeArray = logicOperand.code.split(' > ')
+        logicOperand.comparison.operandA.code = codeArray[0]
+        logicOperand.comparison.operandB.code = codeArray[1]
+        logicOperand.comparison.operator = ' > '
+        logicOperand.comparison.operatorIndex = 0
+      }
+
+      if (logicOperand.code.indexOf(' < ') > 0) {
+        let codeArray = logicOperand.code.split(' < ')
+        logicOperand.comparison.operandA.code = codeArray[0]
+        logicOperand.comparison.operandB.code = codeArray[1]
+        logicOperand.comparison.operator = ' < '
+        logicOperand.comparison.operatorIndex = 1
+      }
+
+      if (logicOperand.code.indexOf(' >= ') > 0) {
+        let codeArray = logicOperand.code.split(' >= ')
+        logicOperand.comparison.operandA.code = codeArray[0]
+        logicOperand.comparison.operandB.code = codeArray[1]
+        logicOperand.comparison.operator = ' >= '
+        logicOperand.comparison.operatorIndex = 2
+      }
+
+      if (logicOperand.code.indexOf(' <= ') > 0) {
+        let codeArray = logicOperand.code.split(' <= ')
+        logicOperand.comparison.operandA.code = codeArray[0]
+        logicOperand.comparison.operandB.code = codeArray[1]
+        logicOperand.comparison.operator = ' <= '
+        logicOperand.comparison.operatorIndex = 3
+      }
+
+      if (logicOperand.code.indexOf(' === ') > 0) {
+        let codeArray = logicOperand.code.split(' === ')
+        logicOperand.comparison.operandA.code = codeArray[0]
+        logicOperand.comparison.operandB.code = codeArray[1]
+        logicOperand.comparison.operator = ' === '
+        logicOperand.comparison.operatorIndex = 4
+      }
+
+      logicOperand.comparison.picker = newPicker()
+      let picker = logicOperand.comparison.picker
+      picker.name = 'Comparison'
+      picker.container.connectToParent(thisObject.container)
+      picker.container.frame.position.x = 0 - picker.container.frame.width / 2
+      picker.container.frame.position.y = 0 - picker.container.frame.height / 2
+      let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
+      picker.initialize(optionsList)
+
+      picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
+
+    /* Each comparison code may have one or more algebraic operators */
+      checkAlgebra(logicOperand, logicOperand.comparison.operandA)
+      checkAlgebra(logicOperand, logicOperand.comparison.operandB)
     }
 
-    if (code.indexOf(' >= ') > 0) {
-      let codeArray = code.split(' >= ')
-      codeA = codeArray[0]
-      codeB = codeArray[1]
-      operationPicker.setSelected(undefined, undefined, undefined, 2)
+    function checkAlgebra (logicOperand, comparisonOperand) {
+      comparisonOperand.algebra = {
+        operandA: { index: 0},
+        operandB: { index: 1}
+      }
+
+      /* The default situation is that there is no Algebraic operation, meaning we will setup a Algebraic operation only with operandA */
+      comparisonOperand.algebra.operandA.code = comparisonOperand.code
+      comparisonOperand.algebra.operandB.code = ''
+      comparisonOperand.algebra.operator = ' ... '
+      comparisonOperand.algebra.operatorIndex = 0
+
+      if (comparisonOperand.code.indexOf(' + ') > 0) {
+        let codeArray = logicOperand.code.split(' + ')
+        comparisonOperand.algebra.operandA.code = codeArray[0]
+        comparisonOperand.algebra.operandB.code = codeArray[1]
+        comparisonOperand.algebra.operator = ' + '
+        comparisonOperand.algebra.operatorIndex = 1
+      }
+
+      if (comparisonOperand.code.indexOf(' - ') > 0) {
+        let codeArray = logicOperand.code.split(' - ')
+        comparisonOperand.algebra.operandA.code = codeArray[0]
+        comparisonOperand.algebra.operandB.code = codeArray[1]
+        comparisonOperand.algebra.operator = ' - '
+        comparisonOperand.algebra.operatorIndex = 2
+      }
+
+      if (comparisonOperand.code.indexOf(' * ') > 0) {
+        let codeArray = logicOperand.code.split(' * ')
+        comparisonOperand.algebra.operandA.code = codeArray[0]
+        comparisonOperand.algebra.operandB.code = codeArray[1]
+        comparisonOperand.algebra.operator = ' * '
+        comparisonOperand.algebra.operatorIndex = 3
+      }
+
+      if (comparisonOperand.code.indexOf(' / ') > 0) {
+        let codeArray = logicOperand.code.split(' / ')
+        comparisonOperand.algebra.operandA.code = codeArray[0]
+        comparisonOperand.algebra.operandB.code = codeArray[1]
+        comparisonOperand.algebra.operator = ' / '
+        comparisonOperand.algebra.operatorIndex = 4
+      }
+
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
     }
 
-    if (code.indexOf(' <= ') > 0) {
-      let codeArray = code.split(' <= ')
-      codeA = codeArray[0]
-      codeB = codeArray[1]
-      operationPicker.setSelected(undefined, undefined, undefined, 3)
+    function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
+      /* Get the ySign */
+      let ySign
+      if (algebraOperand.index === 0) {
+        ySign = -1
+      }
+      if (algebraOperand.index === 1) {
+        ySign = 1
+      }
+
+      let properties
+      let parent
+      let current
+
+      algebraOperand.whenPicker = newPicker()
+      algebraOperand.whenPicker.name = 'When'
+      algebraOperand.whenPicker.container.connectToParent(thisObject.container)
+      algebraOperand.whenPicker.container.frame.position.x = 0 - algebraOperand.whenPicker.container.frame.width / 2 - algebraOperand.whenPicker.container.frame.width * 1.0
+      algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + algebraOperand.whenPicker.container.frame.height * ySign
+      current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
+      algebraOperand.whenPicker.initialize(current, current)
+      algebraOperand.whenPicker.visible = true
+
+      algebraOperand.algebraicPicker = newPicker()
+      algebraOperand.algebraicPicker.name = 'Algebraic'
+      algebraOperand.algebraicPicker.container.connectToParent(thisObject.container)
+      algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 3.0
+      algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + algebraOperand.algebraicPicker.container.frame.height * ySign
+      current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
+      algebraOperand.algebraicPicker.initialize(current, current)
+      algebraOperand.algebraicPicker.visible = true
+
+      algebraOperand.dataMinePicker = newPicker()
+      algebraOperand.dataMinePicker.name = 'Data Mine'
+      algebraOperand.dataMinePicker.container.connectToParent(thisObject.container)
+      algebraOperand.dataMinePicker.container.frame.position.x = 0 - algebraOperand.dataMinePicker.container.frame.width / 2 - algebraOperand.dataMinePicker.container.frame.width * 3.0
+      algebraOperand.dataMinePicker.container.frame.position.y = 0 - algebraOperand.dataMinePicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      current = scanResult
+      properties = Object.keys(current)
+      algebraOperand.dataMinePicker.initialize(properties, current)
+      parent = current
+      algebraOperand.dataMinePicker.visible = true
+
+      algebraOperand.botPicker = newPicker()
+      algebraOperand.botPicker.name = 'Bot'
+      algebraOperand.botPicker.container.connectToParent(thisObject.container)
+      algebraOperand.botPicker.container.frame.position.x = 0 - algebraOperand.botPicker.container.frame.width / 2 - algebraOperand.botPicker.container.frame.width * 2.0
+      algebraOperand.botPicker.container.frame.position.y = 0 - algebraOperand.botPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      current = parent[properties[0]]
+      properties = Object.keys(current)
+      algebraOperand.botPicker.initialize(properties, current, parent)
+      parent = current
+      algebraOperand.botPicker.visible = true
+
+      algebraOperand.productPicker = newPicker()
+      algebraOperand.productPicker.name = 'Product'
+      algebraOperand.productPicker.container.connectToParent(thisObject.container)
+      algebraOperand.productPicker.container.frame.position.x = 0 - algebraOperand.productPicker.container.frame.width / 2 + algebraOperand.productPicker.container.frame.width * 0.0
+      algebraOperand.productPicker.container.frame.position.y = 0 - algebraOperand.productPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      current = parent[properties[0]]
+      properties = Object.keys(current)
+      algebraOperand.productPicker.initialize(properties, current, parent)
+      parent = current
+      algebraOperand.productPicker.visible = true
+
+      let productParent = parent
+      let productProperties = properties
+
+      algebraOperand.propertyPicker = newPicker()
+      algebraOperand.propertyPicker.name = 'Property'
+      algebraOperand.propertyPicker.container.connectToParent(thisObject.container)
+      algebraOperand.propertyPicker.container.frame.position.x = 0 - algebraOperand.propertyPicker.container.frame.width / 2 + algebraOperand.propertyPicker.container.frame.width * 1.0
+      algebraOperand.propertyPicker.container.frame.position.y = 0 - algebraOperand.propertyPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      current = productParent[productProperties[0]]
+      current = current.properties
+      properties = Object.keys(current)
+      algebraOperand.propertyPicker.initialize(properties, current, productParent, 'properties')
+      parent = current
+      algebraOperand.propertyPicker.visible = true
+
+      algebraOperand.valuePicker = newPicker()
+      algebraOperand.valuePicker.name = 'Value'
+      algebraOperand.valuePicker.container.connectToParent(thisObject.container)
+      algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2
+      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + algebraOperand.valuePicker.container.frame.height * 1
+      current = parent[properties[0]]
+      properties = current.possibleValues
+      algebraOperand.valuePicker.initialize(properties, current, parent, 'possibleValues')
+      parent = current
+      algebraOperand.valuePicker.visible = false
+
+      algebraOperand.timeFramePicker = newPicker()
+      algebraOperand.timeFramePicker.name = 'Time Frame'
+      algebraOperand.timeFramePicker.container.connectToParent(thisObject.container)
+      algebraOperand.timeFramePicker.container.frame.position.x = 0 - algebraOperand.timeFramePicker.container.frame.width / 2 + algebraOperand.timeFramePicker.container.frame.width * 2.0
+      algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + algebraOperand.timeFramePicker.container.frame.height * ySign
+      current = productParent[productProperties[0]]
+      properties = current.validTimeFrames
+      algebraOperand.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
+      parent = current
+      algebraOperand.timeFramePicker.visible = true
+
+      algebraOperand.botPicker.eventSuscriptionId = algebraOperand.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.botPicker.onParentChanged)
+      algebraOperand.productPicker.eventSuscriptionId = algebraOperand.botPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.productPicker.onParentChanged)
+      algebraOperand.propertyPicker.eventSuscriptionId = algebraOperand.productPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.propertyPicker.onParentChanged)
+      algebraOperand.valuePicker.eventSuscriptionId = algebraOperand.propertyPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.valuePicker.onParentChanged)
+      algebraOperand.timeFramePicker.eventSuscriptionId = algebraOperand.productPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.timeFramePicker.onParentChanged)
     }
 
-    if (code.indexOf(' === ') > 0) {
-      let codeArray = code.split(' === ')
-      codeA = codeArray[0]
-      codeB = codeArray[1]
-      operationPicker.setSelected(undefined, undefined, undefined, 4)
-    }
+    function updatePickers (logicOperand, comparisonOperand, algebraOperand) {
+      let codeArray = algebraOperand.code.split('.')
 
-    let codeAArray = codeA.split('.')
-    let codeBArray = codeB.split('.')
-
-    updatePickers(operatorA, codeAArray)
-    updatePickers(operatorB, codeBArray)
-
-    function updatePickers (operator, codeArray) {
       let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
       let codeProduct = codeArray[2]
 
@@ -222,15 +338,15 @@ function newConditionEditor () {
         propertyDisplacement++
         codeWhen = '5 Previous'
       }
-      operator.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
+      algebraOperand.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
 
       let codeProperty = codeArray[3 + propertyDisplacement]
-      let codeValue = codeBArray[0].replace('"', '').replace('"', '')
+      let codeValue = comparisonOperand.algebra.operandB.code.replace('"', '').replace('"', '')
 
-      let dataMines = Object.keys(operator.selector)
+      let dataMines = Object.keys(scanResult)
       for (let i = 0; i < dataMines.length; i++) {
         let dataMine = dataMines[i]
-        let dataMineObject = operator.selector[dataMine]
+        let dataMineObject = scanResult[dataMine]
         let bots = Object.keys(dataMineObject)
         for (let j = 0; j < bots.length; j++) {
           let bot = bots[j]
@@ -240,21 +356,21 @@ function newConditionEditor () {
             let product = products[k]
             let productObject = botObject[product]
             if (codeProduct === product) {
-              operator.dataMinePicker.setSelected(dataMines, operator.selector, undefined, i)
-              operator.botPicker.setSelected(bots, dataMineObject, operator.selector, j)
-              operator.productPicker.setSelected(products, botObject, dataMineObject, k)
+              algebraOperand.dataMinePicker.setSelected(dataMines, scanResult, undefined, i)
+              algebraOperand.botPicker.setSelected(bots, dataMineObject, scanResult, j)
+              algebraOperand.productPicker.setSelected(products, botObject, dataMineObject, k)
               let properties = Object.keys(productObject.properties)
               for (let m = 0; m < properties.length; m++) {
                 let property = properties[m]
                 let propertyObject = productObject.properties[property]
                 if (codeProperty === property) {
-                  operator.propertyPicker.setSelected(properties, productObject.properties, botObject, m)
+                  algebraOperand.propertyPicker.setSelected(properties, productObject.properties, botObject, m)
                   let values = propertyObject.possibleValues
                   for (let n = 0; n < values.length; n++) {
                     let value = values[n]
                     let valueObject = propertyObject[value]
                     if (codeValue === value) {
-                      operator.valuePicker.setSelected(values, propertyObject, productObject, n)
+                      algebraOperand.valuePicker.setSelected(values, propertyObject, productObject, n)
                     }
                   }
                 }
@@ -264,7 +380,7 @@ function newConditionEditor () {
                 let timeFrame = timeFrames[m]
                 let timeFrameObject = productObject.validTimeFrames[timeFrame]
                 if (codeTimeFrame === timeFrame) {
-                  operator.timeFramePicker.setSelected(timeFrames, productObject, botObject, m)
+                  algebraOperand.timeFramePicker.setSelected(timeFrames, productObject, botObject, m)
                 }
               }
             }
@@ -337,185 +453,142 @@ function newConditionEditor () {
         selector[dataMineName] = undefined
       }
     }
-    operatorA.selector = JSON.parse(JSON.stringify(selector))
-    operatorB.selector = JSON.parse(JSON.stringify(selector))
+    scanResult = JSON.parse(JSON.stringify(selector))
   }
 
-  function initializePickers () {
-    initializeOperator(operatorA, -1)
-    initializeOperator(operatorB, 1)
+  function convertToCode () {
+    // if (comparisonOperatorA === undefined || comparisonOperatorB === undefined || comparisonPicker === undefined) { return }
 
-    operationPicker = newPicker()
-    operationPicker.name = 'Data Mine'
-    operationPicker.container.connectToParent(thisObject.container)
-    operationPicker.container.frame.position.x = 0 - operationPicker.container.frame.width / 2
-    operationPicker.container.frame.position.y = 0 - operationPicker.container.frame.height / 2
-    current = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
-    operationPicker.initialize(current, current)
+    // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
+    /*
+    let code = ''
 
-    operationPicker.eventSuscriptionId = operationPicker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
-  }
+    code = code + 'chart.at' + comparisonOperatorA.timeFramePicker.getSelected().replace('-', '')
+    code = code + '.' + comparisonOperatorA.productPicker.getSelected()
+    insertWhen(comparisonOperatorA)
+    code = code + '.' + comparisonOperatorA.propertyPicker.getSelected()
 
-  function initializeOperator (operator, ySign) {
-    let properties
-    let parent
-    let current
+    switch (comparisonPicker.getSelected()) {
+      case 'Greater Than': {
+        code = code + ' > '
+        break
+      }
+      case 'Less Than': {
+        code = code + ' < '
+        break
+      }
+      case 'Greater or Equal Than': {
+        code = code + ' >= '
+        break
+      }
+      case 'Less or Equal Than': {
+        code = code + ' <= '
+        break
+      }
+      case 'Equal To': {
+        code = code + ' === '
+        break
+      }
+    }
 
-    operator.whenPicker = newPicker()
-    operator.whenPicker.name = 'When'
-    operator.whenPicker.container.connectToParent(thisObject.container)
-    operator.whenPicker.container.frame.position.x = 0 - operator.whenPicker.container.frame.width / 2 - operator.whenPicker.container.frame.width * 1.0
-    operator.whenPicker.container.frame.position.y = 0 - operator.whenPicker.container.frame.height / 2 + operator.whenPicker.container.frame.height * ySign
-    current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
-    operator.whenPicker.initialize(current, current)
-    operator.whenPicker.visible = true
+    if (comparisonPicker.getSelected() === 'Equal To') {
+      code = code + '"' + comparisonOperatorA.valuePicker.getSelected() + '"'
+    } else {
+      code = code + 'chart.at' + comparisonOperatorB.timeFramePicker.getSelected().replace('-', '')
+      code = code + '.' + comparisonOperatorB.productPicker.getSelected()
+      insertWhen(comparisonOperatorB)
+      code = code + '.' + comparisonOperatorB.propertyPicker.getSelected()
+    }
 
-    operator.algebraicPicker = newPicker()
-    operator.algebraicPicker.name = 'Algebraic'
-    operator.algebraicPicker.container.connectToParent(thisObject.container)
-    operator.algebraicPicker.container.frame.position.x = 0 - operator.algebraicPicker.container.frame.width / 2 + operator.algebraicPicker.container.frame.width * 3.0
-    operator.algebraicPicker.container.frame.position.y = 0 - operator.algebraicPicker.container.frame.height / 2 + operator.algebraicPicker.container.frame.height * ySign
-    current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
-    operator.algebraicPicker.initialize(current, current)
-    operator.algebraicPicker.visible = true
+    thisObject.payload.node.code = code
 
-    operator.dataMinePicker = newPicker()
-    operator.dataMinePicker.name = 'Data Mine'
-    operator.dataMinePicker.container.connectToParent(thisObject.container)
-    operator.dataMinePicker.container.frame.position.x = 0 - operator.dataMinePicker.container.frame.width / 2 - operator.dataMinePicker.container.frame.width * 3.0
-    operator.dataMinePicker.container.frame.position.y = 0 - operator.dataMinePicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
-    current = operator.selector
-    properties = Object.keys(current)
-    operator.dataMinePicker.initialize(properties, current)
-    parent = current
-    operator.dataMinePicker.visible = true
-
-    operator.botPicker = newPicker()
-    operator.botPicker.name = 'Bot'
-    operator.botPicker.container.connectToParent(thisObject.container)
-    operator.botPicker.container.frame.position.x = 0 - operator.botPicker.container.frame.width / 2 - operator.botPicker.container.frame.width * 2.0
-    operator.botPicker.container.frame.position.y = 0 - operator.botPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
-    current = parent[properties[0]]
-    properties = Object.keys(current)
-    operator.botPicker.initialize(properties, current, parent)
-    parent = current
-    operator.botPicker.visible = true
-
-    operator.productPicker = newPicker()
-    operator.productPicker.name = 'Product'
-    operator.productPicker.container.connectToParent(thisObject.container)
-    operator.productPicker.container.frame.position.x = 0 - operator.productPicker.container.frame.width / 2 + operator.productPicker.container.frame.width * 0.0
-    operator.productPicker.container.frame.position.y = 0 - operator.productPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
-    current = parent[properties[0]]
-    properties = Object.keys(current)
-    operator.productPicker.initialize(properties, current, parent)
-    parent = current
-    operator.productPicker.visible = true
-
-    let productParent = parent
-    let productProperties = properties
-
-    operator.propertyPicker = newPicker()
-    operator.propertyPicker.name = 'Property'
-    operator.propertyPicker.container.connectToParent(thisObject.container)
-    operator.propertyPicker.container.frame.position.x = 0 - operator.propertyPicker.container.frame.width / 2 + operator.propertyPicker.container.frame.width * 1.0
-    operator.propertyPicker.container.frame.position.y = 0 - operator.propertyPicker.container.frame.height / 2 + operator.dataMinePicker.container.frame.height * ySign
-    current = productParent[productProperties[0]]
-    current = current.properties
-    properties = Object.keys(current)
-    operator.propertyPicker.initialize(properties, current, productParent, 'properties')
-    parent = current
-    operator.propertyPicker.visible = true
-
-    operator.valuePicker = newPicker()
-    operator.valuePicker.name = 'Value'
-    operator.valuePicker.container.connectToParent(thisObject.container)
-    operator.valuePicker.container.frame.position.x = 0 - operator.valuePicker.container.frame.width / 2
-    operator.valuePicker.container.frame.position.y = 0 - operator.valuePicker.container.frame.height / 2 + operator.valuePicker.container.frame.height * 1
-    current = parent[properties[0]]
-    properties = current.possibleValues
-    operator.valuePicker.initialize(properties, current, parent, 'possibleValues')
-    parent = current
-    operator.valuePicker.visible = false
-
-    operator.timeFramePicker = newPicker()
-    operator.timeFramePicker.name = 'Time Frame'
-    operator.timeFramePicker.container.connectToParent(thisObject.container)
-    operator.timeFramePicker.container.frame.position.x = 0 - operator.timeFramePicker.container.frame.width / 2 + operator.timeFramePicker.container.frame.width * 2.0
-    operator.timeFramePicker.container.frame.position.y = 0 - operator.timeFramePicker.container.frame.height / 2 + operator.timeFramePicker.container.frame.height * ySign
-    current = productParent[productProperties[0]]
-    properties = current.validTimeFrames
-    operator.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
-    parent = current
-    operator.timeFramePicker.visible = true
-
-    operator.botPicker.eventSuscriptionId = operator.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', operator.botPicker.onParentChanged)
-    operator.productPicker.eventSuscriptionId = operator.botPicker.container.eventHandler.listenToEvent('onParentChanged', operator.productPicker.onParentChanged)
-    operator.propertyPicker.eventSuscriptionId = operator.productPicker.container.eventHandler.listenToEvent('onParentChanged', operator.propertyPicker.onParentChanged)
-    operator.valuePicker.eventSuscriptionId = operator.propertyPicker.container.eventHandler.listenToEvent('onParentChanged', operator.valuePicker.onParentChanged)
-    operator.timeFramePicker.eventSuscriptionId = operator.productPicker.container.eventHandler.listenToEvent('onParentChanged', operator.timeFramePicker.onParentChanged)
+    function insertWhen (operator) {
+      switch (operator.whenPicker.getSelected()) {
+        case 'Current': {
+          return
+        }
+        case '1 Previous': {
+          code = code + '.previous'
+          return
+        }
+        case '2 Previous': {
+          code = code + '.previous.previous'
+          return
+        }
+        case '3 Previous': {
+          code = code + '.previous.previous.previous'
+          return
+        }
+        case '4 Previous': {
+          code = code + '.previous.previous.previous.previous'
+          return
+        }
+        case '5 Previous': {
+          code = code + '.previous.previous.previous.previous.previous'
+          return
+        }
+      }
+    }
+    */
   }
 
   function finalizePickers () {
-    finalizeOperator(operatorA)
-    finalizeOperator(operatorB)
-
-    operatorA = undefined
-    operatorB = undefined
-
-    if (operationPicker !== undefined) {
-      operationPicker.container.eventHandler.stopListening(operationPicker.eventSuscriptionId)
-      operationPicker.finalize()
-      operationPicker = undefined
+    if (conditionStructure === undefined) { return }
+    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
+      let logicOperand = conditionStructure.orOperands[i]
+      finalizeOperator(logicOperand.comparison.operandA.algebra.operandA)
+      finalizeOperator(logicOperand.comparison.operandA.algebra.operandB)
+      finalizeOperator(logicOperand.comparison.operandB.algebra.operandA)
+      finalizeOperator(logicOperand.comparison.operandB.algebra.operandB)
     }
   }
 
-  function finalizeOperator (operator) {
-    if (operator === undefined) { return }
+  function finalizeOperator (operand) {
+    if (operand === undefined) { return }
 
-    if (operator.whenPicker !== undefined) {
-      operator.whenPicker.finalize()
-      operator.whenPicker = undefined
+    if (operand.whenPicker !== undefined) {
+      operand.whenPicker.finalize()
+      operand.whenPicker = undefined
     }
 
-    if (operator.algebraicPicker !== undefined) {
-      operator.algebraicPicker.finalize()
-      operator.algebraicPicker = undefined
+    if (operand.algebraicPicker !== undefined) {
+      operand.algebraicPicker.finalize()
+      operand.algebraicPicker = undefined
     }
 
-    if (operator.dataMinePicker !== undefined) {
-      operator.dataMinePicker.container.eventHandler.stopListening(operator.botPicker.eventSuscriptionId)
-      operator.dataMinePicker.finalize()
-      operator.dataMinePicker = undefined
+    if (operand.dataMinePicker !== undefined) {
+      operand.dataMinePicker.container.eventHandler.stopListening(operand.botPicker.eventSuscriptionId)
+      operand.dataMinePicker.finalize()
+      operand.dataMinePicker = undefined
     }
 
-    if (operator.botPicker !== undefined) {
-      operator.botPicker.container.eventHandler.stopListening(operator.productPicker.eventSuscriptionId)
-      operator.botPicker.finalize()
-      operator.botPicker = undefined
+    if (operand.botPicker !== undefined) {
+      operand.botPicker.container.eventHandler.stopListening(operand.productPicker.eventSuscriptionId)
+      operand.botPicker.finalize()
+      operand.botPicker = undefined
     }
 
-    if (operator.productPicker !== undefined) {
-      operator.productPicker.container.eventHandler.stopListening(operator.propertyPicker.eventSuscriptionId)
-      operator.productPicker.container.eventHandler.stopListening(operator.timeFramePicker.eventSuscriptionId)
-      operator.productPicker.finalize()
-      operator.productPicker = undefined
+    if (operand.productPicker !== undefined) {
+      operand.productPicker.container.eventHandler.stopListening(operand.propertyPicker.eventSuscriptionId)
+      operand.productPicker.container.eventHandler.stopListening(operand.timeFramePicker.eventSuscriptionId)
+      operand.productPicker.finalize()
+      operand.productPicker = undefined
     }
 
-    if (operator.propertyPicker !== undefined) {
-      operator.propertyPicker.container.eventHandler.stopListening(operator.valuePicker.eventSuscriptionId)
-      operator.propertyPicker.finalize()
-      operator.propertyPicker = undefined
+    if (operand.propertyPicker !== undefined) {
+      operand.propertyPicker.container.eventHandler.stopListening(operand.valuePicker.eventSuscriptionId)
+      operand.propertyPicker.finalize()
+      operand.propertyPicker = undefined
     }
 
-    if (operator.valuePicker !== undefined) {
-      operator.valuePicker.finalize()
-      operator.valuePicker = undefined
+    if (operand.valuePicker !== undefined) {
+      operand.valuePicker.finalize()
+      operand.valuePicker = undefined
     }
 
-    if (operator.timeFramePicker !== undefined) {
-      operator.timeFramePicker.finalize()
-      operator.timeFramePicker = undefined
+    if (operand.timeFramePicker !== undefined) {
+      operand.timeFramePicker.finalize()
+      operand.timeFramePicker = undefined
     }
   }
 
@@ -523,147 +596,41 @@ function newConditionEditor () {
     if (event.selected === 4) {
  // this means Equal To
 
-      operatorA.valuePicker.visible = true
-      operatorB.whenPicker.visible = false
-      operatorB.algebraicPicker.visible = false
-      operatorB.dataMinePicker.visible = false
-      operatorB.botPicker.visible = false
-      operatorB.productPicker.visible = false
-      operatorB.propertyPicker.visible = false
-      operatorB.timeFramePicker.visible = false
+      comparisonOperatorA.valuePicker.visible = true
+      comparisonOperatorB.whenPicker.visible = false
+      comparisonOperatorB.algebraicPicker.visible = false
+      comparisonOperatorB.dataMinePicker.visible = false
+      comparisonOperatorB.botPicker.visible = false
+      comparisonOperatorB.productPicker.visible = false
+      comparisonOperatorB.propertyPicker.visible = false
+      comparisonOperatorB.timeFramePicker.visible = false
     } else {
-      operatorA.valuePicker.visible = false
-      operatorB.whenPicker.visible = true
-      operatorB.algebraicPicker.visible = true
-      operatorB.dataMinePicker.visible = true
-      operatorB.botPicker.visible = true
-      operatorB.productPicker.visible = true
-      operatorB.propertyPicker.visible = true
-      operatorB.timeFramePicker.visible = true
+      comparisonOperatorA.valuePicker.visible = false
+      comparisonOperatorB.whenPicker.visible = true
+      comparisonOperatorB.algebraicPicker.visible = true
+      comparisonOperatorB.dataMinePicker.visible = true
+      comparisonOperatorB.botPicker.visible = true
+      comparisonOperatorB.productPicker.visible = true
+      comparisonOperatorB.propertyPicker.visible = true
+      comparisonOperatorB.timeFramePicker.visible = true
     }
   }
 
   function getContainer (point) {
     let container
     if (thisObject.visible === true) {
-      if (operationPicker !== undefined) {
-        container = operationPicker.getContainer(point)
+      if (conditionStructure === undefined) { return }
+
+      for (let i = 0; i < conditionStructure.orOperands.length; i++) {
+        let logicOperand = conditionStructure.orOperands[i]
+        container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandA)
         if (container !== undefined) { return container }
-      }
-
-      if (operatorA !== undefined) {
-        if (operatorA.whenPicker !== undefined) {
-          if (operatorA.whenPicker.visible === true) {
-            container = operatorA.whenPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.algebraicPicker !== undefined) {
-          if (operatorA.algebraicPicker.visible === true) {
-            container = operatorA.algebraicPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.dataMinePicker !== undefined) {
-          if (operatorA.dataMinePicker.visible === true) {
-            container = operatorA.dataMinePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.botPicker !== undefined) {
-          if (operatorA.botPicker.visible === true) {
-            container = operatorA.botPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.productPicker !== undefined) {
-          if (operatorA.productPicker.visible === true) {
-            container = operatorA.productPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.propertyPicker !== undefined) {
-          if (operatorA.propertyPicker.visible === true) {
-            container = operatorA.propertyPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.valuePicker !== undefined) {
-          if (operatorA.valuePicker.visible === true) {
-            container = operatorA.valuePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorA.timeFramePicker !== undefined) {
-          if (operatorA.timeFramePicker.visible === true) {
-            container = operatorA.timeFramePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-      }
-      if (operatorB !== undefined) {
-        if (operatorB.whenPicker !== undefined) {
-          if (operatorB.whenPicker.visible === true) {
-            container = operatorB.whenPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.algebraicPicker !== undefined) {
-          if (operatorB.algebraicPicker.visible === true) {
-            container = operatorB.algebraicPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.dataMinePicker !== undefined) {
-          if (operatorB.dataMinePicker.visible === true) {
-            container = operatorB.dataMinePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.botPicker !== undefined) {
-          if (operatorB.botPicker.visible === true) {
-            container = operatorB.botPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.productPicker !== undefined) {
-          if (operatorB.productPicker.visible === true) {
-            container = operatorB.productPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.propertyPicker !== undefined) {
-          if (operatorB.propertyPicker.visible === true) {
-            container = operatorB.propertyPicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.valuePicker !== undefined) {
-          if (operatorB.valuePicker.visible === true) {
-            container = operatorB.valuePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
-
-        if (operatorB.timeFramePicker !== undefined) {
-          if (operatorB.timeFramePicker.visible === true) {
-            container = operatorB.timeFramePicker.getContainer(point)
-            if (container !== undefined) { return container }
-          }
-        }
+        container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandB)
+        if (container !== undefined) { return container }
+        container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandA)
+        if (container !== undefined) { return container }
+        container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
+        if (container !== undefined) { return container }
       }
 
       if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -674,57 +641,66 @@ function newConditionEditor () {
     }
   }
 
+  function operandGetContainer (point, operand) {
+    let container
+    if (operand.whenPicker !== undefined) {
+      if (operand.whenPicker.visible === true) {
+        container = operand.whenPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.algebraicPicker !== undefined) {
+      if (operand.algebraicPicker.visible === true) {
+        container = operand.algebraicPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.dataMinePicker !== undefined) {
+      if (operand.dataMinePicker.visible === true) {
+        container = operand.dataMinePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.botPicker !== undefined) {
+      if (operand.botPicker.visible === true) {
+        container = operand.botPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.productPicker !== undefined) {
+      if (operand.productPicker.visible === true) {
+        container = operand.productPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.propertyPicker !== undefined) {
+      if (operand.propertyPicker.visible === true) {
+        container = operand.propertyPicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.valuePicker !== undefined) {
+      if (operand.valuePicker.visible === true) {
+        container = operand.valuePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+
+    if (operand.timeFramePicker !== undefined) {
+      if (operand.timeFramePicker.visible === true) {
+        container = operand.timeFramePicker.getContainer(point)
+        if (container !== undefined) { return container }
+      }
+    }
+  }
+
   function physics () {
-    thisObjectphysics()
-    operatorsPhysics(operatorA)
-    operatorsPhysics(operatorB)
-
-    if (operationPicker !== undefined) {
-      operationPicker.physics()
-    }
-  }
-
-  function selectionPhysics () {
-
-  }
-
-  function operatorsPhysics (operator) {
-    if (operator === undefined) { return }
-
-    if (operator.whenPicker !== undefined) {
-      operator.whenPicker.physics()
-    }
-
-    if (operator.algebraicPicker !== undefined) {
-      operator.algebraicPicker.physics()
-    }
-
-    if (operator.dataMinePicker !== undefined) {
-      operator.dataMinePicker.physics()
-    }
-
-    if (operator.botPicker !== undefined) {
-      operator.botPicker.physics()
-    }
-
-    if (operator.productPicker !== undefined) {
-      operator.productPicker.physics()
-    }
-
-    if (operator.propertyPicker !== undefined) {
-      operator.propertyPicker.physics()
-    }
-
-    if (operator.valuePicker !== undefined) {
-      operator.valuePicker.physics()
-    }
-
-    if (operator.timeFramePicker !== undefined) {
-      operator.timeFramePicker.physics()
-    }
-  }
-
-  function thisObjectphysics () {
 
   }
 
@@ -734,62 +710,65 @@ function newConditionEditor () {
   }
 
   function childrenDrawBackground () {
-    operatorDrawBackground(operatorA)
-    operatorDrawBackground(operatorB)
+    if (conditionStructure === undefined) { return }
 
-    if (operationPicker !== undefined) {
-      operationPicker.drawBackground()
+    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
+      let logicOperand = conditionStructure.orOperands[i]
+      operandDrawBackground(logicOperand.comparison.operandA.algebra.operandA)
+      operandDrawBackground(logicOperand.comparison.operandA.algebra.operandB)
+      operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
+      operandDrawBackground(logicOperand.comparison.operandB.algebra.operandB)
     }
   }
 
-  function operatorDrawBackground (operator) {
-    if (operator === undefined) { return }
+  function operandDrawBackground (operand) {
+    if (operand === undefined) { return }
 
-    if (operator.whenPicker !== undefined) {
-      if (operator.whenPicker.visible === true) {
-        operator.whenPicker.drawBackground()
+    if (operand.whenPicker !== undefined) {
+      if (operand.whenPicker.visible === true) {
+        operand.whenPicker.drawBackground()
       }
     }
 
-    if (operator.algebraicPicker !== undefined) {
-      if (operator.algebraicPicker.visible === true) {
-        operator.algebraicPicker.drawBackground()
+    if (operand.algebraicPicker !== undefined) {
+      if (operand.algebraicPicker.visible === true) {
+        operand.algebraicPicker.drawBackground()
       }
     }
 
-    if (operator.dataMinePicker !== undefined) {
-      if (operator.dataMinePicker.visible === true) {
-        operator.dataMinePicker.drawBackground()
+    if (operand.dataMinePicker !== undefined) {
+      if (operand.dataMinePicker.visible === true) {
+        operand.dataMinePicker.drawBackground()
       }
     }
 
-    if (operator.botPicker !== undefined) {
-      if (operator.botPicker.visible === true) {
-        operator.botPicker.drawBackground()
+    if (operand.botPicker !== undefined) {
+      if (operand.botPicker.visible === true) {
+        operand.botPicker.drawBackground()
       }
     }
 
-    if (operator.productPicker !== undefined) {
-      if (operator.productPicker.visible === true) {
-        operator.productPicker.drawBackground()
+    if (operand.productPicker !== undefined) {
+      if (operand.productPicker.visible === true) {
+        operand.productPicker.drawBackground()
       }
     }
 
-    if (operator.propertyPicker !== undefined) {
-      if (operator.propertyPicker.visible === true) {
-        operator.propertyPicker.drawBackground()
+    if (operand.propertyPicker !== undefined) {
+      if (operand.propertyPicker.visible === true) {
+        operand.propertyPicker.drawBackground()
       }
     }
 
-    if (operator.valuePicker !== undefined) {
-      if (operator.valuePicker.visible === true) {
-        operator.valuePicker.drawBackground()
+    if (operand.valuePicker !== undefined) {
+      if (operand.valuePicker.visible === true) {
+        operand.valuePicker.drawBackground()
       }
     }
 
-    if (operator.timeFramePicker !== undefined) {
-      if (operator.timeFramePicker.visible === true) {
-        operator.timeFramePicker.drawBackground()
+    if (operand.timeFramePicker !== undefined) {
+      if (operand.timeFramePicker.visible === true) {
+        operand.timeFramePicker.drawBackground()
       }
     }
   }
@@ -825,62 +804,65 @@ function newConditionEditor () {
   }
 
   function childrenDrawForeground () {
-    operatorDrawForeground(operatorA)
-    operatorDrawForeground(operatorB)
+    if (conditionStructure === undefined) { return }
 
-    if (operationPicker !== undefined) {
-      operationPicker.drawForeground()
+    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
+      let logicOperand = conditionStructure.orOperands[i]
+      operandDrawForeground(logicOperand.comparison.operandA.algebra.operandA)
+      operandDrawForeground(logicOperand.comparison.operandA.algebra.operandB)
+      operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
+      operandDrawForeground(logicOperand.comparison.operandB.algebra.operandB)
     }
   }
 
-  function operatorDrawForeground (operator) {
-    if (operator === undefined) { return }
+  function operandDrawForeground (operand) {
+    if (operand === undefined) { return }
 
-    if (operator.whenPicker !== undefined) {
-      if (operator.whenPicker.visible === true) {
-        operator.whenPicker.drawForeground()
+    if (operand.whenPicker !== undefined) {
+      if (operand.whenPicker.visible === true) {
+        operand.whenPicker.drawForeground()
       }
     }
 
-    if (operator.algebraicPicker !== undefined) {
-      if (operator.algebraicPicker.visible === true) {
-        operator.algebraicPicker.drawForeground()
+    if (operand.algebraicPicker !== undefined) {
+      if (operand.algebraicPicker.visible === true) {
+        operand.algebraicPicker.drawForeground()
       }
     }
 
-    if (operator.dataMinePicker !== undefined) {
-      if (operator.dataMinePicker.visible === true) {
-        operator.dataMinePicker.drawForeground()
+    if (operand.dataMinePicker !== undefined) {
+      if (operand.dataMinePicker.visible === true) {
+        operand.dataMinePicker.drawForeground()
       }
     }
 
-    if (operator.botPicker !== undefined) {
-      if (operator.botPicker.visible === true) {
-        operator.botPicker.drawForeground()
+    if (operand.botPicker !== undefined) {
+      if (operand.botPicker.visible === true) {
+        operand.botPicker.drawForeground()
       }
     }
 
-    if (operator.productPicker !== undefined) {
-      if (operator.productPicker.visible === true) {
-        operator.productPicker.drawForeground()
+    if (operand.productPicker !== undefined) {
+      if (operand.productPicker.visible === true) {
+        operand.productPicker.drawForeground()
       }
     }
 
-    if (operator.propertyPicker !== undefined) {
-      if (operator.propertyPicker.visible === true) {
-        operator.propertyPicker.drawForeground()
+    if (operand.propertyPicker !== undefined) {
+      if (operand.propertyPicker.visible === true) {
+        operand.propertyPicker.drawForeground()
       }
     }
 
-    if (operator.valuePicker !== undefined) {
-      if (operator.valuePicker.visible === true) {
-        operator.valuePicker.drawForeground()
+    if (operand.valuePicker !== undefined) {
+      if (operand.valuePicker.visible === true) {
+        operand.valuePicker.drawForeground()
       }
     }
 
-    if (operator.timeFramePicker !== undefined) {
-      if (operator.timeFramePicker.visible === true) {
-        operator.timeFramePicker.drawForeground()
+    if (operand.timeFramePicker !== undefined) {
+      if (operand.timeFramePicker.visible === true) {
+        operand.timeFramePicker.drawForeground()
       }
     }
   }

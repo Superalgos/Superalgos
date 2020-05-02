@@ -154,33 +154,64 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             return
         }
 
-        params = {}
-        params.VALUE = currentRecord.balanceA;
-        params.INIT_VALUE = currentRecord.initialBalanceA
-        params.MIN_VALUE = currentRecord.minimunBalanceA
-        params.MAX_VALUE = currentRecord.maximunBalanceA
-        params.ASSET_LABEL = 'Asset A'
-        params.ASSET_NAME = currentRecord.baseAsset
-        params.LEFT_OFFSET = X_AXIS
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 4
+        if (currentRecord.baseAsset === currentRecord.marketBaseAsset) {
+            params = {}
+            params.VALUE = currentRecord.balanceA;
+            params.INIT_VALUE = currentRecord.initialBalanceA
+            params.MIN_VALUE = currentRecord.minimunBalanceA
+            params.MAX_VALUE = currentRecord.maximunBalanceA
+            params.ASSET_LABEL = 'Base'
+            params.ASSET_NAME = currentRecord.baseAsset
+            params.LEFT_OFFSET = X_AXIS
+            params.POSITION_TAKEN = positionTaken
+            params.BASE_ASSET = currentRecord.baseAsset
+            params.DECIMALS = 4
 
-        paramsArray.push(params)
+            paramsArray.push(params)
 
-        params = {}
-        params.VALUE = currentRecord.balanceB;
-        params.MIN_VALUE = currentRecord.minimunBalanceB
-        params.INIT_VALUE = currentRecord.initialBalanceB
-        params.MAX_VALUE = currentRecord.maximunBalanceB
-        params.ASSET_LABEL = 'Asset B'
-        params.ASSET_NAME = currentRecord.quotedAsset
-        params.LEFT_OFFSET = X_AXIS
-        params.POSITION_TAKEN = positionTaken
-        params.BASE_ASSET = currentRecord.baseAsset
-        params.DECIMALS = 2
+            params = {}
+            params.VALUE = currentRecord.balanceB;
+            params.MIN_VALUE = currentRecord.minimunBalanceB
+            params.INIT_VALUE = currentRecord.initialBalanceB
+            params.MAX_VALUE = currentRecord.maximunBalanceB
+            params.ASSET_LABEL = 'Quoted'
+            params.ASSET_NAME = currentRecord.quotedAsset
+            params.LEFT_OFFSET = X_AXIS
+            params.POSITION_TAKEN = positionTaken
+            params.BASE_ASSET = currentRecord.baseAsset
+            params.DECIMALS = 2
 
-        paramsArray.push(params)
+            paramsArray.push(params)
+        } else {
+            params = {}
+            params.VALUE = currentRecord.balanceB;
+            params.INIT_VALUE = currentRecord.initialBalanceB
+            params.MIN_VALUE = currentRecord.minimunBalanceB
+            params.MAX_VALUE = currentRecord.maximunBalanceB
+            params.ASSET_LABEL = 'Base'
+            params.ASSET_NAME = currentRecord.baseAsset
+            params.LEFT_OFFSET = X_AXIS
+            params.POSITION_TAKEN = positionTaken
+            params.BASE_ASSET = currentRecord.baseAsset
+            params.DECIMALS = 4
+
+            paramsArray.push(params)
+
+            params = {}
+            params.VALUE = currentRecord.balanceA;
+            params.MIN_VALUE = currentRecord.minimunBalanceA
+            params.INIT_VALUE = currentRecord.initialBalanceA
+            params.MAX_VALUE = currentRecord.maximunBalanceA
+            params.ASSET_LABEL = 'Quoted'
+            params.ASSET_NAME = currentRecord.quotedAsset
+            params.LEFT_OFFSET = X_AXIS
+            params.POSITION_TAKEN = positionTaken
+            params.BASE_ASSET = currentRecord.baseAsset
+            params.DECIMALS = 2
+
+            paramsArray.push(params)
+        }
+
 
         thisObject.assetBalances.setParamsArray(paramsArray)
         thisObject.assetBalances.draw()

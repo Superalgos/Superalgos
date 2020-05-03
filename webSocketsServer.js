@@ -47,7 +47,7 @@
 
                     try {
                         if (LOG_INFO === true) {
-                            console.log('Message Received: ' + message)
+                            console.log('Message Received: ' + message.substring(0, 1000))
                         }
 
                         let messageArray = message.split('|*|')
@@ -58,7 +58,7 @@
 
                         if (origin === 'Web Browser') {
                             if (isNaN(nonce) || nonce === "") {
-                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message)
+                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce is not a Number. message = ' + message.substring(0, 1000))
                                 console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce is not a Number. nonce = ' + nonce)
                                 return
                             }
@@ -68,7 +68,7 @@
                             }
 
                             if (Number(nonce) < Number(lastNonce)) {
-                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message)
+                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. message = ' + message.substring(0, 1000))
                                 console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. nonce = ' + nonce)
                                 console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Nonce received is less than Last Nonce. lastNonce = ' + lastNonce)
                                 return
@@ -79,7 +79,7 @@
                             try {
                                 let jsonCheck = JSON.parse(messageToEventServer)
                             } catch (err) {
-                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message)
+                                console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. message = ' + message.substring(0, 1000))
                                 console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> Message received from the browser is not a valid JSON. messageToEventServer = ' + messageToEventServer)
                                 return
                             }
@@ -106,7 +106,7 @@
 
             console.log('Web Sockets Server Started.')
         } catch (err) {
-            console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> err.message = ' + err.message)
+            console.log('[ERROR] BackendServers -> Web Sockets Server -> run -> setUpWebSocketServer -> err.message = ' + err.message.substring(0, 1000))
         }
     }
 }

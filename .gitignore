@@ -13,6 +13,5 @@ bin/*
 /.nyc_output
 /coverage
 debug.log
-Windows-Superalgos-Desktop.exe
 package-lock.json
-MacOs-Superalgos-Desktop.app
+ 

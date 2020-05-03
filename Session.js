@@ -10,9 +10,11 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
+    function initialize(pProcessConfig, callBackFunction) {
         try {
             if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+
+            let telegramAPI
 
             /* Initialize this info so that everything is logged propeerly */
              
@@ -37,6 +39,7 @@
 
             /* Listen to event to start or stop the session. */
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
+            global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
  
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, runSession)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, stopSession)
@@ -45,66 +48,80 @@
             return
 
             function runSession(message) {
-                if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
-                /* We are going to run the Definition comming at the event. */
-                bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
-                bot.SESSION = JSON.parse(message.event.session)
-    
-                /* Set the folderName for logging, reports, context and data output */
-                let code
-                if (bot.SESSION.code !== undefined) {
-                    code = bot.SESSION.code
-                    if (code.folderName === undefined) {
-                        bot.SESSION.folderName = bot.SESSION.id
+                try {
+                    if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
+
+                    /* We are going to run the Definition comming at the event. */
+                    bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
+                    bot.SESSION = JSON.parse(message.event.session)
+                    bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
+
+                    /* Set the folderName for logging, reports, context and data output */
+                    let code
+                    if (bot.SESSION.code !== undefined) {
+                        code = bot.SESSION.code
+                        if (code.folderName === undefined) {
+                            bot.SESSION.folderName = bot.SESSION.id
+                        } else {
+                            bot.SESSION.folderName = code.folderName + "-" + bot.SESSION.id
+                        }
+                    }
+
+                    /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
+                    setValuesToUse(message)
+
+                    /* Set up Social Bots */
+                    initializeSocialBots()
+
+                    let allGood
+                    switch (bot.SESSION.type) {
+                        case 'Backtesting Session': {
+                            allGood = startBackTesting(message)
+                            break
+                        }
+                        case 'Live Trading Session': {
+                            allGood = startLiveTrading(message)
+                            break
+                        }
+                        case 'Fordward Testing Session': {
+                            allGood = startFordwardTesting(message)
+                            break
+                        }
+                        case 'Paper Trading Session': {
+                            allGood = startPaperTrading(message)
+                            break
+                        }
+                    }
+                    if (allGood === true) {
+                        bot.SESSION_STATUS = 'Idle'
+                        bot.STOP_SESSION = false
                     } else {
-                        bot.SESSION.folderName = code.folderName + "-" + bot.SESSION.id
+                        bot.STOP_SESSION = true
                     }
-                }
-
-                /* Set up Social Bots */
-                setUpSocialBots()
-
-                /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
-                setValuesToUse(message)
-                let allGood 
-                switch (bot.SESSION.type) {
-                    case 'Backtesting Session': {
-                        allGood = startBackTesting(message)
-                        break
-                    }
-                    case 'Live Trading Session': {
-                        allGood = startLiveTrading(message)
-                        break
-                    }
-                    case 'Fordward Testing Session': {
-                        allGood = startFordwardTesting(message)
-                        break
-                    }
-                    case 'Paper Trading Session': {
-                        allGood = startPaperTrading(message)
-                        break
-                    }
-                }
-                if (allGood === true) {
-                    bot.SESSION_STATUS = 'Idle'
-                    bot.STOP_SESSION = false
-                } else {
-                    bot.STOP_SESSION = true
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> runSession -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
             function stopSession(message) {
-                bot.STOP_SESSION = true
+                try {
+                    bot.STOP_SESSION = true
+                    finalizeSocialBots()
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> stopSession -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
             }
 
             function checkDatetimes() {
                 if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
                     bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
                 }
                 if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
                     bot.VALUES_TO_USE.timeRange.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
                 }
             }
@@ -133,13 +150,14 @@
                 bot.resumeExecution = false;
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
                 bot.hasTheBotJustStarted = true
+                pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
             }
 
             function startFordwardTesting(message) {
 
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return
                 }
@@ -166,6 +184,9 @@
                
                 bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
+
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
+
                 return true
             }
 
@@ -176,7 +197,29 @@
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
+            }
+
+            function getTimeFrameFromLabel(timeFrameLabel) {
+
+                for (let i = 0; i < global.marketFilesPeriods.length; i++) {
+                    let value = global.marketFilesPeriods[i][0]
+                    let label = global.marketFilesPeriods[i][1]
+
+                    if (timeFrameLabel === label) {
+                        return value
+                    }
+                }
+
+                for (let i = 0; i < global.dailyFilePeriods.length; i++) {
+                    let value = global.dailyFilePeriods[i][0]
+                    let label = global.dailyFilePeriods[i][1]
+
+                    if (timeFrameLabel === label) {
+                        return value
+                    }
+                }
             }
 
             function setValuesToUse(message) {
@@ -378,7 +421,7 @@
                 }
             }
 
-            function setUpSocialBots() {
+            function initializeSocialBots() {
 
                 if (bot.SESSION.socialBots !== undefined) {
                     if (bot.SESSION.socialBots.bots !== undefined) {
@@ -386,7 +429,7 @@
                             let socialBot = bot.SESSION.socialBots.bots[i]
                             if (socialBot.type === "Telegram Bot") {
                                 let code = socialBot.code
-                                socialBot.botInstance = setUpTelegramBot(code.botToken, code.chatId)                                    
+                                socialBot.botInstance = initializeTelegramBot(code.botToken, code.chatId)                                    
                             }
                         }
                     }
@@ -400,14 +443,14 @@
                                      
                                     if (socialBot.type === "Telegram Bot") {
                                         if (announcement.formulaValue !== undefined) {
-                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                                         } else {
-                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> Telegram API error -> err = " + err))
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                                         }
                                     }
                                    
                                 } catch (err) {
-                                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpSocialBots -> announce -> err = " + err.stack);
+                                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> err = " + err.stack);
                                 }
                             }
                         }
@@ -417,22 +460,36 @@
                 }
             }
 
-            function setUpTelegramBot(botToken, chatId) {
+            function finalizeSocialBots() {
+                if (bot.SESSION.socialBots === undefined) {return}
+                if (bot.SESSION.socialBots.bots !== undefined) {
+                    for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
+                        let socialBot = bot.SESSION.socialBots.bots[i]
+                        if (socialBot.type === "Telegram Bot") {
+                            let code = socialBot.code
+                            socialBot.botInstance = finalizeTelegramBot(code.chatId)
+                        }
+                    }
+                }
+            }
+
+            function initializeTelegramBot(botToken, chatId) {
                 /* Telegram Bot Initialization */
                 try {
                     const Telegraf = require('telegraf')
                     let telegramBot
                     telegramBot = new Telegraf(botToken)
-                    telegramBot.start((ctx) => ctx.reply('Hi! I am a Telegram Bot powered by Superalgos'))
-                    telegramBot.help((ctx) => ctx.reply('Send me a sticker'))
-                    telegramBot.on('sticker', (ctx) => ctx.reply('??'))
-                    telegramBot.hears('hi', (ctx) => ctx.reply('Hey there'))
+                    telegramBot.start((ctx) => ctx.reply('Hi! I am the Telegram Bot that will tell you what happens with your trading session.'))
+                    telegramBot.help((ctx) => ctx.reply('I can stop the session if you say STOP.'))
+                    telegramBot.hears('STOP', (ctx) => stopSession())
                     telegramBot.launch()
 
                     const Telegram = require('telegraf/telegram')
-                    let telegramAPI
+
                     telegramAPI = new Telegram(botToken)
-                    telegramAPI.sendMessage(chatId, bot.SESSION.type + " '" + bot.SESSION.name + "' was Started.").catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpTelegramBot -> Telegram API error -> err = " + err))
+
+                    const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started with an initial balance of " + " " + bot.VALUES_TO_USE.initialBalanceA + " " + bot.VALUES_TO_USE.baseAsset + "." 
+                    telegramAPI.sendMessage(chatId, messge ).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> Telegram API error -> err = " + err))
 
                     let botInstance = {
                         telegramBot: telegramBot,
@@ -441,9 +498,14 @@
                     }
                     return botInstance
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> setUpTelegramBot -> err = " + err.stack);
+                    parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> err = " + err.stack);
                 }
 
+            }
+
+            function finalizeTelegramBot(chatId) {
+                const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was stopped." 
+                telegramAPI.sendMessage(chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> Telegram API error -> err = " + err))
             }
  
         } catch (err) {

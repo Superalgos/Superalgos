@@ -526,6 +526,7 @@
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k] 
+                            if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Daily') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                             let currentElement = getElement(thisChart[pluralVariableName], candle, 'Daily' + '-' + mapKey + '-' + pluralVariableName)
@@ -534,6 +535,7 @@
                     }
                 }
 
+                /* Finding the Current Element on Market Files */
                 for (let j = 0; j < global.marketFilesPeriods.length; j++) {
 
                     let mapKey = marketFilesPeriods[j][1]
@@ -542,11 +544,38 @@
 
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
+                        if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Market') {continue}
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                         let currentElement = getElement(thisChart[pluralVariableName], candle, 'Market' + '-' + mapKey + '-' + pluralVariableName)
                         thisChart[singularVariableName] = currentElement
                     }
+                }
+
+                /* Finding the Current Element on Single Files */
+
+                function isItInside(elementWithTimestamp, elementWithBeginEnd) {
+                    if (elementWithTimestamp.timestamp >= elementWithBeginEnd.begin && elementWithTimestamp.timestamp <= elementWithBeginEnd.end) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+
+                let propertyName = 'atAnyTimeFrame' 
+                let thisChart = chart[propertyName]
+
+                for (let k = 0; k < dataDependencies.length; k++) {
+                    let dataDependencyNode = dataDependencies[k]
+                    if (dataDependencyNode.referenceParent.code.codeName !== 'Single-File') { continue }
+                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
+                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
+                    let elementArray = thisChart[pluralVariableName]
+                    let currentElement
+                    if (elementArray !== undefined) {
+                        currentElement = elementArray[elementArray.length - 1]
+                    }
+                    thisChart[singularVariableName] = currentElement
                 }
 
                 /* While we are processing the previous day. */
@@ -589,6 +618,7 @@
                 previousLoopingDay = loopingDay.valueOf()
 
                 /* If any of the needed data dependencies is missing for this particular candle, then we jump the candle*/
+                /*
                 for (let k = 0; k < dataDependencies.length; k++) {
                     let dataDependencyNode = dataDependencies[k]
                     let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
@@ -603,6 +633,7 @@
                         return
                     }
                 }
+                */
 
                 periods++;
                 days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
@@ -842,6 +873,28 @@
                                             }
                                         }
                                     }
+
+                                    /* move to phase events */
+                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                        if (moveToPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                                let situation = moveToPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                    if (condition.javascriptCode !== undefined) {
+                                                        newCondition(key, condition.javascriptCode, chart);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
 
@@ -904,6 +957,28 @@
 
                                                 if (condition.javascriptCode !== undefined) {
                                                     newCondition(key, condition.javascriptCode, chart);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    /* move to phase events */
+                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                        if (moveToPhaseEvent !== undefined) {
+
+                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                                let situation = moveToPhaseEvent.situations[k];
+
+                                                for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                    let condition = situation.conditions[m];
+                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                    if (condition.javascriptCode !== undefined) {
+                                                        newCondition(key, condition.javascriptCode, chart);
+                                                    }
                                                 }
                                             }
                                         }
@@ -984,6 +1059,28 @@
                                         }
                                     }
                                 }
+
+                                /* move to phase events */
+                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                    if (moveToPhaseEvent !== undefined) {
+
+                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                            let situation = moveToPhaseEvent.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode, chart);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -1047,6 +1144,28 @@
 
                                             if (condition.javascriptCode !== undefined) {
                                                 newCondition(key, condition.javascriptCode, chart);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                /* move to phase events */
+                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                                    if (moveToPhaseEvent !== undefined) {
+
+                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                            let situation = moveToPhaseEvent.situations[k];
+
+                                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                                let condition = situation.conditions[m];
+                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                                if (condition.javascriptCode !== undefined) {
+                                                    newCondition(key, condition.javascriptCode, chart);
+                                                }
                                             }
                                         }
                                     }
@@ -1387,6 +1506,7 @@
                     if (parentNode !== undefined) {
                         let phase = parentNode.stopLoss.phases[p];
 
+                        /* Check the next Phase Event. */
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {
 
@@ -1427,6 +1547,64 @@
 
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
+                                }
+                            }
+                        }
+
+                        /* Check the Move to Phase Events. */
+                        for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                            let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                            if (moveToPhaseEvent !== undefined) {
+
+                                for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                    let situation = moveToPhaseEvent.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                        let value = false
+                                        if (conditions.get(key) !== undefined) {
+                                            value = conditions.get(key).value;
+                                        }
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        let moveToPhase = moveToPhaseEvent.referenceParent
+                                        if (moveToPhase !== undefined) {
+                                            for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
+                                                if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
+                                                    stopLossPhase = q + 1
+                                                }
+                                            }
+                                        } else {
+                                            moveToPhaseEvent.error = "This Node needs to reference a Phase."
+                                            continue
+                                        }
+
+                                        stopLossStage = 'Manage Stage'
+                                        if (takeProfitPhase > 0) {
+                                            strategyStage = 'Manage Stage'
+                                            checkAnnouncements(manageStage, 'Take Profit')
+                                        }
+                                        
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.stopLossPhase = stopLossPhase;
+                                                yesterday.stopLossStage = stopLossStage;
+                                                yesterday.strategyStage = strategyStage;
+                                            }
+                                        }
+
+                                        checkAnnouncements(moveToPhaseEvent)
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -1522,6 +1700,7 @@
                         let phase = parentNode.takeProfit.phases[p];
                         if (phase === undefined) {return} // trying to jump to a phase that does not exists.
 
+                        /* Check the next Phase Event. */
                         let nextPhaseEvent = phase.nextPhaseEvent;
                         if (nextPhaseEvent !== undefined) {
 
@@ -1562,6 +1741,64 @@
 
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
+                                }
+                            }
+                        }
+
+                        /* Check the Move to Phase Events. */
+                        for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                            let moveToPhaseEvent = phase.moveToPhaseEvents[n];
+                            if (moveToPhaseEvent !== undefined) {
+
+                                for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+
+                                    let situation = moveToPhaseEvent.situations[k];
+                                    let passed = true;
+
+                                    for (let m = 0; m < situation.conditions.length; m++) {
+
+                                        let condition = situation.conditions[m];
+                                        let key = j + '-' + stageKey + initialDefinitionKey + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m;
+
+                                        let value = false
+                                        if (conditions.get(key) !== undefined) {
+                                            value = conditions.get(key).value;
+                                        }
+
+                                        if (value === false) { passed = false; }
+                                    }
+
+                                    if (passed) {
+
+                                        let moveToPhase = moveToPhaseEvent.referenceParent
+                                        if (moveToPhase !== undefined) {
+                                            for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
+                                                if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
+                                                    takeProfitPhase = q + 1
+                                                }
+                                            }
+                                        } else {
+                                            moveToPhaseEvent.error = "This Node needs to reference a Phase."
+                                            continue
+                                        }
+
+                                        takeProfitStage = 'Manage Stage'
+                                        if (stopLossPhase > 0) {
+                                            strategyStage = 'Manage Stage'
+                                            checkAnnouncements(manageStage, 'Stop')
+                                        }
+
+                                        if (processingDailyFiles) {
+                                            if (positionedAtYesterday) {
+                                                yesterday.takeProfitPhase = takeProfitPhase;
+                                                yesterday.takeProfitStage = takeProfitStage;
+                                                yesterday.strategyStage = strategyStage;
+                                            }
+                                        }
+
+                                        checkAnnouncements(moveToPhaseEvent)
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -2561,6 +2798,8 @@
                         maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
                         baseAsset: quotedBaseAsset,
                         quotedAsset: quotedQuotedAsset,
+                        marketBaseAsset: '"' + bot.market.baseAsset + '"',
+                        marketQuotedAsset: '"' + bot.market.quotedAsset +  '"' ,
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,
                         distanceToLastTriggerOn: distanceToLast.triggerOn,
@@ -2879,7 +3118,7 @@
             }
 
             function getElement(pArray, currentCandle, datasetName) {
-
+                if (pArray === undefined) {return}
                 try {
                     let element;
                     for (let i = 0; i < pArray.length; i++) {
@@ -2912,6 +3151,7 @@
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> datasetName = " + datasetName);
+                    logger.write(MODULE_NAME, "[ERROR] runSimulation -> getElement -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }

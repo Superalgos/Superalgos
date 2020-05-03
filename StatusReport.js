@@ -13,9 +13,11 @@
     let bot = BOT;
 
     let thisObject = {
+        networkNode: undefined,
         mainUtility: undefined,
         file: undefined,                    // Here we have the JSON object representing the file content.
         initialize: initialize,
+        finalize: finalize,
         load: load,
         save: save,
         status: undefined
@@ -30,7 +32,7 @@
     /* Storage account to be used here. */
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage = FILE_STORAGE.newFileStorage(logger);
+    let fileStorage  
 
     let sessionPath = ''
 
@@ -93,17 +95,6 @@
             statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
             statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
 
-            /* Let's see if the process is run monthly or not. */
-            if (statusDependencyNode.referenceParent.parentNode.code.startMode !== undefined) {
-                if (statusDependencyNode.referenceParent.parentNode.code.startMode.allMonths !== undefined) {
-                    if (statusDependencyNode.referenceParent.parentNode.code.startMode.oneMonth !== undefined) {
-                        if (statusDependencyNode.referenceParent.parentNode.code.startMode.allMonths.run === "true" || statusDependencyNode.referenceParent.parentNode.code.startMode.oneMonth.run === "true") {
-                            statusDependencyNode.processRunMonthly = true
-                        }
-                    }
-                }
-            }
-
             /* We retrieve the report main utility */
             if (statusDependencyNode.code !== undefined) {
                 if (statusDependencyNode.code.mainUtility !== undefined) {
@@ -122,12 +113,86 @@
                 sessionPath = bot.SESSION.folderName + "/"
             }
 
-            callBackFunction(global.DEFAULT_OK_RESPONSE);
+            /* Now we will see where do we need to fetch this status report from. */
+            let network = global.TASK_NETWORK
+            let processThisDependsOn = statusDependencyNode.referenceParent.parentNode
+
+            for (let i = 0; i < network.networkNodes.length; i++) {
+                let networkNode = network.networkNodes[i]
+               
+                if (checkThisBranch(networkNode.dataMining) === true) { return }
+                if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
+                if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
+
+                function checkThisBranch(branch) {
+                    if (branch === undefined) {return}
+                    for (let j = 0; j < branch.exchangeTasks.length; j++) {
+                        let exchangeTasks = branch.exchangeTasks[j]
+                        for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
+                            let taskManager = exchangeTasks.taskManagers[k]
+                            for (let m = 0; m < taskManager.tasks.length; m++) {
+                                let task = taskManager.tasks[m]
+                                if (task.bot !== undefined) {
+                                    for (let n = 0; n < task.bot.processes.length; n++) {
+                                        let process = task.bot.processes[n]
+                                        if (process.marketReference !== undefined) {
+                                            if (process.marketReference.referenceParent !== undefined) {
+                                                let market = process.marketReference.referenceParent
+                                                let currentProcessMarket = bot.processNode.marketReference.referenceParent
+                                                if (currentProcessMarket.id === market.id) {
+                                                    if (process.referenceParent !== undefined) {
+                                                        let processDefinition = process.referenceParent
+                                                        if (processThisDependsOn.id === processDefinition.id) {
+                                                            if (process.type === 'Trading Process Instance') {
+                                                                if (process.session !== undefined) {
+                                                                    if (bot.processNode.session.id !== process.session.id) {
+                                                                        continue
+                                                                    }
+                                                                } else {
+                                                                    continue
+                                                                }
+                                                            }
+
+                                                            /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
+
+                                                            thisObject.networkNode = networkNode
+                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+
+                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                                            return true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            logger.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine);
+
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
+    }
+
+    function finalize() {
+        fileStorage = undefined
+        thisObject.networkNode = undefined
+        bot = undefined
+        thisObject = undefined
     }
 
     function load(callBackFunction) {
@@ -153,7 +218,21 @@
 
             filePath += '/' + fileName
 
-            fileStorage.getTextFile(filePath, onFileReceived);
+            let canUserPrevious
+            /*
+            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not the latest one, because it might contain
+            transactioinal information related to the context of the operations the trading engine is doing.
+
+            On the contraty, if we are running a Sensor bot or an Indicator bot, we might, if necesary, use a previous version of a Status Report since
+            there will be no big impact, just some reprocessing.
+            */
+            if (bot.SESSION !== undefined) {
+                canUserPrevious = false
+            } else {
+                canUserPrevious = true
+            }
+
+            fileStorage.getTextFile(filePath, onFileReceived, undefined, canUserPrevious);
 
             function onFileReceived(err, text) {
 
@@ -198,6 +277,7 @@
                     */
 
                     logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message);
+                    logger.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text);
 
                     let customFail = {
                         result: global.CUSTOM_FAIL_RESPONSE.result,
@@ -241,7 +321,7 @@
             filePath += '/' + fileName
             let fileContent = JSON.stringify(thisObject.file);
 
-            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true);
 
             function onFileCreated(err) {
 

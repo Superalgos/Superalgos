@@ -17,7 +17,8 @@ exports.newDebugLog = function newDebugLog() {
         write: write,
         newInternalLoop: newInternalLoop,
         persist: persist,           // This method is executed at the end of each Main Loop.
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     };
 
     let accumulatedLog = "[";
@@ -37,6 +38,10 @@ exports.newDebugLog = function newDebugLog() {
         }
     }
 
+    function finalize() {
+        persist()
+    }
+
     function newInternalLoop(pBot, pProcess, date, percentage) {
         if (percentage === undefined) {
             percentage = ""
@@ -47,7 +52,7 @@ exports.newDebugLog = function newDebugLog() {
         if (date === undefined) { date = thisObject.bot.processDatetime }
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
-        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 20) + " " + strPad(pProcess, 30)
+        console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 30) + " " + strPad(pProcess, 30)
             + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10)) 
 
         persist();
@@ -61,9 +66,10 @@ exports.newDebugLog = function newDebugLog() {
 
     function persist() {
 
-        /* Here we actually write the content of the in-memory log to a blob */
+        /* Here we actually write the content of the in-memory log to a file */
 
         try {
+            if (accumulatedLog === "[") {return} // nothing to persist at the moment.
 
             internalLoopCounter++;
 
@@ -96,7 +102,9 @@ exports.newDebugLog = function newDebugLog() {
             writeLog();
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
-            thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+            if (contentToPersist.indexOf('[ERROR]') < 0) {
+                thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
+            }
             if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)

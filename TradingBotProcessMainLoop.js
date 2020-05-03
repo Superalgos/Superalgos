@@ -43,7 +43,7 @@
 
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(onSessionInitialized)
+                session.initialize(processConfig, onSessionInitialized)
 
                 function onSessionInitialized(err) {
                     callBackFunction(err);
@@ -124,8 +124,11 @@
                     }
 
                     /* For each loop we want to create a new log file. */
-
+                    if (logger !== undefined) {
+                        logger.finalize()
+                    }
                     logger = DEBUG_MODULE.newDebugLog();
+                    global.LOGGER_MAP.set(MODULE_NAME, logger)
                     logger.bot = bot;
                     logger.initialize();
 
@@ -158,8 +161,8 @@
 
                     /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + "  " + bot.sessionKey)
+                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
 
                     /* Checking if we need to need to emit any event */
 
@@ -288,6 +291,12 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
+
+                                            if (global.STOP_TASK_GRACEFULLY === true) {
+                                                loopControl()
+                                                return
+                                            }
+
                                             initializeStatusDependencies();
                                             return;
                                         }
@@ -694,6 +703,10 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
                                     processFramework.finalize()
                                     processFramework = undefined
+                                    dataDependencies.finalize()
+                                    dataDependencies = undefined
+                                    statusDependencies.finalize()
+                                    statusDependencies = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
@@ -792,8 +805,9 @@
                             processExecutionEvents.finish(onFinished);
 
                             function onFinished(err) {
-
                                 try {
+                                    processExecutionEvents.finalize()
+                                    processExecutionEvents = undefined
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents ->  onFinished -> Entering function."); }
 
@@ -902,12 +916,18 @@
                                         waitTime = processConfig.normalWaitTime
                                     }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000) + " seconds."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
                                     if (processConfig.deadWaitTime > 0) {
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitTime / 1000 + " seconds for next execution.")
+                                    let waitingTime = waitTime / 1000 / 60
+                                    let label = 'minute/s'
+                                    if (waitingTime < 1) {
+                                        waitingTime = waitTime / 1000
+                                        label = 'seconds'
+                                    }
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for next execution.")
                                     if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }

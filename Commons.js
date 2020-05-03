@@ -289,6 +289,35 @@
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
 
+        /*
+            We are going to build a map structure so that users can easily get the current object of
+            each data dependency based on the current element of the main data dependency. 
+            We will use as key for these maps the begin and end property, meaning only elements with exactly
+            the same begin and end property will be matched.
+        */
+
+        const PROPERTIES_COUNT = Object.keys(products).length
+
+        let dataDependencies = {}
+        if (PROPERTIES_COUNT > 1) { // only if we have secondary data dependencies.
+            for (let i = 1; i < PROPERTIES_COUNT; i++) {
+                let dataDependecyArray = Object.values(products)[i]
+                let dataDependencyName = Object.keys(products)[i]
+                let dataDependencyMap = new Map()
+                for (let j = 0; j < dataDependecyArray.length; j++) {
+                    let record = dataDependecyArray[j]
+                    let key = record.begin.toString() + '-' + record.end.toString()  
+                    dataDependencyMap.set(key, record)
+                }
+                dataDependencies[dataDependencyName] = dataDependencyMap
+            }
+        }
+
+        function getElement(dependencyName, currentRecordPrimaryDataDependency) {
+            let key = currentRecordPrimaryDataDependency.begin.toString() + '-' + currentRecordPrimaryDataDependency.end.toString()  
+            return dataDependencies[dependencyName].get(key)
+        }
+
         /* This is Initialization Code */
         if (dataBuildingProcedure.initialization !== undefined) {
             if (dataBuildingProcedure.initialization.javascriptCode !== undefined) {

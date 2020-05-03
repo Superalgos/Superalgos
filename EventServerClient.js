@@ -1,4 +1,4 @@
-﻿exports.newEventsServerClient = function newEventsServerClient() {
+﻿exports.newEventsServerClient = function newEventsServerClient(host, port) {
 
     const MODULE = "Task Server "
     const ERROR_LOG = true
@@ -19,7 +19,14 @@
 
     let WEB_SOCKETS_CLIENT
     const WEB_SOCKET = require('ws')
-    let port = process.env.WEB_SOCKETS_SERVER_PORT  
+
+    if (host === undefined) {
+        host = 'localhost'
+    }
+    if (port === undefined) {
+        port = process.env.WEB_SOCKETS_SERVER_PORT  
+    }
+     
 
     return thisObject
 
@@ -32,7 +39,7 @@
     function setuptWebSockets(callBackFunction) {
         try {
 
-            WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://localhost:' + port ) 
+            WEB_SOCKETS_CLIENT = new WEB_SOCKET('ws://' + host + ':' + port ) 
 
             WEB_SOCKETS_CLIENT.onerror = error => {
                 console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + JSON.stringify(error))

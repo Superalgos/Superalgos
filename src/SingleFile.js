@@ -16,7 +16,18 @@ function newSingleFile () {
 
   return thisObject
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, callBackFunction) {
+  function initialize (
+    pDataMine,
+    pBot,
+    pSession,
+    pProduct,
+    pDataset,
+    pExchange,
+    pMarket,
+    pHost,
+    pPort,
+    pEventsServerClient,
+    callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }
@@ -24,7 +35,7 @@ function newSingleFile () {
       let exchange = pExchange
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot)
+      fileCloud.initialize(pBot, pHost, pPort)
 
             /* Now we will get the file */
 

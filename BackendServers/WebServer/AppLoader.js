@@ -94,6 +94,7 @@ function newAppLoader() {
                 'FloatingSpace/ConfigEditor.js',
                 'FloatingSpace/ConditionEditor.js',
                 'FloatingSpace/FormulaEditor.js',
+                'FloatingSpace/Picker.js',
 
                 'Scales/RateScale.js',
                 'Scales/TimeScale.js',

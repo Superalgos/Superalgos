@@ -45,14 +45,14 @@ function newDailyFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, callBackFunction) {
+  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
       let exchange = pExchange
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot)
+      fileCloud.initialize(pBot, pHost, pPort)
 
       /* Some Validations */
       if (pDataset.code.validTimeFrames === undefined) {
@@ -114,7 +114,7 @@ function newDailyFiles () {
             if (pDataset.code.validTimeFrames.includes(periodName) === true) {
               let fileCursor = newFileCursor()
               fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, onInitialized)
+              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
               function onInitialized (err) {
                 try {
                   switch (err.result) {

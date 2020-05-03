@@ -117,17 +117,12 @@ function newUiObject () {
   let referenceLineCounter = 0
   let chainLineCounter = 0
 
+  let eventsServerClient
+
   return thisObject
 
   function finalize () {
-    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
-
-    if (eventSubscriptionIdOnRunning !== undefined) {
-      eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
-    }
-    if (eventSubscriptionIdOnStopped !== undefined) {
-      eventsServerClient.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
-    }
+    finalizeEventsServerClient()
 
     thisObject.container.eventHandler.stopListening(selfFocusEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(selfNotFocusEventSubscriptionId)
@@ -171,6 +166,19 @@ function newUiObject () {
     lastHeartBeat = undefined
 
     onRunningCallBackFunction = undefined
+  }
+
+  function finalizeEventsServerClient () {
+    if (eventsServerClient !== undefined) {
+      let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+
+      if (eventSubscriptionIdOnRunning !== undefined) {
+        eventsServerClient.stopListening(key, eventSubscriptionIdOnRunning, 'UiObject')
+      }
+      if (eventSubscriptionIdOnStopped !== undefined) {
+        eventsServerClient.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+      }
+    }
   }
 
   function initialize (payload, menuItemsInitialValues) {
@@ -257,7 +265,7 @@ function newUiObject () {
       if (container !== undefined) { return container }
     }
 
-    if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+    if (thisObject.container.frame.isThisPointHere(point, true, true) === true) {
       return thisObject.container
     } else {
       return undefined
@@ -750,14 +758,17 @@ function newUiObject () {
     }
   }
 
-  function run (callBackFunction) {
+  function run (pEventsServerClient, callBackFunction) {
+    finalizeEventsServerClient()
+    eventsServerClient = pEventsServerClient
+
     /* We setup the circular progress bar. */
     if (thisObject.circularProgressBar !== undefined) {
       thisObject.circularProgressBar.finalize()
     }
 
     thisObject.circularProgressBar = newCircularProgressBar()
-    thisObject.circularProgressBar.initialize(thisObject.payload)
+    thisObject.circularProgressBar.initialize(thisObject.payload, eventsServerClient)
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
@@ -1413,7 +1424,7 @@ function newUiObject () {
     let label
 
     if (radius > 6) {
-      const MAX_LABEL_LENGTH = 65
+      const MAX_LABEL_LENGTH = 100
 
       label = currentStatus
 

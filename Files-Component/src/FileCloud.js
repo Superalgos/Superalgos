@@ -17,12 +17,12 @@ function newFileCloud () {
     initialize: initialize
   }
 
-  let blobService
+  let fileStorage
 
   return thisObject
 
-  function initialize (pBot) {
-    blobService = newFileStorage()
+  function initialize (pBot, pHost, pPort) {
+    fileStorage = newFileStorage(pHost, pPort)
   }
 
   function getFile (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
@@ -121,7 +121,7 @@ function newFileCloud () {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> filePath = ' + filePath) }
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> fileName = ' + fileName) }
 
-          blobService.getBlobToText(filePath + '/' + fileName, undefined, onFileReceived)
+          fileStorage.getFileFromHost(filePath + '/' + fileName, onFileReceived)
 
           function onFileReceived (err, text, response) {
             try {

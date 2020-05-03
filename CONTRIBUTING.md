@@ -4,7 +4,7 @@ We are thrilled you are interested in contributing to this project. Your help ma
 
 Superalgos is a collective project, currently at a very early stage. We not only welcome contributions but may even choose to incentivize relevant contributions via the project's native crypto token, to be deployed in the near future.
 
-Please read the [Join the Dev Team]( https://superalgos.org/developers-join-dev-team.shtml) page in our website to learn more about how you may become a relevant member of the Superalgos Project and even make a living of contributing code.
+
 
 Contributions are deemed _voluntary work_, irrespective of the incentives that may be in place, and are subject to the conditions described in the software [LICENSE](LICENSE).
 

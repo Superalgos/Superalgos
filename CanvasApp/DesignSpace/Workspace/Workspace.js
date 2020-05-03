@@ -10,6 +10,7 @@ function newWorkspace () {
     container: undefined,
     enabled: false,
     nodeChildren: undefined,
+    eventsServerClients: new Map(),
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
@@ -93,11 +94,44 @@ function newWorkspace () {
         thisObject.workspaceNode = JSON.parse(savedWorkspace)
       }
       functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+      setupEventsServerClients()
       thisObject.enabled = true
 
       setInterval(saveWorkspace, 60000)
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+    }
+  }
+
+  function setupEventsServerClients () {
+    for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
+      let rootNode = thisObject.workspaceNode.rootNodes[i]
+
+      if (rootNode.type === 'Network') {
+        for (let j = 0; j < rootNode.networkNodes.length; j++) {
+          let networkNode = rootNode.networkNodes[j]
+
+          let host
+          let webSocketsPort
+          /* At this point the node does not have the payload property yet, that is why we have to do this manually */
+          try {
+            let code = JSON.parse(networkNode.code)
+            host = code.host
+            webSocketsPort = code.webSocketsPort
+          } catch (err) {
+            console.log('[ERROR] networkNode ' + networkNode.name + ' has an invalid configuration. Cannot know the host name and webSocketsPort.')
+            return
+          }
+
+          if (host === undefined) { host = 'localhost' }
+          if (webSocketsPort === undefined) { webSocketsPort = '8080' }
+
+          let eventsServerClient = newEventsServerClient(host, webSocketsPort, networkNode.name)
+          eventsServerClient.initialize()
+
+          thisObject.eventsServerClients.set(networkNode.id, eventsServerClient)
+        }
+      }
     }
   }
 
@@ -118,6 +152,17 @@ function newWorkspace () {
   }
 
   function saveWorkspace () {
+    /*  When there is an exception while loading the app, the rootNodes of the workspace get into null value. To avoid saving a corrupt staate we are going to verufy we are not in that situation before saving. */
+    let workspace = canvas.designSpace.workspace.workspaceNode
+
+    for (let i = 0; i < workspace.rootNodes.length; i++) {
+      let rootNode = workspace.rootNodes[i]
+      if (rootNode === null) {
+        canvas.cockpitSpace.setStatus('Could not save the Workspace. The state of the workspace in memory is corrupt, please reload the App.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        return
+      }
+    }
+
     let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
     if (Number(savedSessionTimestamp) !== sessionTimestamp) {
       canvas.cockpitSpace.setStatus('Could not save the Workspace. You have more that one instance of the Superlagos User Interface open at the same time. Plese close this instance as it is older than the others.', 150, canvas.cockpitSpace.statusTypes.WARNING)
@@ -130,6 +175,19 @@ function newWorkspace () {
   }
 
   function physics () {
+    eventsServerClientsPhysics()
+    replacingWorkspacePhysics()
+  }
+
+  function eventsServerClientsPhysics () {
+    thisObject.eventsServerClients.forEach(applyPhysics)
+
+    function applyPhysics (eventServerClient) {
+      eventServerClient.physics()
+    }
+  }
+
+  function replacingWorkspacePhysics () {
     if (thisObject.enabled !== true) { return }
 
     if (workingAtTask > 0) {
@@ -151,6 +209,7 @@ function newWorkspace () {
           break
         case 4:
           functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, true)
+          setupEventsServerClients()
           workingAtTask++
           break
         case 5:
@@ -359,9 +418,14 @@ function newWorkspace () {
         }
 
         break
+      case 'Debug Task':
+        {
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, true, callBackFunction)
+        }
+        break
       case 'Run Task':
         {
-          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, callBackFunction)
+          functionLibraryTaskFunctions.runTask(payload.node, functionLibraryProtocolNode, false, callBackFunction)
         }
         break
       case 'Stop Task':

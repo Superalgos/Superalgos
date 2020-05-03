@@ -26,18 +26,36 @@ global.CUSTOM_FAIL_RESPONSE = {
 };
 
 const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+global.LOGGER_MAP = new Map()
+global.SESSION_MAP = new Map()
 
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
-    process.exit(1)
+    global.EXIT_NODE_PROCESS()
 })
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
-    process.exit(1)
+    global.EXIT_NODE_PROCESS()
 })
+
+function finalizeLoggers() {
+    global.LOGGER_MAP.forEach(forEachLogger)
+
+    function forEachLogger(logger) {
+        logger.finalize()
+    }
+}
+
+function finalizeSessions() {
+    global.SESSION_MAP.forEach(forEachSession)
+
+    function forEachSession(session) {
+        global.EVENT_SERVER_CLIENT.raiseEvent(session, 'Stopped')
+    }
+}
 
 process.on('exit', function (code) {
 
@@ -69,7 +87,15 @@ process.on('message', message => {
     } 
 });
 
+
+let shuttingDownProcess = false
 global.EXIT_NODE_PROCESS = function exitProcess() {
+
+    if (shuttingDownProcess === true) { return }
+    shuttingDownProcess = true
+
+    /* Signal that all sessions are stopping. */
+    finalizeSessions()
 
     /* Cleaning Before Exiting. */
     clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
@@ -82,6 +108,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Stopped') // Meaning Process Stopped
     }
 
+    finalizeLoggers()
     //console.log("[INFO] Task Server -> " + global.TASK_NODE.name + " -> EXIT_NODE_PROCESS -> Task Server will stop in 10 seconds.");
 
     setTimeout(process.exit, 10000) // We will give 10 seconds to logs be written on file
@@ -125,12 +152,13 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
             function eventReceived(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition)
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
@@ -139,12 +167,13 @@ function preLoader() {
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
                 global.TASK_NODE = message
-                global.TASK_NODE = JSON.parse(message.event.definition) 
+                global.TASK_NODE = JSON.parse(message.event.taskDefinition)
+                global.TASK_NETWORK = JSON.parse(message.event.networkDefinition)
                 bootLoader()
             }
         } catch (err) {
             console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE -> ' + err.stack)
-            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE))
+            console.log('[ERROR] Task Server -> server -> preLoader -> global.TASK_NODE = ' + JSON.stringify(global.TASK_NODE).substring(0, 1000))
         }
     }
 }

@@ -34,6 +34,7 @@ function newFileCursor () {
   let timeFrame
   let beginDateRange
   let endDateRange
+  let eventsServerClient
 
   let finalized = false
 
@@ -61,6 +62,7 @@ function newFileCursor () {
       timeFrame = undefined
       beginDateRange = undefined
       endDateRange = undefined
+      eventsServerClient = undefined
 
       thisObject.files = undefined
       cursorDate = undefined
@@ -73,7 +75,23 @@ function newFileCursor () {
     }
   }
 
-  function initialize (pFileCloud, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pTimeFrame, pCursorDate, pCurrentTimeFrame, pBeginDateRange, pEndDateRange, callBackFunction) {
+  function initialize (
+    pFileCloud,
+    pDataMine,
+    pBot,
+    pSession,
+    pProduct,
+    pDataset,
+    pExchange,
+    pMarket,
+    pPeriodName,
+    pTimeFrame,
+    pCursorDate,
+    pCurrentTimeFrame,
+    pBeginDateRange,
+    pEndDateRange,
+    pEventsServerClient,
+    callBackFunction) {
     try {
       market = pMarket
       exchange = pExchange
@@ -88,6 +106,7 @@ function newFileCursor () {
       timeFrame = pTimeFrame
       beginDateRange = pBeginDateRange
       endDateRange = pEndDateRange
+      eventsServerClient = pEventsServerClient
 
       let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       let callerId = key + '-' + periodName + newUniqueId()

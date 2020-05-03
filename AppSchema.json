@@ -810,7 +810,7 @@
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
-                "relatedUiObject": "Javascript Code",
+                "relatedUiObject": "Condition",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -1245,7 +1245,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"ipAddress\": \"\", \n\"webPort\": \"\", \n\"webSocketsPort\": \"\"\n}"
+            "code": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34247\", \n\"webSocketsPort\": \"8080\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
@@ -1322,7 +1322,6 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
-        "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 1,
         "chainAttachesTo": {
@@ -1358,6 +1357,16 @@
                 "secondaryIcon": "stop",
                 "iconPathOn": "paper-plane",
                 "iconPathOff": "paper-plane",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Debug Task",
+                "label": "Debug",
+                "workingLabel": "Debugging",
+                "workDoneLabel": "Debug Request Sent",
+                "workFailedLabel": "Task Cannot be Debugged",
+                "iconPathOn": "status-dependency",
+                "iconPathOff": "status-dependency",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -2208,7 +2217,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-paper-trading",
         "properties": [
@@ -2293,7 +2302,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-forward-testing",
         "properties": [
@@ -2403,7 +2412,7 @@
             "compatibleTypes": "->Trading System->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Process Instance->"
+            "compatibleTypes": "->Trading Process Instance->"
         },
         "icon": "session-live-trading",
         "properties": [
@@ -4011,12 +4020,14 @@
             {
                 "name": "positionSize",
                 "type": "node",
-                "childType": "Position Size"
+                "childType": "Position Size",
+                "autoAdd": true
             },
             {
                 "name": "positionRate",
                 "type": "node",
-                "childType": "Position Rate"
+                "childType": "Position Rate",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "initialDefinition"
@@ -4370,7 +4381,8 @@
             {
                 "name": "formula",
                 "type": "node",
-                "childType": "Formula"
+                "childType": "Formula",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "positionSize"
@@ -4407,7 +4419,8 @@
             {
                 "name": "formula",
                 "type": "node",
-                "childType": "Formula"
+                "childType": "Formula",
+                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "positionRate"
@@ -4809,7 +4822,7 @@
             {
                 "action": "Send Webhook Test Message",
                 "label": "Send Test Message",
-                "workingLabel": "Seinding Message",
+                "workingLabel": "Sending Message",
                 "workDoneLabel": "Message Sent",
                 "workFailedLabel": "Message not Delived",
                 "iconPathOn": "paper-plane",
@@ -6095,7 +6108,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Mining->Testing Environmnet->Production Environment->Template Structure->"
+            "compatibleTypes": "->Data Mining->Testing Environment->Production Environment->Template Structure->"
         },
         "alternativeIcons": "Use Reference Parent",
         "title": [
@@ -6164,7 +6177,6 @@
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6218,16 +6230,9 @@
         "propertyNameAtParent": "testingEnvironment",
         "properties": [
             {
-                "name": "taskManagers",
-                "type": "array",
-                "childType": "Task Manager",
-                "autoAdd": true
-            },
-            {
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6281,16 +6286,9 @@
         "propertyNameAtParent": "productionEnvironment",
         "properties": [
             {
-                "name": "taskManagers",
-                "type": "array",
-                "childType": "Task Manager",
-                "autoAdd": true
-            },
-            {
                 "name": "exchangeTasks",
                 "type": "array",
                 "childType": "Exchange Tasks",
-                "autoAdd": true,
                 "monitorChildrenRunning": true
             }
         ]
@@ -6403,7 +6401,7 @@
             "compatibleTypes": "->Crypto Exchange->"
         },
         "chainAttachesTo": {
-            "compatibleTypes": "->Data Storage->"
+            "compatibleTypes": "->Session Based Data->"
         },
         "propertyNameAtParent": "exchangeSessions",
         "properties": [
@@ -6443,16 +6441,9 @@
         "propertyNameAtParent": "sessionBasedData",
         "properties": [
             {
-                "name": "sessionReferences",
-                "type": "array",
-                "childType": "Session Reference",
-                "autoAdd": true
-            },
-            {
                 "name": "exchangeSessions",
                 "type": "array",
-                "childType": "Exchange Sessions",
-                "autoAdd": true
+                "childType": "Exchange Sessions"
             }
         ]
     },

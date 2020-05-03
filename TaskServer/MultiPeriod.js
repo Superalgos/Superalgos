@@ -124,7 +124,7 @@
                     thisReport = statusReport.file;
 
                     if (thisReport.lastFile === undefined) {
-                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                        logger.write(MODULE_NAME, "[WARN] start -> getContextVariables -> Undefined Last File. -> thisReport = " + JSON.stringify(thisReport));
 
                         let customOK = {
                             result: global.CUSTOM_OK_RESPONSE.result,

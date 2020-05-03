@@ -2798,6 +2798,8 @@
                         maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
                         baseAsset: quotedBaseAsset,
                         quotedAsset: quotedQuotedAsset,
+                        marketBaseAsset: '"' + bot.market.baseAsset + '"',
+                        marketQuotedAsset: '"' + bot.market.quotedAsset +  '"' ,
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,
                         distanceToLastTriggerOn: distanceToLast.triggerOn,

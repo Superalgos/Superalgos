@@ -116,7 +116,11 @@
 
                     /* For each loop we want to create a new log file. */
 
+                    if (logger !== undefined) {
+                        logger.finalize()
+                    }
                     logger = DEBUG_MODULE.newDebugLog();
+                    global.LOGGER_MAP.set(MODULE_NAME, logger)
                     logger.bot = bot;
                     logger.initialize();
 
@@ -252,6 +256,12 @@
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
+
+                                            if (global.STOP_TASK_GRACEFULLY === true) {
+                                                loopControl()
+                                                return
+                                            }
+
                                             initializeStatusDependencies();
                                             return;
                                         }
@@ -776,10 +786,13 @@
                             function onFinished(err) {
 
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Entering function."); }
                                     processFramework.finalize()
                                     processFramework = undefined
+                                    dataDependencies.finalize()
+                                    dataDependencies = undefined
+                                    statusDependencies.finalize()
+                                    statusDependencies = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
@@ -876,10 +889,11 @@
                             processExecutionEvents.finish(onFinished);
 
                             function onFinished(err) {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents ->  onFinished -> Entering function."); }
+
+                                    processExecutionEvents.finalize()
+                                    processExecutionEvents = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {

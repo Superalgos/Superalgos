@@ -20,6 +20,7 @@ function newLayer () {
     plotterTypeIcon: undefined,
     baseAssetIcon: undefined,
     quotedAssetIcon: undefined,
+    networkNode: undefined,
     checkStatusAtShutDown: checkStatusAtShutDown,
     physics: physics,
     draw: draw,
@@ -128,6 +129,7 @@ function newLayer () {
     thisObject.plotterTypeIcon = undefined
     thisObject.baseAssetIcon = undefined
     thisObject.quotedAssetIcon = undefined
+    thisObject.networkNode = undefined
   }
 
   function initialize (callBackFunction) {
@@ -151,9 +153,10 @@ function newLayer () {
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
                         '->Layer->' +
-                        'Data Product->Single Market Data->' +
-                        'Session Independent Data->Session Based Data->' +
-                        'Session Reference->Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Data Product->Single Market Data->Exchange Data Products->' +
+                        'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
+                        'Data Storage->Network Node->' +
+                        'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +
@@ -186,6 +189,10 @@ function newLayer () {
       if (thisObject.definition.referenceParent.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.referenceParent.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode === undefined) { return }
 
        /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
@@ -195,6 +202,26 @@ function newLayer () {
       thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
       thisObject.market = thisObject.baseAsset.code.codeName + '/' + thisObject.quotedAsset.code.codeName
       thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
+
+      /* Some basic validations. */
+      if (thisObject.definition.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.type + ' ' + thisObject.definition.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
+      if (thisObject.definition.referenceParent.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.type + ' ' + thisObject.definition.referenceParent.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
+      if (thisObject.definition.referenceParent.referenceParent.referenceParent === undefined) {
+        console.log('[WARN] Could not start plotter because ' + thisObject.definition.referenceParent.referenceParent.type + ' ' + thisObject.definition.referenceParent.referenceParent.name + ' does not have a Reference Parent.')
+        callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+        return
+      }
+
       thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
 
       thisObject.exchangeIcon = getIcon(thisObject.exchange)
@@ -205,6 +232,12 @@ function newLayer () {
 
       thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
       thisObject.quotedAssetIcon = getIcon(thisObject.quotedAsset)
+
+      if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.type === 'Data Storage') {
+        thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode
+      } else {
+        thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
+      }
 
       function getIcon (node) {
         let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
@@ -525,7 +558,7 @@ function newLayer () {
     let label3 = thisObject.status.toUpperCase()
 
     if (label1 !== undefined) {
-      label1 = label1.substring(0, 22)
+      label1 = label1.substring(0, 30)
     }
 
     let backgroundColor = UI_COLOR.BLACK
@@ -545,9 +578,43 @@ function newLayer () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, 17, thisObject.container)
-    drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, 9, thisObject.container)
-    drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, 9, thisObject.container)
+    let parentLabel1FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
+    let parentLabel2FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label2FontSize')
+    let parentLabel3FontSize = loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
+
+    let label1FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
+    let label2FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label2FontSize')
+    let label3FontSize = loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
+
+    if (parentLabel1FontSize !== undefined) {
+      label1FontSize = parentLabel1FontSize
+    }
+    if (parentLabel2FontSize !== undefined) {
+      label2FontSize = parentLabel2FontSize
+    }
+    if (parentLabel3FontSize !== undefined) {
+      label3FontSize = parentLabel3FontSize
+    }
+
+    if (label1FontSize === undefined) {
+      if (label1.length > 20) {
+        label1FontSize = 12
+      } else {
+        label1FontSize = 15
+      }
+    }
+
+    if (label2FontSize === undefined) {
+      label2FontSize = 10
+    }
+
+    if (label3FontSize === undefined) {
+      label3FontSize = 9
+    }
+
+    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
+    drawLabel(label2, 1 / 2, 8.2 / 10, -5, 0, label2FontSize, thisObject.container)
+    drawLabel(label3, 1 / 2, 9.5 / 10, -5, 0, label3FontSize, thisObject.container)
 
     drawProgressBar(marketFileProgressBar, 1, -45)
     drawProgressBar(dailyFileProgressBar, 1, -46)

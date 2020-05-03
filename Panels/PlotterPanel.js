@@ -172,7 +172,7 @@ function newPlotterPanel () {
       }
 
       printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)
-      printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
+      printLabel(value, X_AXIS, UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction, false, true)
     }
   }
 }

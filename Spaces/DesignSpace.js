@@ -284,7 +284,8 @@ function newDesignSpace () {
       'arrangement-horizontal-bottom',
       'arrangement-vertical-right',
       'arrangement-vertical-left',
-      'arrangement-concave'
+      'arrangement-concave',
+      'move-to-phase-event'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

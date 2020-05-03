@@ -1,6 +1,5 @@
 let canvas
 let markets
-let eventsServerClient
 
 let APP_SCHEMA_MAP = new Map()
 let APP_SCHEMA_ARRAY = []
@@ -23,9 +22,7 @@ function newDashboard () {
   function start () {
     try {
       setBrowserEvents()
-
-      eventsServerClient = newEventsServerClient()
-      eventsServerClient.initialize(setUpAppSchema)
+      setUpAppSchema()
 
       function setUpAppSchema () {
         APP_SCHEMA_ARRAY = getAppSchema()
@@ -73,9 +70,22 @@ function newDashboard () {
   }
 
   function setBrowserEvents () {
-    window.onbeforeunload = onBrowserClosed
-    function onBrowserClosed () {
-      // canvas.designSpace.workspace.stopAllRunningTasks()
+    window.onbeforeunload = saveWorkspace
+
+    /* handles backspace and refresh(F5) from keyboard */
+    window.manageBackRefresh = function (event) {
+      var tag = event.target.tagName.toLowerCase()
+      if (event.keyCode == 8 && tag != 'input' && tag != 'textarea') { // Backbutton pressed
+        saveWorkspace()
+      } else if (event.keyCode == 116) { // F5 pressed
+        saveWorkspace()
+      }
+    }
+
+    window.addEventListener('keydown', window.manageBackRefresh)
+
+    function saveWorkspace () {
+      canvas.designSpace.workspace.save()
     }
   }
 }

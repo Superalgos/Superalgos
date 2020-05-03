@@ -12,23 +12,21 @@ function newTaskFunctions () {
 
   return thisObject
 
-  function runTask (node, functionLibraryProtocolNode, callBackFunction) {
-    /* Check if it is possible to Run or not */
-    if (node.bot === undefined) {
+  function runTask (node, functionLibraryProtocolNode, isDebugging, callBackFunction) {
+    if (validations(node) !== true) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       return
     }
-    if (node.bot.processes.length === 0) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-      return
-    }
+
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
     for (let i = 0; i < node.bot.processes.length; i++) {
       let process = node.bot.processes[i]
-      process.payload.uiObject.run()
+      process.payload.uiObject.run(eventsServerClient)
     }
 
-    let lightingPath = '->Task->' +
+    let taskLightingPath = '->Task->' +
     'Sensor Bot Instance->' +
     'Indicator Bot Instance->' +
     'Trading Bot Instance->' +
@@ -58,25 +56,48 @@ function newTaskFunctions () {
     'Trading Bot->' +
     'Data Mine->'
 
-    let definition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+    let taskDefinition = functionLibraryProtocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
+
+    let networkLightingPath = '->Network->Network Node->' +
+   'Data Storage->Session Independent Data->Exchange Data Products->' +
+   'Single Market Data->Data Product->Product Definition->' +
+   'Data Mining->Testing Environment->Production Environment->' +
+   'Exchange Tasks->Crypto Exchange->' +
+   'Task Manager->Task->' +
+   'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->' +
+   'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->' +
+   'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->' +
+   'Market Reference->Market->' +
+   'Process Definition->'
+
+    let networkDefinition = functionLibraryProtocolNode.getProtocolNode(networkNode.payload.parentNode, false, true, true, false, false, networkLightingPath)
 
     let event = {
       taskId: node.id,
       taskName: node.name,
-      definition: JSON.stringify(definition) // <-  We need to do this workaround in order no to send unescaped charactars to the taskManager.
+      taskDefinition: JSON.stringify(taskDefinition),
+      networkDefinition: JSON.stringify(networkDefinition)
     }
 
-    if (node.payload.parentNode === undefined) {
-      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+    if (isDebugging === true) {
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
       eventsServerClient.raiseEvent('Task Server', 'Debug Task Started', event)
       return
     }
 
-    node.payload.uiObject.run(callBackFunction)
+    node.payload.uiObject.run(eventsServerClient, callBackFunction)
     eventsServerClient.raiseEvent('Task Manager', 'Run Task', event)
   }
 
   function stopTask (node, functionLibraryProtocolNode, callBackFunction) {
+    if (validations(node) !== true) {
+      callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+      return
+    }
+
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    let eventsServerClient = canvas.designSpace.workspace.eventsServerClients.get(networkNode.id)
+
     let event = {
       taskId: node.id,
       taskName: node.name
@@ -92,6 +113,60 @@ function newTaskFunctions () {
       let process = node.bot.processes[i]
       process.payload.uiObject.stop()
     }
+  }
+
+  function validations (node) {
+    if (node.bot === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to have a Bot Instance.')
+      return
+    }
+    if (node.bot.processes.length === 0) {
+      node.payload.uiObject.setErrorMessage('Task Bot Instance needs to have al least once Process Instance.')
+      return
+    }
+
+    if (node.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Task Manager.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside Exchange Tasks.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Testing or Production Environment or a Data Mining node.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Network Node.')
+      return
+    }
+
+    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+      node.payload.uiObject.setErrorMessage('Task needs to be inside a Network.')
+      return
+    }
+
+    let networkNode = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
+      return
+    }
+
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'webPort') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
+      return
+    }
+
+    if (loadPropertyFromNodeConfig(networkNode.payload, 'webSocketsPort') === undefined) {
+      node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
+      return
+    }
+
+    return true
   }
 
   function runAllTasks (taskManager, functionLibraryProtocolNode) {

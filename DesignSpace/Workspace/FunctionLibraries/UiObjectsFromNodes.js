@@ -25,7 +25,7 @@ function newUiObjectsFromNodes () {
       blobService = newFileStorage()
 
       // if (node.code === undefined) {
-      node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Masters-WHB-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
+      node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
       // }
 
       let code = JSON.parse(node.code)
@@ -37,7 +37,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeDataMines.length; i++) {
         let name = includeDataMines[i]
-        blobService.getBlobToText('DataMines' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('DataMines' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
@@ -66,7 +66,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeTradingSystems.length; i++) {
         let name = includeTradingSystems[i]
-        blobService.getBlobToText('TradingSystems' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('TradingSystems' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
@@ -95,7 +95,7 @@ function newUiObjectsFromNodes () {
 
       for (let i = 0; i < includeSuperScripts.length; i++) {
         let name = includeSuperScripts[i]
-        blobService.getBlobToText('SuperScripts' + '/' + name, undefined, onFileReceived, true)
+        blobService.getFileFromHost('SuperScripts' + '/' + name, onFileReceived, true)
         function onFileReceived (err, text, response) {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             console.log('Cannot load included Data Mine ' + name + '. The workspace can not be loaded.')
@@ -251,6 +251,10 @@ function newUiObjectsFromNodes () {
                 }
               }
                 break
+            }
+          } else {
+            if (property.type === 'array') {
+              node[property.name] = []
             }
           }
         }
@@ -547,7 +551,9 @@ function newUiObjectsFromNodes () {
     if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
       if (node.savedPayload.uiObject.isRunning === true) {
         if (node.payload.parentNode !== undefined) {
-          tasksToRun.push(node)
+          if (tasksToRun !== undefined) { // it might be undefined when you are spawning a task that was running while backed up
+            tasksToRun.push(node)
+          }
         }
       }
     }
@@ -557,7 +563,9 @@ function newUiObjectsFromNodes () {
       if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Fordward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
         if (node.savedPayload.uiObject.isRunning === true) {
           if (node.payload.parentNode !== undefined) {
-            sessionsToRun.push(node)
+            if (sessionsToRun !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+              sessionsToRun.push(node)
+            }
           }
         }
       }

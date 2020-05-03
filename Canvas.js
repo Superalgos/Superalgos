@@ -130,8 +130,6 @@ function newCanvas () {
       animation.initialize()
 
       thisObject.animation = animation
-      /* Low Level Infraestructure First */
-      animation.addCallBackFunction('System Event Handler Physics', eventsServerClient.physics)
 
       /* Spcaces Physics */
       animation.addCallBackFunction('CockpitSpace Physics', thisObject.cockpitSpace.physics)
@@ -401,36 +399,44 @@ function newCanvas () {
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowLeft') {
       let displaceVector = canvas.floatingSpace.oneScreenLeft()
-      dragVector.downX = dragVector.downX + displaceVector.x
-      dragVector.downY = dragVector.downY + displaceVector.y
-      checkDrag()
+      if (displaceVector !== undefined) {
+        dragVector.downX = dragVector.downX + displaceVector.x
+        dragVector.downY = dragVector.downY + displaceVector.y
+        checkDrag()
+      }
       event.preventDefault()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowRight') {
       let displaceVector = canvas.floatingSpace.oneScreenRight()
-      dragVector.downX = dragVector.downX + displaceVector.x
-      dragVector.downY = dragVector.downY + displaceVector.y
-      checkDrag()
+      if (displaceVector !== undefined) {
+        dragVector.downX = dragVector.downX + displaceVector.x
+        dragVector.downY = dragVector.downY + displaceVector.y
+        checkDrag()
+      }
       event.preventDefault()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowUp') {
       let displaceVector = canvas.floatingSpace.oneScreenUp()
-      dragVector.downX = dragVector.downX + displaceVector.x
-      dragVector.downY = dragVector.downY + displaceVector.y
-      checkDrag()
+      if (displaceVector !== undefined) {
+        dragVector.downX = dragVector.downX + displaceVector.x
+        dragVector.downY = dragVector.downY + displaceVector.y
+        checkDrag()
+      }
       event.preventDefault()
       return
     }
 
     if ((event.ctrlKey === true || event.metaKey === true) && event.shiftKey === false && event.code === 'ArrowDown') {
       let displaceVector = canvas.floatingSpace.oneScreenDown()
-      dragVector.downX = dragVector.downX + displaceVector.x
-      dragVector.downY = dragVector.downY + displaceVector.y
-      checkDrag()
+      if (displaceVector !== undefined) {
+        dragVector.downX = dragVector.downX + displaceVector.x
+        dragVector.downY = dragVector.downY + displaceVector.y
+        checkDrag()
+      }
       event.preventDefault()
       return
     }

@@ -157,6 +157,17 @@ function newUiObjectConstructor () {
       }
     }
 
+    /* Default Values in case there was no way to set a value previous to this. */
+    if (floatingObject.angleToParent === undefined) {
+      floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_360
+    }
+    if (floatingObject.distanceToParent === undefined) {
+      floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
+    }
+    if (floatingObject.arrangementStyle === undefined) {
+      floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
+    }
+
     let uiObject = newUiObject()
     payload.uiObject = uiObject
     uiObject.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
@@ -243,7 +254,7 @@ function newUiObjectConstructor () {
       )
     menuItemsInitialValues.push(
       {
-        action: 'change Distance to Paarent',
+        action: 'Change Distance to Paarent',
         actionFunction: floatingObject.distanceToParentToggle,
         actionStatus: floatingObject.getDistanceToParent,
         currentStatus: true,
@@ -258,7 +269,7 @@ function newUiObjectConstructor () {
         )
     menuItemsInitialValues.push(
       {
-        action: 'change Arrangement Style',
+        action: 'Change Arrangement Style',
         actionFunction: floatingObject.arrangementStyleToggle,
         actionStatus: floatingObject.getArrangementStyle,
         currentStatus: true,
@@ -401,26 +412,26 @@ function newUiObjectConstructor () {
         if (nodeDefinition.editors.config === true) {
           uiObject.configEditor = newConfigEditor()
           uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.configEditor.initialize()
           uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.configEditor.initialize()
         }
         if (nodeDefinition.editors.code === true) {
           uiObject.codeEditor = newCodeEditor()
           uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.codeEditor.initialize()
           uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.codeEditor.initialize()
         }
         if (nodeDefinition.editors.formula === true) {
           uiObject.formulaEditor = newFormulaEditor()
           uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-          uiObject.formulaEditor.initialize()
           uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+          uiObject.formulaEditor.initialize()
         }
         if (nodeDefinition.editors.condition === true) {
           uiObject.conditionEditor = newConditionEditor()
           uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
+          uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, false, true, false, false, false, false)
           uiObject.conditionEditor.initialize()
-          uiObject.conditionEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
         }
       }
       if (nodeDefinition.addLeftIcons === true) {

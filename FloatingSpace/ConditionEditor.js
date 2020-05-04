@@ -285,7 +285,7 @@ function newConditionEditor () {
       algebraOperand.valuePicker = newPicker()
       algebraOperand.valuePicker.name = 'Value'
       algebraOperand.valuePicker.container.connectToParent(thisObject.container)
-      algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2
+      algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2 + algebraOperand.valuePicker.container.frame.width * 3.5
       algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = current.possibleValues

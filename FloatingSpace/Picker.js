@@ -25,7 +25,7 @@ function newPicker () {
   thisObject.container.frame.radius = 0
   thisObject.container.frame.position.x = 0
   thisObject.container.frame.position.y = 0
-  thisObject.container.frame.width = 100
+  thisObject.container.frame.width = 120
   thisObject.container.frame.height = 100
 
   let isMouseOver

@@ -230,8 +230,9 @@ function newConditionEditor () {
       algebraOperand.algebraicPicker = newPicker()
       algebraOperand.algebraicPicker.name = 'Algebraic'
       algebraOperand.algebraicPicker.container.connectToParent(thisObject.container)
-      algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 3.0
+      algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 2.5
       algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + yOffset
+      algebraOperand.algebraicPicker.container.frame.width = algebraOperand.algebraicPicker.container.frame.width / 2
       current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
       algebraOperand.algebraicPicker.initialize(current, current)
       algebraOperand.algebraicPicker.visible = true
@@ -300,6 +301,7 @@ function newConditionEditor () {
       algebraOperand.timeFramePicker.container.connectToParent(thisObject.container)
       algebraOperand.timeFramePicker.container.frame.position.x = 0 - algebraOperand.timeFramePicker.container.frame.width / 2 + algebraOperand.timeFramePicker.container.frame.width * 2.0
       algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + yOffset
+      algebraOperand.timeFramePicker.container.frame.width = algebraOperand.timeFramePicker.container.frame.width / 2
       current = productParent[productProperties[0]]
       properties = current.validTimeFrames
       algebraOperand.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')

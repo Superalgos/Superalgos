@@ -213,7 +213,7 @@ function newConditionEditor () {
         comparisonOperand.algebra.picker.visible = true
       }
 
-      if (algebraOperand.index === 1) {
+      if (comparisonOperand.index === 0 && algebraOperand.index === 1) {
         logicOperand.comparison.picker = newPicker()
         let picker = logicOperand.comparison.picker
         picker.name = 'Comparison'
@@ -222,7 +222,7 @@ function newConditionEditor () {
         picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
         let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
         picker.initialize(optionsList)
-        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, logicOperand)
       }
 
       algebraOperand.whenPicker = newPicker()
@@ -595,25 +595,28 @@ function newConditionEditor () {
     }
   }
 
-  function onParentChanged (event) {
+  function onParentChanged (event, logicOperand) {
     if (event.selected === 4) {
  // this means Equal To
 
-      comparisonOperatorA.valuePicker.visible = true
-      comparisonOperatorB.whenPicker.visible = false
-      comparisonOperatorB.dataMinePicker.visible = false
-      comparisonOperatorB.botPicker.visible = false
-      comparisonOperatorB.productPicker.visible = false
-      comparisonOperatorB.propertyPicker.visible = false
-      comparisonOperatorB.timeFramePicker.visible = false
+      logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = true
+      setVisibility(logicOperand.comparison.operandA.algebra.operandB, false)
+      setVisibility(logicOperand.comparison.operandB.algebra.operandA, false)
+      setVisibility(logicOperand.comparison.operandB.algebra.operandB, false)
     } else {
-      comparisonOperatorA.valuePicker.visible = false
-      comparisonOperatorB.whenPicker.visible = true
-      comparisonOperatorB.dataMinePicker.visible = true
-      comparisonOperatorB.botPicker.visible = true
-      comparisonOperatorB.productPicker.visible = true
-      comparisonOperatorB.propertyPicker.visible = true
-      comparisonOperatorB.timeFramePicker.visible = true
+      logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
+      setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
+      setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
+      setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+    }
+
+    function setVisibility (algebraOperand, isVisible) {
+      algebraOperand.whenPicker.visible = isVisible
+      algebraOperand.dataMinePicker.visible = isVisible
+      algebraOperand.botPicker.visible = isVisible
+      algebraOperand.productPicker.visible = isVisible
+      algebraOperand.propertyPicker.visible = isVisible
+      algebraOperand.timeFramePicker.visible = isVisible
     }
   }
 

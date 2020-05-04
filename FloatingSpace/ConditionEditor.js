@@ -213,6 +213,18 @@ function newConditionEditor () {
       let current
       let yOffset = (logicOperand.index - 1) * LOGIC_SEPARATION + (comparisonOperand.index - 0.5) * COMPARISON_SEPARATION + (algebraOperand.index - 0.5) * ALGEBRA_SEPARATION
 
+      if (algebraOperand.index === 0) {
+        comparisonOperand.algebra.picker = newPicker()
+        comparisonOperand.algebra.picker.name = 'Algebraic'
+        comparisonOperand.algebra.picker.container.connectToParent(thisObject.container)
+        comparisonOperand.algebra.picker.container.frame.position.x = 0 - comparisonOperand.algebra.picker.container.frame.width / 2 + comparisonOperand.algebra.picker.container.frame.width * 2.5
+        comparisonOperand.algebra.picker.container.frame.position.y = 0 - comparisonOperand.algebra.picker.container.frame.height / 2 + yOffset
+        comparisonOperand.algebra.picker.container.frame.width = comparisonOperand.algebra.picker.container.frame.width / 2
+        current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
+        comparisonOperand.algebra.picker.initialize(current, current)
+        comparisonOperand.algebra.picker.visible = true
+      }
+
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
       algebraOperand.whenPicker.container.connectToParent(thisObject.container)
@@ -221,16 +233,6 @@ function newConditionEditor () {
       current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
       algebraOperand.whenPicker.initialize(current, current)
       algebraOperand.whenPicker.visible = true
-
-      algebraOperand.algebraicPicker = newPicker()
-      algebraOperand.algebraicPicker.name = 'Algebraic'
-      algebraOperand.algebraicPicker.container.connectToParent(thisObject.container)
-      algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 2.5
-      algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + yOffset
-      algebraOperand.algebraicPicker.container.frame.width = algebraOperand.algebraicPicker.container.frame.width / 2
-      current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
-      algebraOperand.algebraicPicker.initialize(current, current)
-      algebraOperand.algebraicPicker.visible = true
 
       algebraOperand.dataMinePicker = newPicker()
       algebraOperand.dataMinePicker.name = 'Data Mine'
@@ -541,6 +543,11 @@ function newConditionEditor () {
       finalizeOperator(logicOperand.comparison.operandA.algebra.operandB)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandA)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandB)
+
+      logicOperand.comparison.operandA.algebra.picker.finalize()
+      logicOperand.comparison.operandB.algebra.picker.finalize()
+
+      logicOperand.comparison.picker.finalize()
     }
   }
 
@@ -550,11 +557,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       operand.whenPicker.finalize()
       operand.whenPicker = undefined
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      operand.algebraicPicker.finalize()
-      operand.algebraicPicker = undefined
     }
 
     if (operand.dataMinePicker !== undefined) {
@@ -599,7 +601,6 @@ function newConditionEditor () {
 
       comparisonOperatorA.valuePicker.visible = true
       comparisonOperatorB.whenPicker.visible = false
-      comparisonOperatorB.algebraicPicker.visible = false
       comparisonOperatorB.dataMinePicker.visible = false
       comparisonOperatorB.botPicker.visible = false
       comparisonOperatorB.productPicker.visible = false
@@ -608,7 +609,6 @@ function newConditionEditor () {
     } else {
       comparisonOperatorA.valuePicker.visible = false
       comparisonOperatorB.whenPicker.visible = true
-      comparisonOperatorB.algebraicPicker.visible = true
       comparisonOperatorB.dataMinePicker.visible = true
       comparisonOperatorB.botPicker.visible = true
       comparisonOperatorB.productPicker.visible = true
@@ -633,6 +633,12 @@ function newConditionEditor () {
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
         if (container !== undefined) { return container }
 
+        container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
+        if (container !== undefined) { return container }
+
+        container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
+        if (container !== undefined) { return container }
+
         container = logicOperand.comparison.picker.getContainer(point)
         if (container !== undefined) { return container }
       }
@@ -650,13 +656,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         container = operand.whenPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        container = operand.algebraicPicker.getContainer(point)
         if (container !== undefined) { return container }
       }
     }
@@ -723,7 +722,10 @@ function newConditionEditor () {
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandB)
 
-      logicOperand.comparison.picker.drawBackground
+      logicOperand.comparison.operandA.algebra.picker.drawBackground()
+      logicOperand.comparison.operandB.algebra.picker.drawBackground()
+
+      logicOperand.comparison.picker.drawBackground()
     }
   }
 
@@ -733,12 +735,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         operand.whenPicker.drawBackground()
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        operand.algebraicPicker.drawBackground()
       }
     }
 
@@ -819,7 +815,10 @@ function newConditionEditor () {
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandB)
 
-      logicOperand.comparison.picker.drawForeground
+      logicOperand.comparison.operandA.algebra.picker.drawForeground()
+      logicOperand.comparison.operandB.algebra.picker.drawForeground()
+
+      logicOperand.comparison.picker.drawForeground()
     }
   }
 
@@ -829,12 +828,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         operand.whenPicker.drawForeground()
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        operand.algebraicPicker.drawForeground()
       }
     }
 

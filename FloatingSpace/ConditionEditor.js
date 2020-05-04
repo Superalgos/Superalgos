@@ -82,12 +82,21 @@ function newConditionEditor () {
 
     /* LOGICAL ORs */
     let orArray = conditionStructure.code.split(' || ')
-    for (let j = 0; j < orArray.length; j++) {
+    for (let j = 0; j < 3; j++) {
       let logicOperand = {
         code: orArray[j],
         index: j,
-        comparison: {}
+        comparison: {},
+        visible: false
       }
+
+      if (logicOperand.code !== undefined) {
+        logicOperand.visible = true
+        logicOperand.operator = ' || '
+      } else {
+        logicOperand.code = ''
+      }
+
       checkComparison(logicOperand, j)
       conditionStructure.logicOperands.push(logicOperand)
     }
@@ -239,6 +248,28 @@ function newConditionEditor () {
         picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
       }
 
+      if (comparisonOperand.index === 1 && algebraOperand.index === 1 && logicOperand.index <= 1) {
+        logicOperand.picker = newPicker()
+        let picker = logicOperand.picker
+        picker.name = 'Logic'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
+        let optionsList = ['...', 'OR']
+        picker.initialize(optionsList)
+        if (logicOperand.operator === ' || ') {
+          picker.setSelected(undefined, undefined, undefined, 1)
+        }
+        picker.visible = true
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Logic'
+        }
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
+      }
+
       let visible = true
       if (algebraOperand.index === 1) { visible = false }
 
@@ -332,8 +363,15 @@ function newConditionEditor () {
     function updatePickers (logicOperand, comparisonOperand, algebraOperand) {
       let codeArray = algebraOperand.code.split('.')
 
-      let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
-      let codeProduct = codeArray[2]
+      let codeTimeFrame
+      if (codeArray[1] !== undefined) {
+        codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
+      }
+
+      let codeProduct
+      if (codeArray[2] !== undefined) {
+        codeProduct = codeArray[2]
+      }
 
       /* Parse When */
       let propertyDisplacement = 0
@@ -360,7 +398,11 @@ function newConditionEditor () {
       }
       algebraOperand.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
 
-      let codeProperty = codeArray[3 + propertyDisplacement]
+      let codeProperty
+      if (codeArray[3 + propertyDisplacement] !== undefined) {
+        codeProperty = codeArray[3 + propertyDisplacement]
+      }
+
       let codeValue = comparisonOperand.algebra.operandB.code.replace('"', '').replace('"', '')
 
       let dataMines = Object.keys(scanResult)
@@ -575,6 +617,11 @@ function newConditionEditor () {
         logicOperand.comparison.picker.container.eventHandler.stopListening(logicOperand.comparison.picker.eventSuscriptionId)
         logicOperand.comparison.picker.finalize()
       }
+
+      if (logicOperand.picker !== undefined) {
+        logicOperand.picker.container.eventHandler.stopListening(logicOperand.picker.eventSuscriptionId)
+        logicOperand.picker.finalize()
+      }
     }
   }
 
@@ -624,6 +671,30 @@ function newConditionEditor () {
 
   function onParentChanged (event, structureBranch) {
     let logicOperand = structureBranch.logicOperand
+
+    if (structureBranch.pickerName === 'Logic') {
+      if (event.selected === 0) {
+        if (logicOperand.index === 0) {
+          conditionStructure.logicOperands[1].visible = false
+          conditionStructure.logicOperands[2].visible = false
+        }
+        if (logicOperand.index === 1) {
+          conditionStructure.logicOperands[2].visible = false
+        }
+      } else {
+        if (logicOperand.index === 0) {
+          conditionStructure.logicOperands[1].visible = true
+
+          if (conditionStructure.logicOperands[1].picker.getSelected() !== '...') {
+            conditionStructure.logicOperands[2].visible = true
+          }
+        }
+        if (logicOperand.index === 1) {
+          conditionStructure.logicOperands[2].visible = true
+        }
+      }
+    }
+
     if (structureBranch.pickerName === 'Algebra') {
       if (event.selected === 0) {
         setVisibility(structureBranch.comparisonOperand.algebra.operandB, false)
@@ -660,6 +731,10 @@ function newConditionEditor () {
       }
     }
 
+    function setLogicOperanVisibility (logicOperand, isVisible) {
+
+    }
+
     function setVisibility (algebraOperand, isVisible) {
       algebraOperand.whenPicker.visible = isVisible
       algebraOperand.dataMinePicker.visible = isVisible
@@ -677,6 +752,8 @@ function newConditionEditor () {
 
       for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
         let logicOperand = conditionStructure.logicOperands[i]
+        if (logicOperand.visible !== true) { continue }
+
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandA)
         if (container !== undefined) { return container }
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandB)
@@ -698,6 +775,11 @@ function newConditionEditor () {
 
         if (container = logicOperand.comparison.picker.visible === true) {
           container = logicOperand.comparison.picker.getContainer(point)
+          if (container !== undefined) { return container }
+        }
+
+        if (container = logicOperand.picker.visible === true) {
+          container = logicOperand.picker.getContainer(point)
           if (container !== undefined) { return container }
         }
       }
@@ -776,6 +858,8 @@ function newConditionEditor () {
 
     for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
       let logicOperand = conditionStructure.logicOperands[i]
+      if (logicOperand.visible !== true) { continue }
+
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
@@ -794,6 +878,11 @@ function newConditionEditor () {
       if (logicOperand.comparison.picker !== undefined) {
         if (logicOperand.comparison.picker.visible === true) {
           logicOperand.comparison.picker.drawBackground()
+        }
+      }
+      if (logicOperand.picker !== undefined) {
+        if (logicOperand.picker.visible === true) {
+          logicOperand.picker.drawBackground()
         }
       }
     }
@@ -880,6 +969,8 @@ function newConditionEditor () {
 
     for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
       let logicOperand = conditionStructure.logicOperands[i]
+      if (logicOperand.visible !== true) { continue }
+
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
@@ -898,6 +989,11 @@ function newConditionEditor () {
       if (logicOperand.comparison.picker !== undefined) {
         if (logicOperand.comparison.picker.visible === true) {
           logicOperand.comparison.picker.drawForeground()
+        }
+      }
+      if (logicOperand.picker !== undefined) {
+        if (logicOperand.picker.visible === true) {
+          logicOperand.picker.drawForeground()
         }
       }
     }

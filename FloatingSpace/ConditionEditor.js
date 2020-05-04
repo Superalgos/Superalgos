@@ -202,23 +202,27 @@ function newConditionEditor () {
 
     function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
       /* Get the ySign */
-      let ySign
-      if (algebraOperand.index === 0) {
-        ySign = -1
+      let yComparisionSign
+      if (comparisonOperand.index === 0) {
+        yComparisionSign = -1
       }
-      if (algebraOperand.index === 1) {
-        ySign = 1
+      if (comparisonOperand.index === 1) {
+        yComparisionSign = 1
       }
 
+      const LOGIC_SEPARATION = 100
+      const COMPARISON_SEPARATION = 50
+      const ALGEBRA_SEPARATION = 50
       let properties
       let parent
       let current
+      let yOffset = (logicOperand.index - 1) * LOGIC_SEPARATION + yComparisionSign * COMPARISON_SEPARATION + (algebraOperand.index - 1) * ALGEBRA_SEPARATION
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
       algebraOperand.whenPicker.container.connectToParent(thisObject.container)
       algebraOperand.whenPicker.container.frame.position.x = 0 - algebraOperand.whenPicker.container.frame.width / 2 - algebraOperand.whenPicker.container.frame.width * 1.0
-      algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + algebraOperand.whenPicker.container.frame.height * ySign
+      algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + yOffset
       current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
       algebraOperand.whenPicker.initialize(current, current)
       algebraOperand.whenPicker.visible = true
@@ -227,7 +231,7 @@ function newConditionEditor () {
       algebraOperand.algebraicPicker.name = 'Algebraic'
       algebraOperand.algebraicPicker.container.connectToParent(thisObject.container)
       algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 3.0
-      algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + algebraOperand.algebraicPicker.container.frame.height * ySign
+      algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + yOffset
       current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
       algebraOperand.algebraicPicker.initialize(current, current)
       algebraOperand.algebraicPicker.visible = true
@@ -236,7 +240,7 @@ function newConditionEditor () {
       algebraOperand.dataMinePicker.name = 'Data Mine'
       algebraOperand.dataMinePicker.container.connectToParent(thisObject.container)
       algebraOperand.dataMinePicker.container.frame.position.x = 0 - algebraOperand.dataMinePicker.container.frame.width / 2 - algebraOperand.dataMinePicker.container.frame.width * 3.0
-      algebraOperand.dataMinePicker.container.frame.position.y = 0 - algebraOperand.dataMinePicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.dataMinePicker.container.frame.position.y = 0 - algebraOperand.dataMinePicker.container.frame.height / 2 + yOffset
       current = scanResult
       properties = Object.keys(current)
       algebraOperand.dataMinePicker.initialize(properties, current)
@@ -247,7 +251,7 @@ function newConditionEditor () {
       algebraOperand.botPicker.name = 'Bot'
       algebraOperand.botPicker.container.connectToParent(thisObject.container)
       algebraOperand.botPicker.container.frame.position.x = 0 - algebraOperand.botPicker.container.frame.width / 2 - algebraOperand.botPicker.container.frame.width * 2.0
-      algebraOperand.botPicker.container.frame.position.y = 0 - algebraOperand.botPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.botPicker.container.frame.position.y = 0 - algebraOperand.botPicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = Object.keys(current)
       algebraOperand.botPicker.initialize(properties, current, parent)
@@ -258,7 +262,7 @@ function newConditionEditor () {
       algebraOperand.productPicker.name = 'Product'
       algebraOperand.productPicker.container.connectToParent(thisObject.container)
       algebraOperand.productPicker.container.frame.position.x = 0 - algebraOperand.productPicker.container.frame.width / 2 + algebraOperand.productPicker.container.frame.width * 0.0
-      algebraOperand.productPicker.container.frame.position.y = 0 - algebraOperand.productPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.productPicker.container.frame.position.y = 0 - algebraOperand.productPicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = Object.keys(current)
       algebraOperand.productPicker.initialize(properties, current, parent)
@@ -272,7 +276,7 @@ function newConditionEditor () {
       algebraOperand.propertyPicker.name = 'Property'
       algebraOperand.propertyPicker.container.connectToParent(thisObject.container)
       algebraOperand.propertyPicker.container.frame.position.x = 0 - algebraOperand.propertyPicker.container.frame.width / 2 + algebraOperand.propertyPicker.container.frame.width * 1.0
-      algebraOperand.propertyPicker.container.frame.position.y = 0 - algebraOperand.propertyPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.propertyPicker.container.frame.position.y = 0 - algebraOperand.propertyPicker.container.frame.height / 2 + yOffset
       current = productParent[productProperties[0]]
       current = current.properties
       properties = Object.keys(current)
@@ -284,7 +288,7 @@ function newConditionEditor () {
       algebraOperand.valuePicker.name = 'Value'
       algebraOperand.valuePicker.container.connectToParent(thisObject.container)
       algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2
-      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + algebraOperand.valuePicker.container.frame.height * 1
+      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = current.possibleValues
       algebraOperand.valuePicker.initialize(properties, current, parent, 'possibleValues')
@@ -295,7 +299,7 @@ function newConditionEditor () {
       algebraOperand.timeFramePicker.name = 'Time Frame'
       algebraOperand.timeFramePicker.container.connectToParent(thisObject.container)
       algebraOperand.timeFramePicker.container.frame.position.x = 0 - algebraOperand.timeFramePicker.container.frame.width / 2 + algebraOperand.timeFramePicker.container.frame.width * 2.0
-      algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + algebraOperand.timeFramePicker.container.frame.height * ySign
+      algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + yOffset
       current = productParent[productProperties[0]]
       properties = current.validTimeFrames
       algebraOperand.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')

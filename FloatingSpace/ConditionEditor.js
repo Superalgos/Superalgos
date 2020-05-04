@@ -222,6 +222,7 @@ function newConditionEditor () {
         picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
         let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
         picker.initialize(optionsList)
+        picker.visible = true
         picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, logicOperand)
       }
 
@@ -286,7 +287,7 @@ function newConditionEditor () {
       algebraOperand.valuePicker.name = 'Value'
       algebraOperand.valuePicker.container.connectToParent(thisObject.container)
       algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2 + algebraOperand.valuePicker.container.frame.width * 3.5
-      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + yOffset
+      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + yOffset + ALGEBRA_SEPARATION
       current = parent[properties[0]]
       properties = current.possibleValues
       algebraOperand.valuePicker.initialize(properties, current, parent, 'possibleValues')
@@ -600,11 +601,15 @@ function newConditionEditor () {
  // this means Equal To
 
       logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = true
+      logicOperand.comparison.operandA.algebra.picker.visible = false
+      logicOperand.comparison.operandB.algebra.picker.visible = false
       setVisibility(logicOperand.comparison.operandA.algebra.operandB, false)
       setVisibility(logicOperand.comparison.operandB.algebra.operandA, false)
       setVisibility(logicOperand.comparison.operandB.algebra.operandB, false)
     } else {
       logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
+      logicOperand.comparison.operandA.algebra.picker.visible = true
+      logicOperand.comparison.operandB.algebra.picker.visible = true
       setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
       setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
       setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
@@ -636,14 +641,20 @@ function newConditionEditor () {
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
         if (container !== undefined) { return container }
 
-        container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
-        if (container !== undefined) { return container }
+        if (container = logicOperand.comparison.operandA.algebra.picker.visible === true) {
+          container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
+          if (container !== undefined) { return container }
+        }
 
-        container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
-        if (container !== undefined) { return container }
+        if (container = logicOperand.comparison.operandB.algebra.picker.visible === true) {
+          container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
+          if (container !== undefined) { return container }
+        }
 
-        container = logicOperand.comparison.picker.getContainer(point)
-        if (container !== undefined) { return container }
+        if (container = logicOperand.comparison.picker.visible === true) {
+          container = logicOperand.comparison.picker.getContainer(point)
+          if (container !== undefined) { return container }
+        }
       }
 
       if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -725,10 +736,21 @@ function newConditionEditor () {
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandB)
 
-      logicOperand.comparison.operandA.algebra.picker.drawBackground()
-      logicOperand.comparison.operandB.algebra.picker.drawBackground()
-
-      logicOperand.comparison.picker.drawBackground()
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandA.algebra.picker.visible === true) {
+          logicOperand.comparison.operandA.algebra.picker.drawBackground()
+        }
+      }
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandB.algebra.picker.visible === true) {
+          logicOperand.comparison.operandB.algebra.picker.drawBackground()
+        }
+      }
+      if (logicOperand.comparison.picker !== undefined) {
+        if (logicOperand.comparison.picker.visible === true) {
+          logicOperand.comparison.picker.drawBackground()
+        }
+      }
     }
   }
 
@@ -818,10 +840,21 @@ function newConditionEditor () {
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandB)
 
-      logicOperand.comparison.operandA.algebra.picker.drawForeground()
-      logicOperand.comparison.operandB.algebra.picker.drawForeground()
-
-      logicOperand.comparison.picker.drawForeground()
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandA.algebra.picker.visible === true) {
+          logicOperand.comparison.operandA.algebra.picker.drawForeground()
+        }
+      }
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandB.algebra.picker.visible === true) {
+          logicOperand.comparison.operandB.algebra.picker.drawForeground()
+        }
+      }
+      if (logicOperand.comparison.picker !== undefined) {
+        if (logicOperand.comparison.picker.visible === true) {
+          logicOperand.comparison.picker.drawForeground()
+        }
+      }
     }
   }
 

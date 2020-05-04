@@ -103,8 +103,14 @@ function newConditionEditor () {
 
     function checkComparison (logicOperand) {
     /* We are going to decompose the  code into 2 comparison operators */
-      logicOperand.comparison.operandA = { index: 0}
-      logicOperand.comparison.operandB = { index: 1}
+      logicOperand.comparison.operandA = {
+        index: 0,
+        code: ''
+      }
+      logicOperand.comparison.operandB = {
+        index: 1,
+        code: ''
+      }
 
       if (logicOperand.code.indexOf(' > ') > 0) {
         let codeArray = logicOperand.code.split(' > ')
@@ -763,24 +769,32 @@ function newConditionEditor () {
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
         if (container !== undefined) { return container }
 
-        if (container = logicOperand.comparison.operandA.algebra.picker.visible === true) {
-          container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
-          if (container !== undefined) { return container }
+        if (container = logicOperand.comparison.operandA.algebra.picker !== undefined) {
+          if (container = logicOperand.comparison.operandA.algebra.picker.visible === true) {
+            container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
         }
 
-        if (container = logicOperand.comparison.operandB.algebra.picker.visible === true) {
-          container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
-          if (container !== undefined) { return container }
+        if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+          if (container = logicOperand.comparison.operandB.algebra.picker.visible === true) {
+            container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
         }
 
-        if (container = logicOperand.comparison.picker.visible === true) {
-          container = logicOperand.comparison.picker.getContainer(point)
-          if (container !== undefined) { return container }
+        if (container = logicOperand.comparison.picker !== undefined) {
+          if (container = logicOperand.comparison.picker.visible === true) {
+            container = logicOperand.comparison.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
         }
 
-        if (container = logicOperand.picker.visible === true) {
-          container = logicOperand.picker.getContainer(point)
-          if (container !== undefined) { return container }
+        if (container = logicOperand.picker !== undefined) {
+          if (container = logicOperand.picker.visible === true) {
+            container = logicOperand.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
         }
       }
 

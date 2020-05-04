@@ -204,13 +204,20 @@ function newConditionEditor () {
 
       if (algebraOperand.index === 0) {
         comparisonOperand.algebra.picker = newPicker()
-        comparisonOperand.algebra.picker.name = 'Algebraic'
+        comparisonOperand.algebra.picker.name = 'Algebra'
         comparisonOperand.algebra.picker.container.connectToParent(thisObject.container)
         comparisonOperand.algebra.picker.container.frame.position.x = 0 - comparisonOperand.algebra.picker.container.frame.width / 2 + comparisonOperand.algebra.picker.container.frame.width * 2.5
         comparisonOperand.algebra.picker.container.frame.position.y = 0 - comparisonOperand.algebra.picker.container.frame.height / 2 + yOffset
         current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
         comparisonOperand.algebra.picker.initialize(current, current)
         comparisonOperand.algebra.picker.visible = true
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Algebra'
+        }
+        comparisonOperand.algebra.picker.eventSuscriptionId = comparisonOperand.algebra.picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
       }
 
       if (comparisonOperand.index === 0 && algebraOperand.index === 1) {
@@ -223,8 +230,17 @@ function newConditionEditor () {
         let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
         picker.initialize(optionsList)
         picker.visible = true
-        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, logicOperand)
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Comparison'
+        }
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
       }
+
+      let visible = true
+      if (algebraOperand.index === 1) { visible = false }
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
@@ -233,7 +249,7 @@ function newConditionEditor () {
       algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + yOffset
       current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
       algebraOperand.whenPicker.initialize(current, current)
-      algebraOperand.whenPicker.visible = true
+      algebraOperand.whenPicker.visible = visible
 
       algebraOperand.dataMinePicker = newPicker()
       algebraOperand.dataMinePicker.name = 'Data Mine'
@@ -244,7 +260,7 @@ function newConditionEditor () {
       properties = Object.keys(current)
       algebraOperand.dataMinePicker.initialize(properties, current)
       parent = current
-      algebraOperand.dataMinePicker.visible = true
+      algebraOperand.dataMinePicker.visible = visible
 
       algebraOperand.botPicker = newPicker()
       algebraOperand.botPicker.name = 'Bot'
@@ -255,7 +271,7 @@ function newConditionEditor () {
       properties = Object.keys(current)
       algebraOperand.botPicker.initialize(properties, current, parent)
       parent = current
-      algebraOperand.botPicker.visible = true
+      algebraOperand.botPicker.visible = visible
 
       algebraOperand.productPicker = newPicker()
       algebraOperand.productPicker.name = 'Product'
@@ -266,7 +282,7 @@ function newConditionEditor () {
       properties = Object.keys(current)
       algebraOperand.productPicker.initialize(properties, current, parent)
       parent = current
-      algebraOperand.productPicker.visible = true
+      algebraOperand.productPicker.visible = visible
 
       let productParent = parent
       let productProperties = properties
@@ -281,7 +297,7 @@ function newConditionEditor () {
       properties = Object.keys(current)
       algebraOperand.propertyPicker.initialize(properties, current, productParent, 'properties')
       parent = current
-      algebraOperand.propertyPicker.visible = true
+      algebraOperand.propertyPicker.visible = visible
 
       algebraOperand.valuePicker = newPicker()
       algebraOperand.valuePicker.name = 'Value'
@@ -304,7 +320,7 @@ function newConditionEditor () {
       properties = current.validTimeFrames
       algebraOperand.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
       parent = current
-      algebraOperand.timeFramePicker.visible = true
+      algebraOperand.timeFramePicker.visible = visible
 
       algebraOperand.botPicker.eventSuscriptionId = algebraOperand.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.botPicker.onParentChanged)
       algebraOperand.productPicker.eventSuscriptionId = algebraOperand.botPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.productPicker.onParentChanged)
@@ -545,10 +561,20 @@ function newConditionEditor () {
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandA)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandB)
 
-      logicOperand.comparison.operandA.algebra.picker.finalize()
-      logicOperand.comparison.operandB.algebra.picker.finalize()
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        logicOperand.comparison.operandA.algebra.picker.container.eventHandler.stopListening(logicOperand.comparison.operandA.algebra.picker.eventSuscriptionId)
+        logicOperand.comparison.operandA.algebra.picker.finalize()
+      }
 
-      logicOperand.comparison.picker.finalize()
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        logicOperand.comparison.operandB.algebra.picker.container.eventHandler.stopListening(logicOperand.comparison.operandB.algebra.picker.eventSuscriptionId)
+        logicOperand.comparison.operandB.algebra.picker.finalize()
+      }
+
+      if (logicOperand.comparison.picker !== undefined) {
+        logicOperand.comparison.picker.container.eventHandler.stopListening(logicOperand.comparison.picker.eventSuscriptionId)
+        logicOperand.comparison.picker.finalize()
+      }
     }
   }
 
@@ -596,23 +622,34 @@ function newConditionEditor () {
     }
   }
 
-  function onParentChanged (event, logicOperand) {
-    if (event.selected === 4) {
- // this means Equal To
+  function onParentChanged (event, structureBranch) {
+    let logicOperand = structureBranch.logicOperand
+    if (structureBranch.pickerName === 'Algebra') {
+      if (event.selected === 0) {
+        setVisibility(structureBranch.comparisonOperand.algebra.operandB, false)
+      } else {
+        setVisibility(structureBranch.comparisonOperand.algebra.operandB, true)
+      }
+    }
 
-      logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = true
-      logicOperand.comparison.operandA.algebra.picker.visible = false
-      logicOperand.comparison.operandB.algebra.picker.visible = false
-      setVisibility(logicOperand.comparison.operandA.algebra.operandB, false)
-      setVisibility(logicOperand.comparison.operandB.algebra.operandA, false)
-      setVisibility(logicOperand.comparison.operandB.algebra.operandB, false)
-    } else {
-      logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
-      logicOperand.comparison.operandA.algebra.picker.visible = true
-      logicOperand.comparison.operandB.algebra.picker.visible = true
-      setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
-      setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
-      setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+    if (structureBranch.pickerName === 'Comparison') {
+      if (event.selected === 4) {
+         // this means Equal To
+
+        logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = true
+        logicOperand.comparison.operandA.algebra.picker.visible = false
+        logicOperand.comparison.operandB.algebra.picker.visible = false
+        setVisibility(logicOperand.comparison.operandA.algebra.operandB, false)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandA, false)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandB, false)
+      } else {
+        logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
+        logicOperand.comparison.operandA.algebra.picker.visible = true
+        logicOperand.comparison.operandB.algebra.picker.visible = true
+        setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+      }
     }
 
     function setVisibility (algebraOperand, isVisible) {

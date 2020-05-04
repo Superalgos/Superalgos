@@ -137,17 +137,6 @@ function newConditionEditor () {
         logicOperand.comparison.operatorIndex = 4
       }
 
-      logicOperand.comparison.picker = newPicker()
-      let picker = logicOperand.comparison.picker
-      picker.name = 'Comparison'
-      picker.container.connectToParent(thisObject.container)
-      picker.container.frame.position.x = 0 - picker.container.frame.width / 2
-      picker.container.frame.position.y = 0 - picker.container.frame.height / 2
-      let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
-      picker.initialize(optionsList)
-
-      picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
-
     /* Each comparison code may have one or more algebraic operators */
       checkAlgebra(logicOperand, logicOperand.comparison.operandA)
       checkAlgebra(logicOperand, logicOperand.comparison.operandB)
@@ -219,10 +208,21 @@ function newConditionEditor () {
         comparisonOperand.algebra.picker.container.connectToParent(thisObject.container)
         comparisonOperand.algebra.picker.container.frame.position.x = 0 - comparisonOperand.algebra.picker.container.frame.width / 2 + comparisonOperand.algebra.picker.container.frame.width * 2.5
         comparisonOperand.algebra.picker.container.frame.position.y = 0 - comparisonOperand.algebra.picker.container.frame.height / 2 + yOffset
-        comparisonOperand.algebra.picker.container.frame.width = comparisonOperand.algebra.picker.container.frame.width / 2
         current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
         comparisonOperand.algebra.picker.initialize(current, current)
         comparisonOperand.algebra.picker.visible = true
+      }
+
+      if (algebraOperand.index === 1) {
+        logicOperand.comparison.picker = newPicker()
+        let picker = logicOperand.comparison.picker
+        picker.name = 'Comparison'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
+        let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
+        picker.initialize(optionsList)
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
       }
 
       algebraOperand.whenPicker = newPicker()

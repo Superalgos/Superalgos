@@ -204,22 +204,14 @@ function newConditionEditor () {
     }
 
     function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
-      /* Get the ySign */
-      let yComparisionSign
-      if (comparisonOperand.index === 0) {
-        yComparisionSign = -1
-      }
-      if (comparisonOperand.index === 1) {
-        yComparisionSign = 1
-      }
+      const ALGEBRA_SEPARATION = 60
+      const COMPARISON_SEPARATION = ALGEBRA_SEPARATION * 2
+      const LOGIC_SEPARATION = COMPARISON_SEPARATION * 2
 
-      const LOGIC_SEPARATION = 300
-      const COMPARISON_SEPARATION = 150
-      const ALGEBRA_SEPARATION = 50
       let properties
       let parent
       let current
-      let yOffset = (logicOperand.index - 1) * LOGIC_SEPARATION + yComparisionSign * COMPARISON_SEPARATION + (algebraOperand.index - 1) * ALGEBRA_SEPARATION
+      let yOffset = (logicOperand.index - 1) * LOGIC_SEPARATION + (comparisonOperand.index - 0.5) * COMPARISON_SEPARATION + (algebraOperand.index - 0.5) * ALGEBRA_SEPARATION
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'

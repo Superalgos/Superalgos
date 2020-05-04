@@ -646,9 +646,17 @@ function newConditionEditor () {
         logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
         logicOperand.comparison.operandA.algebra.picker.visible = true
         logicOperand.comparison.operandB.algebra.picker.visible = true
-        setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
-        setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
-        setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+        if (logicOperand.comparison.operandA.algebra.picker.getSelected() !== '...') {
+          setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
+        }
+
+        if (logicOperand.comparison.picker.getSelected() !== 'Equal To') {
+          setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
+        }
+
+        if (logicOperand.comparison.operandB.algebra.picker.getSelected() !== '...') {
+          setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+        }
       }
     }
 

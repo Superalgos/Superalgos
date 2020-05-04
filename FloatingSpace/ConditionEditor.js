@@ -54,7 +54,7 @@ function newConditionEditor () {
 
     conditionStructure = {
       code: thisObject.payload.node.code,
-      orOperands: []
+      logicOperands: []
     }
 
     scanDataMines()
@@ -75,6 +75,9 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
+    thisObject.payload.node.code = 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || '
+    thisObject.payload.node.code = thisObject.payload.node.code + 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin '
+
     if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
 
     /* LOGICAL ORs */
@@ -86,7 +89,7 @@ function newConditionEditor () {
         comparison: {}
       }
       checkComparison(logicOperand, j)
-      conditionStructure.orOperands.push(logicOperand)
+      conditionStructure.logicOperands.push(logicOperand)
     }
 
     function checkComparison (logicOperand) {
@@ -163,7 +166,7 @@ function newConditionEditor () {
       comparisonOperand.algebra.operatorIndex = 0
 
       if (comparisonOperand.code.indexOf(' + ') > 0) {
-        let codeArray = logicOperand.code.split(' + ')
+        let codeArray = comparisonOperand.code.split(' + ')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
         comparisonOperand.algebra.operator = ' + '
@@ -171,7 +174,7 @@ function newConditionEditor () {
       }
 
       if (comparisonOperand.code.indexOf(' - ') > 0) {
-        let codeArray = logicOperand.code.split(' - ')
+        let codeArray = comparisonOperand.code.split(' - ')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
         comparisonOperand.algebra.operator = ' - '
@@ -179,7 +182,7 @@ function newConditionEditor () {
       }
 
       if (comparisonOperand.code.indexOf(' * ') > 0) {
-        let codeArray = logicOperand.code.split(' * ')
+        let codeArray = comparisonOperand.code.split(' * ')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
         comparisonOperand.algebra.operator = ' * '
@@ -187,7 +190,7 @@ function newConditionEditor () {
       }
 
       if (comparisonOperand.code.indexOf(' / ') > 0) {
-        let codeArray = logicOperand.code.split(' / ')
+        let codeArray = comparisonOperand.code.split(' / ')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
         comparisonOperand.algebra.operator = ' / '
@@ -195,9 +198,9 @@ function newConditionEditor () {
       }
 
       initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
-      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandB)
       updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
-      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandB)
     }
 
     function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
@@ -210,8 +213,8 @@ function newConditionEditor () {
         yComparisionSign = 1
       }
 
-      const LOGIC_SEPARATION = 100
-      const COMPARISON_SEPARATION = 50
+      const LOGIC_SEPARATION = 300
+      const COMPARISON_SEPARATION = 150
       const ALGEBRA_SEPARATION = 50
       let properties
       let parent
@@ -540,8 +543,8 @@ function newConditionEditor () {
 
   function finalizePickers () {
     if (conditionStructure === undefined) { return }
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
       finalizeOperator(logicOperand.comparison.operandA.algebra.operandA)
       finalizeOperator(logicOperand.comparison.operandA.algebra.operandB)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandA)
@@ -627,8 +630,8 @@ function newConditionEditor () {
     if (thisObject.visible === true) {
       if (conditionStructure === undefined) { return }
 
-      for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-        let logicOperand = conditionStructure.orOperands[i]
+      for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+        let logicOperand = conditionStructure.logicOperands[i]
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandA)
         if (container !== undefined) { return container }
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandB)
@@ -636,6 +639,9 @@ function newConditionEditor () {
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandA)
         if (container !== undefined) { return container }
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
+        if (container !== undefined) { return container }
+
+        container = logicOperand.comparison.picker.getContainer(point)
         if (container !== undefined) { return container }
       }
 
@@ -718,12 +724,14 @@ function newConditionEditor () {
   function childrenDrawBackground () {
     if (conditionStructure === undefined) { return }
 
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandB)
+
+      logicOperand.comparison.picker.drawBackground
     }
   }
 
@@ -812,12 +820,14 @@ function newConditionEditor () {
   function childrenDrawForeground () {
     if (conditionStructure === undefined) { return }
 
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandB)
+
+      logicOperand.comparison.picker.drawForeground
     }
   }
 

@@ -75,9 +75,6 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
-    // thisObject.payload.node.code = 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || '
-    // thisObject.payload.node.code = thisObject.payload.node.code + 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin '
-
     if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
 
     /* LOGICAL ORs */
@@ -154,7 +151,7 @@ function newConditionEditor () {
         logicOperand.comparison.operatorIndex = 4
       }
 
-    /* Each comparison code may have one or more algebraic operators */
+    /* Each comparison code may have one or more algebra operators */
       checkAlgebra(logicOperand, logicOperand.comparison.operandA)
       checkAlgebra(logicOperand, logicOperand.comparison.operandB)
     }
@@ -165,7 +162,7 @@ function newConditionEditor () {
         operandB: { index: 1}
       }
 
-      /* The default situation is that there is no Algebraic operation, meaning we will setup a Algebraic operation only with operandA */
+      /* The default situation is that there is no algebra operation, meaning we will setup a algebra operation only with operandA */
       comparisonOperand.algebra.operandA.code = comparisonOperand.code
       comparisonOperand.algebra.operandB.code = ''
       comparisonOperand.algebra.operator = ' ... '
@@ -527,79 +524,122 @@ function newConditionEditor () {
   }
 
   function convertToCode () {
-    // if (comparisonOperatorA === undefined || comparisonOperatorB === undefined || comparisonPicker === undefined) { return }
+    if (conditionStructure === undefined) { return }
 
     // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
-    /*
+
     let code = ''
 
-    code = code + 'chart.at' + comparisonOperatorA.timeFramePicker.getSelected().replace('-', '')
-    code = code + '.' + comparisonOperatorA.productPicker.getSelected()
-    insertWhen(comparisonOperatorA)
-    code = code + '.' + comparisonOperatorA.propertyPicker.getSelected()
-
-    switch (comparisonPicker.getSelected()) {
-      case 'Greater Than': {
-        code = code + ' > '
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
+      logicOperandToCode(logicOperand)
+      if (logicOperand.picker.getSelected() !== 'OR') {
         break
+      } else {
+        code = code + ' || '
       }
-      case 'Less Than': {
-        code = code + ' < '
-        break
-      }
-      case 'Greater or Equal Than': {
-        code = code + ' >= '
-        break
-      }
-      case 'Less or Equal Than': {
-        code = code + ' <= '
-        break
-      }
-      case 'Equal To': {
-        code = code + ' === '
-        break
-      }
-    }
-
-    if (comparisonPicker.getSelected() === 'Equal To') {
-      code = code + '"' + comparisonOperatorA.valuePicker.getSelected() + '"'
-    } else {
-      code = code + 'chart.at' + comparisonOperatorB.timeFramePicker.getSelected().replace('-', '')
-      code = code + '.' + comparisonOperatorB.productPicker.getSelected()
-      insertWhen(comparisonOperatorB)
-      code = code + '.' + comparisonOperatorB.propertyPicker.getSelected()
     }
 
     thisObject.payload.node.code = code
 
-    function insertWhen (operator) {
-      switch (operator.whenPicker.getSelected()) {
-        case 'Current': {
-          return
+    function logicOperandToCode (logicOperand) {
+      algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandA)
+      if (logicOperand.comparison.operandA.algebra.picker.getSelected() !== '...') {
+        insertAlgebraOperator(logicOperand.comparison.operandA.algebra)
+        algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandB)
+      }
+
+      switch (logicOperand.comparison.picker.getSelected()) {
+        case 'Greater Than': {
+          code = code + ' > '
+          break
         }
-        case '1 Previous': {
-          code = code + '.previous'
-          return
+        case 'Less Than': {
+          code = code + ' < '
+          break
         }
-        case '2 Previous': {
-          code = code + '.previous.previous'
-          return
+        case 'Greater or Equal Than': {
+          code = code + ' >= '
+          break
         }
-        case '3 Previous': {
-          code = code + '.previous.previous.previous'
-          return
+        case 'Less or Equal Than': {
+          code = code + ' <= '
+          break
         }
-        case '4 Previous': {
-          code = code + '.previous.previous.previous.previous'
-          return
+        case 'Equal To': {
+          code = code + ' === '
+          break
         }
-        case '5 Previous': {
-          code = code + '.previous.previous.previous.previous.previous'
-          return
+      }
+
+      if (logicOperand.comparison.picker.getSelected() === 'Equal To') {
+        code = code + '"' + logicOperand.comparison.operandA.valuePicker.getSelected() + '"'
+      } else {
+        algebraOperandToCode(logicOperand.comparison.operandB.algebra.operandA)
+        if (logicOperand.comparison.operandB.algebra.picker.getSelected() !== '...') {
+          insertAlgebraOperator(logicOperand.comparison.operandB.algebra)
+          algebraOperandToCode(logicOperand.comparison.operandB.algebra.operandB)
+        }
+      }
+
+      function algebraOperandToCode (algebraOperand) {
+        code = code + 'chart.at' + algebraOperand.timeFramePicker.getSelected().replace('-', '')
+        code = code + '.' + algebraOperand.productPicker.getSelected()
+        insertWhen(algebraOperand)
+        code = code + '.' + algebraOperand.propertyPicker.getSelected()
+      }
+
+      function insertAlgebraOperator (algebra) {
+        switch (algebra.picker.getSelected()) {
+          case '...': {
+            return
+          }
+          case 'Plus': {
+            code = code + ' + '
+            return
+          }
+          case 'Minus': {
+            code = code + ' - '
+            return
+          }
+          case 'Times': {
+            code = code + ' * '
+            return
+          }
+          case 'Divided by': {
+            code = code + ' / '
+            return
+          }
+        }
+      }
+      function insertWhen (algebraOperand) {
+        switch (algebraOperand.whenPicker.getSelected()) {
+          case 'Current': {
+            return
+          }
+          case '1 Previous': {
+            code = code + '.previous'
+            return
+          }
+          case '2 Previous': {
+            code = code + '.previous.previous'
+            return
+          }
+          case '3 Previous': {
+            code = code + '.previous.previous.previous'
+            return
+          }
+          case '4 Previous': {
+            code = code + '.previous.previous.previous.previous'
+            return
+          }
+          case '5 Previous': {
+            code = code + '.previous.previous.previous.previous.previous'
+            return
+          }
         }
       }
     }
-    */
   }
 
   function finalizePickers () {

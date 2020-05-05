@@ -806,6 +806,13 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#condition",
         "menuItems": [
             {
+                "action": "Edit Condition",
+                "actionFunction": "uiObject.conditionEditor.activate",
+                "label": "Edit Condition",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "javascriptCode",

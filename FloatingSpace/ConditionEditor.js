@@ -75,7 +75,7 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
-    if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
+    if (thisObject.payload.node.code === undefined) { thisObject.payload.node.code = '' }
 
     /* LOGICAL ORs */
     let orArray = conditionStructure.code.split(' || ')
@@ -218,20 +218,39 @@ function newConditionEditor () {
 
       if (algebraOperand.index === 0) {
         comparisonOperand.algebra.picker = newPicker()
-        comparisonOperand.algebra.picker.name = 'Algebra'
-        comparisonOperand.algebra.picker.container.connectToParent(thisObject.container)
-        comparisonOperand.algebra.picker.container.frame.position.x = 0 - comparisonOperand.algebra.picker.container.frame.width / 2 + comparisonOperand.algebra.picker.container.frame.width * 2.5
-        comparisonOperand.algebra.picker.container.frame.position.y = 0 - comparisonOperand.algebra.picker.container.frame.height / 2 + yOffset
+        let picker = comparisonOperand.algebra.picker
+        picker.name = 'Algebra'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
         current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
-        comparisonOperand.algebra.picker.initialize(current, current)
-        comparisonOperand.algebra.picker.visible = true
+        picker.initialize(current, current)
+        switch (comparisonOperand.algebra.operator) {
+          case ' + ': {
+            picker.setSelected(undefined, undefined, undefined, 1)
+            break
+          }
+          case ' - ': {
+            picker.setSelected(undefined, undefined, undefined, 2)
+            break
+          }
+          case ' * ': {
+            picker.setSelected(undefined, undefined, undefined, 3)
+            break
+          }
+          case ' / ': {
+            picker.setSelected(undefined, undefined, undefined, 4)
+            break
+          }
+        }
+        picker.visible = true
         let structureBranch = {
           logicOperand: logicOperand,
           comparisonOperand: comparisonOperand,
           algebraOperand: algebraOperand,
           pickerName: 'Algebra'
         }
-        comparisonOperand.algebra.picker.eventSuscriptionId = comparisonOperand.algebra.picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
       }
 
       if (comparisonOperand.index === 0 && algebraOperand.index === 1) {
@@ -243,6 +262,28 @@ function newConditionEditor () {
         picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
         let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
         picker.initialize(optionsList)
+        switch (logicOperand.comparison.operator) {
+          case ' > ': {
+            picker.setSelected(undefined, undefined, undefined, 0)
+            break
+          }
+          case ' < ': {
+            picker.setSelected(undefined, undefined, undefined, 1)
+            break
+          }
+          case ' >= ': {
+            picker.setSelected(undefined, undefined, undefined, 2)
+            break
+          }
+          case ' <= ': {
+            picker.setSelected(undefined, undefined, undefined, 3)
+            break
+          }
+          case ' === ': {
+            picker.setSelected(undefined, undefined, undefined, 4)
+            break
+          }
+        }
         picker.visible = true
         let structureBranch = {
           logicOperand: logicOperand,
@@ -276,7 +317,7 @@ function newConditionEditor () {
       }
 
       let visible = true
-      if (algebraOperand.index === 1) { visible = false }
+      if (algebraOperand.index === 1 && comparisonOperand.algebra.picker.getSelected() === '...') { visible = false }
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
@@ -583,7 +624,12 @@ function newConditionEditor () {
       }
 
       function algebraOperandToCode (algebraOperand) {
-        code = code + 'chart.at' + algebraOperand.timeFramePicker.getSelected().replace('-', '')
+        if (algebraOperand.timeFramePicker.getSelected() === 'Any Time Frame') {
+          code = code + 'chart.atAnyTimeFrame'
+        } else {
+          code = code + 'chart.at' + algebraOperand.timeFramePicker.getSelected().replace('-', '')
+        }
+
         code = code + '.' + algebraOperand.productPicker.getSelected()
         insertWhen(algebraOperand)
         code = code + '.' + algebraOperand.propertyPicker.getSelected()

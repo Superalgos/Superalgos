@@ -75,8 +75,8 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
-    thisObject.payload.node.code = 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || '
-    thisObject.payload.node.code = thisObject.payload.node.code + 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin '
+    // thisObject.payload.node.code = 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin || '
+    // thisObject.payload.node.code = thisObject.payload.node.code + 'chart.at24hs.popularSMA.begin + chart.at24hs.popularSMA.begin > chart.at24hs.candlesProbability.begin + chart.at24hs.candlesProbability.begin '
 
     if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
 
@@ -92,7 +92,9 @@ function newConditionEditor () {
 
       if (logicOperand.code !== undefined) {
         logicOperand.visible = true
-        logicOperand.operator = ' || '
+        if (orArray[j + 1] !== undefined) {
+          logicOperand.operator = ' || '
+        }
       } else {
         logicOperand.code = ''
       }

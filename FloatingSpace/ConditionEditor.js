@@ -457,7 +457,7 @@ function newConditionEditor () {
         codeProperty = codeArray[3 + propertyDisplacement]
       }
 
-      let codeValue = comparisonOperand.algebra.operandB.code.replace('"', '').replace('"', '')
+      let codeValue = logicOperand.comparison.operandB.code.replace('"', '').replace('"', '')
 
       let dataMines = Object.keys(scanResult)
       for (let i = 0; i < dataMines.length; i++) {

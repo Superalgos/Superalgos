@@ -25,11 +25,25 @@ function newConditionEditor () {
   thisObject.container.isDraggeable = false
   thisObject.container.detectMouseOver = false
   thisObject.container.frame.radius = 750
+  thisObject.container.frame.width = thisObject.container.frame.radius * 2
+  thisObject.container.frame.height = thisObject.container.frame.radius * 2
   thisObject.container.frame.containerName = MODULE_NAME
 
   let isMouseOver = false
   let conditionStructure
   let scanResult
+
+  let timeFrameIcon
+  let dataMineIcon
+  let botIcon
+  let whenIcon
+  let productIcon
+  let propertyIcon
+  let operationIcon
+  let valueIcon
+
+  const PICKER_WIDTH = 150
+  const PICKER_HEIGHT = 60
 
   return thisObject
 
@@ -41,10 +55,26 @@ function newConditionEditor () {
 
     conditionStructure = undefined
     scanResult = undefined
+
+    timeFrameIcon = undefined
+    dataMineIcon = undefined
+    whenIcon = undefined
+    botIcon = undefined
+    productIcon = undefined
+    operationIcon = undefined
+    propertyIcon = undefined
+    valueIcon = undefined
   }
 
   function initialize () {
-
+    timeFrameIcon = canvas.designSpace.iconCollection.get('time-period')
+    dataMineIcon = canvas.designSpace.iconCollection.get('data-mine')
+    botIcon = canvas.designSpace.iconCollection.get('bot-indicator')
+    whenIcon = canvas.designSpace.iconCollection.get('chronometer')
+    productIcon = canvas.designSpace.iconCollection.get('product-definition')
+    propertyIcon = canvas.designSpace.iconCollection.get('record-property')
+    operationIcon = canvas.designSpace.iconCollection.get('headphones')
+    valueIcon = canvas.designSpace.iconCollection.get('competition')
   }
 
   function activate (payload) {
@@ -211,7 +241,7 @@ function newConditionEditor () {
     }
 
     function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
-      const ALGEBRA_SEPARATION = 60
+      const ALGEBRA_SEPARATION = PICKER_HEIGHT
       const COMPARISON_SEPARATION = ALGEBRA_SEPARATION * 2
       const LOGIC_SEPARATION = COMPARISON_SEPARATION * 2
 
@@ -1160,6 +1190,16 @@ function newConditionEditor () {
   }
 
   function thisObjectDrawForeground () {
-
+    if (thisObject.visible === true) {
+      const SIZE = 36
+      drawIcon(timeFrameIcon, 0, 0, -PICKER_WIDTH * 3.25, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(dataMineIcon, 0, 0, -PICKER_WIDTH * 2.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(botIcon, 0, 0, -PICKER_WIDTH * 1.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(whenIcon, 0, 0, -PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(productIcon, 0, 0, PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(propertyIcon, 0, 0, PICKER_WIDTH * 1.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(operationIcon, 0, 0, PICKER_WIDTH * 2.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(valueIcon, 0, 0, PICKER_WIDTH * 3.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+    }
   }
 }

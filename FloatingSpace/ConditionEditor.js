@@ -53,7 +53,7 @@ function newConditionEditor () {
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     conditionStructure = {
-      code: thisObject.payload.node.code,
+      code: '',
       logicOperands: []
     }
 
@@ -75,10 +75,14 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
+    if (thisObject.payload.node.javascriptCode !== undefined) {
+      thisObject.payload.node.code = thisObject.payload.node.javascriptCode.code
+    }
     if (thisObject.payload.node.code === undefined) { thisObject.payload.node.code = '' }
+    conditionStructure.code = thisObject.payload.node.code.replace(/ /g, '')
 
     /* LOGICAL ORs */
-    let orArray = conditionStructure.code.split(' || ')
+    let orArray = conditionStructure.code.split('||')
     for (let j = 0; j < 3; j++) {
       let logicOperand = {
         code: orArray[j],
@@ -90,7 +94,7 @@ function newConditionEditor () {
       if (logicOperand.code !== undefined) {
         logicOperand.visible = true
         if (orArray[j + 1] !== undefined) {
-          logicOperand.operator = ' || '
+          logicOperand.operator = '||'
         }
       } else {
         logicOperand.code = ''
@@ -111,43 +115,43 @@ function newConditionEditor () {
         code: ''
       }
 
-      if (logicOperand.code.indexOf(' > ') > 0) {
-        let codeArray = logicOperand.code.split(' > ')
+      if (logicOperand.code.indexOf('>') > 0) {
+        let codeArray = logicOperand.code.split('>')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' > '
+        logicOperand.comparison.operator = '>'
         logicOperand.comparison.operatorIndex = 0
       }
 
-      if (logicOperand.code.indexOf(' < ') > 0) {
-        let codeArray = logicOperand.code.split(' < ')
+      if (logicOperand.code.indexOf('<') > 0) {
+        let codeArray = logicOperand.code.split('<')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' < '
+        logicOperand.comparison.operator = '<'
         logicOperand.comparison.operatorIndex = 1
       }
 
-      if (logicOperand.code.indexOf(' >= ') > 0) {
-        let codeArray = logicOperand.code.split(' >= ')
+      if (logicOperand.code.indexOf('>=') > 0) {
+        let codeArray = logicOperand.code.split('>=')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' >= '
+        logicOperand.comparison.operator = '>='
         logicOperand.comparison.operatorIndex = 2
       }
 
-      if (logicOperand.code.indexOf(' <= ') > 0) {
-        let codeArray = logicOperand.code.split(' <= ')
+      if (logicOperand.code.indexOf('<=') > 0) {
+        let codeArray = logicOperand.code.split('<=')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' <= '
+        logicOperand.comparison.operator = '<='
         logicOperand.comparison.operatorIndex = 3
       }
 
-      if (logicOperand.code.indexOf(' === ') > 0) {
-        let codeArray = logicOperand.code.split(' === ')
+      if (logicOperand.code.indexOf('===') > 0) {
+        let codeArray = logicOperand.code.split('===')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' === '
+        logicOperand.comparison.operator = '==='
         logicOperand.comparison.operatorIndex = 4
       }
 
@@ -165,38 +169,38 @@ function newConditionEditor () {
       /* The default situation is that there is no algebra operation, meaning we will setup a algebra operation only with operandA */
       comparisonOperand.algebra.operandA.code = comparisonOperand.code
       comparisonOperand.algebra.operandB.code = ''
-      comparisonOperand.algebra.operator = ' ... '
+      comparisonOperand.algebra.operator = '...'
       comparisonOperand.algebra.operatorIndex = 0
 
-      if (comparisonOperand.code.indexOf(' + ') > 0) {
-        let codeArray = comparisonOperand.code.split(' + ')
+      if (comparisonOperand.code.indexOf('+') > 0) {
+        let codeArray = comparisonOperand.code.split('+')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' + '
+        comparisonOperand.algebra.operator = '+'
         comparisonOperand.algebra.operatorIndex = 1
       }
 
-      if (comparisonOperand.code.indexOf(' - ') > 0) {
-        let codeArray = comparisonOperand.code.split(' - ')
+      if (comparisonOperand.code.indexOf('-') > 0) {
+        let codeArray = comparisonOperand.code.split('-')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' - '
+        comparisonOperand.algebra.operator = '-'
         comparisonOperand.algebra.operatorIndex = 2
       }
 
-      if (comparisonOperand.code.indexOf(' * ') > 0) {
-        let codeArray = comparisonOperand.code.split(' * ')
+      if (comparisonOperand.code.indexOf('*') > 0) {
+        let codeArray = comparisonOperand.code.split('*')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' * '
+        comparisonOperand.algebra.operator = '*'
         comparisonOperand.algebra.operatorIndex = 3
       }
 
-      if (comparisonOperand.code.indexOf(' / ') > 0) {
-        let codeArray = comparisonOperand.code.split(' / ')
+      if (comparisonOperand.code.indexOf('/') > 0) {
+        let codeArray = comparisonOperand.code.split('/')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' / '
+        comparisonOperand.algebra.operator = '/'
         comparisonOperand.algebra.operatorIndex = 4
       }
 
@@ -226,19 +230,19 @@ function newConditionEditor () {
         current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
         picker.initialize(current, current)
         switch (comparisonOperand.algebra.operator) {
-          case ' + ': {
+          case '+': {
             picker.setSelected(undefined, undefined, undefined, 1)
             break
           }
-          case ' - ': {
+          case '-': {
             picker.setSelected(undefined, undefined, undefined, 2)
             break
           }
-          case ' * ': {
+          case '*': {
             picker.setSelected(undefined, undefined, undefined, 3)
             break
           }
-          case ' / ': {
+          case '/': {
             picker.setSelected(undefined, undefined, undefined, 4)
             break
           }
@@ -263,23 +267,23 @@ function newConditionEditor () {
         let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
         picker.initialize(optionsList)
         switch (logicOperand.comparison.operator) {
-          case ' > ': {
+          case '>': {
             picker.setSelected(undefined, undefined, undefined, 0)
             break
           }
-          case ' < ': {
+          case '<': {
             picker.setSelected(undefined, undefined, undefined, 1)
             break
           }
-          case ' >= ': {
+          case '>=': {
             picker.setSelected(undefined, undefined, undefined, 2)
             break
           }
-          case ' <= ': {
+          case '<=': {
             picker.setSelected(undefined, undefined, undefined, 3)
             break
           }
-          case ' === ': {
+          case '===': {
             picker.setSelected(undefined, undefined, undefined, 4)
             break
           }
@@ -303,7 +307,7 @@ function newConditionEditor () {
         picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
         let optionsList = ['...', 'OR']
         picker.initialize(optionsList)
-        if (logicOperand.operator === ' || ') {
+        if (logicOperand.operator === '||') {
           picker.setSelected(undefined, undefined, undefined, 1)
         }
         picker.visible = true
@@ -318,6 +322,7 @@ function newConditionEditor () {
 
       let visible = true
       if (algebraOperand.index === 1 && comparisonOperand.algebra.picker.getSelected() === '...') { visible = false }
+      if (logicOperand.comparison.picker !== undefined && comparisonOperand.index === 1 && logicOperand.comparison.picker.getSelected() === 'Equal To') { visible = false }
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
@@ -386,6 +391,9 @@ function newConditionEditor () {
       algebraOperand.valuePicker.initialize(properties, current, parent, 'possibleValues')
       parent = current
       algebraOperand.valuePicker.visible = false
+      if (logicOperand.comparison.picker !== undefined && logicOperand.comparison.picker.getSelected() === 'Equal To') {
+        comparisonOperand.algebra.operandA.valuePicker.visible = true
+      }
 
       algebraOperand.timeFramePicker = newPicker()
       algebraOperand.timeFramePicker.name = 'Time Frame'
@@ -583,6 +591,10 @@ function newConditionEditor () {
 
     thisObject.payload.node.code = code
 
+    if (thisObject.payload.node.javascriptCode !== undefined) {
+      thisObject.payload.node.javascriptCode.code = thisObject.payload.node.code
+    }
+
     function logicOperandToCode (logicOperand) {
       algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandA)
       if (logicOperand.comparison.operandA.algebra.picker.getSelected() !== '...') {
@@ -614,7 +626,7 @@ function newConditionEditor () {
       }
 
       if (logicOperand.comparison.picker.getSelected() === 'Equal To') {
-        code = code + '"' + logicOperand.comparison.operandA.valuePicker.getSelected() + '"'
+        code = code + '"' + logicOperand.comparison.operandA.algebra.operandA.valuePicker.getSelected() + '"'
       } else {
         algebraOperandToCode(logicOperand.comparison.operandB.algebra.operandA)
         if (logicOperand.comparison.operandB.algebra.picker.getSelected() !== '...') {

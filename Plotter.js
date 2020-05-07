@@ -598,6 +598,12 @@ function newPlotter () {
 
         for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
           let polygon = productDefinition.referenceParent.shapes.polygons[j]
+          /* We will check if we need to plot this Polygon or not. */
+          if (polygon.polygonCondition !== undefined) {
+            let mustPlot = eval(polygon.polygonCondition.code)
+            if (mustPlot !== true) { continue }
+          }
+
           let calculatedStyle
 
           /* Finding out the fill style */

@@ -433,6 +433,12 @@
         },
         "properties": [
             {
+                "name": "polygonCondition",
+                "type": "node",
+                "childType": "Polygon Condition",
+                "autoAdd": true
+            },
+            {
                 "name": "polygonBody",
                 "type": "node",
                 "childType": "Polygon Body",
@@ -452,6 +458,14 @@
             }
         ],
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "polygonCondition",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Add Polygon Condition",
+                "relatedUiObject": "Polygon Condition"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -480,6 +494,41 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
                 "label": "Delete Polygon",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete"
+            }
+        ],
+        "addLeftIcons": true
+    },
+    {
+        "type": "Polygon Condition",
+        "icon": "style-condition",
+        "level": 4,
+        "propertyNameAtParent": "polygonCondition",
+        "chainAttachesTo": {
+            "compatibleTypes": "->Polygon->"
+        },
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": ""
+        },
+        "properties": [],
+        "menuItems": [
+            {
+                "action": "Edit Condition",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit Condition",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.onMenuItemClick",
+                "label": "Delete Style Condition",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1763,7 +1812,7 @@
     },
     {
         "type": "Parameters",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#parameters",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#parameters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -1829,7 +1878,7 @@
     },
     {
         "type": "Base Asset",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#base-asset",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#base-asset",
         "menuItems": [
             {
                 "action": "Configure Base Asset",
@@ -2019,7 +2068,7 @@
     },
     {
         "type": "Time Range",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#time-range",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-range",
         "menuItems": [
             {
                 "action": "Configure Time Range",
@@ -2054,7 +2103,7 @@
     },
     {
         "type": "Time Frame",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#time-frame",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-frame",
         "menuItems": [
             {
                 "action": "Configure Time Frame",
@@ -2089,7 +2138,7 @@
     },
     {
         "type": "Slippage",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#slippage",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#slippage",
         "menuItems": [
             {
                 "action": "Configure Slippage",
@@ -2124,7 +2173,7 @@
     },
     {
         "type": "Fee Structure",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#fee-structure",
+        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#fee-structure",
         "menuItems": [
             {
                 "action": "Configure Fee Structure",

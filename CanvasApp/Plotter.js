@@ -570,23 +570,23 @@ function newPlotter () {
                 let x = 0
                 let y = 0
                 eval(point.pointFormula.code)
-                let dataPoint = {
+                let rawPoint = {
                   x: x,
                   y: y
                 }
-                /* Contributing to Auto-Scale */
-                coordinateSystem.reportYValue(dataPoint.y)
 
               /*
               The information we store in files is independent from the charing system and its coordinate systems.
               That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
               */
-                dataPoint = coordinateSystem.transformThisPoint(dataPoint)
+                let dataPoint
+                dataPoint = coordinateSystem.transformThisPoint(rawPoint)
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
                 dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                 dataPoint = thisObject.fitFunction(dataPoint)
 
               /* Store the data point at the local map */
+                dataPoint.rawPoint = rawPoint
                 dataPoints.set(point.id, dataPoint)
               }
             }
@@ -598,6 +598,12 @@ function newPlotter () {
 
         for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
           let polygon = productDefinition.referenceParent.shapes.polygons[j]
+          /* We will check if we need to plot this Polygon or not. */
+          if (polygon.polygonCondition !== undefined) {
+            let mustPlot = eval(polygon.polygonCondition.code)
+            if (mustPlot !== true) { continue }
+          }
+
           let calculatedStyle
 
           /* Finding out the fill style */
@@ -724,6 +730,12 @@ function newPlotter () {
                 console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
                 continue
               }
+
+              /* Contributing to Auto-Scale */
+              if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
+                coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
+              }
+
               let dataPoint = {
                 x: dataPointObject.x,
                 y: dataPointObject.y

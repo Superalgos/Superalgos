@@ -39,6 +39,10 @@
             } else {
                 processingDailyFiles = true
             }
+            
+            let snapshotHeaders 
+            let triggerOnSnapshot = [];
+            let takePositionSnapshot = [];
 
             let recordsArray = [];
             let conditionsArray = [];
@@ -500,6 +504,14 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + currentCandleIndex); }
 
+                /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
+
+                let snapshotKeys =  new Map()
+                snapshotLoopHeaders = []             
+                snapshotDataRecord = []
+                addToTriggerOnSnapshot = false
+                addToTakePositionSnapshot = false
+
                 let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex];
 
@@ -767,7 +779,9 @@
                                 if (initialDefinition.positionSize !== undefined) {
                                     if (initialDefinition.positionSize.formula !== undefined) {
                                         try {
-                                            positionSize = eval(initialDefinition.positionSize.formula.code);
+                                            let code = initialDefinition.positionSize.formula.code
+                                            positionSize = eval(code);
+                                            addCodeToSnapshot(code)
                                         } catch (err) {
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
@@ -794,7 +808,9 @@
                                 if (initialDefinition.positionRate !== undefined) {
                                     if (initialDefinition.positionRate.formula !== undefined) {
                                         try {
+                                            let code = initialDefinition.positionRate.formula.code
                                             positionRate = eval(initialDefinition.positionRate.formula.code);
+                                            addCodeToSnapshot(code)
                                         } catch (err) {
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
@@ -821,7 +837,9 @@
 
                                     if (phase.formula !== undefined) {
                                         try {
-                                            formulaValue = eval(phase.formula.code);
+                                            let code = phase.formula.code
+                                            formulaValue = eval(code);
+                                            addCodeToSnapshot(code)
                                             if (formulaValue === Infinity) {
                                                 formulaError = "Formula evaluates to Infinity."
                                                 formulaValue = MAX_STOP_LOSS_VALUE
@@ -910,7 +928,9 @@
 
                                     if (phase.formula !== undefined) {
                                         try {
-                                            formulaValue = eval(phase.formula.code);
+                                            let code = phase.formula.code
+                                            formulaValue = eval(code);
+                                            addCodeToSnapshot(code)
                                             if (formulaValue === Infinity) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
                                                 if (takeProfitStage === 'Open Stage') {
@@ -1007,7 +1027,9 @@
 
                                 if (phase.formula !== undefined) {
                                     try {
-                                        formulaValue = eval(phase.formula.code);
+                                        let code = phase.formula.code
+                                        formulaValue = eval(code);
+                                        addCodeToSnapshot(code)
                                         if (formulaValue === Infinity) {
                                             formulaError = ""
                                             formulaValue = MAX_STOP_LOSS_VALUE
@@ -1096,7 +1118,9 @@
 
                                 if (phase.formula !== undefined) {
                                     try {
-                                        formulaValue = eval(phase.formula.code);
+                                        let code = phase.formula.code
+                                        formulaValue = eval(code);
+                                        addCodeToSnapshot(code)
                                         if (formulaValue === Infinity) {
                                             formulaError = "Formula evaluates to Infinity."
                                             formulaValue = MAX_TAKE_PROFIT_VALUE
@@ -1181,7 +1205,9 @@
                         let value
 
                         try {
-                            value = eval(node.code);
+                            let code = node.code
+                            value = eval(code);
+                            addCodeToSnapshot(code)
                         } catch (err) {
                             /*
                                 One possible error is that the conditions references a .previous that is undefined. For this
@@ -1319,6 +1345,7 @@
                                         }
 
                                         checkAnnouncements(triggerStage.triggerOn)
+                                        addToTriggerOnSnapshot = true
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                         break;
@@ -1452,6 +1479,7 @@
                                     currentTrade.takePositionSituation = situation.name
                                     
                                     checkAnnouncements(triggerStage.takePosition)
+                                    addToTakePositionSnapshot = true
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
                                     break;
@@ -2186,6 +2214,7 @@
                     }
 
                     takePositionAtSimulation()
+                
                     return
 
                     function putOpeningOrder() {
@@ -2914,6 +2943,21 @@
                         }
                     }
 
+                    /* Add to Snapshot */
+                    if (addToTakePositionSnapshot === true) {
+                        takePositionSnapshot.push(snapshotDataRecord)
+                        addToTakePositionSnapshot = false
+                    }
+                    
+                    if (addToTriggerOnSnapshot === true) {
+                        triggerOnSnapshot.push(snapshotDataRecord)
+                        addToTriggerOnSnapshot = false
+                    }
+
+                    if (snapshotHeaders === undefined) {
+                        snapshotHeaders = JSON.parse(JSON.stringify(snapshotLoopHeaders))
+                    }
+
                     makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
                 }
 
@@ -3005,9 +3049,62 @@
                         }
                     }
                 }
+
+                function addCodeToSnapshot(code) {
+                    if (code === undefined) { return }
+
+                    try {
+                        let instructionsArray = code.split(' ')
+                        for (let i = 0; i < instructionsArray.length; i++) {
+                            let instruction = instructionsArray[i]
+                            instruction = instruction.replace('(', '')
+                            instruction = instruction.replace(')', '')
+                            instruction = instruction.replace(/</g, '')
+                            instruction = instruction.replace(/>/g, '')
+                            instruction = instruction.replace(/<=/g, '')
+                            instruction = instruction.replace(/>=/g, '')
+                            instruction = instruction.replace(/!=/g, '')
+                            instruction = instruction.replace(/!==/g, '')
+                            instruction = instruction.replace(/==/g, '')
+                            instruction = instruction.replace(/===/g, '')
+                            if (instruction.indexOf('chart') >= 0) {
+                                let parts = instruction.split('.')
+                                let timeFrame = parts[1]
+                                let product = parts[2]
+                                let property
+                                checkPrevious(3)
+                                function checkPrevious(index) {
+                                    property = parts[index]
+                                    if (property === 'previous') {
+                                        product = product + '.previous'
+                                        checkPrevious(index + 1)
+                                    }
+                                }
+
+                                // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                                if (timeFrame !== 'atAnyTimeFrame') {
+                                    timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                                }
+                                let key = timeFrame + '-' + product + '-' + property
+                                let existingKey = snapshotKeys.get(key)
+
+                                if (existingKey === undefined) {// means that at the current loop this property of this product was not used before.
+                                    snapshotKeys.set(key, key)
+                                    snapshotLoopHeaders.push(key)
+
+                                    let value = eval(instruction)
+                                    snapshotDataRecord.push(value)
+                                }
+                            }
+                        }
+                    }
+                    catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] runSimulation -> addCodeToSnapshot -> code = " + code);
+                        logger.write(MODULE_NAME, "[ERROR] runSimulation -> addCodeToSnapshot -> err = " + err.stack);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    }
+                }
             }
-
-
 
             function controlLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
@@ -3114,7 +3211,7 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray);
+                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, snapshotHeaders, triggerOnSnapshot, takePositionSnapshot);
             }
 
             function getElement(pArray, currentCandle, datasetName) {
@@ -3156,6 +3253,7 @@
                 }
             }
         }
+
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);

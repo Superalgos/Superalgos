@@ -121,6 +121,7 @@
             const CONDITIONS_FOLDER_NAME = "Simulation-Conditions";
             const STRATEGIES_FOLDER_NAME = "Simulation-Strategies";
             const TRADES_FOLDER_NAME = "Simulation-Trades";
+            const SNAPSHOTS_FOLDER_NAME = "Snapshots";
 
             const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
@@ -128,6 +129,10 @@
             let conditionsArray
             let strategiesArray
             let tradesArray
+
+            let snapshotHeaders
+            let triggerOnSnapshot 
+            let takePositionSnapshot  
 
             let tradingSystem = {};
 
@@ -142,7 +147,7 @@
                 writeFiles,
                 callBackFunction)
 
-            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray) {
+            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
 
                 tradingSystem = pTradingSystem
                 recordsArray = pRecordsArray
@@ -150,11 +155,16 @@
                 strategiesArray = pStrategiesArray
                 tradesArray = pTradesArray
 
+                snapshotHeaders = pSnapshotHeaders
+                triggerOnSnapshot = pTriggerOnSnapshot
+                takePositionSnapshot = pTakePositionSnapshot
+
                 if (timeFrame > global.dailyFilePeriods[0][0]) {
                     writeMarketFiles()
                 } else {
                     writeDailyFiles()
                 }
+
             }
 
             function writeMarketFiles() {
@@ -474,7 +484,7 @@
 
                                 }
 
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                writeSnapshotFiles();
 
                             }
                             catch (err) {
@@ -489,97 +499,52 @@
                     }
                 }
 
-            }
+                function writeSnapshotFiles() {
 
-            function writeDailyFiles() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> Entering function."); }
+                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
 
-                writeRecordsFile();
+                    function onFinish() {
+                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
+                    }
+                    
+                }
 
-                /* TODO : NEXT function is a work in progress, not used today */
-                function writeFinalResults() {
+                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
 
                     try {
 
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeFinalResults -> Entering function."); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> Entering function."); }
 
-                        if ( // We only write this file if we are at the head of the market.
-                            Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS
-                            !==
-                            Math.trunc((new Date()).valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS
-                        ) {
-                            writeRecordsFile();
-                            return;
-                        }
-
-                        let separator = "";
                         let fileRecordCounter = 0;
 
                         let fileContent = "";
+                        let separator = "\r\n";
 
-                        for (let i = 0; i < recordsArray.length; i++) {
+                        parseRecord(snapshotHeaders)
 
-                            let record = recordsArray[i];
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue; }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + "," +
-                                record.end + "," +
-                                record.type + "," +
-                                record.marketRate + "," +
-                                record.amount + "," +
-                                record.balanceA + "," +
-                                record.balanceB + "," +
-                                record.profit + "," +
-                                record.lastTradeProfitLoss + "," +
-                                record.stopLoss + "," +
-                                record.roundtrips + "," +
-                                record.hits + "," +
-                                record.fails + "," +
-                                record.hitRatio + "," +
-                                record.ROI + "," +
-                                record.periods + "," +
-                                record.days + "," +
-                                record.anualizedRateOfReturn + "," +
-                                record.positionRate + "," +
-                                record.lastTradeROI + "," +
-                                record.strategy + "," +
-                                record.strategyStageNumber + "," +
-                                record.takeProfit + "," +
-                                record.stopLossPhase + "," +
-                                record.takeProfitPhase + "," +
-                                JSON.stringify(record.executionRecord) + "," +
-                                record.positionSize + "," +
-                                record.initialBalanceA + "," +
-                                record.minimumBalanceA + "," +
-                                record.maximumBalanceA + "," +
-                                record.initialBalanceB + "," +
-                                record.minimumBalanceB + "," +
-                                record.maximumBalanceB + "," +
-                                record.baseAsset + "," +
-                                record.quotedAsset + "," +
-                                record.marketBaseAsset + "," +
-                                record.marketQuotedAsset + "," +
-                                record.positionPeriods + "," +
-                                record.positionDays + "," +
-                                record.distanceToLastTriggerOn + "," +
-                                record.distanceToLastTriggerOff + "," +
-                                record.distanceToLastTakePosition + "," +
-                                record.distanceToLastClosePosition + "]";
-
-                            if (separator === "") { separator = ","; }
-
+                        for (let i = 0; i < snapshotArray.length; i++) {
+                            let record = snapshotArray[i];
+                            parseRecord(record)
                             fileRecordCounter++;
+                        }
+
+                        function parseRecord(record) {
+                            for (let j = 0; j < record.length; j++) {
+                                let property = record[j]
+ 
+                                fileContent = fileContent  + '' + property
+                                if (j !== record.length - 1) {
+                                    fileContent = fileContent + ","
+                                }
+                            }
+                            fileContent = fileContent + separator
 
                         }
 
-                        fileContent = "[" + fileContent + "]";
+                        fileContent = "" + fileContent + "";
 
-                        let fileName = 'Data.json';
-                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SIMULATED_RECORDS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel;
+                        let fileName = pFileName +  '.csv';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrameLabel;
                         filePath += '/' + fileName
 
                         fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
@@ -588,34 +553,41 @@
 
                             try {
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> Entering function."); }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> fileContent = " + fileContent); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> Entering function."); }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> fileContent = " + fileContent); }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> err = " + err.stack);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> filePath = " + filePath);
-                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
 
                                     callBackFunction(err);
                                     return;
 
                                 }
 
-                                writeRecordsFile();
+                                callBack(global.DEFAULT_OK_RESPONSE);
 
                             }
                             catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> onFileCreated -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
                     }
                     catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeFinalResults -> err = " + err.stack);
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> err = " + err.stack);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
+
+            }
+
+            function writeDailyFiles() {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> Entering function."); }
+
+                writeRecordsFile();
 
                 function writeRecordsFile() {
 

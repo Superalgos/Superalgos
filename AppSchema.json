@@ -866,7 +866,7 @@
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
-                "relatedUiObject": "Condition",
+                "relatedUiObject": "Javascript Code",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {

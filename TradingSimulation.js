@@ -43,6 +43,8 @@
             let snapshotHeaders 
             let triggerOnSnapshot = [];
             let takePositionSnapshot = [];
+            let lastTriggerOnSnapshot
+            let lastTakePositionSnapshot
 
             let recordsArray = [];
             let conditionsArray = [];
@@ -509,8 +511,9 @@
                 let snapshotKeys =  new Map()
                 snapshotLoopHeaders = []             
                 snapshotDataRecord = []
-                addToTriggerOnSnapshot = false
-                addToTakePositionSnapshot = false
+                saveAsLastTriggerOnSnapshot = false
+                saveAsLastTakePositionSnapshot = false
+                addToSnapshots = false
 
                 let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex];
@@ -1345,7 +1348,7 @@
                                         }
 
                                         checkAnnouncements(triggerStage.triggerOn)
-                                        addToTriggerOnSnapshot = true
+                                        saveAsLastTriggerOnSnapshot = true
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                         break;
@@ -1479,7 +1482,7 @@
                                     currentTrade.takePositionSituation = situation.name
                                     
                                     checkAnnouncements(triggerStage.takePosition)
-                                    addToTakePositionSnapshot = true
+                                    saveAsLastTakePositionSnapshot = true
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
                                     break;
@@ -2027,6 +2030,7 @@
                         currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
+                        addToSnapshots = true
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2099,6 +2103,7 @@
                         currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
+                        addToSnapshots = true
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2909,6 +2914,45 @@
                         }
                     }
 
+                    /* Snapshots Management (before we generate the trade record and delete that info) */
+                    if (saveAsLastTriggerOnSnapshot === true) {
+                        lastTriggerOnSnapshot = snapshotDataRecord
+                        saveAsLastTriggerOnSnapshot = false
+                    }
+
+                    if (saveAsLastTakePositionSnapshot === true) {
+                        lastTakePositionSnapshot = snapshotDataRecord
+                        saveAsLastTakePositionSnapshot = false
+                    }
+
+                    if (addToSnapshots === true) {
+                        let closeValues = [
+                            roundtrips,                                             // Trade Number
+                            (new Date(candle.begin)).toISOString(),                 // Datetime
+                            tradingSystem.strategies[currentStrategyIndex].name,    // Strategy
+                            currentStrategy.triggerOnSituation,                     // Trigger On Situation
+                            currentTrade.takePositionSituation,                     // Take Position Situation
+                            hitOrFial(),                                            // Result
+                            ROI,                                                    // ROI
+                            simulationRecord.type.replace(/"/g, '')                 // Exit Type
+                        ]
+
+                        function hitOrFial() {
+                            if (ROI > 0) { return 'HIT' } else { return 'FAIL' }
+                        }
+
+                        triggerOnSnapshot.push(closeValues.concat(lastTriggerOnSnapshot))
+                        takePositionSnapshot.push(closeValues.concat(lastTriggerOnSnapshot))
+                        lastTriggerOnSnapshot = undefined
+                        lastTakePositionSnapshot = undefined
+                        addToSnapshots = false
+                    }
+
+                    let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+                    if (snapshotHeaders === undefined) {
+                        snapshotHeaders = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+                    }
+
                     /* Prepare the information for the Trades File */
                     if (currentTrade.begin !== 0 && currentTrade.end !== 0) { 
 
@@ -2943,22 +2987,8 @@
                         }
                     }
 
-                    /* Add to Snapshot */
-                    if (addToTakePositionSnapshot === true) {
-                        takePositionSnapshot.push(snapshotDataRecord)
-                        addToTakePositionSnapshot = false
-                    }
-                    
-                    if (addToTriggerOnSnapshot === true) {
-                        triggerOnSnapshot.push(snapshotDataRecord)
-                        addToTriggerOnSnapshot = false
-                    }
-
-                    if (snapshotHeaders === undefined) {
-                        snapshotHeaders = JSON.parse(JSON.stringify(snapshotLoopHeaders))
-                    }
-
-                    makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
+                    /* After everything at the simulation level was done, we will do the annoucements that are pending.*/
+                    makeAnnoucements()  
                 }
 
                 function checkAnnouncements(node, value) {
@@ -3067,6 +3097,8 @@
                             instruction = instruction.replace(/!==/g, '')
                             instruction = instruction.replace(/==/g, '')
                             instruction = instruction.replace(/===/g, '')
+                            instruction = instruction.replace(/{/g, '')
+                            instruction = instruction.replace(/}/g, '')
                             if (instruction.indexOf('chart') >= 0) {
                                 let parts = instruction.split('.')
                                 let timeFrame = parts[1]
@@ -3091,7 +3123,7 @@
                                 if (existingKey === undefined) {// means that at the current loop this property of this product was not used before.
                                     snapshotKeys.set(key, key)
                                     snapshotLoopHeaders.push(key)
-
+ 
                                     let value = eval(instruction)
                                     snapshotDataRecord.push(value)
                                 }

@@ -3,6 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+    const ONE_MIN_IN_MILISECONDS = 60 * 1000;
 
     const MODULE_NAME = "Commons";
 
@@ -284,7 +285,8 @@
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS,
+            ONE_MIN_IN_MILISECONDS: ONE_MIN_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []

@@ -858,14 +858,25 @@
                 "action": "Edit Condition",
                 "actionFunction": "uiObject.conditionEditor.activate",
                 "label": "Edit Condition",
-                "iconPathOn": "html",
-                "iconPathOff": "html"
+                "relatedUiObject": "Condition"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "javascriptCode",
                 "label": "Add Code",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Fetch Code to Javascript Code",
+                "label": "Fetch from Javascript Code",
+                "relatedUiObject": "Javascript Code",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Push Code to Javascript Code",
+                "label": "Push to Javascript Code",
                 "relatedUiObject": "Javascript Code",
                 "actionFunction": "payload.onMenuItemClick"
             },

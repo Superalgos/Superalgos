@@ -105,9 +105,6 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
-    if (thisObject.payload.node.javascriptCode !== undefined) {
-      thisObject.payload.node.code = thisObject.payload.node.javascriptCode.code
-    }
     if (thisObject.payload.node.code === undefined) { thisObject.payload.node.code = '' }
     conditionStructure.code = thisObject.payload.node.code.replace(/ /g, '')
 
@@ -620,10 +617,6 @@ function newConditionEditor () {
     }
 
     thisObject.payload.node.code = code
-
-    if (thisObject.payload.node.javascriptCode !== undefined) {
-      thisObject.payload.node.javascriptCode.code = thisObject.payload.node.code
-    }
 
     function logicOperandToCode (logicOperand) {
       algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandA)

@@ -508,6 +508,16 @@ function newWorkspace () {
           referenceDetachNode(payload.node)
         }
         break
+      case 'Push Code to Javascript Code':
+        {
+          payload.node.javascriptCode.code = payload.node.code
+        }
+        break
+      case 'Fetch Code to Javascript Code':
+        {
+          payload.node.code = payload.node.javascriptCode.code
+        }
+        break
       case 'Open Documentation':
         {
           let definition = APP_SCHEMA_MAP.get(payload.node.type)

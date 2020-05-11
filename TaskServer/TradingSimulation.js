@@ -39,12 +39,6 @@
             } else {
                 processingDailyFiles = true
             }
-            
-            let snapshotHeaders 
-            let triggerOnSnapshot = [];
-            let takePositionSnapshot = [];
-            let lastTriggerOnSnapshot
-            let lastTakePositionSnapshot
 
             let recordsArray = [];
             let conditionsArray = [];
@@ -108,6 +102,15 @@
             the day is complete and if we have a current Day. That menas that for Market Files we will never use
             interExecutionMemory.
             */
+
+            /* Snapshots of Trigger On and Take Positions */
+            let snapshots = {
+                headers: undefined,
+                triggerOn: [],
+                takePosition: [],
+                lastTriggerOn: undefined,
+                lastTakePosition: undefined
+            }
 
             /*Needed for statistics */
             let previousBalanceBaseAsset = 0;
@@ -187,6 +190,15 @@
 
             /* Initialization */
 
+
+            yesterday.snapshots = {
+                headers: undefined,
+                triggerOn: [],
+                takePosition: [],
+                lastTriggerOn: undefined,
+                lastTakePosition: undefined
+            }
+
             yesterday.stopLoss = 0
             yesterday.takeProfit = 0
 
@@ -256,6 +268,14 @@
             if (interExecutionMemory.roundtrips === undefined) { // This just means that the inter execution memory was never used before.
 
                 /* Initialize the data structure we will use inter execution. */
+
+                interExecutionMemory.snapshots = {
+                    headers: undefined,
+                    triggerOn: [],
+                    takePosition: [],
+                    lastTriggerOn: undefined,
+                    lastTakePosition: undefined
+                }
 
                 interExecutionMemory.stopLoss = 0
                 interExecutionMemory.takeProfit = 0
@@ -328,6 +348,14 @@
             } else {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
+
+                snapshots = {
+                    headers: interExecutionMemory.snapshots.headers,
+                    triggerOn: interExecutionMemory.snapshots.triggerOn,
+                    takePosition: interExecutionMemory.snapshots.takePosition,
+                    lastTriggerOn: interExecutionMemory.snapshots.lastTriggerOn,
+                    lastTakePosition: interExecutionMemory.snapshots.lastTakePosition
+                }
 
                 stopLoss = interExecutionMemory.stopLoss
                 takeProfit = interExecutionMemory.takeProfit
@@ -403,6 +431,14 @@
                 anualizedRateOfReturn = interExecutionMemory.anualizedRateOfReturn;
 
                 /* For the case that any of these variables are not updated during the main loop, we need to store their value at the yesterday structure, otherwise it would be lost. */
+
+                yesterday.snapshots = {
+                    headers: snapshots.headers,
+                    triggerOn: snapshots.triggerOn,
+                    takePosition: snapshots.takePosition,
+                    lastTriggerOn: snapshots.lastTriggerOn,
+                    lastTakePosition: snapshots.lastTakePosition
+                }
 
                 yesterday.stopLoss = stopLoss
                 yesterday.takeProfit = takeProfit
@@ -2916,41 +2952,53 @@
 
                     /* Snapshots Management (before we generate the trade record and delete that info) */
                     if (saveAsLastTriggerOnSnapshot === true) {
-                        lastTriggerOnSnapshot = snapshotDataRecord
+                        snapshots.lastTriggerOn = snapshotDataRecord
                         saveAsLastTriggerOnSnapshot = false
                     }
 
                     if (saveAsLastTakePositionSnapshot === true) {
-                        lastTakePositionSnapshot = snapshotDataRecord
+                        snapshots.lastTakePosition = snapshotDataRecord
                         saveAsLastTakePositionSnapshot = false
                     }
 
                     if (addToSnapshots === true) {
                         let closeValues = [
-                            roundtrips,                                             // Trade Number
-                            (new Date(candle.begin)).toISOString(),                 // Datetime
-                            tradingSystem.strategies[currentStrategyIndex].name,    // Strategy
-                            currentStrategy.triggerOnSituation,                     // Trigger On Situation
-                            currentTrade.takePositionSituation,                     // Take Position Situation
-                            hitOrFial(),                                            // Result
-                            lastTradeROI,                                                    // ROI
-                            simulationRecord.type.replace(/"/g, '')                 // Exit Type
+                            roundtrips,                                                         // Trade Number
+                            (new Date(candle.begin)).toISOString(),                             // Datetime
+                            tradingSystem.strategies[currentStrategyIndex].name,                // Strategy
+                            currentStrategy.triggerOnSituation,                                 // Trigger On Situation
+                            currentTrade.takePositionSituation,                                 // Take Position Situation
+                            hitOrFial(),                                                        // Result
+                            lastTradeROI,                                                       // ROI
+                            simulationRecord.type.replace(/"/g, '')                             // Exit Type
                         ]
 
                         function hitOrFial() {
                             if (lastTradeROI > 0) { return 'HIT' } else { return 'FAIL' }
                         }
 
-                        triggerOnSnapshot.push(closeValues.concat(lastTriggerOnSnapshot))
-                        takePositionSnapshot.push(closeValues.concat(lastTriggerOnSnapshot))
-                        lastTriggerOnSnapshot = undefined
-                        lastTakePositionSnapshot = undefined
+                        if (positionedAtYesterday === false) {
+                            snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
+                            snapshots.takePosition.push(closeValues.concat(snapshots.lastTriggerOn))
+                        }
+                        snapshots.lastTriggerOn = undefined
+                        snapshots.lastTakePosition = undefined
                         addToSnapshots = false
                     }
 
                     let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
-                    if (snapshotHeaders === undefined) {
-                        snapshotHeaders = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+                    if (snapshots.headers === undefined) {
+                        snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+                    }
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.snapshots.headers = snapshots.headers;
+                            yesterday.snapshots.triggerOn = snapshots.triggerOn;
+                            yesterday.snapshots.takePosition = snapshots.takePosition;
+                            yesterday.snapshots.lastTriggerOn = snapshots.lastTriggerOn;
+                            yesterday.snapshots.lastTakePosition = snapshots.lastTakePosition;
+                        }
                     }
 
                     /* Prepare the information for the Trades File */
@@ -3176,6 +3224,14 @@
 
                     if (lastCandle.end === lastInstantOfTheDay) {
 
+                        interExecutionMemory.snapshots = {
+                            headers: yesterday.snapshots.headers,
+                            triggerOn: yesterday.snapshots.triggerOn,
+                            takePosition: yesterday.snapshots.takePosition,
+                            lastTriggerOn: yesterday.snapshots.lastTriggerOn,
+                            lastTakePosition: yesterday.snapshots.lastTakePosition
+                        }
+
                         interExecutionMemory.stopLoss = yesterday.stopLoss
                         interExecutionMemory.takeProfit = yesterday.takeProfit
 
@@ -3243,7 +3299,7 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, snapshotHeaders, triggerOnSnapshot, takePositionSnapshot);
+                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, snapshots.headers, snapshots.triggerOn, snapshots.takePosition);
             }
 
             function getElement(pArray, currentCandle, datasetName) {

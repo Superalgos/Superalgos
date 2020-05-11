@@ -20,7 +20,8 @@
      physics: physics,
      getContainer: getContainer,
      finalize: finalize,
-     initialize: initialize
+     initialize: initialize,
+     initializePosition: initializePosition
    }
 
    thisObject.container = newContainer()
@@ -39,6 +40,7 @@
    let statusCounter = 0
    let statusText
    let statusType
+   let isInitilized = false
 
    return thisObject
 
@@ -52,6 +54,15 @@
    }
 
    function initialize () {
+     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+
+     thisObject.fullscreen = newFullScreen()
+     thisObject.fullscreen.container.connectToParent(thisObject.container)
+     thisObject.fullscreen.initialize()
+   }
+
+   function initializePosition () {
      thisObject.container.frame.position.x = 0
 
      let INITIAL_POSITION
@@ -68,13 +79,7 @@
        INITIAL_POSITION = 100
        thisObject.container.frame.position.y = browserCanvas.height * INITIAL_POSITION / 100 - COCKPIT_SPACE_HEIGHT
      }
-
-     canvasBrowserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-     selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
-
-     thisObject.fullscreen = newFullScreen()
-     thisObject.fullscreen.container.connectToParent(thisObject.container)
-     thisObject.fullscreen.initialize()
+     isInitilized = true
    }
 
    function onMouseClick (event) {
@@ -148,6 +153,7 @@
      thisObject.fullscreen.physics()
    }
    function thisObjectPhysics () {
+     if (isInitilized === false) { return }
      /* Check the limits */
 
      thisObject.status = 'MIDDLE'

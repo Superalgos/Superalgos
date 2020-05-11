@@ -85,19 +85,34 @@ function newWorkspace () {
 
   function initialize () {
     try {
-      let reset = window.localStorage.getItem('Reset')
-      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
+      let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-      if (savedWorkspace === null || reset !== null) {
-        thisObject.workspaceNode = getWorkspace()
+      if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+        let blobService = newFileStorage()
+        blobService.getFileFromHost('LoadWorkspace' + '/' + lastUsedWorkspace, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
+            thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+            finishInitialization()
+            return
+          }
+          thisObject.workspaceNode = JSON.parse(text)
+          finishInitialization()
+        }
       } else {
-        thisObject.workspaceNode = JSON.parse(savedWorkspace)
+        thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+        finishInitialization()
       }
-      functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-      setupEventsServerClients()
-      thisObject.enabled = true
 
-      setInterval(saveWorkspace, 60000)
+      function finishInitialization () {
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
+        setupEventsServerClients()
+        thisObject.enabled = true
+        canvas.cockpitSpace.initializePosition()
+
+        setInterval(saveWorkspace, 60000)
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
     }
@@ -170,6 +185,21 @@ function newWorkspace () {
       let textToSave = stringifyWorkspace()
       window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
       window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+
+      if (workspace.name !== undefined) {
+        let url = 'SaveWorkspace/' + workspace.name
+        callServer(textToSave, url, onResponse)
+      }
+
+      function onResponse (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          window.localStorage.setItem('Last Used Workspace', workspace.name)
+          window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+          canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+        } else {
+          canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        }
+      }
       return true
     }
   }

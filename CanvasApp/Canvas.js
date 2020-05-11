@@ -109,11 +109,11 @@ function newCanvas () {
       thisObject.topSpace = newTopSpace()
       thisObject.topSpace.initialize()
 
-      thisObject.designSpace = newDesignSpace()
-      thisObject.designSpace.initialize()
-
       thisObject.cockpitSpace = newCockpitSpace()
       thisObject.cockpitSpace.initialize()
+
+      thisObject.designSpace = newDesignSpace()
+      thisObject.designSpace.initialize()
 
       thisObject.panelsSpace = newPanelsSpace()
       thisObject.panelsSpace.initialize()
@@ -295,11 +295,7 @@ function newCanvas () {
     }
 
     if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
-      let saved = canvas.designSpace.workspace.save()
-      if (saved === true) {
-        canvas.cockpitSpace.setStatus('Workspace Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
-      }
-
+      canvas.designSpace.workspace.save()
       event.preventDefault()
       return
     }

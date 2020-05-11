@@ -62,9 +62,9 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 request.on('data', function (data) {
                     body += data
                     // Too much POST data
-                    if (body.length > 1e6) {
-                        request.connection.destroy()
-                    }
+                    //if (body.length > 1e6) {
+                    //    request.connection.destroy()
+                    //}
                 })
 
                 request.on('end', function () {
@@ -507,7 +507,9 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'LoadWorkspace':
                 {
-                    respondWithFile(process.env.MY_WORKSPACES_PATH + '/' + requestParameters[2], response)
+                    let fileName = unescape(requestParameters[2])
+                    let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                    respondWithFile(filePath, response)
                 }
                 break
 
@@ -523,6 +525,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
                         try {
                             let fs = require('fs')
+                            let dir = process.env.MY_WORKSPACES_PATH;
+
+                            /* Create Dir if it does not exist */
+                            if (!fs.existsSync(dir)) {
+                                fs.mkdirSync(dir);
+                            }
 
                             fs.writeFile(filePath, fileContent, onFileWritten)
 

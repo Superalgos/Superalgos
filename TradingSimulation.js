@@ -2933,12 +2933,12 @@
                             currentStrategy.triggerOnSituation,                     // Trigger On Situation
                             currentTrade.takePositionSituation,                     // Take Position Situation
                             hitOrFial(),                                            // Result
-                            ROI,                                                    // ROI
+                            lastTradeROI,                                                    // ROI
                             simulationRecord.type.replace(/"/g, '')                 // Exit Type
                         ]
 
                         function hitOrFial() {
-                            if (ROI > 0) { return 'HIT' } else { return 'FAIL' }
+                            if (lastTradeROI > 0) { return 'HIT' } else { return 'FAIL' }
                         }
 
                         triggerOnSnapshot.push(closeValues.concat(lastTriggerOnSnapshot))

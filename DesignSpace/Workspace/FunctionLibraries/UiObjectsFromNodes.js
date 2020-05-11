@@ -22,7 +22,7 @@ function newUiObjectsFromNodes () {
     addIncludedNodes()
 
     function addIncludedNodes () {
-      blobService = newFileStorage()
+      let blobService = newFileStorage()
 
       // if (node.code === undefined) {
       node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'

@@ -56,13 +56,13 @@
 
             /* Stop Loss Management */
 
-            const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
+            const MIN_STOP_LOSS_VALUE = 0.0000000001 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
 
             /* Take Profit Management */
 
-            const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
+            const MIN_TAKE_PROFIT_VALUE = 0.0000000001 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
             let takeProfit = 0;
 

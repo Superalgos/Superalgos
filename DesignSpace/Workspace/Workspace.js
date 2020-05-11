@@ -170,6 +170,19 @@ function newWorkspace () {
       let textToSave = stringifyWorkspace()
       window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
       window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+
+      let url = 'SaveWorkspace/' + workspace.name
+      callServer(textToSave, url, onResponse)
+
+      function onResponse (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          window.localStorage.setItem('Last Used Workspace', workspace.name)
+          window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+          canvas.cockpitSpace.setStatus('Workspace Auto-Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+        } else {
+          canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        }
+      }
       return true
     }
   }

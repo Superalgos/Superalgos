@@ -927,7 +927,7 @@
 
                                 }
 
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                writeSnapshotFiles() 
 
                             }
                             catch (err) {
@@ -942,6 +942,89 @@
                     }
                 }
 
+                function writeSnapshotFiles() {
+
+                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
+
+                    function onFinish() {
+                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
+                    }
+
+                }
+
+                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
+
+                    try {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> Entering function."); }
+
+                        let fileRecordCounter = 0;
+
+                        let fileContent = "";
+                        let separator = "\r\n";
+
+                        parseRecord(snapshotHeaders)
+
+                        for (let i = 0; i < snapshotArray.length; i++) {
+                            let record = snapshotArray[i];
+                            parseRecord(record)
+                            fileRecordCounter++;
+                        }
+
+                        function parseRecord(record) {
+                            for (let j = 0; j < record.length; j++) {
+                                let property = record[j]
+
+                                fileContent = fileContent + '' + property
+                                if (j !== record.length - 1) {
+                                    fileContent = fileContent + ","
+                                }
+                            }
+                            fileContent = fileContent + separator
+
+                        }
+
+                        fileContent = "" + fileContent + "";
+
+                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                        let fileName = pFileName + '.csv';
+                        let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME + "/" + "Multi-Period-Daily" + "/" + timeFrameLabel + "/" + dateForPath;
+                        filePath += '/' + fileName
+
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+
+                        function onFileCreated(err) {
+
+                            try {
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> Entering function."); }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> fileContent = " + fileContent); }
+
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+
+                                    callBackFunction(err);
+                                    return;
+
+                                }
+
+                                callBack(global.DEFAULT_OK_RESPONSE);
+
+                            }
+                            catch (err) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = " + err.stack);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            }
+                        }
+                    }
+                    catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> err = " + err.stack);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    }
+                }
             }
         }
         catch (err) {

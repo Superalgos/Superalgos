@@ -3,7 +3,6 @@ let browserCanvasContext          // The context of the canvas object.
 
 let stepsInitializationCounter = 0         // This counter the initialization steps required to be able to turn off the splash screen.
 let marketInitializationCounter = 0        // This counter the initialization of markets required to be able to turn off the splash screen.
-let splashScreenNeeded = true
 
 function newCanvas () {
   const MODULE_NAME = 'Canvas'
@@ -38,6 +37,7 @@ function newCanvas () {
     panelsSpace: undefined,
     cockpitSpace: undefined,
     designSpace: undefined,
+    splashScreen: undefined,
     animation: undefined,
     mouse: undefined,
     shorcutNumbers: new Map(),
@@ -47,7 +47,6 @@ function newCanvas () {
 
   thisObject.eventHandler = newEventHandler()
 
-  let splashScreen
   let lastContainerMouseOver
   let lastShortcutKeyRejection
 
@@ -87,7 +86,7 @@ function newCanvas () {
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
       browserCanvas.removeEventListener('keyup', onKeyUp, false)
 
-      splashScreen = undefined
+      thisObject.splashScreen = undefined
       lastContainerMouseOver = undefined
 
       hisObject.mouse = undefined
@@ -125,8 +124,7 @@ function newCanvas () {
       thisObject.sideSpace = newSideSpace()
       thisObject.sideSpace.initialize()
 
-      splashScreen = newSplashScreen()
-      splashScreen.initialize()
+      thisObject.splashScreen = newSplashScreen()
 
       let animation = newAnimation()
       animation.initialize()
@@ -149,7 +147,7 @@ function newCanvas () {
       animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
       animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
-      animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
+      animation.addCallBackFunction('Splash Screen Draw', thisObject.splashScreen.draw)
       animation.start()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }

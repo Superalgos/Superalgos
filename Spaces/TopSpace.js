@@ -54,6 +54,7 @@ function newTopSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     thisObject.container.frame.draw(false, false)
 
     drawBackground()

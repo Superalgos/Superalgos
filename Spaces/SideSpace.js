@@ -55,6 +55,7 @@ function newSideSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()

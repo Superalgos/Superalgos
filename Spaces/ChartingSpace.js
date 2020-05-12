@@ -406,6 +406,7 @@ function newChartingSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (thisObject.visible === false) { return }
     drawBackground()
 

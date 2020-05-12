@@ -94,23 +94,26 @@ function newWorkspace () {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
             thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
-            finishInitialization()
+            recreateWorkspace()
             return
           }
           thisObject.workspaceNode = JSON.parse(text)
-          finishInitialization()
+          recreateWorkspace()
         }
       } else {
         thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
-        finishInitialization()
+        recreateWorkspace()
+      }
+
+      function recreateWorkspace () {
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, false, finishInitialization)
       }
 
       function finishInitialization () {
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
         setupEventsServerClients()
         thisObject.enabled = true
         canvas.cockpitSpace.initializePosition()
-
+        canvas.splashScreen.initialize()
         setInterval(saveWorkspace, 60000)
       }
     } catch (err) {

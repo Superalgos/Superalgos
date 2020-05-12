@@ -14,7 +14,7 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function recreateWorkspace (node, replacingCurrentWorkspace) {
+  function recreateWorkspace (node, replacingCurrentWorkspace, callBackFunction) {
     mapOfNodes = new Map()
     tasksToRun = []
     sessionsToRun = []
@@ -145,6 +145,10 @@ function newUiObjectsFromNodes () {
      // We give a few seconds for the tasks to start
         setTimeout(runSessions, 10000)
       }
+
+      if (callBackFunction !== undefined) {
+        callBackFunction() // The recreation of the workspace is complete
+      }
     }
   }
 
@@ -238,7 +242,7 @@ function newUiObjectsFromNodes () {
             switch (property.type) {
               case 'node': {
                 if (property.name !== previousPropertyName) {
-                  setTimeout(createUiObjectFromNode, 1, node[property.name], node, node, positionOffset)
+                  createUiObjectFromNode(node[property.name], node, node, positionOffset)
                   previousPropertyName = property.name
                 }
               }
@@ -247,7 +251,7 @@ function newUiObjectsFromNodes () {
                 let nodePropertyArray = node[property.name]
                 for (let m = 0; m < nodePropertyArray.length; m++) {
                   let arrayItem = nodePropertyArray[m]
-                  setTimeout(createUiObjectFromNode, 1, arrayItem, node, node, positionOffset)
+                  createUiObjectFromNode(arrayItem, node, node, positionOffset)
                 }
               }
                 break

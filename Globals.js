@@ -224,6 +224,8 @@ const TIME_MACHINE_HEIGHT = 8;
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
 let areWeRecording = false
 
+let canWeDraw = false // This global variable regulates when spaces can or can not draw their contents. 
+
 function toRadians(angle) {
     return angle * (Math.PI / 180);
 }

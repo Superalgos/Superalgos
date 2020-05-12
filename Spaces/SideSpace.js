@@ -16,6 +16,7 @@ function newSideSpace () {
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
   thisObject.container.status = 'hidden'
 
   resize()

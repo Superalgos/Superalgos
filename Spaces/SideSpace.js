@@ -1,7 +1,6 @@
 function newSideSpace () {
   const MODULE_NAME = 'Side Space'
   let thisObject = {
-    areas: [],
     sidePanelTab: undefined,
     container: undefined,
     physics: physics,
@@ -52,18 +51,13 @@ function newSideSpace () {
   }
 
   function physics () {
-
+    thisObject.sidePanelTab.physics()
   }
 
   function draw () {
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()
-
-    for (let i = 0; i < thisObject.areas.length; i++) {
-      let area = thisObject.areas[i]
-      area.draw()
-    }
   }
 
   function borders () {

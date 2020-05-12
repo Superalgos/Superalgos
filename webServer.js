@@ -435,6 +435,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'SideSpace':
+                {
+                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+                }
+                break
+
             case 'AppSchema.js':
                 {
                     let fs = require('fs')

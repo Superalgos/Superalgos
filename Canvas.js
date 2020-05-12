@@ -32,11 +32,11 @@ function newCanvas () {
   let thisObject = {
     eventHandler: undefined,
     topSpace: undefined,
+    sideSpace: undefined,
     chartingSpace: undefined,
     floatingSpace: undefined,
     panelsSpace: undefined,
     cockpitSpace: undefined,
-    bottomSpace: undefined,
     designSpace: undefined,
     animation: undefined,
     mouse: undefined,
@@ -63,6 +63,7 @@ function newCanvas () {
 
   function finalize () {
     try {
+      thisObject.sideSpace.finalize()
       thisObject.chartingSpace.finalize()
       thisObject.floatingSpace.finalize()
       thisObject.shorcutNumbers = undefined
@@ -121,7 +122,8 @@ function newCanvas () {
       thisObject.chartingSpace = newChartingSpace()
       thisObject.chartingSpace.initialize()
 
-      thisObject.bottomSpace = thisObject.cockpitSpace
+      thisObject.sideSpace = newSideSpace()
+      thisObject.sideSpace.initialize()
 
       splashScreen = newSplashScreen()
       splashScreen.initialize()
@@ -137,6 +139,7 @@ function newCanvas () {
       animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
       animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
+      animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
@@ -145,6 +148,7 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
+      animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
       animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
       animation.start()
     } catch (err) {

@@ -1,9 +1,10 @@
-function newSidePanel () {
-  const MODULE_NAME = 'Side Panel'
+function newSideSpace () {
+  const MODULE_NAME = 'Side Space'
   let thisObject = {
     areas: [],
     sidePanelTab: undefined,
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
@@ -48,6 +49,10 @@ function newSidePanel () {
     } else {
       return undefined
     }
+  }
+
+  function physics () {
+
   }
 
   function draw () {

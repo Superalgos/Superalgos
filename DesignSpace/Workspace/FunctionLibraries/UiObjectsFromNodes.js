@@ -238,7 +238,7 @@ function newUiObjectsFromNodes () {
             switch (property.type) {
               case 'node': {
                 if (property.name !== previousPropertyName) {
-                  createUiObjectFromNode(node[property.name], node, node, positionOffset)
+                  setTimeout(createUiObjectFromNode, 1, node[property.name], node, node, positionOffset)
                   previousPropertyName = property.name
                 }
               }
@@ -247,7 +247,7 @@ function newUiObjectsFromNodes () {
                 let nodePropertyArray = node[property.name]
                 for (let m = 0; m < nodePropertyArray.length; m++) {
                   let arrayItem = nodePropertyArray[m]
-                  createUiObjectFromNode(arrayItem, node, node, positionOffset)
+                  setTimeout(createUiObjectFromNode, 1, arrayItem, node, node, positionOffset)
                 }
               }
                 break

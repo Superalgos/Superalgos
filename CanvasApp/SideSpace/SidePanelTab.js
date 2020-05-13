@@ -3,6 +3,7 @@ function newSidePanelTab () {
   let thisObject = {
     pointerDirection: 'left',
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
@@ -28,7 +29,7 @@ function newSidePanelTab () {
     thisObject.container.frame.width = TAB_WIDTH
     thisObject.container.frame.height = TAB_HEIGHT
     thisObject.container.frame.position.x = 0 + thisObject.container.parentContainer.frame.width
-    thisObject.container.frame.position.y = 20
+    thisObject.container.frame.position.y = 69
 
     ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
 
@@ -53,9 +54,13 @@ function newSidePanelTab () {
     }
   }
 
-  function draw () {
+  function physics () {
     if (isInitialized === false) { return }
     animate()
+  }
+
+  function draw () {
+    if (isInitialized === false) { return }
     borders()
     arrow()
   }

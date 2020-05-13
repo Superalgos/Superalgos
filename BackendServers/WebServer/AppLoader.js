@@ -63,8 +63,9 @@ function newAppLoader() {
                 'Panels/PlotterPanel.js',
                 'Panels/PanelsVisibleButton.js',
                 
-                'ControlsToolBox/SidePanel.js',
-                'ControlsToolBox/SidePanelTab.js',
+                'SideSpace/SidePanelTab.js',
+                'SideSpace/ListView.js',
+                'SideSpace/ListItem.js',
 
                 'Spaces/CockpitSpace.js',
                 'Spaces/TopSpace.js',
@@ -72,6 +73,7 @@ function newAppLoader() {
                 'Spaces/ChartingSpace.js',
                 'Spaces/FloatingSpace.js',
                 'Spaces/DesignSpace.js',
+                'Spaces/SideSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',

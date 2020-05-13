@@ -207,6 +207,7 @@
    }
 
    function draw () {
+     if (canWeDraw === false) { return }
      thisObject.container.frame.draw(false, false)
 
      drawBackground()
@@ -272,8 +273,10 @@
        printLabel(statusText, position.x, position.y, 1, 15, textColor, true, thisObject.container)
      }
 
-     if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {
-       arrow()
+     if (canvas.designSpace !== undefined) {
+       if (canvas.designSpace.workspace.enabled === true && statusText === undefined) {
+         arrow()
+       }
      }
    }
 

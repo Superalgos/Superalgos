@@ -3,7 +3,6 @@ let browserCanvasContext          // The context of the canvas object.
 
 let stepsInitializationCounter = 0         // This counter the initialization steps required to be able to turn off the splash screen.
 let marketInitializationCounter = 0        // This counter the initialization of markets required to be able to turn off the splash screen.
-let splashScreenNeeded = true
 
 function newCanvas () {
   const MODULE_NAME = 'Canvas'
@@ -32,12 +31,13 @@ function newCanvas () {
   let thisObject = {
     eventHandler: undefined,
     topSpace: undefined,
+    sideSpace: undefined,
     chartingSpace: undefined,
     floatingSpace: undefined,
     panelsSpace: undefined,
     cockpitSpace: undefined,
-    bottomSpace: undefined,
     designSpace: undefined,
+    splashScreen: undefined,
     animation: undefined,
     mouse: undefined,
     shorcutNumbers: new Map(),
@@ -47,7 +47,6 @@ function newCanvas () {
 
   thisObject.eventHandler = newEventHandler()
 
-  let splashScreen
   let lastContainerMouseOver
   let lastShortcutKeyRejection
 
@@ -63,6 +62,7 @@ function newCanvas () {
 
   function finalize () {
     try {
+      thisObject.sideSpace.finalize()
       thisObject.chartingSpace.finalize()
       thisObject.floatingSpace.finalize()
       thisObject.shorcutNumbers = undefined
@@ -86,7 +86,7 @@ function newCanvas () {
       browserCanvas.removeEventListener('keydown', onKeyDown, false)
       browserCanvas.removeEventListener('keyup', onKeyUp, false)
 
-      splashScreen = undefined
+      thisObject.splashScreen = undefined
       lastContainerMouseOver = undefined
 
       hisObject.mouse = undefined
@@ -121,10 +121,10 @@ function newCanvas () {
       thisObject.chartingSpace = newChartingSpace()
       thisObject.chartingSpace.initialize()
 
-      thisObject.bottomSpace = thisObject.cockpitSpace
+      thisObject.sideSpace = newSideSpace()
+      thisObject.sideSpace.initialize()
 
-      splashScreen = newSplashScreen()
-      splashScreen.initialize()
+      thisObject.splashScreen = newSplashScreen()
 
       let animation = newAnimation()
       animation.initialize()
@@ -137,6 +137,7 @@ function newCanvas () {
       animation.addCallBackFunction('Charting Space Physics', thisObject.chartingSpace.physics)
       animation.addCallBackFunction('Design Space Physics', thisObject.designSpace.physics)
       animation.addCallBackFunction('Panels Space Physics', thisObject.panelsSpace.physics)
+      animation.addCallBackFunction('Side Space Physics', thisObject.sideSpace.physics)
 
       /* Spcaces Drawing */
       animation.addCallBackFunction('Floating Space Draw', thisObject.floatingSpace.draw)
@@ -145,7 +146,8 @@ function newCanvas () {
       animation.addCallBackFunction('CockpitSpace Draw', thisObject.cockpitSpace.draw)
       animation.addCallBackFunction('Design Space Draw', thisObject.designSpace.draw)
       animation.addCallBackFunction('Top Space Draw', thisObject.topSpace.draw)
-      animation.addCallBackFunction('Splash Screen Draw', splashScreen.draw)
+      animation.addCallBackFunction('Side Space Draw', thisObject.sideSpace.draw)
+      animation.addCallBackFunction('Splash Screen Draw', thisObject.splashScreen.draw)
       animation.start()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -211,30 +213,35 @@ function newCanvas () {
     if ((event.ctrlKey === true || event.metaKey === true)) {
       let constructorParams
       switch (event.keyCode) {
+        case 118: { //  F7
+          downloadPanorama('Superalgos.Market.Panorama')
+          return
+          break
+        }
         case 119: { //  F8
-          downloadCanvas('Superalgos.image.capture')
+          downloadCanvas('Superalgos.Image.Capture', browserCanvas)
           return
           break
         }
         case 120: { //  F9
-          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.video.capture'}
+          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.Video.Capture'}
           break
         }
         case 121: { //  F10
-          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.video.capture' }
+          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.Video.Capture' }
           break
         }
         default: return
       }
 
-      if (areWeRecording === false) {
+      if (ARE_WE_RECORDING_A_VIDEO === false) {
         console.log('RECORDING', constructorParams.format)
         mediaRecorder = new CCapture(constructorParams)
         mediaRecorder.start()
-        areWeRecording = true
+        ARE_WE_RECORDING_A_VIDEO = true
       } else {
         console.log('SAVING', constructorParams.format)
-        areWeRecording = false
+        ARE_WE_RECORDING_A_VIDEO = false
         mediaRecorder.stop()
         mediaRecorder.save()
       }
@@ -574,8 +581,21 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Design Space / */
+      /* We check if the mouse is over an element of the Side Space / */
+      container = thisObject.sideSpace.getContainer(point)
 
+      if (container !== undefined && container.isDraggeable === true) {
+        containerBeingDragged = container
+        containerDragStarted = true
+        containerBeingDragged.eventHandler.raiseEvent('onDragStarted', point)
+        return
+      }
+
+      if (container !== undefined && container.isDraggeable === false) {
+        return
+      }
+
+      /* We check if the mouse is over an element of the Design Space / */
       container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
@@ -589,8 +609,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the Top Space / */
-
+      /* We check if the mouse is over an element of the Top Space / */
       container = thisObject.topSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
@@ -600,8 +619,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the CockpitSpace / */
-
+      /* We check if the mouse is over an element of the CockpitSpace / */
       container = thisObject.cockpitSpace.getContainer(point)
 
       if (container !== undefined && container.isDraggeable === true) {
@@ -616,8 +634,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a panel/ */
-
+      /* We check if the mouse is over a panel/ */
       container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined && event.shiftKey === false) {
@@ -636,8 +653,7 @@ function newCanvas () {
         return
       }
 
-           /*  we check if it is over any of the existing containers at the Charting Space. */
-
+      /*  we check if it is over any of the existing containers at the Charting Space. */
       container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.DRAGGING)
 
       if (container !== undefined) {
@@ -694,8 +710,15 @@ function newCanvas () {
 
       let container
 
-            /* We check if the mouse is over an element of the Design Space / */
+      /* We check if the mouse is over an element of the Side Space / */
+      container = thisObject.sideSpace.getContainer(point)
 
+      if (container !== undefined && container.isClickeable === true) {
+        container.eventHandler.raiseEvent('onMouseClick', point)
+        return
+      }
+
+      /* We check if the mouse is over an element of the Design Space / */
       container = thisObject.designSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
@@ -703,8 +726,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the Top Space / */
-
+      /* We check if the mouse is over an element of the Top Space / */
       container = thisObject.topSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
@@ -712,8 +734,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over an element of the CockpitSpace / */
-
+      /* We check if the mouse is over an element of the CockpitSpace / */
       container = thisObject.cockpitSpace.getContainer(point)
 
       if (container !== undefined && container.isClickeable === true) {
@@ -721,8 +742,7 @@ function newCanvas () {
         return
       }
 
-           /* We check if the mouse is over a panel/ */
-
+      /* We check if the mouse is over a panel/ */
       container = thisObject.panelsSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
@@ -730,8 +750,7 @@ function newCanvas () {
         return
       }
 
-           /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
-
+      /* If it is not, then we check if it is over any of the existing containers at the Charting Space. */
       container = thisObject.chartingSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
@@ -834,6 +853,16 @@ function newCanvas () {
       let container
 
       /* We check if the mouse is over an element of the Designe Space / */
+      if (thisObject.sideSpace !== undefined) {
+        container = thisObject.sideSpace.getContainer(point)
+
+        if (container !== undefined && container.detectMouseOver === true) {
+          containerFound()
+          return
+        }
+      }
+
+      /* We check if the mouse is over an element of the Designe Space / */
       if (thisObject.designSpace !== undefined) {
         container = thisObject.designSpace.getContainer(point)
 
@@ -930,6 +959,16 @@ function newCanvas () {
 
       event.mousePosition = point
       let container
+
+      /* Side Space */
+      container = canvas.sideSpace.getContainer({ x: point.x, y: point.y })
+
+      if (container !== undefined && container.isWheelable === true) {
+        container.eventHandler.raiseEvent('onMouseWheel', event)
+        return false  // This instructs the browser not to take the event and scroll the page.
+      }
+
+      /* Panel Space */
       container = canvas.panelsSpace.getContainer({ x: point.x, y: point.y })
 
       if (container !== undefined && container.isWheelable === true) {
@@ -937,8 +976,7 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-           /* We try the CockpitSpace. */
-
+      /* We try the CockpitSpace. */
       container = canvas.cockpitSpace.getContainer({ x: point.x, y: point.y })
 
       if (container !== undefined && container.isWheelable === true) {
@@ -946,8 +984,7 @@ function newCanvas () {
         return false  // This instructs the browser not to take the event and scroll the page.
       }
 
-          /*   Charting Space. */
-
+      /*   Charting Space. */
       container = canvas.chartingSpace.getContainer({ x: point.x, y: point.y }, GET_CONTAINER_PURPOSE.MOUSE_WHEEL)
       if (container !== undefined && container.isWheelable === true) {
         container.eventHandler.raiseEvent('onMouseWheel', event)
@@ -959,8 +996,7 @@ function newCanvas () {
         return false
       }
 
-         /* We try second with floating objects. */
-
+      /* We try second with floating objects. */
       container = canvas.floatingSpace.getContainer({ x: point.x, y: point.y })
 
       if (container !== undefined && container.isWheelable === true) {

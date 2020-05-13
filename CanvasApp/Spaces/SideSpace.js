@@ -1,9 +1,9 @@
-function newSidePanel () {
-  const MODULE_NAME = 'Side Panel'
+function newSideSpace () {
+  const MODULE_NAME = 'Side Space'
   let thisObject = {
-    areas: [],
     sidePanelTab: undefined,
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
     initialize: initialize
@@ -16,7 +16,10 @@ function newSidePanel () {
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
   thisObject.container.status = 'hidden'
+
+  let listView
 
   resize()
   return thisObject
@@ -27,7 +30,15 @@ function newSidePanel () {
     thisObject.sidePanelTab.initialize()
 
     canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    initializeListView()
     isInitialized = true
+  }
+
+  function initializeListView () {
+    listView = newListView()
+    listView.initialize()
+    listView.container.connectToParent(thisObject.container, false, false)
   }
 
   function resize () {
@@ -43,6 +54,9 @@ function newSidePanel () {
     container = thisObject.sidePanelTab.getContainer(point)
     if (container !== undefined) { return container }
 
+    container = listView.getContainer(point)
+    if (container !== undefined) { return container }
+
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     } else {
@@ -50,15 +64,17 @@ function newSidePanel () {
     }
   }
 
+  function physics () {
+    thisObject.sidePanelTab.physics()
+    listView.physics()
+  }
+
   function draw () {
+    if (canWeDraw === false) { return }
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()
-
-    for (let i = 0; i < thisObject.areas.length; i++) {
-      let area = thisObject.areas[i]
-      area.draw()
-    }
+    listView.draw()
   }
 
   function borders () {

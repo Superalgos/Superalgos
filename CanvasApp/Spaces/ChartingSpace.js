@@ -92,6 +92,8 @@ function newChartingSpace () {
 
   function initialize () {
     if (isInitialized === true) { return }
+    if (canvas.designSpace === undefined) { return }
+    if (canvas.designSpace.workspace === undefined) { return }
 
     let rootNodes = canvas.designSpace.workspace.workspaceNode.rootNodes
     for (let i = 0; i < rootNodes.length; i++) {
@@ -404,6 +406,7 @@ function newChartingSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (thisObject.visible === false) { return }
     drawBackground()
 

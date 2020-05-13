@@ -94,23 +94,26 @@ function newWorkspace () {
           if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
             canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
             thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
-            finishInitialization()
+            recreateWorkspace()
             return
           }
           thisObject.workspaceNode = JSON.parse(text)
-          finishInitialization()
+          recreateWorkspace()
         }
       } else {
         thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
-        finishInitialization()
+        recreateWorkspace()
+      }
+
+      function recreateWorkspace () {
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, false, finishInitialization)
       }
 
       function finishInitialization () {
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
         setupEventsServerClients()
         thisObject.enabled = true
         canvas.cockpitSpace.initializePosition()
-
+        canvas.splashScreen.initialize()
         setInterval(saveWorkspace, 60000)
       }
     } catch (err) {
@@ -195,7 +198,9 @@ function newWorkspace () {
         if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           window.localStorage.setItem('Last Used Workspace', workspace.name)
           window.localStorage.setItem('Session Timestamp', sessionTimestamp)
-          canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+          if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
+            canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+          }
         } else {
           canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
         }

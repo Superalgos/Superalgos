@@ -14,7 +14,7 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function recreateWorkspace (node, replacingCurrentWorkspace) {
+  function recreateWorkspace (node, replacingCurrentWorkspace, callBackFunction) {
     mapOfNodes = new Map()
     tasksToRun = []
     sessionsToRun = []
@@ -144,6 +144,10 @@ function newUiObjectsFromNodes () {
         runTasks()
      // We give a few seconds for the tasks to start
         setTimeout(runSessions, 10000)
+      }
+
+      if (callBackFunction !== undefined) {
+        callBackFunction() // The recreation of the workspace is complete
       }
     }
   }

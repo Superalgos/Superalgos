@@ -66,7 +66,7 @@ function newTopSpace () {
     let opacity = 1
     browserCanvasContext.beginPath()
     browserCanvasContext.rect(0, 0, thisObject.container.frame.width, thisObject.container.frame.height)
-    if (areWeRecording === true) {
+    if (ARE_WE_RECORDING_A_VIDEO === true) {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')'
     } else {
       browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', ' + opacity + ')'

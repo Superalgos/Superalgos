@@ -144,10 +144,18 @@ function newAnimation () {
         browserCanvas.height = 1
       }
 
-      /* Media Recording */
+      /* Video Recording */
       videoRecorder.physics()
-      if (areWeRecording === true) {
+      if (ARE_WE_RECORDING_A_VIDEO === true) {
         videoRecorder.recordCanvas()
+      }
+
+      /* Panorama Recording */
+      if (ARE_WE_RECORDING_A_MARKET_PANORAMA === true) {
+        if (PANORAMA_WAS_PANNED === true) {
+          addToMarketPanorama()
+          PANORAMA_WAS_PANNED = false
+        }
       }
 
       /* We request the next frame to be drawn, and stablishing a loop */

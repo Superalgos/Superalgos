@@ -198,7 +198,9 @@ function newWorkspace () {
         if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           window.localStorage.setItem('Last Used Workspace', workspace.name)
           window.localStorage.setItem('Session Timestamp', sessionTimestamp)
-          canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+          if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
+            canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+          }
         } else {
           canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
         }

@@ -213,30 +213,35 @@ function newCanvas () {
     if ((event.ctrlKey === true || event.metaKey === true)) {
       let constructorParams
       switch (event.keyCode) {
+        case 118: { //  F7
+          downloadPanorama('Superalgos.Market.Panorama')
+          return
+          break
+        }
         case 119: { //  F8
-          downloadCanvas('Superalgos.image.capture')
+          downloadCanvas('Superalgos.Image.Capture', browserCanvas)
           return
           break
         }
         case 120: { //  F9
-          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.video.capture'}
+          constructorParams = { format: 'gif', workersPath: 'externalScripts/', framerate: 8, name: 'Superalgos.Video.Capture'}
           break
         }
         case 121: { //  F10
-          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.video.capture' }
+          constructorParams = { format: 'webm', framerate: 8, name: 'Superalgos.Video.Capture' }
           break
         }
         default: return
       }
 
-      if (areWeRecording === false) {
+      if (ARE_WE_RECORDING_A_VIDEO === false) {
         console.log('RECORDING', constructorParams.format)
         mediaRecorder = new CCapture(constructorParams)
         mediaRecorder.start()
-        areWeRecording = true
+        ARE_WE_RECORDING_A_VIDEO = true
       } else {
         console.log('SAVING', constructorParams.format)
-        areWeRecording = false
+        ARE_WE_RECORDING_A_VIDEO = false
         mediaRecorder.stop()
         mediaRecorder.save()
       }

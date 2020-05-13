@@ -146,6 +146,7 @@ function downloadPanorama (filename) {
     finalResultCanvas.height = browserCanvas.height
     finalResultCanvas.getContext('2d').drawImage(marketPanoramaCanvas, 0, 0, finalResultCanvas.width, browserCanvas.height, 0, 0, finalResultCanvas.width, browserCanvas.height)
     downloadCanvas(filename, finalResultCanvas)
+    marketPanoramaCanvas = undefined
   }
 }
 

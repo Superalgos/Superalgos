@@ -19,6 +19,8 @@ function newSideSpace () {
   thisObject.container.detectMouseOver = true
   thisObject.container.status = 'hidden'
 
+  let listView
+
   resize()
   return thisObject
 
@@ -28,7 +30,15 @@ function newSideSpace () {
     thisObject.sidePanelTab.initialize()
 
     canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    initializeListView()
     isInitialized = true
+  }
+
+  function initializeListView () {
+    listView = newListView()
+    listView.initialize()
+    listView.container.connectToParent(thisObject.container, false, false)
   }
 
   function resize () {
@@ -44,6 +54,9 @@ function newSideSpace () {
     container = thisObject.sidePanelTab.getContainer(point)
     if (container !== undefined) { return container }
 
+    container = listView.getContainer(point)
+    if (container !== undefined) { return container }
+
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     } else {
@@ -53,6 +66,7 @@ function newSideSpace () {
 
   function physics () {
     thisObject.sidePanelTab.physics()
+    listView.physics()
   }
 
   function draw () {
@@ -60,6 +74,7 @@ function newSideSpace () {
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()
+    listView.draw()
   }
 
   function borders () {

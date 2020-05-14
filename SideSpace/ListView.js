@@ -10,6 +10,7 @@ function newListView () {
     listItems: [],
     payload: undefined,
     isVisible: false,
+    reload: reload,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -29,15 +30,13 @@ function newListView () {
   let visibleListItems = []
   let firstVisibleListItem = 1
 
-  const LAYER_SEPARATION = 0
+  let headerHeight = 40
+  let footerHeight = 30
+  let listItemHeight = SIDE_PANEL_WIDTH * 0.75
 
-  let headerHeight = 30
-  let footerHeight = 10
-  let listItemHeight = 70
-  let desiredVisibleListItems = 5
-  let posibleVisibleListItems = 5
-  let desiredObjectHeight = (listItemHeight + LAYER_SEPARATION) * desiredVisibleListItems + headerHeight + footerHeight
-  let posibleObjectHeight = (listItemHeight + LAYER_SEPARATION) * posibleVisibleListItems + headerHeight + footerHeight
+  let posibleVisibleListItems
+
+  let itemSeparation
 
   let onMouseWheelEventSuscriptionId
   let onMouseOverEventSubscriptionId
@@ -74,10 +73,17 @@ function newListView () {
     thisObject.container.frame.position = position
     thisObject.container.frame.height = browserCanvas.height - position.x
 
+    posibleVisibleListItems = (thisObject.container.frame.height - headerHeight - footerHeight) / (listItemHeight)
+    itemSeparation = ((thisObject.container.frame.height - headerHeight - footerHeight) - listItemHeight * Math.trunc(posibleVisibleListItems)) / (Math.trunc(posibleVisibleListItems) - 1)
+
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
+    reload()
+  }
+
+  function reload () {
     callServer(undefined, 'ListWorkspaces', onResponse)
 
     function onResponse (err, text) {
@@ -87,12 +93,14 @@ function newListView () {
       }
 
       let workspacelist = JSON.parse(text)
+      thisObject.listItems = []
       for (let i = 0; i < workspacelist.length; i++) {
         let workspace = workspacelist[i].replace('.json', '')
         let listItem = newListItem()
         listItem.initialize(workspace, 'Workspace')
         listItem.container.connectToParent(thisObject.container, false, false)
-        listItem.container.frame.position.y = headerHeight + i * SIDE_PANEL_WIDTH * 0.75
+        listItem.container.frame.position.y = headerHeight + i * SIDE_PANEL_WIDTH * 0.75 + itemSeparation * i
+
         thisObject.listItems.push(listItem)
       }
       isInitialized = true
@@ -115,14 +123,8 @@ function newListView () {
       delta = 1
     }
 
-    if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < headerHeight) { // Mouse wheel over the header, not a listItem
-      desiredVisibleListItems = desiredVisibleListItems + delta
-      if (desiredVisibleListItems < 0) { desiredVisibleListItems = 0 }
-      if (desiredVisibleListItems > thisObject.listItems.length) { desiredVisibleListItems = thisObject.listItems.length }
-    } else {
-      firstVisibleListItem = firstVisibleListItem + delta
-    }
-    desiredObjectHeight = (listItemHeight + LAYER_SEPARATION) * desiredVisibleListItems + headerHeight + footerHeight
+    firstVisibleListItem = firstVisibleListItem + delta
+
     calculateVisbleListItems()
   }
 
@@ -139,7 +141,7 @@ function newListView () {
         let listItem = thisObject.listItems[i]
 
         listItem.container.frame.position.x = 0
-        listItem.container.frame.position.y = (listItemHeight + LAYER_SEPARATION) * visibleListItems.length + headerHeight
+        listItem.container.frame.position.y = (listItemHeight + itemSeparation) * visibleListItems.length + headerHeight
 
          /* Add to Visible Product Array */
         visibleListItems.push(listItem)
@@ -212,8 +214,8 @@ function newListView () {
     if (isInitialized === false || thisObject.visible === false) { return }
 
     drawBackground()
-    drawScrollBar()
     drawChildren()
+    drawScrollBar()
   }
 
   function drawChildren () {
@@ -225,7 +227,7 @@ function newListView () {
 
   function drawBackground () {
     let label = 'Your Workspaces'
-    let icon = canvas.designSpace.iconByUiObjectType.get('Workspace')
+
     let backgroundColor = UI_COLOR.WHITE
     let params = {
       cornerRadius: 5,
@@ -239,8 +241,7 @@ function newListView () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label, 1 / 2, 0, 0, 20, 15, thisObject.container, UI_COLOR.BLACK)
-    // drawIcon(icon, 1 / 8, 0, 0, 20, 28, thisObject.container)
+    drawLabel(label, 1 / 2, 0, 0, 25, 15, thisObject.container, UI_COLOR.BLACK)
   }
 
   function drawScrollBar () {
@@ -255,10 +256,10 @@ function newListView () {
         y: thisObject.container.frame.height - footerHeight
       }
       let ratio = posibleVisibleListItems / thisObject.listItems.length
-      let handleHeight = (posibleVisibleListItems * (listItemHeight + LAYER_SEPARATION)) * ratio
+      let handleHeight = (posibleVisibleListItems * (listItemHeight + itemSeparation)) * ratio
       let handleTopPoint = {
         x: thisObject.container.frame.width - xOffset,
-        y: headerHeight + (listItemHeight + LAYER_SEPARATION) * ratio * (firstVisibleListItem - 1)
+        y: headerHeight + (listItemHeight + itemSeparation) * ratio * (firstVisibleListItem - 1)
       }
       let handleBottomPoint = {
         x: thisObject.container.frame.width - xOffset,

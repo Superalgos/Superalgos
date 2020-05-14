@@ -40,6 +40,7 @@ function newSidePanelTab () {
   function onMouseClick (event) {
     if (thisObject.pointerDirection === 'left') {
       animation = 'opening'
+      thisObject.container.eventHandler.raiseEvent('opening')
     } else {
       animation = 'closing'
     }

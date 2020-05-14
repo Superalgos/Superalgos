@@ -6,7 +6,8 @@ function newSideSpace () {
     physics: physics,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let isInitialized = false
@@ -22,6 +23,9 @@ function newSideSpace () {
   let listView
 
   resize()
+
+  let openingEventSubscriptionId
+  let browserResizedEventSubscriptionId
   return thisObject
 
   function initialize () {
@@ -29,16 +33,22 @@ function newSideSpace () {
     thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
     thisObject.sidePanelTab.initialize()
 
-    canvas.eventHandler.listenToEvent('Browser Resized', resize)
+    browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
     initializeListView()
     isInitialized = true
+  }
+
+  function finalize () {
+    canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
+    thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
   }
 
   function initializeListView () {
     listView = newListView()
     listView.initialize()
     listView.container.connectToParent(thisObject.container, false, false)
+    openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.reload)
   }
 
   function resize () {

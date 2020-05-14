@@ -25,9 +25,16 @@ function newListItem () {
   let name
   let type
 
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+
+  let isMouseOver = false
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
@@ -36,12 +43,23 @@ function newListItem () {
   function initialize (pName, pType) {
     name = pName
     type = pType
+
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
   }
 
   function getContainer (point) {
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
       return thisObject.container
     }
+  }
+
+  function onMouseOver (event) {
+    isMouseOver = true
+  }
+
+  function onMouseNotOver () {
+    isMouseOver = false
   }
 
   function onMouseClick (event) {
@@ -55,6 +73,7 @@ function newListItem () {
   function draw () {
     let icon = canvas.designSpace.iconByUiObjectType.get(type)
     let backgroundColor = UI_COLOR.BLACK
+    let labelColor
 
     const RED_LINE_HIGHT = 4
     const OPACITY = 1
@@ -69,10 +88,16 @@ function newListItem () {
       opacity: OPACITY
     }
 
+    if (isMouseOver === false) {
+      labelColor = UI_COLOR.WHITE
+    } else {
+      labelColor = UI_COLOR.TITANIUM_YELLOW
+    }
+
     roundedCornersBackground(params)
 
-    drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container)
-    drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container)
+    drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container, labelColor)
+    drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container, labelColor)
     drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 80, thisObject.container)
   }
 }

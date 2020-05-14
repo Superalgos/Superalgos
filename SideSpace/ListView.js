@@ -41,16 +41,11 @@ function newListView () {
   let itemSeparation
 
   let onMouseWheelEventSuscriptionId
-  let onMouseOverEventSubscriptionId
-  let onMouseNotOverEventSubscriptionId
 
-  let isMouseOver
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
     listItemsMap = undefined
     visibleListItems = undefined
@@ -75,8 +70,6 @@ function newListView () {
     thisObject.container.frame.position = position
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
     resize()
     turnOn()
@@ -123,14 +116,6 @@ function newListView () {
 
   function turnOff () {
     thisObject.isVisible = false
-  }
-
-  function onMouseOver (event) {
-    isMouseOver = true
-  }
-
-  function onMouseNotOver () {
-    isMouseOver = false
   }
 
   function onMouseWheel (event) {

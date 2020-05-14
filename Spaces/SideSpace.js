@@ -69,13 +69,13 @@ function newSideSpace () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     let container
 
-    container = thisObject.sidePanelTab.getContainer(point)
+    container = thisObject.sidePanelTab.getContainer(point, purpose)
     if (container !== undefined) { return container }
 
-    container = listView.getContainer(point)
+    container = listView.getContainer(point, purpose)
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {

@@ -854,7 +854,7 @@ function newCanvas () {
 
       /* We check if the mouse is over an element of the Designe Space / */
       if (thisObject.sideSpace !== undefined) {
-        container = thisObject.sideSpace.getContainer(point)
+        container = thisObject.sideSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_OVER)
 
         if (container !== undefined && container.detectMouseOver === true) {
           containerFound()

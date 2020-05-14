@@ -10,6 +10,7 @@ function newListView () {
     listItems: [],
     payload: undefined,
     isVisible: false,
+    resize: resize,
     turnOn: turnOn,
     turnOff: turnOff,
     physics: physics,
@@ -29,7 +30,7 @@ function newListView () {
 
   let listItemsMap = new Map()
   let visibleListItems = []
-  let firstVisibleListItem = 1
+  let firstVisibleListItem
 
   let headerHeight = 40
   let footerHeight = 30
@@ -72,7 +73,17 @@ function newListView () {
     }
 
     thisObject.container.frame.position = position
-    thisObject.container.frame.height = browserCanvas.height - position.y * 2
+
+    onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    resize()
+    turnOn()
+  }
+
+  function resize () {
+    thisObject.container.frame.height = browserCanvas.height - thisObject.container.frame.position.y * 2
 
     let spaceForListItems = (thisObject.container.frame.height - headerHeight - footerHeight)
     posibleVisibleListItems = Math.trunc(spaceForListItems / (listItemHeight))
@@ -81,15 +92,11 @@ function newListView () {
     } else {
       itemSeparation = 0
     }
-
-    onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-
-    turnOn()
   }
 
   function turnOn () {
+    firstVisibleListItem = 1
+
     callServer(undefined, 'ListWorkspaces', onResponse)
 
     function onResponse (err, text) {

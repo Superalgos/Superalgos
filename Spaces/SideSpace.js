@@ -59,6 +59,14 @@ function newSideSpace () {
     thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
     thisObject.container.frame.position.x = -SIDE_PANEL_WIDTH
     thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
+
+    if (listView !== undefined) {
+      listView.resize()
+    }
+
+    if (thisObject.sidePanelTab !== undefined) {
+      thisObject.sidePanelTab.resize()
+    }
   }
 
   function getContainer (point) {

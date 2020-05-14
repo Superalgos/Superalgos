@@ -3,6 +3,7 @@ function newSidePanelTab () {
   let thisObject = {
     pointerDirection: 'left',
     container: undefined,
+    resize: resize,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -28,13 +29,18 @@ function newSidePanelTab () {
   function initialize () {
     thisObject.container.frame.width = TAB_WIDTH
     thisObject.container.frame.height = TAB_HEIGHT
-    thisObject.container.frame.position.x = 0 + thisObject.container.parentContainer.frame.width
-    thisObject.container.frame.position.y = 69
 
     ORIGINAL_PARENT_POSITON = thisObject.container.parentContainer.frame.position.x
 
     thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+    resize()
     isInitialized = true
+  }
+
+  function resize () {
+    thisObject.container.frame.position.x = 0 + thisObject.container.parentContainer.frame.width
+    thisObject.container.frame.position.y = 69
+    setClosed()
   }
 
   function onMouseClick (event) {
@@ -74,11 +80,7 @@ function newSidePanelTab () {
       xOffset = xOffset + STEP
       thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
       if (xOffset >= thisObject.container.parentContainer.frame.width) {
-        animation = 'none'
-        xOffset = thisObject.container.parentContainer.frame.width
-        thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
-        thisObject.container.parentContainer.status = 'visible'
-        thisObject.pointerDirection = 'right'
+        setOpened()
         thisObject.container.eventHandler.raiseEvent('opened')
       }
     }
@@ -87,14 +89,25 @@ function newSidePanelTab () {
       xOffset = xOffset - STEP
       thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
       if (xOffset <= 0) {
-        animation = 'none'
-        xOffset = 0
-        thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
-        thisObject.container.parentContainer.status = 'hidden'
-        thisObject.pointerDirection = 'left'
+        setClosed()
         thisObject.container.eventHandler.raiseEvent('closed')
       }
     }
+  }
+
+  function setOpened () {
+    animation = 'none'
+    xOffset = thisObject.container.parentContainer.frame.width
+    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
+    thisObject.container.parentContainer.status = 'visible'
+    thisObject.pointerDirection = 'right'
+  }
+  function setClosed () {
+    animation = 'none'
+    xOffset = 0
+    thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
+    thisObject.container.parentContainer.status = 'hidden'
+    thisObject.pointerDirection = 'left'
   }
 
   function arrow () {

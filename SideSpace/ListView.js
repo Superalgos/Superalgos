@@ -31,7 +31,7 @@ function newListView () {
 
   const LAYER_SEPARATION = 0
 
-  let headerHeight = 40
+  let headerHeight = 30
   let footerHeight = 10
   let listItemHeight = 70
   let desiredVisibleListItems = 5
@@ -64,15 +64,15 @@ function newListView () {
   function initialize () {
     thisObject.container.name = MODULE_NAME
     thisObject.container.frame.containerName = thisObject.container.name
-    thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.80
-    thisObject.container.frame.height = headerHeight
+    thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.75
 
     let position = { // Default position
-      x: SIDE_PANEL_WIDTH * 0.10,
+      x: SIDE_PANEL_WIDTH * 0.25 / 2,
       y: 20
     }
 
     thisObject.container.frame.position = position
+    thisObject.container.frame.height = browserCanvas.height - position.x
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -88,10 +88,11 @@ function newListView () {
 
       let workspacelist = JSON.parse(text)
       for (let i = 0; i < workspacelist.length; i++) {
-        let workspace = workspacelist[i]
+        let workspace = workspacelist[i].replace('.json', '')
         let listItem = newListItem()
-        listItem.initialize()
+        listItem.initialize(workspace, 'Workspace')
         listItem.container.connectToParent(thisObject.container, false, false)
+        listItem.container.frame.position.y = headerHeight + i * SIDE_PANEL_WIDTH * 0.75
         thisObject.listItems.push(listItem)
       }
       isInitialized = true
@@ -210,17 +211,22 @@ function newListView () {
   function draw () {
     if (isInitialized === false || thisObject.visible === false) { return }
 
-    drawHeader()
+    drawBackground()
     drawScrollBar()
+    drawChildren()
   }
 
-  function drawHeader () {
-    let label1 = 'HEADER'
+  function drawChildren () {
+    for (let i = 0; i < thisObject.listItems.length; i++) {
+      let listItem = thisObject.listItems[i]
+      listItem.draw()
+    }
+  }
 
-    let icon1 = canvas.designSpace.iconByUiObjectType.get('Workspace')
-
+  function drawBackground () {
+    let label = 'Your Workspaces'
+    let icon = canvas.designSpace.iconByUiObjectType.get('Workspace')
     let backgroundColor = UI_COLOR.WHITE
-
     let params = {
       cornerRadius: 5,
       lineWidth: 1,
@@ -233,8 +239,8 @@ function newListView () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container, UI_COLOR.BLACK)
-    drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
+    drawLabel(label, 1 / 2, 0, 0, 20, 15, thisObject.container, UI_COLOR.BLACK)
+    // drawIcon(icon, 1 / 8, 0, 0, 20, 28, thisObject.container)
   }
 
   function drawScrollBar () {

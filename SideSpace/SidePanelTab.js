@@ -71,7 +71,7 @@ function newSidePanelTab () {
     if (animation === 'opening') {
       xOffset = xOffset + STEP
       thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
-      if (xOffset > thisObject.container.parentContainer.frame.width) {
+      if (xOffset >= thisObject.container.parentContainer.frame.width) {
         animation = 'none'
         xOffset = thisObject.container.parentContainer.frame.width
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
@@ -83,7 +83,7 @@ function newSidePanelTab () {
     if (animation === 'closing') {
       xOffset = xOffset - STEP
       thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
-      if (xOffset < 0) {
+      if (xOffset <= 0) {
         animation = 'none'
         xOffset = 0
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON

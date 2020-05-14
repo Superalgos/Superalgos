@@ -19,6 +19,11 @@ function newListItem () {
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = false
   thisObject.container.detectMouseOver = true
+  thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.75
+  thisObject.container.frame.height = SIDE_PANEL_WIDTH * 0.75
+
+  let name
+  let type
 
   return thisObject
 
@@ -28,8 +33,9 @@ function newListItem () {
     thisObject.fitFunction = undefined
   }
 
-  function initialize () {
-
+  function initialize (pName, pType) {
+    name = pName
+    type = pType
   }
 
   function getContainer (point) {
@@ -47,12 +53,11 @@ function newListItem () {
   }
 
   function draw () {
-    let label1 = 'TEST NAME'
-
+    let icon = canvas.designSpace.iconByUiObjectType.get(type)
     let backgroundColor = UI_COLOR.BLACK
 
     const RED_LINE_HIGHT = 4
-    const OPACITY = 0.75
+    const OPACITY = 1
 
     let params = {
       cornerRadius: 0,
@@ -66,7 +71,8 @@ function newListItem () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
-    drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container)
+    drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container)
+    drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 80, thisObject.container)
   }
 }

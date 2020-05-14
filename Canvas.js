@@ -711,7 +711,7 @@ function newCanvas () {
       let container
 
       /* We check if the mouse is over an element of the Side Space / */
-      container = thisObject.sideSpace.getContainer(point)
+      container = thisObject.sideSpace.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
       if (container !== undefined && container.isClickeable === true) {
         container.eventHandler.raiseEvent('onMouseClick', point)

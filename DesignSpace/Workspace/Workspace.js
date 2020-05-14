@@ -11,6 +11,7 @@ function newWorkspace () {
     enabled: false,
     nodeChildren: undefined,
     eventsServerClients: new Map(),
+    replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
@@ -68,7 +69,7 @@ function newWorkspace () {
   let workingAtTask = 0
   let circularProgressBar = newBusyProgressBar()
   circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-  let droppedNode
+  let loadedWorkspaceNode
   let sessionTimestamp = (new Date()).valueOf()
   window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
@@ -238,8 +239,8 @@ function newWorkspace () {
           workingAtTask++
           break
         case 3:
-          thisObject.workspaceNode = droppedNode
-          droppedNode = undefined
+          thisObject.workspaceNode = loadedWorkspaceNode
+          loadedWorkspaceNode = undefined
           workingAtTask++
           break
         case 4:
@@ -339,6 +340,30 @@ function newWorkspace () {
     return nodes
   }
 
+  function replaceWorkspaceByLoadingOne (name) {
+    let blobService = newFileStorage()
+    blobService.getFileFromHost('LoadWorkspace' + '/' + name, onFileReceived, true)
+    function onFileReceived (err, text, response) {
+      if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+        canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)
+        return
+      }
+
+      loadedWorkspaceNode = JSON.parse(text)
+
+      canvas.cockpitSpace.toTop()
+
+      let position = {
+        x: browserCanvas.width / 2,
+        y: browserCanvas.height / 2
+      }
+
+      circularProgressBar.initialize(position)
+      circularProgressBar.visible = true
+      workingAtTask = 1
+    }
+  }
+
   function spawn (nodeText, mousePointer) {
     try {
       let point = {
@@ -349,9 +374,10 @@ function newWorkspace () {
       spawnPosition.x = point.x
       spawnPosition.y = point.y
 
-      droppedNode = JSON.parse(nodeText)
+      let droppedNode = JSON.parse(nodeText)
 
       if (droppedNode.type === 'Workspace') {
+        loadedWorkspaceNode = droppedNode
         circularProgressBar.initialize(mousePointer)
         circularProgressBar.visible = true
         workingAtTask = 1

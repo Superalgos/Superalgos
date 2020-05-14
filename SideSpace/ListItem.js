@@ -19,6 +19,7 @@ function newListItem () {
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = false
   thisObject.container.detectMouseOver = true
+  thisObject.container.isClickeable = true
   thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.75
   thisObject.container.frame.height = SIDE_PANEL_WIDTH * 0.75
 
@@ -27,6 +28,7 @@ function newListItem () {
 
   let onMouseOverEventSubscriptionId
   let onMouseNotOverEventSubscriptionId
+  let onMouseClickEventSubscriptionId
 
   let isMouseOver = false
   return thisObject
@@ -34,6 +36,7 @@ function newListItem () {
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
     thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseClickEventSubscriptionId)
 
     thisObject.container.finalize()
     thisObject.container = undefined
@@ -46,6 +49,7 @@ function newListItem () {
 
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
   }
 
   function getContainer (point) {
@@ -63,7 +67,7 @@ function newListItem () {
   }
 
   function onMouseClick (event) {
-
+    canvas.designSpace.workspace.replaceWorkspaceByLoadingOne(name)
   }
 
   function physics () {

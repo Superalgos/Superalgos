@@ -10,6 +10,9 @@ function newListView () {
     listItems: [],
     payload: undefined,
     isVisible: false,
+    resize: resize,
+    turnOn: turnOn,
+    turnOff: turnOff,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -27,29 +30,22 @@ function newListView () {
 
   let listItemsMap = new Map()
   let visibleListItems = []
-  let firstVisibleListItem = 1
-
-  const LAYER_SEPARATION = 0
+  let firstVisibleListItem
 
   let headerHeight = 40
-  let footerHeight = 10
-  let listItemHeight = 70
-  let desiredVisibleListItems = 5
-  let posibleVisibleListItems = 5
-  let desiredObjectHeight = (listItemHeight + LAYER_SEPARATION) * desiredVisibleListItems + headerHeight + footerHeight
-  let posibleObjectHeight = (listItemHeight + LAYER_SEPARATION) * posibleVisibleListItems + headerHeight + footerHeight
+  let footerHeight = 30
+  let listItemHeight = SIDE_PANEL_WIDTH * 0.75
+
+  let posibleVisibleListItems
+
+  let itemSeparation
 
   let onMouseWheelEventSuscriptionId
-  let onMouseOverEventSubscriptionId
-  let onMouseNotOverEventSubscriptionId
 
-  let isMouseOver
   return thisObject
 
   function finalize () {
     thisObject.container.eventHandler.stopListening(onMouseWheelEventSuscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
-    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
 
     listItemsMap = undefined
     visibleListItems = undefined
@@ -64,19 +60,35 @@ function newListView () {
   function initialize () {
     thisObject.container.name = MODULE_NAME
     thisObject.container.frame.containerName = thisObject.container.name
-    thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.80
-    thisObject.container.frame.height = headerHeight
+    thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.75
 
     let position = { // Default position
-      x: SIDE_PANEL_WIDTH * 0.10,
+      x: SIDE_PANEL_WIDTH * 0.25 / 2,
       y: 20
     }
 
     thisObject.container.frame.position = position
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
-    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
-    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+
+    resize()
+    turnOn()
+  }
+
+  function resize () {
+    thisObject.container.frame.height = browserCanvas.height - thisObject.container.frame.position.y * 2
+
+    let spaceForListItems = (thisObject.container.frame.height - headerHeight - footerHeight)
+    posibleVisibleListItems = Math.trunc(spaceForListItems / (listItemHeight))
+    if ((posibleVisibleListItems - 1) !== 0) {
+      itemSeparation = (spaceForListItems - listItemHeight * posibleVisibleListItems) / (posibleVisibleListItems - 1)
+    } else {
+      itemSeparation = 0
+    }
+  }
+
+  function turnOn () {
+    firstVisibleListItem = 1
 
     callServer(undefined, 'ListWorkspaces', onResponse)
 
@@ -87,23 +99,23 @@ function newListView () {
       }
 
       let workspacelist = JSON.parse(text)
+      thisObject.listItems = []
       for (let i = 0; i < workspacelist.length; i++) {
-        let workspace = workspacelist[i]
+        let workspace = workspacelist[i].replace('.json', '')
         let listItem = newListItem()
-        listItem.initialize()
+        listItem.initialize(workspace, 'Workspace')
         listItem.container.connectToParent(thisObject.container, false, false)
+
         thisObject.listItems.push(listItem)
       }
+      calculateVisbleListItems()
       isInitialized = true
+      thisObject.isVisible = true
     }
   }
 
-  function onMouseOver (event) {
-    isMouseOver = true
-  }
-
-  function onMouseNotOver () {
-    isMouseOver = false
+  function turnOff () {
+    thisObject.isVisible = false
   }
 
   function onMouseWheel (event) {
@@ -114,19 +126,13 @@ function newListView () {
       delta = 1
     }
 
-    if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < headerHeight) { // Mouse wheel over the header, not a listItem
-      desiredVisibleListItems = desiredVisibleListItems + delta
-      if (desiredVisibleListItems < 0) { desiredVisibleListItems = 0 }
-      if (desiredVisibleListItems > thisObject.listItems.length) { desiredVisibleListItems = thisObject.listItems.length }
-    } else {
-      firstVisibleListItem = firstVisibleListItem + delta
-    }
-    desiredObjectHeight = (listItemHeight + LAYER_SEPARATION) * desiredVisibleListItems + headerHeight + footerHeight
+    firstVisibleListItem = firstVisibleListItem + delta
+
     calculateVisbleListItems()
   }
 
   function calculateVisbleListItems () {
-    let availableSlots = posibleVisibleListItems
+    let availableSlots = Math.trunc(posibleVisibleListItems)
 
     if (firstVisibleListItem < 1) { firstVisibleListItem = 1 }
     if (firstVisibleListItem > (thisObject.listItems.length - availableSlots + 1)) { firstVisibleListItem = thisObject.listItems.length - availableSlots + 1 }
@@ -138,7 +144,7 @@ function newListView () {
         let listItem = thisObject.listItems[i]
 
         listItem.container.frame.position.x = 0
-        listItem.container.frame.position.y = (listItemHeight + LAYER_SEPARATION) * visibleListItems.length + headerHeight
+        listItem.container.frame.position.y = (listItemHeight + itemSeparation) * visibleListItems.length + headerHeight
 
          /* Add to Visible Product Array */
         visibleListItems.push(listItem)
@@ -147,16 +153,8 @@ function newListView () {
   }
 
   function getContainer (point, purpose) {
-    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
+    if (isInitialized === false || thisObject.isVisible === false) { return }
     let container
-
-    if (isMouseOver === true && purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-      container = thisObject.upDownButton.getContainer(point)
-      if (container !== undefined) { return container }
-
-      container = thisObject.leftRightButton.getContainer(point)
-      if (container !== undefined) { return container }
-    }
 
      /* First we check if thisObject point is inside thisObject space. */
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -165,32 +163,13 @@ function newListView () {
         container = visibleListItems[i].getContainer(point)
 
         if (container !== undefined) {
-          let checkPoint = {
-            x: point.x,
-            y: point.y
-          }
-
-          checkPoint = thisObject.fitFunction(checkPoint)
-
-          if (point.x === checkPoint.x && point.y === checkPoint.y) {
-            if (purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-              return container
-            }
+          if (container.isForThisPurpose(purpose) === true) {
+            return container
           }
         }
       }
 
-     /* The point does not belong to any inner container, so we return the current container. */
-      let checkPoint = {
-        x: point.x,
-        y: point.y
-      }
-
-      checkPoint = thisObject.fitFunction(checkPoint)
-
-      if (point.x === checkPoint.x && point.y === checkPoint.y) {
-        return thisObject.container
-      }
+      return thisObject.container
     }
   }
 
@@ -202,25 +181,33 @@ function newListView () {
   }
 
   function physics () {
+    if (isInitialized === false || thisObject.isVisible === false) { return }
     if (isInitialized === false) { return }
     if (thisObject.isVisible === false) { return }
     childrenPhysics()
   }
 
   function draw () {
-    if (isInitialized === false || thisObject.visible === false) { return }
+    if (isInitialized === false || thisObject.isVisible === false) { return }
 
-    drawHeader()
+    drawBackground()
+    drawChildren()
     drawScrollBar()
   }
 
-  function drawHeader () {
-    let label1 = 'HEADER'
+  function drawChildren () {
+    for (let i = 0; i < visibleListItems.length; i++) {
+      let listItem = visibleListItems[i]
+      if (listItem !== undefined) {
+        listItem.draw()
+      }
+    }
+  }
 
-    let icon1 = canvas.designSpace.iconByUiObjectType.get('Workspace')
+  function drawBackground () {
+    let label = 'Your Workspaces'
 
     let backgroundColor = UI_COLOR.WHITE
-
     let params = {
       cornerRadius: 5,
       lineWidth: 1,
@@ -233,8 +220,7 @@ function newListView () {
 
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 0, 0, 15, 9, thisObject.container, UI_COLOR.BLACK)
-    drawIcon(icon1, 1 / 8, 0, 0, 20, 28, thisObject.container)
+    drawLabel(label, 1 / 2, 0, 0, 25, 15, thisObject.container, UI_COLOR.BLACK)
   }
 
   function drawScrollBar () {
@@ -248,11 +234,11 @@ function newListView () {
         x: thisObject.container.frame.width - xOffset,
         y: thisObject.container.frame.height - footerHeight
       }
-      let ratio = posibleVisibleListItems / thisObject.listItems.length
-      let handleHeight = (posibleVisibleListItems * (listItemHeight + LAYER_SEPARATION)) * ratio
+      let ratio = (posibleVisibleListItems * listItemHeight + (posibleVisibleListItems - 1) * itemSeparation) / (thisObject.listItems.length * listItemHeight + (thisObject.listItems.length - 1) * itemSeparation)
+      let handleHeight = posibleVisibleListItems * (listItemHeight * ratio) + (posibleVisibleListItems - 1) * itemSeparation * ratio
       let handleTopPoint = {
         x: thisObject.container.frame.width - xOffset,
-        y: headerHeight + (listItemHeight + LAYER_SEPARATION) * ratio * (firstVisibleListItem - 1)
+        y: headerHeight + (listItemHeight * ratio * (firstVisibleListItem - 1) + itemSeparation * ratio * (firstVisibleListItem - 1))
       }
       let handleBottomPoint = {
         x: thisObject.container.frame.width - xOffset,

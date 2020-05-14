@@ -19,17 +19,37 @@ function newListItem () {
   thisObject.container.isDraggeable = false
   thisObject.container.isWheelable = false
   thisObject.container.detectMouseOver = true
+  thisObject.container.isClickeable = true
+  thisObject.container.frame.width = SIDE_PANEL_WIDTH * 0.75
+  thisObject.container.frame.height = SIDE_PANEL_WIDTH * 0.75
 
+  let name
+  let type
+
+  let onMouseOverEventSubscriptionId
+  let onMouseNotOverEventSubscriptionId
+  let onMouseClickEventSubscriptionId
+
+  let isMouseOver = false
   return thisObject
 
   function finalize () {
+    thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
+    thisObject.container.eventHandler.stopListening(onMouseClickEventSubscriptionId)
+
     thisObject.container.finalize()
     thisObject.container = undefined
     thisObject.fitFunction = undefined
   }
 
-  function initialize () {
+  function initialize (pName, pType) {
+    name = pName
+    type = pType
 
+    onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
+    onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
+    onMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
   }
 
   function getContainer (point) {
@@ -38,8 +58,16 @@ function newListItem () {
     }
   }
 
-  function onMouseClick (event) {
+  function onMouseOver (event) {
+    isMouseOver = true
+  }
 
+  function onMouseNotOver () {
+    isMouseOver = false
+  }
+
+  function onMouseClick (event) {
+    canvas.designSpace.workspace.replaceWorkspaceByLoadingOne(name)
   }
 
   function physics () {
@@ -47,12 +75,12 @@ function newListItem () {
   }
 
   function draw () {
-    let label1 = 'TEST NAME'
-
+    let icon = canvas.designSpace.iconByUiObjectType.get(type)
     let backgroundColor = UI_COLOR.BLACK
+    let labelColor
 
     const RED_LINE_HIGHT = 4
-    const OPACITY = 0.75
+    const OPACITY = 1
 
     let params = {
       cornerRadius: 0,
@@ -64,9 +92,16 @@ function newListItem () {
       opacity: OPACITY
     }
 
+    if (isMouseOver === false) {
+      labelColor = UI_COLOR.WHITE
+    } else {
+      labelColor = UI_COLOR.TITANIUM_YELLOW
+    }
+
     roundedCornersBackground(params)
 
-    drawLabel(label1, 1 / 2, 6 / 10, -5, 0, label1FontSize, thisObject.container)
-    drawIcon(thisObject.exchangeIcon, 1 / 8, 2 / 10, 0, 0, 14, thisObject.container)
+    drawLabel(name, 1 / 2, 3.0 / 10, -5, 0, 15, thisObject.container, labelColor)
+    drawLabel(type, 1 / 2, 7.2 / 10, -5, 0, 15, thisObject.container, labelColor)
+    drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 80, thisObject.container)
   }
 }

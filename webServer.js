@@ -498,14 +498,17 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                             if (err) {
                                 if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
                             } else {
-                                respondWithContent(fileList, response)
+                                respondWithContent(JSON.stringify(fileList), response)
+                                return
                             }
                         }
 
                     } catch (err) {
                         if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                        return
                     }
                    
                 }

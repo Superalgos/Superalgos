@@ -64,6 +64,8 @@ function newAppLoader() {
                 'Panels/PanelsVisibleButton.js',
                 
                 'SideSpace/SidePanelTab.js',
+                'SideSpace/ListView.js',
+                'SideSpace/ListItem.js',
 
                 'Spaces/CockpitSpace.js',
                 'Spaces/TopSpace.js',

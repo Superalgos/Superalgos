@@ -43,6 +43,7 @@ function newSidePanelTab () {
       thisObject.container.eventHandler.raiseEvent('opening')
     } else {
       animation = 'closing'
+      thisObject.container.eventHandler.raiseEvent('closing')
     }
   }
 
@@ -78,6 +79,7 @@ function newSidePanelTab () {
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON + xOffset
         thisObject.container.parentContainer.status = 'visible'
         thisObject.pointerDirection = 'right'
+        thisObject.container.eventHandler.raiseEvent('opened')
       }
     }
 
@@ -90,6 +92,7 @@ function newSidePanelTab () {
         thisObject.container.parentContainer.frame.position.x = ORIGINAL_PARENT_POSITON
         thisObject.container.parentContainer.status = 'hidden'
         thisObject.pointerDirection = 'left'
+        thisObject.container.eventHandler.raiseEvent('closed')
       }
     }
   }
@@ -219,4 +222,3 @@ function newSidePanelTab () {
     browserCanvasContext.stroke()
   }
 }
-

@@ -10,7 +10,8 @@ function newListView () {
     listItems: [],
     payload: undefined,
     isVisible: false,
-    reload: reload,
+    turnOn: turnOn,
+    turnOff: turnOff,
     physics: physics,
     draw: draw,
     getContainer: getContainer,
@@ -80,10 +81,10 @@ function newListView () {
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
     onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
 
-    reload()
+    turnOn()
   }
 
-  function reload () {
+  function turnOn () {
     callServer(undefined, 'ListWorkspaces', onResponse)
 
     function onResponse (err, text) {
@@ -103,8 +104,14 @@ function newListView () {
 
         thisObject.listItems.push(listItem)
       }
+      calculateVisbleListItems()
       isInitialized = true
+      thisObject.isVisible = true
     }
+  }
+
+  function turnOff () {
+    thisObject.isVisible = false
   }
 
   function onMouseOver (event) {
@@ -129,7 +136,7 @@ function newListView () {
   }
 
   function calculateVisbleListItems () {
-    let availableSlots = posibleVisibleListItems
+    let availableSlots = Math.trunc(posibleVisibleListItems)
 
     if (firstVisibleListItem < 1) { firstVisibleListItem = 1 }
     if (firstVisibleListItem > (thisObject.listItems.length - availableSlots + 1)) { firstVisibleListItem = thisObject.listItems.length - availableSlots + 1 }
@@ -150,16 +157,8 @@ function newListView () {
   }
 
   function getContainer (point, purpose) {
-    if (isInitialized === false || thisObject.visible === false || thisObject.isHidden === true) { return }
+    if (isInitialized === false || thisObject.isVisible === false) { return }
     let container
-
-    if (isMouseOver === true && purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-      container = thisObject.upDownButton.getContainer(point)
-      if (container !== undefined) { return container }
-
-      container = thisObject.leftRightButton.getContainer(point)
-      if (container !== undefined) { return container }
-    }
 
      /* First we check if thisObject point is inside thisObject space. */
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -168,32 +167,13 @@ function newListView () {
         container = visibleListItems[i].getContainer(point)
 
         if (container !== undefined) {
-          let checkPoint = {
-            x: point.x,
-            y: point.y
-          }
-
-          checkPoint = thisObject.fitFunction(checkPoint)
-
-          if (point.x === checkPoint.x && point.y === checkPoint.y) {
-            if (purpose !== GET_CONTAINER_PURPOSE.MOUSE_OVER) {
-              return container
-            }
+          if (container.isForThisPurpose(purpose) === true) {
+            return container
           }
         }
       }
 
-     /* The point does not belong to any inner container, so we return the current container. */
-      let checkPoint = {
-        x: point.x,
-        y: point.y
-      }
-
-      checkPoint = thisObject.fitFunction(checkPoint)
-
-      if (point.x === checkPoint.x && point.y === checkPoint.y) {
-        return thisObject.container
-      }
+      return thisObject.container
     }
   }
 
@@ -205,13 +185,14 @@ function newListView () {
   }
 
   function physics () {
+    if (isInitialized === false || thisObject.isVisible === false) { return }
     if (isInitialized === false) { return }
     if (thisObject.isVisible === false) { return }
     childrenPhysics()
   }
 
   function draw () {
-    if (isInitialized === false || thisObject.visible === false) { return }
+    if (isInitialized === false || thisObject.isVisible === false) { return }
 
     drawBackground()
     drawChildren()
@@ -219,9 +200,11 @@ function newListView () {
   }
 
   function drawChildren () {
-    for (let i = 0; i < thisObject.listItems.length; i++) {
-      let listItem = thisObject.listItems[i]
-      listItem.draw()
+    for (let i = 0; i < visibleListItems.length; i++) {
+      let listItem = visibleListItems[i]
+      if (listItem !== undefined) {
+        listItem.draw()
+      }
     }
   }
 

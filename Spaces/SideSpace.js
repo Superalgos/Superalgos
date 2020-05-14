@@ -25,6 +25,7 @@ function newSideSpace () {
   resize()
 
   let openingEventSubscriptionId
+  let closedEventSubscriptionId
   let browserResizedEventSubscriptionId
   return thisObject
 
@@ -42,13 +43,15 @@ function newSideSpace () {
   function finalize () {
     canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
     thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+    thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
   }
 
   function initializeListView () {
     listView = newListView()
     listView.initialize()
     listView.container.connectToParent(thisObject.container, false, false)
-    openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.reload)
+    openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
+    closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
   }
 
   function resize () {

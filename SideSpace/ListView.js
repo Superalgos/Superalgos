@@ -72,10 +72,15 @@ function newListView () {
     }
 
     thisObject.container.frame.position = position
-    thisObject.container.frame.height = browserCanvas.height - position.x
+    thisObject.container.frame.height = browserCanvas.height - position.y * 2
 
-    posibleVisibleListItems = (thisObject.container.frame.height - headerHeight - footerHeight) / (listItemHeight)
-    itemSeparation = ((thisObject.container.frame.height - headerHeight - footerHeight) - listItemHeight * Math.trunc(posibleVisibleListItems)) / (Math.trunc(posibleVisibleListItems) - 1)
+    let spaceForListItems = (thisObject.container.frame.height - headerHeight - footerHeight)
+    posibleVisibleListItems = Math.trunc(spaceForListItems / (listItemHeight))
+    if ((posibleVisibleListItems - 1) !== 0) {
+      itemSeparation = (spaceForListItems - listItemHeight * posibleVisibleListItems) / (posibleVisibleListItems - 1)
+    } else {
+      itemSeparation = 0
+    }
 
     onMouseWheelEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
     onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -100,7 +105,6 @@ function newListView () {
         let listItem = newListItem()
         listItem.initialize(workspace, 'Workspace')
         listItem.container.connectToParent(thisObject.container, false, false)
-        listItem.container.frame.position.y = headerHeight + i * SIDE_PANEL_WIDTH * 0.75 + itemSeparation * i
 
         thisObject.listItems.push(listItem)
       }
@@ -238,11 +242,11 @@ function newListView () {
         x: thisObject.container.frame.width - xOffset,
         y: thisObject.container.frame.height - footerHeight
       }
-      let ratio = posibleVisibleListItems / thisObject.listItems.length
-      let handleHeight = (posibleVisibleListItems * (listItemHeight + itemSeparation)) * ratio
+      let ratio = (posibleVisibleListItems * listItemHeight + (posibleVisibleListItems - 1) * itemSeparation) / (thisObject.listItems.length * listItemHeight + (thisObject.listItems.length - 1) * itemSeparation)
+      let handleHeight = posibleVisibleListItems * (listItemHeight * ratio) + (posibleVisibleListItems - 1) * itemSeparation * ratio
       let handleTopPoint = {
         x: thisObject.container.frame.width - xOffset,
-        y: headerHeight + (listItemHeight + itemSeparation) * ratio * (firstVisibleListItem - 1)
+        y: headerHeight + (listItemHeight * ratio * (firstVisibleListItem - 1) + itemSeparation * ratio * (firstVisibleListItem - 1))
       }
       let handleBottomPoint = {
         x: thisObject.container.frame.width - xOffset,

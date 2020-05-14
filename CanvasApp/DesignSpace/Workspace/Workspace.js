@@ -350,7 +350,7 @@ function newWorkspace () {
       }
 
       loadedWorkspaceNode = JSON.parse(text)
-
+      saveWorkspace()
       canvas.cockpitSpace.toTop()
 
       let position = {

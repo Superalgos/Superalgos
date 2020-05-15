@@ -1327,6 +1327,11 @@
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
+                        if (
+                            strategyStage !== 'No Stage' ||
+                            currentStrategyIndex !== -1
+                        )  {continue}
+
                         let strategy = tradingSystem.strategies[j];
 
                         let triggerStage = strategy.triggerStage

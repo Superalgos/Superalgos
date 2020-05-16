@@ -56,6 +56,11 @@
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
+            if (outputDatasetNode.referenceParent.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Dataset not a child of a Product Definition. Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
             if (outputDatasetNode.referenceParent.parentNode.code.singularVariableName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Product Definition without a Single Variable Name defined. Product Definition = " + JSON.stringify(outputDatasetNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);

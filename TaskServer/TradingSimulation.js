@@ -1343,7 +1343,10 @@
                                 for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
                                     let situation = triggerStage.triggerOn.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1415,7 +1418,10 @@
                             for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
                                 let situation = triggerStage.triggerOff.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1482,7 +1488,10 @@
                             for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
                                 let situation = triggerStage.takePosition.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1585,7 +1594,10 @@
                             for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                 let situation = nextPhaseEvent.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1631,7 +1643,10 @@
                                 for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
 
                                     let situation = moveToPhaseEvent.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1779,7 +1794,10 @@
                             for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                 let situation = nextPhaseEvent.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1825,7 +1843,10 @@
                                 for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
 
                                     let situation = moveToPhaseEvent.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -2984,7 +3005,7 @@
 
                         if (positionedAtYesterday === false) {
                             snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
-                            snapshots.takePosition.push(closeValues.concat(snapshots.lastTriggerOn))
+                            snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
                         }
                         snapshots.lastTriggerOn = undefined
                         snapshots.lastTakePosition = undefined

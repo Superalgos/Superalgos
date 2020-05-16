@@ -2339,7 +2339,7 @@
                         if (baseAsset === bot.market.baseAsset) {
                             orderSide = "sell"
 
-                            orderPrice = tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
+                            orderPrice = tradePositionRate  
 
                             amountA = tradePositionSize * orderPrice
                             amountB = tradePositionSize
@@ -2347,7 +2347,7 @@
                         } else {
                             orderSide = "buy"
 
-                            orderPrice = tradePositionRate // This is going to be ingnored at the Exchange API for now since we only put market orders.
+                            orderPrice = tradePositionRate  
 
                             amountA = tradePositionSize
                             amountB = tradePositionSize / orderPrice

@@ -1,5 +1,7 @@
 function newUiObjectsFromNodes () {
   thisObject = {
+    runTasks: runTasks,
+    runSessions: runSessions,
     recreateWorkspace: recreateWorkspace,
     tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
     createUiObjectFromNode: createUiObjectFromNode,
@@ -14,7 +16,7 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function recreateWorkspace (node, replacingCurrentWorkspace, callBackFunction) {
+  function recreateWorkspace (node, callBackFunction) {
     mapOfNodes = new Map()
     tasksToRun = []
     sessionsToRun = []
@@ -134,17 +136,6 @@ function newUiObjectsFromNodes () {
       }
 
       tryToConnectChildrenWithReferenceParents()
-
-      if (replacingCurrentWorkspace === true) {
-     // We need to wait all tasks that were potentially running to stop
-        setTimeout(runTasks, 70000)
-     // We give a few seconds for the tasks to start
-        setTimeout(runSessions, 80000)
-      } else {
-        runTasks()
-     // We give a few seconds for the tasks to start
-        setTimeout(runSessions, 10000)
-      }
 
       if (callBackFunction !== undefined) {
         callBackFunction() // The recreation of the workspace is complete

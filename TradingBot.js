@@ -377,7 +377,8 @@
                                 record.number + "," +
                                 record.beginRate + "," +
                                 record.endRate + "," +
-                                '"' + record.triggerOnSituation + '"' + "]";
+                                '"' + record.triggerOnSituation + '"' + "," +
+                                '"' + record.name + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 
@@ -813,7 +814,8 @@
                                 record.number + "," +
                                 record.beginRate + "," +
                                 record.endRate + "," +
-                                '"' + record.triggerOnSituation + '"' + "]";
+                                '"' + record.triggerOnSituation + '"' + "," +
+                                '"' + record.name + '"' + "]";
 
                             if (separator === "") { separator = ","; }
 

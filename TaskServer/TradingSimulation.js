@@ -139,7 +139,8 @@
                 number: 0,
                 beginRate: 0,
                 endRate: 0,
-                triggerOnSituation: ''
+                triggerOnSituation: '',
+                name: ''
             }
 
             let currentTrade = {
@@ -224,7 +225,8 @@
                 number: 0,
                 beginRate: 0,
                 endRate: 0,
-                triggerOnSituation: ''
+                triggerOnSituation: '',
+                name: ''
             }
 
             yesterday.currentTrade = {
@@ -302,7 +304,8 @@
                     number: 0,
                     beginRate: 0,
                     endRate: 0,
-                    triggerOnSituation: ''
+                    triggerOnSituation: '',
+                    name: ''
                 }
 
                 interExecutionMemory.currentTrade = {
@@ -382,7 +385,8 @@
                     number: interExecutionMemory.currentStrategy.number,
                     beginRate: interExecutionMemory.currentStrategy.beginRate,
                     endRate: interExecutionMemory.currentStrategy.endRate,
-                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation
+                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation,
+                    name: currentStrategy.name
                 }
 
                 currentTrade = {
@@ -465,7 +469,8 @@
                     number: currentStrategy.number,
                     beginRate: currentStrategy.beginRate,
                     endRate: currentStrategy.endRate,
-                    triggerOnSituation: currentStrategy.triggerOnSituation
+                    triggerOnSituation: currentStrategy.triggerOnSituation,
+                    name: currentStrategy.name
                 }
 
                 yesterday.currentTrade = {
@@ -1371,6 +1376,7 @@
                                         currentStrategy.beginRate = candle.min;
                                         currentStrategy.endRate = candle.min; // In case the strategy does not get exited
                                         currentStrategy.triggerOnSituation = situation.name
+                                        currentStrategy.name = strategy.name
 
                                         if (processingDailyFiles) {
                                             if (positionedAtYesterday) {
@@ -1380,6 +1386,7 @@
                                                 yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
                                                 yesterday.currentStrategy.endRate = currentStrategy.endRate;
                                                 yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
+                                                yesterday.currentStrategy.name = currentStrategy.name;
                                             }
                                         }
 
@@ -2941,7 +2948,8 @@
                             number: 0,
                             beginRate: 0,
                             endRate: 0,
-                            triggerOnSituation: ''
+                            triggerOnSituation: '',
+                            name: ''
                         }
 
                         if (processingDailyFiles) {
@@ -2953,7 +2961,8 @@
                                     number: 0,
                                     beginRate: 0,
                                     endRate: 0,
-                                    triggerOnSituation: ''
+                                    triggerOnSituation: '',
+                                    name: ''
                                 }
                             }
                         }
@@ -3283,7 +3292,8 @@
                             number: yesterday.currentStrategy.number,
                             beginRate: yesterday.currentStrategy.beginRate,
                             endRate: yesterday.currentStrategy.endRate,
-                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation
+                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation,
+                            name: yesterday.currentStrategy.name
                         }
 
                         interExecutionMemory.currentTrade = {

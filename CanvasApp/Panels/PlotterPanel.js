@@ -154,7 +154,7 @@ function newPlotterPanel () {
       if (panelData.code.valueDecimals !== undefined) {
         if (value !== undefined) {
           if (isNaN(value) === false) {
-            value = value.toFixed(panelData.code.valueDecimals)
+            value = dynamicDecimals(value, panelData.code.valueDecimals)
           }
         }
       }

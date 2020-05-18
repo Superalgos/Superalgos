@@ -107,11 +107,12 @@ function newWorkspace () {
       }
 
       function recreateWorkspace () {
-        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, false, finishInitialization)
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
       }
 
       function finishInitialization () {
         setupEventsServerClients()
+        runTasksAndSessions(false)
         thisObject.enabled = true
         canvas.cockpitSpace.initializePosition()
         canvas.splashScreen.initialize()
@@ -119,6 +120,19 @@ function newWorkspace () {
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+    }
+  }
+
+  function runTasksAndSessions (replacingCurrentWorkspace) {
+    if (replacingCurrentWorkspace === true) {
+   // We need to wait all tasks that were potentially running to stop
+      setTimeout(functionLibraryUiObjectsFromNodes.runTasks, 70000)
+   // We give a few seconds for the tasks to start
+      setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
+    } else {
+      functionLibraryUiObjectsFromNodes.runTasks()
+   // We give a few seconds for the tasks to start
+      setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
     }
   }
 
@@ -244,8 +258,9 @@ function newWorkspace () {
           workingAtTask++
           break
         case 4:
-          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, true)
+          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
           setupEventsServerClients()
+          runTasksAndSessions(true)
           workingAtTask++
           break
         case 5:

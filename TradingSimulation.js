@@ -47,7 +47,6 @@
 
             let tradingSystem = bot.TRADING_SYSTEM 
 
-            /* Initial Default Values */
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.initialDatetime = " + bot.VALUES_TO_USE.timeRange.initialDatetime); }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
 
@@ -253,7 +252,6 @@
                 }
 
                 /* Finding the Current Element on Single Files */
-
                 function isItInside(elementWithTimestamp, elementWithBeginEnd) {
                     if (elementWithTimestamp.timestamp >= elementWithBeginEnd.begin && elementWithTimestamp.timestamp <= elementWithBeginEnd.end) {
                         return true
@@ -316,24 +314,6 @@
                     }
                 }
                 previousLoopingDay = loopingDay.valueOf()
-
-                /* If any of the needed data dependencies is missing for this particular candle, then we jump the candle*/
-                /*
-                for (let k = 0; k < dataDependencies.length; k++) {
-                    let dataDependencyNode = dataDependencies[k]
-                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
-                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
-                    let product = currentChart[pluralVariableName]
-                    let currentElement = currentChart[singularVariableName]
-
-                    if (currentElement === undefined) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Skipping Candle because " + singularVariableName + " is undefined."); }
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> For some indicators it is normal to start after a few candles."); }
-                        controlLoop();
-                        return
-                    }
-                }
-                */
 
                 variable.periods++;
                 variable.days = variable.periods * timeFrame / ONE_DAY_IN_MILISECONDS;
@@ -446,7 +426,7 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             positionSize = variable.balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
@@ -469,13 +449,13 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (baseAsset === variable.marketBaseAsset) {
+                                            if (variable.baseAsset === variable.marketBaseAsset) {
                                                 positionSize = variable.balanceBaseAsset;
                                             } else {
                                                 positionSize = variable.balanceQuotedAsset;
                                             }
                                         } else {
-                                            if (baseAsset === variable.marketBaseAsset) {
+                                            if (variable.baseAsset === variable.marketBaseAsset) {
                                                 if (positionSize > variable.balanceBaseAsset) { positionSize = variable.balanceBaseAsset }
                                             } else {
                                                 if (positionSize > variable.balanceQuotedAsset) { positionSize = variable.balanceQuotedAsset }
@@ -496,7 +476,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (baseAsset === variable.marketBaseAsset) {
+                                            if (variable.baseAsset === variable.marketBaseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -874,7 +854,6 @@
                     function newCondition(key, node, chart) {
 
                         let condition;
-                        let error = ''
                         let value
 
                         try {
@@ -921,7 +900,7 @@
                     let maximumBalance
                     let balance
 
-                    if (baseAsset === variable.marketBaseAsset) {
+                    if (variable.baseAsset === variable.marketBaseAsset) {
                         balance = variable.balanceBaseAsset
                         minimumBalance = variable.minimumBalanceBaseAsset
                         maximumBalance = variable.maximumBalanceBaseAsset
@@ -1011,7 +990,7 @@
                 }
 
                 /* Trigger Off Condition */
-                if (strategyStage === 'Trigger Stage') {
+                if (variable.strategyStage === 'Trigger Stage') {
 
                     let strategy = tradingSystem.strategies[strategyIndex];
 
@@ -1061,7 +1040,7 @@
                 }
 
                 /* Take Position Condition */
-                if (strategyStage === 'Trigger Stage') {
+                if (variable.strategyStage === 'Trigger Stage') {
 
                     let strategy = tradingSystem.strategies[strategyIndex];
 
@@ -1114,7 +1093,7 @@
 
                 /* Stop Loss Management */
                 if (
-                    (strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
+                    (variable.strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
 
@@ -1285,7 +1264,7 @@
 
                 /* Take Profit Management */
                 if (
-                    (strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
+                    (variable.strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
 
@@ -1458,7 +1437,7 @@
 
                 /* Keeping Position Counters Up-to-date */
                 if (
-                    (strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage')
+                    (variable.strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage')
                 ) {
 
                     if (takePositionNow === true) {
@@ -1500,7 +1479,7 @@
 
                 /* Checking if Stop or Take Profit were hit */
                 if (
-                    (strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
+                    (variable.strategyStage === 'Open Stage' || variable.strategyStage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
                     let strategy = tradingSystem.strategies[strategyIndex];
@@ -1510,7 +1489,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((baseAsset === variable.marketBaseAsset && candle.max >= variable.stopLoss) || (baseAsset !== variable.marketBaseAsset && candle.min <= variable.stopLoss)) {
+                    if ((variable.baseAsset === variable.marketBaseAsset && candle.max >= variable.stopLoss) || (variable.baseAsset !== variable.marketBaseAsset && candle.min <= variable.stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1520,7 +1499,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             if (stopLoss < candle.min) {
                                 variable.stopLoss = candle.min
                             }
@@ -1535,7 +1514,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1558,7 +1537,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((baseAsset === variable.marketBaseAsset && candle.min <= variable.takeProfit) || (baseAsset !== variable.marketBaseAsset && candle.max >= variable.takeProfit)) {
+                    if ((variable.baseAsset === variable.marketBaseAsset && candle.min <= variable.takeProfit) || (variable.baseAsset !== variable.marketBaseAsset && candle.max >= variable.takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1568,7 +1547,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             if (takeProfit > candle.max) {
                                 variable.takeProfit = candle.max
                             }
@@ -1582,7 +1561,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1625,7 +1604,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = variable.tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (baseAsset === variable.marketBaseAsset) {
+                    if (variable.baseAsset === variable.marketBaseAsset) {
                         variable.tradePositionRate = variable.tradePositionRate - slippageAmount
                     } else {
                         variable.tradePositionRate = variable.tradePositionRate + slippageAmount
@@ -1712,7 +1691,7 @@
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (periods <= variable.executionContext.periods) {
+                                if (variable.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution."); }
                                     takePositionAtSimulation()
                                     return;
@@ -1739,7 +1718,7 @@
                         let orderSide
  
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             orderSide = "sell"
 
                             orderPrice = variable.tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
@@ -1759,7 +1738,7 @@
 
                         variable.executionContext = {
                             status: "Taking Position",
-                            variable.periods: variable.periods,
+                            periods: variable.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order."); }
@@ -1774,7 +1753,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "In a Position",
-                                            variable.periods: variable.periods,
+                                            periods: variable.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1824,7 +1803,7 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
 
                             feePaid = variable.tradePositionSize * variable.tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
@@ -1907,7 +1886,7 @@
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (periods <= variable.executionContext.periods) {
+                                if (variable.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
                                     closePositionAtSimulation()
                                     return;
@@ -1920,7 +1899,7 @@
                         let amountB
                         let orderSide
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             orderSide = "buy"
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -1940,7 +1919,7 @@
 
                         variable.executionContext = {
                             status: "Closing Position",
-                            variable.periods: variable.periods,
+                            periods: variable.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
@@ -1955,7 +1934,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "Position Closed",
-                                            variable.periods: variable.periods,
+                                            periods: variable.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1996,7 +1975,7 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             strategy.positionSize = variable.balanceQuotedAsset / closeRate;
                             strategy.positionRate = closeRate;
 
@@ -2014,7 +1993,7 @@
                             variable.balanceBaseAsset = 0;
                         }
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             variable.lastTradeProfitLoss = variable.balanceBaseAsset - variable.previousBalanceBaseAsset;
                             variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
                             if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
@@ -2028,13 +2007,13 @@
 
                         variable.currentTrade.lastTradeROI = variable.lastTradeROI;
 
-                        if (lastTradeProfitLoss > 0) {
+                        if (variable.lastTradeProfitLoss > 0) {
                             variable.hits++;
                         } else {
                             variable.fails++;
                         }
 
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             variable.ROI = (variable.initialBalanceBaseAsset + variable.accumulatedProfitLoss) / variable.initialBalanceBaseAsset - 1;
                             variable.hitRatio = variable.hits / variable.tradesCount;
                             variable.anualizedRateOfReturn = variable.ROI / variable.days * 365;
@@ -2065,7 +2044,7 @@
                 }
 
                 /* Closing the Closing Stage */
-                if (strategyStage === 'Close Stage') {
+                if (variable.strategyStage === 'Close Stage') {
                     if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
 
                         variable.currentStrategy.number = variable.strategyIndex
@@ -2094,26 +2073,21 @@
 
                 function addRecord() {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> addRecord -> Entering function."); }
-
-                    // Since we are going to write the message to a file that the Simulation Executor is going to read, we use the abbreviations.
-                    let messageType;
-                    let message;
                     let simulationRecord;
 
-                    if (balanceBaseAsset === Infinity) {
+                    if (variable.balanceBaseAsset === Infinity) {
                         variable.balanceBaseAsset = Number.MAX_SAFE_INTEGER
                     }
 
-                    if (balanceQuotedAsset === Infinity) {
+                    if (variable.balanceQuotedAsset === Infinity) {
                         variable.balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
-                        amount: 1,
-                        balanceA: variable.balanceBaseAsset,
-                        balanceB: variable.balanceQuotedAsset,
+                        balanceBaseAsset: variable.balanceBaseAsset,
+                        balanceQuotedAsset: variable.balanceQuotedAsset,
                         accumulatedProfitLoss: variable.accumulatedProfitLoss,
                         lastTradeProfitLoss: variable.lastTradeProfitLoss,
                         stopLoss: variable.stopLoss,
@@ -2198,7 +2172,7 @@
                         variable.currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing variable.ROI */
-                        if (baseAsset === variable.marketBaseAsset) {
+                        if (variable.baseAsset === variable.marketBaseAsset) {
                             variable.currentTrade.lastTradeROI = (tradePositionRate - candle.close) / variable.tradePositionRate * 100
                         } else {
                             variable.currentTrade.lastTradeROI = (candle.close - variable.tradePositionRate) / variable.tradePositionRate * 100
@@ -2251,7 +2225,7 @@
                                 }
                             }
 
-                            if (periods > lastPeriodAnnounced) {
+                            if (variable.periods > lastPeriodAnnounced) {
 
                                 if (isNaN(value) === false) {
                                     /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
@@ -2284,7 +2258,7 @@
                                 } else {
                                     newAnnouncementRecord = {
                                         key: key,
-                                        variable.periods: variable.periods,
+                                        periods: variable.periods,
                                         value: value
                                     }
                                     variable.announcements.push(newAnnouncementRecord)

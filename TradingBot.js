@@ -180,9 +180,8 @@
                             fileContent = fileContent + separator + '[' +
                                 record.begin + "," +
                                 record.end + "," +
-                                record.amount + "," +
-                                record.balanceA + "," +
-                                record.balanceB + "," +
+                                record.balanceBaseAsset + "," +
+                                record.balanceQuotedAsset + "," +
                                 record.accumulatedProfitLoss + "," +
                                 record.lastTradeProfitLoss + "," +
                                 record.stopLoss + "," +
@@ -514,9 +513,8 @@
                             fileContent = fileContent + separator + '[' +
                                 record.begin + "," +
                                 record.end + "," +
-                                record.amount + "," +
-                                record.balanceA + "," +
-                                record.balanceB + "," +
+                                record.balanceBaseAsset + "," +
+                                record.balanceQuotedAsset + "," +
                                 record.accumulatedProfitLoss + "," +
                                 record.lastTradeProfitLoss + "," +
                                 record.stopLoss + "," +

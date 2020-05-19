@@ -48,157 +48,51 @@
             let tradingSystem = bot.TRADING_SYSTEM 
 
             /* Initial Default Values */
-
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.initialDatetime = " + bot.VALUES_TO_USE.timeRange.initialDatetime); }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.finalDatetime = " + bot.VALUES_TO_USE.timeRange.finalDatetime); }
 
             let timerToCloseStage = 0
 
             /* Stop Loss Management */
-
             const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
-            let stopLoss = 0;
 
             /* Take Profit Management */
-
             const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
-            let takeProfit = 0;
 
-            /* Simulation Records */
-
-            let hitRatio = 0;
-            let ROI = 0;
-            let days = 0;
-            let positionDays = 0;
-            let anualizedRateOfReturn = 0;
-            let type = '""';
-            let marketRate = 0;
+            /* Variables for this executioin only */
             let takePositionNow = false
             let closePositionNow = false
 
             /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
-
             let lastInstantOfTheDay = 0
             if (currentDay) {
                 lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
             }
 
-            /*
-            The following counters need to survive multiple executions of the similator and keep themselves reliable.
-            This is challenging when the simulation is executed using Daily Files, since each execution means a new
-            day and these counters are meant to be kept along the whole market.
+            if (variable.isInitialized !== true) { 
 
-            To overcome this problem, we use the variable to record the values of the current execution
-            when finish. But there are a few details:
-
-            1. When the process is at the head of the market, it executes multple times at the same day.
-            2. The same code serves execution from Market Files.
-            3. In Daily Files we are receiving candles from the current day and previous day, so we need to take care of
-               not adding to the counters duplicate info when processing the day before candles.
-
-            To overcome these challenges we record the values of the counters and variables on the variable only when
-            the day is complete and if we have a current Day. That menas that for Market Files we will never use
-            variable.
-            */
-
-            /*Needed for statistics */
-            let previousBalanceBaseAsset = 0;
-            let previousBalanceQuotedAsset = 0;
-
-            /* Position Management */
-            let tradePositionRate = 0;
-            let tradePositionSize = 0;
-
-            /* Strategy and Phase Management */
-            let currentStrategyIndex = -1;
-            let strategyStage = 'No Stage';
-
-            let stopLossPhase = -1;
-            let stopLossStage = 'No Stage';
-
-            let takeProfitPhase = -1;
-            let takeProfitStage = 'No Stage';
-
-            /* These 2 objects will allow us to create separate files for each one of them. */
-
-            let currentStrategy = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                number: 0,
-                beginRate: 0,
-                endRate: 0,
-                triggerOnSituation: ''
-            }
-
-            let currentTrade = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                profit: 0,
-                exitType: 0,
-                beginRate: 0,
-                endRate: 0, 
-                takePositionSituation: ''
-            }
-
-            let balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA;
-            let balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB;
-
-            let lastTradeProfitLoss = 0;
-            let profit = 0;
-            let lastTradeROI = 0;
-
-            let roundtrips = 0;
-            let fails = 0;
-            let hits = 0;
-            let periods = 0;
-            let positionPeriods = 0;
-
-            let closeRate
-
-            /* Usefull counters for conditions and formulas */
-
-            let distanceToLast = {
-                triggerOn: 0,
-                triggerOff: 0,
-                takePosition: 0,
-                closePosition: 0
-            }
-
-            /* Message to the Simulation Executor */
-
-            let orderId = 0;
-            let messageId = 0;
-
-            /* Allowing these to be accesible at formulas */
-            baseAsset = bot.VALUES_TO_USE.baseAsset
-            quotedAsset = bot.VALUES_TO_USE.quotedAsset
-
-
-            if (variable.roundtrips === undefined) { // This just means that the inter execution memory was never used before.
-
-                /* Initialize the data structure we will use inter execution. */
+                variable.isInitialized =  true
 
                 variable.stopLoss = 0
                 variable.takeProfit = 0
 
-                variable.previousBalanceBaseAsset = previousBalanceBaseAsset
-                variable.previousBalanceQuotedAsset = previousBalanceQuotedAsset
+                /*Needed for statistics */
+                variable.previousBalanceBaseAsset = 0
+                variable.previousBalanceQuotedAsset = 0
 
-                variable.tradePositionRate = tradePositionRate
-                variable.tradePositionSize = tradePositionSize
+                /* Position Management */
+                variable.tradePositionRate = 0
+                variable.tradePositionSize = 0
 
-                variable.currentStrategyIndex = currentStrategyIndex
-                variable.strategyStage = strategyStage
-
-                variable.stopLossPhase = stopLossPhase
-                variable.stopLossStage = stopLossStage
-
-                variable.takeProfitPhase = takeProfitPhase
-                variable.takeProfitStage = takeProfitStage
+                /* Strategy and Phase Management */
+                variable.strategyIndex = -1
+                variable.strategyStage = 'No Stage'
+                variable.stopLossPhase = -1
+                variable.stopLossStage = 'No Stage'
+                variable.takeProfitPhase = -1
+                variable.takeProfitStage = 'No Stage'
 
                 variable.currentStrategy = {
                     begin: 0,
@@ -221,12 +115,12 @@
                     takePositionSituation: ''
                 }
 
-                variable.balanceBaseAsset = balanceBaseAsset;
-                variable.balanceQuotedAsset = balanceQuotedAsset;
+                variable.balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA
+                variable.balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB
 
-                variable.lastTradeProfitLoss = lastTradeProfitLoss;
-                variable.profit = profit;
-                variable.lastTradeROI = lastTradeROI;
+                variable.lastTradeProfitLoss = 0
+                variable.profit = 0
+                variable.lastTradeROI = 0
 
                 variable.roundtrips = 0;
                 variable.fails = 0;
@@ -234,6 +128,7 @@
                 variable.periods = 0;
                 variable.positionPeriods = 0;
 
+                /* Usefull counters for conditions and formulas */
                 variable.distanceToLast = {
                     triggerOn: 0,
                     triggerOff: 0,
@@ -241,93 +136,18 @@
                     closePosition: 0
                 }
 
-                variable.orderId = 0;
-                variable.messageId = 0;
-
                 variable.hitRatio = 0;
                 variable.ROI = 0;
                 variable.anualizedRateOfReturn = 0;
 
                 variable.announcements = []
 
-            } else {
-
-                /* We get the initial values from the day previous to the candles we receive at the current execution */
-
-                stopLoss = variable.stopLoss
-                takeProfit = variable.takeProfit
-
-                previousBalanceBaseAsset = variable.previousBalanceBaseAsset
-                previousBalanceQuotedAsset = variable.previousBalanceQuotedAsset
-
-                tradePositionRate = variable.tradePositionRate
-                tradePositionSize = variable.tradePositionSize
-
-                currentStrategyIndex = variable.currentStrategyIndex
-                strategyStage = variable.strategyStage
-
-                stopLossPhase = variable.stopLossPhase
-                stopLossStage = variable.stopLossStage
-
-                takeProfitPhase = variable.takeProfitPhase
-                takeProfitStage = variable.takeProfitStage
-
-                currentStrategy = {
-                    begin: variable.currentStrategy.begin,
-                    end: variable.currentStrategy.end,
-                    status: variable.currentStrategy.status,
-                    number: variable.currentStrategy.number,
-                    beginRate: variable.currentStrategy.beginRate,
-                    endRate: variable.currentStrategy.endRate,
-                    triggerOnSituation: variable.currentStrategy.triggerOnSituation
-                }
-
-                currentTrade = {
-                    begin: variable.currentTrade.begin,
-                    end: variable.currentTrade.end,
-                    status: variable.currentTrade.status,
-                    profit: variable.currentTrade.profit,
-                    exitType: variable.currentTrade.exitType,
-                    beginRate: variable.currentTrade.beginRate,
-                    endRate: variable.currentTrade.endRate,
-                    takePositionSituation: variable.currentTrade.takePositionSituation
-                }
-
-                if (currentDay) {
-                    if (currentDay.valueOf() >= bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
-
-                        balanceBaseAsset = variable.balanceBaseAsset;
-                        balanceQuotedAsset = variable.balanceQuotedAsset;
-
-                    }
-                }
-
-                lastTradeProfitLoss = variable.lastTradeProfitLoss;
-                profit = variable.profit;
-                lastTradeROI = variable.lastTradeROI;
-
-                roundtrips = variable.roundtrips;
-                fails = variable.fails;
-                hits = variable.hits;
-                periods = variable.periods;
-                positionPeriods = variable.positionPeriods;
-
-                distanceToLast.triggerOn = variable.distanceToLast.triggerOn
-                distanceToLast.triggerOff = variable.distanceToLast.triggerOff
-                distanceToLast.takePosition = variable.distanceToLast.takePosition
-                distanceToLast.closePosition = variable.distanceToLast.closePosition
-
-                orderId = variable.orderId; // to be deprecated
-                messageId = variable.messageId; // to be deprecated
-
-                hitRatio = variable.hitRatio;
-                ROI = variable.ROI;
-                anualizedRateOfReturn = variable.anualizedRateOfReturn;
-
-            }
+                /* Allowing these to be accesible at formulas */
+                variable.baseAsset = bot.VALUES_TO_USE.baseAsset
+                variable.quotedAsset = bot.VALUES_TO_USE.quotedAsset
+            } 
 
             /* Main Array and Maps */
-
             let propertyName = 'at' + timeFrameLabel.replace('-', '');
             let candles = chart[propertyName].candles
             let currentChart = chart[propertyName]
@@ -1084,7 +904,7 @@
                 /* Trigger On Conditions */
                 if (
                     strategyStage === 'No Stage' &&
-                    currentStrategyIndex === -1
+                    strategyIndex === -1
                 ) {
                     let minimumBalance
                     let maximumBalance
@@ -1159,7 +979,7 @@
                                         strategyStage = 'Trigger Stage';
                                         checkAnnouncements(triggerStage)
 
-                                        currentStrategyIndex = j;
+                                        strategyIndex = j;
                                         currentStrategy.begin = candle.begin;
                                         currentStrategy.beginRate = candle.min;
                                         currentStrategy.endRate = candle.min; // In case the strategy does not get exited
@@ -1182,7 +1002,7 @@
                 /* Trigger Off Condition */
                 if (strategyStage === 'Trigger Stage') {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     let triggerStage = strategy.triggerStage
 
@@ -1198,7 +1018,7 @@
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
+                                    let key = strategyIndex + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m;
 
                                     let value = false
                                     if (conditions.get(key) !== undefined) {
@@ -1210,12 +1030,12 @@
 
                                 if (passed) {
 
-                                    currentStrategy.number = currentStrategyIndex
+                                    currentStrategy.number = strategyIndex
                                     currentStrategy.end = candle.end;
                                     currentStrategy.endRate = candle.min;
                                     currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
                                     strategyStage = 'No Stage';
-                                    currentStrategyIndex = -1;
+                                    strategyIndex = -1;
 
                                     distanceToLast.triggerOff = 1;
 
@@ -1232,7 +1052,7 @@
                 /* Take Position Condition */
                 if (strategyStage === 'Trigger Stage') {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     let triggerStage = strategy.triggerStage
 
@@ -1248,7 +1068,7 @@
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
                                     let condition = situation.conditions[m];
-                                    let key = currentStrategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
+                                    let key = strategyIndex + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m;
 
                                     let value = false
                                     if (conditions.get(key) !== undefined) {
@@ -1259,8 +1079,6 @@
                                 }
 
                                 if (passed) {
-
-                                    type = '"Take Position"';
 
                                     strategyStage = 'Open Stage';
                                     checkAnnouncements(strategy.openStage)
@@ -1296,12 +1114,12 @@
 
                 function checkStopPhases() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let parentNode
-                    let j = currentStrategyIndex
+                    let j = strategyIndex
                     let stageKey
                     let initialDefinitionKey = ''
                     let p
@@ -1419,7 +1237,7 @@
 
                 function calculateStopLoss() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1429,7 +1247,7 @@
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase];
-                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase);
+                                key = strategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase);
                             }
                         }
                     }
@@ -1437,7 +1255,7 @@
                     if (stopLossStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             phase = manageStage.stopLoss.phases[stopLossPhase - 1];
-                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
+                            key = strategyIndex + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1);
                         }
                     }
 
@@ -1467,12 +1285,12 @@
 
                 function checkTakeProfitPhases() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let parentNode
-                    let j = currentStrategyIndex
+                    let j = strategyIndex
                     let stageKey
                     let initialDefinitionKey = ''
                     let p
@@ -1591,7 +1409,7 @@
 
                 function calculateTakeProfit() {
 
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1601,7 +1419,7 @@
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase];
-                                key = currentStrategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase);
+                                key = strategyIndex + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase);
                             }
                         }
                     }
@@ -1609,7 +1427,7 @@
                     if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 1];
-                            key = currentStrategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
+                            key = strategyIndex + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1);
                         }
                     }
 
@@ -1674,7 +1492,7 @@
                     (strategyStage === 'Open Stage' || strategyStage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
@@ -1714,8 +1532,6 @@
 
                         closeRate = slippedStopLoss;
 
-                        marketRate = closeRate;
-                        type = '"Close@StopLoss"';
                         strategyStage = 'Close Stage';
                         checkAnnouncements(strategy.closeStage, 'Stop')
 
@@ -1763,8 +1579,6 @@
 
                         closeRate = slippedTakeProfit;
 
-                        marketRate = closeRate;
-                        type = '"Close@TakeProfit"';
                         strategyStage = 'Close Stage';
                         checkAnnouncements(strategy.closeStage, 'Take Profit')
 
@@ -1792,7 +1606,7 @@
                     distanceToLast.takePosition = 1;
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     tradePositionSize = strategy.positionSize;
                     tradePositionRate = strategy.positionRate;
@@ -1991,8 +1805,6 @@
                         calculateTakeProfit();
                         calculateStopLoss();
 
-                        marketRate = candle.close;
-
                         previousBalanceBaseAsset = balanceBaseAsset;
                         previousBalanceQuotedAsset = balanceQuotedAsset;
 
@@ -2032,7 +1844,7 @@
                     distanceToLast.closePosition = 1;
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[currentStrategyIndex];
+                    let strategy = tradingSystem.strategies[strategyIndex];
 
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
@@ -2245,12 +2057,12 @@
                 if (strategyStage === 'Close Stage') {
                     if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
 
-                        currentStrategy.number = currentStrategyIndex
+                        currentStrategy.number = strategyIndex
                         currentStrategy.end = candle.end;
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
 
-                        currentStrategyIndex = -1;
+                        strategyIndex = -1;
                         strategyStage = 'No Stage';
 
                         timerToCloseStage = 0
@@ -2264,7 +2076,6 @@
 
                 /* Not a buy or sell condition */
 
-                marketRate = candle.close;
                 addRecord();
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Exiting Loop Body after adding a record."); }
                 controlLoop();
@@ -2277,7 +2088,6 @@
                     let messageType;
                     let message;
                     let simulationRecord;
-                    let executionRecord;
 
                     let strategyStageNumber
                     switch (strategyStage) {
@@ -2317,8 +2127,6 @@
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
-                        type: type,
-                        marketRate: marketRate,
                         amount: 1,
                         balanceA: balanceBaseAsset,
                         balanceB: balanceQuotedAsset,
@@ -2335,12 +2143,11 @@
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         positionRate: tradePositionRate,
                         lastTradeROI: lastTradeROI,
-                        strategy: currentStrategyIndex,
+                        strategy: strategyIndex,
                         strategyStageNumber: strategyStageNumber,
                         takeProfit: takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
-                        executionRecord: '',
                         positionSize: tradePositionSize,
                         initialBalanceA: bot.VALUES_TO_USE.initialBalanceA,
                         minimumBalanceA: bot.VALUES_TO_USE.minimumBalanceA,
@@ -2362,11 +2169,9 @@
 
                     recordsArray.push(simulationRecord);
 
-                    type = '""';
-
                     /* Prepare the information for the Conditions File */
 
-                    conditionsArrayRecord.push(currentStrategyIndex);
+                    conditionsArrayRecord.push(strategyIndex);
                     conditionsArrayRecord.push(strategyStageNumber);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);

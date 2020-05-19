@@ -73,7 +73,7 @@
 
             if (variable.isInitialized !== true) { 
 
-                variable.isInitialized =  true
+                variable.isInitialized = true
 
                 variable.stopLoss = 0
                 variable.takeProfit = 0
@@ -1261,12 +1261,12 @@
 
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
-                            let previousValue = stopLoss
+                            let previousValue = variable.stopLoss
 
-                            stopLoss = formulas.get(key)
+                            variable.stopLoss = formulas.get(key)
 
                             if (stopLoss !== previousValue) {
-                                checkAnnouncements(phase, stopLoss)
+                                checkAnnouncements(phase, variable.stopLoss)
                             }
                         }
                     }
@@ -1434,12 +1434,12 @@
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
 
-                            let previousValue = stopLoss
+                            let previousValue = variable.stopLoss
 
-                            takeProfit = formulas.get(key)
+                            variable.takeProfit = formulas.get(key)
 
                             if (takeProfit !== previousValue) {
-                                checkAnnouncements(phase, takeProfit)
+                                checkAnnouncements(phase, variable.takeProfit)
                             }
                         }
                     }
@@ -1499,7 +1499,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((baseAsset === bot.market.baseAsset && candle.max >= stopLoss) || (baseAsset !== bot.market.baseAsset && candle.min <= stopLoss)) {
+                    if ((baseAsset === bot.market.baseAsset && candle.max >= variable.stopLoss) || (baseAsset !== bot.market.baseAsset && candle.min <= variable.stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1511,15 +1511,15 @@
 
                         if (baseAsset === bot.market.baseAsset) {
                             if (stopLoss < candle.min) {
-                                stopLoss = candle.min
+                                variable.stopLoss = candle.min
                             }
                         } else {
                             if (stopLoss > candle.max) {
-                                stopLoss = candle.max
+                                variable.stopLoss = candle.max
                             }
                         }
 
-                        let slippedStopLoss = stopLoss
+                        let slippedStopLoss = variable.stopLoss
 
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
@@ -1547,7 +1547,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((baseAsset === bot.market.baseAsset && candle.min <= takeProfit) || (baseAsset !== bot.market.baseAsset && candle.max >= takeProfit)) {
+                    if ((baseAsset === bot.market.baseAsset && candle.min <= variable.takeProfit) || (baseAsset !== bot.market.baseAsset && candle.max >= variable.takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1559,15 +1559,15 @@
 
                         if (baseAsset === bot.market.baseAsset) {
                             if (takeProfit > candle.max) {
-                                takeProfit = candle.max
+                                variable.takeProfit = candle.max
                             }
                         } else {
                             if (takeProfit < candle.min) {
-                                takeProfit = candle.min
+                                variable.takeProfit = candle.min
                             }
                         }
 
-                        let slippedTakeProfit = takeProfit
+                        let slippedTakeProfit = variable.takeProfit
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
@@ -2035,8 +2035,8 @@
 
                         addRecord();
 
-                        stopLoss = 0;
-                        takeProfit = 0;
+                        variable.stopLoss = 0;
+                        variable.takeProfit = 0;
 
                         tradePositionRate = 0;
                         tradePositionSize = 0;
@@ -2132,7 +2132,7 @@
                         balanceB: balanceQuotedAsset,
                         profit: profit,
                         lastTradeProfitLoss: lastTradeProfitLoss,
-                        stopLoss: stopLoss,
+                        stopLoss: variable.stopLoss,
                         roundtrips: roundtrips,
                         hits: hits,
                         fails: fails,
@@ -2145,7 +2145,7 @@
                         lastTradeROI: lastTradeROI,
                         strategy: strategyIndex,
                         strategyStageNumber: strategyStageNumber,
-                        takeProfit: takeProfit,
+                        takeProfit: variable.takeProfit,
                         stopLossPhase: stopLossPhase,
                         takeProfitPhase: takeProfitPhase,
                         positionSize: tradePositionSize,

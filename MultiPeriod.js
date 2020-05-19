@@ -86,7 +86,7 @@
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
 
-            let interExecutionMemoryArray = [];
+            let variableArray = [];
 
             getContextVariables();
 
@@ -177,7 +177,7 @@
                         }
 
                         contextVariables.lastFile = new Date(thisReport.lastFile);
-                        interExecutionMemoryArray = thisReport.interExecutionMemoryArray;
+                        variableArray = thisReport.variableArray;
 
                         processSingleFiles();
                         return;
@@ -203,11 +203,11 @@
                         This data structure has one object per each timeFrame.
                         */
 
-                        interExecutionMemoryArray = [];
+                        variableArray = [];
 
                         for (let i = 0; i < global.dailyFilePeriods.length; i++) {
                             let emptyObject = {};
-                            interExecutionMemoryArray.push(emptyObject);
+                            variableArray.push(emptyObject);
                         }
 
                         processSingleFiles();
@@ -942,7 +942,7 @@
                                 currentTimeFrame,
                                 currentTimeFrameLabel,
                                 bot.multiPeriodProcessDatetime,
-                                interExecutionMemoryArray[n],
+                                variableArray[n],
                                 onBotFinished);
 
                             function onBotFinished(err) {
@@ -1135,7 +1135,7 @@
 
                     thisReport.file.lastExecution = bot.currentDaytime;
                     thisReport.file.lastFile = lastFileDate;
-                    thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
+                    thisReport.file.variableArray = variableArray;
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;

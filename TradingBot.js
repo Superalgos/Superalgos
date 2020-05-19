@@ -47,7 +47,7 @@
         }
     }
 
-    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, variable, callBackFunction) {
 
         try {
 
@@ -137,7 +137,7 @@
                 timeFrame,
                 timeFrameLabel,
                 currentDay,
-                interExecutionMemory,
+                variable,
                 exchangeAPI,
                 writeFiles,
                 callBackFunction)

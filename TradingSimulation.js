@@ -118,6 +118,14 @@
                 variable.balanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA
                 variable.balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB
 
+                variable.initialBalanceBaseAsset = bot.VALUES_TO_USE.initialBalanceA
+                variable.minimumBalanceBaseAsset = bot.VALUES_TO_USE.minimumBalanceA
+                variable.maximumBalanceBaseAsset = bot.VALUES_TO_USE.maximumBalanceA
+
+                variable.initialBalanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB
+                variable.minimumBalanceQuotedAsset = bot.VALUES_TO_USE.minimumBalanceB
+                variable.maximumBalanceQuotedAsset = bot.VALUES_TO_USE.maximumBalanceB
+
                 variable.lastTradeProfitLoss = 0
                 variable.accumulatedProfitLoss = 0
                 variable.lastTradeROI = 0
@@ -146,6 +154,8 @@
                 /* Allowing these to be accesible at formulas */
                 variable.baseAsset = bot.VALUES_TO_USE.baseAsset
                 variable.quotedAsset = bot.VALUES_TO_USE.quotedAsset
+                variable.marketBaseAsset = bot.market.baseAsset
+                variable.marketQuotedAsset = bot.market.quotedAsset
             } 
 
             /* Main Array and Maps */
@@ -436,7 +446,7 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             positionSize = variable.balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
@@ -459,13 +469,13 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === variable.marketBaseAsset) {
                                                 positionSize = variable.balanceBaseAsset;
                                             } else {
                                                 positionSize = variable.balanceQuotedAsset;
                                             }
                                         } else {
-                                            if (baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === variable.marketBaseAsset) {
                                                 if (positionSize > variable.balanceBaseAsset) { positionSize = variable.balanceBaseAsset }
                                             } else {
                                                 if (positionSize > variable.balanceQuotedAsset) { positionSize = variable.balanceQuotedAsset }
@@ -486,7 +496,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (baseAsset === bot.market.baseAsset) {
+                                            if (baseAsset === variable.marketBaseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -911,14 +921,14 @@
                     let maximumBalance
                     let balance
 
-                    if (baseAsset === bot.market.baseAsset) {
+                    if (baseAsset === variable.marketBaseAsset) {
                         balance = variable.balanceBaseAsset
-                        minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
-                        maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
+                        minimumBalance = variable.minimumBalanceBaseAsset
+                        maximumBalance = variable.maximumBalanceBaseAsset
                     } else {
                         balance = variable.balanceQuotedAsset
-                        minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
-                        maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
+                        minimumBalance = variable.minimumBalanceQuotedAsset
+                        maximumBalance = variable.maximumBalanceQuotedAsset
                     }
                     
                     let stopRunningDate = new Date(candle.begin)
@@ -986,7 +996,7 @@
                                         variable.currentStrategy.endRate = candle.min; // In case the strategy does not get exited
                                         variable.currentStrategy.triggerOnSituation = situation.name
 
-                                        distanceToLast.triggerOn = 1;
+                                        variable.distanceToLast.triggerOn = 1;
 
                                         checkAnnouncements(triggerStage.triggerOn)
 
@@ -1038,7 +1048,7 @@
                                     variable.strategyStage = 'No Stage';
                                     variable.strategyIndex = -1;
 
-                                    distanceToLast.triggerOff = 1;
+                                    variable.distanceToLast.triggerOff = 1;
 
                                     checkAnnouncements(triggerStage.triggerOff)
 
@@ -1452,40 +1462,40 @@
                 ) {
 
                     if (takePositionNow === true) {
-                        positionPeriods = 0
+                        variable.positionPeriods = 0
                     }
 
-                    positionPeriods++;
-                    positionDays = positionPeriods * timeFrame / ONE_DAY_IN_MILISECONDS;
+                    variable.positionPeriods++;
+                    variable.positionDays = variable.positionPeriods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 } else {
-                    positionPeriods = 0
-                    positionDays = 0
+                    variable.positionPeriods = 0
+                    variable.positionDays = 0
                 }
 
                 /* Keeping Distance Counters Up-to-date */
                 if (
-                    distanceToLast.triggerOn > 0 // with this we avoind counting before the first event happens.
+                    variable.distanceToLast.triggerOn > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    distanceToLast.triggerOn++;
+                    variable.distanceToLast.triggerOn++;
                 }
 
                 if (
-                    distanceToLast.triggerOff > 0 // with this we avoind counting before the first event happens.
+                    variable.distanceToLast.triggerOff > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    distanceToLast.triggerOff++;
+                    variable.distanceToLast.triggerOff++;
                 }
 
                 if (
-                    distanceToLast.takePosition > 0 // with this we avoind counting before the first event happens.
+                    variable.distanceToLast.takePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    distanceToLast.takePosition++;
+                    variable.distanceToLast.takePosition++;
                 }
 
                 if (
-                    distanceToLast.closePosition > 0 // with this we avoind counting before the first event happens.
+                    variable.distanceToLast.closePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    distanceToLast.closePosition++;
+                    variable.distanceToLast.closePosition++;
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -1500,7 +1510,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((baseAsset === bot.market.baseAsset && candle.max >= variable.stopLoss) || (baseAsset !== bot.market.baseAsset && candle.min <= variable.stopLoss)) {
+                    if ((baseAsset === variable.marketBaseAsset && candle.max >= variable.stopLoss) || (baseAsset !== variable.marketBaseAsset && candle.min <= variable.stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1510,7 +1520,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             if (stopLoss < candle.min) {
                                 variable.stopLoss = candle.min
                             }
@@ -1525,7 +1535,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1548,7 +1558,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((baseAsset === bot.market.baseAsset && candle.min <= variable.takeProfit) || (baseAsset !== bot.market.baseAsset && candle.max >= variable.takeProfit)) {
+                    if ((baseAsset === variable.marketBaseAsset && candle.min <= variable.takeProfit) || (baseAsset !== variable.marketBaseAsset && candle.max >= variable.takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1558,7 +1568,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             if (takeProfit > candle.max) {
                                 variable.takeProfit = candle.max
                             }
@@ -1572,7 +1582,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1604,7 +1614,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Entering code block."); }
 
                     /* Inicializing this counter */
-                    distanceToLast.takePosition = 1;
+                    variable.distanceToLast.takePosition = 1;
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[strategyIndex];
@@ -1615,7 +1625,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = variable.tradePositionRate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (baseAsset === bot.market.baseAsset) {
+                    if (baseAsset === variable.marketBaseAsset) {
                         variable.tradePositionRate = variable.tradePositionRate - slippageAmount
                     } else {
                         variable.tradePositionRate = variable.tradePositionRate + slippageAmount
@@ -1729,7 +1739,7 @@
                         let orderSide
  
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             orderSide = "sell"
 
                             orderPrice = variable.tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
@@ -1814,7 +1824,7 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
 
                             feePaid = variable.tradePositionSize * variable.tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
@@ -1842,7 +1852,7 @@
                     closePositionNow = false
 
                     /* Inicializing this counter */
-                    distanceToLast.closePosition = 1;
+                    variable.distanceToLast.closePosition = 1;
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[strategyIndex];
@@ -1910,7 +1920,7 @@
                         let amountB
                         let orderSide
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             orderSide = "buy"
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -1986,7 +1996,7 @@
 
                         let feePaid = 0
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             strategy.positionSize = variable.balanceQuotedAsset / closeRate;
                             strategy.positionRate = closeRate;
 
@@ -2004,16 +2014,16 @@
                             variable.balanceBaseAsset = 0;
                         }
 
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             variable.lastTradeProfitLoss = variable.balanceBaseAsset - variable.previousBalanceBaseAsset;
                             variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
                             if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
-                            variable.accumulatedProfitLoss = variable.balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
+                            variable.accumulatedProfitLoss = variable.balanceBaseAsset - variable.initialBalanceBaseAsset;
                         } else {
                             variable.lastTradeProfitLoss = variable.balanceQuotedAsset - variable.previousBalanceQuotedAsset;
                             variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
                             if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
-                            variable.accumulatedProfitLoss = variable.balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
+                            variable.accumulatedProfitLoss = variable.balanceQuotedAsset - variable.initialBalanceQuotedAsset;
                         }
 
                         variable.currentTrade.lastTradeROI = variable.lastTradeROI;
@@ -2024,12 +2034,12 @@
                             variable.fails++;
                         }
 
-                        if (baseAsset === bot.market.baseAsset) {
-                            variable.ROI = (bot.VALUES_TO_USE.initialBalanceA + variable.accumulatedProfitLoss) / bot.VALUES_TO_USE.initialBalanceA - 1;
+                        if (baseAsset === variable.marketBaseAsset) {
+                            variable.ROI = (variable.initialBalanceBaseAsset + variable.accumulatedProfitLoss) / variable.initialBalanceBaseAsset - 1;
                             variable.hitRatio = variable.hits / variable.tradesCount;
                             variable.anualizedRateOfReturn = variable.ROI / variable.days * 365;
                         } else {
-                            variable.ROI = (bot.VALUES_TO_USE.initialBalanceB + variable.accumulatedProfitLoss) / bot.VALUES_TO_USE.initialBalanceB - 1;
+                            variable.ROI = (variable.initialBalanceQuotedAsset + variable.accumulatedProfitLoss) / variable.initialBalanceQuotedAsset - 1;
                             variable.hitRatio = variable.hits / variable.tradesCount;
                             variable.anualizedRateOfReturn = variable.ROI / variable.days * 365;
                         }
@@ -2067,7 +2077,7 @@
                         variable.strategyStage = 'No Stage';
 
                         timerToCloseStage = 0
-                        distanceToLast.triggerOff = 1;
+                        variable.distanceToLast.triggerOff = 1;
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
                     } else {
@@ -2098,9 +2108,6 @@
                         variable.balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
-                    let quotedBaseAsset = '"' + baseAsset + '"'
-                    let quotedQuotedAsset = '"' + quotedAsset + '"'
-
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
@@ -2125,22 +2132,22 @@
                         stopLossPhase: variable.stopLossPhase,
                         takeProfitPhase: variable.takeProfitPhase,
                         positionSize: variable.tradePositionSize,
-                        initialBalanceA: bot.VALUES_TO_USE.initialBalanceA,
-                        minimumBalanceA: bot.VALUES_TO_USE.minimumBalanceA,
-                        maximumBalanceA: bot.VALUES_TO_USE.maximumBalanceA,
-                        initialBalanceB: bot.VALUES_TO_USE.initialBalanceB,
-                        minimumBalanceB: bot.VALUES_TO_USE.minimumBalanceB,
-                        maximumBalanceB: bot.VALUES_TO_USE.maximumBalanceB,
-                        baseAsset: quotedBaseAsset,
-                        quotedAsset: quotedQuotedAsset,
-                        marketBaseAsset: '"' + bot.market.baseAsset + '"',
-                        marketQuotedAsset: '"' + bot.market.quotedAsset +  '"' ,
-                        positionPeriods: positionPeriods,
-                        positionDays: positionDays,
-                        distanceToLastTriggerOn: distanceToLast.triggerOn,
-                        distanceToLastTriggerOff: distanceToLast.triggerOff,
-                        distanceToLastTakePosition: distanceToLast.takePosition,
-                        distanceToLastClosePosition: distanceToLast.closePosition
+                        initialBalanceA: variable.initialBalanceBaseAsset,
+                        minimumBalanceA: variable.minimumBalanceBaseAsset,
+                        maximumBalanceA: variable.maximumBalanceBaseAsset,
+                        initialBalanceB: variable.initialBalanceQuotedAsset,
+                        minimumBalanceB: variable.minimumBalanceQuotedAsset,
+                        maximumBalanceB: variable.maximumBalanceQuotedAsset,
+                        baseAsset: '"' + variable.baseAsset + '"',
+                        quotedAsset: '"' + variable.quotedAsset + '"',
+                        marketBaseAsset: '"' + variable.marketBaseAsset + '"',
+                        marketQuotedAsset: '"' + variable.marketQuotedAsset +  '"' ,
+                        positionPeriods: variable.positionPeriods,
+                        positionDays: variable.positionDays,
+                        distanceToLastTriggerOn: variable.distanceToLast.triggerOn,
+                        distanceToLastTriggerOff: variable.distanceToLast.triggerOff,
+                        distanceToLastTakePosition: variable.distanceToLast.takePosition,
+                        distanceToLastClosePosition: variable.distanceToLast.closePosition
                     }
 
                     recordsArray.push(simulationRecord);
@@ -2185,13 +2192,13 @@
                     Lets see if there will be an open trade ...
                     Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
                     */
-                    if (currentTrade.begin !== 0 && variable.currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                    if (variable.currentTrade.begin !== 0 && variable.currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
                         variable.currentTrade.status = 2; // This means the trade is open 
                         variable.currentTrade.end = candle.end
                         variable.currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing variable.ROI */
-                        if (baseAsset === bot.market.baseAsset) {
+                        if (baseAsset === variable.marketBaseAsset) {
                             variable.currentTrade.lastTradeROI = (tradePositionRate - candle.close) / variable.tradePositionRate * 100
                         } else {
                             variable.currentTrade.lastTradeROI = (candle.close - variable.tradePositionRate) / variable.tradePositionRate * 100
@@ -2199,11 +2206,11 @@
                     }
 
                     /* Prepare the information for the Trades File */
-                    if (currentTrade.begin !== 0 && variable.currentTrade.end !== 0) { 
+                    if (variable.currentTrade.begin !== 0 && variable.currentTrade.end !== 0) { 
 
                         variable.currentTrade.profit = variable.lastTradeProfitLoss;
 
-                        tradesArray.push(currentTrade);
+                        tradesArray.push(variable.currentTrade);
 
                         variable.currentTrade = {
                             begin: 0,

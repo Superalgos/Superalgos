@@ -200,7 +200,6 @@
                                 record.takeProfit + "," +
                                 record.stopLossPhase + "," +
                                 record.takeProfitPhase + "," +
-                                JSON.stringify(record.executionRecord) + "," +
                                 record.positionSize + "," +
                                 record.initialBalanceA + "," +
                                 record.minimumBalanceA + "," +

@@ -26,7 +26,7 @@
         timeFrame,
         timeFrameLabel,
         currentDay,
-        interExecutionMemory,
+        variable,
         exchangeAPI,
         callback,
         callBackFunction) {
@@ -90,7 +90,7 @@
             This is challenging when the simulation is executed using Daily Files, since each execution means a new
             day and these counters are meant to be kept along the whole market.
 
-            To overcome this problem, we use the interExecutionMemory to record the values of the current execution
+            To overcome this problem, we use the variable to record the values of the current execution
             when finish. But there are a few details:
 
             1. When the process is at the head of the market, it executes multple times at the same day.
@@ -98,9 +98,9 @@
             3. In Daily Files we are receiving candles from the current day and previous day, so we need to take care of
                not adding to the counters duplicate info when processing the day before candles.
 
-            To overcome these challenges we record the values of the counters and variables on the interExecutionMemory only when
+            To overcome these challenges we record the values of the counters and variables on the variable only when
             the day is complete and if we have a current Day. That menas that for Market Files we will never use
-            interExecutionMemory.
+            variable.
             */
 
             /*Needed for statistics */
@@ -177,99 +177,30 @@
             baseAsset = bot.VALUES_TO_USE.baseAsset
             quotedAsset = bot.VALUES_TO_USE.quotedAsset
 
-            let yesterday = {};
 
-            /* Initialization */
-
-            yesterday.stopLoss = 0
-            yesterday.takeProfit = 0
-
-            yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
-            yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
-
-            yesterday.tradePositionRate = tradePositionRate
-            yesterday.tradePositionSize = tradePositionSize
-
-            yesterday.currentStrategyIndex = currentStrategyIndex
-            yesterday.strategyStage = strategyStage
-
-            yesterday.stopLossPhase = stopLossPhase
-            yesterday.stopLossStage = stopLossStage
-
-            yesterday.takeProfitPhase = takeProfitPhase
-            yesterday.takeProfitStage = takeProfitStage
-
-            yesterday.currentStrategy = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                number: 0,
-                beginRate: 0,
-                endRate: 0,
-                triggerOnSituation: ''
-            }
-
-            yesterday.currentTrade = {
-                begin: 0,
-                end: 0,
-                status: 0,
-                profit: 0,
-                exitType: 0,
-                beginRate: 0,
-                endRate: 0,
-                takePositionSituation: ''
-            }
-
-            yesterday.balanceBaseAsset = balanceBaseAsset;
-            yesterday.balanceQuotedAsset = balanceQuotedAsset;
-
-            yesterday.lastTradeProfitLoss = 0;
-            yesterday.profit = 0;
-            yesterday.lastTradeROI = 0;
-
-            yesterday.roundtrips = 0;
-            yesterday.fails = 0;
-            yesterday.hits = 0;
-            yesterday.periods = 0;
-            yesterday.positionPeriods = 0;
-
-            yesterday.distanceToLast = {
-                triggerOn: 0,
-                triggerOff: 0,
-                takePosition: 0,
-                closePosition: 0
-            }
-
-            yesterday.orderId = 0;
-            yesterday.messageId = 0;
-
-            yesterday.hitRatio = 0;
-            yesterday.ROI = 0;
-            yesterday.anualizedRateOfReturn = 0;
-
-            if (interExecutionMemory.roundtrips === undefined) { // This just means that the inter execution memory was never used before.
+            if (variable.roundtrips === undefined) { // This just means that the inter execution memory was never used before.
 
                 /* Initialize the data structure we will use inter execution. */
 
-                interExecutionMemory.stopLoss = 0
-                interExecutionMemory.takeProfit = 0
+                variable.stopLoss = 0
+                variable.takeProfit = 0
 
-                interExecutionMemory.previousBalanceBaseAsset = previousBalanceBaseAsset
-                interExecutionMemory.previousBalanceQuotedAsset = previousBalanceQuotedAsset
+                variable.previousBalanceBaseAsset = previousBalanceBaseAsset
+                variable.previousBalanceQuotedAsset = previousBalanceQuotedAsset
 
-                interExecutionMemory.tradePositionRate = tradePositionRate
-                interExecutionMemory.tradePositionSize = tradePositionSize
+                variable.tradePositionRate = tradePositionRate
+                variable.tradePositionSize = tradePositionSize
 
-                interExecutionMemory.currentStrategyIndex = currentStrategyIndex
-                interExecutionMemory.strategyStage = strategyStage
+                variable.currentStrategyIndex = currentStrategyIndex
+                variable.strategyStage = strategyStage
 
-                interExecutionMemory.stopLossPhase = stopLossPhase
-                interExecutionMemory.stopLossStage = stopLossStage
+                variable.stopLossPhase = stopLossPhase
+                variable.stopLossStage = stopLossStage
 
-                interExecutionMemory.takeProfitPhase = takeProfitPhase
-                interExecutionMemory.takeProfitStage = takeProfitStage
+                variable.takeProfitPhase = takeProfitPhase
+                variable.takeProfitStage = takeProfitStage
 
-                interExecutionMemory.currentStrategy = {
+                variable.currentStrategy = {
                     begin: 0,
                     end: 0,
                     status: 0,
@@ -279,7 +210,7 @@
                     triggerOnSituation: ''
                 }
 
-                interExecutionMemory.currentTrade = {
+                variable.currentTrade = {
                     begin: 0,
                     end: 0,
                     status: 0,
@@ -290,171 +221,109 @@
                     takePositionSituation: ''
                 }
 
-                interExecutionMemory.balanceBaseAsset = balanceBaseAsset;
-                interExecutionMemory.balanceQuotedAsset = balanceQuotedAsset;
+                variable.balanceBaseAsset = balanceBaseAsset;
+                variable.balanceQuotedAsset = balanceQuotedAsset;
 
-                interExecutionMemory.lastTradeProfitLoss = lastTradeProfitLoss;
-                interExecutionMemory.profit = profit;
-                interExecutionMemory.lastTradeROI = lastTradeROI;
+                variable.lastTradeProfitLoss = lastTradeProfitLoss;
+                variable.profit = profit;
+                variable.lastTradeROI = lastTradeROI;
 
-                interExecutionMemory.roundtrips = 0;
-                interExecutionMemory.fails = 0;
-                interExecutionMemory.hits = 0;
-                interExecutionMemory.periods = 0;
-                interExecutionMemory.positionPeriods = 0;
+                variable.roundtrips = 0;
+                variable.fails = 0;
+                variable.hits = 0;
+                variable.periods = 0;
+                variable.positionPeriods = 0;
 
-                interExecutionMemory.distanceToLast = {
+                variable.distanceToLast = {
                     triggerOn: 0,
                     triggerOff: 0,
                     takePosition: 0,
                     closePosition: 0
                 }
 
-                interExecutionMemory.orderId = 0;
-                interExecutionMemory.messageId = 0;
+                variable.orderId = 0;
+                variable.messageId = 0;
 
-                interExecutionMemory.hitRatio = 0;
-                interExecutionMemory.ROI = 0;
-                interExecutionMemory.anualizedRateOfReturn = 0;
+                variable.hitRatio = 0;
+                variable.ROI = 0;
+                variable.anualizedRateOfReturn = 0;
 
-                interExecutionMemory.announcements = []
+                variable.announcements = []
 
             } else {
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
 
-                stopLoss = interExecutionMemory.stopLoss
-                takeProfit = interExecutionMemory.takeProfit
+                stopLoss = variable.stopLoss
+                takeProfit = variable.takeProfit
 
-                previousBalanceBaseAsset = interExecutionMemory.previousBalanceBaseAsset
-                previousBalanceQuotedAsset = interExecutionMemory.previousBalanceQuotedAsset
+                previousBalanceBaseAsset = variable.previousBalanceBaseAsset
+                previousBalanceQuotedAsset = variable.previousBalanceQuotedAsset
 
-                tradePositionRate = interExecutionMemory.tradePositionRate
-                tradePositionSize = interExecutionMemory.tradePositionSize
+                tradePositionRate = variable.tradePositionRate
+                tradePositionSize = variable.tradePositionSize
 
-                currentStrategyIndex = interExecutionMemory.currentStrategyIndex
-                strategyStage = interExecutionMemory.strategyStage
+                currentStrategyIndex = variable.currentStrategyIndex
+                strategyStage = variable.strategyStage
 
-                stopLossPhase = interExecutionMemory.stopLossPhase
-                stopLossStage = interExecutionMemory.stopLossStage
+                stopLossPhase = variable.stopLossPhase
+                stopLossStage = variable.stopLossStage
 
-                takeProfitPhase = interExecutionMemory.takeProfitPhase
-                takeProfitStage = interExecutionMemory.takeProfitStage
+                takeProfitPhase = variable.takeProfitPhase
+                takeProfitStage = variable.takeProfitStage
 
                 currentStrategy = {
-                    begin: interExecutionMemory.currentStrategy.begin,
-                    end: interExecutionMemory.currentStrategy.end,
-                    status: interExecutionMemory.currentStrategy.status,
-                    number: interExecutionMemory.currentStrategy.number,
-                    beginRate: interExecutionMemory.currentStrategy.beginRate,
-                    endRate: interExecutionMemory.currentStrategy.endRate,
-                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation
+                    begin: variable.currentStrategy.begin,
+                    end: variable.currentStrategy.end,
+                    status: variable.currentStrategy.status,
+                    number: variable.currentStrategy.number,
+                    beginRate: variable.currentStrategy.beginRate,
+                    endRate: variable.currentStrategy.endRate,
+                    triggerOnSituation: variable.currentStrategy.triggerOnSituation
                 }
 
                 currentTrade = {
-                    begin: interExecutionMemory.currentTrade.begin,
-                    end: interExecutionMemory.currentTrade.end,
-                    status: interExecutionMemory.currentTrade.status,
-                    profit: interExecutionMemory.currentTrade.profit,
-                    exitType: interExecutionMemory.currentTrade.exitType,
-                    beginRate: interExecutionMemory.currentTrade.beginRate,
-                    endRate: interExecutionMemory.currentTrade.endRate,
-                    takePositionSituation: interExecutionMemory.currentTrade.takePositionSituation
+                    begin: variable.currentTrade.begin,
+                    end: variable.currentTrade.end,
+                    status: variable.currentTrade.status,
+                    profit: variable.currentTrade.profit,
+                    exitType: variable.currentTrade.exitType,
+                    beginRate: variable.currentTrade.beginRate,
+                    endRate: variable.currentTrade.endRate,
+                    takePositionSituation: variable.currentTrade.takePositionSituation
                 }
 
                 if (currentDay) {
                     if (currentDay.valueOf() >= bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() + ONE_DAY_IN_MILISECONDS) { // Only after the first day we start grabbing the balance from this memory.
 
-                        balanceBaseAsset = interExecutionMemory.balanceBaseAsset;
-                        balanceQuotedAsset = interExecutionMemory.balanceQuotedAsset;
-
-                        yesterday.balanceBaseAsset = balanceBaseAsset;
-                        yesterday.balanceQuotedAsset = balanceQuotedAsset;
+                        balanceBaseAsset = variable.balanceBaseAsset;
+                        balanceQuotedAsset = variable.balanceQuotedAsset;
 
                     }
                 }
 
-                lastTradeProfitLoss = interExecutionMemory.lastTradeProfitLoss;
-                profit = interExecutionMemory.profit;
-                lastTradeROI = interExecutionMemory.lastTradeROI;
+                lastTradeProfitLoss = variable.lastTradeProfitLoss;
+                profit = variable.profit;
+                lastTradeROI = variable.lastTradeROI;
 
-                roundtrips = interExecutionMemory.roundtrips;
-                fails = interExecutionMemory.fails;
-                hits = interExecutionMemory.hits;
-                periods = interExecutionMemory.periods;
-                positionPeriods = interExecutionMemory.positionPeriods;
+                roundtrips = variable.roundtrips;
+                fails = variable.fails;
+                hits = variable.hits;
+                periods = variable.periods;
+                positionPeriods = variable.positionPeriods;
 
-                distanceToLast.triggerOn = interExecutionMemory.distanceToLast.triggerOn
-                distanceToLast.triggerOff = interExecutionMemory.distanceToLast.triggerOff
-                distanceToLast.takePosition = interExecutionMemory.distanceToLast.takePosition
-                distanceToLast.closePosition = interExecutionMemory.distanceToLast.closePosition
+                distanceToLast.triggerOn = variable.distanceToLast.triggerOn
+                distanceToLast.triggerOff = variable.distanceToLast.triggerOff
+                distanceToLast.takePosition = variable.distanceToLast.takePosition
+                distanceToLast.closePosition = variable.distanceToLast.closePosition
 
-                orderId = interExecutionMemory.orderId; // to be deprecated
-                messageId = interExecutionMemory.messageId; // to be deprecated
+                orderId = variable.orderId; // to be deprecated
+                messageId = variable.messageId; // to be deprecated
 
-                hitRatio = interExecutionMemory.hitRatio;
-                ROI = interExecutionMemory.ROI;
-                anualizedRateOfReturn = interExecutionMemory.anualizedRateOfReturn;
+                hitRatio = variable.hitRatio;
+                ROI = variable.ROI;
+                anualizedRateOfReturn = variable.anualizedRateOfReturn;
 
-                /* For the case that any of these variables are not updated during the main loop, we need to store their value at the yesterday structure, otherwise it would be lost. */
-
-                yesterday.stopLoss = stopLoss
-                yesterday.takeProfit = takeProfit
-
-                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset
-                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset
-
-                yesterday.tradePositionRate = tradePositionRate
-                yesterday.tradePositionSize = tradePositionSize
-
-                yesterday.currentStrategyIndex = currentStrategyIndex;
-                yesterday.strategyStage = strategyStage;
-
-                yesterday.stopLossPhase = stopLossPhase;
-                yesterday.stopLossStage = stopLossStage;
-
-                yesterday.takeProfitPhase = takeProfitPhase;
-                yesterday.takeProfitStage = takeProfitStage;
-
-                yesterday.currentStrategy = {
-                    begin: currentStrategy.begin,
-                    end: currentStrategy.end,
-                    status: currentStrategy.status,
-                    number: currentStrategy.number,
-                    beginRate: currentStrategy.beginRate,
-                    endRate: currentStrategy.endRate,
-                    triggerOnSituation: currentStrategy.triggerOnSituation
-                }
-
-                yesterday.currentTrade = {
-                    begin: currentTrade.begin,
-                    end: currentTrade.end,
-                    status: currentTrade.status,
-                    profit: currentTrade.profit,
-                    exitType: currentTrade.exitType,
-                    beginRate: currentTrade.beginRate,
-                    endRate: currentTrade.endRate,
-                    takePositionSituation: currentTrade.takePositionSituation
-                }
-
-                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
-                yesterday.profit = profit;
-                yesterday.lastTradeROI = lastTradeROI;
-
-                yesterday.roundtrips = roundtrips;
-                yesterday.fails = fails;
-                yesterday.hits = hits;
-                yesterday.periods = periods;
-                yesterday.positionPeriods = positionPeriods;
-
-                yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
-                yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
-                yesterday.distanceToLast.takePosition = distanceToLast.takePosition
-                yesterday.distanceToLast.closePosition = distanceToLast.closePosition
-
-                yesterday.hitRatio = hitRatio;
-                yesterday.ROI = ROI;
-                yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
             }
 
             /* Main Array and Maps */
@@ -639,9 +508,6 @@
                 days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 if (processingDailyFiles) {
-                    if (positionedAtYesterday) {
-                        yesterday.periods = periods
-                    }
 
                     /* We skip the candle at the head of the market because currentCandleIndex has not closed yet. */
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / timeFrame
@@ -1299,24 +1165,7 @@
                                         currentStrategy.endRate = candle.min; // In case the strategy does not get exited
                                         currentStrategy.triggerOnSituation = situation.name
 
-                                        if (processingDailyFiles) {
-                                            if (positionedAtYesterday) {
-                                                yesterday.strategyStage = strategyStage;
-                                                yesterday.currentStrategyIndex = currentStrategyIndex;
-                                                yesterday.currentStrategy.begin = currentStrategy.begin;
-                                                yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
-                                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                                yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
-                                            }
-                                        }
-
                                         distanceToLast.triggerOn = 1;
-
-                                        if (processingDailyFiles) {
-                                            if (positionedAtYesterday) {
-                                                yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
-                                            }
-                                        }
 
                                         checkAnnouncements(triggerStage.triggerOn)
 
@@ -1368,24 +1217,7 @@
                                     strategyStage = 'No Stage';
                                     currentStrategyIndex = -1;
 
-                                    if (processingDailyFiles) {
-                                        if (positionedAtYesterday) {
-                                            yesterday.currentStrategy.number = currentStrategy.number;
-                                            yesterday.currentStrategy.end = currentStrategy.end;
-                                            yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                            yesterday.currentStrategy.status = currentStrategy.status;
-                                            yesterday.strategyStage = strategyStage;
-                                            yesterday.currentStrategyIndex = currentStrategyIndex;
-                                        }
-                                    }
-
                                     distanceToLast.triggerOff = 1;
-
-                                    if (processingDailyFiles) {
-                                        if (positionedAtYesterday) {
-                                            yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
-                                        }
-                                    }
 
                                     checkAnnouncements(triggerStage.triggerOff)
 
@@ -1437,16 +1269,6 @@
                                     takeProfitStage = 'Open Stage';
                                     stopLossPhase = 0;
                                     takeProfitPhase = 0;
-
-                                    if (processingDailyFiles) {
-                                        if (positionedAtYesterday) {
-                                            yesterday.strategyStage = strategyStage;
-                                            yesterday.stopLossStage = stopLossStage;
-                                            yesterday.takeProfitStage = takeProfitStage;
-                                            yesterday.stopLossPhase = stopLossPhase;
-                                            yesterday.takeProfitPhase = takeProfitPhase;
-                                        }
-                                    }
 
                                     takePositionNow = true
                                     currentTrade.takePositionSituation = situation.name
@@ -1537,14 +1359,6 @@
                                         checkAnnouncements(manageStage, 'Take Profit')
                                     }
 
-                                    if (processingDailyFiles) {
-                                        if (positionedAtYesterday) {
-                                            yesterday.stopLossPhase = stopLossPhase;
-                                            yesterday.stopLossStage = stopLossStage;
-                                            yesterday.strategyStage = strategyStage;
-                                        }
-                                    }
-
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
                                 }
@@ -1593,15 +1407,7 @@
                                             strategyStage = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Take Profit')
                                         }
-                                        
-                                        if (processingDailyFiles) {
-                                            if (positionedAtYesterday) {
-                                                yesterday.stopLossPhase = stopLossPhase;
-                                                yesterday.stopLossStage = stopLossStage;
-                                                yesterday.strategyStage = strategyStage;
-                                            }
-                                        }
-
+                                       
                                         checkAnnouncements(moveToPhaseEvent)
                                         return;
                                     }
@@ -1640,12 +1446,6 @@
                             let previousValue = stopLoss
 
                             stopLoss = formulas.get(key)
-
-                            if (processingDailyFiles) {
-                                if (positionedAtYesterday) {
-                                    yesterday.stopLoss = stopLoss
-                                }
-                            }
 
                             if (stopLoss !== previousValue) {
                                 checkAnnouncements(phase, stopLoss)
@@ -1731,14 +1531,6 @@
                                         checkAnnouncements(manageStage, 'Stop')
                                     }
 
-                                    if (processingDailyFiles) {
-                                        if (positionedAtYesterday) {
-                                            yesterday.takeProfitPhase = takeProfitPhase;
-                                            yesterday.takeProfitStage = takeProfitStage;
-                                            yesterday.strategyStage = strategyStage;
-                                        }
-                                    }
-
                                     checkAnnouncements(nextPhaseEvent)
                                     return;
                                 }
@@ -1788,14 +1580,6 @@
                                             checkAnnouncements(manageStage, 'Stop')
                                         }
 
-                                        if (processingDailyFiles) {
-                                            if (positionedAtYesterday) {
-                                                yesterday.takeProfitPhase = takeProfitPhase;
-                                                yesterday.takeProfitStage = takeProfitStage;
-                                                yesterday.strategyStage = strategyStage;
-                                            }
-                                        }
-
                                         checkAnnouncements(moveToPhaseEvent)
                                         return;
                                     }
@@ -1835,11 +1619,6 @@
                             let previousValue = stopLoss
 
                             takeProfit = formulas.get(key)
-                            if (processingDailyFiles) {
-                                if (positionedAtYesterday) {
-                                    yesterday.takeProfit = takeProfit
-                                }
-                            }
 
                             if (takeProfit !== previousValue) {
                                 checkAnnouncements(phase, takeProfit)
@@ -1855,31 +1634,14 @@
 
                     if (takePositionNow === true) {
                         positionPeriods = 0
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.positionPeriods = 0
-                            }
-                        }
                     }
 
                     positionPeriods++;
                     positionDays = positionPeriods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.positionPeriods = positionPeriods
-                        }
-                    }
                 } else {
                     positionPeriods = 0
                     positionDays = 0
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.positionPeriods = 0
-                        }
-                    }
                 }
 
                 /* Keeping Distance Counters Up-to-date */
@@ -1887,48 +1649,24 @@
                     distanceToLast.triggerOn > 0 // with this we avoind counting before the first event happens.
                 ) {
                     distanceToLast.triggerOn++;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.triggerOn = distanceToLast.triggerOn
-                        }
-                    }
                 }
 
                 if (
                     distanceToLast.triggerOff > 0 // with this we avoind counting before the first event happens.
                 ) {
                     distanceToLast.triggerOff++;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
-                        }
-                    }
                 }
 
                 if (
                     distanceToLast.takePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
                     distanceToLast.takePosition++;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.takePosition = distanceToLast.takePosition
-                        }
-                    }
                 }
 
                 if (
                     distanceToLast.closePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
                     distanceToLast.closePosition++;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.takePosition = distanceToLast.closePosition
-                        }
-                    }
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -1956,20 +1694,10 @@
                         if (baseAsset === bot.market.baseAsset) {
                             if (stopLoss < candle.min) {
                                 stopLoss = candle.min
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.stopLoss = stopLoss
-                                    }
-                                }
                             }
                         } else {
                             if (stopLoss > candle.max) {
                                 stopLoss = candle.max
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.stopLoss = stopLoss
-                                    }
-                                }
                             }
                         }
 
@@ -1999,18 +1727,6 @@
                         currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.strategyStage = strategyStage;
-                                yesterday.stopLossStage = stopLossStage;
-                                yesterday.takeProfitStage = takeProfitStage;
-                                yesterday.currentTrade.end = currentTrade.end;
-                                yesterday.currentTrade.status = currentTrade.status;
-                                yesterday.currentTrade.exitType = currentTrade.exitType;
-                                yesterday.currentTrade.endRate = currentTrade.endRate;
-                            }
-                        }
                     }
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
@@ -2028,20 +1744,10 @@
                         if (baseAsset === bot.market.baseAsset) {
                             if (takeProfit > candle.max) {
                                 takeProfit = candle.max
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.takeProfit = takeProfit
-                                    }
-                                }
                             }
                         } else {
                             if (takeProfit < candle.min) {
                                 takeProfit = candle.min
-                                if (processingDailyFiles) {
-                                    if (positionedAtYesterday) {
-                                        yesterday.takeProfit = takeProfit
-                                    }
-                                }
                             }
                         }
 
@@ -2072,18 +1778,6 @@
 
                         closePositionNow = true;
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.strategyStage = strategyStage;
-                                yesterday.stopLossStage = stopLossStage;
-                                yesterday.takeProfitStage = takeProfitStage;
-
-                                yesterday.currentTrade.end = currentTrade.end;
-                                yesterday.currentTrade.status = currentTrade.status;
-                                yesterday.currentTrade.exitType = currentTrade.exitType;
-                                yesterday.currentTrade.endRate = currentTrade.endRate;
-                            }
-                        }
                     }
                 }
 
@@ -2096,12 +1790,6 @@
 
                     /* Inicializing this counter */
                     distanceToLast.takePosition = 1;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.takePosition = distanceToLast.takePosition
-                        }
-                    }
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
@@ -2118,31 +1806,17 @@
                         tradePositionRate = tradePositionRate + slippageAmount
                     }
 
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.tradePositionSize = tradePositionSize;
-                            yesterday.tradePositionRate = tradePositionRate;
-                        }
-                    }
-
                     /* Update the trade record information. */
                     currentTrade.begin = candle.begin;
                     currentTrade.beginRate = tradePositionRate;
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.currentTrade.begin = currentTrade.begin;
-                            yesterday.currentTrade.beginRate = currentTrade.beginRate;
-                        }
-                    }
 
                     /* Check if we need to execute. */
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
                         /* Check that we are in LIVE MODE */
                         if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
-                            if (interExecutionMemory.executionContext !== undefined) {
-                                switch (interExecutionMemory.executionContext.status) {
+                            if (variable.executionContext !== undefined) {
+                                switch (variable.executionContext.status) {
                                     case "Without a Position": { // We need to put the order because It was not put yet.
                                         if (strategy.openStage !== undefined) {
                                             if (strategy.openStage.openExecution !== undefined) {
@@ -2211,9 +1885,9 @@
                         }
 
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-                        if (interExecutionMemory.executionContext !== undefined) {
-                            if (interExecutionMemory.executionContext.periods !== undefined) {
-                                if (periods <= interExecutionMemory.executionContext.periods) {
+                        if (variable.executionContext !== undefined) {
+                            if (variable.executionContext.periods !== undefined) {
+                                if (periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution."); }
                                     takePositionAtSimulation()
                                     return;
@@ -2258,7 +1932,7 @@
 
                         }
 
-                        interExecutionMemory.executionContext = {
+                        variable.executionContext = {
                             status: "Taking Position",
                             periods: periods,
                         }
@@ -2273,7 +1947,7 @@
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
-                                        interExecutionMemory.executionContext = {
+                                        variable.executionContext = {
                                             status: "In a Position",
                                             periods: periods,
                                             amountA: amountA,
@@ -2322,13 +1996,6 @@
                         previousBalanceBaseAsset = balanceBaseAsset;
                         previousBalanceQuotedAsset = balanceQuotedAsset;
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.previousBalanceBaseAsset = previousBalanceBaseAsset;
-                                yesterday.previousBalanceQuotedAsset = previousBalanceQuotedAsset;
-                            }
-                        }
-
                         lastTradeProfitLoss = 0;
                         lastTradeROI = 0;
 
@@ -2348,16 +2015,6 @@
                             balanceQuotedAsset = balanceQuotedAsset - tradePositionSize;
                         }
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceBaseAsset = balanceBaseAsset;
-                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
-
-                                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
-                                yesterday.lastTradeROI = lastTradeROI;
-                            }
-                        }
-
                         addRecord();
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionAtSimulation -> Exiting Loop Body after taking position at simulation."); }
                         controlLoop();
@@ -2374,12 +2031,6 @@
                     /* Inicializing this counter */
                     distanceToLast.closePosition = 1;
 
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.distanceToLast.closePosition = distanceToLast.closePosition
-                        }
-                    }
-
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[currentStrategyIndex];
 
@@ -2387,8 +2038,8 @@
                         /* Check that we are in LIVE MODE */
                         if (bot.startMode === "Live") {
                             /* We see if we need to put the actual order at the exchange. */
-                            if (interExecutionMemory.executionContext !== undefined) {
-                                switch (interExecutionMemory.executionContext.status) {
+                            if (variable.executionContext !== undefined) {
+                                switch (variable.executionContext.status) {
                                     case "Without a Position": { // No way to close anything at the exchange.
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position."); }
                                         break
@@ -2431,9 +2082,9 @@
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> putClosingOrder -> Entering function."); }
 
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-                        if (interExecutionMemory.executionContext !== undefined) {
-                            if (interExecutionMemory.executionContext.periods !== undefined) {
-                                if (periods <= interExecutionMemory.executionContext.periods) {
+                        if (variable.executionContext !== undefined) {
+                            if (variable.executionContext.periods !== undefined) {
+                                if (periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
                                     closePositionAtSimulation()
                                     return;
@@ -2464,7 +2115,7 @@
 
                         }
 
-                        interExecutionMemory.executionContext = {
+                        variable.executionContext = {
                             status: "Closing Position",
                             periods: periods,
                         }
@@ -2479,7 +2130,7 @@
                                 switch (err.result) {
                                     case global.DEFAULT_OK_RESPONSE.result: {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
-                                        interExecutionMemory.executionContext = {
+                                        variable.executionContext = {
                                             status: "Position Closed",
                                             periods: periods,
                                             amountA: amountA,
@@ -2520,12 +2171,6 @@
 
                         roundtrips++;
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.roundtrips = roundtrips
-                            }
-                        }
-
                         let feePaid = 0
 
                         if (baseAsset === bot.market.baseAsset) {
@@ -2546,14 +2191,6 @@
                             balanceBaseAsset = 0;
                         }
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.balanceBaseAsset = balanceBaseAsset;
-                                yesterday.balanceQuotedAsset = balanceQuotedAsset;
-
-                            }
-                        }
-
                         if (baseAsset === bot.market.baseAsset) {
                             lastTradeProfitLoss = balanceBaseAsset - previousBalanceBaseAsset;
                             lastTradeROI = lastTradeProfitLoss * 100 / tradePositionSize;
@@ -2566,39 +2203,12 @@
                             profit = balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.lastTradeProfitLoss = lastTradeProfitLoss;
-                                yesterday.profit = profit;
-                                yesterday.lastTradeROI = lastTradeROI;
-                            }
-                        }
-
                         currentTrade.lastTradeROI = lastTradeROI;
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.currentTrade.lastTradeROI = currentTrade.lastTradeROI;
-                            }
-                        }
 
                         if (lastTradeProfitLoss > 0) {
                             hits++;
-
-                            if (processingDailyFiles) {
-                                if (positionedAtYesterday) {
-                                    yesterday.hits = hits
-                                }
-                            }
-
                         } else {
                             fails++;
-
-                            if (processingDailyFiles) {
-                                if (positionedAtYesterday) {
-                                    yesterday.fails = fails
-                                }
-                            }
                         }
 
                         if (baseAsset === bot.market.baseAsset) {
@@ -2611,53 +2221,19 @@
                             anualizedRateOfReturn = ROI / days * 365;
                         }
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.ROI = ROI;
-                                yesterday.hitRatio = hitRatio;
-                                yesterday.anualizedRateOfReturn = anualizedRateOfReturn;
-                            }
-                        }
-
                         addRecord();
 
                         stopLoss = 0;
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.stopLoss = stopLoss
-                            }
-                        }
                         takeProfit = 0;
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.takeProfit = takeProfit
-                            }
-                        }
 
                         tradePositionRate = 0;
                         tradePositionSize = 0;
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.tradePositionSize = tradePositionSize;
-                                yesterday.tradePositionRate = tradePositionRate;
-                            }
-                        }
 
                         timerToCloseStage = candle.begin
                         stopLossStage = 'No Stage';
                         takeProfitStage = 'No Stage';
                         stopLossPhase = -1;
                         takeProfitPhase = -1;
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.stopLossStage = stopLossStage;
-                                yesterday.takeProfitStage = takeProfitStage;
-                                yesterday.stopLossPhase = stopLossPhase;
-                                yesterday.takeProfitPhase = takeProfitPhase;
-                            }
-                        }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation."); }
                         controlLoop();
@@ -2674,35 +2250,11 @@
                         currentStrategy.endRate = candle.min;
                         currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-
-                                yesterday.currentStrategy.number = currentStrategy.number;
-                                yesterday.currentStrategy.end = currentStrategy.end;
-                                yesterday.currentStrategy.endRate = currentStrategy.endRate;
-                                yesterday.currentStrategy.status = currentStrategy.status;
-                            }
-                        }
-
                         currentStrategyIndex = -1;
                         strategyStage = 'No Stage';
 
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.currentStrategyIndex = currentStrategyIndex;
-                                yesterday.strategyStage = strategyStage;
-                            }
-                        }
-
                         timerToCloseStage = 0
-
                         distanceToLast.triggerOff = 1;
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.distanceToLast.triggerOff = distanceToLast.triggerOff
-                            }
-                        }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
                     } else {
@@ -2847,20 +2399,6 @@
                             endRate: 0,
                             triggerOnSituation: ''
                         }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.currentStrategy = {
-                                    begin: 0,
-                                    end: 0,
-                                    status: 0,
-                                    number: 0,
-                                    beginRate: 0,
-                                    endRate: 0,
-                                    triggerOnSituation: ''
-                                }
-                            }
-                        }
                     }
 
                     /* 
@@ -2897,21 +2435,6 @@
                             endRate: 0,
                             takePositionSituation: ''
                         }
-
-                        if (processingDailyFiles) {
-                            if (positionedAtYesterday) {
-                                yesterday.currentTrade = {
-                                    begin: 0,
-                                    end: 0,
-                                    status: 0,
-                                    lastTradeROI: 0,
-                                    exitType: 0,
-                                    beginRate: 0,
-                                    endRate: 0,
-                                    takePositionSituation: ''
-                                }
-                            }
-                        }
                     }
 
                     makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
@@ -2932,8 +2455,8 @@
                             let lastPeriodAnnounced = -1
                             let newAnnouncementRecord = {}
 
-                            for (let j = 0; j < interExecutionMemory.announcements.length; j++) {
-                                let announcementRecord = interExecutionMemory.announcements[j]
+                            for (let j = 0; j < variable.announcements.length; j++) {
+                                let announcementRecord = variable.announcements[j]
                                 if (announcementRecord.key === key) {
                                     lastPeriodAnnounced = announcementRecord.periods
                                     newAnnouncementRecord = announcementRecord
@@ -2977,7 +2500,7 @@
                                         periods: periods,
                                         value: value
                                     }
-                                    interExecutionMemory.announcements.push(newAnnouncementRecord)
+                                    variable.announcements.push(newAnnouncementRecord)
                                 }
                             }
                         }
@@ -3039,78 +2562,9 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> afterLoop -> Entering function."); }
 
                 /*
-                Before returning we need to see if we have to record some of our counters at the interExecutionMemory.
+                Before returning we need to see if we have to record some of our counters at the variable.
                 To do that, the condition to be met is that this execution must include all candles of the current day.
                 */
-
-                if (processingDailyFiles) {
-
-                    if (lastCandle.end === lastInstantOfTheDay) {
-
-                        interExecutionMemory.stopLoss = yesterday.stopLoss
-                        interExecutionMemory.takeProfit = yesterday.takeProfit
-
-                        interExecutionMemory.previousBalanceBaseAsset = yesterday.previousBalanceBaseAsset
-                        interExecutionMemory.previousBalanceQuotedAsset = yesterday.previousBalanceQuotedAsset
-
-                        interExecutionMemory.tradePositionRate = yesterday.tradePositionRate
-                        interExecutionMemory.tradePositionSize = yesterday.tradePositionSize
-
-                        interExecutionMemory.currentStrategyIndex = yesterday.currentStrategyIndex
-                        interExecutionMemory.strategyStage = yesterday.strategyStage
-
-                        interExecutionMemory.stopLossPhase = yesterday.stopLossPhase
-                        interExecutionMemory.stopLossStage = yesterday.stopLossStage
-
-                        interExecutionMemory.takeProfitPhase = yesterday.takeProfitPhase
-                        interExecutionMemory.takeProfitStage = yesterday.takeProfitStage
-
-                        interExecutionMemory.currentStrategy = {
-                            begin: yesterday.currentStrategy.begin,
-                            end: yesterday.currentStrategy.end,
-                            status: yesterday.currentStrategy.status,
-                            number: yesterday.currentStrategy.number,
-                            beginRate: yesterday.currentStrategy.beginRate,
-                            endRate: yesterday.currentStrategy.endRate,
-                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation
-                        }
-
-                        interExecutionMemory.currentTrade = {
-                            begin: yesterday.currentTrade.begin,
-                            end: yesterday.currentTrade.end,
-                            status: yesterday.currentTrade.status,
-                            profit: yesterday.currentTrade.profit,
-                            exitType: yesterday.currentTrade.exitType,
-                            beginRate: yesterday.currentTrade.beginRate,
-                            endRate: yesterday.currentTrade.endRate,
-                            takePositionSituation: yesterday.currentTrade.takePositionSituation
-                        }
-
-                        interExecutionMemory.balanceBaseAsset = yesterday.balanceBaseAsset;
-                        interExecutionMemory.balanceQuotedAsset = yesterday.balanceQuotedAsset;
-                        interExecutionMemory.lastTradeProfitLoss = yesterday.lastTradeProfitLoss;
-                        interExecutionMemory.profit = yesterday.profit;
-                        interExecutionMemory.lastTradeROI = yesterday.lastTradeROI;
-
-                        interExecutionMemory.roundtrips = yesterday.roundtrips;
-                        interExecutionMemory.fails = yesterday.fails;
-                        interExecutionMemory.hits = yesterday.hits;
-                        interExecutionMemory.periods = yesterday.periods;
-                        interExecutionMemory.positionPeriods = yesterday.positionPeriods;
-
-                        interExecutionMemory.distanceToLast.triggerOn = yesterday.distanceToLast.triggerOn
-                        interExecutionMemory.distanceToLast.triggerOff = yesterday.distanceToLast.triggerOff
-                        interExecutionMemory.distanceToLast.takePosition = yesterday.distanceToLast.takePosition
-                        interExecutionMemory.distanceToLast.closePosition = yesterday.distanceToLast.closePosition
-
-                        interExecutionMemory.messageId = interExecutionMemory.messageId + yesterday.messageId;
-                        interExecutionMemory.orderId = interExecutionMemory.orderId + yesterday.orderId;
-
-                        interExecutionMemory.hitRatio = yesterday.hitRatio;
-                        interExecutionMemory.ROI = yesterday.ROI;
-                        interExecutionMemory.anualizedRateOfReturn = yesterday.anualizedRateOfReturn;
-                    }
-                }
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 

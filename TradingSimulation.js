@@ -119,14 +119,15 @@
                 variable.balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB
 
                 variable.lastTradeProfitLoss = 0
-                variable.lastTradeProfit = 0
+                variable.accumulatedProfitLoss = 0
                 variable.lastTradeROI = 0
 
-                variable.roundtrips = 0;
-                variable.fails = 0;
-                variable.hits = 0;
-                variable.periods = 0;
-                variable.positionPeriods = 0;
+                variable.tradesCount = 0
+                variable.fails = 0
+                variable.hits = 0
+                variable.periods = 0
+                variable.positionPeriods = 0
+                variable.days = 0
 
                 /* Usefull counters for conditions and formulas */
                 variable.distanceToLast = {
@@ -324,8 +325,8 @@
                 }
                 */
 
-                periods++;
-                days = periods * timeFrame / ONE_DAY_IN_MILISECONDS;
+                variable.periods++;
+                variable.days = variable.periods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 if (processingDailyFiles) {
 
@@ -338,7 +339,7 @@
                             controlLoop();
                             return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
-                                if we skip these two periods, then there will be a hole in the file since the last period will be missing. */
+                                if we skip these two variable.periods, then there will be a hole in the file since the last period will be missing. */
                         }
                     }
 
@@ -1748,7 +1749,7 @@
 
                         variable.executionContext = {
                             status: "Taking Position",
-                            periods: periods,
+                            variable.periods: variable.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order."); }
@@ -1763,7 +1764,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "In a Position",
-                                            periods: periods,
+                                            variable.periods: variable.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1929,7 +1930,7 @@
 
                         variable.executionContext = {
                             status: "Closing Position",
-                            periods: periods,
+                            variable.periods: variable.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
@@ -1944,7 +1945,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "Position Closed",
-                                            periods: periods,
+                                            variable.periods: variable.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1981,7 +1982,7 @@
                     function closePositionAtSimulation() {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Entering function."); }
 
-                        roundtrips++;
+                        variable.tradesCount++;
 
                         let feePaid = 0
 
@@ -2007,30 +2008,30 @@
                             variable.lastTradeProfitLoss = variable.balanceBaseAsset - variable.previousBalanceBaseAsset;
                             variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
                             if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
-                            variable.lastTradeProfit = variable.balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
+                            variable.accumulatedProfitLoss = variable.balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
                         } else {
                             variable.lastTradeProfitLoss = variable.balanceQuotedAsset - variable.previousBalanceQuotedAsset;
                             variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
                             if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
-                            variable.lastTradeProfit = variable.balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
+                            variable.accumulatedProfitLoss = variable.balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
                         variable.currentTrade.lastTradeROI = variable.lastTradeROI;
 
                         if (lastTradeProfitLoss > 0) {
-                            hits++;
+                            variable.hits++;
                         } else {
-                            fails++;
+                            variable.fails++;
                         }
 
                         if (baseAsset === bot.market.baseAsset) {
-                            ROI = (bot.VALUES_TO_USE.initialBalanceA + variable.lastTradeProfit) / bot.VALUES_TO_USE.initialBalanceA - 1;
-                            hitRatio = hits / roundtrips;
-                            anualizedRateOfReturn = ROI / days * 365;
+                            variable.ROI = (bot.VALUES_TO_USE.initialBalanceA + variable.accumulatedProfitLoss) / bot.VALUES_TO_USE.initialBalanceA - 1;
+                            variable.hitRatio = variable.hits / variable.tradesCount;
+                            variable.anualizedRateOfReturn = variable.ROI / variable.days * 365;
                         } else {
-                            ROI = (bot.VALUES_TO_USE.initialBalanceB + variable.lastTradeProfit) / bot.VALUES_TO_USE.initialBalanceB - 1;
-                            hitRatio = hits / roundtrips;
-                            anualizedRateOfReturn = ROI / days * 365;
+                            variable.ROI = (bot.VALUES_TO_USE.initialBalanceB + variable.accumulatedProfitLoss) / bot.VALUES_TO_USE.initialBalanceB - 1;
+                            variable.hitRatio = variable.hits / variable.tradesCount;
+                            variable.anualizedRateOfReturn = variable.ROI / variable.days * 365;
                         }
 
                         addRecord();
@@ -2089,30 +2090,6 @@
                     let message;
                     let simulationRecord;
 
-                    let strategyStageNumber
-                    switch (strategyStage) {
-                        case 'No Stage': {
-                            strategyStageNumber = 0
-                            break
-                        }
-                        case 'Trigger Stage': {
-                            strategyStageNumber = 1
-                            break
-                        }
-                        case 'Open Stage': {
-                            strategyStageNumber = 2
-                            break
-                        }
-                        case 'Manage Stage': {
-                            strategyStageNumber = 3
-                            break
-                        }
-                        case 'Close Stage': {
-                            strategyStageNumber = 4
-                            break
-                        }
-                    }
-
                     if (balanceBaseAsset === Infinity) {
                         variable.balanceBaseAsset = Number.MAX_SAFE_INTEGER
                     }
@@ -2130,21 +2107,20 @@
                         amount: 1,
                         balanceA: variable.balanceBaseAsset,
                         balanceB: variable.balanceQuotedAsset,
-                        profit: variable.lastTradeProfit,
+                        accumulatedProfitLoss: variable.accumulatedProfitLoss,
                         lastTradeProfitLoss: variable.lastTradeProfitLoss,
                         stopLoss: variable.stopLoss,
-                        roundtrips: roundtrips,
-                        hits: hits,
-                        fails: fails,
-                        hitRatio: hitRatio,
-                        ROI: ROI,
-                        periods: periods,
-                        days: days,
-                        anualizedRateOfReturn: anualizedRateOfReturn,
+                        tradesCount: variable.tradesCount,
+                        hits: variable.hits,
+                        fails: variable.fails,
+                        hitRatio: variable.hitRatio,
+                        ROI: variable.ROI,
+                        periods: variable.periods,
+                        days: variable.days,
+                        anualizedRateOfReturn: variable.anualizedRateOfReturn,
                         positionRate: variable.tradePositionRate,
                         lastTradeROI: variable.lastTradeROI,
                         strategy: variable.strategyIndex,
-                        strategyStageNumber: strategyStageNumber,
                         takeProfit: variable.takeProfit,
                         stopLossPhase: variable.stopLossPhase,
                         takeProfitPhase: variable.takeProfitPhase,
@@ -2172,7 +2148,6 @@
                     /* Prepare the information for the Conditions File */
 
                     conditionsArrayRecord.push(strategyIndex);
-                    conditionsArrayRecord.push(strategyStageNumber);
                     conditionsArrayRecord.push(stopLossPhase);
                     conditionsArrayRecord.push(takeProfitPhase);
                     conditionsArrayRecord.push(conditionsArrayValues);
@@ -2215,7 +2190,7 @@
                         variable.currentTrade.end = candle.end
                         variable.currentTrade.endRate = candle.close
 
-                        /* Here we will calculate the ongoing ROI */
+                        /* Here we will calculate the ongoing variable.ROI */
                         if (baseAsset === bot.market.baseAsset) {
                             variable.currentTrade.lastTradeROI = (tradePositionRate - candle.close) / variable.tradePositionRate * 100
                         } else {
@@ -2297,12 +2272,12 @@
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                                 if (newAnnouncementRecord.periods !== undefined) {
-                                    newAnnouncementRecord.periods = periods
+                                    newAnnouncementRecord.periods = variable.periods
                                     newAnnouncementRecord.value = value
                                 } else {
                                     newAnnouncementRecord = {
                                         key: key,
-                                        periods: periods,
+                                        variable.periods: variable.periods,
                                         value: value
                                     }
                                     variable.announcements.push(newAnnouncementRecord)

@@ -183,10 +183,10 @@
                                 record.amount + "," +
                                 record.balanceA + "," +
                                 record.balanceB + "," +
-                                record.profit + "," +
+                                record.accumulatedProfitLoss + "," +
                                 record.lastTradeProfitLoss + "," +
                                 record.stopLoss + "," +
-                                record.roundtrips + "," +
+                                record.tradesCount + "," +
                                 record.hits + "," +
                                 record.fails + "," +
                                 record.hitRatio + "," +
@@ -197,7 +197,6 @@
                                 record.positionRate + "," +
                                 record.lastTradeROI + "," +
                                 record.strategy + "," +
-                                record.strategyStageNumber + "," +
                                 record.takeProfit + "," +
                                 record.stopLossPhase + "," +
                                 record.takeProfitPhase + "," +
@@ -519,10 +518,10 @@
                                 record.amount + "," +
                                 record.balanceA + "," +
                                 record.balanceB + "," +
-                                record.profit + "," +
+                                record.accumulatedProfitLoss + "," +
                                 record.lastTradeProfitLoss + "," +
                                 record.stopLoss + "," +
-                                record.roundtrips + "," +
+                                record.tradesCount + "," +
                                 record.hits + "," +
                                 record.fails + "," +
                                 record.hitRatio + "," +
@@ -533,7 +532,6 @@
                                 record.positionRate + "," +
                                 record.lastTradeROI + "," +
                                 record.strategy + "," +
-                                record.strategyStageNumber + "," +
                                 record.takeProfit + "," +
                                 record.stopLossPhase + "," +
                                 record.takeProfitPhase + "," +

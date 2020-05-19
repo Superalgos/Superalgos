@@ -374,13 +374,12 @@
 
                         record.begin = dailyFile[1][i][0];
                         record.end = dailyFile[1][i][1];
-                        record.strategyNumber = dailyFile[1][i][2];
-                        record.strategyPhase = dailyFile[1][i][3];
-                        record.stopLossPhase = dailyFile[1][i][4];
-                        record.takeProfitPhase = dailyFile[1][i][5];
-                        record.conditions = dailyFile[1][i][6];
-                        record.formulaErrors = dailyFile[1][i][7];
-                        record.formulaValues = dailyFile[1][i][8];
+                        record.strategyIndex = dailyFile[1][i][2];
+                        record.stopLossPhase = dailyFile[1][i][3];
+                        record.takeProfitPhase = dailyFile[1][i][4];
+                        record.conditions = dailyFile[1][i][5];
+                        record.formulaErrors = dailyFile[1][i][6];
+                        record.formulaValues = dailyFile[1][i][7];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -446,13 +445,12 @@
 
                 record.begin = marketFile[1][i][0];
                 record.end = marketFile[1][i][1];
-                record.strategyNumber = marketFile[1][i][2];
-                record.strategyPhase = marketFile[1][i][3];
-                record.stopLossPhase = marketFile[1][i][4];
-                record.takeProfitPhase = marketFile[1][i][5];
-                record.conditions = marketFile[1][i][6];
-                record.formulaErrors = marketFile[1][i][7];
-                record.formulaValues = marketFile[1][i][8];
+                record.strategyIndex = marketFile[1][i][2];
+                record.stopLossPhase = marketFile[1][i][3];
+                record.takeProfitPhase = marketFile[1][i][4];
+                record.conditions = marketFile[1][i][5];
+                record.formulaErrors = marketFile[1][i][6];
+                record.formulaValues = marketFile[1][i][7];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
@@ -496,8 +494,7 @@
 
                     let currentRecord = {
                         conditionsNames: headers,
-                        strategyNumber: conditionRecord.strategyNumber,
-                        strategyPhase: conditionRecord.strategyPhase,
+                        strategyIndex: conditionRecord.strategyIndex,
                         stopLossPhase: conditionRecord.stopLossPhase,
                         takeProfitPhase: conditionRecord.takeProfitPhase,
                         conditionsValues: conditionRecord.conditions,
@@ -568,7 +565,7 @@
                 let strategy = fileTradingSystem.strategies[j];
                 designerTradingSystem.strategies[j].payload.uiObject.setErrorMessage(strategy.error)
 
-                if (currentRecord.strategyNumber === j) {
+                if (currentRecord.strategyIndex === j) {
                     designerTradingSystem.strategies[j].payload.uiObject.isExecuting = true
                 } else {
                     designerTradingSystem.strategies[j].payload.uiObject.isExecuting = false
@@ -653,7 +650,7 @@
 
                             for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
 
-                                if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase === p) {
+                                if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = true
                                 } else {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = false
@@ -666,13 +663,13 @@
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].formula.error)
 
                                     if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                        if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase === p) {
+                                        if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
                                             designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
-                                    if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase === p) {
+                                    if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
                                         designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
@@ -738,7 +735,7 @@
 
                             for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
 
-                                if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase === p) {
+                                if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = true
                                 } else {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = false
@@ -751,13 +748,13 @@
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].formula.error)
 
                                     if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                        if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase === p) {
+                                        if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
                                             designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
-                                    if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase === p) {
+                                    if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
                                         designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
@@ -836,7 +833,7 @@
 
                         for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
 
-                            if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
+                            if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = true
                             } else {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = false
@@ -849,12 +846,12 @@
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].formula.error)
 
                                 if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                    if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
+                                    if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
                                         designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
-                                if (currentRecord.strategyNumber === j && currentRecord.stopLossPhase - 1 === p) {
+                                if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
                                     designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
@@ -920,7 +917,7 @@
 
                         for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
 
-                            if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
+                            if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = true
                             } else {
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = false
@@ -933,13 +930,13 @@
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].formula.error)
 
                                 if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                    if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
+                                    if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
                                         designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
 
-                                if (currentRecord.strategyNumber === j && currentRecord.takeProfitPhase - 1 === p) {
+                                if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
                                     designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++

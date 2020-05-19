@@ -353,42 +353,39 @@
 
                         record.begin = dailyFile[i][0];
                         record.end = dailyFile[i][1];
-                        record.type = dailyFile[i][2];
-                        record.rate = dailyFile[i][3];
-                        record.amount = dailyFile[i][4];
-                        record.balanceA = dailyFile[i][5];
-                        record.balanceB = dailyFile[i][6];
-                        record.profit = dailyFile[i][7];
-                        record.lastTradeProfitLoss = dailyFile[i][8];
-                        record.stopLoss = dailyFile[i][9];
-                        record.roundtrips = dailyFile[i][10];
-                        record.hits = dailyFile[i][11];
-                        record.fails = dailyFile[i][12];
-                        record.hitRatio = dailyFile[i][13];
-                        record.ROI = dailyFile[i][14];
-                        record.periods = dailyFile[i][15];
-                        record.days = dailyFile[i][16];
-                        record.anualizedRateOfReturn = dailyFile[i][17];
-                        record.sellRate = dailyFile[i][18];
-                        record.lastTradeROI = dailyFile[i][19];
-                        record.strategy = dailyFile[i][20];
-                        record.strategyPhase = dailyFile[i][21];
-                        record.takeProfit = dailyFile[i][22];
-                        record.stopLossPhase = dailyFile[i][23];
-                        record.takeProfitPhase = dailyFile[i][24];
-                        record.positionSize = dailyFile[i][26]; // 25 is the message for the executor
-                        record.initialBalanceA = dailyFile[i][27];
-                        record.minimunBalanceA = dailyFile[i][28];
-                        record.maximunBalanceA = dailyFile[i][29];
-                        record.initialBalanceB = dailyFile[i][30];
-                        record.minimunBalanceB = dailyFile[i][31];
-                        record.maximunBalanceB = dailyFile[i][32];
-                        record.baseAsset = dailyFile[i][33];
-                        record.quotedAsset = dailyFile[i][34];
-                        record.marketBaseAsset = dailyFile[i][35];
-                        record.marketQuotedAsset = dailyFile[i][36];
-                        record.positionPeriods = dailyFile[i][37];
-                        record.positionDays = dailyFile[i][38];
+                        record.amount = dailyFile[i][2];
+                        record.balanceA = dailyFile[i][3];
+                        record.balanceB = dailyFile[i][4];
+                        record.accumulatedProfitLoss = dailyFile[i][5];
+                        record.lastTradeProfitLoss = dailyFile[i][6];
+                        record.stopLoss = dailyFile[i][7];
+                        record.tradesCount = dailyFile[i][8];
+                        record.hits = dailyFile[i][9];
+                        record.fails = dailyFile[i][10];
+                        record.hitRatio = dailyFile[i][11];
+                        record.ROI = dailyFile[i][12];
+                        record.periods = dailyFile[i][13];
+                        record.days = dailyFile[i][14];
+                        record.anualizedRateOfReturn = dailyFile[i][15];
+                        record.sellRate = dailyFile[i][16];
+                        record.lastTradeROI = dailyFile[i][17];
+                        record.strategy = dailyFile[i][18];
+                        record.takeProfit = dailyFile[i][19];
+                        record.stopLossPhase = dailyFile[i][20];
+                        record.takeProfitPhase = dailyFile[i][21];
+                        record.positionSize = dailyFile[i][22]; // 25 is the message for the executor
+                        record.initialBalanceA = dailyFile[i][23];
+                        record.minimunBalanceA = dailyFile[i][24];
+                        record.maximunBalanceA = dailyFile[i][25];
+                        record.initialBalanceB = dailyFile[i][26];
+                        record.minimunBalanceB = dailyFile[i][27];
+                        record.maximunBalanceB = dailyFile[i][28];
+                        record.baseAsset = dailyFile[i][29];
+                        record.quotedAsset = dailyFile[i][30];
+                        record.marketBaseAsset = dailyFile[i][31];
+                        record.marketQuotedAsset = dailyFile[i][32];
+                        record.positionPeriods = dailyFile[i][33];
+                        record.positionDays = dailyFile[i][34];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -447,42 +444,39 @@
 
                 record.begin = marketFile[i][0];
                 record.end = marketFile[i][1];
-                record.type = marketFile[i][2];
-                record.rate = marketFile[i][3];
-                record.amount = marketFile[i][4];
-                record.balanceA = marketFile[i][5];
-                record.balanceB = marketFile[i][6];
-                record.profit = marketFile[i][7];
-                record.lastTradeProfitLoss = marketFile[i][8];
-                record.stopLoss = marketFile[i][9];
-                record.roundtrips = marketFile[i][10];
-                record.hits = marketFile[i][11];
-                record.fails = marketFile[i][12];
-                record.hitRatio = marketFile[i][13];
-                record.ROI = marketFile[i][14];
-                record.periods = marketFile[i][15];
-                record.days = marketFile[i][16];
-                record.anualizedRateOfReturn = marketFile[i][17];
-                record.sellRate = marketFile[i][18];
-                record.lastTradeROI = marketFile[i][19];
-                record.strategy = marketFile[i][20];
-                record.strategyPhase = marketFile[i][21];
-                record.takeProfit = marketFile[i][22];
-                record.stopLossPhase = marketFile[i][23];
-                record.takeProfitPhase = marketFile[i][24];
-                record.positionSize = marketFile[i][26]; // 25 is the message for the executor
-                record.initialBalanceA = marketFile[i][27];
-                record.minimunBalanceA = marketFile[i][28];
-                record.maximunBalanceA = marketFile[i][29];
-                record.initialBalanceB = marketFile[i][30];
-                record.minimunBalanceB = marketFile[i][31];
-                record.maximunBalanceB = marketFile[i][32];
-                record.baseAsset = marketFile[i][33];
-                record.quotedAsset = marketFile[i][34];
-                record.marketBaseAsset = marketFile[i][35];
-                record.marketQuotedAsset = marketFile[i][36];
-                record.positionPeriods = marketFile[i][37];
-                record.positionDays = marketFile[i][38];
+                record.amount = marketFile[i][2];
+                record.balanceA = marketFile[i][3];
+                record.balanceB = marketFile[i][4];
+                record.accumulatedProfitLoss = marketFile[i][5];
+                record.lastTradeProfitLoss = marketFile[i][6];
+                record.stopLoss = marketFile[i][7];
+                record.tradesCount = marketFile[i][8];
+                record.hits = marketFile[i][9];
+                record.fails = marketFile[i][10];
+                record.hitRatio = marketFile[i][11];
+                record.ROI = marketFile[i][12];
+                record.periods = marketFile[i][13];
+                record.days = marketFile[i][14];
+                record.anualizedRateOfReturn = marketFile[i][15];
+                record.sellRate = marketFile[i][16];
+                record.lastTradeROI = marketFile[i][17];
+                record.strategy = marketFile[i][18];
+                record.takeProfit = marketFile[i][19];
+                record.stopLossPhase = marketFile[i][20];
+                record.takeProfitPhase = marketFile[i][21];
+                record.positionSize = marketFile[i][22]; 
+                record.initialBalanceA = marketFile[i][23];
+                record.minimunBalanceA = marketFile[i][24];
+                record.maximunBalanceA = marketFile[i][25];
+                record.initialBalanceB = marketFile[i][26];
+                record.minimunBalanceB = marketFile[i][27];
+                record.maximunBalanceB = marketFile[i][28];
+                record.baseAsset = marketFile[i][29];
+                record.quotedAsset = marketFile[i][30];
+                record.marketBaseAsset = marketFile[i][31];
+                record.marketQuotedAsset = marketFile[i][32];
+                record.positionPeriods = marketFile[i][33];
+                record.positionDays = marketFile[i][34];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
@@ -728,7 +722,7 @@
                 imageSize = 20;
                 let imageToDraw;
 
-                /* Depending on what is on top, it is also the text and image of the take profit / stop loss */
+                /* Depending on what is on top, it is also the text and image of the take accumulatedProfitLoss / stop loss */
 
                 let yOffset = 0
                 if (record.takeProfit > record.stopLoss) { yOffset = imageSize * 2 }

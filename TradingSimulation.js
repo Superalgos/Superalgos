@@ -119,7 +119,7 @@
                 variable.balanceQuotedAsset = bot.VALUES_TO_USE.initialBalanceB
 
                 variable.lastTradeProfitLoss = 0
-                variable.profit = 0
+                variable.lastTradeProfit = 0
                 variable.lastTradeROI = 0
 
                 variable.roundtrips = 0;
@@ -436,10 +436,10 @@
 
                         /* Default Values*/
                         if (baseAsset === bot.market.baseAsset) {
-                            positionSize = balanceBaseAsset;
+                            positionSize = variable.balanceBaseAsset;
                             positionRate = candle.close;
                         } else {
-                            positionSize = balanceQuotedAsset;
+                            positionSize = variable.balanceQuotedAsset;
                             positionRate = candle.close;
                         }
 
@@ -459,15 +459,15 @@
                                         }
                                         if (isNaN(positionSize)) {
                                             if (baseAsset === bot.market.baseAsset) {
-                                                positionSize = balanceBaseAsset;
+                                                positionSize = variable.balanceBaseAsset;
                                             } else {
-                                                positionSize = balanceQuotedAsset;
+                                                positionSize = variable.balanceQuotedAsset;
                                             }
                                         } else {
                                             if (baseAsset === bot.market.baseAsset) {
-                                                if (positionSize > balanceBaseAsset) { positionSize = balanceBaseAsset }
+                                                if (positionSize > variable.balanceBaseAsset) { positionSize = variable.balanceBaseAsset }
                                             } else {
-                                                if (positionSize > balanceQuotedAsset) { positionSize = balanceQuotedAsset }
+                                                if (positionSize > variable.balanceQuotedAsset) { positionSize = variable.balanceQuotedAsset }
                                             }
                                         }
                                     }
@@ -911,11 +911,11 @@
                     let balance
 
                     if (baseAsset === bot.market.baseAsset) {
-                        balance = balanceBaseAsset
+                        balance = variable.balanceBaseAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceA
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceA
                     } else {
-                        balance = balanceQuotedAsset
+                        balance = variable.balanceQuotedAsset
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
@@ -980,10 +980,10 @@
                                         checkAnnouncements(triggerStage)
 
                                         variable.strategyIndex = j;
-                                        currentStrategy.begin = candle.begin;
-                                        currentStrategy.beginRate = candle.min;
-                                        currentStrategy.endRate = candle.min; // In case the strategy does not get exited
-                                        currentStrategy.triggerOnSituation = situation.name
+                                        variable.currentStrategy.begin = candle.begin;
+                                        variable.currentStrategy.beginRate = candle.min;
+                                        variable.currentStrategy.endRate = candle.min; // In case the strategy does not get exited
+                                        variable.currentStrategy.triggerOnSituation = situation.name
 
                                         distanceToLast.triggerOn = 1;
 
@@ -1030,10 +1030,10 @@
 
                                 if (passed) {
 
-                                    currentStrategy.number = variable.strategyIndex
-                                    currentStrategy.end = candle.end;
-                                    currentStrategy.endRate = candle.min;
-                                    currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
+                                    variable.currentStrategy.number = variable.strategyIndex
+                                    variable.currentStrategy.end = candle.end;
+                                    variable.currentStrategy.endRate = candle.min;
+                                    variable.currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
                                     variable.strategyStage = 'No Stage';
                                     variable.strategyIndex = -1;
 
@@ -1089,7 +1089,7 @@
                                     variable.takeProfitPhase = 0;
 
                                     takePositionNow = true
-                                    currentTrade.takePositionSituation = situation.name
+                                    variable.currentTrade.takePositionSituation = situation.name
                                     
                                     checkAnnouncements(triggerStage.takePosition)
 
@@ -1537,10 +1537,10 @@
 
                         variable.stopLossStage = 'No Stage';
                         variable.takeProfitStage = 'No Stage';
-                        currentTrade.end = candle.end;
-                        currentTrade.status = 1;
-                        currentTrade.exitType = 1;
-                        currentTrade.endRate = closeRate;
+                        variable.currentTrade.end = candle.end;
+                        variable.currentTrade.status = 1;
+                        variable.currentTrade.exitType = 1;
+                        variable.currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
                     }
@@ -1585,10 +1585,10 @@
                         variable.stopLossStage = 'No Stage';
                         variable.takeProfitStage = 'No Stage';
 
-                        currentTrade.end = candle.end;
-                        currentTrade.status = 1;
-                        currentTrade.exitType = 2;
-                        currentTrade.endRate = closeRate;
+                        variable.currentTrade.end = candle.end;
+                        variable.currentTrade.status = 1;
+                        variable.currentTrade.exitType = 2;
+                        variable.currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
 
@@ -1621,8 +1621,8 @@
                     }
 
                     /* Update the trade record information. */
-                    currentTrade.begin = candle.begin;
-                    currentTrade.beginRate = variable.tradePositionRate;
+                    variable.currentTrade.begin = candle.begin;
+                    variable.currentTrade.beginRate = variable.tradePositionRate;
 
                     /* Check if we need to execute. */
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not.*/
@@ -1805,11 +1805,11 @@
                         calculateTakeProfit();
                         calculateStopLoss();
 
-                        variable.previousBalanceBaseAsset = balanceBaseAsset;
-                        variable.previousBalanceQuotedAsset = balanceQuotedAsset;
+                        variable.previousBalanceBaseAsset = variable.balanceBaseAsset;
+                        variable.previousBalanceQuotedAsset = variable.balanceQuotedAsset;
 
-                        lastTradeProfitLoss = 0;
-                        lastTradeROI = 0;
+                        variable.lastTradeProfitLoss = 0;
+                        variable.lastTradeROI = 0;
 
                         let feePaid = 0
 
@@ -1817,14 +1817,14 @@
 
                             feePaid = variable.tradePositionSize * variable.tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceQuotedAsset = balanceQuotedAsset + variable.tradePositionSize * variable.tradePositionRate - feePaid;
-                            balanceBaseAsset = balanceBaseAsset - variable.tradePositionSize;
+                            variable.balanceQuotedAsset = variable.balanceQuotedAsset + variable.tradePositionSize * variable.tradePositionRate - feePaid;
+                            variable.balanceBaseAsset = variable.balanceBaseAsset - variable.tradePositionSize;
                         } else {
 
                             feePaid = variable.tradePositionSize / variable.tradePositionRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceBaseAsset = balanceBaseAsset + variable.tradePositionSize / variable.tradePositionRate - feePaid;
-                            balanceQuotedAsset = balanceQuotedAsset - variable.tradePositionSize;
+                            variable.balanceBaseAsset = variable.balanceBaseAsset + variable.tradePositionSize / variable.tradePositionRate - feePaid;
+                            variable.balanceQuotedAsset = variable.balanceQuotedAsset - variable.tradePositionSize;
                         }
 
                         addRecord();
@@ -1914,16 +1914,16 @@
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA =  balanceQuotedAsset 
-                            amountB = balanceQuotedAsset / orderPrice
+                            amountA =  variable.balanceQuotedAsset 
+                            amountB = variable.balanceQuotedAsset / orderPrice
 
                         } else {
                             orderSide = "sell"
 
                             orderPrice = ticker.last - 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = balanceBaseAsset * orderPrice
-                            amountB = balanceBaseAsset
+                            amountA = variable.balanceBaseAsset * orderPrice
+                            amountB = variable.balanceBaseAsset
 
                         }
 
@@ -1986,36 +1986,36 @@
                         let feePaid = 0
 
                         if (baseAsset === bot.market.baseAsset) {
-                            strategy.positionSize = balanceQuotedAsset / closeRate;
+                            strategy.positionSize = variable.balanceQuotedAsset / closeRate;
                             strategy.positionRate = closeRate;
 
-                            feePaid = balanceQuotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = variable.balanceQuotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceBaseAsset = balanceBaseAsset + balanceQuotedAsset / closeRate - feePaid;
-                            balanceQuotedAsset = 0;
+                            variable.balanceBaseAsset = variable.balanceBaseAsset + variable.balanceQuotedAsset / closeRate - feePaid;
+                            variable.balanceQuotedAsset = 0;
                         } else {
-                            strategy.positionSize = balanceBaseAsset * closeRate;
+                            strategy.positionSize = variable.balanceBaseAsset * closeRate;
                             strategy.positionRate = closeRate;
 
-                            feePaid = balanceBaseAsset * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = variable.balanceBaseAsset * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            balanceQuotedAsset = balanceQuotedAsset + balanceBaseAsset * closeRate - feePaid;
-                            balanceBaseAsset = 0;
+                            variable.balanceQuotedAsset = variable.balanceQuotedAsset + variable.balanceBaseAsset * closeRate - feePaid;
+                            variable.balanceBaseAsset = 0;
                         }
 
                         if (baseAsset === bot.market.baseAsset) {
-                            lastTradeProfitLoss = balanceBaseAsset - variable.previousBalanceBaseAsset;
-                            lastTradeROI = lastTradeProfitLoss * 100 / variable.tradePositionSize;
-                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
+                            variable.lastTradeProfitLoss = variable.balanceBaseAsset - variable.previousBalanceBaseAsset;
+                            variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
+                            if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
+                            variable.lastTradeProfit = variable.balanceBaseAsset - bot.VALUES_TO_USE.initialBalanceA;
                         } else {
-                            lastTradeProfitLoss = balanceQuotedAsset - variable.previousBalanceQuotedAsset;
-                            lastTradeROI = lastTradeProfitLoss * 100 / variable.tradePositionSize;
-                            if (isNaN(lastTradeROI)) { lastTradeROI = 0; }
-                            profit = balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
+                            variable.lastTradeProfitLoss = variable.balanceQuotedAsset - variable.previousBalanceQuotedAsset;
+                            variable.lastTradeROI = variable.lastTradeProfitLoss * 100 / variable.tradePositionSize;
+                            if (isNaN(lastTradeROI)) { variable.lastTradeROI = 0; }
+                            variable.lastTradeProfit = variable.balanceQuotedAsset - bot.VALUES_TO_USE.initialBalanceB;
                         }
 
-                        currentTrade.lastTradeROI = lastTradeROI;
+                        variable.currentTrade.lastTradeROI = variable.lastTradeROI;
 
                         if (lastTradeProfitLoss > 0) {
                             hits++;
@@ -2024,11 +2024,11 @@
                         }
 
                         if (baseAsset === bot.market.baseAsset) {
-                            ROI = (bot.VALUES_TO_USE.initialBalanceA + profit) / bot.VALUES_TO_USE.initialBalanceA - 1;
+                            ROI = (bot.VALUES_TO_USE.initialBalanceA + variable.lastTradeProfit) / bot.VALUES_TO_USE.initialBalanceA - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
                         } else {
-                            ROI = (bot.VALUES_TO_USE.initialBalanceB + profit) / bot.VALUES_TO_USE.initialBalanceB - 1;
+                            ROI = (bot.VALUES_TO_USE.initialBalanceB + variable.lastTradeProfit) / bot.VALUES_TO_USE.initialBalanceB - 1;
                             hitRatio = hits / roundtrips;
                             anualizedRateOfReturn = ROI / days * 365;
                         }
@@ -2057,10 +2057,10 @@
                 if (strategyStage === 'Close Stage') {
                     if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
 
-                        currentStrategy.number = variable.strategyIndex
-                        currentStrategy.end = candle.end;
-                        currentStrategy.endRate = candle.min;
-                        currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
+                        variable.currentStrategy.number = variable.strategyIndex
+                        variable.currentStrategy.end = candle.end;
+                        variable.currentStrategy.endRate = candle.min;
+                        variable.currentStrategy.status = 1; // This means the strategy is closed, i.e. that has a begin and end.
 
                         variable.strategyIndex = -1;
                         variable.strategyStage = 'No Stage';
@@ -2114,11 +2114,11 @@
                     }
 
                     if (balanceBaseAsset === Infinity) {
-                        balanceBaseAsset = Number.MAX_SAFE_INTEGER
+                        variable.balanceBaseAsset = Number.MAX_SAFE_INTEGER
                     }
 
                     if (balanceQuotedAsset === Infinity) {
-                        balanceQuotedAsset = Number.MAX_SAFE_INTEGER
+                        variable.balanceQuotedAsset = Number.MAX_SAFE_INTEGER
                     }
 
                     let quotedBaseAsset = '"' + baseAsset + '"'
@@ -2128,10 +2128,10 @@
                         begin: candle.begin,
                         end: candle.end,
                         amount: 1,
-                        balanceA: balanceBaseAsset,
-                        balanceB: balanceQuotedAsset,
-                        profit: profit,
-                        lastTradeProfitLoss: lastTradeProfitLoss,
+                        balanceA: variable.balanceBaseAsset,
+                        balanceB: variable.balanceQuotedAsset,
+                        profit: variable.lastTradeProfit,
+                        lastTradeProfitLoss: variable.lastTradeProfitLoss,
                         stopLoss: variable.stopLoss,
                         roundtrips: roundtrips,
                         hits: hits,
@@ -2142,7 +2142,7 @@
                         days: days,
                         anualizedRateOfReturn: anualizedRateOfReturn,
                         positionRate: variable.tradePositionRate,
-                        lastTradeROI: lastTradeROI,
+                        lastTradeROI: variable.lastTradeROI,
                         strategy: variable.strategyIndex,
                         strategyStageNumber: strategyStageNumber,
                         takeProfit: variable.takeProfit,
@@ -2185,17 +2185,17 @@
                     Lets see if there will be an open strategy ...
                     Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
                     */
-                    if (currentStrategy.begin !== 0 && currentStrategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                        currentStrategy.status = 2; // This means the strategy is open, i.e. that has a begin but no end.
-                        currentStrategy.end = candle.end
+                    if (currentStrategy.begin !== 0 && variable.currentStrategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        variable.currentStrategy.status = 2; // This means the strategy is open, i.e. that has a begin but no end.
+                        variable.currentStrategy.end = candle.end
                     }
                     
                     /* Prepare the information for the Strategies File*/
-                    if (currentStrategy.begin !== 0 && currentStrategy.end !== 0)            
+                    if (currentStrategy.begin !== 0 && variable.currentStrategy.end !== 0)            
                      {
                         strategiesArray.push(currentStrategy);
 
-                        currentStrategy = {
+                        variable.currentStrategy = {
                             begin: 0,
                             end: 0,
                             status: 0,
@@ -2210,27 +2210,27 @@
                     Lets see if there will be an open trade ...
                     Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
                     */
-                    if (currentTrade.begin !== 0 && currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                        currentTrade.status = 2; // This means the trade is open 
-                        currentTrade.end = candle.end
-                        currentTrade.endRate = candle.close
+                    if (currentTrade.begin !== 0 && variable.currentTrade.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                        variable.currentTrade.status = 2; // This means the trade is open 
+                        variable.currentTrade.end = candle.end
+                        variable.currentTrade.endRate = candle.close
 
                         /* Here we will calculate the ongoing ROI */
                         if (baseAsset === bot.market.baseAsset) {
-                            currentTrade.lastTradeROI = (tradePositionRate - candle.close) / variable.tradePositionRate * 100
+                            variable.currentTrade.lastTradeROI = (tradePositionRate - candle.close) / variable.tradePositionRate * 100
                         } else {
-                            currentTrade.lastTradeROI = (candle.close - variable.tradePositionRate) / variable.tradePositionRate * 100
+                            variable.currentTrade.lastTradeROI = (candle.close - variable.tradePositionRate) / variable.tradePositionRate * 100
                         }
                     }
 
                     /* Prepare the information for the Trades File */
-                    if (currentTrade.begin !== 0 && currentTrade.end !== 0) { 
+                    if (currentTrade.begin !== 0 && variable.currentTrade.end !== 0) { 
 
-                        currentTrade.profit = lastTradeProfitLoss;
+                        variable.currentTrade.profit = variable.lastTradeProfitLoss;
 
                         tradesArray.push(currentTrade);
 
-                        currentTrade = {
+                        variable.currentTrade = {
                             begin: 0,
                             end: 0,
                             status: 0,

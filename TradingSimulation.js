@@ -74,61 +74,72 @@
 
                 variable.isInitialized = true
 
-                variable.initial = {}   // Everything in here means the status at the begining of the episode.
-                variable.current = {}   // Everything in here means that is happening right now.
-                variable.last = {}      // Everything in here means that it already happened.
-                variable.minimun = {}   // Everything in here means the minimun in the whole episode.
-                variable.maximun = {}   // Everything in here means the maximun in the whole episode.
-                variable.previous = {}  // Everything in here means the the value that was current before a new current value was set.
-                variable.distance = {}  // Everything in here means the distance, measured in periods to whatever happened in the past, usually events.
+                variable.episode = {}                       // An Episode represents each execution of the Simulation
+                variable.episode.count = {}                 // Everything in here means the total count since the begining of the episode.
+                variable.episode.stat = {}                  // Everything in here means the statistics calculated since the begining of the episode.
 
-                variable.episode = {    // An Episode represents each execution of the Simulation
-                    baseAsset: bot.VALUES_TO_USE.baseAsset,
-                    quotedAsset: bot.VALUES_TO_USE.quotedAsset,
-                    marketBaseAsset: bot.market.baseAsset,
-                    marketQuotedAsset: bot.market.quotedAsset,
-                    profitLoss: 0,
-                    tradesCount: 0,
-                    fails: 0,
-                    hits: 0,
-                    hitRatio: 0,
-                    periods: 0,
-                    days: 0,
-                    ROI: 0,
-                    anualizedRateOfReturn: 0
-                }
+                variable.current = {}                       // Everything in here means that is happening right now.
+                variable.current.balance = {}               // Balances at the current candle of the Simulation.
+                variable.current.distance = {}              // Everything in here means the distance, measured in periods to whatever happened in the past, usually events.
+                variable.current.distance.toEvent = {}      // Distance to Events that already happened.
+                variable.current.strategy = {}              // Everything in here are variables related to the current strategy being executed.
+                variable.current.position = {}              // Everything in here are variables related to the current position being executed.
+
+                variable.current.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
+                variable.current.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
+                variable.current.distance.toEvent.triggerOn = 0
+                variable.current.distance.toEvent.triggerOff = 0
+                variable.current.distance.toEvent.takePosition = 0
+                variable.current.distance.toEvent.closePosition = 0
+
+                variable.last = {}                          // Everything in here means that it already happened.
+                variable.last.position = {}                 // Las values of variables at the last position.
+
+                variable.last.position.profitLoss = 0
+                variable.last.position.ROI = 0
+
+                variable.previous = {}                      // Everything in here means the the value that was current before a new current value was set.
+                variable.previous.balance = {}              // Balances values previous to the current ones.
 
                 variable.previous.balance.baseAsset = 0
                 variable.previous.balance.quotedAsset = 0
 
+                variable.episode.parameters = {}            // Parameters give you access to information received by the Simulation as parameters.
+                variable.episode.parameters.initial = {}    // Everything in here means the status at the begining of the episode received as a parameter of the Sumulation.
+                variable.episode.parameters.minimun = {}    // Everything in here means the minimun in the whole episode received as a parameter of the Sumulation.
+                variable.episode.parameters.maximun = {}    // Everything in here means the maximun in the whole episode received as a parameter of the Sumulation.
+                variable.episode.parameters.initial.balance = {}
+                variable.episode.parameters.minimun.balance = {}
+                variable.episode.parameters.maximun.balance = {}
+
+                variable.episode.parameters.baseAsset = bot.VALUES_TO_USE.baseAsset
+                variable.episode.parameters.quotedAsset = bot.VALUES_TO_USE.quotedAsset
+                variable.episode.parameters.marketBaseAsset = bot.market.baseAsset
+                variable.episode.parameters.marketQuotedAsset = bot.market.quotedAsset
+
+                variable.episode.parameters.initial.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
+                variable.episode.parameters.minimum.balance.baseAsset = bot.VALUES_TO_USE.minimumBalanceA
+                variable.episode.parameters.maximum.balance.baseAsset = bot.VALUES_TO_USE.maximumBalanceA
+
+                variable.episode.parameters.initial.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
+                variable.episode.parameters.minimum.balance.quotedAsset = bot.VALUES_TO_USE.minimumBalanceB
+                variable.episode.parameters.maximum.balance.quotedAsset = bot.VALUES_TO_USE.maximumBalanceB
+
+                variable.episode.count.positions = 0
+                variable.episode.count.fails = 0
+                variable.episode.count.hits = 0
+                variable.episode.count.periods = 0
+
+                variable.episode.stat.profitLoss = 0
+                variable.episode.stat.hitRatio = 0
+                variable.episode.stat.days = 0
+                variable.episode.stat.ROI = 0
+                variable.episode.stat.anualizedRateOfReturn = 0
+                
                 inializeCurrentStrategy()
                 initializeCurrentPosition() 
 
-                variable.current.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
-                variable.current.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
-
-                variable.initial.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
-                variable.minimum.balance.baseAsset = bot.VALUES_TO_USE.minimumBalanceA
-                variable.maximum.balance.baseAsset = bot.VALUES_TO_USE.maximumBalanceA
-
-                variable.initial.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
-                variable.minimum.balance.quotedAsset = bot.VALUES_TO_USE.minimumBalanceB
-                variable.maximum.balance.quotedAsset = bot.VALUES_TO_USE.maximumBalanceB
-
-                variable.last.position = {
-                    profitLoss: 0,
-                    ROI: 0
-                }
-
-                variable.distance.toEvent = {
-                    triggerOn: 0,
-                    triggerOff: 0,
-                    takePosition: 0,
-                    closePosition: 0
-                }
-
                 variable.announcements = []
-
             } 
 
             function inializeCurrentStrategy() {
@@ -325,8 +336,8 @@
                 }
                 previousLoopingDay = loopingDay.valueOf()
 
-                variable.episode.periods++;
-                variable.episode.days = variable.episode.periods * timeFrame / ONE_DAY_IN_MILISECONDS;
+                variable.episode.count.periods++;
+                variable.episode.stat.days = variable.episode.count.periods * timeFrame / ONE_DAY_IN_MILISECONDS;
 
                 if (processingDailyFiles) {
 
@@ -339,7 +350,7 @@
                             controlLoop();
                             return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
-                                if we skip these two variable.episode.periods, then there will be a hole in the file since the last period will be missing. */
+                                if we skip these two variable.episode.count.periods, then there will be a hole in the file since the last period will be missing. */
                         }
                     }
 
@@ -436,7 +447,7 @@
                     if (openStage !== undefined) {
 
                         /* Default Values*/
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             positionSize = variable.current.balance.baseAsset;
                             positionRate = candle.close;
                         } else {
@@ -459,13 +470,13 @@
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
                                         if (isNaN(positionSize)) {
-                                            if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                                                 positionSize = variable.current.balance.baseAsset;
                                             } else {
                                                 positionSize = variable.current.balance.quotedAsset;
                                             }
                                         } else {
-                                            if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                                                 if (positionSize > variable.current.balance.baseAsset) { positionSize = variable.current.balance.baseAsset }
                                             } else {
                                                 if (positionSize > variable.current.balance.quotedAsset) { positionSize = variable.current.balance.quotedAsset }
@@ -486,7 +497,7 @@
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
                                         if (isNaN(positionRate)) {
-                                            if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                                                 positionRate = candle.close;
                                             } else {
                                                 positionRate = candle.close;
@@ -910,14 +921,14 @@
                     let maximumBalance
                     let balance
 
-                    if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                    if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                         balance = variable.current.balance.baseAsset
-                        minimumBalance = variable.minimum.balance.baseAsset
-                        maximumBalance = variable.maximum.balance.baseAsset
+                        minimumBalance = variable.episode.parameters.minimum.balance.baseAsset
+                        maximumBalance = variable.episode.parameters.maximum.balance.baseAsset
                     } else {
                         balance = variable.current.balance.quotedAsset
-                        minimumBalance = variable.minimum.balance.quotedAsset
-                        maximumBalance = variable.maximum.balance.quotedAsset
+                        minimumBalance = variable.episode.parameters.minimum.balance.quotedAsset
+                        maximumBalance = variable.episode.parameters.maximum.balance.quotedAsset
                     }
                     
                     let stopRunningDate = new Date(candle.begin)
@@ -985,7 +996,7 @@
                                         variable.current.strategy.endRate = candle.min; // In case the strategy does not get exited
                                         variable.current.strategy.situationName = situation.name
 
-                                        variable.distance.toEvent.triggerOn = 1;
+                                        variable.current.distance.toEvent.triggerOn = 1;
 
                                         checkAnnouncements(triggerStage.triggerOn)
 
@@ -1037,7 +1048,7 @@
                                     variable.current.strategy.stage = 'No Stage';
                                     variable.current.strategy.index = -1;
 
-                                    variable.distance.toEvent.triggerOff = 1;
+                                    variable.current.distance.toEvent.triggerOff = 1;
 
                                     checkAnnouncements(triggerStage.triggerOff)
 
@@ -1464,27 +1475,27 @@
 
                 /* Keeping Distance Counters Up-to-date */
                 if (
-                    variable.distance.toEvent.triggerOn > 0 // with this we avoind counting before the first event happens.
+                    variable.current.distance.toEvent.triggerOn > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.distance.toEvent.triggerOn++;
+                    variable.current.distance.toEvent.triggerOn++;
                 }
 
                 if (
-                    variable.distance.toEvent.triggerOff > 0 // with this we avoind counting before the first event happens.
+                    variable.current.distance.toEvent.triggerOff > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.distance.toEvent.triggerOff++;
+                    variable.current.distance.toEvent.triggerOff++;
                 }
 
                 if (
-                    variable.distance.toEvent.takePosition > 0 // with this we avoind counting before the first event happens.
+                    variable.current.distance.toEvent.takePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.distance.toEvent.takePosition++;
+                    variable.current.distance.toEvent.takePosition++;
                 }
 
                 if (
-                    variable.distance.toEvent.closePosition > 0 // with this we avoind counting before the first event happens.
+                    variable.current.distance.toEvent.closePosition > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.distance.toEvent.closePosition++;
+                    variable.current.distance.toEvent.closePosition++;
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -1499,7 +1510,7 @@
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((variable.episode.baseAsset === variable.episode.marketBaseAsset && candle.max >= variable.current.position.stopLoss) || (variable.episode.baseAsset !== variable.episode.marketBaseAsset && candle.min <= variable.current.position.stopLoss)) {
+                    if ((variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset && candle.max >= variable.current.position.stopLoss) || (variable.episode.parameters.baseAsset !== variable.episode.parameters.marketBaseAsset && candle.min <= variable.current.position.stopLoss)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Stop Loss was hit."); }
                         /*
@@ -1509,7 +1520,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             if (stopLoss < candle.min) {
                                 variable.current.position.stopLoss = candle.min
                             }
@@ -1524,7 +1535,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1547,7 +1558,7 @@
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((variable.episode.baseAsset === variable.episode.marketBaseAsset && candle.min <= variable.current.position.takeProfit) || (variable.episode.baseAsset !== variable.episode.marketBaseAsset && candle.max >= variable.current.position.takeProfit)) {
+                    if ((variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset && candle.min <= variable.current.position.takeProfit) || (variable.episode.parameters.baseAsset !== variable.episode.parameters.marketBaseAsset && candle.max >= variable.current.position.takeProfit)) {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Take Profit was hit."); }
                         /*
@@ -1557,7 +1568,7 @@
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             if (takeProfit > candle.max) {
                                 variable.current.position.takeProfit = candle.max
                             }
@@ -1571,7 +1582,7 @@
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1603,7 +1614,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> takePositionNow -> Entering code block."); }
 
                     /* Inicializing this counter */
-                    variable.distance.toEvent.takePosition = 1;
+                    variable.current.distance.toEvent.takePosition = 1;
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[strategyIndex];
@@ -1614,7 +1625,7 @@
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = variable.current.position.rate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                    if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                         variable.current.position.rate = variable.current.position.rate - slippageAmount
                     } else {
                         variable.current.position.rate = variable.current.position.rate + slippageAmount
@@ -1701,7 +1712,7 @@
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (variable.episode.periods <= variable.executionContext.periods) {
+                                if (variable.episode.count.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution."); }
                                     takePositionAtSimulation()
                                     return;
@@ -1728,7 +1739,7 @@
                         let orderSide
  
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             orderSide = "sell"
 
                             orderPrice = variable.current.position.rate  
@@ -1748,7 +1759,7 @@
 
                         variable.executionContext = {
                             status: "Taking Position",
-                            periods: variable.episode.periods,
+                            periods: variable.episode.count.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order."); }
@@ -1763,7 +1774,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "In a Position",
-                                            periods: variable.episode.periods,
+                                            periods: variable.episode.count.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1813,7 +1824,7 @@
 
                         let feePaid = 0
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
 
                             feePaid = variable.current.position.size * variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
@@ -1841,7 +1852,7 @@
                     closePositionNow = false
 
                     /* Inicializing this counter */
-                    variable.distance.toEvent.closePosition = 1;
+                    variable.current.distance.toEvent.closePosition = 1;
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[strategyIndex];
@@ -1896,7 +1907,7 @@
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (variable.episode.periods <= variable.executionContext.periods) {
+                                if (variable.episode.count.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution."); }
                                     closePositionAtSimulation()
                                     return;
@@ -1909,7 +1920,7 @@
                         let amountB
                         let orderSide
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             orderSide = "buy"
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -1929,7 +1940,7 @@
 
                         variable.executionContext = {
                             status: "Closing Position",
-                            periods: variable.episode.periods,
+                            periods: variable.episode.count.periods,
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange."); }
@@ -1944,7 +1955,7 @@
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE "); }
                                         variable.executionContext = {
                                             status: "Position Closed",
-                                            periods: variable.episode.periods,
+                                            periods: variable.episode.count.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1981,11 +1992,11 @@
                     function closePositionAtSimulation() {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> closePositionAtSimulation -> Entering function."); }
 
-                        variable.episode.tradesCount++;
+                        variable.episode.count.positions++;
 
                         let feePaid = 0
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             strategy.positionSize = variable.current.balance.quotedAsset / closeRate;
                             strategy.positionRate = closeRate;
 
@@ -2003,34 +2014,34 @@
                             variable.current.balance.baseAsset = 0;
                         }
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             variable.last.position.profitLoss = variable.current.balance.baseAsset - variable.previous.balance.baseAsset;
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size;
                             if (isNaN(lastTradeROI)) { variable.last.position.ROI = 0; }
-                            variable.episode.profitLoss = variable.current.balance.baseAsset - variable.initial.balance.baseAsset;
+                            variable.episode.stat.profitLoss = variable.current.balance.baseAsset - variable.episode.parameters.initial.balance.baseAsset;
                         } else {
                             variable.last.position.profitLoss = variable.current.balance.quotedAsset - variable.previous.balance.quotedAsset;
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size;
                             if (isNaN(lastTradeROI)) { variable.last.position.ROI = 0; }
-                            variable.episode.profitLoss = variable.current.balance.quotedAsset - variable.initial.balance.quotedAsset;
+                            variable.episode.stat.profitLoss = variable.current.balance.quotedAsset - variable.episode.parameters.initial.balance.quotedAsset;
                         }
 
                         variable.current.position.lastTradeROI = variable.last.position.ROI;
 
                         if (variable.last.position.profitLoss > 0) {
-                            variable.episode.hits++;
+                            variable.episode.count.hits++;
                         } else {
-                            variable.episode.fails++;
+                            variable.episode.count.fails++;
                         }
 
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
-                            variable.episode.ROI = (variable.initial.balance.baseAsset + variable.episode.profitLoss) / variable.initial.balance.baseAsset - 1;
-                            variable.episode.hitRatio = variable.episode.hits / variable.episode.tradesCount;
-                            variable.anualizedRateOfReturn = variable.episode.ROI / variable.episode.days * 365;
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                            variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.baseAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.baseAsset - 1;
+                            variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions;
+                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / variable.episode.stat.days * 365;
                         } else {
-                            variable.episode.ROI = (variable.initial.balance.quotedAsset + variable.episode.profitLoss) / variable.initial.balance.quotedAsset - 1;
-                            variable.episode.hitRatio = variable.episode.hits / variable.episode.tradesCount;
-                            variable.anualizedRateOfReturn = variable.episode.ROI / variable.episode.days * 365;
+                            variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.quotedAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.quotedAsset - 1;
+                            variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions;
+                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / variable.episode.stat.days * 365;
                         }
 
                         addRecord();
@@ -2066,7 +2077,7 @@
                         variable.current.strategy.stage = 'No Stage';
 
                         timerToCloseStage = 0
-                        variable.distance.toEvent.triggerOff = 1;
+                        variable.current.distance.toEvent.triggerOff = 1;
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage."); }
                     } else {
@@ -2098,17 +2109,17 @@
                         end: candle.end,
                         balanceBaseAsset: variable.current.balance.baseAsset,
                         balanceQuotedAsset: variable.current.balance.quotedAsset,
-                        accumulatedProfitLoss: variable.episode.profitLoss,
+                        accumulatedProfitLoss: variable.episode.stat.profitLoss,
                         lastTradeProfitLoss: variable.last.position.profitLoss,
                         stopLoss: variable.current.position.stopLoss,
-                        tradesCount: variable.episode.tradesCount,
-                        hits: variable.episode.hits,
-                        fails: variable.episode.fails,
-                        hitRatio: variable.episode.hitRatio,
-                        ROI: variable.episode.ROI,
-                        periods: variable.episode.periods,
-                        days: variable.episode.days,
-                        anualizedRateOfReturn: variable.anualizedRateOfReturn,
+                        tradesCount: variable.episode.count.positions,
+                        hits: variable.episode.count.hits,
+                        fails: variable.episode.count.fails,
+                        hitRatio: variable.episode.stat.hitRatio,
+                        ROI: variable.episode.stat.ROI,
+                        periods: variable.episode.count.periods,
+                        days: variable.episode.stat.days,
+                        anualizedRateOfReturn: variable.episode.stat.anualizedRateOfReturn,
                         positionRate: variable.current.position.rate,
                         lastTradeROI: variable.last.position.ROI,
                         strategy: variable.current.strategy.index,
@@ -2116,22 +2127,22 @@
                         stopLossPhase: variable.current.position.stopLossPhase,
                         takeProfitPhase: variable.current.position.takeProfitPhase,
                         positionSize: variable.current.position.size,
-                        initialBalanceA: variable.initial.balance.baseAsset,
-                        minimumBalanceA: variable.minimum.balance.baseAsset,
-                        maximumBalanceA: variable.maximum.balance.baseAsset,
-                        initialBalanceB: variable.initial.balance.quotedAsset,
-                        minimumBalanceB: variable.minimum.balance.quotedAsset,
-                        maximumBalanceB: variable.maximum.balance.quotedAsset,
-                        baseAsset: '"' + variable.episode.baseAsset + '"',
-                        quotedAsset: '"' + variable.episode.quotedAsset + '"',
-                        marketBaseAsset: '"' + variable.episode.marketBaseAsset + '"',
-                        marketQuotedAsset: '"' + variable.episode.marketQuotedAsset +  '"' ,
+                        initialBalanceA: variable.episode.parameters.initial.balance.baseAsset,
+                        minimumBalanceA: variable.episode.parameters.minimum.balance.baseAsset,
+                        maximumBalanceA: variable.episode.parameters.maximum.balance.baseAsset,
+                        initialBalanceB: variable.episode.parameters.initial.balance.quotedAsset,
+                        minimumBalanceB: variable.episode.parameters.minimum.balance.quotedAsset,
+                        maximumBalanceB: variable.episode.parameters.maximum.balance.quotedAsset,
+                        baseAsset: '"' + variable.episode.parameters.baseAsset + '"',
+                        quotedAsset: '"' + variable.episode.parameters.quotedAsset + '"',
+                        marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
+                        marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset +  '"' ,
                         positionPeriods: variable.current.position.periods,
                         positionDays: variable.positionDays,
-                        distanceToEventTriggerOn: variable.distance.toEvent.triggerOn,
-                        distanceToEventTriggerOff: variable.distance.toEvent.triggerOff,
-                        distanceToEventTakePosition: variable.distance.toEvent.takePosition,
-                        distanceToEventClosePosition: variable.distance.toEvent.closePosition
+                        distanceToEventTriggerOn: variable.current.distance.toEvent.triggerOn,
+                        distanceToEventTriggerOff: variable.current.distance.toEvent.triggerOff,
+                        distanceToEventTakePosition: variable.current.distance.toEvent.takePosition,
+                        distanceToEventClosePosition: variable.current.distance.toEvent.closePosition
                     }
 
                     recordsArray.push(simulationRecord);
@@ -2183,8 +2194,8 @@
                         variable.current.position.end = candle.end
                         variable.current.position.endRate = candle.close
 
-                        /* Here we will calculate the ongoing variable.episode.ROI */
-                        if (variable.episode.baseAsset === variable.episode.marketBaseAsset) {
+                        /* Here we will calculate the ongoing variable.episode.stat.ROI */
+                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             variable.current.position.lastTradeROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
                         } else {
                             variable.current.position.lastTradeROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
@@ -2237,7 +2248,7 @@
                                 }
                             }
 
-                            if (variable.episode.periods > lastPeriodAnnounced) {
+                            if (variable.episode.count.periods > lastPeriodAnnounced) {
 
                                 if (isNaN(value) === false) {
                                     /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
@@ -2265,12 +2276,12 @@
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                                 if (newAnnouncementRecord.periods !== undefined) {
-                                    newAnnouncementRecord.periods = variable.episode.periods
+                                    newAnnouncementRecord.periods = variable.episode.count.periods
                                     newAnnouncementRecord.value = value
                                 } else {
                                     newAnnouncementRecord = {
                                         key: key,
-                                        periods: variable.episode.periods,
+                                        periods: variable.episode.count.periods,
                                         value: value
                                     }
                                     variable.announcements.push(newAnnouncementRecord)

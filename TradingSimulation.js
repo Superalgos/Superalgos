@@ -32,7 +32,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
         try {
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> Entering function.') }
             let processingDailyFiles
-            if (variable.episode.parameters.timeFrame > global.dailyFilePeriods[0][0]) {
+            if (timeFrame > global.dailyFilePeriods[0][0]) {
                 processingDailyFiles = false
             } else {
                 processingDailyFiles = true
@@ -105,11 +105,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 variable.episode.parameters = {}            // Parameters give you access to information received by the Simulation as parameters.
                 variable.episode.parameters.initial = {}    // Everything in here means the status at the begining of the episode received as a parameter of the Sumulation.
-                variable.episode.parameters.minimun = {}    // Everything in here means the minimun in the whole episode received as a parameter of the Sumulation.
-                variable.episode.parameters.maximun = {}    // Everything in here means the maximun in the whole episode received as a parameter of the Sumulation.
+                variable.episode.parameters.minimum = {}    // Everything in here means the minimum in the whole episode received as a parameter of the Sumulation.
+                variable.episode.parameters.maximum = {}    // Everything in here means the maximum in the whole episode received as a parameter of the Sumulation.
                 variable.episode.parameters.initial.balance = {}
-                variable.episode.parameters.minimun.balance = {}
-                variable.episode.parameters.maximun.balance = {}
+                variable.episode.parameters.minimum.balance = {}
+                variable.episode.parameters.maximum.balance = {}
 
                 variable.episode.parameters.baseAsset = bot.VALUES_TO_USE.baseAsset
                 variable.episode.parameters.quotedAsset = bot.VALUES_TO_USE.quotedAsset
@@ -287,7 +287,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
                 }
 
-                let propertyName = 'atAnyvariable.episode.parameters.timeFrame'
+                let propertyName = 'atAnyTimeFrame'
                 let thisChart = chart[propertyName]
 
                 for (let k = 0; k < dataDependencies.length; k++) {
@@ -604,7 +604,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                             addCodeToSnapshot(code)
                                             if (formulaValue === Infinity) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
-                                                if (takeProfitStage === 'Open Stage') {
+                                                if (variable.current.position.takeProfitStage === 'Open Stage') {
                                                     formulaError = 'WARNING: Formula evaluates to Infinity.'
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
                                                 }
@@ -621,7 +621,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (isNaN(formulaValue)) { formulaValue = 0 }
                                         if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                             formulaValue = MIN_TAKE_PROFIT_VALUE
-                                            if (takeProfitStage === 'Open Stage') {
+                                            if (variable.current.position.takeProfitStage === 'Open Stage') {
                                                 formulaError = 'WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE.'
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
                                             }
@@ -789,7 +789,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (formulaValue === Infinity) {
                                             formulaError = 'Formula evaluates to Infinity.'
                                             formulaValue = MAX_TAKE_PROFIT_VALUE
-                                            if (takeProfitStage === 'Manage Stage') {
+                                            if (variable.current.position.takeProfitStage === 'Manage Stage') {
                                                 formulaError = 'WARNING: Formula evaluates to Infinity.'
                                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
                                             }
@@ -806,7 +806,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                     if (isNaN(formulaValue)) { formulaValue = 0 }
                                     if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
                                         formulaValue = MIN_TAKE_PROFIT_VALUE
-                                        if (takeProfitStage === 'Manage Stage') {
+                                        if (variable.current.position.takeProfitStage === 'Manage Stage') {
                                             formulaError = 'WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE.'
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
                                         }
@@ -1289,7 +1289,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let initialDefinitionKey = ''
                     let p
 
-                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
+                    if (variable.current.position.takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 parentNode = openStage.initialDefinition
@@ -1300,7 +1300,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         }
                     }
 
-                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (variable.current.position.takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
@@ -1408,7 +1408,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let phase
                     let key
 
-                    if (takeProfitStage === 'Open Stage' && openStage !== undefined) {
+                    if (variable.current.position.takeProfitStage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase]
@@ -1417,7 +1417,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         }
                     }
 
-                    if (takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
+                    if (variable.current.position.takeProfitStage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[takeProfitPhase - 1]
                             key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1)
@@ -2348,7 +2348,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             instruction = instruction.replace(/}/g, '')
                             if (instruction.indexOf('chart') >= 0) {
                                 let parts = instruction.split('.')
-                                let variable.episode.parameters.timeFrame = parts[1]
+                                let timeFrame = parts[1]
                                 let product = parts[2]
                                 let property
                                 checkPrevious(3)
@@ -2361,10 +2361,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 }
 
                                 // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
-                                if (variable.episode.parameters.timeFrame !== 'atAnyvariable.episode.parameters.timeFrame') {
-                                    variable.episode.parameters.timeFrame = variable.episode.parameters.timeFrame.substring(2, 4) + '-' + variable.episode.parameters.timeFrame.substring(4, 7)
+                                if (timeFrame !== 'atAnyvariable.timeFrame') {
+                                    timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                                 }
-                                let key = variable.episode.parameters.timeFrame + '-' + product + '-' + property
+                                let key = timeFrame + '-' + product + '-' + property
                                 let existingKey = snapshotKeys.get(key)
 
                                 if (existingKey === undefined) { // means that at the current loop this property of this product was not used before.

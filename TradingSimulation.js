@@ -174,6 +174,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 variable.current.position.size = 0
                 variable.current.position.status = 0
                 variable.current.position.profit = 0
+                variable.current.position.ROI = 0
                 variable.current.position.exitType = 0
                 variable.current.position.beginRate = 0
                 variable.current.position.endRate = 0
@@ -2005,7 +2006,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.stat.profitLoss = variable.current.balance.quotedAsset - variable.episode.parameters.initial.balance.quotedAsset
                         }
 
-                        variable.current.position.lastTradeROI = variable.last.position.ROI
+                        variable.current.position.ROI = variable.last.position.ROI
 
                         if (variable.last.position.profitLoss > 0) {
                             variable.episode.count.hits++
@@ -2171,11 +2172,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         variable.current.position.end = candle.end
                         variable.current.position.endRate = candle.close
 
-                        /* Here we will calculate the ongoing variable.episode.stat.ROI */
+                        /* Here we will calculate the ongoing ROI */
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            variable.current.position.lastTradeROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
+                            variable.current.position.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
                         } else {
-                            variable.current.position.lastTradeROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
+                            variable.current.position.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
                         }
                     }
 
@@ -2195,16 +2196,24 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.count.positions,                                   // Position Number
                             (new Date(candle.begin)).toISOString(),                             // Datetime
                             tradingSystem.strategies[variable.current.strategy.index].name,     // Strategy Name
-                            currentStrategy.triggerOnSituation,                                 // Trigger On Situation
-                            currentTrade.takePositionSituation,                                 // Take Position Situation
+                            variable.current.strategy.situationName,                            // Trigger On Situation
+                            variable.current.position.situationName,                            // Take Position Situation
                             hitOrFial(),                                                        // Result
-                            lastTradeROI,                                                       // ROI
-                            simulationRecord.type.replace(/"/g, '')                             // Exit Type
+                            variable.last.position.ROI,                                         // ROI
+                            exitType()                                                          // Exit Type
                         ]
 
                         function hitOrFial() {
                             if (variable.last.position.ROI > 0) { return 'HIT' } else { return 'FAIL' }
                         }
+
+                        function exitType() {
+                            switch (variable.current.position.exitType) {
+                                case 1: return 'Stop'
+                                case 2: return 'Take Profit'
+                            }
+                        }
+
 
                         if (positionedAtYesterday === false) {
                             snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
@@ -2226,7 +2235,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             begin: variable.current.position.begin,
                             end: variable.current.position.end,
                             status: variable.current.position.status,
-                            lastTradeROI: variable.current.position.lastTradeROI,
+                            lastTradeROI: variable.current.position.ROI,
                             exitType: variable.current.position.exitType,
                             beginRate: variable.current.position.beginRate,
                             endRate: variable.current.position.endRate,

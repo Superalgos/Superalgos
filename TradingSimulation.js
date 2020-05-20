@@ -174,15 +174,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 variable.current.position.rate = 0
                 variable.current.position.size = 0
                 variable.current.position.status = 0
-                variable.current.position.ROI = 0
                 variable.current.position.exitType = 0
                 variable.current.position.beginRate = 0
                 variable.current.position.endRate = 0
-                variable.current.position.periods = 0
-                variable.current.position.days = 0
                 variable.current.position.situationName = ''
 
                 variable.current.position.stat = {}
+                variable.current.position.stat.ROI = 0
+                variable.current.position.stat.days = 0
+
+                variable.current.position.count = {}
+                variable.current.position.count.periods = 0
 
                 variable.current.position.stopLoss = {}
                 variable.current.position.stopLoss.value = 0
@@ -1460,14 +1462,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage')
                 ) {
                     if (takePositionNow === true) {
-                        variable.current.position.periods = 0
+                        variable.current.position.count.periods = 0
                     }
 
-                    variable.current.position.periods++
-                    variable.current.position.days = variable.current.position.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
+                    variable.current.position.count.periods++
+                    variable.current.position.stat.days = variable.current.position.count.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
                 } else {
-                    variable.current.position.periods = 0
-                    variable.current.position.days = 0
+                    variable.current.position.count.periods = 0
+                    variable.current.position.stat.days = 0
                 }
 
                 /* Keeping Distance Counters Up-to-date */
@@ -2010,7 +2012,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.stat.profitLoss = variable.current.balance.quotedAsset - variable.episode.parameters.initial.balance.quotedAsset
                         }
 
-                        variable.current.position.ROI = variable.last.position.ROI
+                        variable.current.position.stat.ROI = variable.last.position.ROI
 
                         if (variable.last.position.profitLoss > 0) {
                             variable.episode.count.hits++
@@ -2120,8 +2122,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         variable_episode_parameters_quotedAsset: '"' + variable.episode.parameters.quotedAsset + '"',
                         variable_episode_parameters_marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
                         variable_episode_parameters_marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset + '"',
-                        variable_current_position_periods: variable.current.position.periods,
-                        variable_current_position_days: variable.current.position.days,
+                        variable_current_position_count_periods: variable.current.position.count.periods,
+                        variable_current_position_stat_days: variable.current.position.stat.days,
                         variable_current_distance_toEvent_triggerOn: variable.current.distance.toEvent.triggerOn,
                         variable_current_distance_toEvent_triggerOff: variable.current.distance.toEvent.triggerOff,
                         variable_current_distance_toEvent_takePosition: variable.current.distance.toEvent.takePosition,
@@ -2179,9 +2181,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         /* Here we will calculate the ongoing ROI */
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            variable.current.position.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
+                            variable.current.position.stat.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
                         } else {
-                            variable.current.position.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
+                            variable.current.position.stat.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
                         }
                     }
 
@@ -2240,7 +2242,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             begin: variable.current.position.begin,
                             end: variable.current.position.end,
                             status: variable.current.position.status,
-                            ROI: variable.current.position.ROI,
+                            ROI: variable.current.position.stat.ROI,
                             exitType: variable.current.position.exitType,
                             beginRate: variable.current.position.beginRate,
                             endRate: variable.current.position.endRate,

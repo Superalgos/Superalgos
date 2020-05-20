@@ -207,8 +207,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_parameters_quotedAsset + ',' +
                                 record.variable_episode_parameters_marketBaseAsset + ',' +
                                 record.variable_episode_parameters_marketQuotedAsset + ',' +
-                                record.variable_current_position_periods + ',' +
-                                record.variable_current_position_days + ',' +
+                                record.variable_current_position_count_periods + ',' +
+                                record.variable_current_position_stat_days + ',' +
                                 record.variable_current_distance_toEvent_triggerOn + ',' +
                                 record.variable_current_distance_toEvent_triggerOff + ',' +
                                 record.variable_current_distance_toEvent_takePosition + ',' +
@@ -568,8 +568,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_parameters_quotedAsset + ',' +
                                 record.variable_episode_parameters_marketBaseAsset + ',' +
                                 record.variable_episode_parameters_marketQuotedAsset + ',' +
-                                record.variable_current_position_periods + ',' +
-                                record.variable_current_position_days + ',' +
+                                record.variable_current_position_count_periods + ',' +
+                                record.variable_current_position_stat_days + ',' +
                                 record.variable_current_distance_toEvent_triggerOn + ',' +
                                 record.variable_current_distance_toEvent_triggerOff + ',' +
                                 record.variable_current_distance_toEvent_takePosition + ',' +

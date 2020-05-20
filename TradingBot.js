@@ -120,7 +120,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             let recordsArray
             let conditionsArray
             let strategiesArray
-            let tradesArray
+            let positionsArray
 
             let snapshotHeaders
             let triggerOnSnapshot
@@ -139,12 +139,12 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                 writeFiles,
                 callBackFunction)
 
-            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pTradesArray, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
+            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pPositionsArray, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
                 tradingSystem = pTradingSystem
                 recordsArray = pRecordsArray
                 conditionsArray = pConditionsArray
                 strategiesArray = pStrategiesArray
-                tradesArray = pTradesArray
+                positionsArray = pPositionsArray
 
                 snapshotHeaders = pSnapshotHeaders
                 triggerOnSnapshot = pTriggerOnSnapshot
@@ -177,42 +177,42 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                             fileContent = fileContent + separator + '[' +
                                 record.begin + ',' +
                                 record.end + ',' +
-                                record.balanceBaseAsset + ',' +
-                                record.balanceQuotedAsset + ',' +
-                                record.accumulatedProfitLoss + ',' +
-                                record.lastTradeProfitLoss + ',' +
-                                record.stopLoss + ',' +
-                                record.tradesCount + ',' +
-                                record.hits + ',' +
-                                record.fails + ',' +
-                                record.hitRatio + ',' +
-                                record.ROI + ',' +
-                                record.periods + ',' +
-                                record.days + ',' +
-                                record.anualizedRateOfReturn + ',' +
-                                record.positionRate + ',' +
-                                record.lastTradeROI + ',' +
-                                record.strategy + ',' +
-                                record.takeProfit + ',' +
+                                record.variable_current_balance_baseAsset + ',' +
+                                record.variable_current_balance_quotedAsset + ',' +
+                                record.variable_episode_stat_profitLoss + ',' +
+                                record.variable_last_position_profitLoss + ',' +
+                                record.variable_current_position_stopLoss_value + ',' +
+                                record.variable_episode_count_positions + ',' +
+                                record.variable_episode_count_hits + ',' +
+                                record.variable_episode_count_fails + ',' +
+                                record.variable_episode_stat_hitRatio + ',' +
+                                record.variable_episode_stat_ROI + ',' +
+                                record.variable_episode_count_periods + ',' +
+                                record.variable_episode_stat_days + ',' +
+                                record.variable_episode_stat_anualizedRateOfReturn + ',' +
+                                record.variable_current_position_rate + ',' +
+                                record.variable_last_position_ROI + ',' +
+                                record.variable_current_strategy_index + ',' +
+                                record.variable_current_position_takeProfit_value + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
-                                record.positionSize + ',' +
-                                record.initialBalanceA + ',' +
-                                record.minimumBalanceA + ',' +
-                                record.maximumBalanceA + ',' +
-                                record.initialBalanceB + ',' +
-                                record.minimumBalanceB + ',' +
-                                record.maximumBalanceB + ',' +
-                                record.baseAsset + ',' +
-                                record.quotedAsset + ',' +
-                                record.marketBaseAsset + ',' +
-                                record.marketQuotedAsset + ',' +
-                                record.positionPeriods + ',' +
-                                record.positionDays + ',' +
-                                record.distanceToLastTriggerOn + ',' +
-                                record.distanceToLastTriggerOff + ',' +
-                                record.distanceToLastTakePosition + ',' +
-                                record.distanceToLastClosePosition + ']'
+                                record.variable_current_position_size + ',' +
+                                record.variable_episode_parameters_initial_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_minimum_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_maximum_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_initial_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_minimum_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_maximum_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_baseAsset + ',' +
+                                record.variable_episode_parameters_quotedAsset + ',' +
+                                record.variable_episode_parameters_marketBaseAsset + ',' +
+                                record.variable_episode_parameters_marketQuotedAsset + ',' +
+                                record.variable_current_position_periods + ',' +
+                                record.variable_current_position_days + ',' +
+                                record.variable_current_distance_toEvent_triggerOn + ',' +
+                                record.variable_current_distance_toEvent_triggerOff + ',' +
+                                record.variable_current_distance_toEvent_takePosition + ',' +
+                                record.variable_current_distance_toEvent_closePosition + ']'
 
                             if (separator === '') { separator = ',' }
 
@@ -338,7 +338,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.number + ',' +
                                 record.beginRate + ',' +
                                 record.endRate + ',' +
-                                '"' + record.triggerOnSituation + '"' + ',' +
+                                '"' + record.situationName + '"' + ',' +
                                 '"' + record.name + '"' + ']'
 
                             if (separator === '') { separator = ',' }
@@ -368,7 +368,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                     return
                                 }
 
-                                writeTradesFile()
+                                writePositionsFile()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
@@ -380,28 +380,28 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     }
                 }
 
-                function writeTradesFile() {
+                function writePositionsFile() {
                     try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeTradesFile -> Entering function.') }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> Entering function.') }
 
                         let separator = ''
                         let fileRecordCounter = 0
 
                         let fileContent = ''
 
-                        for (let i = 0; i < tradesArray.length; i++) {
-                            let record = tradesArray[i]
+                        for (let i = 0; i < positionsArray.length; i++) {
+                            let record = positionsArray[i]
                             if (record.stopRate === undefined) { record.stopRate = 0 }
 
                             fileContent = fileContent + separator + '[' +
                                 record.begin + ',' +
                                 record.end + ',' +
                                 record.status + ',' +
-                                record.lastTradeROI + ',' +
+                                record.ROI + ',' +
                                 record.beginRate + ',' +
                                 record.endRate + ',' +
                                 record.exitType + ',' +
-                                '"' + record.takePositionSituation + '"' + ']'
+                                '"' + record.situationName + '"' + ']'
 
                             if (separator === '') { separator = ',' }
 
@@ -418,13 +418,13 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                         function onFileCreated(err) {
                             try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> fileContent = ' + fileContent) }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> Entering function.') }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> fileContent = ' + fileContent) }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> filePath = ' + filePath)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
 
                                     callBackFunction(err)
                                     return
@@ -432,12 +432,12 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                                 writeSnapshotFiles()
                             } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeTradesFile -> onFileCreated -> err = ' + err.stack)
+                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                             }
                         }
                     } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeTradesFile -> err = ' + err.stack)
+                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> err = ' + err.stack)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                     }
                 }
@@ -538,42 +538,42 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                             fileContent = fileContent + separator + '[' +
                                 record.begin + ',' +
                                 record.end + ',' +
-                                record.balanceBaseAsset + ',' +
-                                record.balanceQuotedAsset + ',' +
-                                record.accumulatedProfitLoss + ',' +
-                                record.lastTradeProfitLoss + ',' +
-                                record.stopLoss + ',' +
-                                record.tradesCount + ',' +
-                                record.hits + ',' +
-                                record.fails + ',' +
-                                record.hitRatio + ',' +
-                                record.ROI + ',' +
-                                record.periods + ',' +
-                                record.days + ',' +
-                                record.anualizedRateOfReturn + ',' +
-                                record.positionRate + ',' +
-                                record.lastTradeROI + ',' +
-                                record.strategy + ',' +
-                                record.takeProfit + ',' +
+                                record.variable_current_balance_baseAsset + ',' +
+                                record.variable_current_balance_quotedAsset + ',' +
+                                record.variable_episode_stat_profitLoss + ',' +
+                                record.variable_last_position_profitLoss + ',' +
+                                record.variable_current_position_stopLoss_value + ',' +
+                                record.variable_episode_count_positions + ',' +
+                                record.variable_episode_count_hits + ',' +
+                                record.variable_episode_count_fails + ',' +
+                                record.variable_episode_stat_hitRatio + ',' +
+                                record.variable_episode_stat_ROI + ',' +
+                                record.variable_episode_count_periods + ',' +
+                                record.variable_episode_stat_days + ',' +
+                                record.variable_episode_stat_anualizedRateOfReturn + ',' +
+                                record.variable_current_position_rate + ',' +
+                                record.variable_last_position_ROI + ',' +
+                                record.variable_current_strategy_index + ',' +
+                                record.variable_current_position_takeProfit_value + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
-                                record.positionSize + ',' +
-                                record.initialBalanceA + ',' +
-                                record.minimumBalanceA + ',' +
-                                record.maximumBalanceA + ',' +
-                                record.initialBalanceB + ',' +
-                                record.minimumBalanceB + ',' +
-                                record.maximumBalanceB + ',' +
-                                record.baseAsset + ',' +
-                                record.quotedAsset + ',' +
-                                record.marketBaseAsset + ',' +
-                                record.marketQuotedAsset + ',' +
-                                record.positionPeriods + ',' +
-                                record.positionDays + ',' +
-                                record.distanceToLastTriggerOn + ',' +
-                                record.distanceToLastTriggerOff + ',' +
-                                record.distanceToLastTakePosition + ',' +
-                                record.distanceToLastClosePosition + ']'
+                                record.variable_current_position_size + ',' +
+                                record.variable_episode_parameters_initial_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_minimum_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_maximum_balance_baseAsset + ',' +
+                                record.variable_episode_parameters_initial_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_minimum_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_maximum_balance_quotedAsset + ',' +
+                                record.variable_episode_parameters_baseAsset + ',' +
+                                record.variable_episode_parameters_quotedAsset + ',' +
+                                record.variable_episode_parameters_marketBaseAsset + ',' +
+                                record.variable_episode_parameters_marketQuotedAsset + ',' +
+                                record.variable_current_position_periods + ',' +
+                                record.variable_current_position_days + ',' +
+                                record.variable_current_distance_toEvent_triggerOn + ',' +
+                                record.variable_current_distance_toEvent_triggerOff + ',' +
+                                record.variable_current_distance_toEvent_takePosition + ',' +
+                                record.variable_current_distance_toEvent_closePosition + ']'
 
                             if (separator === '') { separator = ',' }
 
@@ -714,7 +714,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.number + ',' +
                                 record.beginRate + ',' +
                                 record.endRate + ',' +
-                                '"' + record.triggerOnSituation + '"' + ',' +
+                                '"' + record.situationName + '"' + ',' +
                                 '"' + record.name + '"' + ']'
 
                             if (separator === '') { separator = ',' }
@@ -745,7 +745,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                     return
                                 }
 
-                                writeTradesFile()
+                                writePositionsFile()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
@@ -757,17 +757,17 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     }
                 }
 
-                function writeTradesFile() {
+                function writePositionsFile() {
                     try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeTradesFile -> Entering function.') }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> Entering function.') }
 
                         let separator = ''
                         let fileRecordCounter = 0
 
                         let fileContent = ''
 
-                        for (let i = 0; i < tradesArray.length; i++) {
-                            let record = tradesArray[i]
+                        for (let i = 0; i < positionsArray.length; i++) {
+                            let record = positionsArray[i]
 
                             /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
                             at the current date. */
@@ -779,11 +779,11 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.begin + ',' +
                                 record.end + ',' +
                                 record.status + ',' +
-                                record.lastTradeROI + ',' +
+                                record.ROI + ',' +
                                 record.beginRate + ',' +
                                 record.endRate + ',' +
                                 record.exitType + ',' +
-                                '"' + record.takePositionSituation + '"' + ']'
+                                '"' + record.situationName + '"' + ']'
 
                             if (separator === '') { separator = ',' }
 
@@ -801,13 +801,13 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                         function onFileCreated(err) {
                             try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> fileContent = ' + fileContent) }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> Entering function.') }
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> fileContent = ' + fileContent) }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> filePath = ' + filePath)
+                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
 
                                     callBackFunction(err)
                                     return
@@ -815,12 +815,12 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                                 writeSnapshotFiles()
                             } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeTradesFile -> onFileCreated -> err = ' + err.stack)
+                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                             }
                         }
                     } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeTradesFile -> err = ' + err.stack)
+                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> err = ' + err.stack)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                     }
                 }

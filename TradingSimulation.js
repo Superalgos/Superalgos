@@ -154,6 +154,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function inializeCurrentStrategy() {
 
+                variable.current.strategy.name = ''
                 variable.current.strategy.index = -1
                 variable.current.strategy.stage = 'No Stage'
                 variable.current.strategy.begin = 0
@@ -179,6 +180,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 variable.current.position.beginRate = 0
                 variable.current.position.endRate = 0
                 variable.current.position.periods = 0
+                variable.current.position.days = 0
                 variable.current.position.situationName = ''
 
                 variable.current.position.stopLoss = {}
@@ -381,7 +383,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 let conditions = new Map()       // Here we store the conditions values that will be use in the simulator for decision making.
                 let formulas = new Map()
                 let conditionsArrayRecord = [] // These are the records that will be saved in a file for the plotter to consume.
-                let conditionsArrayValues = [] // Here we store the conditions values that will be written on file for the plotter.
+                let conditionsValues = [] // Here we store the conditions values that will be written on file for the plotter.
                 let formulasErrors = [] // Here we store the errors produced by all phase formulas.
                 let formulasValues = [] // Here we store the values produced by all phase formulas.
 
@@ -910,9 +912,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         conditions.set(condition.key, condition)
 
                         if (condition.value) {
-                            conditionsArrayValues.push(1)
+                            conditionsValues.push(1)
                         } else {
-                            conditionsArrayValues.push(0)
+                            conditionsValues.push(0)
                         }
                     }
                 }
@@ -1004,6 +1006,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         variable.current.strategy.beginRate = candle.min
                                         variable.current.strategy.endRate = candle.min // In case the strategy does not get exited
                                         variable.current.strategy.situationName = situation.name
+                                        variable.current.strategy.name = strategy.name
 
                                         variable.current.distance.toEvent.triggerOn = 1
 
@@ -1460,10 +1463,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     variable.current.position.periods++
-                    variable.positionDays = variable.current.position.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
+                    variable.current.position.days = variable.current.position.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
                 } else {
                     variable.current.position.periods = 0
-                    variable.positionDays = 0
+                    variable.current.position.days = 0
                 }
 
                 /* Keeping Distance Counters Up-to-date */
@@ -2086,42 +2089,42 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     simulationRecord = {
                         begin: candle.begin,
                         end: candle.end,
-                        balanceBaseAsset: variable.current.balance.baseAsset,
-                        balanceQuotedAsset: variable.current.balance.quotedAsset,
-                        accumulatedProfitLoss: variable.episode.stat.profitLoss,
-                        lastTradeProfitLoss: variable.last.position.profitLoss,
-                        stopLoss: variable.current.position.stopLoss.value,
-                        tradesCount: variable.episode.count.positions,
-                        hits: variable.episode.count.hits,
-                        fails: variable.episode.count.fails,
-                        hitRatio: variable.episode.stat.hitRatio,
-                        ROI: variable.episode.stat.ROI,
-                        periods: variable.episode.count.periods,
-                        days: variable.episode.stat.days,
-                        anualizedRateOfReturn: variable.episode.stat.anualizedRateOfReturn,
-                        positionRate: variable.current.position.rate,
-                        lastTradeROI: variable.last.position.ROI,
-                        strategy: variable.current.strategy.index,
-                        takeProfit: variable.current.position.takeProfit.value,
+                        variable_current_balance_baseAsset: variable.current.balance.baseAsset,
+                        variable_current_balance_quotedAsset: variable.current.balance.quotedAsset,
+                        variable_episode_stat_profitLoss: variable.episode.stat.profitLoss,
+                        variable_last_position_profitLoss: variable.last.position.profitLoss,
+                        variable_current_position_stopLoss_value: variable.current.position.stopLoss.value,
+                        variable_episode_count_positions: variable.episode.count.positions,
+                        variable_episode_count_hits: variable.episode.count.hits,
+                        variable_episode_count_fails: variable.episode.count.fails,
+                        variable_episode_stat_hitRatio: variable.episode.stat.hitRatio,
+                        variable_episode_stat_ROI: variable.episode.stat.ROI,
+                        variable_episode_count_periods: variable.episode.count.periods,
+                        variable_episode_stat_days: variable.episode.stat.days,
+                        variable_episode_stat_anualizedRateOfReturn: variable.episode.stat.anualizedRateOfReturn,
+                        variable_current_position_rate: variable.current.position.rate,
+                        variable_last_position_ROI: variable.last.position.ROI,
+                        variable_current_strategy_index: variable.current.strategy.index,
+                        variable_current_position_takeProfit_value: variable.current.position.takeProfit.value,
                         variable_current_position_stopLoss_phase: variable.current.position.stopLoss.phase,
                         variable_current_position_takeProfit_phase: variable.current.position.takeProfit.phase,
-                        positionSize: variable.current.position.size,
-                        initialBalanceA: variable.episode.parameters.initial.balance.baseAsset,
-                        minimumBalanceA: variable.episode.parameters.minimum.balance.baseAsset,
-                        maximumBalanceA: variable.episode.parameters.maximum.balance.baseAsset,
-                        initialBalanceB: variable.episode.parameters.initial.balance.quotedAsset,
-                        minimumBalanceB: variable.episode.parameters.minimum.balance.quotedAsset,
-                        maximumBalanceB: variable.episode.parameters.maximum.balance.quotedAsset,
-                        baseAsset: '"' + variable.episode.parameters.baseAsset + '"',
-                        quotedAsset: '"' + variable.episode.parameters.quotedAsset + '"',
-                        marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
-                        marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset + '"',
-                        positionPeriods: variable.current.position.periods,
-                        positionDays: variable.positionDays,
-                        distanceToEventTriggerOn: variable.current.distance.toEvent.triggerOn,
-                        distanceToEventTriggerOff: variable.current.distance.toEvent.triggerOff,
-                        distanceToEventTakePosition: variable.current.distance.toEvent.takePosition,
-                        distanceToEventClosePosition: variable.current.distance.toEvent.closePosition
+                        variable_current_position_size: variable.current.position.size,
+                        variable_episode_parameters_initial_balance_baseAsset: variable.episode.parameters.initial.balance.baseAsset,
+                        variable_episode_parameters_minimum_balance_baseAsset: variable.episode.parameters.minimum.balance.baseAsset,
+                        variable_episode_parameters_maximum_balance_baseAsset: variable.episode.parameters.maximum.balance.baseAsset,
+                        variable_episode_parameters_initial_balance_quotedAsset: variable.episode.parameters.initial.balance.quotedAsset,
+                        variable_episode_parameters_minimum_balance_quotedAsset: variable.episode.parameters.minimum.balance.quotedAsset,
+                        variable_episode_parameters_maximum_balance_quotedAsset: variable.episode.parameters.maximum.balance.quotedAsset,
+                        variable_episode_parameters_baseAsset: '"' + variable.episode.parameters.baseAsset + '"',
+                        variable_episode_parameters_quotedAsset: '"' + variable.episode.parameters.quotedAsset + '"',
+                        variable_episode_parameters_marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
+                        variable_episode_parameters_marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset + '"',
+                        variable_current_position_periods: variable.current.position.periods,
+                        variable_current_position_days: variable.current.position.days,
+                        variable_current_distance_toEvent_triggerOn: variable.current.distance.toEvent.triggerOn,
+                        variable_current_distance_toEvent_triggerOff: variable.current.distance.toEvent.triggerOff,
+                        variable_current_distance_toEvent_takePosition: variable.current.distance.toEvent.takePosition,
+                        variable_current_distance_toEvent_closePosition: variable.current.distance.toEvent.closePosition
                     }
 
                     recordsArray.push(simulationRecord)
@@ -2131,7 +2134,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     conditionsArrayRecord.push(variable.current.strategy.index)
                     conditionsArrayRecord.push(variable.current.position.stopLoss.phase)
                     conditionsArrayRecord.push(variable.current.position.takeProfit.phase)
-                    conditionsArrayRecord.push(conditionsArrayValues)
+                    conditionsArrayRecord.push(conditionsValues)
                     conditionsArrayRecord.push(formulasErrors)
                     conditionsArrayRecord.push(formulasValues)
 
@@ -2155,7 +2158,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             number: variable.current.strategy.number,
                             beginRate: variable.current.strategy.beginRate,
                             endRate: variable.current.strategy.endRate,
-                            situationName: variable.current.strategy.situationName
+                            situationName: variable.current.strategy.situationName,
+                            name: variable.current.strategy.name
                         }
 
                         strategiesArray.push(currentStrategyRecord)
@@ -2235,7 +2239,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             begin: variable.current.position.begin,
                             end: variable.current.position.end,
                             status: variable.current.position.status,
-                            lastTradeROI: variable.current.position.ROI,
+                            ROI: variable.current.position.ROI,
                             exitType: variable.current.position.exitType,
                             beginRate: variable.current.position.beginRate,
                             endRate: variable.current.position.endRate,

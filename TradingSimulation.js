@@ -174,7 +174,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 variable.current.position.rate = 0
                 variable.current.position.size = 0
                 variable.current.position.status = 0
-                variable.current.position.profit = 0
                 variable.current.position.ROI = 0
                 variable.current.position.exitType = 0
                 variable.current.position.beginRate = 0
@@ -182,6 +181,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 variable.current.position.periods = 0
                 variable.current.position.days = 0
                 variable.current.position.situationName = ''
+
+                variable.current.position.stat = {}
 
                 variable.current.position.stopLoss = {}
                 variable.current.position.stopLoss.value = 0

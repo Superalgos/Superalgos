@@ -43,6 +43,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let strategiesArray = []
             let positionsArray = []
 
+            /* Snapshots of Trigger On and Take Positions */
+            let snapshots = {
+                headers: undefined,
+                triggerOn: [],
+                takePosition: [],
+                lastTriggerOn: undefined,
+                lastTakePosition: undefined
+            }
+
             let tradingSystem = bot.TRADING_SYSTEM
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.initialDatetime = ' + bot.VALUES_TO_USE.timeRange.initialDatetime) }
@@ -954,8 +963,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
                         if (
-                            strategyStage !== 'No Stage' ||
-                            currentStrategyIndex !== -1
+                            variable.current.strategy.stage !== 'No Stage' ||
+                            variable.current.strategy.index !== -1
                         ) { continue }
 
                         let strategy = tradingSystem.strategies[j]
@@ -1011,7 +1020,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Trigger Off Condition */
                 if (variable.current.strategy.stage === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     let triggerStage = strategy.triggerStage
 
@@ -1058,7 +1067,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Take Position Condition */
                 if (variable.current.strategy.stage === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     let triggerStage = strategy.triggerStage
 
@@ -1116,7 +1125,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function checkStopPhases() {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
@@ -1173,7 +1182,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 if (passed) {
                                     variable.current.position.stopLoss.phase++
                                     variable.current.position.stopLoss.stage = 'Manage Stage'
-                                    if (takeProfitPhase > 0) {
+                                    if (variable.current.position.takeProfit.phase > 0) {
                                         variable.current.strategy.stage = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Take Profit')
                                     }
@@ -1223,7 +1232,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         }
 
                                         variable.current.position.stopLoss.stage = 'Manage Stage'
-                                        if (takeProfitPhase > 0) {
+                                        if (variable.current.position.takeProfit.phase > 0) {
                                             variable.current.strategy.stage = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Take Profit')
                                         }
@@ -1238,7 +1247,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function calculateStopLoss() {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1247,16 +1256,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (variable.current.position.stopLoss.stage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
-                                phase = openStage.initialDefinition.stopLoss.phases[stopLossPhase]
-                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (stopLossPhase)
+                                phase = openStage.initialDefinition.stopLoss.phases[variable.current.position.stopLoss.phase]
+                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase)
                             }
                         }
                     }
 
                     if (variable.current.position.stopLoss.stage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
-                            phase = manageStage.stopLoss.phases[stopLossPhase - 1]
-                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (stopLossPhase - 1)
+                            phase = manageStage.stopLoss.phases[variable.current.position.stopLoss.phase - 1]
+                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase - 1)
                         }
                     }
 
@@ -1266,7 +1275,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                             variable.current.position.stopLoss.value = formulas.get(key)
 
-                            if (stopLoss !== previousValue) {
+                            if (variable.current.position.stopLoss.value !== previousValue) {
                                 checkAnnouncements(phase, variable.current.position.stopLoss.value)
                             }
                         }
@@ -1283,7 +1292,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function checkTakeProfitPhases() {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
@@ -1341,7 +1350,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 if (passed) {
                                     variable.current.position.takeProfit.phase++
                                     variable.current.position.takeProfit.stage = 'Manage Stage'
-                                    if (stopLossPhase > 0) {
+                                    if (variable.current.position.stopLoss.phase > 0) {
                                         variable.current.strategy.stage = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Stop')
                                     }
@@ -1391,7 +1400,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         }
 
                                         variable.current.position.takeProfit.stage = 'Manage Stage'
-                                        if (stopLossPhase > 0) {
+                                        if (variable.current.position.stopLoss.phase > 0) {
                                             variable.current.strategy.stage = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Stop')
                                         }
@@ -1406,7 +1415,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function calculateTakeProfit() {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1415,16 +1424,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (variable.current.position.takeProfit.stage === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
-                                phase = openStage.initialDefinition.takeProfit.phases[takeProfitPhase]
-                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (takeProfitPhase)
+                                phase = openStage.initialDefinition.takeProfit.phases[variable.current.position.takeProfit.phase]
+                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase)
                             }
                         }
                     }
 
                     if (variable.current.position.takeProfit.stage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
-                            phase = manageStage.takeProfit.phases[takeProfitPhase - 1]
-                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (takeProfitPhase - 1)
+                            phase = manageStage.takeProfit.phases[variable.current.position.takeProfit.phase - 1]
+                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase - 1)
                         }
                     }
 
@@ -1434,7 +1443,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                             variable.current.position.takeProfit.value = formulas.get(key)
 
-                            if (takeProfit !== previousValue) {
+                            if (variable.current.position.takeProfit.value !== previousValue) {
                                 checkAnnouncements(phase, variable.current.position.takeProfit.value)
                             }
                         }
@@ -1486,7 +1495,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
@@ -1503,11 +1512,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         */
 
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            if (stopLoss < candle.min) {
+                            if (variable.current.position.stopLoss.value < candle.min) {
                                 variable.current.position.stopLoss.value = candle.min
                             }
                         } else {
-                            if (stopLoss > candle.max) {
+                            if (variable.current.position.stopLoss.value > candle.max) {
                                 variable.current.position.stopLoss.value = candle.max
                             }
                         }
@@ -1550,11 +1559,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         */
 
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            if (takeProfit > candle.max) {
+                            if (variable.current.position.takeProfit.value > candle.max) {
                                 variable.current.position.takeProfit.value = candle.max
                             }
                         } else {
-                            if (takeProfit < candle.min) {
+                            if (variable.current.position.takeProfit.value < candle.min) {
                                 variable.current.position.takeProfit.value = candle.min
                             }
                         }
@@ -1598,7 +1607,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     variable.current.distance.toEvent.takePosition = 1
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     variable.current.position.size = strategy.positionSize
                     variable.current.position.rate = strategy.positionRate
@@ -1829,7 +1838,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     variable.current.distance.toEvent.closePosition = 1
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[strategyIndex]
+                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
 
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
                         /* Check that we are in LIVE MODE */
@@ -1987,12 +1996,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             variable.last.position.profitLoss = variable.current.balance.baseAsset - variable.previous.balance.baseAsset
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
-                            if (isNaN(lastTradeROI)) { variable.last.position.ROI = 0 }
+                            if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
                             variable.episode.stat.profitLoss = variable.current.balance.baseAsset - variable.episode.parameters.initial.balance.baseAsset
                         } else {
                             variable.last.position.profitLoss = variable.current.balance.quotedAsset - variable.previous.balance.quotedAsset
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
-                            if (isNaN(lastTradeROI)) { variable.last.position.ROI = 0 }
+                            if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
                             variable.episode.stat.profitLoss = variable.current.balance.quotedAsset - variable.episode.parameters.initial.balance.quotedAsset
                         }
 
@@ -2093,8 +2102,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         lastTradeROI: variable.last.position.ROI,
                         strategy: variable.current.strategy.index,
                         takeProfit: variable.current.position.takeProfit.value,
-                        stopLossPhase: variable.current.position.stopLoss.phase,
-                        takeProfitPhase: variable.current.position.takeProfit.phase,
+                        variable_current_position_stopLoss_phase: variable.current.position.stopLoss.phase,
+                        variable_current_position_takeProfit_phase: variable.current.position.takeProfit.phase,
                         positionSize: variable.current.position.size,
                         initialBalanceA: variable.episode.parameters.initial.balance.baseAsset,
                         minimumBalanceA: variable.episode.parameters.minimum.balance.baseAsset,
@@ -2118,9 +2127,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     /* Prepare the information for the Conditions File */
 
-                    conditionsArrayRecord.push(strategyIndex)
-                    conditionsArrayRecord.push(stopLossPhase)
-                    conditionsArrayRecord.push(takeProfitPhase)
+                    conditionsArrayRecord.push(variable.current.strategy.index)
+                    conditionsArrayRecord.push(variable.current.position.stopLoss.phase)
+                    conditionsArrayRecord.push(variable.current.position.takeProfit.phase)
                     conditionsArrayRecord.push(conditionsArrayValues)
                     conditionsArrayRecord.push(formulasErrors)
                     conditionsArrayRecord.push(formulasValues)
@@ -2183,9 +2192,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     if (addToSnapshots === true) {
                         let closeValues = [
-                            roundtrips,                                                         // Trade Number
+                            variable.episode.count.positions,                                   // Position Number
                             (new Date(candle.begin)).toISOString(),                             // Datetime
-                            tradingSystem.strategies[currentStrategyIndex].name,                // Strategy
+                            tradingSystem.strategies[variable.current.strategy.index].name,     // Strategy Name
                             currentStrategy.triggerOnSituation,                                 // Trigger On Situation
                             currentTrade.takePositionSituation,                                 // Take Position Situation
                             hitOrFial(),                                                        // Result
@@ -2194,7 +2203,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         ]
 
                         function hitOrFial() {
-                            if (lastTradeROI > 0) { return 'HIT' } else { return 'FAIL' }
+                            if (variable.last.position.ROI > 0) { return 'HIT' } else { return 'FAIL' }
                         }
 
                         if (positionedAtYesterday === false) {
@@ -2209,16 +2218,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
                     if (snapshots.headers === undefined) {
                         snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
-                    }
-
-                    if (processingDailyFiles) {
-                        if (positionedAtYesterday) {
-                            yesterday.snapshots.headers = snapshots.headers
-                            yesterday.snapshots.triggerOn = snapshots.triggerOn
-                            yesterday.snapshots.takePosition = snapshots.takePosition
-                            yesterday.snapshots.lastTriggerOn = snapshots.lastTriggerOn
-                            yesterday.snapshots.lastTakePosition = snapshots.lastTakePosition
-                        }
                     }
 
                     /* Prepare the information for the Trades File */

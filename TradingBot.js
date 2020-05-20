@@ -194,8 +194,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.lastTradeROI + ',' +
                                 record.strategy + ',' +
                                 record.takeProfit + ',' +
-                                record.stopLossPhase + ',' +
-                                record.takeProfitPhase + ',' +
+                                record.variable_current_position_stopLoss_phase + ',' +
+                                record.variable_current_position_stopLoss_phase + ',' +
                                 record.positionSize + ',' +
                                 record.initialBalanceA + ',' +
                                 record.minimumBalanceA + ',' +
@@ -555,8 +555,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.lastTradeROI + ',' +
                                 record.strategy + ',' +
                                 record.takeProfit + ',' +
-                                record.stopLossPhase + ',' +
-                                record.takeProfitPhase + ',' +
+                                record.variable_current_position_stopLoss_phase + ',' +
+                                record.variable_current_position_stopLoss_phase + ',' +
                                 record.positionSize + ',' +
                                 record.initialBalanceA + ',' +
                                 record.minimumBalanceA + ',' +

@@ -128,18 +128,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             let tradingSystem = {}
 
-            function runSimulation() {
-                tradingSimulation.runSimulation(
-                    chart,
-                    dataDependencies,
-                    timeFrame,
-                    timeFrameLabel,
-                    currentDay,
-                    variable,
-                    exchangeAPI,
-                    writeFiles,
-                    callBackFunction)
-            }
+            readFiles()
 
             function readFiles() {
 
@@ -297,7 +286,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                                 if (err.message === 'File does not exist.') {
                                     positionsArray = []
-                                    readSnapshotFiles()
+                                    callBack()
                                     return
                                 }
 
@@ -378,10 +367,9 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                         fileStorage.getTextFile(filePath, onFileRead, true)
 
-                        function onFileRead(err) {
+                        function onFileRead(err, text) {
                             try {
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readConditionsFile -> onFileRead -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readConditionsFile -> onFileRead -> fileContent = ' + fileContent) }
 
                                 if (err.message === 'File does not exist.') {
                                     conditionsArray = []
@@ -415,47 +403,22 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readStrategiesFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < strategiesArray.length; i++) {
-                            let record = strategiesArray[i]
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.number + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                '"' + record.situationName + '"' + ',' +
-                                '"' + record.name + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
-
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
                         filePath += '/' + fileName
 
-                        fileStorage.getTextFile(filePath, fileContent + '\n', onFileRead)
+                        fileStorage.getTextFile(filePath, onFileRead, true)
 
-                        function onFileRead(err) {
+                        function onFileRead(err, text) {
                             try {
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> fileContent = ' + fileContent) }
+
+                                if (err.message === 'File does not exist.') {
+                                    strategiesArray = []
+                                    readPositionsFile()
+                                    return
+                                }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
@@ -466,6 +429,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                     return
                                 }
 
+                                strategiesArray = JSON.parse(text)
                                 readPositionsFile()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
@@ -482,48 +446,22 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readPositionsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < positionsArray.length; i++) {
-                            let record = positionsArray[i]
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue }
-                            if (record.stopRate === undefined) { record.stopRate = 0 }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.ROI + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                record.exitType + ',' +
-                                '"' + record.situationName + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
-
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
                         filePath += '/' + fileName
 
-                        fileStorage.getTextFile(filePath, fileContent + '\n', onFileRead)
+                        fileStorage.getTextFile(filePath, onFileRead, true)
 
-                        function onFileRead(err) {
+                        function onFileRead(err, text) {
                             try {
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readPositionsFile -> onFileRead -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readPositionsFile -> onFileRead -> fileContent = ' + fileContent) }
+
+                                if (err.message === 'File does not exist.') {
+                                    positionsArray = []
+                                    callBack()
+                                    return
+                                }
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
@@ -534,7 +472,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                     return
                                 }
 
-                                readSnapshotFiles()
+                                positionsArray = JSON.parse(text)
+                                callBack()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE)
@@ -547,14 +486,25 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                 }
             }
 
+            function runSimulation() {
+                tradingSimulation.runSimulation(
+                    chart,
+                    dataDependencies,
+                    timeFrame,
+                    timeFrameLabel,
+                    currentDay,
+                    variable,
+                    exchangeAPI,
+                    recordsArray,
+                    conditionsArray,
+                    strategiesArray,
+                    positionsArray,
+                    writeFiles,
+                    callBackFunction)
+            }
 
-
-            function writeFiles(pTradingSystem, pRecordsArray, pConditionsArray, pStrategiesArray, pPositionsArray, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
+            function writeFiles(pTradingSystem, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
                 tradingSystem = pTradingSystem
-                recordsArray = pRecordsArray
-                conditionsArray = pConditionsArray
-                strategiesArray = pStrategiesArray
-                positionsArray = pPositionsArray
 
                 snapshotHeaders = pSnapshotHeaders
                 triggerOnSnapshot = pTriggerOnSnapshot

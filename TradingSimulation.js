@@ -27,6 +27,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
         currentDay,
         variable,
         exchangeAPI,
+        recordsArray,
+        conditionsArray,
+        strategiesArray,
+        positionsArray,
         callback,
         callBackFunction) {
         try {
@@ -37,11 +41,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             } else {
                 processingDailyFiles = true
             }
-
-            let recordsArray = []
-            let conditionsArray = []
-            let strategiesArray = []
-            let positionsArray = []
 
             /* Snapshots of Trigger On and Take Positions */
             let snapshots = {
@@ -2434,7 +2433,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> callback -> recordsArray.length = ' + recordsArray.length) }
 
-                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, positionsArray, snapshots.headers, snapshots.triggerOn, snapshots.takePosition)
+                callback(tradingSystem, snapshots.headers, snapshots.triggerOn, snapshots.takePosition)
             }
 
             function getElement(pArray, currentCandle, datasetName) {

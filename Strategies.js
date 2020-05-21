@@ -27,7 +27,7 @@
 
         // Secondary functions and properties.
 
-        currentRecord: undefined
+        record: undefined
     };
 
     /* this is part of the module template */
@@ -395,8 +395,8 @@
 
                             if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
-                                thisObject.currentRecord = record;
-                                thisObject.container.eventHandler.raiseEvent("Current Strategy Changed", thisObject.currentRecord);
+                                thisObject.record = record;
+                                thisObject.container.eventHandler.raiseEvent("Current Strategy Changed", thisObject.record);
 
                             }
                         }
@@ -468,8 +468,8 @@
                         (record.begin >= coordinateSystem.min.x && record.end <= coordinateSystem.max.x)
                     ) {
 
-                        thisObject.currentRecord = record;
-                        thisObject.container.eventHandler.raiseEvent("Current Strategy Changed", thisObject.currentRecord);
+                        thisObject.record = record;
+                        thisObject.container.eventHandler.raiseEvent("Current Strategy Changed", thisObject.record);
 
                     }
                 }
@@ -609,9 +609,9 @@
 
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                    let currentRecord = {
+                    let record = {
                     };
-                    thisObject.container.eventHandler.raiseEvent("Current Strategy Record Changed", currentRecord);
+                    thisObject.container.eventHandler.raiseEvent("Current Strategy Record Changed", record);
                 }
 
                 function drawStick(point1, point2) {

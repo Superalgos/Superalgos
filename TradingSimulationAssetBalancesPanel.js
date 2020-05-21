@@ -19,7 +19,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     container.frame.containerName = "Simulation Asset Balances Panel";
 
-    let currentRecord;
+    let record;
     let lastRecord;
     let upDownButton
 
@@ -56,7 +56,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         thisObject.onRecordChange = undefined
         thisObject.isVisible = undefined
 
-        currentRecord = undefined
+        record = undefined
         lastRecord = undefined
         upDownButton = undefined
 
@@ -89,7 +89,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     function onRecordChange(records) {
 
-        currentRecord = records.currentRecord;
+        record = records.record;
         lastRecord = records.lastRecord
 
     }
@@ -117,7 +117,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     function plotCurrentRecordInfo() {
 
-        if (currentRecord === undefined) { return; }
+        if (record === undefined) { return; }
 
         const frameBodyHeight = thisObject.container.frame.getBodyHeight();
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
@@ -139,7 +139,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         let paramsArray = []
         let positionTaken = false
 
-        if (currentRecord.positionSize > 0) {
+        if (record.positionSize > 0) {
             positionTaken = true
         }
 
@@ -154,59 +154,59 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             return
         }
 
-        if (currentRecord.baseAsset === currentRecord.marketBaseAsset) {
+        if (record.baseAsset === record.marketBaseAsset) {
             params = {}
-            params.VALUE = currentRecord.balanceBaseAsset;
-            params.INIT_VALUE = currentRecord.initialBalanceA
-            params.MIN_VALUE = currentRecord.minimunBalanceA
-            params.MAX_VALUE = currentRecord.maximunBalanceA
+            params.VALUE = record.balanceBaseAsset;
+            params.INIT_VALUE = record.initialBalanceA
+            params.MIN_VALUE = record.minimunBalanceA
+            params.MAX_VALUE = record.maximunBalanceA
             params.ASSET_LABEL = 'Base'
-            params.ASSET_NAME = currentRecord.baseAsset
+            params.ASSET_NAME = record.baseAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = currentRecord.baseAsset
+            params.BASE_ASSET = record.baseAsset
             params.DECIMALS = 4
 
             paramsArray.push(params)
 
             params = {}
-            params.VALUE = currentRecord.balanceQuotedAsset;
-            params.MIN_VALUE = currentRecord.minimunBalanceB
-            params.INIT_VALUE = currentRecord.initialBalanceB
-            params.MAX_VALUE = currentRecord.maximunBalanceB
+            params.VALUE = record.balanceQuotedAsset;
+            params.MIN_VALUE = record.minimunBalanceB
+            params.INIT_VALUE = record.initialBalanceB
+            params.MAX_VALUE = record.maximunBalanceB
             params.ASSET_LABEL = 'Quoted'
-            params.ASSET_NAME = currentRecord.quotedAsset
+            params.ASSET_NAME = record.quotedAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = currentRecord.baseAsset
+            params.BASE_ASSET = record.baseAsset
             params.DECIMALS = 2
 
             paramsArray.push(params)
         } else {
             params = {}
-            params.VALUE = currentRecord.balanceQuotedAsset;
-            params.INIT_VALUE = currentRecord.initialBalanceB
-            params.MIN_VALUE = currentRecord.minimunBalanceB
-            params.MAX_VALUE = currentRecord.maximunBalanceB
+            params.VALUE = record.balanceQuotedAsset;
+            params.INIT_VALUE = record.initialBalanceB
+            params.MIN_VALUE = record.minimunBalanceB
+            params.MAX_VALUE = record.maximunBalanceB
             params.ASSET_LABEL = 'Base'
-            params.ASSET_NAME = currentRecord.baseAsset
+            params.ASSET_NAME = record.baseAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = currentRecord.baseAsset
+            params.BASE_ASSET = record.baseAsset
             params.DECIMALS = 4
 
             paramsArray.push(params)
 
             params = {}
-            params.VALUE = currentRecord.balanceBaseAsset;
-            params.MIN_VALUE = currentRecord.minimunBalanceA
-            params.INIT_VALUE = currentRecord.initialBalanceA
-            params.MAX_VALUE = currentRecord.maximunBalanceA
+            params.VALUE = record.balanceBaseAsset;
+            params.MIN_VALUE = record.minimunBalanceA
+            params.INIT_VALUE = record.initialBalanceA
+            params.MAX_VALUE = record.maximunBalanceA
             params.ASSET_LABEL = 'Quoted'
-            params.ASSET_NAME = currentRecord.quotedAsset
+            params.ASSET_NAME = record.quotedAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = currentRecord.baseAsset
+            params.BASE_ASSET = record.baseAsset
             params.DECIMALS = 2
 
             paramsArray.push(params)

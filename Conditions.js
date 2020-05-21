@@ -25,7 +25,7 @@
 
         // Secondary functions and properties.
 
-        currentRecord: undefined
+        record: undefined
     };
 
     /* this is part of the module template */
@@ -390,8 +390,8 @@
 
                             if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
-                                thisObject.currentRecord = record;
-                                thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.currentRecord);
+                                thisObject.record = record;
+                                thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.record);
 
                             }
                         }
@@ -461,8 +461,8 @@
 
                     if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
-                        thisObject.currentRecord = record;
-                        thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.currentRecord);
+                        thisObject.record = record;
+                        thisObject.container.eventHandler.raiseEvent("Current Condition Changed", thisObject.record);
 
                     }
                 }
@@ -492,7 +492,7 @@
 
                 if (userPositionDate >= conditionRecord.begin && userPositionDate <= conditionRecord.end) {
 
-                    let currentRecord = {
+                    let record = {
                         conditionsNames: headers,
                         strategyIndex: conditionRecord.strategyIndex,
                         stopLossPhase: conditionRecord.stopLossPhase,
@@ -502,7 +502,7 @@
                         formulaValues: conditionRecord.formulaValues
                     };
 
-                    sendRecordInfoToDesignerSpace(currentRecord)
+                    sendRecordInfoToDesignerSpace(record)
                 }
             }
 
@@ -512,15 +512,15 @@
         }
     }
 
-    function sendRecordInfoToDesignerSpace(currentRecord) {
+    function sendRecordInfoToDesignerSpace(record) {
 
-        if (currentRecord === undefined) { return; }
-        if (currentRecord.conditionsNames === undefined) { return; }
+        if (record === undefined) { return; }
+        if (record.conditionsNames === undefined) { return; }
         if (canvas.designSpace.workspace === undefined) { return; }
 
         /* We will get now the designer trading system */
         let designerTradingSystem
-        let fileTradingSystem = currentRecord.conditionsNames;
+        let fileTradingSystem = record.conditionsNames;
 
         for (let i = 0; i < canvas.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
             let rootNode = canvas.designSpace.workspace.workspaceNode.rootNodes[i]
@@ -565,7 +565,7 @@
                 let strategy = fileTradingSystem.strategies[j];
                 designerTradingSystem.strategies[j].payload.uiObject.setErrorMessage(strategy.error)
 
-                if (currentRecord.strategyIndex === j) {
+                if (record.strategyIndex === j) {
                     designerTradingSystem.strategies[j].payload.uiObject.isExecuting = true
                 } else {
                     designerTradingSystem.strategies[j].payload.uiObject.isExecuting = false
@@ -650,7 +650,7 @@
 
                             for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
 
-                                if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
+                                if (record.strategyIndex === j && record.stopLossPhase === p) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = true
                                 } else {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].payload.uiObject.isExecuting = false
@@ -662,15 +662,15 @@
                                 if (phase.formula !== undefined) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.stopLoss.phases[p].formula.error)
 
-                                    if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                        if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
-                                            designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                    if (record.formulaErrors[formulaErrorsIndex] !== "") {
+                                        if (record.strategyIndex === j && record.stopLossPhase === p) {
+                                            designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(record.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
-                                    if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase === p) {
-                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    if (record.strategyIndex === j && record.stopLossPhase === p) {
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.stopLoss.phases[p].formula.payload.uiObject.setValue(record.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
                                 }
@@ -735,7 +735,7 @@
 
                             for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
 
-                                if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
+                                if (record.strategyIndex === j && record.takeProfitPhase === p) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = true
                                 } else {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].payload.uiObject.isExecuting = false
@@ -747,15 +747,15 @@
                                 if (phase.formula !== undefined) {
                                     designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(openStage.initialDefinition.takeProfit.phases[p].formula.error)
 
-                                    if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                        if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
-                                            designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                    if (record.formulaErrors[formulaErrorsIndex] !== "") {
+                                        if (record.strategyIndex === j && record.takeProfitPhase === p) {
+                                            designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(record.formulaErrors[formulaErrorsIndex])
                                         }
                                     }
                                     formulaErrorsIndex++
 
-                                    if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase === p) {
-                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                    if (record.strategyIndex === j && record.takeProfitPhase === p) {
+                                        designerTradingSystem.strategies[j].openStage.initialDefinition.takeProfit.phases[p].formula.payload.uiObject.setValue(record.formulaValues[formulaValuesIndex])
                                     }
                                     formulaValuesIndex++
                                 }
@@ -833,7 +833,7 @@
 
                         for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
 
-                            if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
+                            if (record.strategyIndex === j && record.stopLossPhase - 1 === p) {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = true
                             } else {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].payload.uiObject.isExecuting = false
@@ -845,14 +845,14 @@
                             if (phase.formula !== undefined) {
                                 designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.stopLoss.phases[p].formula.error)
 
-                                if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                    if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
-                                        designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                if (record.formulaErrors[formulaErrorsIndex] !== "") {
+                                    if (record.strategyIndex === j && record.stopLossPhase - 1 === p) {
+                                        designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setErrorMessage(record.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
-                                if (currentRecord.strategyIndex === j && currentRecord.stopLossPhase - 1 === p) {
-                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                if (record.strategyIndex === j && record.stopLossPhase - 1 === p) {
+                                    designerTradingSystem.strategies[j].manageStage.stopLoss.phases[p].formula.payload.uiObject.setValue(record.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
                             }
@@ -917,7 +917,7 @@
 
                         for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
 
-                            if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
+                            if (record.strategyIndex === j && record.takeProfitPhase - 1 === p) {
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = true
                             } else {
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].payload.uiObject.isExecuting = false
@@ -929,15 +929,15 @@
                             if (phase.formula !== undefined) {
                                 designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(manageStage.takeProfit.phases[p].formula.error)
 
-                                if (currentRecord.formulaErrors[formulaErrorsIndex] !== "") {
-                                    if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
-                                        designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(currentRecord.formulaErrors[formulaErrorsIndex])
+                                if (record.formulaErrors[formulaErrorsIndex] !== "") {
+                                    if (record.strategyIndex === j && record.takeProfitPhase - 1 === p) {
+                                        designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setErrorMessage(record.formulaErrors[formulaErrorsIndex])
                                     }
                                 }
                                 formulaErrorsIndex++
 
-                                if (currentRecord.strategyIndex === j && currentRecord.takeProfitPhase - 1 === p) {
-                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(currentRecord.formulaValues[formulaValuesIndex])
+                                if (record.strategyIndex === j && record.takeProfitPhase - 1 === p) {
+                                    designerTradingSystem.strategies[j].manageStage.takeProfit.phases[p].formula.payload.uiObject.setValue(record.formulaValues[formulaValuesIndex])
                                 }
                                 formulaValuesIndex++
                             }
@@ -1029,7 +1029,7 @@
                             }
                         }
 
-                        if (currentRecord.conditionsValues[conditionIndex] === 1) {
+                        if (record.conditionsValues[conditionIndex] === 1) {
                             condition.payload.uiObject.highlight()
                         } else {
                             highlightSituation = false

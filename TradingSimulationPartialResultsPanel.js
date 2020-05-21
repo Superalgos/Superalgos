@@ -19,7 +19,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     container.frame.containerName = "Simulation Partial Results Panel";
 
-    let currentRecord;
+    let record;
     let lastRecord;
     let upDownButton
 
@@ -52,7 +52,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         thisObject.onRecordChange = undefined
         thisObject.isVisible = undefined
 
-        currentRecord = undefined
+        record = undefined
         lastRecord = undefined
         upDownButton = undefined
     }
@@ -82,7 +82,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     function onRecordChange(records) {
 
-        currentRecord = records.currentRecord;
+        record = records.record;
         lastRecord = records.lastRecord
 
     }
@@ -110,7 +110,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
     function plotCurrentRecordInfo() {
 
-        if (currentRecord === undefined) { return; }
+        if (record === undefined) { return; }
 
         const frameBodyHeight = thisObject.container.frame.getBodyHeight();
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
@@ -131,47 +131,47 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         y = y + increment;
         printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.accumulatedProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.accumulatedProfitLoss, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Trades', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.tradesCount, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.tradesCount, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Hits', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.hits, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Fails', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.fails, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Hit Ratio', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.hitRatio * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.ROI * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.periods, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(currentRecord.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.days, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Anualized Rate of Return', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((currentRecord.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.anualizedRateOfReturn * 100).toFixed(2) + ' %', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 }

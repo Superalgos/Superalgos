@@ -156,7 +156,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
         if (record.baseAsset === record.marketBaseAsset) {
             params = {}
-            params.VALUE = record.balanceBaseAsset;
+            params.VALUE = record.variable_current_balance_baseAsset;
             params.INIT_VALUE = record.initialBalanceA
             params.MIN_VALUE = record.minimunBalanceA
             params.MAX_VALUE = record.maximunBalanceA
@@ -170,7 +170,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             paramsArray.push(params)
 
             params = {}
-            params.VALUE = record.balanceQuotedAsset;
+            params.VALUE = record.variable_current_balance_quotedAsset;
             params.MIN_VALUE = record.minimunBalanceB
             params.INIT_VALUE = record.initialBalanceB
             params.MAX_VALUE = record.maximunBalanceB
@@ -184,7 +184,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             paramsArray.push(params)
         } else {
             params = {}
-            params.VALUE = record.balanceQuotedAsset;
+            params.VALUE = record.variable_current_balance_quotedAsset;
             params.INIT_VALUE = record.initialBalanceB
             params.MIN_VALUE = record.minimunBalanceB
             params.MAX_VALUE = record.maximunBalanceB
@@ -198,7 +198,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             paramsArray.push(params)
 
             params = {}
-            params.VALUE = record.balanceBaseAsset;
+            params.VALUE = record.variable_current_balance_baseAsset;
             params.MIN_VALUE = record.minimunBalanceA
             params.INIT_VALUE = record.initialBalanceA
             params.MAX_VALUE = record.maximunBalanceA

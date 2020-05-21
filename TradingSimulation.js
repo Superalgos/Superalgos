@@ -353,21 +353,21 @@
 
                         record.begin = dailyFile[i][0];
                         record.end = dailyFile[i][1];
-                        record.balanceBaseAsset = dailyFile[i][2];
-                        record.balanceQuotedAsset = dailyFile[i][3];
-                        record.accumulatedProfitLoss = dailyFile[i][4];
-                        record.lastTradeProfitLoss = dailyFile[i][5];
-                        record.stopLoss = dailyFile[i][6];
-                        record.tradesCount = dailyFile[i][7];
-                        record.hits = dailyFile[i][8];
-                        record.fails = dailyFile[i][9];
-                        record.hitRatio = dailyFile[i][10];
-                        record.ROI = dailyFile[i][11];
-                        record.periods = dailyFile[i][12];
-                        record.days = dailyFile[i][13];
-                        record.anualizedRateOfReturn = dailyFile[i][14];
-                        record.sellRate = dailyFile[i][15];
-                        record.lastTradeROI = dailyFile[i][16];
+                        record.variable_current_balance_baseAsset = dailyFile[i][2];
+                        record.variable_current_balance_quotedAsset = dailyFile[i][3];
+                        record.variable_episode_stat_profitLoss = dailyFile[i][4];
+                        record.variable_last_position_profitLoss = dailyFile[i][5];
+                        record.variable_current_position_stopLoss_value = dailyFile[i][6];
+                        record.variable_episode_count_positions = dailyFile[i][7];
+                        record.variable_episode_count_hits = dailyFile[i][8];
+                        record.variable_episode_count_fails = dailyFile[i][9];
+                        record.variable_episode_stat_hitRatio = dailyFile[i][10];
+                        record.variable_episode_stat_ROI = dailyFile[i][11];
+                        record.variable_episode_count_periods = dailyFile[i][12];
+                        record.variable_episode_stat_days = dailyFile[i][13];
+                        record.variable_episode_stat_anualizedRateOfReturn = dailyFile[i][14];
+                        record.record.variable_current_position_rate = dailyFile[i][15];
+                        record.record.variable_last_position_ROI = dailyFile[i][16];
                         record.strategy = dailyFile[i][17];
                         record.takeProfit = dailyFile[i][18];
                         record.stopLossPhase = dailyFile[i][19];
@@ -443,21 +443,21 @@
 
                 record.begin = marketFile[i][0];
                 record.end = marketFile[i][1];
-                record.balanceBaseAsset = marketFile[i][2];
-                record.balanceQuotedAsset = marketFile[i][3];
-                record.accumulatedProfitLoss = marketFile[i][4];
-                record.lastTradeProfitLoss = marketFile[i][5];
-                record.stopLoss = marketFile[i][6];
-                record.tradesCount = marketFile[i][7];
-                record.hits = marketFile[i][8];
-                record.fails = marketFile[i][9];
-                record.hitRatio = marketFile[i][10];
-                record.ROI = marketFile[i][11];
-                record.periods = marketFile[i][12];
-                record.days = marketFile[i][13];
-                record.anualizedRateOfReturn = marketFile[i][14];
-                record.sellRate = marketFile[i][15];
-                record.lastTradeROI = marketFile[i][16];
+                record.variable_current_balance_baseAsset = marketFile[i][2];
+                record.variable_current_balance_quotedAsset = marketFile[i][3];
+                record.variable_episode_stat_profitLoss = marketFile[i][4];
+                record.variable_last_position_profitLoss = marketFile[i][5];
+                record.variable_current_position_stopLoss_value = marketFile[i][6];
+                record.variable_episode_count_positions = marketFile[i][7];
+                record.variable_episode_count_hits = marketFile[i][8];
+                record.variable_episode_count_fails = marketFile[i][9];
+                record.variable_episode_stat_hitRatio = marketFile[i][10];
+                record.variable_episode_stat_ROI = marketFile[i][11];
+                record.variable_episode_count_periods = marketFile[i][12];
+                record.variable_episode_stat_days = marketFile[i][13];
+                record.variable_episode_stat_anualizedRateOfReturn = marketFile[i][14];
+                record.record.variable_current_position_rate = marketFile[i][15];
+                record.record.variable_last_position_ROI = marketFile[i][16];
                 record.strategy = marketFile[i][17];
                 record.takeProfit = marketFile[i][18];
                 record.stopLossPhase = marketFile[i][19];
@@ -513,8 +513,8 @@
                 record = records[i];
 
                 /* Contributing to Auto-Scale*/
-                if (record.stopLoss !== 0) {
-                    coordinateSystem.reportYValue(record.stopLoss)
+                if (record.variable_current_position_stopLoss_value !== 0) {
+                    coordinateSystem.reportYValue(record.variable_current_position_stopLoss_value)
                 }
                 if (record.takeProfit !== 0) {
                     coordinateSystem.reportYValue(record.takeProfit)
@@ -565,15 +565,15 @@
 
                 let recordPoint5 = {
                     x: record.begin,
-                    y: record.stopLoss
+                    y: record.variable_current_position_stopLoss_value
                 };
 
                 let recordPoint6 = {
                     x: record.end,
-                    y: record.stopLoss
+                    y: record.variable_current_position_stopLoss_value
                 };
 
-                if (record.stopLoss === 0) { // Put these points out of range if stopLoss is zero.
+                if (record.variable_current_position_stopLoss_value === 0) { // Put these points out of range if stopLoss is zero.
 
                     recordPoint5.x = 0;
                     recordPoint6.x = 0;
@@ -581,15 +581,15 @@
 
                 let recordPoint7 = {
                     x: record.begin,
-                    y: record.sellRate
+                    y: record.record.variable_current_position_rate
                 };
 
                 let recordPoint8 = {
                     x: record.end,
-                    y: record.sellRate
+                    y: record.record.variable_current_position_rate
                 };
 
-                if (record.sellRate === 0) { // Put these points out of range if sellRate is zero.
+                if (record.record.variable_current_position_rate === 0) { // Put these points out of range if sellRate is zero.
 
                     recordPoint7.x = 0;
                     recordPoint8.x = 0;
@@ -662,7 +662,7 @@
                     y: -30
                 }
                 let imageSize = (recordPoint2.x - recordPoint1.x) / 2;
-                let recordLabel = record.periods.toLocaleString()
+                let recordLabel = record.variable_episode_count_periods.toLocaleString()
                 if (imageSize < 8) {
                     if (recordLabel[recordLabel.length - 1] !== '0' || imageSize < 4)
                         recordLabel = ''
@@ -723,7 +723,7 @@
                 /* Depending on what is on top, it is also the text and image of the take accumulatedProfitLoss / stop loss */
 
                 let yOffset = 0
-                if (record.takeProfit > record.stopLoss) { yOffset = imageSize * 2 }
+                if (record.takeProfit > record.variable_current_position_stopLoss_value) { yOffset = imageSize * 2 }
 
                 /* Next we are drawing the stopLoss floor / ceilling */
 

@@ -759,59 +759,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeRecordsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < recordsArray.length; i++) {
-                            let record = recordsArray[i]
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.variable_current_balance_baseAsset + ',' +
-                                record.variable_current_balance_quotedAsset + ',' +
-                                record.variable_episode_stat_profitLoss + ',' +
-                                record.variable_last_position_profitLoss + ',' +
-                                record.variable_current_position_stopLoss_value + ',' +
-                                record.variable_episode_count_positions + ',' +
-                                record.variable_episode_count_hits + ',' +
-                                record.variable_episode_count_fails + ',' +
-                                record.variable_episode_stat_hitRatio + ',' +
-                                record.variable_episode_stat_ROI + ',' +
-                                record.variable_episode_count_periods + ',' +
-                                record.variable_episode_stat_days + ',' +
-                                record.variable_episode_stat_anualizedRateOfReturn + ',' +
-                                record.variable_current_position_rate + ',' +
-                                record.variable_last_position_ROI + ',' +
-                                record.variable_current_position_takeProfit_value + ',' +
-                                record.variable_current_position_stopLoss_phase + ',' +
-                                record.variable_current_position_stopLoss_phase + ',' +
-                                record.variable_current_position_size + ',' +
-                                record.variable_episode_parameters_initial_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_minimum_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_maximum_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_initial_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_minimum_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_maximum_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_baseAsset + ',' +
-                                record.variable_episode_parameters_quotedAsset + ',' +
-                                record.variable_episode_parameters_marketBaseAsset + ',' +
-                                record.variable_episode_parameters_marketQuotedAsset + ',' +
-                                record.variable_current_position_count_periods + ',' +
-                                record.variable_current_position_stat_days + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(recordsArray)
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
                         let fileName = 'Data.json'
@@ -850,42 +798,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeConditionsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
+                        let fileContent = JSON.stringify(conditionsArray)
 
-                        let fileContent = ''
-
-                        for (let i = 0; i < conditionsArray.length; i++) {
-                            let record = conditionsArray[i]
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue }
-
-                            let conditions = ''
-                            let conditionsSeparator = ''
-
-                            /* Will only add to the file the records of the current day */
-
-                            if (record.begin < currentDay.valueOf()) { continue }
-
-                            for (let j = 0; j < record.length - 3; j++) {
-                                conditions = conditions + conditionsSeparator + record[j]
-                                if (conditionsSeparator === '') { conditionsSeparator = ',' }
-                            }
-
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']'   // The last item contains an Array of condition values.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']'   // The last item contains an Array of formulaErrors.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']'   // The last item contains an Array of formulaValues.
-
-                            fileContent = fileContent + separator + '[' + conditions + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
                         fileContent = '[' + JSON.stringify(tradingSystem) + ',' + fileContent + ']'
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
@@ -925,35 +839,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeStrategiesFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < strategiesArray.length; i++) {
-                            let record = strategiesArray[i]
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.number + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                '"' + record.situationName + '"' + ',' +
-                                '"' + record.name + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(strategiesArray)
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
                         let fileName = 'Data.json'
@@ -992,36 +878,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < positionsArray.length; i++) {
-                            let record = positionsArray[i]
-
-                            /* Will only add to the file the records of the current day. In this case since objects can span more than one day, we add all of the objects that ends
-                            at the current date. */
-
-                            if (record.end < currentDay.valueOf()) { continue }
-                            if (record.stopRate === undefined) { record.stopRate = 0 }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.ROI + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                record.exitType + ',' +
-                                '"' + record.situationName + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(positionsArray)
 
                         let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
                         let fileName = 'Data.json'

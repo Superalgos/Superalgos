@@ -216,6 +216,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 }
 
                                 conditionsArray = JSON.parse(text)
+                                conditionsArray = conditionsArray[1] // conditionsArray[0] = a snapshot of the trading system. 
                                 readStrategiesFile()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
@@ -387,6 +388,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 }
 
                                 conditionsArray = JSON.parse(text)
+                                conditionsArray = conditionsArray[1] // conditionsArray[0] = a snapshot of the trading system. 
                                 readStrategiesFile()
                             } catch (err) {
                                 logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
@@ -564,34 +566,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeConditionsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
+                        let fileContent = JSON.stringify(conditionsArray)
 
-                        let fileContent = ''
-
-                        for (let i = 0; i < conditionsArray.length; i++) {
-                            let record = conditionsArray[i]
-
-                            let conditions = ''
-                            let conditionsSeparator = ''
-
-                            for (let j = 0; j < record.length - 3; j++) {
-                                conditions = conditions + conditionsSeparator + record[j]
-                                if (conditionsSeparator === '') { conditionsSeparator = ',' }
-                            }
-
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 3] + ']'   // The last item contains an Array of condition values.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 2] + ']'   // The last item contains an Array of formulaErrors.
-                            conditions = conditions + conditionsSeparator + '[' + record[record.length - 1] + ']'   // The last item contains an Array of formulaValues.
-
-                            fileContent = fileContent + separator + '[' + conditions + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
                         fileContent = '[' + JSON.stringify(tradingSystem) + ',' + fileContent + ']'
 
                         let fileName = 'Data.json'

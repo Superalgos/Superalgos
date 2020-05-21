@@ -2260,9 +2260,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 variable.current.position.end,
                                 variable.current.position.status,
                                 variable.current.position.stat.ROI,
-                                variable.current.position.exitType,
                                 variable.current.position.beginRate,
                                 variable.current.position.endRate,
+                                variable.current.position.exitType,
                                 '"' + variable.current.position.situationName + '"'
                             ]
 

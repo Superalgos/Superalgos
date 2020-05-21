@@ -2107,7 +2107,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         variable_episode_stat_anualizedRateOfReturn: variable.episode.stat.anualizedRateOfReturn,
                         variable_current_position_rate: variable.current.position.rate,
                         variable_last_position_ROI: variable.last.position.ROI,
-                        variable_current_strategy_index: variable.current.strategy.index,
                         variable_current_position_takeProfit_value: variable.current.position.takeProfit.value,
                         variable_current_position_stopLoss_phase: variable.current.position.stopLoss.phase,
                         variable_current_position_takeProfit_phase: variable.current.position.takeProfit.phase,
@@ -2123,11 +2122,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         variable_episode_parameters_marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
                         variable_episode_parameters_marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset + '"',
                         variable_current_position_count_periods: variable.current.position.count.periods,
-                        variable_current_position_stat_days: variable.current.position.stat.days,
-                        variable_current_distance_toEvent_triggerOn: variable.current.distance.toEvent.triggerOn,
-                        variable_current_distance_toEvent_triggerOff: variable.current.distance.toEvent.triggerOff,
-                        variable_current_distance_toEvent_takePosition: variable.current.distance.toEvent.takePosition,
-                        variable_current_distance_toEvent_closePosition: variable.current.distance.toEvent.closePosition
+                        variable_current_position_stat_days: variable.current.position.stat.days
                     }
 
                     recordsArray.push(simulationRecord)

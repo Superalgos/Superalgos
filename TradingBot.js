@@ -192,7 +192,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_stat_anualizedRateOfReturn + ',' +
                                 record.variable_current_position_rate + ',' +
                                 record.variable_last_position_ROI + ',' +
-                                record.variable_current_strategy_index + ',' +
                                 record.variable_current_position_takeProfit_value + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
@@ -208,11 +207,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_parameters_marketBaseAsset + ',' +
                                 record.variable_episode_parameters_marketQuotedAsset + ',' +
                                 record.variable_current_position_count_periods + ',' +
-                                record.variable_current_position_stat_days + ',' +
-                                record.variable_current_distance_toEvent_triggerOn + ',' +
-                                record.variable_current_distance_toEvent_triggerOff + ',' +
-                                record.variable_current_distance_toEvent_takePosition + ',' +
-                                record.variable_current_distance_toEvent_closePosition + ']'
+                                record.variable_current_position_stat_days + ']'
 
                             if (separator === '') { separator = ',' }
 
@@ -553,7 +548,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_stat_anualizedRateOfReturn + ',' +
                                 record.variable_current_position_rate + ',' +
                                 record.variable_last_position_ROI + ',' +
-                                record.variable_current_strategy_index + ',' +
                                 record.variable_current_position_takeProfit_value + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
                                 record.variable_current_position_stopLoss_phase + ',' +
@@ -569,11 +563,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                                 record.variable_episode_parameters_marketBaseAsset + ',' +
                                 record.variable_episode_parameters_marketQuotedAsset + ',' +
                                 record.variable_current_position_count_periods + ',' +
-                                record.variable_current_position_stat_days + ',' +
-                                record.variable_current_distance_toEvent_triggerOn + ',' +
-                                record.variable_current_distance_toEvent_triggerOff + ',' +
-                                record.variable_current_distance_toEvent_takePosition + ',' +
-                                record.variable_current_distance_toEvent_closePosition + ']'
+                                record.variable_current_position_stat_days + ']'
 
                             if (separator === '') { separator = ',' }
 

@@ -495,8 +495,8 @@
                     let record = {
                         conditionsNames: headers,
                         strategyIndex: conditionRecord.strategyIndex,
-                        stopLossPhase: conditionRecord.stopLossPhase,
-                        takeProfitPhase: conditionRecord.takeProfitPhase,
+                        variable_current_position_stopLoss_phase: conditionRecord.variable_current_position_stopLoss_phase,
+                        variable_current_position_takeProfit_phase: conditionRecord.variable_current_position_takeProfit_phase,
                         conditionsValues: conditionRecord.conditions,
                         formulaErrors: conditionRecord.formulaErrors,
                         formulaValues: conditionRecord.formulaValues

@@ -533,11 +533,11 @@
                 let takeProfitPhase = -1;
 
                 if (i > 0) {
-                    if (record.variable_current_position_stopLoss_phase !== records[i - 1].stopLossPhase) {
+                    if (record.variable_current_position_stopLoss_phase !== records[i - 1].variable_current_position_stopLoss_phase) {
                         stopLossPhase = record.variable_current_position_stopLoss_phase;
                     }
 
-                    if (record.variable_current_position_takeProfit_phase !== records[i - 1].takeProfitPhase) {
+                    if (record.variable_current_position_takeProfit_phase !== records[i - 1].variable_current_position_takeProfit_phase) {
                         takeProfitPhase = record.variable_current_position_takeProfit_phase;
                     }
                 }

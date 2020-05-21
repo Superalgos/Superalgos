@@ -384,16 +384,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 let conditions = new Map()       // Here we store the conditions values that will be use in the simulator for decision making.
                 let formulas = new Map()
-                let conditionsArrayRecord = [] // These are the records that will be saved in a file for the plotter to consume.
                 let conditionsValues = [] // Here we store the conditions values that will be written on file for the plotter.
                 let formulasErrors = [] // Here we store the errors produced by all phase formulas.
                 let formulasValues = [] // Here we store the values produced by all phase formulas.
 
                 /* We define and evaluate all conditions to be used later during the simulation loop. */
-
-                conditionsArrayRecord.push(candle.begin)
-                conditionsArrayRecord.push(candle.end)
-
                 for (let j = 0; j < tradingSystem.strategies.length; j++) {
                     let strategy = tradingSystem.strategies[j]
 
@@ -1828,7 +1823,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.current.balance.quotedAsset = variable.current.balance.quotedAsset - variable.current.position.size
                         }
 
-                        addRecord()
+                        addRecords()
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionAtSimulation -> Exiting Loop Body after taking position at simulation.') }
                         controlLoop()
                         return
@@ -2029,7 +2024,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / variable.episode.stat.days * 365
                         }
 
-                        addRecord()
+                        addRecords()
 
                         variable.current.position.stopLoss.value = 0
                         variable.current.position.takeProfit.value = 0
@@ -2071,185 +2066,211 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Not a buy or sell condition */
 
-                addRecord()
+                addRecords()
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Loop Body after adding a record.') }
                 controlLoop()
                 return
 
-                function addRecord() {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> addRecord -> Entering function.') }
-                    let simulationRecord
+                function addRecords() {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> addRecords -> Entering function.') }
 
-                    if (variable.current.balance.baseAsset === Infinity) {
-                        variable.current.balance.baseAsset = Number.MAX_SAFE_INTEGER
-                    }
-
-                    if (variable.current.balance.quotedAsset === Infinity) {
-                        variable.current.balance.quotedAsset = Number.MAX_SAFE_INTEGER
-                    }
-
-                    simulationRecord = {
-                        begin: candle.begin,
-                        end: candle.end,
-                        variable_current_balance_baseAsset: variable.current.balance.baseAsset,
-                        variable_current_balance_quotedAsset: variable.current.balance.quotedAsset,
-                        variable_episode_stat_profitLoss: variable.episode.stat.profitLoss,
-                        variable_last_position_profitLoss: variable.last.position.profitLoss,
-                        variable_current_position_stopLoss_value: variable.current.position.stopLoss.value,
-                        variable_episode_count_positions: variable.episode.count.positions,
-                        variable_episode_count_hits: variable.episode.count.hits,
-                        variable_episode_count_fails: variable.episode.count.fails,
-                        variable_episode_stat_hitRatio: variable.episode.stat.hitRatio,
-                        variable_episode_stat_ROI: variable.episode.stat.ROI,
-                        variable_episode_count_periods: variable.episode.count.periods,
-                        variable_episode_stat_days: variable.episode.stat.days,
-                        variable_episode_stat_anualizedRateOfReturn: variable.episode.stat.anualizedRateOfReturn,
-                        variable_current_position_rate: variable.current.position.rate,
-                        variable_last_position_ROI: variable.last.position.ROI,
-                        variable_current_position_takeProfit_value: variable.current.position.takeProfit.value,
-                        variable_current_position_stopLoss_phase: variable.current.position.stopLoss.phase,
-                        variable_current_position_takeProfit_phase: variable.current.position.takeProfit.phase,
-                        variable_current_position_size: variable.current.position.size,
-                        variable_episode_parameters_initial_balance_baseAsset: variable.episode.parameters.initial.balance.baseAsset,
-                        variable_episode_parameters_minimum_balance_baseAsset: variable.episode.parameters.minimum.balance.baseAsset,
-                        variable_episode_parameters_maximum_balance_baseAsset: variable.episode.parameters.maximum.balance.baseAsset,
-                        variable_episode_parameters_initial_balance_quotedAsset: variable.episode.parameters.initial.balance.quotedAsset,
-                        variable_episode_parameters_minimum_balance_quotedAsset: variable.episode.parameters.minimum.balance.quotedAsset,
-                        variable_episode_parameters_maximum_balance_quotedAsset: variable.episode.parameters.maximum.balance.quotedAsset,
-                        variable_episode_parameters_baseAsset: '"' + variable.episode.parameters.baseAsset + '"',
-                        variable_episode_parameters_quotedAsset: '"' + variable.episode.parameters.quotedAsset + '"',
-                        variable_episode_parameters_marketBaseAsset: '"' + variable.episode.parameters.marketBaseAsset + '"',
-                        variable_episode_parameters_marketQuotedAsset: '"' + variable.episode.parameters.marketQuotedAsset + '"',
-                        variable_current_position_count_periods: variable.current.position.count.periods,
-                        variable_current_position_stat_days: variable.current.position.stat.days
-                    }
-
-                    recordsArray.push(simulationRecord)
-
-                    /* Prepare the information for the Conditions File */
-
-                    conditionsArrayRecord.push(variable.current.strategy.index)
-                    conditionsArrayRecord.push(variable.current.position.stopLoss.phase)
-                    conditionsArrayRecord.push(variable.current.position.takeProfit.phase)
-                    conditionsArrayRecord.push(conditionsValues)
-                    conditionsArrayRecord.push(formulasErrors)
-                    conditionsArrayRecord.push(formulasValues)
-
-                    conditionsArray.push(conditionsArrayRecord)
-
-                    /*
-                    Lets see if there will be an open strategy ...
-                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
-                    */
-                    if (variable.current.strategy.begin !== 0 && variable.current.strategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                        variable.current.strategy.status = 2 // This means the strategy is open, i.e. that has a begin but no end.
-                        variable.current.strategy.end = candle.end
-                    }
-
-                    /* Prepare the information for the Strategies File */
-                    if (variable.current.strategy.begin !== 0 && variable.current.strategy.end !== 0) {
-                        let currentStrategyRecord = {
-                            begin: variable.current.strategy.begin,
-                            end: variable.current.strategy.end,
-                            status: variable.current.strategy.status,
-                            number: variable.current.strategy.number,
-                            beginRate: variable.current.strategy.beginRate,
-                            endRate: variable.current.strategy.endRate,
-                            situationName: variable.current.strategy.situationName,
-                            name: variable.current.strategy.name
-                        }
-
-                        strategiesArray.push(currentStrategyRecord)
-
-                        inializeCurrentStrategy()
-                    }
-
-                    /*
-                    Lets see if there will be an open trade ...
-                    Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
-                    */
-                    if (variable.current.position.begin !== 0 && variable.current.position.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                        variable.current.position.status = 2 // This means the trade is open
-                        variable.current.position.end = candle.end
-                        variable.current.position.endRate = candle.close
-
-                        /* Here we will calculate the ongoing ROI */
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            variable.current.position.stat.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
-                        } else {
-                            variable.current.position.stat.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
-                        }
-                    }
-
-                    /* Snapshots Management (before we generate the trade record and delete that info) */
-                    if (saveAsLastTriggerOnSnapshot === true) {
-                        snapshots.lastTriggerOn = snapshotDataRecord
-                        saveAsLastTriggerOnSnapshot = false
-                    }
-
-                    if (saveAsLastTakePositionSnapshot === true) {
-                        snapshots.lastTakePosition = snapshotDataRecord
-                        saveAsLastTakePositionSnapshot = false
-                    }
-
-                    if (addToSnapshots === true) {
-                        let closeValues = [
-                            variable.episode.count.positions,                                   // Position Number
-                            (new Date(candle.begin)).toISOString(),                             // Datetime
-                            tradingSystem.strategies[variable.current.strategy.index].name,     // Strategy Name
-                            variable.current.strategy.situationName,                            // Trigger On Situation
-                            variable.current.position.situationName,                            // Take Position Situation
-                            hitOrFial(),                                                        // Result
-                            variable.last.position.ROI,                                         // ROI
-                            exitType()                                                          // Exit Type
-                        ]
-
-                        function hitOrFial() {
-                            if (variable.last.position.ROI > 0) { return 'HIT' } else { return 'FAIL' }
-                        }
-
-                        function exitType() {
-                            switch (variable.current.position.exitType) {
-                                case 1: return 'Stop'
-                                case 2: return 'Take Profit'
-                            }
-                        }
-
-
-                        if (positionedAtYesterday === false) {
-                            snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
-                            snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
-                        }
-                        snapshots.lastTriggerOn = undefined
-                        snapshots.lastTakePosition = undefined
-                        addToSnapshots = false
-                    }
-
-                    let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
-                    if (snapshots.headers === undefined) {
-                        snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
-                    }
-
-                    /* Prepare the information for the Trades File */
-                    if (variable.current.position.begin !== 0 && variable.current.position.end !== 0) {
-                        let currentPositionRecord = {
-                            begin: variable.current.position.begin,
-                            end: variable.current.position.end,
-                            status: variable.current.position.status,
-                            ROI: variable.current.position.stat.ROI,
-                            exitType: variable.current.position.exitType,
-                            beginRate: variable.current.position.beginRate,
-                            endRate: variable.current.position.endRate,
-                            situationName: variable.current.position.situationName
-                        }
-
-                        positionsArray.push(currentPositionRecord)
-
-                        initializeCurrentPosition()
-                    }
+                    manageSnapshots()
+                    addSimulationRecord()
+                    addConditionsRecord()
+                    addStrategyRecord()
+                    addPositionRecord()
 
                     /* After everything at the simulation level was done, we will do the annoucements that are pending. */
                     makeAnnoucements()
+
+                    function manageSnapshots() {
+                        /* Snapshots Management (before we generate the trade record and delete that info) */
+                        if (saveAsLastTriggerOnSnapshot === true) {
+                            snapshots.lastTriggerOn = snapshotDataRecord
+                            saveAsLastTriggerOnSnapshot = false
+                        }
+
+                        if (saveAsLastTakePositionSnapshot === true) {
+                            snapshots.lastTakePosition = snapshotDataRecord
+                            saveAsLastTakePositionSnapshot = false
+                        }
+
+                        if (addToSnapshots === true) {
+                            let closeValues = [
+                                variable.episode.count.positions,                                   // Position Number
+                                (new Date(candle.begin)).toISOString(),                             // Datetime
+                                tradingSystem.strategies[variable.current.strategy.index].name,     // Strategy Name
+                                variable.current.strategy.situationName,                            // Trigger On Situation
+                                variable.current.position.situationName,                            // Take Position Situation
+                                hitOrFial(),                                                        // Result
+                                variable.last.position.ROI,                                         // ROI
+                                exitType()                                                          // Exit Type
+                            ]
+
+                            function hitOrFial() {
+                                if (variable.last.position.ROI > 0) { return 'HIT' } else { return 'FAIL' }
+                            }
+
+                            function exitType() {
+                                switch (variable.current.position.exitType) {
+                                    case 1: return 'Stop'
+                                    case 2: return 'Take Profit'
+                                }
+                            }
+
+
+                            if (positionedAtYesterday === false) {
+                                snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
+                                snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
+                            }
+                            snapshots.lastTriggerOn = undefined
+                            snapshots.lastTakePosition = undefined
+                            addToSnapshots = false
+                        }
+
+                        let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+                        if (snapshots.headers === undefined) {
+                            snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+                        }
+                    }
+
+                    function addSimulationRecord() {
+                        /* Simulation Record */
+                        let simulationRecord
+
+                        if (variable.current.balance.baseAsset === Infinity) {
+                            variable.current.balance.baseAsset = Number.MAX_SAFE_INTEGER
+                        }
+
+                        if (variable.current.balance.quotedAsset === Infinity) {
+                            variable.current.balance.quotedAsset = Number.MAX_SAFE_INTEGER
+                        }
+
+                        simulationRecord = [
+                            candle.begin,
+                            candle.end,
+                            variable.current.balance.baseAsset,
+                            variable.current.balance.quotedAsset,
+                            variable.episode.stat.profitLoss,
+                            variable.last.position.profitLoss,
+                            variable.current.position.stopLoss.value,
+                            variable.episode.count.positions,
+                            variable.episode.count.hits,
+                            variable.episode.count.fails,
+                            variable.episode.stat.hitRatio,
+                            variable.episode.stat.ROI,
+                            variable.episode.count.periods,
+                            variable.episode.stat.days,
+                            variable.episode.stat.anualizedRateOfReturn,
+                            variable.current.position.rate,
+                            variable.last.position.ROI,
+                            variable.current.position.takeProfit.value,
+                            variable.current.position.stopLoss.phase,
+                            variable.current.position.takeProfit.phase,
+                            variable.current.position.size,
+                            variable.episode.parameters.initial.balance.baseAsset,
+                            variable.episode.parameters.minimum.balance.baseAsset,
+                            variable.episode.parameters.maximum.balance.baseAsset,
+                            variable.episode.parameters.initial.balance.quotedAsset,
+                            variable.episode.parameters.minimum.balance.quotedAsset,
+                            variable.episode.parameters.maximum.balance.quotedAsset,
+                            '"' + variable.episode.parameters.baseAsset + '"',
+                            '"' + variable.episode.parameters.quotedAsset + '"',
+                            '"' + variable.episode.parameters.marketBaseAsset + '"',
+                            '"' + variable.episode.parameters.marketQuotedAsset + '"',
+                            variable.current.position.count.periods,
+                            variable.current.position.stat.days
+                        ]
+
+                        recordsArray.push(simulationRecord)
+                    }
+
+                    function addConditionsRecord() {
+                        /* Prepare the information for the Conditions File */
+                        let conditionsRecord = [
+                            candle.begin,
+                            candle.end,
+                            variable.current.strategy.index,
+                            variable.current.position.stopLoss.phase,
+                            variable.current.position.takeProfit.phase,
+                            conditionsValues,
+                            formulasErrors,
+                            formulasValues
+                        ]
+
+                        conditionsArray.push(conditionsRecord)
+                    }
+
+                    function addStrategyRecord() {
+                        /*
+                        Lets see if there will be an open strategy ...
+                        Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                        */
+                        if (variable.current.strategy.begin !== 0 && variable.current.strategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                            variable.current.strategy.status = 2 // This means the strategy is open, i.e. that has a begin but no end.
+                            variable.current.strategy.end = candle.end
+                        }
+
+                        /* Prepare the information for the Strategies File */
+                        if (variable.current.strategy.begin !== 0 && variable.current.strategy.end !== 0) {
+                            let strategyRecord = [
+                                variable.current.strategy.begin,
+                                variable.current.strategy.end,
+                                variable.current.strategy.status,
+                                variable.current.strategy.number,
+                                variable.current.strategy.beginRate,
+                                variable.current.strategy.endRate,
+                                '"' + variable.current.strategy.situationName + '"',
+                                '"' + variable.current.strategy.name + '"'
+                            ]
+
+                            strategiesArray.push(strategyRecord)
+
+                            inializeCurrentStrategy()
+                        }
+                    }
+
+                    function addPositionRecord() {
+                        /*
+                        Lets see if there will be an open trade ...
+                        Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
+                        */
+                        if (variable.current.position.begin !== 0 &&
+                            variable.current.position.end === 0 &&
+                            currentCandleIndex === candles.length - 2 &&
+                            lastCandle.end !== lastInstantOfTheDay) {
+
+                            /* This means the trade is open */
+                            variable.current.position.status = 2
+                            variable.current.position.end = candle.end
+                            variable.current.position.endRate = candle.close
+
+                            /* Here we will calculate the ongoing ROI */
+                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                                variable.current.position.stat.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
+                            } else {
+                                variable.current.position.stat.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
+                            }
+                        }
+
+                        /* Prepare the information for the Positions File */
+                        if (variable.current.position.begin !== 0 && variable.current.position.end !== 0) {
+                            let positionRecord = [
+                                variable.current.position.begin,
+                                variable.current.position.end,
+                                variable.current.position.status,
+                                variable.current.position.stat.ROI,
+                                variable.current.position.exitType,
+                                variable.current.position.beginRate,
+                                variable.current.position.endRate,
+                                '"' + variable.current.position.situationName + '"'
+                            ]
+
+                            positionsArray.push(positionRecord)
+
+                            initializeCurrentPosition()
+                        }
+                    }
                 }
 
                 function checkAnnouncements(node, value) {

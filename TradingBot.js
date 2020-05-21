@@ -526,55 +526,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeRecordsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < recordsArray.length; i++) {
-                            let record = recordsArray[i]
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.variable_current_balance_baseAsset + ',' +
-                                record.variable_current_balance_quotedAsset + ',' +
-                                record.variable_episode_stat_profitLoss + ',' +
-                                record.variable_last_position_profitLoss + ',' +
-                                record.variable_current_position_stopLoss_value + ',' +
-                                record.variable_episode_count_positions + ',' +
-                                record.variable_episode_count_hits + ',' +
-                                record.variable_episode_count_fails + ',' +
-                                record.variable_episode_stat_hitRatio + ',' +
-                                record.variable_episode_stat_ROI + ',' +
-                                record.variable_episode_count_periods + ',' +
-                                record.variable_episode_stat_days + ',' +
-                                record.variable_episode_stat_anualizedRateOfReturn + ',' +
-                                record.variable_current_position_rate + ',' +
-                                record.variable_last_position_ROI + ',' +
-                                record.variable_current_position_takeProfit_value + ',' +
-                                record.variable_current_position_stopLoss_phase + ',' +
-                                record.variable_current_position_stopLoss_phase + ',' +
-                                record.variable_current_position_size + ',' +
-                                record.variable_episode_parameters_initial_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_minimum_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_maximum_balance_baseAsset + ',' +
-                                record.variable_episode_parameters_initial_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_minimum_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_maximum_balance_quotedAsset + ',' +
-                                record.variable_episode_parameters_baseAsset + ',' +
-                                record.variable_episode_parameters_quotedAsset + ',' +
-                                record.variable_episode_parameters_marketBaseAsset + ',' +
-                                record.variable_episode_parameters_marketQuotedAsset + ',' +
-                                record.variable_current_position_count_periods + ',' +
-                                record.variable_current_position_stat_days + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(recordsArray)
 
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SIMULATED_RECORDS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
@@ -678,30 +630,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeStrategiesFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < strategiesArray.length; i++) {
-                            let record = strategiesArray[i]
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.number + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                '"' + record.situationName + '"' + ',' +
-                                '"' + record.name + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(strategiesArray)
 
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
@@ -739,31 +668,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     try {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> Entering function.') }
 
-                        let separator = ''
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-
-                        for (let i = 0; i < positionsArray.length; i++) {
-                            let record = positionsArray[i]
-                            if (record.stopRate === undefined) { record.stopRate = 0 }
-
-                            fileContent = fileContent + separator + '[' +
-                                record.begin + ',' +
-                                record.end + ',' +
-                                record.status + ',' +
-                                record.ROI + ',' +
-                                record.beginRate + ',' +
-                                record.endRate + ',' +
-                                record.exitType + ',' +
-                                '"' + record.situationName + '"' + ']'
-
-                            if (separator === '') { separator = ',' }
-
-                            fileRecordCounter++
-                        }
-
-                        fileContent = '[' + fileContent + ']'
+                        let fileContent = JSON.stringify(positionsArray)
 
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel

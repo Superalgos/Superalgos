@@ -1,5 +1,5 @@
 ﻿
-function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimulationPartialResultsPanel() {
+function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimulationEpisodePanel() {
 
     let thisObject = {
         fitFunction: undefined,
@@ -17,7 +17,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
     container.initialize();
     thisObject.container = container;
 
-    container.frame.containerName = "Simulation Partial Results Panel";
+    container.frame.containerName = "Simulation Episode Panel";
 
     let record;
     let lastRecord;
@@ -126,7 +126,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
 
         y = y + increment;
         y = y + increment;
-        printLabel('Partial Results', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel('Episode', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Profit / Loss', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);

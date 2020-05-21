@@ -383,7 +383,7 @@
                         record.number = dailyFile[i][3];
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
-                        record.triggerOnSituation = dailyFile[i][6];
+                        record.situationName = dailyFile[i][6];
                         record.name = dailyFile[i][7];
 
                         if (
@@ -456,7 +456,7 @@
                 record.number = marketFile[i][3];
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
-                record.triggerOnSituation = marketFile[i][6];
+                record.situationName = marketFile[i][6];
                 record.name = marketFile[i][7];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
@@ -588,8 +588,8 @@
                     if (record.name !== "New Strategy") {
                         printLabel(record.name, recordPoint1.x + 5, positionY - 15, '1', 12);
                     }
-                    if (record.triggerOnSituation !== "New Situation") {
-                        printLabel(record.triggerOnSituation, recordPoint1.x + 5, positionY, '1', 12);
+                    if (record.situationName !== "New Situation") {
+                        printLabel(record.situationName, recordPoint1.x + 5, positionY, '1', 12);
                     }
                 }
 

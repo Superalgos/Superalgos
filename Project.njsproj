@@ -37,7 +37,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TradingSimulation.js" />
-    <Compile Include="TradingSimulationPartialResultsPanel.js" />
+    <Compile Include="TradingSimulationEpisodePanel.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="this.plotter.config.json" />

@@ -366,25 +366,25 @@
                         record.variable_episode_count_periods = dailyFile[i][12];
                         record.variable_episode_stat_days = dailyFile[i][13];
                         record.variable_episode_stat_anualizedRateOfReturn = dailyFile[i][14];
-                        record.record.variable_current_position_rate = dailyFile[i][15];
-                        record.record.variable_last_position_ROI = dailyFile[i][16];
+                        record.variable_current_position_rate = dailyFile[i][15];
+                        record.variable_last_position_ROI = dailyFile[i][16];
                         record.strategy = dailyFile[i][17];
-                        record.takeProfit = dailyFile[i][18];
-                        record.stopLossPhase = dailyFile[i][19];
-                        record.takeProfitPhase = dailyFile[i][20];
-                        record.positionSize = dailyFile[i][21]; // 25 is the message for the executor
-                        record.initialBalanceA = dailyFile[i][22];
-                        record.minimunBalanceA = dailyFile[i][23];
-                        record.maximunBalanceA = dailyFile[i][24];
-                        record.initialBalanceB = dailyFile[i][25];
-                        record.minimunBalanceB = dailyFile[i][26];
-                        record.maximunBalanceB = dailyFile[i][27];
-                        record.baseAsset = dailyFile[i][28];
-                        record.quotedAsset = dailyFile[i][29];
-                        record.marketBaseAsset = dailyFile[i][30];
-                        record.marketQuotedAsset = dailyFile[i][31];
-                        record.positionPeriods = dailyFile[i][32];
-                        record.positionDays = dailyFile[i][33];
+                        record.variable_current_position_takeProfit_value = dailyFile[i][18];
+                        record.variable_current_position_stopLoss_phase = dailyFile[i][19];
+                        record.variable_current_position_takeProfit_phase = dailyFile[i][20];
+                        record.variable_current_position_size = dailyFile[i][21]; // 25 is the message for the executor
+                        record.variable_episode_parameters_initial_balance_baseAsset = dailyFile[i][22];
+                        record.variable_episode_parameters_minimum_balance_baseAsset = dailyFile[i][23];
+                        record.variable_episode_parameters_maximum_balance_baseAsset = dailyFile[i][24];
+                        record.variable_episode_parameters_initial_balance_quotedAsset = dailyFile[i][25];
+                        record.variable_episode_parameters_minimum_balance_quotedAsset = dailyFile[i][26];
+                        record.variable_episode_parameters_maximum_balance_quotedAsset = dailyFile[i][27];
+                        record.variable_episode_parameters_baseAsset = dailyFile[i][28];
+                        record.variable_episode_parameters_quotedAsset = dailyFile[i][29];
+                        record.variable_episode_parameters_marketBaseAsset = dailyFile[i][30];
+                        record.variable_episode_parameters_marketQuotedAsset = dailyFile[i][31];
+                        record.variable_current_position_count_periods = dailyFile[i][32];
+                        record.variable_current_position_stat_days = dailyFile[i][33];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -456,25 +456,24 @@
                 record.variable_episode_count_periods = marketFile[i][12];
                 record.variable_episode_stat_days = marketFile[i][13];
                 record.variable_episode_stat_anualizedRateOfReturn = marketFile[i][14];
-                record.record.variable_current_position_rate = marketFile[i][15];
-                record.record.variable_last_position_ROI = marketFile[i][16];
-                record.strategy = marketFile[i][17];
-                record.takeProfit = marketFile[i][18];
-                record.stopLossPhase = marketFile[i][19];
-                record.takeProfitPhase = marketFile[i][20];
-                record.positionSize = marketFile[i][21]; 
-                record.initialBalanceA = marketFile[i][22];
-                record.minimunBalanceA = marketFile[i][23];
-                record.maximunBalanceA = marketFile[i][24];
-                record.initialBalanceB = marketFile[i][25];
-                record.minimunBalanceB = marketFile[i][26];
-                record.maximunBalanceB = marketFile[i][27];
-                record.baseAsset = marketFile[i][28];
-                record.quotedAsset = marketFile[i][29];
-                record.marketBaseAsset = marketFile[i][30];
-                record.marketQuotedAsset = marketFile[i][31];
-                record.positionPeriods = marketFile[i][32];
-                record.positionDays = marketFile[i][33];
+                record.variable_current_position_rate = marketFile[i][15];
+                record.variable_last_position_ROI = marketFile[i][16];
+                record.variable_current_position_takeProfit_value = marketFile[i][17];
+                record.variable_current_position_stopLoss_phase = marketFile[i][18];
+                record.variable_current_position_takeProfit_phase = marketFile[i][19];
+                record.variable_current_position_size = marketFile[i][20]; 
+                record.variable_episode_parameters_initial_balance_baseAsset = marketFile[i][21];
+                record.variable_episode_parameters_minimum_balance_baseAsset = marketFile[i][22];
+                record.variable_episode_parameters_maximum_balance_baseAsset = marketFile[i][23];
+                record.variable_episode_parameters_initial_balance_quotedAsset = marketFile[i][24];
+                record.variable_episode_parameters_minimum_balance_quotedAsset = marketFile[i][25];
+                record.variable_episode_parameters_maximum_balance_quotedAsset = marketFile[i][26];
+                record.variable_episode_parameters_baseAsset = marketFile[i][27];
+                record.variable_episode_parameters_quotedAsset = marketFile[i][28];
+                record.variable_episode_parameters_marketBaseAsset = marketFile[i][29];
+                record.variable_episode_parameters_marketQuotedAsset = marketFile[i][30];
+                record.variable_current_position_count_periods = marketFile[i][31];
+                record.variable_current_position_stat_days = marketFile[i][32];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
@@ -516,8 +515,8 @@
                 if (record.variable_current_position_stopLoss_value !== 0) {
                     coordinateSystem.reportYValue(record.variable_current_position_stopLoss_value)
                 }
-                if (record.takeProfit !== 0) {
-                    coordinateSystem.reportYValue(record.takeProfit)
+                if (record.variable_current_position_takeProfit_value !== 0) {
+                    coordinateSystem.reportYValue(record.variable_current_position_takeProfit_value)
                 }
                 
                 /* Send the current record to the panel */
@@ -534,12 +533,12 @@
                 let takeProfitPhase = -1;
 
                 if (i > 0) {
-                    if (record.stopLossPhase !== records[i - 1].stopLossPhase) {
-                        stopLossPhase = record.stopLossPhase;
+                    if (record.variable_current_position_stopLoss_phase !== records[i - 1].stopLossPhase) {
+                        stopLossPhase = record.variable_current_position_stopLoss_phase;
                     }
 
-                    if (record.takeProfitPhase !== records[i - 1].takeProfitPhase) {
-                        takeProfitPhase = record.takeProfitPhase;
+                    if (record.variable_current_position_takeProfit_phase !== records[i - 1].takeProfitPhase) {
+                        takeProfitPhase = record.variable_current_position_takeProfit_phase;
                     }
                 }
 
@@ -581,15 +580,15 @@
 
                 let recordPoint7 = {
                     x: record.begin,
-                    y: record.record.variable_current_position_rate
+                    y: record.variable_current_position_rate
                 };
 
                 let recordPoint8 = {
                     x: record.end,
-                    y: record.record.variable_current_position_rate
+                    y: record.variable_current_position_rate
                 };
 
-                if (record.record.variable_current_position_rate === 0) { // Put these points out of range if sellRate is zero.
+                if (record.variable_current_position_rate === 0) { // Put these points out of range if sellRate is zero.
 
                     recordPoint7.x = 0;
                     recordPoint8.x = 0;
@@ -597,15 +596,15 @@
 
                 let recordPoint9 = {
                     x: record.begin,
-                    y: record.takeProfit
+                    y: record.variable_current_position_takeProfit_value
                 };
 
                 let recordPoint10 = {
                     x: record.end,
-                    y: record.takeProfit
+                    y: record.variable_current_position_takeProfit_value
                 };
 
-                if (record.takeProfit === 0) { // Put these points out of range if takeProfit is zero.
+                if (record.variable_current_position_takeProfit_value === 0) { // Put these points out of range if takeProfit is zero.
 
                     recordPoint9.x = 0;
                     recordPoint10.x = 0;
@@ -723,7 +722,7 @@
                 /* Depending on what is on top, it is also the text and image of the take accumulatedProfitLoss / stop loss */
 
                 let yOffset = 0
-                if (record.takeProfit > record.variable_current_position_stopLoss_value) { yOffset = imageSize * 2 }
+                if (record.variable_current_position_takeProfit_value > record.variable_current_position_stopLoss_value) { yOffset = imageSize * 2 }
 
                 /* Next we are drawing the stopLoss floor / ceilling */
 

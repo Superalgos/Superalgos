@@ -133,12 +133,12 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         y = y + increment;
         printLabel('Size', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(record.positionSize, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.variable_current_position_size, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Rate', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(record.record.variable_current_position_rate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.variable_current_position_rate, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Stop', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
@@ -148,17 +148,17 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         y = y + increment;
         printLabel('Take Profit', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel(record.takeProfit, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel(record.variable_current_position_takeProfit_value, X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Periods', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((record.positionPeriods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.variable_current_position_count_periods), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         printLabel('Days', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((record.positionDays).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.variable_current_position_stat_days).toFixed(2), X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
         y = y + increment;
         y = y + increment;
@@ -172,7 +172,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         y = y + increment;
         printLabel('ROI', X_AXIS, frameTitleHeight + frameBodyHeight * y, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction);
         y = y + increment;
-        printLabel((record.record.variable_last_position_ROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
+        printLabel((record.variable_last_position_ROI).toFixed(2) + ' % ', X_AXIS, frameTitleHeight + frameBodyHeight * y, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction);
 
     }
 }

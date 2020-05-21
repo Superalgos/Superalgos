@@ -139,7 +139,7 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
         let paramsArray = []
         let positionTaken = false
 
-        if (record.positionSize > 0) {
+        if (record.variable_current_position_size > 0) {
             positionTaken = true
         }
 
@@ -154,59 +154,59 @@ function newTradingEnginesPlottersTradingSimulationTradingSimulationTradingSimul
             return
         }
 
-        if (record.baseAsset === record.marketBaseAsset) {
+        if (record.variable_episode_parameters_baseAsset === record.variable_episode_parameters_marketBaseAsset) {
             params = {}
             params.VALUE = record.variable_current_balance_baseAsset;
-            params.INIT_VALUE = record.initialBalanceA
-            params.MIN_VALUE = record.minimunBalanceA
-            params.MAX_VALUE = record.maximunBalanceA
+            params.INIT_VALUE = record.variable_episode_parameters_initial_balance_baseAsset
+            params.MIN_VALUE = record.variable_episode_parameters_minimum_balance_baseAsset
+            params.MAX_VALUE = record.variable_episode_parameters_maximum_balance_baseAsset
             params.ASSET_LABEL = 'Base'
-            params.ASSET_NAME = record.baseAsset
+            params.ASSET_NAME = record.variable_episode_parameters_baseAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = record.baseAsset
+            params.BASE_ASSET = record.variable_episode_parameters_baseAsset
             params.DECIMALS = 4
 
             paramsArray.push(params)
 
             params = {}
             params.VALUE = record.variable_current_balance_quotedAsset;
-            params.MIN_VALUE = record.minimunBalanceB
-            params.INIT_VALUE = record.initialBalanceB
-            params.MAX_VALUE = record.maximunBalanceB
+            params.MIN_VALUE = record.variable_episode_parameters_minimum_balance_quotedAsset
+            params.INIT_VALUE = record.variable_episode_parameters_initial_balance_quotedAsset
+            params.MAX_VALUE = record.variable_episode_parameters_maximum_balance_quotedAsset
             params.ASSET_LABEL = 'Quoted'
-            params.ASSET_NAME = record.quotedAsset
+            params.ASSET_NAME = record.variable_episode_parameters_quotedAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = record.baseAsset
+            params.BASE_ASSET = record.variable_episode_parameters_baseAsset
             params.DECIMALS = 2
 
             paramsArray.push(params)
         } else {
             params = {}
             params.VALUE = record.variable_current_balance_quotedAsset;
-            params.INIT_VALUE = record.initialBalanceB
-            params.MIN_VALUE = record.minimunBalanceB
-            params.MAX_VALUE = record.maximunBalanceB
+            params.INIT_VALUE = record.variable_episode_parameters_initial_balance_quotedAsset
+            params.MIN_VALUE = record.variable_episode_parameters_minimum_balance_quotedAsset
+            params.MAX_VALUE = record.variable_episode_parameters_maximum_balance_quotedAsset
             params.ASSET_LABEL = 'Base'
-            params.ASSET_NAME = record.baseAsset
+            params.ASSET_NAME = record.variable_episode_parameters_baseAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = record.baseAsset
+            params.BASE_ASSET = record.variable_episode_parameters_baseAsset
             params.DECIMALS = 4
 
             paramsArray.push(params)
 
             params = {}
             params.VALUE = record.variable_current_balance_baseAsset;
-            params.MIN_VALUE = record.minimunBalanceA
-            params.INIT_VALUE = record.initialBalanceA
-            params.MAX_VALUE = record.maximunBalanceA
+            params.MIN_VALUE = record.variable_episode_parameters_minimum_balance_baseAsset
+            params.INIT_VALUE = record.variable_episode_parameters_initial_balance_baseAsset
+            params.MAX_VALUE = record.variable_episode_parameters_maximum_balance_baseAsset
             params.ASSET_LABEL = 'Quoted'
-            params.ASSET_NAME = record.quotedAsset
+            params.ASSET_NAME = record.variable_episode_parameters_quotedAsset
             params.LEFT_OFFSET = X_AXIS
             params.POSITION_TAKEN = positionTaken
-            params.BASE_ASSET = record.baseAsset
+            params.BASE_ASSET = record.variable_episode_parameters_baseAsset
             params.DECIMALS = 2
 
             paramsArray.push(params)

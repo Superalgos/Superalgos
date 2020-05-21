@@ -187,7 +187,7 @@ function newAppLoader() {
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationEpisodePanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',

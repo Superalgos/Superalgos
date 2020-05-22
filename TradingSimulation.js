@@ -1622,6 +1622,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         variable.current.position.rate = variable.current.position.rate + slippageAmount
                     }
 
+                    if (bot.startMode === 'Live') {
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in Live Mode.')
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionSize = ' + strategy.positionSize)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionRate = ' + strategy.positionRate)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> slippageAmount = ' + slippageAmount)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> variable.current.position.rate = ' + variable.current.position.rate)
+                    }
+
                     /* Update the trade record information. */
                     variable.current.position.begin = candle.begin
                     variable.current.position.beginRate = variable.current.position.rate

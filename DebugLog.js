@@ -34,7 +34,7 @@ exports.newDebugLog = function newDebugLog() {
             disableLogging = pdisableLogging
 
         } catch (err) {
-            console.log("[ERROR] Debug Log -> initialize -> err = "+ err.stack);
+            console.log("[ERROR] Debug Log -> initialize -> err = " + err.stack);
         }
     }
 
@@ -53,12 +53,12 @@ exports.newDebugLog = function newDebugLog() {
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
         console.log(new Date().toISOString() + " " + strPad(thisObject.bot.exchange, 20) + " " + strPad(thisObject.bot.market.baseAsset + '/' + thisObject.bot.market.quotedAsset, 10) + " " + strPad(pBot, 30) + " " + strPad(pProcess, 30)
-            + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10)) 
+            + "      Internal Loop # " + strPad(internalLoopCounter + 1, 8) + " " + strPad(date, 30) + " " + strPad(percentage, 10))
 
         persist();
 
         function strPad(str, max, fill) {
-            if (fill === undefined) {fill = " "}
+            if (fill === undefined) { fill = " " }
             str = str.toString();
             return str.length < max ? strPad(fill + str, max) : str;
         }
@@ -69,7 +69,7 @@ exports.newDebugLog = function newDebugLog() {
         /* Here we actually write the content of the in-memory log to a file */
 
         try {
-            if (accumulatedLog === "[") {return} // nothing to persist at the moment.
+            if (accumulatedLog === "[") { return } // nothing to persist at the moment.
 
             internalLoopCounter++;
 
@@ -82,7 +82,7 @@ exports.newDebugLog = function newDebugLog() {
             let filePath = thisObject.bot.filePathRoot + "/Logs/" + thisObject.bot.process + "/"
 
             if (thisObject.bot.SESSION !== undefined) {
-                filePath = filePath + thisObject.bot.SESSION.folderName + "/" + executionDatetime;     
+                filePath = filePath + thisObject.bot.SESSION.folderName + "/" + executionDatetime;
             } else {
                 filePath = filePath + executionDatetime;
             }
@@ -102,32 +102,32 @@ exports.newDebugLog = function newDebugLog() {
             writeLog();
 
             /* This is the implementation of the mechanism to auto-mantain logs. */
-            if (contentToPersist.indexOf('[ERROR]') < 0) {
+            if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0) {
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             }
             if (thisObject.bot.LOGS_TO_DELETE_QUEUE.length > thisObject.bot.DELETE_QUEUE_SIZE) {
                 let fileToDelete = thisObject.bot.LOGS_TO_DELETE_QUEUE[0]
                 thisObject.bot.LOGS_TO_DELETE_QUEUE.splice(0, 1)
                 /* Will delete this file only if it does not contains ERROR inside. */
-                let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true) 
+                let fileContent = fileStorage.getTextFile(fileToDelete, onGetFile, true)
                 function onGetFile(err, fileContent) {
                     if (err.result === global.DEFAULT_OK_RESPONSE.result) {
                         if (fileContent.indexOf("ERROR") < 0) {
                             /* Logs will only be deleted when they contain no ERROR in them. */
                             fileStorage.deleteTextFile(fileToDelete);
-                        } 
+                        }
                     } else {
                         fileStorage.deleteTextFile(fileToDelete);
                     }
                 }
             }
-             
+
             function writeLog() {
 
                 fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
                 function onFileCreated(err) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = "+ err.message);
+                        console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);
                         setTimeout(writeLog, 10000); // Lets retry until we make it.
                         return;
                     }
@@ -135,7 +135,7 @@ exports.newDebugLog = function newDebugLog() {
                 }
             }
         } catch (err) {
-            console.log("[ERROR] DebugLog -> persist -> err = "+ err.stack);
+            console.log("[ERROR] DebugLog -> persist -> err = " + err.stack);
             console.log("[ERROR] DebugLog -> persist -> onInizialized -> contentToPersist = " + contentToPersist);
         }
     }
@@ -174,7 +174,7 @@ exports.newDebugLog = function newDebugLog() {
             accumulatedLog = accumulatedLog + logLine;
 
         } catch (err) {
-            console.log("[ERROR] DebugLog -> write -> err = "+ err.stack);
+            console.log("[ERROR] DebugLog -> write -> err = " + err.stack);
         }
     }
 

@@ -2112,7 +2112,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     addPositionRecord()
 
                     /* We will remmember the last candle processed, so that if it is the last one of this run we can use it to continue from there next time. */
-                    variable.last.candle = candle
+                    variable.last.candle = {
+                        begin: candle.begin,
+                        end: candle.end
+                    }
 
                     /* After everything at the simulation level was done, we will do the annoucements that are pending. */
                     makeAnnoucements()

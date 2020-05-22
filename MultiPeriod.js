@@ -86,7 +86,7 @@
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
 
-            let variable = {}
+            let variable
 
             getContextVariables();
 
@@ -163,19 +163,17 @@
                     }
 
                     thisReport = statusReport.file;
+                    variable = thisReport.variable;
+                    if (variable === undefined) { variable = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
-
                         if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
                             return;
                         }
-
                         contextVariables.lastFile = new Date(thisReport.lastFile);
-                        variable = thisReport.variable;
-
                         processSingleFiles();
                         return;
 
@@ -195,7 +193,6 @@
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile); }
-
                         processSingleFiles();
 
                     }

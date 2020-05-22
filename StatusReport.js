@@ -23,7 +23,7 @@
         status: undefined
     };
 
-    let statusDependencyNode;   
+    let statusDependencyNode;
 
     /* Utilities needed. */
 
@@ -32,7 +32,7 @@
     /* Storage account to be used here. */
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage  
+    let fileStorage
 
     let sessionPath = ''
 
@@ -119,13 +119,13 @@
 
             for (let i = 0; i < network.networkNodes.length; i++) {
                 let networkNode = network.networkNodes[i]
-               
+
                 if (checkThisBranch(networkNode.dataMining) === true) { return }
-                if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
+                if (checkThisBranch(networkNode.testingEnvironment) === true) { return }
                 if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
                 function checkThisBranch(branch) {
-                    if (branch === undefined) {return}
+                    if (branch === undefined) { return }
                     for (let j = 0; j < branch.exchangeTasks.length; j++) {
                         let exchangeTasks = branch.exchangeTasks[j]
                         for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
@@ -183,7 +183,7 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -211,9 +211,9 @@
 
                 let rootPath = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot
 
-                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process ;
+                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process;
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process ;
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
             }
 
             filePath += '/' + fileName
@@ -236,10 +236,10 @@
 
             function onFileReceived(err, text) {
 
-                if ( err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                if (err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message);
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -255,7 +255,7 @@
                 }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message);
                     callBackFunction(err);
                     return;
                 }
@@ -290,7 +290,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] load -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -328,7 +328,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFileCreated -> Entering function."); }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack);
                     callBackFunction(err);
                     return;
                 }
@@ -348,7 +348,7 @@
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] save -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

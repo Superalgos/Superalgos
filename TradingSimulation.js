@@ -78,7 +78,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1
             }
 
-            if (variable.isInitialized !== true) {
+            if (variable.isInitialized !== true || bot.RESUME === false) {
                 variable.isInitialized = true
 
                 variable.episode = {}                       // An Episode represents each execution of the Simulation

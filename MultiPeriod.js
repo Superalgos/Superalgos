@@ -835,7 +835,8 @@
                                         return;
                                     }
 
-                                    botNeverRan = false;
+                                    botNeverRan = false
+                                    bot.RESUME = true // From here on, all other loops executions must resume from where we left at this current run.
 
                                     if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
                                         writeMarketStatusReport(onMarketStatusReport)

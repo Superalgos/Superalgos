@@ -117,10 +117,10 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
 
-            let recordsArray
-            let conditionsArray
-            let strategiesArray
-            let positionsArray
+            let recordsArray = []
+            let conditionsArray = []
+            let strategiesArray = []
+            let positionsArray = []
 
             let snapshotHeaders
             let triggerOnSnapshot
@@ -128,7 +128,11 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             let tradingSystem = {}
 
-            readFiles()
+            if (bot.RESUME === true) {
+                readFiles()
+            } else {
+                runSimulation()
+            }
 
             function readFiles() {
 

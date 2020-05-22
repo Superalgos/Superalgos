@@ -217,18 +217,41 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function initializeLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initializeLoop -> Entering function.') }
 
-                /* Estimate Initial Candle */
+                if (bot.RESUME === true && variable.last.candle !== undefined) {
+                    /* Estimate the Initial Candle based on the last candle saved at variable */
+                    let firstBegin = candles[0].begin
+                    let lastBegin = variable.last.candle.begin
+                    let diff = lastBegin - firstBegin
+                    let amount = diff / variable.episode.parameters.timeFrame
 
-                let firstEnd = candles[0].end
-                let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
-                let diff = targetEnd - firstEnd
-                let amount = diff / variable.episode.parameters.timeFrame
+                    currentCandleIndex = Math.trunc(amount) + 1 // Because we need to start from the next candle
+                    if (currentCandleIndex < 0 || currentCandleIndex > candles.length - 1) {
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> Cannot resume simulation.')
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> currentCandleIndex = ' + currentCandleIndex)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> firstBegin = ' + firstBegin)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> lastBegin = ' + lastBegin)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> diff = ' + diff)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> amount = ' + amount)
 
-                currentCandleIndex = Math.trunc(amount)
-                if (currentCandleIndex < 0) { currentCandleIndex = 0 }
-                if (currentCandleIndex > candles.length - 1) {
-                    /* This will happen when the bot.VALUES_TO_USE.timeRange.initialDatetime is beyond the last candle available, meaning that the dataSet needs to be updated with more up-to-date data. */
-                    currentCandleIndex = candles.length - 1
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        return
+                    }
+                } else {
+                    /* Estimate Initial Candle based on the timeRage configured for the session. */
+                    let firstEnd = candles[0].end
+                    let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
+                    let diff = targetEnd - firstEnd
+                    let amount = diff / variable.episode.parameters.timeFrame
+
+                    currentCandleIndex = Math.trunc(amount)
+                    if (currentCandleIndex < 0) { currentCandleIndex = 0 }
+                    if (currentCandleIndex > candles.length - 1) {
+                        /* 
+                        This will happen when the bot.VALUES_TO_USE.timeRange.initialDatetime is beyond the last candle available, 
+                        meaning that the dataSet needs to be updated with more up-to-date data. 
+                        */
+                        currentCandleIndex = candles.length - 1
+                    }
                 }
 
                 loop()
@@ -2087,6 +2110,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     addConditionsRecord()
                     addStrategyRecord()
                     addPositionRecord()
+
+                    /* We will remmember the last candle processed, so that if it is the last one of this run we can use it to continue from there next time. */
+                    variable.last.candle = candle
 
                     /* After everything at the simulation level was done, we will do the annoucements that are pending. */
                     makeAnnoucements()

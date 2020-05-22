@@ -5,7 +5,7 @@
     const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 
     let thisObject = {
-        initialize: initialize 
+        initialize: initialize
     }
 
     return thisObject;
@@ -17,10 +17,10 @@
             let telegramAPI
 
             /* Initialize this info so that everything is logged propeerly */
-             
+
             bot.SESSION = {
                 name: bot.processNode.session.name,
-                id: bot.processNode.session.id 
+                id: bot.processNode.session.id
             }
 
             /* Set the folderName for early logging */
@@ -29,7 +29,7 @@
             } else {
                 bot.SESSION.folderName = bot.processNode.session.code.folderName + "-" + bot.SESSION.id
             }
- 
+
             /* Check if there is a session */
             if (bot.processNode.session === undefined) {
                 parentLogger.write(MODULE_NAME, "[ERROR] initialize -> Cannot run without a Session.");
@@ -40,7 +40,7 @@
             /* Listen to event to start or stop the session. */
             bot.sessionKey = bot.processNode.session.name + '-' + bot.processNode.session.type + '-' + bot.processNode.session.id
             global.SESSION_MAP.set(bot.sessionKey, bot.sessionKey)
- 
+
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, runSession)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, stopSession)
 
@@ -56,6 +56,7 @@
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
+                    bot.RESUME = message.event.resume
 
                     /* Set the folderName for logging, reports, context and data output */
                     let code
@@ -133,7 +134,7 @@
                 }
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
                 return true
             }
 
@@ -148,7 +149,7 @@
                 bot.startMode = "Live"
                 checkDatetimes()
                 bot.resumeExecution = false;
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
                 pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
@@ -165,23 +166,23 @@
                 bot.startMode = "Live"
                 checkDatetimes()
                 bot.resumeExecution = false;
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
 
                 /* Reduce the balance */
 
                 let balancePercentage = 1 // This is the default value
-              
+
                 if (bot.SESSION.code.balancePercentage !== undefined) {
                     balancePercentage = bot.SESSION.code.balancePercentage
                 }
 
                 bot.VALUES_TO_USE.initialBalanceA = bot.VALUES_TO_USE.initialBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.initialBalanceB = bot.VALUES_TO_USE.initialBalanceB * balancePercentage / 100
-                       
+
                 bot.VALUES_TO_USE.minimumBalanceA = bot.VALUES_TO_USE.minimumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.minimumBalanceB = bot.VALUES_TO_USE.minimumBalanceB * balancePercentage / 100
-               
+
                 bot.VALUES_TO_USE.maximumBalanceA = bot.VALUES_TO_USE.maximumBalanceA * balancePercentage / 100
                 bot.VALUES_TO_USE.maximumBalanceB = bot.VALUES_TO_USE.maximumBalanceB * balancePercentage / 100
 
@@ -192,11 +193,11 @@
 
             function startPaperTrading(message) {
                 bot.startMode = "Backtest"
-                
+
                 checkDatetimes()
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) 
+                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
                 pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
             }
@@ -270,7 +271,7 @@
                     }
                 }
 
-                let tradingSystem = bot.TRADING_SYSTEM 
+                let tradingSystem = bot.TRADING_SYSTEM
 
                 if (tradingSystem !== undefined) {
 
@@ -429,7 +430,7 @@
                             let socialBot = bot.SESSION.socialBots.bots[i]
                             if (socialBot.type === "Telegram Bot") {
                                 let code = socialBot.code
-                                socialBot.botInstance = initializeTelegramBot(code.botToken, code.chatId)                                    
+                                socialBot.botInstance = initializeTelegramBot(code.botToken, code.chatId)
                             }
                         }
                     }
@@ -440,7 +441,7 @@
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
                                     let code = announcement.code
-                                     
+
                                     if (socialBot.type === "Telegram Bot") {
                                         if (announcement.formulaValue !== undefined) {
                                             socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
@@ -448,7 +449,7 @@
                                             socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                                         }
                                     }
-                                   
+
                                 } catch (err) {
                                     parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> err = " + err.stack);
                                 }
@@ -461,7 +462,7 @@
             }
 
             function finalizeSocialBots() {
-                if (bot.SESSION.socialBots === undefined) {return}
+                if (bot.SESSION.socialBots === undefined) { return }
                 if (bot.SESSION.socialBots.bots !== undefined) {
                     for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                         let socialBot = bot.SESSION.socialBots.bots[i]
@@ -488,8 +489,8 @@
 
                     telegramAPI = new Telegram(botToken)
 
-                    const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started with an initial balance of " + " " + bot.VALUES_TO_USE.initialBalanceA + " " + bot.VALUES_TO_USE.baseAsset + "." 
-                    telegramAPI.sendMessage(chatId, messge ).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> Telegram API error -> err = " + err))
+                    const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started with an initial balance of " + " " + bot.VALUES_TO_USE.initialBalanceA + " " + bot.VALUES_TO_USE.baseAsset + "."
+                    telegramAPI.sendMessage(chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> Telegram API error -> err = " + err))
 
                     let botInstance = {
                         telegramBot: telegramBot,
@@ -504,10 +505,10 @@
             }
 
             function finalizeTelegramBot(chatId) {
-                const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was stopped." 
+                const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was stopped."
                 telegramAPI.sendMessage(chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeTelegramBot -> Telegram API error -> err = " + err))
             }
- 
+
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);

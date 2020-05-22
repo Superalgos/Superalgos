@@ -57,7 +57,7 @@
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        botInstance.finalize() 
+        botInstance.finalize()
         botInstance = undefined
         fileStorage = undefined
         processConfig = undefined
@@ -71,7 +71,7 @@
             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> Entering function."); }
 
             let currentTimeFrame
-            let currentTimeFrameLabel  
+            let currentTimeFrameLabel
 
             let market = bot.market;
             let botNeverRan = true;
@@ -86,7 +86,7 @@
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
 
-            let variableArray = [];
+            let variable = {}
 
             getContextVariables();
 
@@ -101,12 +101,11 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = bot.VALUES_TO_USE.timeRange.initialDatetime                
+                    contextVariables.dateBeginOfMarket = bot.VALUES_TO_USE.timeRange.initialDatetime
 
                     /*
                         Here we get the status report from the bot who knows which is the end of the market.
                     */
-
                     statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
@@ -138,7 +137,6 @@
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
 
                     /* Validation that the data is not up-to-date. */
-
                     if (bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> " + "Head of the market is @ " + contextVariables.dateEndOfMarket); }
@@ -150,7 +148,6 @@
                     }
 
                     /* Finally we get our own Status Report. */
-
                     statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
@@ -177,15 +174,16 @@
                         }
 
                         contextVariables.lastFile = new Date(thisReport.lastFile);
-                        variableArray = thisReport.variableArray;
+                        variable = thisReport.variable;
 
                         processSingleFiles();
                         return;
 
                     } else {
-
                         /*
-                        In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
+                        We are here becuse either:
+                        1. There is no status report
+                        2. There is no Last File (this happens on Market Files)
                         */
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined."); }
                         startFromBegining();
@@ -197,18 +195,6 @@
                         contextVariables.lastFile = new Date(contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" + (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" + contextVariables.dateBeginOfMarket.getUTCDate() + " " + "00:00" + GMT_SECONDS);
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> startFromBegining -> contextVariables.lastFile = " + contextVariables.lastFile); }
-
-                        /*
-                        The first time the process is running is the right time to create the data structure that is going to be shared across different executions.
-                        This data structure has one object per each timeFrame.
-                        */
-
-                        variableArray = [];
-
-                        for (let i = 0; i < global.dailyFilePeriods.length; i++) {
-                            let emptyObject = {};
-                            variableArray.push(emptyObject);
-                        }
 
                         processSingleFiles();
 
@@ -237,7 +223,6 @@
                     function dependencyLoopBody() {
 
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> Entering function."); }
 
                             let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
@@ -266,7 +251,6 @@
                                     function onFileReceived(err, text) {
 
                                         try {
-
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> Entering function."); }
                                             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
 
@@ -309,22 +293,16 @@
                     function dependencyControlLoop() {
 
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles -> dependencyControlLoop -> Entering function."); }
 
                             dependencyIndex++;
 
                             if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
-
                                 dependencyLoopBody();
-
                             } else {
-
                                 let mapKey = "Single Files"
                                 multiPeriodDataFiles.set(mapKey, dataFiles)
-
                                 processMarketFiles();
-
                             }
                         }
                         catch (err) {
@@ -344,25 +322,17 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> Entering function."); }
 
                 try {
-
                     let n;
-
                     timeFramesLoop();
 
                     function timeFramesLoop() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoop -> Entering function."); }
-
                             /*
                             We will iterate through all posible timeFrames.
                             */
-
                             n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
-
                             timeFramesLoopBody();
-
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> timeFramesLoop -> err = " + err.stack);
@@ -371,11 +341,8 @@
                     }
 
                     function timeFramesLoopBody() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> Entering function."); }
-
                             const timeFrame = global.marketFilesPeriods[n][0];
                             const timeFrameLabel = global.marketFilesPeriods[n][1];
 
@@ -389,9 +356,7 @@
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> Entering function."); }
 
                                     let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
@@ -420,9 +385,7 @@
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
-
                                                 try {
-
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> Entering function."); }
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
 
@@ -433,7 +396,7 @@
                                                         } else {
                                                             logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
                                                             callBackFunction(err);
-                                                        }                                                        
+                                                        }
                                                         return;
                                                     }
 
@@ -454,7 +417,6 @@
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
-
                                 }
                                 catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> timeFramesLoop -> dependencyLoopBody -> err = " + err.stack);
@@ -463,24 +425,16 @@
                             }
 
                             function dependencyControlLoop() {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> dependencyControlLoop -> Entering function."); }
 
                                     dependencyIndex++;
-
                                     if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
-
                                         dependencyLoopBody();
-
                                     } else {
-                                                            
                                         let mapKey = global.marketFilesPeriods[n][1];
                                         multiPeriodDataFiles.set(mapKey, dataFiles)
-
                                         timeFramesControlLoop();
-
                                     }
                                 }
                                 catch (err) {
@@ -496,21 +450,13 @@
                     }
 
                     function timeFramesControlLoop() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesControlLoop -> Entering function."); }
-
                             n++;
-
                             if (n < global.marketFilesPeriods.length) {
-
                                 timeFramesLoopBody();
-
                             } else {
-
                                 processDailyFiles();
-
                             }
                         }
                         catch (err) {
@@ -518,7 +464,6 @@
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
-
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> err = " + err.stack);
@@ -527,20 +472,14 @@
             }
 
             function processDailyFiles() {
-
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> Entering function."); }
-
                 try {
-
                     let n = 0;
-
                     if (currentTimeFrame) {
                         callTheBot()
                         return
-                    } 
-
+                    }
                     bot.multiPeriodProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
-
                     advanceTime();
 
                     function advanceTime() {
@@ -551,12 +490,11 @@
 
                             bot.multiPeriodProcessDatetime = new Date(bot.multiPeriodProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
-                           
+
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime); }
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> previousDay = " + previousDay); }
 
                             /* Validation that we are not going past the user defined end date. */
-
                             if (bot.multiPeriodProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                                 const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
@@ -565,11 +503,9 @@
                                 bot.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
-
                             }
 
                             /* Validation that we are not going past the head of the market. */
-
                             if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf() + ONE_DAY_IN_MILISECONDS - 1) {
 
                                 const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
@@ -577,7 +513,6 @@
 
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
-
                             }
 
                             checkStopTaskGracefully();
@@ -591,20 +526,13 @@
                     function checkStopTaskGracefully() {
 
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> checkStopTaskGracefully -> Entering function."); }
-
                             /* Validation that we dont need to stop. */
-
                             if (global.STOP_TASK_GRACEFULLY === true) {
-
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
-
                             }
-
                             checkStopProcessing();
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> checkStopTaskGracefully -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -612,18 +540,13 @@
                     }
 
                     function checkStopProcessing() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> checkStopProcessing -> Entering function."); }
 
                             /* Validation that we dont need to stop. */
-
                             if (bot.STOP_SESSION === true) {
-
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
-
                             }
 
                             timeFramesLoop();
@@ -635,23 +558,16 @@
                     }
 
                     function timeFramesLoop() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoop -> Entering function."); }
 
                             /*  Telling the world we are alive and doing well */
                             let processingDate = bot.multiPeriodProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
-                            bot.processHeartBeat(processingDate)  
-
+                            bot.processHeartBeat(processingDate)
                             /*
-
                             We will iterate through all posible timeFrames.
-
                             */
-
                             n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
-
                             timeFramesLoopBody();
 
                         }
@@ -662,9 +578,7 @@
                     }
 
                     function timeFramesLoopBody() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> Entering function."); }
 
                             const timeFrame = global.dailyFilePeriods[n][0];
@@ -693,9 +607,7 @@
                             dependencyLoopBody();
 
                             function dependencyLoopBody() {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> Entering function."); }
 
                                     let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
@@ -735,14 +647,12 @@
                                             } else {
                                                 filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
                                             }
-                                            let fileName =  "Data.json";
+                                            let fileName = "Data.json";
 
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
-
                                                 try {
-
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> Entering function."); }
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> text = " + text); }
 
@@ -776,7 +686,6 @@
                                                     }
 
                                                     previousFile = JSON.parse(text);
-
                                                     getCurrentFile();
 
                                                 }
@@ -815,14 +724,12 @@
                                             } else {
                                                 filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
                                             }
-                                            let fileName =  "Data.json";
+                                            let fileName = "Data.json";
 
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
-
                                                 try {
-
                                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> Entering function."); }
                                                     if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> text = " + text); }
 
@@ -841,11 +748,8 @@
                                                     }
 
                                                     currentFile = JSON.parse(text);
-
                                                     let dataFile = previousFile.concat(currentFile);
-
                                                     dataFiles.set(dependency.id, dataFile);
-
                                                     dependencyControlLoop();
 
                                                 }
@@ -868,24 +772,16 @@
                             }
 
                             function dependencyControlLoop() {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> dependencyControlLoop -> Entering function."); }
-
                                     dependencyIndex++;
 
                                     if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
-
                                         dependencyLoopBody();
-
                                     } else {
-
                                         let mapKey = global.dailyFilePeriods[n][1];
                                         multiPeriodDataFiles.set(mapKey, dataFiles)
-
                                         timeFramesControlLoop();
-
                                     }
                                 }
                                 catch (err) {
@@ -902,25 +798,17 @@
                     }
 
                     function timeFramesControlLoop() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesControlLoop -> Entering function."); }
-
                             n++;
-
                             if (n < global.dailyFilePeriods.length) {
-
                                 timeFramesLoopBody();
-
                             } else {
-
                                 n = 0;
-
                                 if (currentTimeFrame !== undefined) {
                                     callTheBot();
                                 } else {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesControlLoop -> Time Frame not Recognized. Can not continue."  );
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesControlLoop -> Time Frame not Recognized. Can not continue.");
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -932,25 +820,19 @@
                     }
 
                     function callTheBot() {
-
                         try {
-
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> Entering function."); }
-                             
                             botInstance.start(
                                 multiPeriodDataFiles,
                                 currentTimeFrame,
                                 currentTimeFrameLabel,
                                 bot.multiPeriodProcessDatetime,
-                                variableArray[n],
+                                variable,
                                 onBotFinished);
 
                             function onBotFinished(err) {
-
                                 try {
-
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> Entering function."); }
-
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                         callBackFunction(err);
                                         return;
@@ -966,9 +848,7 @@
                                     }
 
                                     function onWritten(err) {
-
                                         try {
-
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -978,7 +858,6 @@
                                             }
 
                                             writeDailyStatusReport(bot.multiPeriodProcessDatetime, onDailyStatusReport);
-
                                         } catch (err) {
                                             logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -991,7 +870,7 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onDailyStatusReport -> Entering function."); }
 
                                             /* The next run we need the process to continue at the date it finished. */
-                                            processConfig.framework.startDate.resumeExecution = true; 
+                                            processConfig.framework.startDate.resumeExecution = true;
 
                                             advanceTime();
                                         } catch (err) {
@@ -1005,7 +884,6 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> Entering function."); }
 
                                             /* This is where we check if we need reached the user defined end datetime.  */
-
                                             const now = new Date()
                                             if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
@@ -1044,9 +922,7 @@
             }
 
             function writeDataRanges(currentTimeFrameLabel, callBack) {
-
                 try {
-
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRanges -> Entering function."); }
 
                     let outputDatasetIndex = -1;
@@ -1058,9 +934,7 @@
                     }
 
                     function controlLoop() {
-
                         outputDatasetIndex++;
-
                         if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
                             productLoopBody();
                         } else {
@@ -1076,25 +950,20 @@
             }
 
             function writeDataRange(pBegin, pEnd, productCodeName, currentTimeFrameLabel, callBack) {
-
                 try {
-
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> Entering function."); }
-
                     let dataRange = {
                         begin: pBegin.valueOf(),
                         end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
                     };
 
                     let fileContent = JSON.stringify(dataRange);
-
                     let fileName = '/Data.Range.json';
                     let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName;
 
                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     function onFileCreated(err) {
-
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated -> Entering function."); }
 
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -1107,11 +976,11 @@
                             logger.write(MODULE_NAME, "[INFO] start -> writeDataRange -> onFileCreated ->  Content written = " + fileContent);
                         }
 
-                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName  + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
+                        let key = bot.dataMine + "-" + bot.codeName + "-" + productCodeName + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {
                             dateRange: dataRange
                         }
- 
+
                         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
 
                         callBack(global.DEFAULT_OK_RESPONSE);
@@ -1124,22 +993,19 @@
             }
 
             function writeDailyStatusReport(lastFileDate, callBack) {
-
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyStatusReport -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
-
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.currentDaytime;
                     thisReport.file.lastFile = lastFileDate;
-                    thisReport.file.variableArray = variableArray;
+                    thisReport.file.variable = variable;
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
-
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeDailyStatusReport -> err = " + err.stack);
@@ -1148,15 +1014,13 @@
             }
 
             function writeMarketStatusReport(callBack) {
-
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeMarketStatusReport -> Entering function."); }
-
                 try {
-
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;
+                    thisReport.file.variable = variable;
                     thisReport.save(callBack);
 
                     logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodProcessDatetime);
@@ -1166,15 +1030,12 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
-
         }
-
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
-
     function pad(str, max) {
         str = str.toString();
         return str.length < max ? pad(" " + str, max) : str;

@@ -561,7 +561,12 @@ function newWorkspace () {
         break
       case 'Run Session':
         {
-          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction)
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, callBackFunction)
+        }
+        break
+      case 'Resume Session':
+        {
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, callBackFunction)
         }
         break
       case 'Stop Session':

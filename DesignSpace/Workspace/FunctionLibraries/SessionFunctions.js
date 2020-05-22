@@ -6,7 +6,7 @@ function newSessionFunctions () {
 
   return thisObject
 
-  function runSession (node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction) {
+  function runSession (node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, resume, callBackFunction) {
     if (validations(node) !== true) {
       callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       return
@@ -54,7 +54,8 @@ function newSessionFunctions () {
     let event = {
       session: JSON.stringify(session),
       tradingSystem: JSON.stringify(tradingSystem),
-      dependencyFilter: JSON.stringify(dependencyFilter)
+      dependencyFilter: JSON.stringify(dependencyFilter),
+      resume: resume
     }
 
     eventsServerClient.raiseEvent(key, 'Run Session', event)

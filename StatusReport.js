@@ -59,7 +59,7 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -71,7 +71,7 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -83,22 +83,22 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             /* Simplifying the access to basic info */
-            statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName
-            statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.code.codeName
+            statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName
+            statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.config.codeName
             statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
-            statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+            statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
 
             /* We retrieve the report main utility */
-            if (statusDependencyNode.code !== undefined) {
-                if (statusDependencyNode.code.mainUtility !== undefined) {
-                    thisObject.mainUtility = statusDependencyNode.code.mainUtility
+            if (statusDependencyNode.config !== undefined) {
+                if (statusDependencyNode.config.mainUtility !== undefined) {
+                    thisObject.mainUtility = statusDependencyNode.config.mainUtility
                 }
             }
 
@@ -156,9 +156,9 @@
                                                             /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
 
                                                             thisObject.networkNode = networkNode
-                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
-                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
                                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                             return true
                                                         }

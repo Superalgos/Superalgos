@@ -294,9 +294,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k]
-                            if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Daily') { continue }
-                            let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
-                            let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
+                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
+                            let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
+                            let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                             let currentElement = getElement(thisChart[pluralVariableName], candle, 'Daily' + '-' + mapKey + '-' + pluralVariableName)
                             thisChart[singularVariableName] = currentElement
                         }
@@ -311,9 +311,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
-                        if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Market') { continue }
-                        let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
-                        let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
+                        if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
+                        let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
+                        let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                         let currentElement = getElement(thisChart[pluralVariableName], candle, 'Market' + '-' + mapKey + '-' + pluralVariableName)
                         thisChart[singularVariableName] = currentElement
                     }
@@ -333,9 +333,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 for (let k = 0; k < dataDependencies.length; k++) {
                     let dataDependencyNode = dataDependencies[k]
-                    if (dataDependencyNode.referenceParent.code.codeName !== 'Single-File') { continue }
-                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
-                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
+                    if (dataDependencyNode.referenceParent.config.codeName !== 'Single-File') { continue }
+                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
+                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                     let elementArray = thisChart[pluralVariableName]
                     let currentElement
                     if (elementArray !== undefined) {
@@ -2339,8 +2339,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                     /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
                                     let valueVariation
 
-                                    let code = announcement.code
-                                    valueVariation = code.valueVariation
+                                    let config = announcement.config
+                                    valueVariation = config.valueVariation
 
                                     if (newAnnouncementRecord.value !== undefined && valueVariation !== undefined) {
                                         let upperLimit = newAnnouncementRecord.value + newAnnouncementRecord.value * valueVariation / 100

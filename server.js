@@ -57,7 +57,7 @@ function finalizeSessions() {
     }
 }
 
-process.on('exit', function (code) {
+process.on('exit', function (config) {
 
     if (global.TASK_NODE !== undefined) {
         /* We send an event signaling that the Task is being terminated. */
@@ -68,7 +68,7 @@ process.on('exit', function (code) {
         global.EVENT_SERVER_CLIENT = undefined
     }
 
-    //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> code = ' + code)
+    //console.log('[INFO] Task Server -> server -> process.on.exit -> About to exit -> config = ' + config)
 })
 
 /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
@@ -84,7 +84,7 @@ process.on('message', message => {
         let key = global.TASK_NODE.name + '-' + global.TASK_NODE.type + '-' + global.TASK_NODE.id
         console.log('[INFO] Task Server -> server -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')
         setTimeout(global.EXIT_NODE_PROCESS, 60000);
-    } 
+    }
 });
 
 
@@ -101,7 +101,7 @@ global.EXIT_NODE_PROCESS = function exitProcess() {
     clearInterval(global.HEARTBEAT_INTERVAL_HANDLER)
 
     for (let i = 0; i < global.TASK_NODE.bot.processes.length; i++) {
-        let code = global.TASK_NODE.bot.processes[i].code
+        let config = global.TASK_NODE.bot.processes[i].config
         let process = global.TASK_NODE.bot.processes[i]
 
         key = process.name + '-' + process.type + '-' + process.id
@@ -138,7 +138,7 @@ let taskId = process.argv[2] // reading what comes as an argument of the nodejs 
 /* Setting up the global Event Handler */
 
 let EVENT_SERVER_CLIENT = require('./EventServerClient.js');
- 
+
 global.EVENT_SERVER_CLIENT = EVENT_SERVER_CLIENT.newEventsServerClient()
 global.EVENT_SERVER_CLIENT.initialize(preLoader)
 global.STOP_TASK_GRACEFULLY = false;
@@ -162,7 +162,7 @@ function preLoader() {
         }
     }
     else {  /* This process was started not by the Task Manager, but independently (most likely for debugging purposes). In this case we listen to an event with the Task Info that should be emitted at the UI */
-        try { 
+        try {
             //console.log('[INFO] Task Server -> server -> preLoader -> Waiting for event to start debugging...')
             global.EVENT_SERVER_CLIENT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
             function startDebugging(message) {
@@ -190,15 +190,15 @@ function bootLoader() {
 
     function taskHearBeat() {
 
-        /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */        
+        /* The heartbeat event is raised at the event handler of the instance of this task, created at the UI. */
         let event = {
             seconds: (new Date()).getSeconds()
         }
-         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
+        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
     }
 
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
-        let code = global.TASK_NODE.bot.processes[processIndex].code
+        let config = global.TASK_NODE.bot.processes[processIndex].config
 
         /* Validate that the minimun amount of input required are defined. */
 
@@ -257,17 +257,17 @@ function bootLoader() {
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName === undefined) {
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Process Definition without a codeName defined. -> Process Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.code.codeName === undefined) {
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Bot Definition without a codeName defined. -> Bot Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode));
             continue
         }
 
-        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName === undefined) {
+        if (global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName === undefined) {
             console.log("[WARN] Task Server -> server -> bootLoader -> Data Mine without a codeName defined. -> Data Mine Definition = " + JSON.stringify(global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode));
             continue
         }
@@ -278,7 +278,7 @@ function bootLoader() {
 
 function startRoot(processIndex) {
 
-   // console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
+    // console.log('[INFO] Task Server -> server -> startRoot -> Entering function. ')
 
     const ROOT_MODULE = require('./Root')
     let root = ROOT_MODULE.newRoot()
@@ -299,13 +299,13 @@ global.getPercentage = function (fromDate, currentDate, lastDate) {
     if ((lastDays - fromDays) === 0) {
         percentage = 100
     }
-    return percentage 
+    return percentage
 }
 
 global.areEqualDates = function (date1, date2) {
     let day1Days = Math.trunc(date1.valueOf() / ONE_DAY_IN_MILISECONDS)
     let day2Days = Math.trunc(date2.valueOf() / ONE_DAY_IN_MILISECONDS)
- 
+
     if (day1Days === day2Days) {
         return true
     } else {

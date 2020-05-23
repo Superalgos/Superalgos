@@ -231,18 +231,18 @@
                                 try {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> Entering function."); }
 
-                                    if (datasetModule.node.code.codeName !== "Single-File") {
+                                    if (datasetModule.node.config.codeName !== "Single-File") {
                                         dependencyControlLoop();
                                         return
                                     }
 
-                                    if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.code.singularVariableName) !== true) {
+                                    if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
                                         dependencyControlLoop();
                                         return
                                     }
 
                                     let fileName = "Data.json";
-                                    let filePath = datasetModule.node.parentNode.code.codeName + '/' + datasetModule.node.code.codeName;
+                                    let filePath = datasetModule.node.parentNode.config.codeName + '/' + datasetModule.node.config.codeName;
                                     datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                     function onFileReceived(err, text) {
@@ -365,20 +365,20 @@
                                         try {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
-                                            if (dependency.referenceParent.code.codeName !== "Multi-Period-Market") {
+                                            if (dependency.referenceParent.config.codeName !== "Multi-Period-Market") {
                                                 dependencyControlLoop();
                                                 return
                                             }
 
-                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
-                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                                     dependencyControlLoop();
                                                     return
                                                 }
                                             }
 
                                             let fileName = "Data.json";
-                                            let filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel;
+                                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                             function onFileReceived(err, text) {
@@ -624,13 +624,13 @@
                                         try {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> Entering function."); }
 
-                                            if (dependency.referenceParent.code.codeName !== "Multi-Period-Daily") {
+                                            if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                                                 dependencyControlLoop();
                                                 return
                                             }
 
-                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
-                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                                     dependencyControlLoop();
                                                     return
                                                 }
@@ -639,10 +639,10 @@
                                             let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
                                             let filePath
 
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
                                             }
                                             let fileName = "Data.json";
 
@@ -702,13 +702,13 @@
                                         try {
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> Entering function."); }
 
-                                            if (dependency.referenceParent.code.codeName !== "Multi-Period-Daily") {
+                                            if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                                                 dependencyControlLoop();
                                                 return
                                             }
 
-                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.code.singularVariableName) !== true) {
-                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.code.pluralVariableName === 'candles')) {
+                                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                                     dependencyControlLoop();
                                                     return
                                                 }
@@ -716,10 +716,10 @@
 
                                             let dateForPath = bot.multiPeriodProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
                                             let filePath
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Daily") {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel + "/" + dateForPath;
+                                            if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                                             } else {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
                                             }
                                             let fileName = "Data.json";
 
@@ -927,7 +927,7 @@
                     controlLoop();
 
                     function productLoopBody() {
-                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.code.codeName;
+                        let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
                         writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, productCodeName, currentTimeFrameLabel, controlLoop);
                     }
 

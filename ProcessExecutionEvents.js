@@ -8,7 +8,7 @@
     */
 
     const MODULE_NAME = "Process Execution Events";
-    logger.fileName = MODULE_NAME 
+    logger.fileName = MODULE_NAME
 
     let bot = BOT;
 
@@ -43,7 +43,7 @@
                 return
             }
 
-            let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
+            let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
             currentProcessKey = bot.processNode.referenceParent.name + "-" + bot.processNode.referenceParent.type + "-" + bot.processNode.referenceParent.id + "-" + bot.exchange + "-" + market
 
             if (bot.processNode.referenceParent.executionStartedEvent !== undefined) {
@@ -52,7 +52,7 @@
                         processThisDependsOn = bot.processNode.referenceParent.executionStartedEvent.referenceParent.parentNode
 
                         name = processThisDependsOn.name
-                        if (processThisDependsOn.code.monthlyInstances === true) {
+                        if (processThisDependsOn.config.monthlyInstances === true) {
                             logger.fileName = MODULE_NAME + "." + name;
                         }
                         if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> " + currentProcessKey + " depends on " + name); }
@@ -90,13 +90,13 @@
                                                                 /* We found where the task that runs the process definition we are waiting for is located on the network. */
 
                                                                 thisObject.networkNode = networkNode
-                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webSocketsPort + '.'); }
+                                                                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connecting to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
 
-                                                                eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.code.host, networkNode.code.webSocketsPort)
+                                                                eventServerClient = EVENT_SERVER_CLIENT.newEventsServerClient(networkNode.config.host, networkNode.config.webSocketsPort)
                                                                 eventServerClient.initialize(onConnected)
 
                                                                 function onConnected() {
-                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webSocketsPort + '.'); }
+                                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Connected to Websockets Server " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webSocketsPort + '.'); }
 
                                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                                     return
@@ -119,7 +119,7 @@
                 return
             }
             callBackFunction(global.DEFAULT_OK_RESPONSE);
-            
+
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -151,7 +151,7 @@
 
                 let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
 
-                let market = bot.market.baseAsset + '/' + bot.market.quotedAsset 
+                let market = bot.market.baseAsset + '/' + bot.market.quotedAsset
                 let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + bot.exchange + "-" + market
                 let callerId = bot.dataMine + "-" + bot.codeName + "-" + bot.process + extraCallerId
 
@@ -163,7 +163,7 @@
 
                 eventServerClient.listenToEvent(key, 'Process Execution Finished', undefined, callerId, responseCallBack, eventsCallBack)
 
-                bot.processHeartBeat(undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.code.codeName + "->" + processThisDependsOn.code.codeName)  
+                bot.processHeartBeat(undefined, undefined, "Waiting for " + thisObject.networkNode.name + "->" + processThisDependsOn.parentNode.parentNode.name + "->" + processThisDependsOn.parentNode.config.codeName + "->" + processThisDependsOn.config.codeName)
 
                 function responseCallBack(message) {
                     if (message.result !== global.DEFAULT_OK_RESPONSE.result) {
@@ -192,9 +192,9 @@
                         global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
                         global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                        bot.processHeartBeat(undefined, undefined,"Running...") 
+                        bot.processHeartBeat(undefined, undefined, "Running...")
 
-                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key  + " Finished."); }
+                        if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> eventsCallBack -> " + currentProcessKey + " Process Execution Started because " + key + " Finished."); }
                     }
 
                     callBackFunction(message.event.err);
@@ -208,7 +208,7 @@
                 global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Started')
                 global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Started', event)
 
-                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started " ); }
+                if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] start -> " + currentProcessKey + " Process Execution Started "); }
 
                 callBackFunction(global.DEFAULT_OK_RESPONSE);
             }
@@ -232,7 +232,7 @@
             global.EVENT_SERVER_CLIENT.createEventHandler(currentProcessKey, 'Process Execution Finished')
             global.EVENT_SERVER_CLIENT.raiseEvent(currentProcessKey, 'Process Execution Finished', event)
 
-            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished " ); }
+            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] finish -> " + currentProcessKey + " Process Execution Finished "); }
 
             callBackFunction(global.DEFAULT_OK_RESPONSE);
 

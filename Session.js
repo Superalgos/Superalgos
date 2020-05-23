@@ -24,10 +24,10 @@
             }
 
             /* Set the folderName for early logging */
-            if (bot.processNode.session.code.folderName === undefined) {
+            if (bot.processNode.session.config.folderName === undefined) {
                 bot.SESSION.folderName = bot.SESSION.id
             } else {
-                bot.SESSION.folderName = bot.processNode.session.code.folderName + "-" + bot.SESSION.id
+                bot.SESSION.folderName = bot.processNode.session.config.folderName + "-" + bot.SESSION.id
             }
 
             /* Check if there is a session */
@@ -59,13 +59,13 @@
                     bot.RESUME = message.event.resume
 
                     /* Set the folderName for logging, reports, context and data output */
-                    let code
-                    if (bot.SESSION.code !== undefined) {
-                        code = bot.SESSION.code
-                        if (code.folderName === undefined) {
+                    let config
+                    if (bot.SESSION.config !== undefined) {
+                        config = bot.SESSION.config
+                        if (config.folderName === undefined) {
                             bot.SESSION.folderName = bot.SESSION.id
                         } else {
-                            bot.SESSION.folderName = code.folderName + "-" + bot.SESSION.id
+                            bot.SESSION.folderName = config.folderName + "-" + bot.SESSION.id
                         }
                     }
 
@@ -173,8 +173,8 @@
 
                 let balancePercentage = 1 // This is the default value
 
-                if (bot.SESSION.code.balancePercentage !== undefined) {
-                    balancePercentage = bot.SESSION.code.balancePercentage
+                if (bot.SESSION.config.balancePercentage !== undefined) {
+                    balancePercentage = bot.SESSION.config.balancePercentage
                 }
 
                 bot.VALUES_TO_USE.initialBalanceA = bot.VALUES_TO_USE.initialBalanceA * balancePercentage / 100
@@ -285,38 +285,38 @@
                                     if (bot.SESSION.parameters.baseAsset.referenceParent !== undefined) {
                                         if (bot.SESSION.parameters.baseAsset.referenceParent.referenceParent !== undefined) {
 
-                                            let code = bot.SESSION.parameters.baseAsset.referenceParent.referenceParent.code
+                                            let config = bot.SESSION.parameters.baseAsset.referenceParent.referenceParent.config
 
-                                            if (code.codeName !== undefined) {
-                                                bot.VALUES_TO_USE.baseAsset = code.codeName;
+                                            if (config.codeName !== undefined) {
+                                                bot.VALUES_TO_USE.baseAsset = config.codeName;
                                             }
 
-                                            code = bot.SESSION.parameters.baseAsset.code
+                                            config = bot.SESSION.parameters.baseAsset.config
 
                                             if (bot.VALUES_TO_USE.baseAsset === bot.market.baseAsset) {
-                                                if (code.initialBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.initialBalanceA = code.initialBalance;
+                                                if (config.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceA = config.initialBalance;
                                                     bot.VALUES_TO_USE.initialBalanceB = 0
                                                 }
-                                                if (code.minimumBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.minimumBalanceA = code.minimumBalance;
+                                                if (config.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceA = config.minimumBalance;
                                                     bot.VALUES_TO_USE.minimumBalanceB = 0
                                                 }
-                                                if (code.maximumBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.maximumBalanceA = code.maximumBalance;
+                                                if (config.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceA = config.maximumBalance;
                                                     bot.VALUES_TO_USE.maximumBalanceB = 0
                                                 }
                                             } else {
-                                                if (code.initialBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.initialBalanceB = code.initialBalance;
+                                                if (config.initialBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.initialBalanceB = config.initialBalance;
                                                     bot.VALUES_TO_USE.initialBalanceA = 0
                                                 }
-                                                if (code.minimumBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.minimumBalanceB = code.minimumBalance;
+                                                if (config.minimumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.minimumBalanceB = config.minimumBalance;
                                                     bot.VALUES_TO_USE.minimumBalanceA = 0
                                                 }
-                                                if (code.maximumBalance !== undefined) {
-                                                    bot.VALUES_TO_USE.maximumBalanceB = code.maximumBalance;
+                                                if (config.maximumBalance !== undefined) {
+                                                    bot.VALUES_TO_USE.maximumBalanceB = config.maximumBalance;
                                                     bot.VALUES_TO_USE.maximumBalanceA = 0
                                                 }
                                             }
@@ -348,10 +348,10 @@
                                     if (bot.SESSION.parameters.quotedAsset.referenceParent !== undefined) {
                                         if (bot.SESSION.parameters.quotedAsset.referenceParent.referenceParent !== undefined) {
 
-                                            let code = bot.SESSION.parameters.quotedAsset.referenceParent.referenceParent.code
+                                            let config = bot.SESSION.parameters.quotedAsset.referenceParent.referenceParent.config
 
-                                            if (code.codeName !== undefined) {
-                                                bot.VALUES_TO_USE.quotedAsset = code.codeName;
+                                            if (config.codeName !== undefined) {
+                                                bot.VALUES_TO_USE.quotedAsset = config.codeName;
                                             }
                                         }
                                     }
@@ -360,59 +360,59 @@
 
                             /* Time Frame */
                             if (bot.SESSION.parameters.timeFrame !== undefined) {
-                                bot.VALUES_TO_USE.timeFrame = bot.SESSION.parameters.timeFrame.code.value
+                                bot.VALUES_TO_USE.timeFrame = bot.SESSION.parameters.timeFrame.config.value
                             }
 
                             /* Slippage */
                             if (bot.SESSION.parameters.slippage !== undefined) {
-                                if (bot.SESSION.parameters.slippage.code !== undefined) {
+                                if (bot.SESSION.parameters.slippage.config !== undefined) {
 
-                                    let code = bot.SESSION.parameters.slippage.code
+                                    let config = bot.SESSION.parameters.slippage.config
 
-                                    if (code.positionRate !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.positionRate = code.positionRate
+                                    if (config.positionRate !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.positionRate = config.positionRate
                                     }
-                                    if (code.stopLoss !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.stopLoss = code.stopLoss
+                                    if (config.stopLoss !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.stopLoss = config.stopLoss
                                     }
-                                    if (code.takeProfit !== undefined) {
-                                        bot.VALUES_TO_USE.slippage.takeProfit = code.takeProfit
+                                    if (config.takeProfit !== undefined) {
+                                        bot.VALUES_TO_USE.slippage.takeProfit = config.takeProfit
                                     }
                                 }
                             }
 
                             /* Fee Structure */
                             if (bot.SESSION.parameters.feeStructure !== undefined) {
-                                if (bot.SESSION.parameters.feeStructure.code !== undefined) {
+                                if (bot.SESSION.parameters.feeStructure.config !== undefined) {
 
-                                    let code = bot.SESSION.parameters.feeStructure.code
+                                    let config = bot.SESSION.parameters.feeStructure.config
 
-                                    if (code.maker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.maker = code.maker
+                                    if (config.maker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.maker = config.maker
                                     }
-                                    if (code.taker !== undefined) {
-                                        bot.VALUES_TO_USE.feeStructure.taker = code.taker
+                                    if (config.taker !== undefined) {
+                                        bot.VALUES_TO_USE.feeStructure.taker = config.taker
                                     }
                                 }
                             }
 
                             /* Time Range */
                             if (bot.SESSION.parameters.timeRange !== undefined) {
-                                if (bot.SESSION.parameters.timeRange.code !== undefined) {
+                                if (bot.SESSION.parameters.timeRange.config !== undefined) {
 
-                                    let code = bot.SESSION.parameters.timeRange.code
-                                    if (code.initialDatetime !== undefined) {
-                                        if (isNaN(Date.parse(code.initialDatetime)) === true) {
+                                    let config = bot.SESSION.parameters.timeRange.config
+                                    if (config.initialDatetime !== undefined) {
+                                        if (isNaN(Date.parse(config.initialDatetime)) === true) {
                                             parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Session Parameters because it is not a valid Date.");
                                         } else {
-                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(code.initialDatetime)
+                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(config.initialDatetime)
                                         }
                                     }
-                                    if (code.finalDatetime !== undefined) {
-                                        if (isNaN(Date.parse(code.finalDatetime)) === true) {
+                                    if (config.finalDatetime !== undefined) {
+                                        if (isNaN(Date.parse(config.finalDatetime)) === true) {
                                             parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Session Parameters because it is not a valid Date.");
                                         } else {
-                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(code.finalDatetime)
+                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(config.finalDatetime)
                                         }
                                     }
                                 }
@@ -429,8 +429,8 @@
                         for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                             let socialBot = bot.SESSION.socialBots.bots[i]
                             if (socialBot.type === "Telegram Bot") {
-                                let code = socialBot.code
-                                socialBot.botInstance = initializeTelegramBot(code.botToken, code.chatId)
+                                let config = socialBot.config
+                                socialBot.botInstance = initializeTelegramBot(config.botToken, config.chatId)
                             }
                         }
                     }
@@ -440,13 +440,13 @@
                             for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                                 let socialBot = bot.SESSION.socialBots.bots[i]
                                 try {
-                                    let code = announcement.code
+                                    let config = announcement.config
 
                                     if (socialBot.type === "Telegram Bot") {
                                         if (announcement.formulaValue !== undefined) {
                                             socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                                         } else {
-                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, code.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
+                                            socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, config.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                                         }
                                     }
 
@@ -467,8 +467,8 @@
                     for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                         let socialBot = bot.SESSION.socialBots.bots[i]
                         if (socialBot.type === "Telegram Bot") {
-                            let code = socialBot.code
-                            socialBot.botInstance = finalizeTelegramBot(code.chatId)
+                            let config = socialBot.config
+                            socialBot.botInstance = finalizeTelegramBot(config.chatId)
                         }
                     }
                 }

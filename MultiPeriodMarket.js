@@ -41,7 +41,7 @@
             botInstance.initialize(callBackFunction);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -100,7 +100,7 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -137,13 +137,13 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
                                             let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                                            let fileName =  "Data.json";
+                                            let fileName = "Data.json";
 
                                             let filePath
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Market") {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel;
+                                            if (dependency.referenceParent.config.codeName === "Multi-Period-Market") {
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
                                             } else {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
                                             }
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
@@ -156,7 +156,7 @@
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = "+ err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -168,20 +168,20 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = "+ err.stack);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> err = "+ err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> dependencyLoopBody -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> dependencyLoopBody -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -205,7 +205,7 @@
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> dependencyControlLoop -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> dependencyControlLoop -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -242,19 +242,19 @@
                                             periodsControlLoop();
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> err = "+ err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
-                                catch(err){
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> err = "+ err.stack);
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -278,14 +278,14 @@
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsControlLoop -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsControlLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -304,23 +304,23 @@
 
                     if (global.areEqualDates(bot.processDatetime, new Date()) === false) {
                         logger.newInternalLoop(bot.codeName, bot.process, bot.processDatetime);
-                    } 
-                    
+                    }
+
                     /*  Telling the world we are alive and doing well */
                     let currentDateString = bot.processDatetime.getUTCFullYear() + '-' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let currentDate = new Date(bot.processDatetime)
                     let lastDate = new Date()
-                    bot.processHeartBeat(currentDateString, global.getPercentage(currentDate, currentDate, lastDate)) 
+                    bot.processHeartBeat(currentDateString, global.getPercentage(currentDate, currentDate, lastDate))
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
 
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

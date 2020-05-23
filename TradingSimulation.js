@@ -149,7 +149,7 @@
 
             /* Loading a few icons */
 
-            imageStopLossPhase = canvas.designSpace.iconByUiObjectType.get('Stop');
+            imageStopLossPhase = canvas.designSpace.iconByUiObjectType.get('Managed Stop Loss');
             imageTakeProfitPhase = canvas.designSpace.iconByUiObjectType.get('Phase');
             imageRecord = canvas.designSpace.iconByUiObjectType.get('Trading System');
 

@@ -36,18 +36,18 @@ function newFileCloud () {
       function getFileRecursively (pRetryCounter, pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction) {
         try {
           if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> Entering function.') }
-          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pDataset.code.filePath + '-' + pDataset.code.fileName) }
+          if (INFO_LOG === true) { logger.write('[INFO] getFile -> getFileRecursively -> key = ' + pDataMine.config.codeName + '-' + pBot.config.codeName + '-' + pDataset.config.filePath + '-' + pDataset.config.fileName) }
 
           let fileName
           let filePath
 
           if (pDataRange === undefined) {
-            fileName = pDataset.code.fileName
-            filePath = pDataset.code.filePath
+            fileName = pDataset.config.fileName
+            filePath = pDataset.config.filePath
           } else {
-            if (pDataset.code.dataRange !== undefined) {
-              fileName = pDataset.code.dataRange.fileName
-              filePath = pDataset.code.dataRange.filePath
+            if (pDataset.config.dataRange !== undefined) {
+              fileName = pDataset.config.dataRange.fileName
+              filePath = pDataset.config.dataRange.filePath
             } else {
               let customErr = {
                 result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
@@ -80,19 +80,19 @@ function newFileCloud () {
           }
 
           if (pDataMine !== undefined) {
-            filePath = filePath.replace('@DataMine', pDataMine.code.codeName)
+            filePath = filePath.replace('@DataMine', pDataMine.config.codeName)
           }
 
           if (pBot !== undefined) {
-            filePath = filePath.replace('@Bot', pBot.code.codeName)
+            filePath = filePath.replace('@Bot', pBot.config.codeName)
           }
 
           if (pSession !== undefined) {
-            let code
+            let config
             let sessionFolderName = pSession.id
-            if (pSession.code !== undefined) {
-              if (pSession.code.folderName !== undefined) {
-                sessionFolderName = pSession.code.folderName + '-' + pSession.id
+            if (pSession.config !== undefined) {
+              if (pSession.config.folderName !== undefined) {
+                sessionFolderName = pSession.config.folderName + '-' + pSession.id
               }
             }
             filePath = filePath.replace('@Session', sessionFolderName)
@@ -103,8 +103,8 @@ function newFileCloud () {
           }
 
           filePath = filePath.replace('@Period', pPeriodName)
-          filePath = filePath.replace('@Dataset', pDataset.code.codeName)
-          filePath = filePath.replace('@Product', pProduct.code.codeName)
+          filePath = filePath.replace('@Dataset', pDataset.config.codeName)
+          filePath = filePath.replace('@Product', pProduct.config.codeName)
 
           if (pDatetime !== undefined) {
             filePath = filePath.replace('@Year', pDatetime.getUTCFullYear())

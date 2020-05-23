@@ -180,6 +180,7 @@ function newUiObjectsFromNodes () {
   }
 
   function migrateCodeToConfig (node, nodeDefinition) {
+    /* Code needed to Migrante from Beta 5 to Beta a Workspace */
     if (nodeDefinition.editors !== undefined) {
       if (nodeDefinition.editors.config === true) {
         if (node.code !== undefined) {
@@ -191,6 +192,15 @@ function newUiObjectsFromNodes () {
   }
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
+    /* Code needed to Migrante from Beta 5 to Beta 6 a Trading System
+    if (node.type === 'Take Profit') {
+      node.type = 'Managed Take Profit'
+    }
+    if (node.type === 'Stop') {
+      node.type = 'Managed Stop Loss'
+    }
+    */
+
     /* Get node definition */
     let nodeDefinition = getNodeDefinition(node)
     if (nodeDefinition !== undefined) {

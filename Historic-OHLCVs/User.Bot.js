@@ -57,35 +57,35 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
             exchangeId = bot.exchange.toLowerCase()
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
-            if (bot.exchangeNode.code.API !== undefined) {
-                for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
-                    if (bot.exchangeNode.code.API[i].method === 'fetch_ohlcv') {
-                        if (bot.exchangeNode.code.API[i].class !== undefined) {
-                            exchangeId = bot.exchangeNode.code.API[i].class
+            if (bot.exchangeNode.config.API !== undefined) {
+                for (let i = 0; i < bot.exchangeNode.config.API.length; i++) {
+                    if (bot.exchangeNode.config.API[i].method === 'fetch_ohlcv') {
+                        if (bot.exchangeNode.config.API[i].class !== undefined) {
+                            exchangeId = bot.exchangeNode.config.API[i].class
                         }
-                        if (bot.exchangeNode.code.API[i].fetchOHLCVsMethod !== undefined) {
+                        if (bot.exchangeNode.config.API[i].fetchOHLCVsMethod !== undefined) {
                             options = {
-                                'fetchOHLCVsMethod': bot.exchangeNode.code.API[i].fetchOHLCVsMethod
+                                'fetchOHLCVsMethod': bot.exchangeNode.config.API[i].fetchOHLCVsMethod
                             }
                         }
-                        if (bot.exchangeNode.code.API[i].firstId !== undefined) {
-                            firstId = bot.exchangeNode.code.API[i].firstId
+                        if (bot.exchangeNode.config.API[i].firstId !== undefined) {
+                            firstId = bot.exchangeNode.config.API[i].firstId
                         }
-                        if (bot.exchangeNode.code.API[i].rateLimit !== undefined) {
-                            rateLimit = bot.exchangeNode.code.API[i].rateLimit
+                        if (bot.exchangeNode.config.API[i].rateLimit !== undefined) {
+                            rateLimit = bot.exchangeNode.config.API[i].rateLimit
                         }
-                        if (bot.exchangeNode.code.API[i].hostname !== undefined) {
-                            hostname = bot.exchangeNode.code.API[i].hostname
+                        if (bot.exchangeNode.config.API[i].hostname !== undefined) {
+                            hostname = bot.exchangeNode.config.API[i].hostname
                         }
-                        if (bot.exchangeNode.code.API[i].fetchType !== undefined) {
-                            fetchType = bot.exchangeNode.code.API[i].fetchType
+                        if (bot.exchangeNode.config.API[i].fetchType !== undefined) {
+                            fetchType = bot.exchangeNode.config.API[i].fetchType
                         }
                     }
                 }
             }
 
-            if (bot.code.fetchLimit !== undefined) {
-                limit = bot.code.fetchLimit
+            if (bot.config.fetchLimit !== undefined) {
+                limit = bot.config.fetchLimit
             }
 
             let key = process.env.KEY

@@ -200,7 +200,7 @@ function newLayer () {
       /* Get ready to draw this layer */
       thisObject.baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
       thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
-      thisObject.market = thisObject.baseAsset.code.codeName + '/' + thisObject.quotedAsset.code.codeName
+      thisObject.market = thisObject.baseAsset.config.codeName + '/' + thisObject.quotedAsset.config.codeName
       thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
 
       /* Some basic validations. */
@@ -226,8 +226,8 @@ function newLayer () {
 
       thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
-      if (thisObject.plotterModule.code.icon !== undefined) {
-        thisObject.plotterTypeIcon = canvas.designSpace.iconCollection.get(thisObject.plotterModule.code.icon)
+      if (thisObject.plotterModule.config.icon !== undefined) {
+        thisObject.plotterTypeIcon = canvas.designSpace.iconCollection.get(thisObject.plotterModule.config.icon)
       }
 
       thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -240,12 +240,12 @@ function newLayer () {
       }
 
       function getIcon (node) {
-        let nodeDefinition = getNodeDefinition (node)
+        let nodeDefinition = getNodeDefinition(node)
         let iconName
         if (nodeDefinition.alternativeIcons !== undefined) {
           for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
             alternativeIcon = nodeDefinition.alternativeIcons[i]
-            if (alternativeIcon.codeName === node.code.codeName) {
+            if (alternativeIcon.codeName === node.config.codeName) {
               iconName = alternativeIcon.iconName
             }
           }

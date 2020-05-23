@@ -1,8 +1,8 @@
 function savePropertyAtNodeConfig (payload, propertyName, value) {
   try {
-    let code = JSON.parse(payload.node.code)
-    code[propertyName] = value
-    payload.node.code = JSON.stringify(code, null, 4)
+    let config = JSON.parse(payload.node.config)
+    config[propertyName] = value
+    payload.node.config = JSON.stringify(config, null, 4)
   } catch (err) {
      // we ignore errors here since most likely they will be parsing errors.
   }
@@ -10,8 +10,8 @@ function savePropertyAtNodeConfig (payload, propertyName, value) {
 
 function loadPropertyFromNodeConfig (payload, propertyName) {
   try {
-    let code = JSON.parse(payload.node.code)
-    return code[propertyName]
+    let config = JSON.parse(payload.node.config)
+    return config[propertyName]
   } catch (err) {
      // we ignore errors here since most likely they will be parsing errors.
   }

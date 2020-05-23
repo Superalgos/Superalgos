@@ -9,17 +9,18 @@ function newProtocolNode () {
   }
   return thisObject
 
-  function getProtocolNode (node, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, lightingPath) {
+  function getProtocolNode (node, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, lightingPath) {
     if (node === undefined) { return }
     if (node.payload === undefined) { return }
 
-    let nodeDefinition = getNodeDefinition (node)
+    let nodeDefinition = getNodeDefinition(node)
     if (nodeDefinition !== undefined) {
       if (removePersonalData === true && nodeDefinition.isPersonalData === true) { return }
       let object = {
         type: node.type,
         name: node.name,
-        code: node.code
+        code: node.code,
+        config: node.config
       }
 
       /* Children Nodes */
@@ -31,11 +32,11 @@ function newProtocolNode () {
             case 'node': {
               if (node[property.name] !== undefined) {
                 if (lightingPath === undefined) {
-                  object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
+                  object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseConfig, includeIds, includeReferencesInSavedPayload, includePayload)
                 } else {
                   let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
                   if (newLightingPath !== undefined) {
-                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
                   }
                 }
               }
@@ -47,7 +48,7 @@ function newProtocolNode () {
                   let nodePropertyArray = node[property.name]
                   object[property.name] = []
                   for (let m = 0; m < nodePropertyArray.length; m++) {
-                    let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includeReferencesInSavedPayload, includePayload)
+                    let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseConfig, includeIds, includeReferencesInSavedPayload, includePayload)
                     if (protocolNode !== undefined) {
                       object[property.name].push(protocolNode)
                     }
@@ -58,7 +59,7 @@ function newProtocolNode () {
                     let nodePropertyArray = node[property.name]
                     object[property.name] = []
                     for (let m = 0; m < nodePropertyArray.length; m++) {
-                      let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                      let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
                       if (protocolNode !== undefined) {
                         object[property.name].push(protocolNode)
                       }
@@ -76,25 +77,25 @@ function newProtocolNode () {
       if (node.payload.parentNode !== undefined) {
         let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
         if (newLightingPath !== undefined) {
-          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+          object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
         }
       }
       if (node.payload.referenceParent !== undefined) {
         let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.referenceParent.type)
         if (newLightingPath !== undefined) {
-          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseCode, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+          object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
         }
       }
 
-      if (parseCode && object.code !== undefined && nodeDefinition.editors !== undefined) {
+      if (parseConfig && object.config !== undefined && nodeDefinition.editors !== undefined) {
         if (nodeDefinition.editors.config === true) {
           try {
-            object.code = JSON.parse(node.code)
+            object.config = JSON.parse(node.config)
           } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> err = ' + err.stack) }
             if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.type = ' + node.type) }
             if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.name = ' + node.name) }
-            if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.code = ' + node.code) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.config = ' + node.config) }
             if (ERROR_LOG === true) { logger.write('[ERROR] getProtocolNode -> default -> node.id = ' + node.id) }
           }
         }

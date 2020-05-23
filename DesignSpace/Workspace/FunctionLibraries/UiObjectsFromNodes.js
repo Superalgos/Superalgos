@@ -26,14 +26,14 @@ function newUiObjectsFromNodes () {
     function addIncludedNodes () {
       let blobService = newFileStorage()
 
-      // if (node.code === undefined) {
-      node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
+      // if (node.config === undefined) {
+      node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
       // }
 
-      let code = JSON.parse(node.code)
-      let includeDataMines = code.includeDataMines
-      let includeTradingSystems = code.includeTradingSystems
-      let includeSuperScripts = code.includeSuperScripts
+      let config = JSON.parse(node.config)
+      let includeDataMines = config.includeDataMines
+      let includeTradingSystems = config.includeTradingSystems
+      let includeSuperScripts = config.includeSuperScripts
 
       let totalIncluded = 0
 
@@ -49,9 +49,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Data Mine') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -78,9 +78,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Trading System') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -107,9 +107,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Super Scripts') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -179,10 +179,23 @@ function newUiObjectsFromNodes () {
     }
   }
 
+  function migrateCodeToConfig (node, nodeDefinition) {
+    if (nodeDefinition.editors !== undefined) {
+      if (nodeDefinition.editors.config === true) {
+        if (node.code !== undefined) {
+          node.config = node.code
+          node.code = undefined
+        }
+      }
+    }
+  }
+
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
     /* Get node definition */
-    let nodeDefinition = getNodeDefinition (node)
+    let nodeDefinition = getNodeDefinition(node)
     if (nodeDefinition !== undefined) {
+      migrateCodeToConfig(node, nodeDefinition)
+
       /* Resolve Initial Values */
       if (nodeDefinition.initialValues !== undefined) {
         if (nodeDefinition.initialValues.code !== undefined) {
@@ -190,12 +203,17 @@ function newUiObjectsFromNodes () {
             node.code = nodeDefinition.initialValues.code
           }
         }
+        if (nodeDefinition.initialValues.config !== undefined) {
+          if (node.config === undefined) {
+            node.config = nodeDefinition.initialValues.config
+          }
+        }
       }
 
       /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
       if (nodeDefinition.chainedToSameType === true) {
         if (parentNode !== undefined) {
-          let parentNodeDefinition = getNodeDefinition (parentNode)
+          let parentNodeDefinition = getNodeDefinition(parentNode)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
               for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
@@ -263,12 +281,12 @@ function newUiObjectsFromNodes () {
       type: type
     }
 
-    let parentNodeDefinition = getNodeDefinition (parentNode)
+    let parentNodeDefinition = getNodeDefinition(parentNode)
     if (parentNodeDefinition === undefined) {
       console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
     }
       /* Resolve Initial Values */
-    let nodeDefinition = getNodeDefinition (object)
+    let nodeDefinition = getNodeDefinition(object)
 
     if (nodeDefinition === undefined) {
       console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
@@ -277,6 +295,11 @@ function newUiObjectsFromNodes () {
     if (nodeDefinition.initialValues !== undefined) {
       if (nodeDefinition.initialValues.code !== undefined) {
         object.code = nodeDefinition.initialValues.code
+      }
+    }
+    if (nodeDefinition.initialValues !== undefined) {
+      if (nodeDefinition.initialValues.config !== undefined) {
+        object.config = nodeDefinition.initialValues.config
       }
     }
 
@@ -320,6 +343,9 @@ function newUiObjectsFromNodes () {
       if (nodeDefinition.initialValues !== undefined) {
         if (nodeDefinition.initialValues.code !== undefined) {
           object.code = nodeDefinition.initialValues.code
+        }
+        if (nodeDefinition.initialValues.config !== undefined) {
+          object.config = nodeDefinition.initialValues.config
         }
       }
     }
@@ -393,7 +419,7 @@ function newUiObjectsFromNodes () {
   }
 
   function addMissingChildren (node) {
-    let nodeDefinition = getNodeDefinition (node)
+    let nodeDefinition = getNodeDefinition(node)
 
       /* Connect to Parent */
     if (nodeDefinition.properties !== undefined) {

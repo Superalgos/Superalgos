@@ -99,7 +99,7 @@ function newPlottersManager () {
       for (let i = 0; i < layer.definition.referenceParent.referenceParent.datasets.length; i++) {
         let dataset = layer.definition.referenceParent.referenceParent.datasets[i]
 
-        switch (dataset.code.type) {
+        switch (dataset.config.type) {
           case 'Market Files': {
             storage.onMarketFileLoadedLayerEventsSubscriptionId = storage.eventHandler.listenToEvent('Market File Loaded', layer.onMarketFileLoaded)
           }
@@ -125,8 +125,8 @@ function newPlottersManager () {
         }
       }
 
-      let baseAsset = layer.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.code.codeName
-      let quotedAsset = layer.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.code.codeName
+      let baseAsset = layer.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+      let quotedAsset = layer.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
       let market = {
         baseAsset: baseAsset,
         quotedAsset: quotedAsset
@@ -146,8 +146,8 @@ function newPlottersManager () {
         }
       }
 
-      let host = layer.networkNode.code.host
-      let webPort = layer.networkNode.code.webPort
+      let host = layer.networkNode.config.host
+      let webPort = layer.networkNode.config.webPort
       if (host === undefined) { host = 'localhost' }
       if (webPort === undefined) { webPort = window.location.port }
 
@@ -174,10 +174,10 @@ function newPlottersManager () {
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
             let plotter
 
-            if (plotterModule.code.isLegacy !== true) {
+            if (plotterModule.config.isLegacy !== true) {
               plotter = newPlotter()
             } else {
-              plotter = getNewPlotter(dataMine.code.codeName, plotterModule.parentNode.code.codeName, plotterModule.code.codeName)
+              plotter = getNewPlotter(dataMine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
             }
 
             plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
@@ -203,9 +203,9 @@ function newPlottersManager () {
                     let panel = plotterModule.panels[i]
 
                     let parameters = {
-                      dataMine: dataMine.code.codeName,
-                      plotterCodeName: plotterModule.parentNode.code.codeName,
-                      moduleCodeName: plotterModule.code.codeName,
+                      dataMine: dataMine.config.codeName,
+                      plotterCodeName: plotterModule.parentNode.config.codeName,
+                      moduleCodeName: plotterModule.config.codeName,
                       panelNode: panel
                     }
 

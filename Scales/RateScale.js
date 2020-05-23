@@ -255,12 +255,12 @@ function newRateScale () {
 
   function saveObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      code.minValue = coordinateSystem.min.y
-      code.maxValue = coordinateSystem.max.y
-      code.autoMinScale = coordinateSystem.autoMinYScale
-      code.autoMaxScale = coordinateSystem.autoMaxYScale
-      thisObject.payload.node.code = JSON.stringify(code, null, 4)
+      let config = JSON.parse(thisObject.payload.node.config)
+      config.minValue = coordinateSystem.min.y
+      config.maxValue = coordinateSystem.max.y
+      config.autoMinScale = coordinateSystem.autoMinYScale
+      config.autoMaxScale = coordinateSystem.autoMaxYScale
+      thisObject.payload.node.config = JSON.stringify(config, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -268,29 +268,29 @@ function newRateScale () {
 
   function readObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
+      let config = JSON.parse(thisObject.payload.node.config)
 
       if (
-      (isNaN(code.minValue) || code.minValue === null || code.minValue === undefined) ||
-      (isNaN(code.maxValue) || code.maxValue === null || code.maxValue === undefined)
+      (isNaN(config.minValue) || config.minValue === null || config.minValue === undefined) ||
+      (isNaN(config.maxValue) || config.maxValue === null || config.maxValue === undefined)
         ) {
         // not using this value
       } else {
         if (
-          thisObject.minValue !== code.minValue ||
-          thisObject.maxValue !== code.maxValue ||
-          coordinateSystem.autoMinYScale !== code.autoMinScale ||
-          coordinateSystem.autoMaxYScale !== code.autoMaxScale
+          thisObject.minValue !== config.minValue ||
+          thisObject.maxValue !== config.maxValue ||
+          coordinateSystem.autoMinYScale !== config.autoMinScale ||
+          coordinateSystem.autoMaxYScale !== config.autoMaxScale
         ) {
-          thisObject.minValue = code.minValue
-          thisObject.maxValue = code.maxValue
+          thisObject.minValue = config.minValue
+          thisObject.maxValue = config.maxValue
           coordinateSystem.min.y = thisObject.minValue
           coordinateSystem.max.y = thisObject.maxValue
 
-          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
-            coordinateSystem.autoMinYScale = code.autoMinScale
-            coordinateSystem.autoMaxYScale = code.autoMaxScale
-            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
+          if (config.autoMinScale !== undefined && (config.autoMinScale === true || config.autoMinScale === false) && config.autoMaxScale !== undefined && (config.autoMaxScale === true || config.autoMaxScale === false)) {
+            coordinateSystem.autoMinYScale = config.autoMinScale
+            coordinateSystem.autoMaxYScale = config.autoMaxScale
+            autoScaleButton.setStatus(config.autoMinScale, config.autoMaxScale)
           }
 
           coordinateSystem.recalculateScale()

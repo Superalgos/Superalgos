@@ -369,10 +369,10 @@ function newViewport () {
 
     /* Save the zoom at the node config, so that the user can change it if he wishes to. */
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      code.zoom = (thisObject.zoomTargetLevel - MIN_ZOOM_LEVEL) / (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) * 100
-      code.zoom = code.zoom.toFixed(2)
-      thisObject.payload.node.code = JSON.stringify(code)
+      let config = JSON.parse(thisObject.payload.node.config)
+      config.zoom = (thisObject.zoomTargetLevel - MIN_ZOOM_LEVEL) / (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) * 100
+      config.zoom = config.zoom.toFixed(2)
+      thisObject.payload.node.config = JSON.stringify(config)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -383,18 +383,18 @@ function newViewport () {
 
     /* Read the zoom level from the node config */
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
+      let config = JSON.parse(thisObject.payload.node.config)
 
-      if (isNaN(code.zoom) || code.zoom === null || code.zoom === undefined) {
+      if (isNaN(config.zoom) || config.zoom === null || config.zoom === undefined) {
         saveObjectState()
         return
       }
-      code.zoom = code.zoom / 100 * (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) + MIN_ZOOM_LEVEL
-      if (code.zoom < MIN_ZOOM_LEVEL) { code.zoom = MIN_ZOOM_LEVEL }
-      if (code.zoom > MAX_ZOOM_LEVEL) { code.zoom = MAX_ZOOM_LEVEL }
+      config.zoom = config.zoom / 100 * (MAX_ZOOM_LEVEL - MIN_ZOOM_LEVEL) + MIN_ZOOM_LEVEL
+      if (config.zoom < MIN_ZOOM_LEVEL) { config.zoom = MIN_ZOOM_LEVEL }
+      if (config.zoom > MAX_ZOOM_LEVEL) { config.zoom = MAX_ZOOM_LEVEL }
 
-      if (code.zoom.toFixed(2) !== thisObject.zoomTargetLevel.toFixed(2)) {
-        newZoomLevel(code.zoom)
+      if (config.zoom.toFixed(2) !== thisObject.zoomTargetLevel.toFixed(2)) {
+        newZoomLevel(config.zoom)
       } else {
         saveObjectState()
       }

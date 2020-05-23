@@ -148,9 +148,9 @@ function newWorkspace () {
           let webSocketsPort
           /* At this point the node does not have the payload property yet, that is why we have to do this manually */
           try {
-            let code = JSON.parse(networkNode.code)
-            host = code.host
-            webSocketsPort = code.webSocketsPort
+            let config = JSON.parse(networkNode.config)
+            host = config.host
+            webSocketsPort = config.webSocketsPort
           } catch (err) {
             console.log('[ERROR] networkNode ' + networkNode.name + ' has an invalid configuration. Cannot know the host name and webSocketsPort.')
             return
@@ -345,7 +345,7 @@ function newWorkspace () {
     let nodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let nodeDefinition = getNodeDefinition (rootNode)
+      let nodeDefinition = getNodeDefinition(rootNode)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           nodes.push(rootNode)
@@ -601,7 +601,7 @@ function newWorkspace () {
         break
       case 'Open Documentation':
         {
-          let definition = getNodeDefinition (payload.node)
+          let definition = getNodeDefinition(payload.node)
           if (definition !== undefined) {
             if (definition.docURL !== undefined) {
               let newTab = window.open(definition.docURL, '_blank')

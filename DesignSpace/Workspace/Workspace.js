@@ -345,7 +345,7 @@ function newWorkspace () {
     let nodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let nodeDefinition = APP_SCHEMA_MAP.get(rootNode.type)
+      let nodeDefinition = getNodeDefinition (rootNode)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           nodes.push(rootNode)
@@ -601,7 +601,7 @@ function newWorkspace () {
         break
       case 'Open Documentation':
         {
-          let definition = APP_SCHEMA_MAP.get(payload.node.type)
+          let definition = getNodeDefinition (payload.node)
           if (definition !== undefined) {
             if (definition.docURL !== undefined) {
               let newTab = window.open(definition.docURL, '_blank')

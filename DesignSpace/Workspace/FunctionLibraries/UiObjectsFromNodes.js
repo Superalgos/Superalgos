@@ -181,7 +181,7 @@ function newUiObjectsFromNodes () {
 
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
     /* Get node definition */
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
     if (nodeDefinition !== undefined) {
       /* Resolve Initial Values */
       if (nodeDefinition.initialValues !== undefined) {
@@ -195,7 +195,7 @@ function newUiObjectsFromNodes () {
       /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
       if (nodeDefinition.chainedToSameType === true) {
         if (parentNode !== undefined) {
-          let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+          let parentNodeDefinition = getNodeDefinition (parentNode)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
               for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
@@ -263,12 +263,12 @@ function newUiObjectsFromNodes () {
       type: type
     }
 
-    let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    let parentNodeDefinition = getNodeDefinition (parentNode)
     if (parentNodeDefinition === undefined) {
       console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
     }
       /* Resolve Initial Values */
-    let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+    let nodeDefinition = getNodeDefinition (object)
 
     if (nodeDefinition === undefined) {
       console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
@@ -393,7 +393,7 @@ function newUiObjectsFromNodes () {
   }
 
   function addMissingChildren (node) {
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
 
       /* Connect to Parent */
     if (nodeDefinition.properties !== undefined) {

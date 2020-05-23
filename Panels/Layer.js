@@ -240,7 +240,7 @@ function newLayer () {
       }
 
       function getIcon (node) {
-        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = getNodeDefinition (node)
         let iconName
         if (nodeDefinition.alternativeIcons !== undefined) {
           for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {

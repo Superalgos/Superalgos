@@ -29,7 +29,7 @@ function newNodeDeleter () {
       node.payload.referenceParent.payload.uiObject.isShowing = false
     }
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
     if (nodeDefinition !== undefined) {
       /* Remove all of its own children nodes. */
       if (nodeDefinition.properties !== undefined) {
@@ -63,7 +63,7 @@ function newNodeDeleter () {
       /* Remove node from parent */
       if (node.payload !== undefined) {
         if (node.payload.parentNode !== undefined) {
-          let parentNodeDefinition = APP_SCHEMA_MAP.get(node.payload.parentNode.type)
+          let parentNodeDefinition = getNodeDefinition (node.payload.parentNode)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
               for (let i = 0; i < parentNodeDefinition.properties.length; i++) {

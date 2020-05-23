@@ -1,3 +1,12 @@
+function getNodeDefinition (node) {
+  let key
+  if (node.nameSpace !== undefined) {
+    key = node.type + '@' + node.nameSpace
+  } else {
+    key = node.type
+  }
+  return APP_SCHEMA_MAP.get(key)
+}
 
 function dynamicDecimals (value, minDecimals) {
   if (minDecimals === undefined) {

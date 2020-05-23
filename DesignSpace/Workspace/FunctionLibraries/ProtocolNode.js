@@ -13,7 +13,7 @@ function newProtocolNode () {
     if (node === undefined) { return }
     if (node.payload === undefined) { return }
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
     if (nodeDefinition !== undefined) {
       if (removePersonalData === true && nodeDefinition.isPersonalData === true) { return }
       let object = {

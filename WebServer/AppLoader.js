@@ -54,7 +54,12 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js', 
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                                
-                'Utilities/RoundedCornersBackground.js',
+                'Utilities/CoordinateTransformations.js',
+                'Utilities/DateRateTransformations.js',
+                'Utilities/Download.js',
+                'Utilities/DrawPrint.js',
+                'Utilities/LoadSaveFrame.js',
+                'Utilities/NodeConfig.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

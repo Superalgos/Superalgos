@@ -955,7 +955,10 @@
                 }
 
                 function writeSnapshotFile(snapshotArray, pFileName, callBack) {
-
+                    if (bot.startMode !== 'Backtest') {
+                    callBack(global.DEFAULT_OK_RESPONSE);
+                    return;
+                    }
                     try {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeDailyFiles -> writeSnapshotFile -> Entering function."); }

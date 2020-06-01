@@ -54,6 +54,7 @@
 
                     /* We are going to run the Definition comming at the event. */
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
+                    bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = message.event.resume

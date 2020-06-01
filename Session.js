@@ -53,11 +53,20 @@
                     if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
                     /* We are going to run the Definition comming at the event. */
+                    bot.APP_SCHEMA_ARRAY = JSON.parse(message.event.appSchema)
                     bot.TRADING_SYSTEM = JSON.parse(message.event.tradingSystem)
                     bot.TRADING_ENGINE = JSON.parse(message.event.tradingEngine)
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = message.event.resume
+
+                    /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
+                    bot.APP_SCHEMA_MAP = new Map()
+                    for (let i = 0; i < bot.APP_SCHEMA_ARRAY.length; i++) {
+                        let nodeDefinition = bot.APP_SCHEMA_ARRAY[i]
+                        let key = nodeDefinition.type
+                        bot.APP_SCHEMA_MAP.set(key, nodeDefinition)
+                    }
 
                     /* Set the folderName for logging, reports, context and data output */
                     let config

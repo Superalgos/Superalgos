@@ -14,7 +14,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
     let utilities = UTILITIES.newCloudUtilities(logger)
     let fileStorage = FILE_STORAGE.newFileStorage(logger)
 
-    const COMMONS = require('./Commons.js')
+    const COMMONS = require('../Commons.js')
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE)
 
     let exchangeAPI

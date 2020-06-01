@@ -41,7 +41,7 @@
             dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
 
-            let USER_BOT_MODULE = require("./TradingBot")
+            let USER_BOT_MODULE = require("./Trading/TradingBot")
 
             botInstance = USER_BOT_MODULE.newTradingBot(bot, logger, UTILITIES, FILE_STORAGE);
             botInstance.initialize(exchangeAPI, callBackFunction);

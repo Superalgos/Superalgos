@@ -52,9 +52,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             }
 
             let tradingSystem = bot.TRADING_SYSTEM
+            let tradingEngine = bot.TRADING_ENGINE
+            let sessionParameters = bot.SESSION.parameters
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.initialDatetime = ' + bot.VALUES_TO_USE.timeRange.initialDatetime) }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> bot.VALUES_TO_USE.timeRange.finalDatetime = ' + bot.VALUES_TO_USE.timeRange.finalDatetime) }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> sessionParameters.timeRange.config.initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> sessionParameters.timeRange.config.finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
             let timerToCloseStage = 0
 
@@ -77,6 +79,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             if (currentDay) {
                 lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1
             }
+
+            const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
+            let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+            tradingEngineModule.initialize()
 
             if (variable.isInitialized !== true || bot.RESUME === false) {
                 variable.isInitialized = true
@@ -239,7 +245,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 } else {
                     /* Estimate Initial Candle based on the timeRage configured for the session. */
                     let firstEnd = candles[0].end
-                    let targetEnd = bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()
+                    let targetEnd = sessionParameters.timeRange.config.initialDatetime.valueOf()
                     let diff = targetEnd - firstEnd
                     let amount = diff / variable.episode.parameters.timeFrame
 
@@ -247,7 +253,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (currentCandleIndex < 0) { currentCandleIndex = 0 }
                     if (currentCandleIndex > candles.length - 1) {
                         /* 
-                        This will happen when the bot.VALUES_TO_USE.timeRange.initialDatetime is beyond the last candle available, 
+                        This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                         meaning that the dataSet needs to be updated with more up-to-date data. 
                         */
                         currentCandleIndex = candles.length - 1
@@ -274,13 +280,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 let candle = candles[currentCandleIndex]
 
                 /* Not processing while out of user-defined time range */
-                if (candle.end < bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle before the bot.VALUES_TO_USE.timeRange.initialDatetime.') }
+                if (candle.end < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     controlLoop()
                     return
                 }
-                if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle after the bot.VALUES_TO_USE.timeRange.finalDatetime.') }
+                if (candle.begin > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     afterLoop()
                     return
                 }
@@ -367,8 +373,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + currentCandleIndex + ' @ ' + processingDate) }
 
                     /*  Telling the world we are alive and doing well */
-                    let fromDate = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
-                    let lastDate = new Date(bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf())
+                    let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime.valueOf())
+                    let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime.valueOf())
 
                     let currentDateString = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2)
                     let currentDate = new Date(loopingDay)
@@ -1713,19 +1719,19 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     function putOpeningOrder() {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Entering function.') }
 
-                        /* We wont take a position unless we are withing the bot.VALUES_TO_USE.timeRange.initialDatetime and the bot.VALUES_TO_USE.timeRange.finalDatetime range */
-                        if (bot.VALUES_TO_USE.timeRange.initialDatetime !== undefined) {
-                            if (candle.end < bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> bot.VALUES_TO_USE.timeRange.initialDatetime = ' + bot.VALUES_TO_USE.timeRange.initialDatetime) }
+                        /* We wont take a position unless we are withing the sessionParameters.timeRange.config.initialDatetime and the sessionParameters.timeRange.config.finalDatetime range */
+                        if (sessionParameters.timeRange.config.initialDatetime !== undefined) {
+                            if (candle.end < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> sessionParameters.timeRange.config.initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
                                 takePositionAtSimulation()
                                 return
                             }
                         }
 
                         /* We wont take a position if we are past the final datetime */
-                        if (bot.VALUES_TO_USE.timeRange.finalDatetime !== undefined) {
-                            if (candle.begin > bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> bot.VALUES_TO_USE.timeRange.finalDatetime = ' + bot.VALUES_TO_USE.timeRange.finalDatetime) }
+                        if (sessionParameters.timeRange.config.finalDatetime !== undefined) {
+                            if (candle.begin > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> sessionParameters.timeRange.config.finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
                                 takePositionAtSimulation()
                                 return
                             }

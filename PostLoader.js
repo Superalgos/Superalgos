@@ -28,17 +28,9 @@ function newDashboard () {
         APP_SCHEMA_ARRAY = getAppSchema()
         for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
           let nodeDefinition = APP_SCHEMA_ARRAY[i]
-
-          let key
-          if (nodeDefinition.nameSpace !== undefined) {
-            key = nodeDefinition.type + '@' + nodeDefinition.nameSpace
-          } else {
-            key = nodeDefinition.type
-          }
-
+          let key = nodeDefinition.type
           APP_SCHEMA_MAP.set(key, nodeDefinition)
         }
-
         startCanvas()
       }
 

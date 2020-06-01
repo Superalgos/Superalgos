@@ -73,6 +73,7 @@ function newSessionFunctions () {
 
     /* Raise event to run the session */
     let event = {
+      appSchema: JSON.stringify(APP_SCHEMA_ARRAY),
       session: JSON.stringify(session),
       tradingSystem: JSON.stringify(tradingSystem),
       tradingEngine: JSON.stringify(tradingEngine),

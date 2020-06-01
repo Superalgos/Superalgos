@@ -65,7 +65,7 @@
             if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
 
             let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
-            if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return } 
+            if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
             commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
@@ -86,7 +86,7 @@
                 */
 
                 recordDefinition = outputDatasetNode.referenceParent.parentNode.record
-                singularVariableName = outputDatasetNode.referenceParent.parentNode.code.singularVariableName
+                singularVariableName = outputDatasetNode.referenceParent.parentNode.config.singularVariableName
 
                 /* Check Irregular Periods */
 
@@ -103,7 +103,7 @@
                     recordDefinition,
                     outputDatasetNode.referenceParent.parentNode.dataBuilding,
                     singularVariableName,
-                    outputDatasetNode.referenceParent.parentNode.code.codeName,
+                    outputDatasetNode.referenceParent.parentNode.config.codeName,
                     timeFrame,
                     timeFrameLabel,
                     resultsWithIrregularPeriods,
@@ -118,14 +118,14 @@
                 } else {
                     outputData = jsonData
                 }
-                products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName] = outputData
+                products[outputDatasetNode.referenceParent.parentNode.config.pluralVariableName] = outputData
             }
 
             /*At the fourth and last phase, we will save the new information generated into files corresponding to each output outputDatasetNode.*/
             let totalFilesWritten = 0
             for (let i = 0; i < outputDatasets.length; i++) {
                 let outputDatasetNode = outputDatasets[i]
-                let outputData = products[outputDatasetNode.referenceParent.parentNode.code.pluralVariableName] 
+                let outputData = products[outputDatasetNode.referenceParent.parentNode.config.pluralVariableName]
                 let resultsWithIrregularPeriods     // A product will have irregular periods when the User Code inserts new result records at will, in contrast with normal procedure where the platform insert one record per loop execution.
                 let contextSummary = {}
 
@@ -136,10 +136,10 @@
 
                 /* Simplifying the access to basic info */
 
-                contextSummary.dataset = outputDatasetNode.referenceParent.code.codeName
-                contextSummary.product = outputDatasetNode.referenceParent.parentNode.code.codeName
-                contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.code.codeName
-                contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+                contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
+                contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
+                contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.config.codeName
+                contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
 
                 /* This stuff is still hardcoded and unresolved. */
                 contextSummary.botVersion = {

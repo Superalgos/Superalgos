@@ -112,7 +112,7 @@
 
         }
         catch (err) {
-            console.log(logDisplace  + "Root : [ERROR] initialize -> err = " + err.stack);
+            console.log(logDisplace + "Root : [ERROR] initialize -> err = " + err.stack);
             return;
         }
     }
@@ -141,19 +141,19 @@
 
             /* Here we will check if we need to load the configuration and code of the bot from a file or we will take that from the UI. */
             if (
-                processInstance.referenceParent.code.framework !== undefined &&
-                (   processInstance.referenceParent.code.framework.name === 'Multi-Period-Market' ||
-                    processInstance.referenceParent.code.framework.name === 'Multi-Period-Daily' ||
-                    processInstance.referenceParent.code.framework.name === 'Multi-Period')
-                ) {
-                botConfig = processInstance.referenceParent.parentNode.code
+                processInstance.referenceParent.config.framework !== undefined &&
+                (processInstance.referenceParent.config.framework.name === 'Multi-Period-Market' ||
+                    processInstance.referenceParent.config.framework.name === 'Multi-Period-Daily' ||
+                    processInstance.referenceParent.config.framework.name === 'Multi-Period')
+            ) {
+                botConfig = processInstance.referenceParent.parentNode.config
                 botConfig.definedByUI = true
                 bootingBot(processIndex)
                 return
             } else {
                 getBotConfigFromFile();
                 return
-            }           
+            }
 
             function getBotConfigFromFile() {
 
@@ -162,7 +162,7 @@
                     const FILE_STORAGE = require('./FileStorage.js');
                     let fileStorage = FILE_STORAGE.newFileStorage();
 
-                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName + '/bots/' + global.TASK_NODE.bot.code.repo + '/this.bot.config.json';
+                    let filePath = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + '/bots/' + global.TASK_NODE.bot.config.repo + '/this.bot.config.json';
 
                     fileStorage.getTextFile(filePath, onFileReceived);
 
@@ -171,13 +171,13 @@
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> filePath = " + filePath);
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> dataMine = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName);
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> dataMine = " + global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName);
                             return;
                         }
 
                         try {
                             botConfig = JSON.parse(text);
-                            botConfig.repo = global.TASK_NODE.bot.code.repo;
+                            botConfig.repo = global.TASK_NODE.bot.config.repo;
                             bootingBot(processIndex);
                         } catch (err) {
                             console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
@@ -195,7 +195,7 @@
 
                 try {
 
-                    botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.code.codeName
+                    botConfig.process = global.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                     botConfig.debug = {};
                     botConfig.processNode = global.TASK_NODE.bot.processes[processIndex]
 
@@ -204,15 +204,15 @@
                     botConfig.DELETE_QUEUE_SIZE = 10 // This number represents how many log files can be at the queue at any point in time, which means how many logs are not still deleted.
 
                     /* Simplifying the access to basic info */
-                    botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.code.codeName
+                    botConfig.dataMine = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName
                     botConfig.exchange = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode.name
                     botConfig.exchangeNode = global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.parentNode.parentNode
                     botConfig.market = {
-                        baseAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent.code.codeName,
-                        quotedAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent.code.codeName
+                        baseAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.baseAsset.referenceParent.config.codeName,
+                        quotedAsset: global.TASK_NODE.bot.processes[processIndex].marketReference.referenceParent.quotedAsset.referenceParent.config.codeName
                     }
-                    botConfig.uiStartDate = global.TASK_NODE.bot.code.startDate
-                    botConfig.code = global.TASK_NODE.bot.code
+                    botConfig.uiStartDate = global.TASK_NODE.bot.config.startDate
+                    botConfig.config = global.TASK_NODE.bot.config
 
                     /* This stuff is still hardcoded and unresolved. */
                     botConfig.version = {
@@ -222,10 +222,10 @@
                     botConfig.dataSetVersion = "dataSet.V1"
 
                     /* Loop Counter */
-                    botConfig.loopCounter = 0;                   
+                    botConfig.loopCounter = 0;
 
                     /* File Path Root */
-                    botConfig.filePathRoot = botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset + "/" + botConfig.dataMine + "/" + botConfig.codeName  ;
+                    botConfig.filePathRoot = botConfig.exchange + "/" + botConfig.market.baseAsset + "-" + botConfig.market.quotedAsset + "/" + botConfig.dataMine + "/" + botConfig.codeName;
 
                     /* Process Key */
                     botConfig.processKey = global.TASK_NODE.bot.processes[processIndex].name + '-' + global.TASK_NODE.bot.processes[processIndex].type + '-' + global.TASK_NODE.bot.processes[processIndex].id
@@ -243,14 +243,14 @@
                                 if (botConfig.processNode.marketReference.keyInstance.referenceParent !== undefined) {
                                     let key = botConfig.processNode.marketReference.keyInstance.referenceParent
 
-                                    process.env.KEY = key.code.codeName
-                                    process.env.SECRET = key.code.secret
+                                    process.env.KEY = key.config.codeName
+                                    process.env.SECRET = key.config.secret
                                 }
                             }
                         }
                     }
 
-                    let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.code
+                    let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
                     if (processConfig.framework !== undefined) {
                         if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
@@ -283,7 +283,7 @@
                         if (processConfig.startMode === undefined) { // Default 
 
                             botConfig.hasTheBotJustStarted = true;
-                              
+
                             switch (botConfig.type) {
                                 case 'Sensor Bot': {
                                     runSensorBot(botConfig, processConfig);
@@ -475,7 +475,7 @@
                                         pBotConfig.loopCounter = 0;
 
                                         let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
-                                     
+
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");

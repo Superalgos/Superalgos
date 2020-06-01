@@ -16,7 +16,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
     /* Storage account to be used here. */
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage 
+    let fileStorage
 
     return thisObject;
 
@@ -36,7 +36,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return
             }
 
-            if (thisObject.node.code.codeName === undefined) {
+            if (thisObject.node.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -48,7 +48,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return
             }
 
-            if (thisObject.node.parentNode.code.codeName === undefined) {
+            if (thisObject.node.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -60,7 +60,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return
             }
 
-            if (thisObject.node.parentNode.parentNode.code.codeName === undefined) {
+            if (thisObject.node.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -72,14 +72,14 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                 return
             }
 
-            if (thisObject.node.parentNode.parentNode.parentNode.code.codeName === undefined) {
+            if (thisObject.node.parentNode.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             /* Now we will see where do we need to fetch this data from. */
-            let network = global.TASK_NETWORK 
+            let network = global.TASK_NETWORK
             let datasetProductDefinition = thisObject.node.parentNode
 
             for (let i = 0; i < network.networkNodes.length; i++) {
@@ -102,9 +102,9 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                                                 if (datasetProductDefinition.id === productDefinition.id) {
 
                                                     /* We found where the data is located on the network. */
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return
                                                 }
@@ -133,9 +133,9 @@ exports.newDataSet = function newDataSet(BOT, logger) {
                                                 if (datasetProductDefinition.id === productDefinition.id) {
 
                                                     /* We found where the data is located on the network. */
-                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+                                                    if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
-                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                    fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
                                                     callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                     return
                                                 }
@@ -155,7 +155,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -173,8 +173,8 @@ exports.newDataSet = function newDataSet(BOT, logger) {
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] getTextFile -> Entering function."); }
 
-            let dataMineCodeName = thisObject.node.parentNode.parentNode.parentNode.code.codeName
-            let botCodeName = thisObject.node.parentNode.parentNode.code.codeName
+            let dataMineCodeName = thisObject.node.parentNode.parentNode.parentNode.config.codeName
+            let botCodeName = thisObject.node.parentNode.parentNode.config.codeName
 
             let filePathRoot = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + dataMineCodeName + "/" + botCodeName;
             let filePath = filePathRoot + "/Output/" + pFolderPath;
@@ -191,7 +191,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] 'getTextFile' -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -232,7 +232,7 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             }
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

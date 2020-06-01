@@ -23,7 +23,7 @@
         status: undefined
     };
 
-    let statusDependencyNode;   
+    let statusDependencyNode;
 
     /* Utilities needed. */
 
@@ -32,7 +32,7 @@
     /* Storage account to be used here. */
 
     const FILE_STORAGE = require('./FileStorage.js');
-    let fileStorage  
+    let fileStorage
 
     let sessionPath = ''
 
@@ -59,7 +59,7 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -71,7 +71,7 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
@@ -83,22 +83,22 @@
                 return
             }
 
-            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+            if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
 
             /* Simplifying the access to basic info */
-            statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.code.codeName
-            statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.code.codeName
+            statusDependencyNode.bot = statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName
+            statusDependencyNode.process = statusDependencyNode.referenceParent.parentNode.config.codeName
             statusDependencyNode.bottype = statusDependencyNode.referenceParent.parentNode.parentNode.type
-            statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.code.codeName
+            statusDependencyNode.dataMine = statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
 
             /* We retrieve the report main utility */
-            if (statusDependencyNode.code !== undefined) {
-                if (statusDependencyNode.code.mainUtility !== undefined) {
-                    thisObject.mainUtility = statusDependencyNode.code.mainUtility
+            if (statusDependencyNode.config !== undefined) {
+                if (statusDependencyNode.config.mainUtility !== undefined) {
+                    thisObject.mainUtility = statusDependencyNode.config.mainUtility
                 }
             }
 
@@ -119,13 +119,13 @@
 
             for (let i = 0; i < network.networkNodes.length; i++) {
                 let networkNode = network.networkNodes[i]
-               
+
                 if (checkThisBranch(networkNode.dataMining) === true) { return }
-                if (checkThisBranch(networkNode.testingEnvironment) === true) {return}
+                if (checkThisBranch(networkNode.testingEnvironment) === true) { return }
                 if (checkThisBranch(networkNode.productionEnvironment) === true) { return }
 
                 function checkThisBranch(branch) {
-                    if (branch === undefined) {return}
+                    if (branch === undefined) { return }
                     for (let j = 0; j < branch.exchangeTasks.length; j++) {
                         let exchangeTasks = branch.exchangeTasks[j]
                         for (let k = 0; k < exchangeTasks.taskManagers.length; k++) {
@@ -156,9 +156,9 @@
                                                             /* We found where the task that runs the process definition this status report depends on and where it is located on the network. */
 
                                                             thisObject.networkNode = networkNode
-                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.code.host + ' -> port = ' + networkNode.code.webPort + '.'); }
+                                                            if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.'); }
 
-                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.code.host, networkNode.code.webPort);
+                                                            fileStorage = FILE_STORAGE.newFileStorage(logger, networkNode.config.host, networkNode.config.webPort);
                                                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                                                             return true
                                                         }
@@ -183,7 +183,7 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -211,9 +211,9 @@
 
                 let rootPath = bot.exchange + "/" + bot.market.baseAsset + "-" + bot.market.quotedAsset + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot
 
-                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process ;
+                filePath = rootPath + "/Reports/" + sessionPath + statusDependencyNode.process;
             } else {
-                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process ;
+                filePath = bot.filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process;
             }
 
             filePath += '/' + fileName
@@ -236,10 +236,10 @@
 
             function onFileReceived(err, text) {
 
-                if ( err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
+                if (err.result === global.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message);
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
@@ -255,7 +255,7 @@
                 }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message);
                     callBackFunction(err);
                     return;
                 }
@@ -290,7 +290,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] load -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -328,7 +328,7 @@
                 if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> onFileCreated -> Entering function."); }
 
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack);
                     callBackFunction(err);
                     return;
                 }
@@ -348,7 +348,7 @@
 
         }
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] save -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

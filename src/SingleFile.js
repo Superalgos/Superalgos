@@ -30,7 +30,7 @@ function newSingleFile () {
     callBackFunction) {
     try {
       if (INFO_LOG === true) { logger.write('[INFO] initialize -> Entering function.') }
-      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.code.codeName + '-' + pBot.code.codeName + '-' + pProduct.code.codeName) }
+      if (INFO_LOG === true) { logger.write('[INFO] initialize -> key = ' + pDataMine.config.codeName + '-' + pBot.config.codeName + '-' + pProduct.config.codeName) }
 
       let exchange = pExchange
 

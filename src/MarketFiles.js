@@ -95,7 +95,7 @@ function newMarketFiles () {
       fileCloud.initialize(pBot, pHost, pPort)
 
       /* Some Validations */
-      if (dataset.code.validTimeFrames === undefined) {
+      if (dataset.config.validTimeFrames === undefined) {
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Market Files for bot ' + pBot.name) }
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = You need to define validTimeFrames at the Dataset config. ') }
         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
@@ -108,7 +108,7 @@ function newMarketFiles () {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.code.validTimeFrames.includes(periodName) === true) {
+        if (dataset.config.validTimeFrames.includes(periodName) === true) {
           fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
@@ -122,7 +122,7 @@ function newMarketFiles () {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
-                let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+                let key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
                 let callerId = key + '-' + periodName + newUniqueId()
                 eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
@@ -156,7 +156,7 @@ function newMarketFiles () {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.code.validTimeFrames.includes(periodName) === true) {
+        if (dataset.config.validTimeFrames.includes(periodName) === true) {
           fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {

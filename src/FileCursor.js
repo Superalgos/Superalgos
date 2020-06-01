@@ -108,11 +108,11 @@ function newFileCursor () {
       endDateRange = pEndDateRange
       eventsServerClient = pEventsServerClient
 
-      let key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + dataset.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      let key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       let callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponseDataSet, updateFiles)
 
-      key = dataMine.code.codeName + '-' + bot.code.codeName + '-' + product.code.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
+      key = dataMine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, callerId, onResponseDataRange, updateDataRange)
 

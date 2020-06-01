@@ -55,7 +55,7 @@ function newDailyFiles () {
       fileCloud.initialize(pBot, pHost, pPort)
 
       /* Some Validations */
-      if (pDataset.code.validTimeFrames === undefined) {
+      if (pDataset.config.validTimeFrames === undefined) {
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Market Files for bot ' + pBot.name) }
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = You need to define validTimeFrames at the Dataset config. ') }
         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
@@ -111,7 +111,7 @@ function newDailyFiles () {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
 
-            if (pDataset.code.validTimeFrames.includes(periodName) === true) {
+            if (pDataset.config.validTimeFrames.includes(periodName) === true) {
               let fileCursor = newFileCursor()
               fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
               fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
@@ -147,7 +147,7 @@ function newDailyFiles () {
                 let periodTime = dailyFilePeriods[i][0]
                 let periodName = dailyFilePeriods[i][1]
 
-                if (pDataset.code.validTimeFrames.includes(periodName) === true) {
+                if (pDataset.config.validTimeFrames.includes(periodName) === true) {
                   let fileCursor = fileCursors.get(periodTime)
                   fileCursor.reload(onFileReceived)
                 }

@@ -584,46 +584,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
-            case 'GetDefinition':
-                {
-                    respondWithFile(process.env.INTER_PROCESS_FILES_PATH + '/definition.json', response)
-                }
-                break
-
-            case 'SaveDefinition':
-                {
-                    let fs = require('fs')
-                    let body = ''
-
-                    request.on('data', function (data) {
-                        body += data
-                        // Too much POST data
-                        if (body.length > 1e6) {
-                            request.connection.destroy()
-                        }
-                    })
-
-                    request.on('end', function () {
-                        try {
-                            let filePath = process.env.INTER_PROCESS_FILES_PATH + '/definition.json'
-                            fs.writeFile(filePath, body, onFileWrite)
-                        } catch (e) {
-                            console.log('[ERROR] Error writing user config.', e)
-                            respondWithContent(undefined, response)
-                        }
-
-                        function onFileWrite(err) {
-                            if (err) {
-                                respondWithContent(undefined, response)
-                            } else {
-                                let responseContent = 'User config updated.'
-                                respondWithContent(responseContent, response)
-                            }
-                        }
-                    })
-                }
-                break
-
             default:
                 {
                     homePage()

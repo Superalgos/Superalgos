@@ -55,19 +55,30 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
         if (CONSOLE_LOG === true && request.url.indexOf('NO-LOG') === -1) { console.log('[INFO] webServer -> onBrowserRequest -> request.url = ' + request.url) }
 
         function getBody(callback) { // Gets the de body from a POST request to the web server
-            let body = ''
+            try {
 
-            request.on('data', function (data) {
-                body += data
-                // Too much POST data
-                if (body.length > 1e6) {
-                    request.connection.destroy()
-                }
-            })
+                let body = ''
 
-            request.on('end', function () {
-                callback(body)
-            })
+                request.on('data', function (data) {
+                    body += data
+                    // Too much POST data
+                    //if (body.length > 1e6) {
+                    //    request.connection.destroy()
+                    //}
+                })
+
+                request.on('end', function () {
+                    callback(body)
+                })
+
+                request.on('error', function (err) {
+                    if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> onBrowserRequest -> getBody -> err = ' + err.stack) }
+                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+                })
+            } catch (err) {
+                if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> onBrowserRequest -> getBody -> err = ' + err.stack) }
+                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+            }
         }
 
         let requestParameters = request.url.split('/')
@@ -170,8 +181,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     }
                     break
                 }
+                break
 
-            case 'Webhook': {
+            case 'Webhook':
+                {
                 switch (requestParameters[2]) { // switch by command
                     case 'Fetch-Messages': {
                         let exchange = requestParameters[3]
@@ -243,9 +256,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         break
                     }
                 }
-
                 break
             }
+                break
+
             case 'ResetLogsAndData':
                 {
                     try {
@@ -378,6 +392,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     respondWithFile(filePath, response)
                 }
                 break
+
             case 'Panels':
                 {
                     respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
@@ -415,6 +430,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 break
 
             case 'ChartingSpace':
+                {
+                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
+                }
+                break
+
+            case 'SideSpace':
                 {
                     respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
                 }
@@ -464,6 +485,81 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'ListWorkspaces':
+                {
+                    let dirPath = process.env.MY_WORKSPACES_PATH  
+
+                    try {
+                        let fs = require('fs')
+
+                        fs.readdir(dirPath, onDirRead)
+
+                        function onDirRead(err, fileList) {
+                            if (err) {
+                                if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                return
+                            } else {
+                                respondWithContent(JSON.stringify(fileList), response)
+                                return
+                            }
+                        }
+
+                    } catch (err) {
+                        if (CONSOLE_LOG === true) { console.log('[ERROR] Error reading a directory content. filePath = ' + dirPath) }
+                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                        return
+                    }
+                   
+                }
+                break
+
+            case 'LoadWorkspace':
+                {
+                    let fileName = unescape(requestParameters[2])
+                    let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+                    respondWithFile(filePath, response)
+                }
+                break
+
+            case 'SaveWorkspace':
+                {
+                    getBody(processRequest)
+
+                    async function processRequest(body) {
+
+                        let fileContent = body
+                        let fileName = unescape(requestParameters[2])
+                        let filePath = process.env.MY_WORKSPACES_PATH + '/' + fileName + '.json'
+
+                        try {
+                            let fs = require('fs')
+                            let dir = process.env.MY_WORKSPACES_PATH;
+
+                            /* Create Dir if it does not exist */
+                            if (!fs.existsSync(dir)) {
+                                fs.mkdirSync(dir);
+                            }
+
+                            fs.writeFile(filePath, fileContent, onFileWritten)
+
+                            function onFileWritten(err) {
+                                if (err) {
+                                    if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                                    respondWithContent(JSON.stringify(exchanges), response)
+                                } else {
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+                                }
+                            }
+
+                        } catch (err) {
+                            if (CONSOLE_LOG === true) { console.log('[ERROR] Error writting the Workspace file. fileName = ' + fileName) }
+                            respondWithContent(JSON.stringify(exchanges), response)
+                        }
+                    }
+                }
+                break
+
             case 'DataMines':
                 {
                     respondWithFile(process.env.DATA_MINES_PATH + '/' + requestParameters[2] + '.json', response)
@@ -485,46 +581,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'Storage':
                 {
                     respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)
-                }
-                break
-
-            case 'GetDefinition':
-                {
-                    respondWithFile(process.env.INTER_PROCESS_FILES_PATH + '/definition.json', response)
-                }
-                break
-
-            case 'SaveDefinition':
-                {
-                    let fs = require('fs')
-                    let body = ''
-
-                    request.on('data', function (data) {
-                        body += data
-                        // Too much POST data
-                        if (body.length > 1e6) {
-                            request.connection.destroy()
-                        }
-                    })
-
-                    request.on('end', function () {
-                        try {
-                            let filePath = process.env.INTER_PROCESS_FILES_PATH + '/definition.json'
-                            fs.writeFile(filePath, body, onFileWrite)
-                        } catch (e) {
-                            console.log('[ERROR] Error writing user config.', e)
-                            respondWithContent(undefined, response)
-                        }
-
-                        function onFileWrite(err) {
-                            if (err) {
-                                respondWithContent(undefined, response)
-                            } else {
-                                let responseContent = 'User config updated.'
-                                respondWithContent(responseContent, response)
-                            }
-                        }
-                    })
                 }
                 break
 

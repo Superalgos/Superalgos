@@ -54,7 +54,12 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js', 
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                                
-                'Utilities/RoundedCornersBackground.js',
+                'Utilities/CoordinateTransformations.js',
+                'Utilities/DateRateTransformations.js',
+                'Utilities/Download.js',
+                'Utilities/DrawPrint.js',
+                'Utilities/LoadSaveFrame.js',
+                'Utilities/NodeConfig.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',
@@ -63,8 +68,9 @@ function newAppLoader() {
                 'Panels/PlotterPanel.js',
                 'Panels/PanelsVisibleButton.js',
                 
-                'ControlsToolBox/SidePanel.js',
-                'ControlsToolBox/SidePanelTab.js',
+                'SideSpace/SidePanelTab.js',
+                'SideSpace/ListView.js',
+                'SideSpace/ListItem.js',
 
                 'Spaces/CockpitSpace.js',
                 'Spaces/TopSpace.js',
@@ -72,6 +78,7 @@ function newAppLoader() {
                 'Spaces/ChartingSpace.js',
                 'Spaces/FloatingSpace.js',
                 'Spaces/DesignSpace.js',
+                'Spaces/SideSpace.js',
 
                 'Files/SingleFile.js',
                 'Files/FileCloud.js',
@@ -185,7 +192,7 @@ function newAppLoader() {
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationEpisodePanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',

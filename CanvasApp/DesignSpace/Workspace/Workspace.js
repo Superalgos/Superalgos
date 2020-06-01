@@ -11,6 +11,7 @@ function newWorkspace () {
     enabled: false,
     nodeChildren: undefined,
     eventsServerClients: new Map(),
+    replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
@@ -68,7 +69,7 @@ function newWorkspace () {
   let workingAtTask = 0
   let circularProgressBar = newBusyProgressBar()
   circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
-  let droppedNode
+  let loadedWorkspaceNode
   let sessionTimestamp = (new Date()).valueOf()
   window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
@@ -85,21 +86,53 @@ function newWorkspace () {
 
   function initialize () {
     try {
-      let reset = window.localStorage.getItem('Reset')
-      let savedWorkspace = window.localStorage.getItem(CANVAS_APP_NAME + '.' + 'Workspace')
+      let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-      if (savedWorkspace === null || reset !== null) {
-        thisObject.workspaceNode = getWorkspace()
+      if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+        let blobService = newFileStorage()
+        blobService.getFileFromHost('LoadWorkspace' + '/' + lastUsedWorkspace, onFileReceived, true)
+        function onFileReceived (err, text, response) {
+          if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            canvas.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, canvas.cockpitSpace.statusTypes.WARNING)
+            thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+            recreateWorkspace()
+            return
+          }
+          thisObject.workspaceNode = JSON.parse(text)
+          recreateWorkspace()
+        }
       } else {
-        thisObject.workspaceNode = JSON.parse(savedWorkspace)
+        thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+        recreateWorkspace()
       }
-      functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
-      setupEventsServerClients()
-      thisObject.enabled = true
 
-      setInterval(saveWorkspace, 60000)
+      function recreateWorkspace () {
+        functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, finishInitialization)
+      }
+
+      function finishInitialization () {
+        setupEventsServerClients()
+        runTasksAndSessions(false)
+        thisObject.enabled = true
+        canvas.cockpitSpace.initializePosition()
+        canvas.splashScreen.initialize()
+        setInterval(saveWorkspace, 60000)
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
+    }
+  }
+
+  function runTasksAndSessions (replacingCurrentWorkspace) {
+    if (replacingCurrentWorkspace === true) {
+   // We need to wait all tasks that were potentially running to stop
+      setTimeout(functionLibraryUiObjectsFromNodes.runTasks, 70000)
+   // We give a few seconds for the tasks to start
+      setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 80000)
+    } else {
+      functionLibraryUiObjectsFromNodes.runTasks()
+   // We give a few seconds for the tasks to start
+      setTimeout(functionLibraryUiObjectsFromNodes.runSessions, 10000)
     }
   }
 
@@ -170,6 +203,23 @@ function newWorkspace () {
       let textToSave = stringifyWorkspace()
       window.localStorage.setItem(CANVAS_APP_NAME + '.' + 'Workspace', textToSave)
       window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+
+      if (workspace.name !== undefined) {
+        let url = 'SaveWorkspace/' + workspace.name
+        callServer(textToSave, url, onResponse)
+      }
+
+      function onResponse (err) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+          window.localStorage.setItem('Last Used Workspace', workspace.name)
+          window.localStorage.setItem('Session Timestamp', sessionTimestamp)
+          if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
+            canvas.cockpitSpace.setStatus(workspace.name + ' Saved.', 50, canvas.cockpitSpace.statusTypes.ALL_GOOD)
+          }
+        } else {
+          canvas.cockpitSpace.setStatus('Could not save the Workspace at the Backend. Please check the Backend Console for more information.', 150, canvas.cockpitSpace.statusTypes.WARNING)
+        }
+      }
       return true
     }
   }
@@ -203,13 +253,14 @@ function newWorkspace () {
           workingAtTask++
           break
         case 3:
-          thisObject.workspaceNode = droppedNode
-          droppedNode = undefined
+          thisObject.workspaceNode = loadedWorkspaceNode
+          loadedWorkspaceNode = undefined
           workingAtTask++
           break
         case 4:
-          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode, true)
+          functionLibraryUiObjectsFromNodes.recreateWorkspace(thisObject.workspaceNode)
           setupEventsServerClients()
+          runTasksAndSessions(true)
           workingAtTask++
           break
         case 5:
@@ -304,6 +355,30 @@ function newWorkspace () {
     return nodes
   }
 
+  function replaceWorkspaceByLoadingOne (name) {
+    let blobService = newFileStorage()
+    blobService.getFileFromHost('LoadWorkspace' + '/' + name, onFileReceived, true)
+    function onFileReceived (err, text, response) {
+      if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+        canvas.cockpitSpace.setStatus('Could not load the Workspace called "' + name + '". ', 500, canvas.cockpitSpace.statusTypes.WARNING)
+        return
+      }
+
+      loadedWorkspaceNode = JSON.parse(text)
+      saveWorkspace()
+      canvas.cockpitSpace.toTop()
+
+      let position = {
+        x: browserCanvas.width / 2,
+        y: browserCanvas.height / 2
+      }
+
+      circularProgressBar.initialize(position)
+      circularProgressBar.visible = true
+      workingAtTask = 1
+    }
+  }
+
   function spawn (nodeText, mousePointer) {
     try {
       let point = {
@@ -314,9 +389,10 @@ function newWorkspace () {
       spawnPosition.x = point.x
       spawnPosition.y = point.y
 
-      droppedNode = JSON.parse(nodeText)
+      let droppedNode = JSON.parse(nodeText)
 
       if (droppedNode.type === 'Workspace') {
+        loadedWorkspaceNode = droppedNode
         circularProgressBar.initialize(mousePointer)
         circularProgressBar.visible = true
         workingAtTask = 1
@@ -506,6 +582,16 @@ function newWorkspace () {
       case 'Remove Reference':
         {
           referenceDetachNode(payload.node)
+        }
+        break
+      case 'Push Code to Javascript Code':
+        {
+          payload.node.javascriptCode.code = payload.node.code
+        }
+        break
+      case 'Fetch Code to Javascript Code':
+        {
+          payload.node.code = payload.node.javascriptCode.code
         }
         break
       case 'Open Documentation':

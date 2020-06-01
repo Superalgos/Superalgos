@@ -3,6 +3,7 @@
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+    const ONE_MIN_IN_MILISECONDS = 60 * 1000;
 
     const MODULE_NAME = "Commons";
 
@@ -52,6 +53,11 @@
 
             if (outputDatasetNode.referenceParent === undefined) {
                 logger.write(MODULE_NAME, "[ERROR] start -> Output Dataset without Reference Parent. Output Dataset = " + JSON.stringify(outputDatasetNode));
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                return
+            }
+            if (outputDatasetNode.referenceParent.parentNode === undefined) {
+                logger.write(MODULE_NAME, "[ERROR] start -> Dataset not a child of a Product Definition. Dataset = " + JSON.stringify(outputDatasetNode.referenceParent));
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -284,7 +290,8 @@
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS,
+            ONE_MIN_IN_MILISECONDS: ONE_MIN_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []

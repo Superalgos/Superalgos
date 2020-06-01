@@ -1205,7 +1205,26 @@ function newUiObject () {
     }
   }
 
+  function isEditorVisible () {
+    if (thisObject.codeEditor !== undefined) {
+      if (thisObject.codeEditor.visible === true) { return true }
+    }
+
+    if (thisObject.configEditor !== undefined) {
+      if (thisObject.configEditor.visible === true) { return true }
+    }
+
+    if (thisObject.conditionEditor !== undefined) {
+      if (thisObject.conditionEditor.visible === true) { return true }
+    }
+
+    if (thisObject.formulaEditor !== undefined) {
+      if (thisObject.formulaEditor.visible === true) { return true }
+    }
+  }
+
   function drawText () {
+    if (isEditorVisible() === true) { return }
 /* Text Follows */
     let position = {
       x: 0,
@@ -1332,7 +1351,7 @@ function newUiObject () {
       label = currentValue
       if (!isNaN(label)) {
         if (currentValue.toFixed !== undefined) {
-          label = currentValue.toFixed(2)
+          label = dynamicDecimals(currentValue, 2)
         }
       }
 

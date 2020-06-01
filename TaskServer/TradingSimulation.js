@@ -56,13 +56,13 @@
 
             /* Stop Loss Management */
 
-            const MIN_STOP_LOSS_VALUE = 1 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
+            const MIN_STOP_LOSS_VALUE = 0.0000000001 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
             let stopLoss = 0;
 
             /* Take Profit Management */
 
-            const MIN_TAKE_PROFIT_VALUE = 1 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
+            const MIN_TAKE_PROFIT_VALUE = 0.0000000001 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
             let takeProfit = 0;
 
@@ -103,6 +103,15 @@
             interExecutionMemory.
             */
 
+            /* Snapshots of Trigger On and Take Positions */
+            let snapshots = {
+                headers: undefined,
+                triggerOn: [],
+                takePosition: [],
+                lastTriggerOn: undefined,
+                lastTakePosition: undefined
+            }
+
             /*Needed for statistics */
             let previousBalanceBaseAsset = 0;
             let previousBalanceQuotedAsset = 0;
@@ -130,7 +139,8 @@
                 number: 0,
                 beginRate: 0,
                 endRate: 0,
-                triggerOnSituation: ''
+                triggerOnSituation: '',
+                name: ''
             }
 
             let currentTrade = {
@@ -181,6 +191,15 @@
 
             /* Initialization */
 
+
+            yesterday.snapshots = {
+                headers: undefined,
+                triggerOn: [],
+                takePosition: [],
+                lastTriggerOn: undefined,
+                lastTakePosition: undefined
+            }
+
             yesterday.stopLoss = 0
             yesterday.takeProfit = 0
 
@@ -206,7 +225,8 @@
                 number: 0,
                 beginRate: 0,
                 endRate: 0,
-                triggerOnSituation: ''
+                triggerOnSituation: '',
+                name: ''
             }
 
             yesterday.currentTrade = {
@@ -251,6 +271,14 @@
 
                 /* Initialize the data structure we will use inter execution. */
 
+                interExecutionMemory.snapshots = {
+                    headers: undefined,
+                    triggerOn: [],
+                    takePosition: [],
+                    lastTriggerOn: undefined,
+                    lastTakePosition: undefined
+                }
+
                 interExecutionMemory.stopLoss = 0
                 interExecutionMemory.takeProfit = 0
 
@@ -276,7 +304,8 @@
                     number: 0,
                     beginRate: 0,
                     endRate: 0,
-                    triggerOnSituation: ''
+                    triggerOnSituation: '',
+                    name: ''
                 }
 
                 interExecutionMemory.currentTrade = {
@@ -323,6 +352,14 @@
 
                 /* We get the initial values from the day previous to the candles we receive at the current execution */
 
+                snapshots = {
+                    headers: interExecutionMemory.snapshots.headers,
+                    triggerOn: interExecutionMemory.snapshots.triggerOn,
+                    takePosition: interExecutionMemory.snapshots.takePosition,
+                    lastTriggerOn: interExecutionMemory.snapshots.lastTriggerOn,
+                    lastTakePosition: interExecutionMemory.snapshots.lastTakePosition
+                }
+
                 stopLoss = interExecutionMemory.stopLoss
                 takeProfit = interExecutionMemory.takeProfit
 
@@ -348,7 +385,8 @@
                     number: interExecutionMemory.currentStrategy.number,
                     beginRate: interExecutionMemory.currentStrategy.beginRate,
                     endRate: interExecutionMemory.currentStrategy.endRate,
-                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation
+                    triggerOnSituation: interExecutionMemory.currentStrategy.triggerOnSituation,
+                    name: currentStrategy.name
                 }
 
                 currentTrade = {
@@ -398,6 +436,14 @@
 
                 /* For the case that any of these variables are not updated during the main loop, we need to store their value at the yesterday structure, otherwise it would be lost. */
 
+                yesterday.snapshots = {
+                    headers: snapshots.headers,
+                    triggerOn: snapshots.triggerOn,
+                    takePosition: snapshots.takePosition,
+                    lastTriggerOn: snapshots.lastTriggerOn,
+                    lastTakePosition: snapshots.lastTakePosition
+                }
+
                 yesterday.stopLoss = stopLoss
                 yesterday.takeProfit = takeProfit
 
@@ -423,7 +469,8 @@
                     number: currentStrategy.number,
                     beginRate: currentStrategy.beginRate,
                     endRate: currentStrategy.endRate,
-                    triggerOnSituation: currentStrategy.triggerOnSituation
+                    triggerOnSituation: currentStrategy.triggerOnSituation,
+                    name: currentStrategy.name
                 }
 
                 yesterday.currentTrade = {
@@ -499,6 +546,15 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Entering function."); }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Processing candle # " + currentCandleIndex); }
+
+                /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
+
+                let snapshotKeys =  new Map()
+                snapshotLoopHeaders = []             
+                snapshotDataRecord = []
+                saveAsLastTriggerOnSnapshot = false
+                saveAsLastTakePositionSnapshot = false
+                addToSnapshots = false
 
                 let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex];
@@ -767,7 +823,9 @@
                                 if (initialDefinition.positionSize !== undefined) {
                                     if (initialDefinition.positionSize.formula !== undefined) {
                                         try {
-                                            positionSize = eval(initialDefinition.positionSize.formula.code);
+                                            let code = initialDefinition.positionSize.formula.code
+                                            positionSize = eval(code);
+                                            addCodeToSnapshot(code)
                                         } catch (err) {
                                             initialDefinition.positionSize.formula.error = err.message
                                         }
@@ -794,7 +852,9 @@
                                 if (initialDefinition.positionRate !== undefined) {
                                     if (initialDefinition.positionRate.formula !== undefined) {
                                         try {
+                                            let code = initialDefinition.positionRate.formula.code
                                             positionRate = eval(initialDefinition.positionRate.formula.code);
+                                            addCodeToSnapshot(code)
                                         } catch (err) {
                                             initialDefinition.positionRate.formula.error = err.message
                                         }
@@ -821,7 +881,9 @@
 
                                     if (phase.formula !== undefined) {
                                         try {
-                                            formulaValue = eval(phase.formula.code);
+                                            let code = phase.formula.code
+                                            formulaValue = eval(code);
+                                            addCodeToSnapshot(code)
                                             if (formulaValue === Infinity) {
                                                 formulaError = "Formula evaluates to Infinity."
                                                 formulaValue = MAX_STOP_LOSS_VALUE
@@ -910,7 +972,9 @@
 
                                     if (phase.formula !== undefined) {
                                         try {
-                                            formulaValue = eval(phase.formula.code);
+                                            let code = phase.formula.code
+                                            formulaValue = eval(code);
+                                            addCodeToSnapshot(code)
                                             if (formulaValue === Infinity) {
                                                 formulaValue = MAX_TAKE_PROFIT_VALUE
                                                 if (takeProfitStage === 'Open Stage') {
@@ -1007,7 +1071,9 @@
 
                                 if (phase.formula !== undefined) {
                                     try {
-                                        formulaValue = eval(phase.formula.code);
+                                        let code = phase.formula.code
+                                        formulaValue = eval(code);
+                                        addCodeToSnapshot(code)
                                         if (formulaValue === Infinity) {
                                             formulaError = ""
                                             formulaValue = MAX_STOP_LOSS_VALUE
@@ -1096,7 +1162,9 @@
 
                                 if (phase.formula !== undefined) {
                                     try {
-                                        formulaValue = eval(phase.formula.code);
+                                        let code = phase.formula.code
+                                        formulaValue = eval(code);
+                                        addCodeToSnapshot(code)
                                         if (formulaValue === Infinity) {
                                             formulaError = "Formula evaluates to Infinity."
                                             formulaValue = MAX_TAKE_PROFIT_VALUE
@@ -1181,7 +1249,9 @@
                         let value
 
                         try {
-                            value = eval(node.code);
+                            let code = node.code
+                            value = eval(code);
+                            addCodeToSnapshot(code)
                         } catch (err) {
                             /*
                                 One possible error is that the conditions references a .previous that is undefined. For this
@@ -1262,6 +1332,11 @@
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
 
+                        if (
+                            strategyStage !== 'No Stage' ||
+                            currentStrategyIndex !== -1
+                        )  {continue}
+
                         let strategy = tradingSystem.strategies[j];
 
                         let triggerStage = strategy.triggerStage
@@ -1273,7 +1348,10 @@
                                 for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
 
                                     let situation = triggerStage.triggerOn.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1298,6 +1376,7 @@
                                         currentStrategy.beginRate = candle.min;
                                         currentStrategy.endRate = candle.min; // In case the strategy does not get exited
                                         currentStrategy.triggerOnSituation = situation.name
+                                        currentStrategy.name = strategy.name
 
                                         if (processingDailyFiles) {
                                             if (positionedAtYesterday) {
@@ -1307,6 +1386,7 @@
                                                 yesterday.currentStrategy.beginRate = currentStrategy.beginRate;
                                                 yesterday.currentStrategy.endRate = currentStrategy.endRate;
                                                 yesterday.currentStrategy.triggerOnSituation = currentStrategy.triggerOnSituation;
+                                                yesterday.currentStrategy.name = currentStrategy.name;
                                             }
                                         }
 
@@ -1319,6 +1399,7 @@
                                         }
 
                                         checkAnnouncements(triggerStage.triggerOn)
+                                        saveAsLastTriggerOnSnapshot = true
 
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met."); }
                                         break;
@@ -1344,7 +1425,10 @@
                             for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
 
                                 let situation = triggerStage.triggerOff.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1411,7 +1495,10 @@
                             for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
 
                                 let situation = triggerStage.takePosition.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1452,6 +1539,7 @@
                                     currentTrade.takePositionSituation = situation.name
                                     
                                     checkAnnouncements(triggerStage.takePosition)
+                                    saveAsLastTakePositionSnapshot = true
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met."); }
                                     break;
@@ -1513,7 +1601,10 @@
                             for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                 let situation = nextPhaseEvent.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1559,7 +1650,10 @@
                                 for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
 
                                     let situation = moveToPhaseEvent.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1707,7 +1801,10 @@
                             for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
 
                                 let situation = nextPhaseEvent.situations[k];
-                                let passed = true;
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1753,7 +1850,10 @@
                                 for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
 
                                     let situation = moveToPhaseEvent.situations[k];
-                                    let passed = true;
+                                    let passed
+                                    if (situation.conditions.length > 0) {
+                                        passed = true
+                                    }
 
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
@@ -1999,6 +2099,7 @@
                         currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
+                        addToSnapshots = true
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2071,6 +2172,7 @@
                         currentTrade.endRate = closeRate;
 
                         closePositionNow = true;
+                        addToSnapshots = true
 
                         if (processingDailyFiles) {
                             if (positionedAtYesterday) {
@@ -2186,6 +2288,7 @@
                     }
 
                     takePositionAtSimulation()
+                
                     return
 
                     function putOpeningOrder() {
@@ -2243,7 +2346,7 @@
                         if (baseAsset === bot.market.baseAsset) {
                             orderSide = "sell"
 
-                            orderPrice = tradePositionRate - 100 // This is going to be ingnored at the Exchange API for now since we only put market orders.
+                            orderPrice = tradePositionRate  
 
                             amountA = tradePositionSize * orderPrice
                             amountB = tradePositionSize
@@ -2251,7 +2354,7 @@
                         } else {
                             orderSide = "buy"
 
-                            orderPrice = tradePositionRate // This is going to be ingnored at the Exchange API for now since we only put market orders.
+                            orderPrice = tradePositionRate  
 
                             amountA = tradePositionSize
                             amountB = tradePositionSize / orderPrice
@@ -2845,7 +2948,8 @@
                             number: 0,
                             beginRate: 0,
                             endRate: 0,
-                            triggerOnSituation: ''
+                            triggerOnSituation: '',
+                            name: ''
                         }
 
                         if (processingDailyFiles) {
@@ -2857,7 +2961,8 @@
                                     number: 0,
                                     beginRate: 0,
                                     endRate: 0,
-                                    triggerOnSituation: ''
+                                    triggerOnSituation: '',
+                                    name: ''
                                 }
                             }
                         }
@@ -2877,6 +2982,57 @@
                             currentTrade.lastTradeROI = (tradePositionRate - candle.close) / tradePositionRate * 100
                         } else {
                             currentTrade.lastTradeROI = (candle.close - tradePositionRate) / tradePositionRate * 100
+                        }
+                    }
+
+                    /* Snapshots Management (before we generate the trade record and delete that info) */
+                    if (saveAsLastTriggerOnSnapshot === true) {
+                        snapshots.lastTriggerOn = snapshotDataRecord
+                        saveAsLastTriggerOnSnapshot = false
+                    }
+
+                    if (saveAsLastTakePositionSnapshot === true) {
+                        snapshots.lastTakePosition = snapshotDataRecord
+                        saveAsLastTakePositionSnapshot = false
+                    }
+
+                    if (addToSnapshots === true) {
+                        let closeValues = [
+                            roundtrips,                                                         // Trade Number
+                            (new Date(candle.begin)).toISOString(),                             // Datetime
+                            tradingSystem.strategies[currentStrategyIndex].name,                // Strategy
+                            currentStrategy.triggerOnSituation,                                 // Trigger On Situation
+                            currentTrade.takePositionSituation,                                 // Take Position Situation
+                            hitOrFial(),                                                        // Result
+                            lastTradeROI,                                                       // ROI
+                            simulationRecord.type.replace(/"/g, '')                             // Exit Type
+                        ]
+
+                        function hitOrFial() {
+                            if (lastTradeROI > 0) { return 'HIT' } else { return 'FAIL' }
+                        }
+
+                        if (positionedAtYesterday === false) {
+                            snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
+                            snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
+                        }
+                        snapshots.lastTriggerOn = undefined
+                        snapshots.lastTakePosition = undefined
+                        addToSnapshots = false
+                    }
+
+                    let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+                    if (snapshots.headers === undefined) {
+                        snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+                    }
+
+                    if (processingDailyFiles) {
+                        if (positionedAtYesterday) {
+                            yesterday.snapshots.headers = snapshots.headers;
+                            yesterday.snapshots.triggerOn = snapshots.triggerOn;
+                            yesterday.snapshots.takePosition = snapshots.takePosition;
+                            yesterday.snapshots.lastTriggerOn = snapshots.lastTriggerOn;
+                            yesterday.snapshots.lastTakePosition = snapshots.lastTakePosition;
                         }
                     }
 
@@ -2914,7 +3070,8 @@
                         }
                     }
 
-                    makeAnnoucements() // After everything at the simulation level was done, we will do the annoucements that are pending.
+                    /* After everything at the simulation level was done, we will do the annoucements that are pending.*/
+                    makeAnnoucements()  
                 }
 
                 function checkAnnouncements(node, value) {
@@ -3005,9 +3162,64 @@
                         }
                     }
                 }
+
+                function addCodeToSnapshot(code) {
+                    if (code === undefined) { return }
+
+                    try {
+                        let instructionsArray = code.split(' ')
+                        for (let i = 0; i < instructionsArray.length; i++) {
+                            let instruction = instructionsArray[i]
+                            instruction = instruction.replace('(', '')
+                            instruction = instruction.replace(')', '')
+                            instruction = instruction.replace(/</g, '')
+                            instruction = instruction.replace(/>/g, '')
+                            instruction = instruction.replace(/<=/g, '')
+                            instruction = instruction.replace(/>=/g, '')
+                            instruction = instruction.replace(/!=/g, '')
+                            instruction = instruction.replace(/!==/g, '')
+                            instruction = instruction.replace(/==/g, '')
+                            instruction = instruction.replace(/===/g, '')
+                            instruction = instruction.replace(/{/g, '')
+                            instruction = instruction.replace(/}/g, '')
+                            if (instruction.indexOf('chart') >= 0) {
+                                let parts = instruction.split('.')
+                                let timeFrame = parts[1]
+                                let product = parts[2]
+                                let property
+                                checkPrevious(3)
+                                function checkPrevious(index) {
+                                    property = parts[index]
+                                    if (property === 'previous') {
+                                        product = product + '.previous'
+                                        checkPrevious(index + 1)
+                                    }
+                                }
+
+                                // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                                if (timeFrame !== 'atAnyTimeFrame') {
+                                    timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                                }
+                                let key = timeFrame + '-' + product + '-' + property
+                                let existingKey = snapshotKeys.get(key)
+
+                                if (existingKey === undefined) {// means that at the current loop this property of this product was not used before.
+                                    snapshotKeys.set(key, key)
+                                    snapshotLoopHeaders.push(key)
+ 
+                                    let value = eval(instruction)
+                                    snapshotDataRecord.push(value)
+                                }
+                            }
+                        }
+                    }
+                    catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] runSimulation -> addCodeToSnapshot -> code = " + code);
+                        logger.write(MODULE_NAME, "[ERROR] runSimulation -> addCodeToSnapshot -> err = " + err.stack);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                    }
+                }
             }
-
-
 
             function controlLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> controlLoop -> Entering function."); }
@@ -3047,6 +3259,14 @@
 
                     if (lastCandle.end === lastInstantOfTheDay) {
 
+                        interExecutionMemory.snapshots = {
+                            headers: yesterday.snapshots.headers,
+                            triggerOn: yesterday.snapshots.triggerOn,
+                            takePosition: yesterday.snapshots.takePosition,
+                            lastTriggerOn: yesterday.snapshots.lastTriggerOn,
+                            lastTakePosition: yesterday.snapshots.lastTakePosition
+                        }
+
                         interExecutionMemory.stopLoss = yesterday.stopLoss
                         interExecutionMemory.takeProfit = yesterday.takeProfit
 
@@ -3072,7 +3292,8 @@
                             number: yesterday.currentStrategy.number,
                             beginRate: yesterday.currentStrategy.beginRate,
                             endRate: yesterday.currentStrategy.endRate,
-                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation
+                            triggerOnSituation: yesterday.currentStrategy.triggerOnSituation,
+                            name: yesterday.currentStrategy.name
                         }
 
                         interExecutionMemory.currentTrade = {
@@ -3114,7 +3335,7 @@
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> callback -> recordsArray.length = " + recordsArray.length); }
 
-                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray);
+                callback(tradingSystem, recordsArray, conditionsArray, strategiesArray, tradesArray, snapshots.headers, snapshots.triggerOn, snapshots.takePosition);
             }
 
             function getElement(pArray, currentCandle, datasetName) {
@@ -3156,6 +3377,7 @@
                 }
             }
         }
+
         catch (err) {
             logger.write(MODULE_NAME, "[ERROR] runSimulation -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);

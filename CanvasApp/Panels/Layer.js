@@ -170,7 +170,7 @@ function newLayer () {
                         'Plotter Module->Plotter->' +
                         'Shapes->' +
                         'Chart Points->Point->Point Formula->' +
-                        'Polygon->Polygon Body->Style->Style Condition->Style->' +
+                        'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                         'Polygon Border->Style->Style Condition->Style->' +
                         'Polygon Vertex->Point->' +
                         'Plotter Panel->Javascript Code->Panel Data->Data Formula->'

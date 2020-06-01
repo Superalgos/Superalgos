@@ -384,6 +384,7 @@
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
                         record.triggerOnSituation = dailyFile[i][6];
+                        record.name = dailyFile[i][7];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -456,6 +457,7 @@
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
                 record.triggerOnSituation = marketFile[i][6];
+                record.name = marketFile[i][7];
 
                 if (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) {
 
@@ -581,7 +583,11 @@
                 /* Situation Name */
                 let digit = record.begin.toFixed(0).substring(7,8)
                 let positionY = recordPoint3.y - (recordPoint3.y - recordPoint1.y) / 2 + (Number(digit) * 10 - 50)
+
                 if (canvas.chartingSpace.viewport.zoomLevel >= ZOOM_OUT_THRESHOLD_FOR_HIDDING_CHARTS_LABELS) {
+                    if (record.name !== "New Strategy") {
+                        printLabel(record.name, recordPoint1.x + 5, positionY - 15, '1', 12);
+                    }
                     if (record.triggerOnSituation !== "New Situation") {
                         printLabel(record.triggerOnSituation, recordPoint1.x + 5, positionY, '1', 12);
                     }

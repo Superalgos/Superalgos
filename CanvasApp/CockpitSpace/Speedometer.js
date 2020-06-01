@@ -181,18 +181,6 @@ function newSpeedometer () {
 
     /* We put the thisObject.params.VALUE in the middle */
 
-    fontSize = 22
-    if (thisObject.params.VALUE > 999) {
-      fontSize = 18
-    }
-    if (thisObject.params.VALUE > 9999) {
-      fontSize = 14
-    }
-    if (thisObject.params.VALUE > 99999) {
-      fontSize = 10
-    }
-    browserCanvasContext.font = 'bold  ' + fontSize + 'px ' + UI_FONT.PRIMARY
-
     label = thisObject.params.VALUE
 
     if (isNaN(label) === false) {
@@ -201,6 +189,22 @@ function newSpeedometer () {
       label = dynamicDecimals(label, 2)
       if (label === 0) { label = label.toFixed(2) }
     }
+
+    fontSize = 22
+    if (label.length > 8) {
+      fontSize = 18
+    }
+    if (label.length > 10) {
+      fontSize = 14
+    }
+    if (label.length > 12) {
+      fontSize = 10
+    }
+    if (label.length > 14) {
+      fontSize = 8
+    }
+
+    browserCanvasContext.font = 'bold  ' + fontSize + 'px ' + UI_FONT.PRIMARY
 
     // label = label.substring(0, 6)
 

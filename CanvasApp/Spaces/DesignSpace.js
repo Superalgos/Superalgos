@@ -334,6 +334,7 @@ function newDesignSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (thisObject.sidePanel !== undefined) {
       thisObject.sidePanel.draw()
     }

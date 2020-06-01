@@ -363,7 +363,7 @@ function newUiObject () {
   }
 
   function childrenRunningPhysics () {
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition.properties === undefined) { return }
     let monitorChildrenRunning = false
     for (let i = 0; i < nodeDefinition.properties.length; i++) {
@@ -407,7 +407,7 @@ function newUiObject () {
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.chainAttachesTo !== undefined) {
         compatibleTypes = nodeDefinition.chainAttachesTo.compatibleTypes
@@ -429,10 +429,10 @@ function newUiObject () {
       let nearbyNode = floatingObject.payload.node
       if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
         /* Discard App Schema defined objects with busy coonection ports */
-        nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+        nodeDefinition = getNodeDefinition(thisObject.payload.node)
         if (nodeDefinition !== undefined) {
           let mustContinue = false
-          let parentNodeDefinition = APP_SCHEMA_MAP.get(nearbyNode.type)
+          let parentNodeDefinition = getNodeDefinition(nearbyNode)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
               for (let j = 0; j < parentNodeDefinition.properties.length; j++) {
@@ -560,7 +560,7 @@ function newUiObject () {
     let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
     let compatibleTypes
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.referenceAttachesTo !== undefined) {
         compatibleTypes = nodeDefinition.referenceAttachesTo.compatibleTypes
@@ -842,7 +842,7 @@ function newUiObject () {
 
   function iconPhysics () {
     icon = canvas.designSpace.iconByUiObjectType.get(thisObject.payload.node.type)
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition.alternativeIcons !== undefined) {
       let nodeToUse = thisObject.payload.node
       if (nodeDefinition.alternativeIcons === 'Use Reference Parent') {
@@ -859,15 +859,15 @@ function newUiObject () {
           }
         }
       }
-      nodeDefinition = APP_SCHEMA_MAP.get(nodeToUse.type)
-      let code = nodeToUse.code
+      nodeDefinition = getNodeDefinition(nodeToUse)
+      let config = nodeToUse.config
       try {
-        code = JSON.parse(code)
+        config = JSON.parse(config)
         let alternativeIcon
         let iconName
         for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
           alternativeIcon = nodeDefinition.alternativeIcons[i]
-          if (alternativeIcon.codeName === code.codeName) {
+          if (alternativeIcon.codeName === config.codeName) {
             iconName = alternativeIcon.iconName
           }
         }
@@ -1205,7 +1205,26 @@ function newUiObject () {
     }
   }
 
+  function isEditorVisible () {
+    if (thisObject.codeEditor !== undefined) {
+      if (thisObject.codeEditor.visible === true) { return true }
+    }
+
+    if (thisObject.configEditor !== undefined) {
+      if (thisObject.configEditor.visible === true) { return true }
+    }
+
+    if (thisObject.conditionEditor !== undefined) {
+      if (thisObject.conditionEditor.visible === true) { return true }
+    }
+
+    if (thisObject.formulaEditor !== undefined) {
+      if (thisObject.formulaEditor.visible === true) { return true }
+    }
+  }
+
   function drawText () {
+    if (isEditorVisible() === true) { return }
 /* Text Follows */
     let position = {
       x: 0,
@@ -1242,7 +1261,7 @@ function newUiObject () {
 
         if (canvas.floatingSpace.inMapMode === true) {
           labelPoint.y = labelPoint.y - 20
-          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          let nodeDefinition = getNodeDefinition(thisObject.payload.node)
           if (nodeDefinition !== undefined) {
             if (nodeDefinition.isHierarchyHead !== true) {
               return
@@ -1332,7 +1351,7 @@ function newUiObject () {
       label = currentValue
       if (!isNaN(label)) {
         if (currentValue.toFixed !== undefined) {
-          label = currentValue.toFixed(2)
+          label = dynamicDecimals(currentValue, 2)
         }
       }
 
@@ -1559,7 +1578,7 @@ function newUiObject () {
 
       browserCanvasContext.fill()
 
-      let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+      let nodeDefinition = getNodeDefinition(thisObject.payload.node)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           VISIBLE_RADIUS = thisObject.payload.floatingObject.currentHierarchyRing * 2.8
@@ -1741,7 +1760,7 @@ function newUiObject () {
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
         if (canvas.floatingSpace.inMapMode === true) {
           totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
-          let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+          let nodeDefinition = getNodeDefinition(thisObject.payload.node)
           if (nodeDefinition !== undefined) {
             if (nodeDefinition.isHierarchyHead !== true) {
               totalImageSize = totalImageSize / 4

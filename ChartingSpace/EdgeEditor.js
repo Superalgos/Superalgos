@@ -195,9 +195,18 @@ function newEdgeEditor () {
     }
 
     if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowRight') {
-      onDragStarted(event)
-      thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
-      whatHappened = 'left or right arrow key pressed'
+      if (ARE_WE_RECORDING_A_MARKET_PANORAMA === true) {
+        if (PANORAMA_WAS_PANNED === false) {
+          PANORAMA_WAS_PANNED = true
+          onDragStarted(event)
+          thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP * 2
+          whatHappened = 'left or right arrow key pressed'
+        }
+      } else {
+        onDragStarted(event)
+        thisObject.container.frame.position.x = thisObject.container.frame.position.x - STEP
+        whatHappened = 'left or right arrow key pressed'
+      }
       return
     }
 

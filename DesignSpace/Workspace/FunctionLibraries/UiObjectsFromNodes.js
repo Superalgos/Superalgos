@@ -1,5 +1,7 @@
 function newUiObjectsFromNodes () {
   thisObject = {
+    runTasks: runTasks,
+    runSessions: runSessions,
     recreateWorkspace: recreateWorkspace,
     tryToConnectChildrenWithReferenceParents: tryToConnectChildrenWithReferenceParents,
     createUiObjectFromNode: createUiObjectFromNode,
@@ -14,7 +16,7 @@ function newUiObjectsFromNodes () {
 
   return thisObject
 
-  function recreateWorkspace (node, replacingCurrentWorkspace) {
+  function recreateWorkspace (node, callBackFunction) {
     mapOfNodes = new Map()
     tasksToRun = []
     sessionsToRun = []
@@ -22,16 +24,16 @@ function newUiObjectsFromNodes () {
     addIncludedNodes()
 
     function addIncludedNodes () {
-      blobService = newFileStorage()
+      let blobService = newFileStorage()
 
-      // if (node.code === undefined) {
-      node.code = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
+      // if (node.config === undefined) {
+      node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "Masters-Trading"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
       // }
 
-      let code = JSON.parse(node.code)
-      let includeDataMines = code.includeDataMines
-      let includeTradingSystems = code.includeTradingSystems
-      let includeSuperScripts = code.includeSuperScripts
+      let config = JSON.parse(node.config)
+      let includeDataMines = config.includeDataMines
+      let includeTradingSystems = config.includeTradingSystems
+      let includeSuperScripts = config.includeSuperScripts
 
       let totalIncluded = 0
 
@@ -47,9 +49,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Data Mine') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -76,9 +78,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Trading System') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -105,9 +107,9 @@ function newUiObjectsFromNodes () {
           for (let i = 0; i < node.rootNodes.length; i++) {
             let rootNode = node.rootNodes[i]
             if (rootNode.type === 'Super Scripts') {
-              if (rootNode.code !== undefined) {
-                let code = JSON.parse(rootNode.code)
-                if (code.name === name) {
+              if (rootNode.config !== undefined) {
+                let config = JSON.parse(rootNode.config)
+                if (config.name === name) {
                   rootNodes.splice(i, 1)
                 }
               }
@@ -135,15 +137,8 @@ function newUiObjectsFromNodes () {
 
       tryToConnectChildrenWithReferenceParents()
 
-      if (replacingCurrentWorkspace === true) {
-     // We need to wait all tasks that were potentially running to stop
-        setTimeout(runTasks, 70000)
-     // We give a few seconds for the tasks to start
-        setTimeout(runSessions, 80000)
-      } else {
-        runTasks()
-     // We give a few seconds for the tasks to start
-        setTimeout(runSessions, 10000)
+      if (callBackFunction !== undefined) {
+        callBackFunction() // The recreation of the workspace is complete
       }
     }
   }
@@ -184,10 +179,33 @@ function newUiObjectsFromNodes () {
     }
   }
 
+  function migrateCodeToConfig (node, nodeDefinition) {
+    /* Code needed to Migrante from Beta 5 to Beta a Workspace */
+    if (nodeDefinition.editors !== undefined) {
+      if (nodeDefinition.editors.config === true) {
+        if (node.code !== undefined) {
+          node.config = node.code
+          node.code = undefined
+        }
+      }
+    }
+  }
+
   function createUiObjectFromNode (node, parentNode, chainParent, positionOffset) {
+    /* Code needed to Migrante from Beta 5 to Beta 6 a Trading System
+    if (node.type === 'Take Profit') {
+      node.type = 'Managed Take Profit'
+    }
+    if (node.type === 'Stop') {
+      node.type = 'Managed Stop Loss'
+    }
+    */
+
     /* Get node definition */
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition(node)
     if (nodeDefinition !== undefined) {
+      migrateCodeToConfig(node, nodeDefinition)
+
       /* Resolve Initial Values */
       if (nodeDefinition.initialValues !== undefined) {
         if (nodeDefinition.initialValues.code !== undefined) {
@@ -195,12 +213,17 @@ function newUiObjectsFromNodes () {
             node.code = nodeDefinition.initialValues.code
           }
         }
+        if (nodeDefinition.initialValues.config !== undefined) {
+          if (node.config === undefined) {
+            node.config = nodeDefinition.initialValues.config
+          }
+        }
       }
 
       /* For the cases where an node is not chained to its parent but to the one at the parent before it at its collection */
       if (nodeDefinition.chainedToSameType === true) {
         if (parentNode !== undefined) {
-          let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+          let parentNodeDefinition = getNodeDefinition(parentNode)
           if (parentNodeDefinition !== undefined) {
             if (parentNodeDefinition.properties !== undefined) {
               for (let i = 0; i < parentNodeDefinition.properties.length; i++) {
@@ -268,12 +291,12 @@ function newUiObjectsFromNodes () {
       type: type
     }
 
-    let parentNodeDefinition = APP_SCHEMA_MAP.get(parentNode.type)
+    let parentNodeDefinition = getNodeDefinition(parentNode)
     if (parentNodeDefinition === undefined) {
       console.log('Cannot addUIOBject from parent of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
     }
       /* Resolve Initial Values */
-    let nodeDefinition = APP_SCHEMA_MAP.get(object.type)
+    let nodeDefinition = getNodeDefinition(object)
 
     if (nodeDefinition === undefined) {
       console.log('Cannot addUIOBject of ' + type + ' because that type it is not defined at the APP_SCHEMA.')
@@ -282,6 +305,11 @@ function newUiObjectsFromNodes () {
     if (nodeDefinition.initialValues !== undefined) {
       if (nodeDefinition.initialValues.code !== undefined) {
         object.code = nodeDefinition.initialValues.code
+      }
+    }
+    if (nodeDefinition.initialValues !== undefined) {
+      if (nodeDefinition.initialValues.config !== undefined) {
+        object.config = nodeDefinition.initialValues.config
       }
     }
 
@@ -325,6 +353,9 @@ function newUiObjectsFromNodes () {
       if (nodeDefinition.initialValues !== undefined) {
         if (nodeDefinition.initialValues.code !== undefined) {
           object.code = nodeDefinition.initialValues.code
+        }
+        if (nodeDefinition.initialValues.config !== undefined) {
+          object.config = nodeDefinition.initialValues.config
         }
       }
     }
@@ -398,7 +429,7 @@ function newUiObjectsFromNodes () {
   }
 
   function addMissingChildren (node) {
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition(node)
 
       /* Connect to Parent */
     if (nodeDefinition.properties !== undefined) {

@@ -1,12 +1,13 @@
-function newSidePanel () {
-  const MODULE_NAME = 'Side Panel'
+function newSideSpace () {
+  const MODULE_NAME = 'Side Space'
   let thisObject = {
-    areas: [],
     sidePanelTab: undefined,
     container: undefined,
+    physics: physics,
     draw: draw,
     getContainer: getContainer,
-    initialize: initialize
+    initialize: initialize,
+    finalize: finalize
   }
 
   let isInitialized = false
@@ -16,9 +17,16 @@ function newSidePanel () {
   thisObject.container.initialize()
   thisObject.container.isClickeable = true
   thisObject.container.isDraggeable = false
+  thisObject.container.detectMouseOver = true
   thisObject.container.status = 'hidden'
 
+  let listView
+
   resize()
+
+  let openingEventSubscriptionId
+  let closedEventSubscriptionId
+  let browserResizedEventSubscriptionId
   return thisObject
 
   function initialize () {
@@ -26,8 +34,24 @@ function newSidePanel () {
     thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
     thisObject.sidePanelTab.initialize()
 
-    canvas.eventHandler.listenToEvent('Browser Resized', resize)
+    browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    initializeListView()
     isInitialized = true
+  }
+
+  function finalize () {
+    canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
+    thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+    thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
+  }
+
+  function initializeListView () {
+    listView = newListView()
+    listView.initialize()
+    listView.container.connectToParent(thisObject.container, false, false)
+    openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
+    closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
   }
 
   function resize () {
@@ -35,12 +59,23 @@ function newSidePanel () {
     thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
     thisObject.container.frame.position.x = -SIDE_PANEL_WIDTH
     thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
+
+    if (listView !== undefined) {
+      listView.resize()
+    }
+
+    if (thisObject.sidePanelTab !== undefined) {
+      thisObject.sidePanelTab.resize()
+    }
   }
 
-  function getContainer (point) {
+  function getContainer (point, purpose) {
     let container
 
-    container = thisObject.sidePanelTab.getContainer(point)
+    container = thisObject.sidePanelTab.getContainer(point, purpose)
+    if (container !== undefined) { return container }
+
+    container = listView.getContainer(point, purpose)
     if (container !== undefined) { return container }
 
     if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -50,15 +85,17 @@ function newSidePanel () {
     }
   }
 
+  function physics () {
+    thisObject.sidePanelTab.physics()
+    listView.physics()
+  }
+
   function draw () {
+    if (canWeDraw === false) { return }
     if (isInitialized === false) { return }
     borders()
     thisObject.sidePanelTab.draw()
-
-    for (let i = 0; i < thisObject.areas.length; i++) {
-      let area = thisObject.areas[i]
-      area.draw()
-    }
+    listView.draw()
   }
 
   function borders () {

@@ -277,8 +277,8 @@ function newPlotter () {
       let record = {}
       for (let j = 0; j < recordDefinition.properties.length; j++) {
         let property = recordDefinition.properties[j]
-        if (property.code.isCalculated !== true) {
-          record[property.code.codeName] = dataFile[i][j]
+        if (property.config.isCalculated !== true) {
+          record[property.config.codeName] = dataFile[i][j]
         }
       }
 
@@ -310,7 +310,7 @@ function newPlotter () {
       timeFrame: timeFrame,
       ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
     }
-    let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
+    let variable = {} // This is the structure where the user will define its own variables that will be shared across different config blocks and formulas.
     let results = []
 
     /* This is Initialization Code */
@@ -345,13 +345,13 @@ function newPlotter () {
           /* For each calculated property we apply its formula */
           for (let j = 0; j < recordDefinition.properties.length; j++) {
             let property = recordDefinition.properties[j]
-            if (property.code.isCalculated === true) {
+            if (property.config.isCalculated === true) {
               if (property.formula !== undefined) {
                 if (property.formula.code !== undefined) {
                   try {
                     let newValue = eval(property.formula.code)
                     let currentRecord = product
-                    currentRecord[property.code.codeName] = newValue
+                    currentRecord[property.config.codeName] = newValue
                   } catch (err) {
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. Error = ' + err.stack.stack)
                     logger.write('[ERROR] calculationsProcedure -> loop -> formula -> Error executing User Code. product = ' + JSON.stringify(product))
@@ -570,23 +570,23 @@ function newPlotter () {
                 let x = 0
                 let y = 0
                 eval(point.pointFormula.code)
-                let dataPoint = {
+                let rawPoint = {
                   x: x,
                   y: y
                 }
-                /* Contributing to Auto-Scale */
-                coordinateSystem.reportYValue(dataPoint.y)
 
               /*
               The information we store in files is independent from the charing system and its coordinate systems.
               That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
               */
-                dataPoint = coordinateSystem.transformThisPoint(dataPoint)
+                let dataPoint
+                dataPoint = coordinateSystem.transformThisPoint(rawPoint)
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
                 dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                 dataPoint = thisObject.fitFunction(dataPoint)
 
               /* Store the data point at the local map */
+                dataPoint.rawPoint = rawPoint
                 dataPoints.set(point.id, dataPoint)
               }
             }
@@ -598,6 +598,12 @@ function newPlotter () {
 
         for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
           let polygon = productDefinition.referenceParent.shapes.polygons[j]
+          /* We will check if we need to plot this Polygon or not. */
+          if (polygon.polygonCondition !== undefined) {
+            let mustPlot = eval(polygon.polygonCondition.code)
+            if (mustPlot !== true) { continue }
+          }
+
           let calculatedStyle
 
           /* Finding out the fill style */
@@ -616,9 +622,9 @@ function newPlotter () {
             } else {
               /* Get the default style if exists */
               if (polygon.polygonBody.style !== undefined) {
-                if (polygon.polygonBody.style.code !== undefined) {
-                  if (polygon.polygonBody.style.code.default !== undefined) {
-                    let bodyStyle = polygon.polygonBody.style.code.default
+                if (polygon.polygonBody.style.config !== undefined) {
+                  if (polygon.polygonBody.style.config.default !== undefined) {
+                    let bodyStyle = polygon.polygonBody.style.config.default
                     if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
                     if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
                   }
@@ -631,7 +637,7 @@ function newPlotter () {
                   let value = eval(condition.code)
                   if (value === true) {
                     if (condition.style !== undefined) {
-                      let bodyStyle = condition.style.code
+                      let bodyStyle = condition.style.config
                       if (bodyStyle.opacity !== undefined) { fillStyle.opacity = bodyStyle.opacity }
                       if (bodyStyle.paletteColor !== undefined) { fillStyle.paletteColor = eval(bodyStyle.paletteColor) }
                     }
@@ -640,8 +646,8 @@ function newPlotter () {
               }
               /* Get the atMousePosition style if exists */
               if (polygon.polygonBody.style !== undefined) {
-                if (polygon.polygonBody.style.code.atMousePosition !== undefined) {
-                  let atMousePositionStyleDefinition = polygon.polygonBody.style.code.atMousePosition
+                if (polygon.polygonBody.style.config.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBody.style.config.atMousePosition
                   let atMousePositionStyle = {}
                   if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
                   if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
@@ -671,9 +677,9 @@ function newPlotter () {
             } else {
               /* Get the default style if exists */
               if (polygon.polygonBorder.style !== undefined) {
-                if (polygon.polygonBorder.style.code !== undefined) {
-                  if (polygon.polygonBorder.style.code.default !== undefined) {
-                    let borderStyle = polygon.polygonBorder.style.code.default
+                if (polygon.polygonBorder.style.config !== undefined) {
+                  if (polygon.polygonBorder.style.config.default !== undefined) {
+                    let borderStyle = polygon.polygonBorder.style.config.default
                     if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
                     if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
                     if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
@@ -688,7 +694,7 @@ function newPlotter () {
                   let value = eval(condition.code)
                   if (value === true) {
                     if (condition.style !== undefined) {
-                      let borderStyle = condition.style.code
+                      let borderStyle = condition.style.config
                       if (borderStyle.opacity !== undefined) { strokeStyle.opacity = borderStyle.opacity }
                       if (borderStyle.paletteColor !== undefined) { strokeStyle.paletteColor = eval(borderStyle.paletteColor) }
                       if (borderStyle.lineWidth !== undefined) { strokeStyle.lineWidth = borderStyle.lineWidth }
@@ -699,8 +705,8 @@ function newPlotter () {
               }
               /* Get the atMousePosition style if exists */
               if (polygon.polygonBorder.style !== undefined) {
-                if (polygon.polygonBorder.style.code.atMousePosition !== undefined) {
-                  let atMousePositionStyleDefinition = polygon.polygonBorder.style.code.atMousePosition
+                if (polygon.polygonBorder.style.config.atMousePosition !== undefined) {
+                  let atMousePositionStyleDefinition = polygon.polygonBorder.style.config.atMousePosition
                   let atMousePositionStyle = {}
                   if (atMousePositionStyleDefinition.opacity !== undefined) { atMousePositionStyle.opacity = atMousePositionStyleDefinition.opacity }
                   if (atMousePositionStyleDefinition.paletteColor !== undefined) { atMousePositionStyle.paletteColor = eval(atMousePositionStyleDefinition.paletteColor) }
@@ -724,6 +730,12 @@ function newPlotter () {
                 console.log('[WARN] You have a Polygon Vertex not referencing any Point.')
                 continue
               }
+
+              /* Contributing to Auto-Scale */
+              if (dataPointObject.rawPoint.y > 1 && dataPointObject.rawPoint.y !== undefined && isNaN(dataPointObject.rawPoint.y) === false) {
+                coordinateSystem.reportYValue(dataPointObject.rawPoint.y)
+              }
+
               let dataPoint = {
                 x: dataPointObject.x,
                 y: dataPointObject.y

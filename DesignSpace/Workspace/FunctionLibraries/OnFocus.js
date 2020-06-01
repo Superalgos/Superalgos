@@ -7,7 +7,7 @@ function newOnFocus () {
   function getNodeThatIsOnFocus (node) {
     if (node === undefined) { return }
     if (node.payload === undefined) { return }
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
     if (nodeDefinition !== undefined) {
       /* First we ask the question to ourself */
       if (node.payload.uiObject.isOnFocus === true) {

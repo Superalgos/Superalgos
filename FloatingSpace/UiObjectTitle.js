@@ -51,7 +51,7 @@ function newUiObjectTitle () {
     thisObject.payload = payload
 
     thisObject.allwaysVisible = false // Default value
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.isTitleAllwaysVisible === true) {
         thisObject.allwaysVisible = true
@@ -100,7 +100,7 @@ function newUiObjectTitle () {
     if (thisObject.payload.title === undefined) { return }
 
     /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
     if (nodeDefinition.title !== undefined) {
       thisObject.payload.title = ''
       thisObject.payload.node.name = ''
@@ -221,7 +221,7 @@ function newUiObjectTitle () {
   }
 
   function onMouseClick (event) {
-    let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
     if (nodeDefinition.title !== undefined) { return }
 
     let checkPoint = {
@@ -329,7 +329,7 @@ function newUiObjectTitle () {
             labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
             labelPoint.y = labelPoint.y - 35
 
-            let nodeDefinition = APP_SCHEMA_MAP.get(thisObject.payload.node.type)
+            let nodeDefinition = getNodeDefinition (thisObject.payload.node)
             if (nodeDefinition !== undefined) {
               if (nodeDefinition.isHierarchyHead !== true) {
                 return

@@ -25,11 +25,25 @@ function newConditionEditor () {
   thisObject.container.isDraggeable = false
   thisObject.container.detectMouseOver = false
   thisObject.container.frame.radius = 750
+  thisObject.container.frame.width = thisObject.container.frame.radius * 2
+  thisObject.container.frame.height = thisObject.container.frame.radius * 2
   thisObject.container.frame.containerName = MODULE_NAME
 
   let isMouseOver = false
   let conditionStructure
   let scanResult
+
+  let timeFrameIcon
+  let dataMineIcon
+  let botIcon
+  let whenIcon
+  let productIcon
+  let propertyIcon
+  let operationIcon
+  let valueIcon
+
+  const PICKER_WIDTH = 150
+  const PICKER_HEIGHT = 60
 
   return thisObject
 
@@ -41,10 +55,26 @@ function newConditionEditor () {
 
     conditionStructure = undefined
     scanResult = undefined
+
+    timeFrameIcon = undefined
+    dataMineIcon = undefined
+    whenIcon = undefined
+    botIcon = undefined
+    productIcon = undefined
+    operationIcon = undefined
+    propertyIcon = undefined
+    valueIcon = undefined
   }
 
   function initialize () {
-
+    timeFrameIcon = canvas.designSpace.iconCollection.get('time-period')
+    dataMineIcon = canvas.designSpace.iconCollection.get('data-mine')
+    botIcon = canvas.designSpace.iconCollection.get('bot-indicator')
+    whenIcon = canvas.designSpace.iconCollection.get('chronometer')
+    productIcon = canvas.designSpace.iconCollection.get('product-definition')
+    propertyIcon = canvas.designSpace.iconCollection.get('record-property')
+    operationIcon = canvas.designSpace.iconCollection.get('headphones')
+    valueIcon = canvas.designSpace.iconCollection.get('competition')
   }
 
   function activate (payload) {
@@ -53,8 +83,8 @@ function newConditionEditor () {
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     conditionStructure = {
-      code: thisObject.payload.node.code,
-      orOperands: []
+      code: '',
+      logicOperands: []
     }
 
     scanDataMines()
@@ -75,77 +105,84 @@ function newConditionEditor () {
   }
 
   function loadFromCode () {
-    if (thisObject.payload.node.code === undefined || thisObject.payload.node.code === '') { return }
+    if (thisObject.payload.node.code === undefined) { thisObject.payload.node.code = '' }
+    conditionStructure.code = thisObject.payload.node.code.replace(/ /g, '')
 
     /* LOGICAL ORs */
-    let orArray = conditionStructure.code.split(' || ')
-    for (let j = 0; j < orArray.length; j++) {
+    let orArray = conditionStructure.code.split('||')
+    for (let j = 0; j < 3; j++) {
       let logicOperand = {
         code: orArray[j],
         index: j,
-        comparison: {}
+        comparison: {},
+        visible: false
       }
+
+      if (logicOperand.code !== undefined) {
+        logicOperand.visible = true
+        if (orArray[j + 1] !== undefined) {
+          logicOperand.operator = '||'
+        }
+      } else {
+        logicOperand.code = ''
+      }
+
       checkComparison(logicOperand, j)
-      conditionStructure.orOperands.push(logicOperand)
+      conditionStructure.logicOperands.push(logicOperand)
     }
 
     function checkComparison (logicOperand) {
     /* We are going to decompose the  code into 2 comparison operators */
-      logicOperand.comparison.operandA = { index: 0}
-      logicOperand.comparison.operandB = { index: 1}
+      logicOperand.comparison.operandA = {
+        index: 0,
+        code: ''
+      }
+      logicOperand.comparison.operandB = {
+        index: 1,
+        code: ''
+      }
 
-      if (logicOperand.code.indexOf(' > ') > 0) {
-        let codeArray = logicOperand.code.split(' > ')
+      if (logicOperand.code.indexOf('>') > 0) {
+        let codeArray = logicOperand.code.split('>')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' > '
+        logicOperand.comparison.operator = '>'
         logicOperand.comparison.operatorIndex = 0
       }
 
-      if (logicOperand.code.indexOf(' < ') > 0) {
-        let codeArray = logicOperand.code.split(' < ')
+      if (logicOperand.code.indexOf('<') > 0) {
+        let codeArray = logicOperand.code.split('<')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' < '
+        logicOperand.comparison.operator = '<'
         logicOperand.comparison.operatorIndex = 1
       }
 
-      if (logicOperand.code.indexOf(' >= ') > 0) {
-        let codeArray = logicOperand.code.split(' >= ')
+      if (logicOperand.code.indexOf('>=') > 0) {
+        let codeArray = logicOperand.code.split('>=')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' >= '
+        logicOperand.comparison.operator = '>='
         logicOperand.comparison.operatorIndex = 2
       }
 
-      if (logicOperand.code.indexOf(' <= ') > 0) {
-        let codeArray = logicOperand.code.split(' <= ')
+      if (logicOperand.code.indexOf('<=') > 0) {
+        let codeArray = logicOperand.code.split('<=')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' <= '
+        logicOperand.comparison.operator = '<='
         logicOperand.comparison.operatorIndex = 3
       }
 
-      if (logicOperand.code.indexOf(' === ') > 0) {
-        let codeArray = logicOperand.code.split(' === ')
+      if (logicOperand.code.indexOf('===') > 0) {
+        let codeArray = logicOperand.code.split('===')
         logicOperand.comparison.operandA.code = codeArray[0]
         logicOperand.comparison.operandB.code = codeArray[1]
-        logicOperand.comparison.operator = ' === '
+        logicOperand.comparison.operator = '==='
         logicOperand.comparison.operatorIndex = 4
       }
 
-      logicOperand.comparison.picker = newPicker()
-      let picker = logicOperand.comparison.picker
-      picker.name = 'Comparison'
-      picker.container.connectToParent(thisObject.container)
-      picker.container.frame.position.x = 0 - picker.container.frame.width / 2
-      picker.container.frame.position.y = 0 - picker.container.frame.height / 2
-      let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
-      picker.initialize(optionsList)
-
-      picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged)
-
-    /* Each comparison code may have one or more algebraic operators */
+    /* Each comparison code may have one or more algebra operators */
       checkAlgebra(logicOperand, logicOperand.comparison.operandA)
       checkAlgebra(logicOperand, logicOperand.comparison.operandB)
     }
@@ -156,114 +193,205 @@ function newConditionEditor () {
         operandB: { index: 1}
       }
 
-      /* The default situation is that there is no Algebraic operation, meaning we will setup a Algebraic operation only with operandA */
+      /* The default situation is that there is no algebra operation, meaning we will setup a algebra operation only with operandA */
       comparisonOperand.algebra.operandA.code = comparisonOperand.code
       comparisonOperand.algebra.operandB.code = ''
-      comparisonOperand.algebra.operator = ' ... '
+      comparisonOperand.algebra.operator = '...'
       comparisonOperand.algebra.operatorIndex = 0
 
-      if (comparisonOperand.code.indexOf(' + ') > 0) {
-        let codeArray = logicOperand.code.split(' + ')
+      if (comparisonOperand.code.indexOf('+') > 0) {
+        let codeArray = comparisonOperand.code.split('+')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' + '
+        comparisonOperand.algebra.operator = '+'
         comparisonOperand.algebra.operatorIndex = 1
       }
 
-      if (comparisonOperand.code.indexOf(' - ') > 0) {
-        let codeArray = logicOperand.code.split(' - ')
+      if (comparisonOperand.code.indexOf('-') > 0) {
+        let codeArray = comparisonOperand.code.split('-')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' - '
+        comparisonOperand.algebra.operator = '-'
         comparisonOperand.algebra.operatorIndex = 2
       }
 
-      if (comparisonOperand.code.indexOf(' * ') > 0) {
-        let codeArray = logicOperand.code.split(' * ')
+      if (comparisonOperand.code.indexOf('*') > 0) {
+        let codeArray = comparisonOperand.code.split('*')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' * '
+        comparisonOperand.algebra.operator = '*'
         comparisonOperand.algebra.operatorIndex = 3
       }
 
-      if (comparisonOperand.code.indexOf(' / ') > 0) {
-        let codeArray = logicOperand.code.split(' / ')
+      if (comparisonOperand.code.indexOf('/') > 0) {
+        let codeArray = comparisonOperand.code.split('/')
         comparisonOperand.algebra.operandA.code = codeArray[0]
         comparisonOperand.algebra.operandB.code = codeArray[1]
-        comparisonOperand.algebra.operator = ' / '
+        comparisonOperand.algebra.operator = '/'
         comparisonOperand.algebra.operatorIndex = 4
       }
 
       initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
-      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      initializePickersSet(logicOperand, comparisonOperand, comparisonOperand.algebra.operandB)
       updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
-      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandA)
+      updatePickers(logicOperand, comparisonOperand, comparisonOperand.algebra.operandB)
     }
 
     function initializePickersSet (logicOperand, comparisonOperand, algebraOperand) {
-      /* Get the ySign */
-      let ySign
-      if (algebraOperand.index === 0) {
-        ySign = -1
-      }
-      if (algebraOperand.index === 1) {
-        ySign = 1
-      }
+      const ALGEBRA_SEPARATION = PICKER_HEIGHT
+      const COMPARISON_SEPARATION = ALGEBRA_SEPARATION * 2
+      const LOGIC_SEPARATION = COMPARISON_SEPARATION * 2
 
       let properties
       let parent
       let current
+      let yOffset = (logicOperand.index - 1) * LOGIC_SEPARATION + (comparisonOperand.index - 0.5) * COMPARISON_SEPARATION + (algebraOperand.index - 0.5) * ALGEBRA_SEPARATION
+
+      if (algebraOperand.index === 0) {
+        comparisonOperand.algebra.picker = newPicker()
+        let picker = comparisonOperand.algebra.picker
+        picker.name = 'Algebra'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
+        current = ['...', 'Plus', 'Minus', 'Times', 'Divided by']
+        picker.initialize(current, current)
+        switch (comparisonOperand.algebra.operator) {
+          case '+': {
+            picker.setSelected(undefined, undefined, undefined, 1)
+            break
+          }
+          case '-': {
+            picker.setSelected(undefined, undefined, undefined, 2)
+            break
+          }
+          case '*': {
+            picker.setSelected(undefined, undefined, undefined, 3)
+            break
+          }
+          case '/': {
+            picker.setSelected(undefined, undefined, undefined, 4)
+            break
+          }
+        }
+        picker.visible = true
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Algebra'
+        }
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
+      }
+
+      if (comparisonOperand.index === 0 && algebraOperand.index === 1) {
+        logicOperand.comparison.picker = newPicker()
+        let picker = logicOperand.comparison.picker
+        picker.name = 'Comparison'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
+        let optionsList = ['Greater Than', 'Less Than', 'Greater or Equal Than', 'Less or Equal Than', 'Equal To']
+        picker.initialize(optionsList)
+        switch (logicOperand.comparison.operator) {
+          case '>': {
+            picker.setSelected(undefined, undefined, undefined, 0)
+            break
+          }
+          case '<': {
+            picker.setSelected(undefined, undefined, undefined, 1)
+            break
+          }
+          case '>=': {
+            picker.setSelected(undefined, undefined, undefined, 2)
+            break
+          }
+          case '<=': {
+            picker.setSelected(undefined, undefined, undefined, 3)
+            break
+          }
+          case '===': {
+            picker.setSelected(undefined, undefined, undefined, 4)
+            break
+          }
+        }
+        picker.visible = true
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Comparison'
+        }
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
+      }
+
+      if (comparisonOperand.index === 1 && algebraOperand.index === 1 && logicOperand.index <= 1) {
+        logicOperand.picker = newPicker()
+        let picker = logicOperand.picker
+        picker.name = 'Logic'
+        picker.container.connectToParent(thisObject.container)
+        picker.container.frame.position.x = 0 - picker.container.frame.width / 2 + picker.container.frame.width * 2.5
+        picker.container.frame.position.y = 0 - picker.container.frame.height / 2 + yOffset
+        let optionsList = ['...', 'OR']
+        picker.initialize(optionsList)
+        if (logicOperand.operator === '||') {
+          picker.setSelected(undefined, undefined, undefined, 1)
+        }
+        picker.visible = true
+        let structureBranch = {
+          logicOperand: logicOperand,
+          comparisonOperand: comparisonOperand,
+          algebraOperand: algebraOperand,
+          pickerName: 'Logic'
+        }
+        picker.eventSuscriptionId = picker.container.eventHandler.listenToEvent('onParentChanged', onParentChanged, structureBranch)
+      }
+
+      let visible = true
+      if (algebraOperand.index === 1 && comparisonOperand.algebra.picker.getSelected() === '...') { visible = false }
+      if (logicOperand.comparison.picker !== undefined && comparisonOperand.index === 1 && logicOperand.comparison.picker.getSelected() === 'Equal To') { visible = false }
 
       algebraOperand.whenPicker = newPicker()
       algebraOperand.whenPicker.name = 'When'
       algebraOperand.whenPicker.container.connectToParent(thisObject.container)
-      algebraOperand.whenPicker.container.frame.position.x = 0 - algebraOperand.whenPicker.container.frame.width / 2 - algebraOperand.whenPicker.container.frame.width * 1.0
-      algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + algebraOperand.whenPicker.container.frame.height * ySign
+      algebraOperand.whenPicker.container.frame.position.x = 0 - algebraOperand.whenPicker.container.frame.width / 2 - algebraOperand.whenPicker.container.frame.width * 0.5
+      algebraOperand.whenPicker.container.frame.position.y = 0 - algebraOperand.whenPicker.container.frame.height / 2 + yOffset
       current = ['Current', '1 Previous', '2 Previous', '3 Previous', '4 Previous', '5 Previous']
       algebraOperand.whenPicker.initialize(current, current)
-      algebraOperand.whenPicker.visible = true
-
-      algebraOperand.algebraicPicker = newPicker()
-      algebraOperand.algebraicPicker.name = 'Algebraic'
-      algebraOperand.algebraicPicker.container.connectToParent(thisObject.container)
-      algebraOperand.algebraicPicker.container.frame.position.x = 0 - algebraOperand.algebraicPicker.container.frame.width / 2 + algebraOperand.algebraicPicker.container.frame.width * 3.0
-      algebraOperand.algebraicPicker.container.frame.position.y = 0 - algebraOperand.algebraicPicker.container.frame.height / 2 + algebraOperand.algebraicPicker.container.frame.height * ySign
-      current = ['+ - * /', 'Plus', 'Minus', 'Times', 'Divided by']
-      algebraOperand.algebraicPicker.initialize(current, current)
-      algebraOperand.algebraicPicker.visible = true
+      algebraOperand.whenPicker.visible = visible
 
       algebraOperand.dataMinePicker = newPicker()
       algebraOperand.dataMinePicker.name = 'Data Mine'
       algebraOperand.dataMinePicker.container.connectToParent(thisObject.container)
-      algebraOperand.dataMinePicker.container.frame.position.x = 0 - algebraOperand.dataMinePicker.container.frame.width / 2 - algebraOperand.dataMinePicker.container.frame.width * 3.0
-      algebraOperand.dataMinePicker.container.frame.position.y = 0 - algebraOperand.dataMinePicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.dataMinePicker.container.frame.position.x = 0 - algebraOperand.dataMinePicker.container.frame.width / 2 - algebraOperand.dataMinePicker.container.frame.width * 2.5
+      algebraOperand.dataMinePicker.container.frame.position.y = 0 - algebraOperand.dataMinePicker.container.frame.height / 2 + yOffset
       current = scanResult
       properties = Object.keys(current)
       algebraOperand.dataMinePicker.initialize(properties, current)
       parent = current
-      algebraOperand.dataMinePicker.visible = true
+      algebraOperand.dataMinePicker.visible = visible
 
       algebraOperand.botPicker = newPicker()
       algebraOperand.botPicker.name = 'Bot'
       algebraOperand.botPicker.container.connectToParent(thisObject.container)
-      algebraOperand.botPicker.container.frame.position.x = 0 - algebraOperand.botPicker.container.frame.width / 2 - algebraOperand.botPicker.container.frame.width * 2.0
-      algebraOperand.botPicker.container.frame.position.y = 0 - algebraOperand.botPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.botPicker.container.frame.position.x = 0 - algebraOperand.botPicker.container.frame.width / 2 - algebraOperand.botPicker.container.frame.width * 1.5
+      algebraOperand.botPicker.container.frame.position.y = 0 - algebraOperand.botPicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = Object.keys(current)
       algebraOperand.botPicker.initialize(properties, current, parent)
       parent = current
-      algebraOperand.botPicker.visible = true
+      algebraOperand.botPicker.visible = visible
 
       algebraOperand.productPicker = newPicker()
       algebraOperand.productPicker.name = 'Product'
       algebraOperand.productPicker.container.connectToParent(thisObject.container)
-      algebraOperand.productPicker.container.frame.position.x = 0 - algebraOperand.productPicker.container.frame.width / 2 + algebraOperand.productPicker.container.frame.width * 0.0
-      algebraOperand.productPicker.container.frame.position.y = 0 - algebraOperand.productPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.productPicker.container.frame.position.x = 0 - algebraOperand.productPicker.container.frame.width / 2 + algebraOperand.productPicker.container.frame.width * 0.5
+      algebraOperand.productPicker.container.frame.position.y = 0 - algebraOperand.productPicker.container.frame.height / 2 + yOffset
       current = parent[properties[0]]
       properties = Object.keys(current)
       algebraOperand.productPicker.initialize(properties, current, parent)
       parent = current
-      algebraOperand.productPicker.visible = true
+      algebraOperand.productPicker.visible = visible
 
       let productParent = parent
       let productProperties = properties
@@ -271,36 +399,40 @@ function newConditionEditor () {
       algebraOperand.propertyPicker = newPicker()
       algebraOperand.propertyPicker.name = 'Property'
       algebraOperand.propertyPicker.container.connectToParent(thisObject.container)
-      algebraOperand.propertyPicker.container.frame.position.x = 0 - algebraOperand.propertyPicker.container.frame.width / 2 + algebraOperand.propertyPicker.container.frame.width * 1.0
-      algebraOperand.propertyPicker.container.frame.position.y = 0 - algebraOperand.propertyPicker.container.frame.height / 2 + algebraOperand.dataMinePicker.container.frame.height * ySign
+      algebraOperand.propertyPicker.container.frame.position.x = 0 - algebraOperand.propertyPicker.container.frame.width / 2 + algebraOperand.propertyPicker.container.frame.width * 1.5
+      algebraOperand.propertyPicker.container.frame.position.y = 0 - algebraOperand.propertyPicker.container.frame.height / 2 + yOffset
       current = productParent[productProperties[0]]
       current = current.properties
       properties = Object.keys(current)
       algebraOperand.propertyPicker.initialize(properties, current, productParent, 'properties')
       parent = current
-      algebraOperand.propertyPicker.visible = true
+      algebraOperand.propertyPicker.visible = visible
 
       algebraOperand.valuePicker = newPicker()
       algebraOperand.valuePicker.name = 'Value'
       algebraOperand.valuePicker.container.connectToParent(thisObject.container)
-      algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2
-      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + algebraOperand.valuePicker.container.frame.height * 1
+      algebraOperand.valuePicker.container.frame.position.x = 0 - algebraOperand.valuePicker.container.frame.width / 2 + algebraOperand.valuePicker.container.frame.width * 3.5
+      algebraOperand.valuePicker.container.frame.position.y = 0 - algebraOperand.valuePicker.container.frame.height / 2 + yOffset + ALGEBRA_SEPARATION
       current = parent[properties[0]]
       properties = current.possibleValues
       algebraOperand.valuePicker.initialize(properties, current, parent, 'possibleValues')
       parent = current
       algebraOperand.valuePicker.visible = false
+      if (logicOperand.comparison.picker !== undefined && logicOperand.comparison.picker.getSelected() === 'Equal To') {
+        comparisonOperand.algebra.operandA.valuePicker.visible = true
+      }
 
       algebraOperand.timeFramePicker = newPicker()
       algebraOperand.timeFramePicker.name = 'Time Frame'
       algebraOperand.timeFramePicker.container.connectToParent(thisObject.container)
-      algebraOperand.timeFramePicker.container.frame.position.x = 0 - algebraOperand.timeFramePicker.container.frame.width / 2 + algebraOperand.timeFramePicker.container.frame.width * 2.0
-      algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + algebraOperand.timeFramePicker.container.frame.height * ySign
+      algebraOperand.timeFramePicker.container.frame.position.x = 0 - algebraOperand.timeFramePicker.container.frame.width / 2 - algebraOperand.timeFramePicker.container.frame.width * 3.0
+      algebraOperand.timeFramePicker.container.frame.position.y = 0 - algebraOperand.timeFramePicker.container.frame.height / 2 + yOffset
+      algebraOperand.timeFramePicker.container.frame.width = algebraOperand.timeFramePicker.container.frame.width / 2
       current = productParent[productProperties[0]]
       properties = current.validTimeFrames
       algebraOperand.timeFramePicker.initialize(properties, current, productParent, 'validTimeFrames')
       parent = current
-      algebraOperand.timeFramePicker.visible = true
+      algebraOperand.timeFramePicker.visible = visible
 
       algebraOperand.botPicker.eventSuscriptionId = algebraOperand.dataMinePicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.botPicker.onParentChanged)
       algebraOperand.productPicker.eventSuscriptionId = algebraOperand.botPicker.container.eventHandler.listenToEvent('onParentChanged', algebraOperand.productPicker.onParentChanged)
@@ -312,8 +444,15 @@ function newConditionEditor () {
     function updatePickers (logicOperand, comparisonOperand, algebraOperand) {
       let codeArray = algebraOperand.code.split('.')
 
-      let codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
-      let codeProduct = codeArray[2]
+      let codeTimeFrame
+      if (codeArray[1] !== undefined) {
+        codeTimeFrame = codeArray[1].substring(2, 4) + '-' + codeArray[1].substring(4, 7)
+      }
+
+      let codeProduct
+      if (codeArray[2] !== undefined) {
+        codeProduct = codeArray[2]
+      }
 
       /* Parse When */
       let propertyDisplacement = 0
@@ -340,8 +479,12 @@ function newConditionEditor () {
       }
       algebraOperand.whenPicker.setSelected(undefined, undefined, undefined, propertyDisplacement)
 
-      let codeProperty = codeArray[3 + propertyDisplacement]
-      let codeValue = comparisonOperand.algebra.operandB.code.replace('"', '').replace('"', '')
+      let codeProperty
+      if (codeArray[3 + propertyDisplacement] !== undefined) {
+        codeProperty = codeArray[3 + propertyDisplacement]
+      }
+
+      let codeValue = logicOperand.comparison.operandB.code.replace('"', '').replace('"', '')
 
       let dataMines = Object.keys(scanResult)
       for (let i = 0; i < dataMines.length; i++) {
@@ -457,89 +600,157 @@ function newConditionEditor () {
   }
 
   function convertToCode () {
-    // if (comparisonOperatorA === undefined || comparisonOperatorB === undefined || comparisonPicker === undefined) { return }
+    if (conditionStructure === undefined) { return }
 
     // chart.at01hs.bollingerSubChannel.previous.previous.slope=== "Extreme"
-    /*
+
     let code = ''
 
-    code = code + 'chart.at' + comparisonOperatorA.timeFramePicker.getSelected().replace('-', '')
-    code = code + '.' + comparisonOperatorA.productPicker.getSelected()
-    insertWhen(comparisonOperatorA)
-    code = code + '.' + comparisonOperatorA.propertyPicker.getSelected()
-
-    switch (comparisonPicker.getSelected()) {
-      case 'Greater Than': {
-        code = code + ' > '
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
+      logicOperandToCode(logicOperand)
+      if (logicOperand.picker.getSelected() !== 'OR') {
         break
+      } else {
+        code = code + ' || '
       }
-      case 'Less Than': {
-        code = code + ' < '
-        break
-      }
-      case 'Greater or Equal Than': {
-        code = code + ' >= '
-        break
-      }
-      case 'Less or Equal Than': {
-        code = code + ' <= '
-        break
-      }
-      case 'Equal To': {
-        code = code + ' === '
-        break
-      }
-    }
-
-    if (comparisonPicker.getSelected() === 'Equal To') {
-      code = code + '"' + comparisonOperatorA.valuePicker.getSelected() + '"'
-    } else {
-      code = code + 'chart.at' + comparisonOperatorB.timeFramePicker.getSelected().replace('-', '')
-      code = code + '.' + comparisonOperatorB.productPicker.getSelected()
-      insertWhen(comparisonOperatorB)
-      code = code + '.' + comparisonOperatorB.propertyPicker.getSelected()
     }
 
     thisObject.payload.node.code = code
 
-    function insertWhen (operator) {
-      switch (operator.whenPicker.getSelected()) {
-        case 'Current': {
-          return
+    function logicOperandToCode (logicOperand) {
+      algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandA)
+      if (logicOperand.comparison.operandA.algebra.picker.getSelected() !== '...') {
+        insertAlgebraOperator(logicOperand.comparison.operandA.algebra)
+        algebraOperandToCode(logicOperand.comparison.operandA.algebra.operandB)
+      }
+
+      switch (logicOperand.comparison.picker.getSelected()) {
+        case 'Greater Than': {
+          code = code + ' > '
+          break
         }
-        case '1 Previous': {
-          code = code + '.previous'
-          return
+        case 'Less Than': {
+          code = code + ' < '
+          break
         }
-        case '2 Previous': {
-          code = code + '.previous.previous'
-          return
+        case 'Greater or Equal Than': {
+          code = code + ' >= '
+          break
         }
-        case '3 Previous': {
-          code = code + '.previous.previous.previous'
-          return
+        case 'Less or Equal Than': {
+          code = code + ' <= '
+          break
         }
-        case '4 Previous': {
-          code = code + '.previous.previous.previous.previous'
-          return
+        case 'Equal To': {
+          code = code + ' === '
+          break
         }
-        case '5 Previous': {
-          code = code + '.previous.previous.previous.previous.previous'
-          return
+      }
+
+      if (logicOperand.comparison.picker.getSelected() === 'Equal To') {
+        code = code + '"' + logicOperand.comparison.operandA.algebra.operandA.valuePicker.getSelected() + '"'
+      } else {
+        algebraOperandToCode(logicOperand.comparison.operandB.algebra.operandA)
+        if (logicOperand.comparison.operandB.algebra.picker.getSelected() !== '...') {
+          insertAlgebraOperator(logicOperand.comparison.operandB.algebra)
+          algebraOperandToCode(logicOperand.comparison.operandB.algebra.operandB)
+        }
+      }
+
+      function algebraOperandToCode (algebraOperand) {
+        if (algebraOperand.timeFramePicker.getSelected() === 'Any Time Frame') {
+          code = code + 'chart.atAnyTimeFrame'
+        } else {
+          code = code + 'chart.at' + algebraOperand.timeFramePicker.getSelected().replace('-', '')
+        }
+
+        code = code + '.' + algebraOperand.productPicker.getSelected()
+        insertWhen(algebraOperand)
+        code = code + '.' + algebraOperand.propertyPicker.getSelected()
+      }
+
+      function insertAlgebraOperator (algebra) {
+        switch (algebra.picker.getSelected()) {
+          case '...': {
+            return
+          }
+          case 'Plus': {
+            code = code + ' + '
+            return
+          }
+          case 'Minus': {
+            code = code + ' - '
+            return
+          }
+          case 'Times': {
+            code = code + ' * '
+            return
+          }
+          case 'Divided by': {
+            code = code + ' / '
+            return
+          }
+        }
+      }
+      function insertWhen (algebraOperand) {
+        switch (algebraOperand.whenPicker.getSelected()) {
+          case 'Current': {
+            return
+          }
+          case '1 Previous': {
+            code = code + '.previous'
+            return
+          }
+          case '2 Previous': {
+            code = code + '.previous.previous'
+            return
+          }
+          case '3 Previous': {
+            code = code + '.previous.previous.previous'
+            return
+          }
+          case '4 Previous': {
+            code = code + '.previous.previous.previous.previous'
+            return
+          }
+          case '5 Previous': {
+            code = code + '.previous.previous.previous.previous.previous'
+            return
+          }
         }
       }
     }
-    */
   }
 
   function finalizePickers () {
     if (conditionStructure === undefined) { return }
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
       finalizeOperator(logicOperand.comparison.operandA.algebra.operandA)
       finalizeOperator(logicOperand.comparison.operandA.algebra.operandB)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandA)
       finalizeOperator(logicOperand.comparison.operandB.algebra.operandB)
+
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        logicOperand.comparison.operandA.algebra.picker.container.eventHandler.stopListening(logicOperand.comparison.operandA.algebra.picker.eventSuscriptionId)
+        logicOperand.comparison.operandA.algebra.picker.finalize()
+      }
+
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        logicOperand.comparison.operandB.algebra.picker.container.eventHandler.stopListening(logicOperand.comparison.operandB.algebra.picker.eventSuscriptionId)
+        logicOperand.comparison.operandB.algebra.picker.finalize()
+      }
+
+      if (logicOperand.comparison.picker !== undefined) {
+        logicOperand.comparison.picker.container.eventHandler.stopListening(logicOperand.comparison.picker.eventSuscriptionId)
+        logicOperand.comparison.picker.finalize()
+      }
+
+      if (logicOperand.picker !== undefined) {
+        logicOperand.picker.container.eventHandler.stopListening(logicOperand.picker.eventSuscriptionId)
+        logicOperand.picker.finalize()
+      }
     }
   }
 
@@ -549,11 +760,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       operand.whenPicker.finalize()
       operand.whenPicker = undefined
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      operand.algebraicPicker.finalize()
-      operand.algebraicPicker = undefined
     }
 
     if (operand.dataMinePicker !== undefined) {
@@ -592,27 +798,79 @@ function newConditionEditor () {
     }
   }
 
-  function onParentChanged (event) {
-    if (event.selected === 4) {
- // this means Equal To
+  function onParentChanged (event, structureBranch) {
+    let logicOperand = structureBranch.logicOperand
 
-      comparisonOperatorA.valuePicker.visible = true
-      comparisonOperatorB.whenPicker.visible = false
-      comparisonOperatorB.algebraicPicker.visible = false
-      comparisonOperatorB.dataMinePicker.visible = false
-      comparisonOperatorB.botPicker.visible = false
-      comparisonOperatorB.productPicker.visible = false
-      comparisonOperatorB.propertyPicker.visible = false
-      comparisonOperatorB.timeFramePicker.visible = false
-    } else {
-      comparisonOperatorA.valuePicker.visible = false
-      comparisonOperatorB.whenPicker.visible = true
-      comparisonOperatorB.algebraicPicker.visible = true
-      comparisonOperatorB.dataMinePicker.visible = true
-      comparisonOperatorB.botPicker.visible = true
-      comparisonOperatorB.productPicker.visible = true
-      comparisonOperatorB.propertyPicker.visible = true
-      comparisonOperatorB.timeFramePicker.visible = true
+    if (structureBranch.pickerName === 'Logic') {
+      if (event.selected === 0) {
+        if (logicOperand.index === 0) {
+          conditionStructure.logicOperands[1].visible = false
+          conditionStructure.logicOperands[2].visible = false
+        }
+        if (logicOperand.index === 1) {
+          conditionStructure.logicOperands[2].visible = false
+        }
+      } else {
+        if (logicOperand.index === 0) {
+          conditionStructure.logicOperands[1].visible = true
+
+          if (conditionStructure.logicOperands[1].picker.getSelected() !== '...') {
+            conditionStructure.logicOperands[2].visible = true
+          }
+        }
+        if (logicOperand.index === 1) {
+          conditionStructure.logicOperands[2].visible = true
+        }
+      }
+    }
+
+    if (structureBranch.pickerName === 'Algebra') {
+      if (event.selected === 0) {
+        setVisibility(structureBranch.comparisonOperand.algebra.operandB, false)
+      } else {
+        setVisibility(structureBranch.comparisonOperand.algebra.operandB, true)
+      }
+    }
+
+    if (structureBranch.pickerName === 'Comparison') {
+      if (event.selected === 4) {
+         // this means Equal To
+
+        logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = true
+        logicOperand.comparison.operandA.algebra.picker.visible = false
+        logicOperand.comparison.operandB.algebra.picker.visible = false
+        setVisibility(logicOperand.comparison.operandA.algebra.operandB, false)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandA, false)
+        setVisibility(logicOperand.comparison.operandB.algebra.operandB, false)
+      } else {
+        logicOperand.comparison.operandA.algebra.operandA.valuePicker.visible = false
+        logicOperand.comparison.operandA.algebra.picker.visible = true
+        logicOperand.comparison.operandB.algebra.picker.visible = true
+        if (logicOperand.comparison.operandA.algebra.picker.getSelected() !== '...') {
+          setVisibility(logicOperand.comparison.operandA.algebra.operandB, true)
+        }
+
+        if (logicOperand.comparison.picker.getSelected() !== 'Equal To') {
+          setVisibility(logicOperand.comparison.operandB.algebra.operandA, true)
+        }
+
+        if (logicOperand.comparison.operandB.algebra.picker.getSelected() !== '...') {
+          setVisibility(logicOperand.comparison.operandB.algebra.operandB, true)
+        }
+      }
+    }
+
+    function setLogicOperanVisibility (logicOperand, isVisible) {
+
+    }
+
+    function setVisibility (algebraOperand, isVisible) {
+      algebraOperand.whenPicker.visible = isVisible
+      algebraOperand.dataMinePicker.visible = isVisible
+      algebraOperand.botPicker.visible = isVisible
+      algebraOperand.productPicker.visible = isVisible
+      algebraOperand.propertyPicker.visible = isVisible
+      algebraOperand.timeFramePicker.visible = isVisible
     }
   }
 
@@ -621,8 +879,10 @@ function newConditionEditor () {
     if (thisObject.visible === true) {
       if (conditionStructure === undefined) { return }
 
-      for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-        let logicOperand = conditionStructure.orOperands[i]
+      for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+        let logicOperand = conditionStructure.logicOperands[i]
+        if (logicOperand.visible !== true) { continue }
+
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandA)
         if (container !== undefined) { return container }
         container = operandGetContainer(point, logicOperand.comparison.operandA.algebra.operandB)
@@ -631,6 +891,34 @@ function newConditionEditor () {
         if (container !== undefined) { return container }
         container = operandGetContainer(point, logicOperand.comparison.operandB.algebra.operandB)
         if (container !== undefined) { return container }
+
+        if (container = logicOperand.comparison.operandA.algebra.picker !== undefined) {
+          if (container = logicOperand.comparison.operandA.algebra.picker.visible === true) {
+            container = logicOperand.comparison.operandA.algebra.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
+
+        if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+          if (container = logicOperand.comparison.operandB.algebra.picker.visible === true) {
+            container = logicOperand.comparison.operandB.algebra.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
+
+        if (container = logicOperand.comparison.picker !== undefined) {
+          if (container = logicOperand.comparison.picker.visible === true) {
+            container = logicOperand.comparison.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
+
+        if (container = logicOperand.picker !== undefined) {
+          if (container = logicOperand.picker.visible === true) {
+            container = logicOperand.picker.getContainer(point)
+            if (container !== undefined) { return container }
+          }
+        }
       }
 
       if (thisObject.container.frame.isThisPointHere(point, true) === true) {
@@ -646,13 +934,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         container = operand.whenPicker.getContainer(point)
-        if (container !== undefined) { return container }
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        container = operand.algebraicPicker.getContainer(point)
         if (container !== undefined) { return container }
       }
     }
@@ -712,12 +993,35 @@ function newConditionEditor () {
   function childrenDrawBackground () {
     if (conditionStructure === undefined) { return }
 
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
+      if (logicOperand.visible !== true) { continue }
+
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawBackground(logicOperand.comparison.operandB.algebra.operandB)
+
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandA.algebra.picker.visible === true) {
+          logicOperand.comparison.operandA.algebra.picker.drawBackground()
+        }
+      }
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandB.algebra.picker.visible === true) {
+          logicOperand.comparison.operandB.algebra.picker.drawBackground()
+        }
+      }
+      if (logicOperand.comparison.picker !== undefined) {
+        if (logicOperand.comparison.picker.visible === true) {
+          logicOperand.comparison.picker.drawBackground()
+        }
+      }
+      if (logicOperand.picker !== undefined) {
+        if (logicOperand.picker.visible === true) {
+          logicOperand.picker.drawBackground()
+        }
+      }
     }
   }
 
@@ -727,12 +1031,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         operand.whenPicker.drawBackground()
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        operand.algebraicPicker.drawBackground()
       }
     }
 
@@ -806,12 +1104,35 @@ function newConditionEditor () {
   function childrenDrawForeground () {
     if (conditionStructure === undefined) { return }
 
-    for (let i = 0; i < conditionStructure.orOperands.length; i++) {
-      let logicOperand = conditionStructure.orOperands[i]
+    for (let i = 0; i < conditionStructure.logicOperands.length; i++) {
+      let logicOperand = conditionStructure.logicOperands[i]
+      if (logicOperand.visible !== true) { continue }
+
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandA.algebra.operandB)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandA)
       operandDrawForeground(logicOperand.comparison.operandB.algebra.operandB)
+
+      if (logicOperand.comparison.operandA.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandA.algebra.picker.visible === true) {
+          logicOperand.comparison.operandA.algebra.picker.drawForeground()
+        }
+      }
+      if (logicOperand.comparison.operandB.algebra.picker !== undefined) {
+        if (logicOperand.comparison.operandB.algebra.picker.visible === true) {
+          logicOperand.comparison.operandB.algebra.picker.drawForeground()
+        }
+      }
+      if (logicOperand.comparison.picker !== undefined) {
+        if (logicOperand.comparison.picker.visible === true) {
+          logicOperand.comparison.picker.drawForeground()
+        }
+      }
+      if (logicOperand.picker !== undefined) {
+        if (logicOperand.picker.visible === true) {
+          logicOperand.picker.drawForeground()
+        }
+      }
     }
   }
 
@@ -821,12 +1142,6 @@ function newConditionEditor () {
     if (operand.whenPicker !== undefined) {
       if (operand.whenPicker.visible === true) {
         operand.whenPicker.drawForeground()
-      }
-    }
-
-    if (operand.algebraicPicker !== undefined) {
-      if (operand.algebraicPicker.visible === true) {
-        operand.algebraicPicker.drawForeground()
       }
     }
 
@@ -868,6 +1183,16 @@ function newConditionEditor () {
   }
 
   function thisObjectDrawForeground () {
-
+    if (thisObject.visible === true) {
+      const SIZE = 36
+      drawIcon(timeFrameIcon, 0, 0, -PICKER_WIDTH * 3.25, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(dataMineIcon, 0, 0, -PICKER_WIDTH * 2.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(botIcon, 0, 0, -PICKER_WIDTH * 1.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(whenIcon, 0, 0, -PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(productIcon, 0, 0, PICKER_WIDTH * 0.5, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(propertyIcon, 0, 0, PICKER_WIDTH * 1.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(operationIcon, 0, 0, PICKER_WIDTH * 2.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+      drawIcon(valueIcon, 0, 0, PICKER_WIDTH * 3.45, -PICKER_HEIGHT * 7, SIZE, thisObject.container)
+    }
   }
 }

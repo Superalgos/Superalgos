@@ -13,7 +13,7 @@ function newSplashScreen () {
     initialize: initialize
   }
 
-  var container = newContainer()
+  let container = newContainer()
   container.initialize()
   thisObject.container = container
 
@@ -31,21 +31,22 @@ function newSplashScreen () {
 
   let logo
   let canDrawLogo = false
+  let isInitialized = false
+  let splashScreenNeeded = true
 
   return thisObject
 
   function initialize () {
     logo = new Image()
-
     logo.onload = onImageLoad
 
     function onImageLoad () {
       canDrawLogo = true
     }
-
     logo.src = window.canvasApp.urlPrefix + 'Images/superalgos-logo.png'
-
     canvas.eventHandler.listenToEvent('Browser Resized', resize)
+
+    isInitialized = true
   }
 
   function resize () {
@@ -54,6 +55,7 @@ function newSplashScreen () {
   }
 
   function draw () {
+    if (isInitialized === false) { return }
     if (splashScreenNeeded === false) {
       stepsInitializationCounter = 100
       canDrawLogo = false
@@ -101,6 +103,7 @@ function newSplashScreen () {
 
     if (stepsInitializationCounter > 99) {
       splashScreenNeeded = false
+      canWeDraw = true
       stepsInitializationCounter = 99
     }
 
@@ -122,7 +125,7 @@ function newSplashScreen () {
 
     fontSize = 35
 
-    title = 'Beta 4'
+    title = 'Beta 5'
 
     titlePoint = {
       x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,

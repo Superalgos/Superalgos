@@ -74,7 +74,7 @@ function newUiObjectConstructor () {
     */
 
     if (userAddingNew === true) {
-      let definition = APP_SCHEMA_MAP.get(payload.parentNode.type)
+      let definition = getNodeDefinition (payload.parentNode)
       if (definition.properties !== undefined) {
         for (let i = 0; i < definition.properties.length; i++) {
           let property = definition.properties[i]
@@ -406,7 +406,7 @@ function newUiObjectConstructor () {
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
     let menuItemsInitialValues = []
 
-    let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+    let nodeDefinition = getNodeDefinition (payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.editors !== undefined) {
         if (nodeDefinition.editors.config === true) {
@@ -495,7 +495,7 @@ function newUiObjectConstructor () {
       }
 
       default: {
-        let nodeDefinition = APP_SCHEMA_MAP.get(payload.node.type)
+        let nodeDefinition = getNodeDefinition (payload.node)
         if (nodeDefinition !== undefined) {
           switch (nodeDefinition.level) {
             case 0: {

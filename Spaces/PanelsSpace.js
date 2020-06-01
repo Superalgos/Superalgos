@@ -50,14 +50,14 @@ function newPanelsSpace () {
         }
       case 'Plotter Panel':
         {
-          if (pParameters.panelNode.code.isLegacy !== true) {
+          if (pParameters.panelNode.config.isLegacy !== true) {
             panel = newPlotterPanel()
             panel.fitFunction = canvas.chartingSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
             panel.session = pSession
             panel.initialize(pParameters.panelNode)
           } else {
-            panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.code.codeName)
+            panel = getNewPlotterPanel(pParameters.dataMine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.config.codeName)
             panel.fitFunction = canvas.chartingSpace.fitFunction
             panel.container.isVisibleFunction = canvas.chartingSpace.isThisPointVisible
             panel.session = pSession
@@ -336,6 +336,7 @@ function newPanelsSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (thisObject.visible !== true) { return }
 
     thisObject.container.frame.draw(false, false)

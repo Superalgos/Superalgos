@@ -190,8 +190,7 @@ const MAX_PLOTABLE_DATE = maxDate;
 
 const TOP_SPACE_HEIGHT = 40
 const COCKPIT_SPACE_HEIGHT = 30;
-const BREAKPOINT_HEIGHT = 15;
-const SIDE_PANEL_WIDTH = 450
+const SIDE_PANEL_WIDTH = 350
 let COCKPIT_SPACE_POSITION = browserCanvas.height - COCKPIT_SPACE_HEIGHT
 
 const LAYER_STATUS = {
@@ -222,7 +221,13 @@ const TIME_MACHINE_WIDTH = 8;
 const TIME_MACHINE_HEIGHT = 8;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
-let areWeRecording = false
+let marketPanoramaCanvas 
+let ARE_WE_RECORDING_A_VIDEO = false
+let ARE_WE_RECORDING_A_MARKET_PANORAMA = false
+let PANORAMA_WAS_PANNED = false
+let CURRENT_PANORAMA_POSITION = 0
+
+let canWeDraw = false // This global variable regulates when spaces can or can not draw their contents.
 
 function toRadians(angle) {
     return angle * (Math.PI / 180);

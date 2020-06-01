@@ -415,6 +415,7 @@ function newFloatingSpace () {
   }
 
   function draw () {
+    if (canWeDraw === false) { return }
     if (visible === false) { return }
     drawBackground()
     thisObject.floatingLayer.draw()

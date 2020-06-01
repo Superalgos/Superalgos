@@ -27,7 +27,7 @@ function newUiObjectsFromNodes () {
       let blobService = newFileStorage()
 
       // if (node.config === undefined) {
-      node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "TradingEngines"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
+      node.config = '{ \n"includeDataMines": ["Masters", "Sparta", "Masters-Trading"],\n"includeTradingSystems": ["Sparta-WHB-BTC-USDT", "Example-ETH-USDT", "Sparta-BRR-BTC-USDT"],\n"includeSuperScripts": ["Masters"]\n }'
       // }
 
       let config = JSON.parse(node.config)

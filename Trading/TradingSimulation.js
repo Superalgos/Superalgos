@@ -84,127 +84,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()
 
-            if (variable.isInitialized !== true || bot.RESUME === false) {
-                variable.isInitialized = true
-
-                variable.episode = {}                       // An Episode represents each execution of the Simulation
-                variable.episode.count = {}                 // Everything in here means the total count since the begining of the episode.
-                variable.episode.stat = {}                  // Everything in here means the statistics calculated since the begining of the episode.
-
-                variable.current = {}                       // Everything in here means that is happening right now.
-                variable.current.balance = {}               // Balances at the current candle of the Simulation.
-                variable.current.distance = {}              // Everything in here means the distance, measured in periods to whatever happened in the past, usually events.
-                variable.current.distance.toEvent = {}      // Distance to Events that already happened.
-                variable.current.strategy = {}              // Everything in here are variables related to the current strategy being executed.
-                variable.current.position = {}              // Everything in here are variables related to the current position being executed.
-
-                variable.current.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
-                variable.current.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
-                variable.current.distance.toEvent.triggerOn = 0
-                variable.current.distance.toEvent.triggerOff = 0
-                variable.current.distance.toEvent.takePosition = 0
-                variable.current.distance.toEvent.closePosition = 0
-
-                variable.last = {}                          // Everything in here means that it already happened.
-                variable.last.position = {}                 // Las values of variables at the last position.
-
-                variable.last.position.profitLoss = 0
-                variable.last.position.ROI = 0
-
-                variable.previous = {}                      // Everything in here means the the value that was current before a new current value was set.
-                variable.previous.balance = {}              // Balances values previous to the current ones.
-
-                variable.previous.balance.baseAsset = 0
-                variable.previous.balance.quotedAsset = 0
-
-                variable.episode.parameters = {}            // Parameters give you access to information received by the Simulation as parameters.
-                variable.episode.parameters.initial = {}    // Everything in here means the status at the begining of the episode received as a parameter of the Sumulation.
-                variable.episode.parameters.minimum = {}    // Everything in here means the minimum in the whole episode received as a parameter of the Sumulation.
-                variable.episode.parameters.maximum = {}    // Everything in here means the maximum in the whole episode received as a parameter of the Sumulation.
-                variable.episode.parameters.initial.balance = {}
-                variable.episode.parameters.minimum.balance = {}
-                variable.episode.parameters.maximum.balance = {}
-
-                variable.episode.parameters.baseAsset = bot.VALUES_TO_USE.baseAsset
-                variable.episode.parameters.quotedAsset = bot.VALUES_TO_USE.quotedAsset
-                variable.episode.parameters.marketBaseAsset = bot.market.baseAsset
-                variable.episode.parameters.marketQuotedAsset = bot.market.quotedAsset
-                variable.episode.parameters.timeFrame = timeFrame               // The numeric value of the time frame, in milliseconds
-                variable.episode.parameters.timeFrameLabel = timeFrameLabel     // The alpha-numeric value of the time frame
-
-                variable.episode.parameters.initial.balance.baseAsset = bot.VALUES_TO_USE.initialBalanceA
-                variable.episode.parameters.minimum.balance.baseAsset = bot.VALUES_TO_USE.minimumBalanceA
-                variable.episode.parameters.maximum.balance.baseAsset = bot.VALUES_TO_USE.maximumBalanceA
-
-                variable.episode.parameters.initial.balance.quotedAsset = bot.VALUES_TO_USE.initialBalanceB
-                variable.episode.parameters.minimum.balance.quotedAsset = bot.VALUES_TO_USE.minimumBalanceB
-                variable.episode.parameters.maximum.balance.quotedAsset = bot.VALUES_TO_USE.maximumBalanceB
-
-                variable.episode.count.positions = 0
-                variable.episode.count.fails = 0
-                variable.episode.count.hits = 0
-                variable.episode.count.periods = 0
-
-                variable.episode.stat.profitLoss = 0
-                variable.episode.stat.hitRatio = 0
-                variable.episode.stat.days = 0
-                variable.episode.stat.ROI = 0
-                variable.episode.stat.anualizedRateOfReturn = 0
-
-                inializeCurrentStrategy()
-                initializeCurrentPosition()
-
-                variable.announcements = []
-            }
-
-            function inializeCurrentStrategy() {
-
-                variable.current.strategy.name = ''
-                variable.current.strategy.index = -1
-                variable.current.strategy.stage = 'No Stage'
-                variable.current.strategy.begin = 0
-                variable.current.strategy.end = 0
-                variable.current.strategy.status = 0
-                variable.current.strategy.number = 0
-                variable.current.strategy.beginRate = 0
-                variable.current.strategy.endRate = 0
-                variable.current.strategy.situationName = ''
-
-            }
-
-            function initializeCurrentPosition() {
-
-                variable.current.position.begin = 0
-                variable.current.position.end = 0
-                variable.current.position.rate = 0
-                variable.current.position.size = 0
-                variable.current.position.status = 0
-                variable.current.position.exitType = 0
-                variable.current.position.beginRate = 0
-                variable.current.position.endRate = 0
-                variable.current.position.situationName = ''
-
-                variable.current.position.stat = {}
-                variable.current.position.stat.ROI = 0
-                variable.current.position.stat.days = 0
-
-                variable.current.position.count = {}
-                variable.current.position.count.periods = 0
-
-                variable.current.position.stopLoss = {}
-                variable.current.position.stopLoss.value = 0
-                variable.current.position.stopLoss.phase = -1
-                variable.current.position.stopLoss.stage = 'No Stage'
-
-                variable.current.position.takeProfit = {}
-                variable.current.position.takeProfit.value = 0
-                variable.current.position.takeProfit.phase = -1
-                variable.current.position.takeProfit.stage = 'No Stage'
-
-            }
-
             /* Main Array and Maps */
-            let propertyName = 'at' + variable.episode.parameters.timeFrameLabel.replace('-', '')
+            let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
             let currentChart = chart[propertyName]
 
@@ -223,12 +104,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function initializeLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initializeLoop -> Entering function.') }
 
-                if (bot.RESUME === true && variable.last.candle !== undefined) {
-                    /* Estimate the Initial Candle based on the last candle saved at variable */
+                if (bot.RESUME === true && tradingEngine.last.candle !== undefined) {
+                    /* Estimate the Initial Candle based on the last candle saved at tradingEngine */
                     let firstBegin = candles[0].begin
-                    let lastBegin = variable.last.candle.begin
+                    let lastBegin = tradingEngine.last.candle.begin
                     let diff = lastBegin - firstBegin
-                    let amount = diff / variable.episode.parameters.timeFrame
+                    let amount = diff / sessionParameters.timeFrame.config.value
 
                     currentCandleIndex = Math.trunc(amount) + 1 // Because we need to start from the next candle
                     if (currentCandleIndex < 0 || currentCandleIndex > candles.length - 1) {
@@ -247,7 +128,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let firstEnd = candles[0].end
                     let targetEnd = sessionParameters.timeRange.config.initialDatetime.valueOf()
                     let diff = targetEnd - firstEnd
-                    let amount = diff / variable.episode.parameters.timeFrame
+                    let amount = diff / sessionParameters.timeFrame.config.value
 
                     currentCandleIndex = Math.trunc(amount)
                     if (currentCandleIndex < 0) { currentCandleIndex = 0 }
@@ -387,12 +268,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
                 previousLoopingDay = loopingDay.valueOf()
 
-                variable.episode.count.periods++
-                variable.episode.stat.days = variable.episode.count.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
+                tradingEngine.episode.episodeCounters.periods++
+                tradingEngine.episode.episodeStatistics.days = tradingEngine.episode.episodeCounters.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
 
                 if (processingDailyFiles) {
                     /* We skip the candle at the head of the market because currentCandleIndex has not closed yet. */
-                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / variable.episode.parameters.timeFrame
+                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (currentCandleIndex === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /* We are at the head of the market, thus we skip the last candle because it has not close yet. */
@@ -400,7 +281,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             controlLoop()
                             return
                             /* Note here that in the last candle of the first day or the second day it will use an incomplete candle and partially calculated indicators.
-                                if we skip these two variable.episode.count.periods, then there will be a hole in the file since the last period will be missing. */
+                                if we skip these two tradingEngine.episode.episodeCounters.periods, then there will be a hole in the file since the last period will be missing. */
                         }
                     }
                 } else { // We are processing Market Files
@@ -411,9 +292,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
                 }
 
-                let conditions = new Map()       // Here we store the conditions values that will be use in the simulator for decision making.
+                const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
+                let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
+                tradingEngineModule.initialize(chart)
+                tradingEngineModule.evalConditions()
+                tradingEngineModule.finalize()
+
                 let formulas = new Map()
-                let conditionsValues = [] // Here we store the conditions values that will be written on file for the plotter.
                 let formulasErrors = [] // Here we store the errors produced by all phase formulas.
                 let formulasValues = [] // Here we store the values produced by all phase formulas.
 
@@ -1489,7 +1374,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     variable.current.position.count.periods++
-                    variable.current.position.stat.days = variable.current.position.count.periods * variable.episode.parameters.timeFrame / ONE_DAY_IN_MILISECONDS
+                    variable.current.position.stat.days = variable.current.position.count.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
                 } else {
                     variable.current.position.count.periods = 0
                     variable.current.position.stat.days = 0
@@ -1740,7 +1625,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (variable.episode.count.periods <= variable.executionContext.periods) {
+                                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution.') }
                                     takePositionAtSimulation()
                                     return
@@ -1784,7 +1669,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         variable.executionContext = {
                             status: 'Taking Position',
-                            periods: variable.episode.count.periods
+                            periods: tradingEngine.episode.episodeCounters.periods
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order.') }
@@ -1799,7 +1684,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
                                         variable.executionContext = {
                                             status: 'In a Position',
-                                            periods: variable.episode.count.periods,
+                                            periods: tradingEngine.episode.episodeCounters.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -1927,7 +1812,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
                         if (variable.executionContext !== undefined) {
                             if (variable.executionContext.periods !== undefined) {
-                                if (variable.episode.count.periods <= variable.executionContext.periods) {
+                                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution.') }
                                     closePositionAtSimulation()
                                     return
@@ -1958,7 +1843,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         variable.executionContext = {
                             status: 'Closing Position',
-                            periods: variable.episode.count.periods
+                            periods: tradingEngine.episode.episodeCounters.periods
                         }
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange.') }
@@ -1973,7 +1858,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
                                         variable.executionContext = {
                                             status: 'Position Closed',
-                                            periods: variable.episode.count.periods,
+                                            periods: tradingEngine.episode.episodeCounters.periods,
                                             amountA: amountA,
                                             amountB: amountB,
                                             orderId: order.id
@@ -2054,11 +1939,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
                             variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.baseAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.baseAsset - 1
                             variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions
-                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / variable.episode.stat.days * 365
+                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / tradingEngine.episode.episodeStatistics.days * 365
                         } else {
                             variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.quotedAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.quotedAsset - 1
                             variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions
-                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / variable.episode.stat.days * 365
+                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / tradingEngine.episode.episodeStatistics.days * 365
                         }
 
                         addRecords()
@@ -2202,8 +2087,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.count.fails,
                             variable.episode.stat.hitRatio,
                             variable.episode.stat.ROI,
-                            variable.episode.count.periods,
-                            variable.episode.stat.days,
+                            tradingEngine.episode.episodeCounters.periods,
+                            tradingEngine.episode.episodeStatistics.days,
                             variable.episode.stat.anualizedRateOfReturn,
                             variable.current.position.rate,
                             variable.last.position.ROI,
@@ -2340,7 +2225,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 }
                             }
 
-                            if (variable.episode.count.periods > lastPeriodAnnounced) {
+                            if (tradingEngine.episode.episodeCounters.periods > lastPeriodAnnounced) {
                                 if (isNaN(value) === false) {
                                     /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
                                     let valueVariation
@@ -2367,12 +2252,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                 /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                                 if (newAnnouncementRecord.periods !== undefined) {
-                                    newAnnouncementRecord.periods = variable.episode.count.periods
+                                    newAnnouncementRecord.periods = tradingEngine.episode.episodeCounters.periods
                                     newAnnouncementRecord.value = value
                                 } else {
                                     newAnnouncementRecord = {
                                         key: key,
-                                        periods: variable.episode.count.periods,
+                                        periods: tradingEngine.episode.episodeCounters.periods,
                                         value: value
                                     }
                                     variable.announcements.push(newAnnouncementRecord)

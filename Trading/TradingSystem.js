@@ -1,6 +1,7 @@
 exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     const MODULE_NAME = 'Trading System'
+    const FULL_LOG = true
 
     let thisObject = {
         evalConditions: evalConditions,
@@ -100,13 +101,16 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function evalCondition(node) {
         let value
+        let error
 
         try {
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + node.code) }
+
             value = eval(node.code)
         } catch (err) {
             /*
-                One possible error is that the conditions references a .previous that is undefined. For this
-                reason and others, we will simply set the value to false.
+                One possible error is that the conditions references a .previous that is undefined. This
+                will not be considered an error.
             */
             value = false
 
@@ -117,7 +121,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                 */
             } else {
-                node.error = err.message + ' @ ' + (new Date(candle.begin)).toLocaleString()
+                error = err.message
+                node.error = error
             }
         }
 
@@ -128,17 +133,24 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         } else {
             conditionsValues.push(0)
         }
+
+        formulasErrors.push(error)
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value) }
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error) }
     }
 
     function evalFormula(node) {
         let value
+        let error
 
         try {
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> code = ' + node.code) }
             value = eval(node.code)
         } catch (err) {
             /*
-                One possible error is that the conditions references a .previous that is undefined. For this
-                reason and others, we will simply set the value to false.
+                One possible error is that the formula references a .previous that is undefined. This
+                will not be considered an error.
             */
             value = false
 
@@ -149,7 +161,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
                 */
             } else {
-                node.error = err.message + ' @ ' + (new Date(candle.begin)).toLocaleString()
+                error = err.message
+                node.error = error
             }
         }
 
@@ -160,6 +173,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         } else {
             formulaValues.push(0)
         }
+
+        formulasErrors.push(error)
+
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value) }
+        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error) }
     }
 }
 

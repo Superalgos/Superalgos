@@ -294,559 +294,32 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
                 let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
-                tradingEngineModule.initialize(chart)
-                tradingEngineModule.evalConditions()
-                tradingEngineModule.finalize()
-
-                let formulas = new Map()
-                let formulasErrors = [] // Here we store the errors produced by all phase formulas.
-                let formulasValues = [] // Here we store the values produced by all phase formulas.
-
-                /* We define and evaluate all conditions to be used later during the simulation loop. */
-                for (let j = 0; j < tradingSystem.strategies.length; j++) {
-                    let strategy = tradingSystem.strategies[j]
-
-                    let positionSize = 0
-                    let positionRate = 0
-
-                    /* Continue with the rest of the formulas and conditions */
-
-                    let triggerStage = strategy.triggerStage
-
-                    if (triggerStage !== undefined) {
-                        if (triggerStage.triggerOn !== undefined) {
-                            for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
-                                let situation = triggerStage.triggerOn.situations[k]
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-                                    let condition = situation.conditions[m]
-                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m
-
-                                    if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode, chart)
-                                    }
-                                }
-                            }
-                        }
-
-                        if (triggerStage.triggerOff !== undefined) {
-                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
-                                let situation = triggerStage.triggerOff.situations[k]
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-                                    let condition = situation.conditions[m]
-                                    let key = j + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m
-
-                                    if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode, chart)
-                                    }
-                                }
-                            }
-                        }
-
-                        if (triggerStage.takePosition !== undefined) {
-                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-                                let situation = triggerStage.takePosition.situations[k]
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-                                    let condition = situation.conditions[m]
-                                    let key = j + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m
-
-                                    if (condition.javascriptCode !== undefined) {
-                                        newCondition(key, condition.javascriptCode, chart)
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    let openStage = strategy.openStage
-
-                    if (openStage !== undefined) {
-                        /* Default Values */
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            positionSize = variable.current.balance.baseAsset
-                            positionRate = candle.close
-                        } else {
-                            positionSize = variable.current.balance.quotedAsset
-                            positionRate = candle.close
-                        }
-
-                        let initialDefinition = openStage.initialDefinition
-
-                        if (initialDefinition !== undefined) {
-                            if (variable.current.position.size !== 0) {
-                                positionSize = variable.current.position.size
-                            } else {
-                                if (initialDefinition.positionSize !== undefined) {
-                                    if (initialDefinition.positionSize.formula !== undefined) {
-                                        try {
-                                            let code = initialDefinition.positionSize.formula.code
-                                            positionSize = eval(code)
-                                            addCodeToSnapshot(code)
-                                        } catch (err) {
-                                            initialDefinition.positionSize.formula.error = err.message
-                                        }
-                                        if (isNaN(positionSize)) {
-                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                                                positionSize = variable.current.balance.baseAsset
-                                            } else {
-                                                positionSize = variable.current.balance.quotedAsset
-                                            }
-                                        } else {
-                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                                                if (positionSize > variable.current.balance.baseAsset) { positionSize = variable.current.balance.baseAsset }
-                                            } else {
-                                                if (positionSize > variable.current.balance.quotedAsset) { positionSize = variable.current.balance.quotedAsset }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (variable.current.position.rate !== 0) {
-                                positionRate = variable.current.position.rate
-                            } else {
-                                if (initialDefinition.positionRate !== undefined) {
-                                    if (initialDefinition.positionRate.formula !== undefined) {
-                                        try {
-                                            let code = initialDefinition.positionRate.formula.code
-                                            positionRate = eval(initialDefinition.positionRate.formula.code)
-                                            addCodeToSnapshot(code)
-                                        } catch (err) {
-                                            initialDefinition.positionRate.formula.error = err.message
-                                        }
-                                        if (isNaN(positionRate)) {
-                                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                                                positionRate = candle.close
-                                            } else {
-                                                positionRate = candle.close
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (initialDefinition.stopLoss !== undefined) {
-                                for (let p = 0; p < initialDefinition.stopLoss.phases.length; p++) {
-                                    let phase = initialDefinition.stopLoss.phases[p]
-
-                                    /* Evaluate Formula */
-                                    let formulaValue
-                                    let formulaError = ''
-
-                                    if (phase.formula !== undefined) {
-                                        try {
-                                            let code = phase.formula.code
-                                            formulaValue = eval(code)
-                                            addCodeToSnapshot(code)
-                                            if (formulaValue === Infinity) {
-                                                formulaError = 'Formula evaluates to Infinity.'
-                                                formulaValue = MAX_STOP_LOSS_VALUE
-                                                if (variable.current.position.stopLoss.stage === 'Open Stage') {
-                                                    formulaError = 'WARNING: Formula evaluates to Infinity.'
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = ' + formulaError) }
-                                                }
-                                            }
-                                        } catch (err) {
-                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                                /*
-                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                                */
-                                            } else {
-                                                formulaError = err.message
-                                            }
-                                        }
-                                        if (isNaN(formulaValue)) { formulaValue = 0 }
-                                        if (formulaValue < MIN_STOP_LOSS_VALUE) {
-                                            formulaValue = MIN_STOP_LOSS_VALUE
-                                            if (variable.current.position.stopLoss.stage === 'Open Stage') {
-                                                formulaError = 'WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE.'
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = ' + formulaError) }
-                                            }
-                                        }
-
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p
-                                        formulas.set(key, formulaValue)
-                                    }
-
-                                    /* next phase event */
-                                    let nextPhaseEvent = phase.nextPhaseEvent
-                                    if (nextPhaseEvent !== undefined) {
-
-                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                            let situation = nextPhaseEvent.situations[k]
-
-                                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                let condition = situation.conditions[m]
-                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m
-
-                                                if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode, chart)
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    /* move to phase events */
-                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                                        if (moveToPhaseEvent !== undefined) {
-
-                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-
-                                                let situation = moveToPhaseEvent.situations[k]
-
-                                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                    let condition = situation.conditions[m]
-                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m
-
-                                                    if (condition.javascriptCode !== undefined) {
-                                                        newCondition(key, condition.javascriptCode, chart)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (initialDefinition.takeProfit !== undefined) {
-                                for (let p = 0; p < initialDefinition.takeProfit.phases.length; p++) {
-                                    let phase = initialDefinition.takeProfit.phases[p]
-
-                                    /* Evaluate Formula */
-                                    let formulaValue
-                                    let formulaError = ''
-
-                                    if (phase.formula !== undefined) {
-                                        try {
-                                            let code = phase.formula.code
-                                            formulaValue = eval(code)
-                                            addCodeToSnapshot(code)
-                                            if (formulaValue === Infinity) {
-                                                formulaValue = MAX_TAKE_PROFIT_VALUE
-                                                if (variable.current.position.takeProfit.stage === 'Open Stage') {
-                                                    formulaError = 'WARNING: Formula evaluates to Infinity.'
-                                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
-                                                }
-                                            }
-                                        } catch (err) {
-                                            if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                                /*
-                                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                                */
-                                            } else {
-                                                formulaError = err.message
-                                            }
-                                        }
-                                        if (isNaN(formulaValue)) { formulaValue = 0 }
-                                        if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
-                                            formulaValue = MIN_TAKE_PROFIT_VALUE
-                                            if (variable.current.position.takeProfit.stage === 'Open Stage') {
-                                                formulaError = 'WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE.'
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> initialDefinition.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
-                                            }
-                                        }
-
-                                        formulasErrors.push('"' + formulaError + '"')
-                                        formulasValues.push(formulaValue)
-                                        let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p
-                                        formulas.set(key, formulaValue)
-                                    }
-
-                                    /* next phase event */
-                                    let nextPhaseEvent = phase.nextPhaseEvent
-                                    if (nextPhaseEvent !== undefined) {
-
-                                        for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                            let situation = nextPhaseEvent.situations[k]
-
-                                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                let condition = situation.conditions[m]
-                                                let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m
-
-                                                if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode, chart)
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    /* move to phase events */
-                                    for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                                        let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                                        if (moveToPhaseEvent !== undefined) {
-
-                                            for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-
-                                                let situation = moveToPhaseEvent.situations[k]
-
-                                                for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                    let condition = situation.conditions[m]
-                                                    let key = j + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m
-
-                                                    if (condition.javascriptCode !== undefined) {
-                                                        newCondition(key, condition.javascriptCode, chart)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        strategy.positionSize = positionSize
-                        strategy.positionRate = positionRate
-                    }
-
-                    let manageStage = strategy.manageStage
-
-                    if (manageStage !== undefined) {
-                        if (manageStage.stopLoss !== undefined) {
-                            for (let p = 0; p < manageStage.stopLoss.phases.length; p++) {
-                                let phase = manageStage.stopLoss.phases[p]
-
-                                /* Evaluate Formula */
-                                let formulaValue
-                                let formulaError = ''
-
-                                if (phase.formula !== undefined) {
-                                    try {
-                                        let code = phase.formula.code
-                                        formulaValue = eval(code)
-                                        addCodeToSnapshot(code)
-                                        if (formulaValue === Infinity) {
-                                            formulaError = ''
-                                            formulaValue = MAX_STOP_LOSS_VALUE
-                                            if (variable.current.position.stopLoss.stage === 'Manage Stage') {
-                                                formulaError = 'WARNING: Formula evaluates to Infinity.'
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.stopLoss -> MAX_STOP_LOSS_VALUE -> formulaError = ' + formulaError) }
-                                            }
-                                        }
-                                    } catch (err) {
-                                        if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                            /*
-                                                We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                            */
-                                        } else {
-                                            formulaError = err.message
-                                        }
-                                    }
-                                    if (isNaN(formulaValue)) { formulaValue = 0 }
-                                    if (formulaValue < MIN_STOP_LOSS_VALUE) {
-                                        formulaValue = MIN_STOP_LOSS_VALUE
-                                        if (variable.current.position.stopLoss.stage === 'Manage Stage') {
-                                            formulaError = 'WARNING: Formula is evaluating below the MIN_STOP_LOSS_VALUE.'
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.stopLoss -> MIN_STOP_LOSS_VALUE -> formulaError = ' + formulaError) }
-                                        }
-                                    }
-
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p
-                                    formulas.set(key, formulaValue)
-                                }
-
-                                /* next phase event */
-                                let nextPhaseEvent = phase.nextPhaseEvent
-                                if (nextPhaseEvent !== undefined) {
-                                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                        let situation = nextPhaseEvent.situations[k]
-
-                                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                                            let condition = situation.conditions[m]
-                                            let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + k + '-' + m
-
-                                            if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode, chart)
-                                            }
-                                        }
-                                    }
-                                }
-
-                                /* move to phase events */
-                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                                    if (moveToPhaseEvent !== undefined) {
-
-                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-
-                                            let situation = moveToPhaseEvent.situations[k]
-
-                                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                let condition = situation.conditions[m]
-                                                let key = j + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + p + '-' + n + '-' + k + '-' + m
-
-                                                if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode, chart)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        if (manageStage.takeProfit !== undefined) {
-                            for (let p = 0; p < manageStage.takeProfit.phases.length; p++) {
-                                let phase = manageStage.takeProfit.phases[p]
-
-                                /* Evaluate Formula */
-                                let formulaValue
-                                let formulaError = ''
-
-                                if (phase.formula !== undefined) {
-                                    try {
-                                        let code = phase.formula.code
-                                        formulaValue = eval(code)
-                                        addCodeToSnapshot(code)
-                                        if (formulaValue === Infinity) {
-                                            formulaError = 'Formula evaluates to Infinity.'
-                                            formulaValue = MAX_TAKE_PROFIT_VALUE
-                                            if (variable.current.position.takeProfit.stage === 'Manage Stage') {
-                                                formulaError = 'WARNING: Formula evaluates to Infinity.'
-                                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.takeProfit -> MAX_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
-                                            }
-                                        }
-                                    } catch (err) {
-                                        if (phase.formula.code.indexOf('previous') > 0 && err.message.indexOf('of undefined') > 0) {
-                                            /*
-                                                We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                            */
-                                        } else {
-                                            formulaError = err.message
-                                        }
-                                    }
-                                    if (isNaN(formulaValue)) { formulaValue = 0 }
-                                    if (formulaValue < MIN_TAKE_PROFIT_VALUE) {
-                                        formulaValue = MIN_TAKE_PROFIT_VALUE
-                                        if (variable.current.position.takeProfit.stage === 'Manage Stage') {
-                                            formulaError = 'WARNING: Formula is evaluating below the MIN_TAKE_PROFIT_VALUE.'
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> loop -> manageStage.takeProfit -> MIN_TAKE_PROFIT_VALUE -> formulaError = ' + formulaError) }
-                                        }
-                                    }
-
-                                    formulasErrors.push('"' + formulaError + '"')
-                                    formulasValues.push(formulaValue)
-                                    let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p
-                                    formulas.set(key, formulaValue)
-                                }
-
-                                /* next phase event */
-                                let nextPhaseEvent = phase.nextPhaseEvent
-                                if (nextPhaseEvent !== undefined) {
-                                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-
-                                        let situation = nextPhaseEvent.situations[k]
-
-                                        for (let m = 0; m < situation.conditions.length; m++) {
-
-                                            let condition = situation.conditions[m]
-                                            let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + k + '-' + m
-
-                                            if (condition.javascriptCode !== undefined) {
-                                                newCondition(key, condition.javascriptCode, chart)
-                                            }
-                                        }
-                                    }
-                                }
-
-                                /* move to phase events */
-                                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                                    let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                                    if (moveToPhaseEvent !== undefined) {
-
-                                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-
-                                            let situation = moveToPhaseEvent.situations[k]
-
-                                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                                let condition = situation.conditions[m]
-                                                let key = j + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + p + '-' + n + '-' + k + '-' + m
-
-                                                if (condition.javascriptCode !== undefined) {
-                                                    newCondition(key, condition.javascriptCode, chart)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    function newCondition(key, node, chart) {
-                        let condition
-                        let value
-
-                        try {
-                            let code = node.code
-                            value = eval(code)
-                            addCodeToSnapshot(code)
-                        } catch (err) {
-                            /*
-                                One possible error is that the conditions references a .previous that is undefined. For this
-                                reason and others, we will simply set the value to false.
-                            */
-                            value = false
-
-                            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 ||
-                                node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
-                            ) {
-                                /*
-                                    We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
-                                */
-                            } else {
-                                node.error = err.message + ' @ ' + (new Date(candle.begin)).toLocaleString()
-                            }
-                        }
-
-                        condition = {
-                            key: key,
-                            value: value
-                        }
-
-                        conditions.set(condition.key, condition)
-
-                        if (condition.value) {
-                            conditionsValues.push(1)
-                        } else {
-                            conditionsValues.push(0)
-                        }
-                    }
-                }
+                tradingSystemModule.initialize(chart)
+                tradingSystemModule.evalConditions()
+                tradingSystemModule.evalFormulas()
+                tradingSystemModule.finalize()
 
                 /* Trigger On Conditions */
                 if (
-                    variable.current.strategy.stage === 'No Stage' &&
-                    variable.current.strategy.index === -1
+                    tradingEngine.current.strategy.stageType.value === 'No Stage' &&
+                    tradingEngine.current.strategy.index.value === -1
                 ) {
+                    /* 
+                    First thing to do is to check if we are below the minimum balance, or above the maximun balance.
+                    If we are, we are not gooing to trigger on again. 
+                    */
                     let minimumBalance
                     let maximumBalance
                     let balance
 
-                    if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                        balance = variable.current.balance.baseAsset
-                        minimumBalance = variable.episode.parameters.minimum.balance.baseAsset
-                        maximumBalance = variable.episode.parameters.maximum.balance.baseAsset
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                        balance = tradingEngine.current.balance.baseAsset.value
+                        minimumBalance = sessionParameters.sessionBaseAsset.config.minimumBalance
+                        maximumBalance = sessionParameters.sessionBaseAsset.config.maximumBalance
                     } else {
                         balance = variable.current.balance.quotedAsset
-                        minimumBalance = variable.episode.parameters.minimum.balance.quotedAsset
-                        maximumBalance = variable.episode.parameters.maximum.balance.quotedAsset
+                        minimumBalance = sessionParameters.sessionQuotedAsset.config.minimumBalance
+                        maximumBalance = sessionParameters.sessionQuotedAsset.config.maximumBalance
                     }
 
                     let stopRunningDate = new Date(candle.begin)
@@ -872,17 +345,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     into one strategy, we will ignore market conditions for others. However there is also
                     a strategy trigger off which can be hit before taking a position. If hit, we would
                     be outside a strategy again and looking for the condition to enter all over again.
- 
                     */
 
                     for (let j = 0; j < tradingSystem.strategies.length; j++) {
-                        if (
-                            variable.current.strategy.stage !== 'No Stage' ||
-                            variable.current.strategy.index !== -1
+                        if ( // If a strategy was already picked during the loop, we exit it
+                            tradingEngine.current.strategy.stageType.value !== 'No Stage' ||
+                            tradingEngine.current.strategy.index.value !== -1
                         ) { continue }
 
                         let strategy = tradingSystem.strategies[j]
-
                         let triggerStage = strategy.triggerStage
 
                         if (triggerStage !== undefined) {
@@ -897,11 +368,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                     for (let m = 0; m < situation.conditions.length; m++) {
 
                                         let condition = situation.conditions[m]
-                                        let key = j + '-' + 'triggerStage' + '-' + 'triggerOn' + '-' + k + '-' + m
-
                                         let value = false
-                                        if (conditions.get(key) !== undefined) {
-                                            value = conditions.get(key).value
+                                        if (conditions.get(condition.id) !== undefined) {
+                                            value = conditions.get(condition.id).value
                                         }
 
                                         if (value === false) { passed = false }
@@ -909,22 +378,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                     if (passed) {
 
-                                        variable.current.strategy.stage = 'Trigger Stage'
+                                        tradingEngine.current.strategy.stageType.value = 'Trigger Stage'
                                         checkAnnouncements(triggerStage)
 
-                                        variable.current.strategy.index = j
-                                        variable.current.strategy.begin = candle.begin
-                                        variable.current.strategy.beginRate = candle.min
-                                        variable.current.strategy.endRate = candle.min // In case the strategy does not get exited
-                                        variable.current.strategy.situationName = situation.name
-                                        variable.current.strategy.name = strategy.name
+                                        tradingEngine.current.strategy.index.value = j
+                                        tradingEngine.current.strategy.begin.value = candle.begin
+                                        tradingEngine.current.strategy.beginRate.value = candle.min
+                                        tradingEngine.current.strategy.endRate.value = candle.min // In case the strategy does not get exited
+                                        tradingEngine.current.strategy.situationName.value = situation.name
+                                        tradingEngine.current.strategy.strategyName.value = strategy.name
 
-                                        variable.current.distance.toEvent.triggerOn = 1
+                                        tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
                                         checkAnnouncements(triggerStage.triggerOn)
                                         saveAsLastTriggerOnSnapshot = true
 
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Switching to Trigger Stage because conditions at Trigger On Event were met.') }
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering into Strategy: ' + strategy.name) }
                                         break
                                     }
                                 }
@@ -934,9 +403,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 /* Trigger Off Condition */
-                if (variable.current.strategy.stage === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
-
+                if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
                     let triggerStage = strategy.triggerStage
 
                     if (triggerStage !== undefined) {
@@ -950,29 +418,26 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
                                     let condition = situation.conditions[m]
-                                    let key = variable.current.strategy.index + '-' + 'triggerStage' + '-' + 'triggerOff' + '-' + k + '-' + m
-
                                     let value = false
-                                    if (conditions.get(key) !== undefined) {
-                                        value = conditions.get(key).value
+                                    if (conditions.get(condition.id) !== undefined) {
+                                        value = conditions.get(condition.id).value
                                     }
 
                                     if (value === false) { passed = false }
                                 }
 
                                 if (passed) {
-                                    variable.current.strategy.number = variable.current.strategy.index
-                                    variable.current.strategy.end = candle.end
-                                    variable.current.strategy.endRate = candle.min
-                                    variable.current.strategy.status = 1 // This means the strategy is closed, i.e. that has a begin and end.
-                                    variable.current.strategy.stage = 'No Stage'
-                                    variable.current.strategy.index = -1
+                                    tradingEngine.current.strategy.end.value = candle.end
+                                    tradingEngine.current.strategy.endRate.value = candle.min
+                                    tradingEngine.current.strategy.status.value = 'Closed'
+                                    tradingEngine.current.strategy.stageType.value = 'No Stage'
+                                    tradingEngine.current.strategy.index.value = -1
 
-                                    variable.current.distance.toEvent.triggerOff = 1
+                                    tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
                                     checkAnnouncements(triggerStage.triggerOff)
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Switching to No Stage because conditions at the Trigger Off Event were met.') }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Strategy: ' + strategy.name) }
                                     break
                                 }
                             }
@@ -981,8 +446,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 /* Take Position Condition */
-                if (variable.current.strategy.stage === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     let triggerStage = strategy.triggerStage
 
@@ -997,18 +462,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                 for (let m = 0; m < situation.conditions.length; m++) {
                                     let condition = situation.conditions[m]
-                                    let key = variable.current.strategy.index + '-' + 'triggerStage' + '-' + 'takePosition' + '-' + k + '-' + m
-
                                     let value = false
-                                    if (conditions.get(key) !== undefined) {
-                                        value = conditions.get(key).value
+                                    if (conditions.get(condition.id) !== undefined) {
+                                        value = conditions.get(condition.id).value
                                     }
 
                                     if (value === false) { passed = false }
                                 }
 
                                 if (passed) {
-                                    variable.current.strategy.stage = 'Open Stage'
+                                    tradingEngine.current.strategy.stageType.value = 'Open Stage'
                                     checkAnnouncements(strategy.openStage)
 
                                     variable.current.position.stopLoss.stage = 'Open Stage'
@@ -1032,7 +495,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Stop Loss Management */
                 if (
-                    (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage') &&
+                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
                     checkStopPhases()
@@ -1040,12 +503,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function checkStopPhases() {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let parentNode
-                    let j = variable.current.strategy.index
+                    let j = tradingEngine.current.strategy.index.value
                     let stageKey
                     let initialDefinitionKey = ''
                     let p
@@ -1098,7 +561,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                     variable.current.position.stopLoss.phase++
                                     variable.current.position.stopLoss.stage = 'Manage Stage'
                                     if (variable.current.position.takeProfit.phase > 0) {
-                                        variable.current.strategy.stage = 'Manage Stage'
+                                        tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Take Profit')
                                     }
 
@@ -1148,7 +611,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                         variable.current.position.stopLoss.stage = 'Manage Stage'
                                         if (variable.current.position.takeProfit.phase > 0) {
-                                            variable.current.strategy.stage = 'Manage Stage'
+                                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Take Profit')
                                         }
 
@@ -1162,7 +625,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function calculateStopLoss() {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1172,7 +635,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 phase = openStage.initialDefinition.stopLoss.phases[variable.current.position.stopLoss.phase]
-                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase)
+                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase)
                             }
                         }
                     }
@@ -1180,7 +643,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (variable.current.position.stopLoss.stage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             phase = manageStage.stopLoss.phases[variable.current.position.stopLoss.phase - 1]
-                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase - 1)
+                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase - 1)
                         }
                     }
 
@@ -1199,7 +662,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Take Profit Management */
                 if (
-                    (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage') &&
+                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
                     checkTakeProfitPhases()
@@ -1207,12 +670,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function checkTakeProfitPhases() {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let parentNode
-                    let j = variable.current.strategy.index
+                    let j = tradingEngine.current.strategy.index.value
                     let stageKey
                     let initialDefinitionKey = ''
                     let p
@@ -1266,7 +729,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                     variable.current.position.takeProfit.phase++
                                     variable.current.position.takeProfit.stage = 'Manage Stage'
                                     if (variable.current.position.stopLoss.phase > 0) {
-                                        variable.current.strategy.stage = 'Manage Stage'
+                                        tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Stop')
                                     }
 
@@ -1316,7 +779,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                                         variable.current.position.takeProfit.stage = 'Manage Stage'
                                         if (variable.current.position.stopLoss.phase > 0) {
-                                            variable.current.strategy.stage = 'Manage Stage'
+                                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Stop')
                                         }
 
@@ -1330,7 +793,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 function calculateTakeProfit() {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
                     let openStage = strategy.openStage
                     let manageStage = strategy.manageStage
                     let phase
@@ -1340,7 +803,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 phase = openStage.initialDefinition.takeProfit.phases[variable.current.position.takeProfit.phase]
-                                key = variable.current.strategy.index + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase)
+                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase)
                             }
                         }
                     }
@@ -1348,7 +811,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (variable.current.position.takeProfit.stage === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             phase = manageStage.takeProfit.phases[variable.current.position.takeProfit.phase - 1]
-                            key = variable.current.strategy.index + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase - 1)
+                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase - 1)
                         }
                     }
 
@@ -1367,7 +830,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Keeping Position Counters Up-to-date */
                 if (
-                    (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage')
+                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
                 ) {
                     if (takePositionNow === true) {
                         variable.current.position.count.periods = 0
@@ -1382,15 +845,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Keeping Distance Counters Up-to-date */
                 if (
-                    variable.current.distance.toEvent.triggerOn > 0 // with this we avoind counting before the first event happens.
+                    tradingEngine.current.distanceToEvent.triggerOn.value > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.current.distance.toEvent.triggerOn++
+                    tradingEngine.current.distanceToEvent.triggerOn.value++
                 }
 
                 if (
-                    variable.current.distance.toEvent.triggerOff > 0 // with this we avoind counting before the first event happens.
+                    tradingEngine.current.distanceToEvent.triggerOff.value > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.current.distance.toEvent.triggerOff++
+                    tradingEngine.current.distanceToEvent.triggerOff.value++
                 }
 
                 if (
@@ -1407,17 +870,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Checking if Stop or Take Profit were hit */
                 if (
-                    (variable.current.strategy.stage === 'Open Stage' || variable.current.strategy.stage === 'Manage Stage') &&
+                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     /* Checking what happened since the last execution. We need to know if the Stop Loss
                         or our Take Profit were hit. */
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset && candle.max >= variable.current.position.stopLoss.value) || (variable.episode.parameters.baseAsset !== variable.episode.parameters.marketBaseAsset && candle.min <= variable.current.position.stopLoss.value)) {
+                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= variable.current.position.stopLoss.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= variable.current.position.stopLoss.value)) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
                         /*
                         Hit Point Validation
@@ -1426,7 +889,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             if (variable.current.position.stopLoss.value < candle.min) {
                                 variable.current.position.stopLoss.value = candle.min
                             }
@@ -1441,7 +904,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             slippedStopLoss = slippedStopLoss + slippageAmount
                         } else {
                             slippedStopLoss = slippedStopLoss - slippageAmount
@@ -1449,7 +912,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         closeRate = slippedStopLoss
 
-                        variable.current.strategy.stage = 'Close Stage'
+                        tradingEngine.current.strategy.stageType.value = 'Close Stage'
                         checkAnnouncements(strategy.closeStage, 'Stop')
 
                         variable.current.position.stopLoss.stage = 'No Stage'
@@ -1464,7 +927,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset && candle.min <= variable.current.position.takeProfit.value) || (variable.episode.parameters.baseAsset !== variable.episode.parameters.marketBaseAsset && candle.max >= variable.current.position.takeProfit.value)) {
+                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= variable.current.position.takeProfit.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= variable.current.position.takeProfit.value)) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
                         /*
                         Hit Point Validation:
@@ -1473,7 +936,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         If we take the stop loss value at those situation would be a huge distortion of facts.
                         */
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             if (variable.current.position.takeProfit.value > candle.max) {
                                 variable.current.position.takeProfit.value = candle.max
                             }
@@ -1487,7 +950,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             slippedTakeProfit = slippedTakeProfit + slippageAmount
                         } else {
                             slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -1495,7 +958,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         closeRate = slippedTakeProfit
 
-                        variable.current.strategy.stage = 'Close Stage'
+                        tradingEngine.current.strategy.stageType.value = 'Close Stage'
                         checkAnnouncements(strategy.closeStage, 'Take Profit')
 
                         variable.current.position.stopLoss.stage = 'No Stage'
@@ -1522,7 +985,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     variable.current.distance.toEvent.takePosition = 1
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     variable.current.position.size = strategy.positionSize
                     variable.current.position.rate = strategy.positionRate
@@ -1530,7 +993,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = variable.current.position.rate * bot.VALUES_TO_USE.slippage.positionRate / 100
 
-                    if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                         variable.current.position.rate = variable.current.position.rate - slippageAmount
                     } else {
                         variable.current.position.rate = variable.current.position.rate + slippageAmount
@@ -1651,7 +1114,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         let amountB
                         let orderSide
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             orderSide = 'sell'
 
                             orderPrice = variable.current.position.rate
@@ -1725,7 +1188,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         calculateTakeProfit()
                         calculateStopLoss()
 
-                        variable.previous.balance.baseAsset = variable.current.balance.baseAsset
+                        variable.previous.balance.baseAsset = tradingEngine.current.balance.baseAsset.value
                         variable.previous.balance.quotedAsset = variable.current.balance.quotedAsset
 
                         variable.last.position.profitLoss = 0
@@ -1733,15 +1196,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         let feePaid = 0
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             feePaid = variable.current.position.size * variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             variable.current.balance.quotedAsset = variable.current.balance.quotedAsset + variable.current.position.size * variable.current.position.rate - feePaid
-                            variable.current.balance.baseAsset = variable.current.balance.baseAsset - variable.current.position.size
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - variable.current.position.size
                         } else {
                             feePaid = variable.current.position.size / variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            variable.current.balance.baseAsset = variable.current.balance.baseAsset + variable.current.position.size / variable.current.position.rate - feePaid
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + variable.current.position.size / variable.current.position.rate - feePaid
                             variable.current.balance.quotedAsset = variable.current.balance.quotedAsset - variable.current.position.size
                         }
 
@@ -1761,7 +1224,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     variable.current.distance.toEvent.closePosition = 1
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[variable.current.strategy.index]
+                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
                         /* Check that we are in LIVE MODE */
@@ -1825,7 +1288,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         let amountB
                         let orderSide
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             orderSide = 'buy'
 
                             orderPrice = ticker.last + 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
@@ -1837,8 +1300,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                             orderPrice = ticker.last - 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = variable.current.balance.baseAsset * orderPrice
-                            amountB = variable.current.balance.baseAsset
+                            amountA = tradingEngine.current.balance.baseAsset.value * orderPrice
+                            amountB = tradingEngine.current.balance.baseAsset.value
                         }
 
                         variable.executionContext = {
@@ -1898,29 +1361,29 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         let feePaid = 0
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             strategy.positionSize = variable.current.balance.quotedAsset / closeRate
                             strategy.positionRate = closeRate
 
                             feePaid = variable.current.balance.quotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            variable.current.balance.baseAsset = variable.current.balance.baseAsset + variable.current.balance.quotedAsset / closeRate - feePaid
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + variable.current.balance.quotedAsset / closeRate - feePaid
                             variable.current.balance.quotedAsset = 0
                         } else {
-                            strategy.positionSize = variable.current.balance.baseAsset * closeRate
+                            strategy.positionSize = tradingEngine.current.balance.baseAsset.value * closeRate
                             strategy.positionRate = closeRate
 
-                            feePaid = variable.current.balance.baseAsset * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.balance.baseAsset.value * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            variable.current.balance.quotedAsset = variable.current.balance.quotedAsset + variable.current.balance.baseAsset * closeRate - feePaid
-                            variable.current.balance.baseAsset = 0
+                            variable.current.balance.quotedAsset = variable.current.balance.quotedAsset + tradingEngine.current.balance.baseAsset.value * closeRate - feePaid
+                            tradingEngine.current.balance.baseAsset.value = 0
                         }
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
-                            variable.last.position.profitLoss = variable.current.balance.baseAsset - variable.previous.balance.baseAsset
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                            variable.last.position.profitLoss = tradingEngine.current.balance.baseAsset.value - variable.previous.balance.baseAsset
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
                             if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
-                            variable.episode.stat.profitLoss = variable.current.balance.baseAsset - variable.episode.parameters.initial.balance.baseAsset
+                            variable.episode.stat.profitLoss = tradingEngine.current.balance.baseAsset.value - variable.episode.parameters.initial.balance.baseAsset
                         } else {
                             variable.last.position.profitLoss = variable.current.balance.quotedAsset - variable.previous.balance.quotedAsset
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
@@ -1936,7 +1399,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.count.fails++
                         }
 
-                        if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.baseAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.baseAsset - 1
                             variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions
                             variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / tradingEngine.episode.episodeStatistics.days * 365
@@ -1967,18 +1430,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 /* Closing the Closing Stage */
-                if (variable.current.strategy.stage === 'Close Stage') {
+                if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
                     if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
-                        variable.current.strategy.number = variable.current.strategy.index
-                        variable.current.strategy.end = candle.end
-                        variable.current.strategy.endRate = candle.min
-                        variable.current.strategy.status = 1 // This means the strategy is closed, i.e. that has a begin and end.
+                        tradingEngine.current.strategy.end.value = candle.end
+                        tradingEngine.current.strategy.endRate.value = candle.min
+                        tradingEngine.current.strategy.status.value = 'Closed'
 
-                        variable.current.strategy.index = -1
-                        variable.current.strategy.stage = 'No Stage'
+                        tradingEngine.current.strategy.index.value = -1
+                        tradingEngine.current.strategy.stageType.value = 'No Stage'
 
                         timerToCloseStage = 0
-                        variable.current.distance.toEvent.triggerOff = 1
+                        tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage.') }
                     } else {
@@ -2027,8 +1489,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             let closeValues = [
                                 variable.episode.count.positions,                                   // Position Number
                                 (new Date(candle.begin)).toISOString(),                             // Datetime
-                                tradingSystem.strategies[variable.current.strategy.index].name,     // Strategy Name
-                                variable.current.strategy.situationName,                            // Trigger On Situation
+                                tradingSystem.strategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
+                                tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
                                 variable.current.position.situationName,                            // Take Position Situation
                                 hitOrFial(),                                                        // Result
                                 variable.last.position.ROI,                                         // ROI
@@ -2066,8 +1528,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         /* Simulation Record */
                         let simulationRecord
 
-                        if (variable.current.balance.baseAsset === Infinity) {
-                            variable.current.balance.baseAsset = Number.MAX_SAFE_INTEGER
+                        if (tradingEngine.current.balance.baseAsset.value === Infinity) {
+                            tradingEngine.current.balance.baseAsset.value = Number.MAX_SAFE_INTEGER
                         }
 
                         if (variable.current.balance.quotedAsset === Infinity) {
@@ -2077,7 +1539,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         simulationRecord = [
                             candle.begin,
                             candle.end,
-                            variable.current.balance.baseAsset,
+                            tradingEngine.current.balance.baseAsset.value,
                             variable.current.balance.quotedAsset,
                             variable.episode.stat.profitLoss,
                             variable.last.position.profitLoss,
@@ -2097,14 +1559,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.current.position.takeProfit.phase,
                             variable.current.position.size,
                             variable.episode.parameters.initial.balance.baseAsset,
-                            variable.episode.parameters.minimum.balance.baseAsset,
-                            variable.episode.parameters.maximum.balance.baseAsset,
+                            sessionParameters.sessionBaseAsset.config.minimumBalance,
+                            sessionParameters.sessionBaseAsset.config.maximumBalance,
                             variable.episode.parameters.initial.balance.quotedAsset,
-                            variable.episode.parameters.minimum.balance.quotedAsset,
-                            variable.episode.parameters.maximum.balance.quotedAsset,
-                            '"' + variable.episode.parameters.baseAsset + '"',
+                            sessionParameters.sessionQuotedAsset.config.minimumBalance,
+                            sessionParameters.sessionQuotedAsset.config.maximumBalance,
+                            '"' + sessionParameters.sessionBaseAsset.name + '"',
                             '"' + variable.episode.parameters.quotedAsset + '"',
-                            '"' + variable.episode.parameters.marketBaseAsset + '"',
+                            '"' + bot.market.marketBaseAsset + '"',
                             '"' + variable.episode.parameters.marketQuotedAsset + '"',
                             variable.current.position.count.periods,
                             variable.current.position.stat.days
@@ -2118,7 +1580,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         let conditionsRecord = [
                             candle.begin,
                             candle.end,
-                            variable.current.strategy.index,
+                            tradingEngine.current.strategy.index.value,
                             variable.current.position.stopLoss.phase,
                             variable.current.position.takeProfit.phase,
                             conditionsValues,
@@ -2134,22 +1596,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         Lets see if there will be an open strategy ...
                         Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
                         */
-                        if (variable.current.strategy.begin !== 0 && variable.current.strategy.end === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                            variable.current.strategy.status = 2 // This means the strategy is open, i.e. that has a begin but no end.
-                            variable.current.strategy.end = candle.end
+                        if (tradingEngine.current.strategy.begin.value !== 0 && tradingEngine.current.strategy.end.value === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+                            tradingEngine.current.strategy.status.value = 'Open'
+                            tradingEngine.current.strategy.end.value = candle.end
                         }
 
                         /* Prepare the information for the Strategies File */
-                        if (variable.current.strategy.begin !== 0 && variable.current.strategy.end !== 0) {
+                        if (tradingEngine.current.strategy.begin.value !== 0 && tradingEngine.current.strategy.end.value !== 0) {
                             let strategyRecord = [
-                                variable.current.strategy.begin,
-                                variable.current.strategy.end,
-                                variable.current.strategy.status,
-                                variable.current.strategy.number,
-                                variable.current.strategy.beginRate,
-                                variable.current.strategy.endRate,
-                                '"' + variable.current.strategy.situationName + '"',
-                                '"' + variable.current.strategy.name + '"'
+                                tradingEngine.current.strategy.begin.value,
+                                tradingEngine.current.strategy.end.value,
+                                tradingEngine.current.strategy.status.value,
+                                variable.current.strategy.index,
+                                tradingEngine.current.strategy.beginRate.value,
+                                tradingEngine.current.strategy.endRate.value,
+                                '"' + tradingEngine.current.strategy.situationName.value + '"',
+                                '"' + tradingEngine.current.strategy.strategyName.value + '"'
                             ]
 
                             strategiesArray.push(strategyRecord)
@@ -2174,7 +1636,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.current.position.endRate = candle.close
 
                             /* Here we will calculate the ongoing ROI */
-                            if (variable.episode.parameters.baseAsset === variable.episode.parameters.marketBaseAsset) {
+                            if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                                 variable.current.position.stat.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
                             } else {
                                 variable.current.position.stat.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100

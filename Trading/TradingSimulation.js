@@ -768,10 +768,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
                         tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                        variable.current.position.end = candle.end
-                        variable.current.position.status = 1
-                        variable.current.position.exitType = 1
-                        variable.current.position.endRate = closeRate
+                        tradingEngine.current.position.end.value = candle.end
+                        tradingEngine.current.position.status.value = 1
+                        tradingEngine.current.position.exitType.value = 1
+                        tradingEngine.current.position.endRate.value = closeRate
 
                         closePositionNow = true
                     }
@@ -815,10 +815,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
                         tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
 
-                        variable.current.position.end = candle.end
-                        variable.current.position.status = 1
-                        variable.current.position.exitType = 2
-                        variable.current.position.endRate = closeRate
+                        tradingEngine.current.position.end.value = candle.end
+                        tradingEngine.current.position.status.value = 1
+                        tradingEngine.current.position.exitType.value = 2
+                        tradingEngine.current.position.endRate.value = closeRate
 
                         closePositionNow = true
                         addToSnapshots = true
@@ -838,16 +838,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
-                    variable.current.position.size = strategy.positionSize
-                    variable.current.position.rate = strategy.positionRate
+                    tradingEngine.current.position.size.value = strategy.positionSize
+                    tradingEngine.current.position.rate.value = strategy.positionRate
 
                     /* We take what was calculated at the formula and apply the slippage. */
-                    let slippageAmount = variable.current.position.rate * bot.VALUES_TO_USE.slippage.positionRate / 100
+                    let slippageAmount = tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.slippage.positionRate / 100
 
                     if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                        variable.current.position.rate = variable.current.position.rate - slippageAmount
+                        tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
                     } else {
-                        variable.current.position.rate = variable.current.position.rate + slippageAmount
+                        tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value + slippageAmount
                     }
 
                     if (bot.startMode === 'Live') {
@@ -855,12 +855,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionSize = ' + strategy.positionSize)
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionRate = ' + strategy.positionRate)
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> slippageAmount = ' + slippageAmount)
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> variable.current.position.rate = ' + variable.current.position.rate)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
                     }
 
                     /* Update the trade record information. */
-                    variable.current.position.begin = candle.begin
-                    variable.current.position.beginRate = variable.current.position.rate
+                    tradingEngine.current.position.begin.value = candle.begin
+                    tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
 
                     /* Check if we need to execute. */
                     if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
@@ -968,17 +968,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             orderSide = 'sell'
 
-                            orderPrice = variable.current.position.rate
+                            orderPrice = tradingEngine.current.position.rate.value
 
-                            amountA = variable.current.position.size * orderPrice
-                            amountB = variable.current.position.size
+                            amountA = tradingEngine.current.position.size.value * orderPrice
+                            amountB = tradingEngine.current.position.size.value
                         } else {
                             orderSide = 'buy'
 
-                            orderPrice = variable.current.position.rate
+                            orderPrice = tradingEngine.current.position.rate.value
 
-                            amountA = variable.current.position.size
-                            amountB = variable.current.position.size / orderPrice
+                            amountA = tradingEngine.current.position.size.value
+                            amountB = tradingEngine.current.position.size.value / orderPrice
                         }
 
                         variable.executionContext = {
@@ -1039,24 +1039,24 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         calculateTakeProfit()
                         calculateStopLoss()
 
-                        variable.previous.balance.baseAsset = tradingEngine.current.balance.baseAsset.value
-                        variable.previous.balance.quotedAsset = tradingEngine.current.balance.quotedAsset.value
+                        tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
+                        tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
-                        variable.last.position.profitLoss = 0
-                        variable.last.position.ROI = 0
+                        tradingEngine.last.position.profitLoss.value = 0
+                        tradingEngine.last.position.ROI.value = 0
 
                         let feePaid = 0
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            feePaid = variable.current.position.size * variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + variable.current.position.size * variable.current.position.rate - feePaid
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - variable.current.position.size
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
                         } else {
-                            feePaid = variable.current.position.size / variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + variable.current.position.size / variable.current.position.rate - feePaid
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - variable.current.position.size
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
                         }
 
                         addRecords()
@@ -1208,7 +1208,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     function closePositionAtSimulation() {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> closePositionAtSimulation -> Entering function.') }
 
-                        variable.episode.count.positions++
+                        tradingEngine.episode.positionCounters.positions.value++
 
                         let feePaid = 0
 
@@ -1231,33 +1231,33 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         }
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            variable.last.position.profitLoss = tradingEngine.current.balance.baseAsset.value - variable.previous.balance.baseAsset
-                            variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
-                            if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
-                            variable.episode.stat.profitLoss = tradingEngine.current.balance.baseAsset.value - variable.episode.parameters.initial.balance.baseAsset
+                            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
+                            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
+                            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+                            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
                         } else {
-                            variable.last.position.profitLoss = tradingEngine.current.balance.quotedAsset.value - variable.previous.balance.quotedAsset
-                            variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
-                            if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
-                            variable.episode.stat.profitLoss = tradingEngine.current.balance.quotedAsset.value - variable.episode.parameters.initial.balance.quotedAsset
+                            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
+                            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
+                            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+                            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
                         }
 
-                        variable.current.position.stat.ROI = variable.last.position.ROI
+                        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.ROI.value
 
-                        if (variable.last.position.profitLoss > 0) {
-                            variable.episode.count.hits++
+                        if (tradingEngine.last.position.profitLoss.value > 0) {
+                            tradingEngine.episode.episodeCounters.hits.value++
                         } else {
-                            variable.episode.count.fails++
+                            tradingEngine.episode.episodeCounters.fails.value++
                         }
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.baseAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.baseAsset - 1
-                            variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions
-                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / tradingEngine.episode.episodeStatistics.days * 365
+                            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
+                            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
+                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days * 365
                         } else {
-                            variable.episode.stat.ROI = (variable.episode.parameters.initial.balance.quotedAsset + variable.episode.stat.profitLoss) / variable.episode.parameters.initial.balance.quotedAsset - 1
-                            variable.episode.stat.hitRatio = variable.episode.count.hits / variable.episode.count.positions
-                            variable.episode.stat.anualizedRateOfReturn = variable.episode.stat.ROI / tradingEngine.episode.episodeStatistics.days * 365
+                            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
+                            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
+                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days * 365
                         }
 
                         addRecords()
@@ -1265,8 +1265,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         tradingEngine.current.position.stopLoss.value = 0
                         tradingEngine.current.position.takeProfit.value = 0
 
-                        variable.current.position.rate = 0
-                        variable.current.position.size = 0
+                        tradingEngine.current.position.rate.value = 0
+                        tradingEngine.current.position.size.value = 0
 
                         timerToCloseStage = candle.begin
                         tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
@@ -1316,10 +1316,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     addPositionRecord()
 
                     /* We will remmember the last candle processed, so that if it is the last one of this run we can use it to continue from there next time. */
-                    variable.last.candle = {
-                        begin: candle.begin,
-                        end: candle.end
-                    }
+                    tradingEngine.last.candle.begin = candle.begin
+                    tradingEngine.last.candle.end = candle.end
 
                     /* After everything at the simulation level was done, we will do the annoucements that are pending. */
                     makeAnnoucements()
@@ -1338,22 +1336,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         if (addToSnapshots === true) {
                             let closeValues = [
-                                variable.episode.count.positions,                                   // Position Number
+                                tradingEngine.episode.positionCounters.positions.value,                                   // Position Number
                                 (new Date(candle.begin)).toISOString(),                             // Datetime
                                 tradingSystem.strategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
                                 tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
                                 tradingEngine.current.position.situationName.value,                            // Take Position Situation
                                 hitOrFial(),                                                        // Result
-                                variable.last.position.ROI,                                         // ROI
+                                tradingEngine.last.position.ROI.value,                                         // ROI
                                 exitType()                                                          // Exit Type
                             ]
 
                             function hitOrFial() {
-                                if (variable.last.position.ROI > 0) { return 'HIT' } else { return 'FAIL' }
+                                if (tradingEngine.last.position.ROI.value > 0) { return 'HIT' } else { return 'FAIL' }
                             }
 
                             function exitType() {
-                                switch (variable.current.position.exitType) {
+                                switch (tradingEngine.current.position.exitType.value) {
                                     case 1: return 'Stop'
                                     case 2: return 'Take Profit'
                                 }
@@ -1392,33 +1390,33 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             candle.end,
                             tradingEngine.current.balance.baseAsset.value,
                             tradingEngine.current.balance.quotedAsset.value,
-                            variable.episode.stat.profitLoss,
-                            variable.last.position.profitLoss,
+                            tradingEngine.episode.episodeStatistics.profitLoss.value,
+                            tradingEngine.last.position.profitLoss.value,
                             tradingEngine.current.position.stopLoss.value,
-                            variable.episode.count.positions,
-                            variable.episode.count.hits,
-                            variable.episode.count.fails,
-                            variable.episode.stat.hitRatio,
-                            variable.episode.stat.ROI,
+                            tradingEngine.episode.positionCounters.positions.value,
+                            tradingEngine.episode.episodeCounters.hits.value,
+                            tradingEngine.episode.episodeCounters.fails.value,
+                            tradingEngine.episode.episodeStatistics.hitRatio.value,
+                            tradingEngine.episode.episodeStatistics.ROI.value,
                             tradingEngine.episode.episodeCounters.periods,
                             tradingEngine.episode.episodeStatistics.days,
-                            variable.episode.stat.anualizedRateOfReturn,
-                            variable.current.position.rate,
-                            variable.last.position.ROI,
+                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value,
+                            tradingEngine.current.position.rate.value,
+                            tradingEngine.last.position.ROI.value,
                             tradingEngine.current.position.takeProfit.value,
                             tradingEngine.current.position.stopLoss.stopLossPhase.value,
                             tradingEngine.current.position.takeProfit.takeProfitPhase.value,
-                            variable.current.position.size,
-                            variable.episode.parameters.initial.balance.baseAsset,
+                            tradingEngine.current.position.size.value,
+                            sessionParameters.sessionBaseAsset.config.initialBalance,
                             sessionParameters.sessionBaseAsset.config.minimumBalance,
                             sessionParameters.sessionBaseAsset.config.maximumBalance,
-                            variable.episode.parameters.initial.balance.quotedAsset,
+                            sessionParameters.sessionQuotedAsset.config.initialBalance,
                             sessionParameters.sessionQuotedAsset.config.minimumBalance,
                             sessionParameters.sessionQuotedAsset.config.maximumBalance,
                             '"' + sessionParameters.sessionBaseAsset.name + '"',
-                            '"' + variable.episode.parameters.quotedAsset + '"',
+                            '"' + sessionParameters.sessionQuotedAsset.name + '"',
                             '"' + bot.market.marketBaseAsset + '"',
-                            '"' + variable.episode.parameters.marketQuotedAsset + '"',
+                            '"' + bot.market.marketQuotedAsset + '"',
                             tradingEngine.current.position.positionCounters.periods.value,
                             tradingEngine.current.position.positionStatistics.days.value
                         ]
@@ -1458,7 +1456,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 tradingEngine.current.strategy.begin.value,
                                 tradingEngine.current.strategy.end.value,
                                 tradingEngine.current.strategy.status.value,
-                                variable.current.strategy.index,
+                                tradingEngine.current.strategy.index.value,
                                 tradingEngine.current.strategy.beginRate.value,
                                 tradingEngine.current.strategy.endRate.value,
                                 '"' + tradingEngine.current.strategy.situationName.value + '"',
@@ -1476,34 +1474,34 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         Lets see if there will be an open trade ...
                         Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
                         */
-                        if (variable.current.position.begin !== 0 &&
-                            variable.current.position.end === 0 &&
+                        if (tradingEngine.current.position.begin.value !== 0 &&
+                            tradingEngine.current.position.end.value === 0 &&
                             currentCandleIndex === candles.length - 2 &&
                             lastCandle.end !== lastInstantOfTheDay) {
 
                             /* This means the trade is open */
-                            variable.current.position.status = 2
-                            variable.current.position.end = candle.end
-                            variable.current.position.endRate = candle.close
+                            tradingEngine.current.position.status.value = 2
+                            tradingEngine.current.position.end.value = candle.end
+                            tradingEngine.current.position.endRate.value = candle.close
 
                             /* Here we will calculate the ongoing ROI */
                             if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                                variable.current.position.stat.ROI = (variable.current.position.rate - candle.close) / variable.current.position.rate * 100
+                                tradingEngine.current.position.positionStatistics.ROI.value = (tradingEngine.current.position.rate.value - candle.close) / tradingEngine.current.position.rate.value * 100
                             } else {
-                                variable.current.position.stat.ROI = (candle.close - variable.current.position.rate) / variable.current.position.rate * 100
+                                tradingEngine.current.position.positionStatistics.ROI.value = (candle.close - tradingEngine.current.position.rate.value) / tradingEngine.current.position.rate.value * 100
                             }
                         }
 
                         /* Prepare the information for the Positions File */
-                        if (variable.current.position.begin !== 0 && variable.current.position.end !== 0) {
+                        if (tradingEngine.current.position.begin.value !== 0 && tradingEngine.current.position.end.value !== 0) {
                             let positionRecord = [
-                                variable.current.position.begin,
-                                variable.current.position.end,
-                                variable.current.position.status,
-                                variable.current.position.stat.ROI,
-                                variable.current.position.beginRate,
-                                variable.current.position.endRate,
-                                variable.current.position.exitType,
+                                tradingEngine.current.position.begin.value,
+                                tradingEngine.current.position.end.value,
+                                tradingEngine.current.position.status.value,
+                                tradingEngine.current.position.positionStatistics.ROI.value,
+                                tradingEngine.current.position.beginRate.value,
+                                tradingEngine.current.position.endRate.value,
+                                tradingEngine.current.position.exitType.value,
                                 '"' + tradingEngine.current.position.situationName.value + '"'
                             ]
 

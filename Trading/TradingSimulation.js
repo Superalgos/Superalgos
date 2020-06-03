@@ -297,9 +297,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.initialize(chart)
                 tradingSystemModule.evalConditions()
                 tradingSystemModule.evalFormulas()
-                tradingSystemModule.finalize()
 
-                /* Trigger On Conditions */
+
+
+                /* Checks for Minimun and Maximun Balance. We do the check while not inside any strategy only. */
                 if (
                     tradingEngine.current.strategy.stageType.value === 'No Stage' &&
                     tradingEngine.current.strategy.index.value === -1
@@ -317,7 +318,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         minimumBalance = sessionParameters.sessionBaseAsset.config.minimumBalance
                         maximumBalance = sessionParameters.sessionBaseAsset.config.maximumBalance
                     } else {
-                        balance = variable.current.balance.quotedAsset
+                        balance = tradingEngine.current.balance.quotedAsset.value
                         minimumBalance = sessionParameters.sessionQuotedAsset.config.minimumBalance
                         maximumBalance = sessionParameters.sessionQuotedAsset.config.maximumBalance
                     }
@@ -336,162 +337,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         afterLoop()
                         return
                     }
-
-                    /*
-                    Here we need to pick a strategy, or if there is not suitable strategy for the current
-                    market conditions, we pass until the next period.
- 
-                    To pick a new strategy we will evaluate what we call the trigger on. Once we enter
-                    into one strategy, we will ignore market conditions for others. However there is also
-                    a strategy trigger off which can be hit before taking a position. If hit, we would
-                    be outside a strategy again and looking for the condition to enter all over again.
-                    */
-
-                    for (let j = 0; j < tradingSystem.strategies.length; j++) {
-                        if ( // If a strategy was already picked during the loop, we exit it
-                            tradingEngine.current.strategy.stageType.value !== 'No Stage' ||
-                            tradingEngine.current.strategy.index.value !== -1
-                        ) { continue }
-
-                        let strategy = tradingSystem.strategies[j]
-                        let triggerStage = strategy.triggerStage
-
-                        if (triggerStage !== undefined) {
-                            if (triggerStage.triggerOn !== undefined) {
-                                for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
-                                    let situation = triggerStage.triggerOn.situations[k]
-                                    let passed
-                                    if (situation.conditions.length > 0) {
-                                        passed = true
-                                    }
-
-                                    for (let m = 0; m < situation.conditions.length; m++) {
-
-                                        let condition = situation.conditions[m]
-                                        let value = false
-                                        if (conditions.get(condition.id) !== undefined) {
-                                            value = conditions.get(condition.id).value
-                                        }
-
-                                        if (value === false) { passed = false }
-                                    }
-
-                                    if (passed) {
-
-                                        tradingEngine.current.strategy.stageType.value = 'Trigger Stage'
-                                        checkAnnouncements(triggerStage)
-
-                                        tradingEngine.current.strategy.index.value = j
-                                        tradingEngine.current.strategy.begin.value = candle.begin
-                                        tradingEngine.current.strategy.beginRate.value = candle.min
-                                        tradingEngine.current.strategy.endRate.value = candle.min // In case the strategy does not get exited
-                                        tradingEngine.current.strategy.situationName.value = situation.name
-                                        tradingEngine.current.strategy.strategyName.value = strategy.name
-
-                                        tradingEngine.current.distanceToEvent.triggerOn.value = 1
-
-                                        checkAnnouncements(triggerStage.triggerOn)
-                                        saveAsLastTriggerOnSnapshot = true
-
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering into Strategy: ' + strategy.name) }
-                                        break
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
 
-                /* Trigger Off Condition */
-                if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-                    let triggerStage = strategy.triggerStage
-
-                    if (triggerStage !== undefined) {
-                        if (triggerStage.triggerOff !== undefined) {
-                            for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
-                                let situation = triggerStage.triggerOff.situations[k]
-                                let passed
-                                if (situation.conditions.length > 0) {
-                                    passed = true
-                                }
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-                                    let condition = situation.conditions[m]
-                                    let value = false
-                                    if (conditions.get(condition.id) !== undefined) {
-                                        value = conditions.get(condition.id).value
-                                    }
-
-                                    if (value === false) { passed = false }
-                                }
-
-                                if (passed) {
-                                    tradingEngine.current.strategy.end.value = candle.end
-                                    tradingEngine.current.strategy.endRate.value = candle.min
-                                    tradingEngine.current.strategy.status.value = 'Closed'
-                                    tradingEngine.current.strategy.stageType.value = 'No Stage'
-                                    tradingEngine.current.strategy.index.value = -1
-
-                                    tradingEngine.current.distanceToEvent.triggerOff.value = 1
-
-                                    checkAnnouncements(triggerStage.triggerOff)
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Strategy: ' + strategy.name) }
-                                    break
-                                }
-                            }
-                        }
-                    }
-                }
-
-                /* Take Position Condition */
-                if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
-                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
-                    let triggerStage = strategy.triggerStage
-
-                    if (triggerStage !== undefined) {
-                        if (triggerStage.takePosition !== undefined) {
-                            for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-                                let situation = triggerStage.takePosition.situations[k]
-                                let passed
-                                if (situation.conditions.length > 0) {
-                                    passed = true
-                                }
-
-                                for (let m = 0; m < situation.conditions.length; m++) {
-                                    let condition = situation.conditions[m]
-                                    let value = false
-                                    if (conditions.get(condition.id) !== undefined) {
-                                        value = conditions.get(condition.id).value
-                                    }
-
-                                    if (value === false) { passed = false }
-                                }
-
-                                if (passed) {
-                                    tradingEngine.current.strategy.stageType.value = 'Open Stage'
-                                    checkAnnouncements(strategy.openStage)
-
-                                    variable.current.position.stopLoss.stage = 'Open Stage'
-                                    variable.current.position.takeProfit.stage = 'Open Stage'
-                                    variable.current.position.stopLoss.phase = 0
-                                    variable.current.position.takeProfit.phase = 0
-
-                                    takePositionNow = true
-                                    variable.current.position.situationName = situation.name
-
-                                    checkAnnouncements(triggerStage.takePosition)
-                                    saveAsLastTakePositionSnapshot = true
-
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met.') }
-                                    break
-                                }
-                            }
-                        }
-                    }
-                }
+                tradingSystemModule.checkTriggerOn()
+                tradingSystemModule.checkTriggerOff()
+                tradingSystemModule.checkTakePosition()
+                tradingSystemModule.finalize()
 
                 /* Stop Loss Management */
                 if (
@@ -513,22 +364,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let initialDefinitionKey = ''
                     let p
 
-                    if (variable.current.position.stopLoss.stage === 'Open Stage' && openStage !== undefined) {
+                    if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
                                 parentNode = openStage.initialDefinition
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
-                                p = variable.current.position.stopLoss.phase
+                                p = tradingEngine.current.position.stopLoss.stopLossPhase.value
                             }
                         }
                     }
 
-                    if (variable.current.position.stopLoss.stage === 'Manage Stage' && manageStage !== undefined) {
+                    if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
-                            p = variable.current.position.stopLoss.phase - 1
+                            p = tradingEngine.current.position.stopLoss.stopLossPhase.value - 1
                         }
                     }
 
@@ -558,9 +409,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 }
 
                                 if (passed) {
-                                    variable.current.position.stopLoss.phase++
-                                    variable.current.position.stopLoss.stage = 'Manage Stage'
-                                    if (variable.current.position.takeProfit.phase > 0) {
+                                    tradingEngine.current.position.stopLoss.stopLossPhase.value++
+                                    tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                                    if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                         tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Take Profit')
                                     }
@@ -601,7 +452,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (moveToPhase !== undefined) {
                                             for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
                                                 if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
-                                                    variable.current.position.stopLoss.phase = q + 1
+                                                    tradingEngine.current.position.stopLoss.stopLossPhase.value = q + 1
                                                 }
                                             }
                                         } else {
@@ -609,8 +460,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                             continue
                                         }
 
-                                        variable.current.position.stopLoss.stage = 'Manage Stage'
-                                        if (variable.current.position.takeProfit.phase > 0) {
+                                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                                        if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                             tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Take Profit')
                                         }
@@ -631,30 +482,30 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let phase
                     let key
 
-                    if (variable.current.position.stopLoss.stage === 'Open Stage' && openStage !== undefined) {
+                    if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.stopLoss !== undefined) {
-                                phase = openStage.initialDefinition.stopLoss.phases[variable.current.position.stopLoss.phase]
-                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase)
+                                phase = openStage.initialDefinition.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
+                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value)
                             }
                         }
                     }
 
-                    if (variable.current.position.stopLoss.stage === 'Manage Stage' && manageStage !== undefined) {
+                    if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.stopLoss !== undefined) {
-                            phase = manageStage.stopLoss.phases[variable.current.position.stopLoss.phase - 1]
-                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (variable.current.position.stopLoss.phase - 1)
+                            phase = manageStage.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
+                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value - 1)
                         }
                     }
 
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
-                            let previousValue = variable.current.position.stopLoss.value
+                            let previousValue = tradingEngine.current.position.stopLoss.value
 
-                            variable.current.position.stopLoss.value = formulas.get(key)
+                            tradingEngine.current.position.stopLoss.value = formulas.get(key)
 
-                            if (variable.current.position.stopLoss.value !== previousValue) {
-                                checkAnnouncements(phase, variable.current.position.stopLoss.value)
+                            if (tradingEngine.current.position.stopLoss.value !== previousValue) {
+                                checkAnnouncements(phase, tradingEngine.current.position.stopLoss.value)
                             }
                         }
                     }
@@ -680,22 +531,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let initialDefinitionKey = ''
                     let p
 
-                    if (variable.current.position.takeProfit.stage === 'Open Stage' && openStage !== undefined) {
+                    if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
                                 parentNode = openStage.initialDefinition
                                 initialDefinitionKey = '-' + 'initialDefinition'
                                 stageKey = 'openStage'
-                                p = variable.current.position.takeProfit.phase
+                                p = tradingEngine.current.position.takeProfit.takeProfitPhase.value
                             }
                         }
                     }
 
-                    if (variable.current.position.takeProfit.stage === 'Manage Stage' && manageStage !== undefined) {
+                    if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
                             parentNode = manageStage
                             stageKey = 'manageStage'
-                            p = variable.current.position.takeProfit.phase - 1
+                            p = tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1
                         }
                     }
 
@@ -726,9 +577,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 }
 
                                 if (passed) {
-                                    variable.current.position.takeProfit.phase++
-                                    variable.current.position.takeProfit.stage = 'Manage Stage'
-                                    if (variable.current.position.stopLoss.phase > 0) {
+                                    tradingEngine.current.position.takeProfit.takeProfitPhase.value++
+                                    tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                                    if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                         tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                         checkAnnouncements(manageStage, 'Stop')
                                     }
@@ -769,7 +620,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                         if (moveToPhase !== undefined) {
                                             for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
                                                 if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
-                                                    variable.current.position.takeProfit.phase = q + 1
+                                                    tradingEngine.current.position.takeProfit.takeProfitPhase.value = q + 1
                                                 }
                                             }
                                         } else {
@@ -777,8 +628,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                             continue
                                         }
 
-                                        variable.current.position.takeProfit.stage = 'Manage Stage'
-                                        if (variable.current.position.stopLoss.phase > 0) {
+                                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                                        if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                             tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Stop')
                                         }
@@ -799,30 +650,30 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let phase
                     let key
 
-                    if (variable.current.position.takeProfit.stage === 'Open Stage' && openStage !== undefined) {
+                    if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
                         if (openStage.initialDefinition !== undefined) {
                             if (openStage.initialDefinition.takeProfit !== undefined) {
-                                phase = openStage.initialDefinition.takeProfit.phases[variable.current.position.takeProfit.phase]
-                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase)
+                                phase = openStage.initialDefinition.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
+                                key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value)
                             }
                         }
                     }
 
-                    if (variable.current.position.takeProfit.stage === 'Manage Stage' && manageStage !== undefined) {
+                    if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
                         if (manageStage.takeProfit !== undefined) {
-                            phase = manageStage.takeProfit.phases[variable.current.position.takeProfit.phase - 1]
-                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (variable.current.position.takeProfit.phase - 1)
+                            phase = manageStage.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
+                            key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1)
                         }
                     }
 
                     if (phase !== undefined) {
                         if (phase.formula !== undefined) {
-                            let previousValue = variable.current.position.stopLoss.value
+                            let previousValue = tradingEngine.current.position.stopLoss.value
 
-                            variable.current.position.takeProfit.value = formulas.get(key)
+                            tradingEngine.current.position.takeProfit.value = formulas.get(key)
 
-                            if (variable.current.position.takeProfit.value !== previousValue) {
-                                checkAnnouncements(phase, variable.current.position.takeProfit.value)
+                            if (tradingEngine.current.position.takeProfit.value !== previousValue) {
+                                checkAnnouncements(phase, tradingEngine.current.position.takeProfit.value)
                             }
                         }
                     }
@@ -833,14 +684,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
                 ) {
                     if (takePositionNow === true) {
-                        variable.current.position.count.periods = 0
+                        tradingEngine.current.position.positionCounters.periods.value = 0
                     }
 
-                    variable.current.position.count.periods++
-                    variable.current.position.stat.days = variable.current.position.count.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
+                    tradingEngine.current.position.positionCounters.periods.value++
+                    tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
                 } else {
-                    variable.current.position.count.periods = 0
-                    variable.current.position.stat.days = 0
+                    tradingEngine.current.position.positionCounters.periods.value = 0
+                    tradingEngine.current.position.positionStatistics.days.value = 0
                 }
 
                 /* Keeping Distance Counters Up-to-date */
@@ -857,15 +708,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 if (
-                    variable.current.distance.toEvent.takePosition > 0 // with this we avoind counting before the first event happens.
+                    tradingEngine.current.distanceToEvent.takePosition.value > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.current.distance.toEvent.takePosition++
+                    tradingEngine.current.distanceToEvent.takePosition.value++
                 }
 
                 if (
-                    variable.current.distance.toEvent.closePosition > 0 // with this we avoind counting before the first event happens.
+                    tradingEngine.current.distanceToEvent.closePosition.value > 0 // with this we avoind counting before the first event happens.
                 ) {
-                    variable.current.distance.toEvent.closePosition++
+                    tradingEngine.current.distanceToEvent.closePosition.value++
                 }
 
                 /* Checking if Stop or Take Profit were hit */
@@ -880,7 +731,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
-                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= variable.current.position.stopLoss.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= variable.current.position.stopLoss.value)) {
+                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.stopLoss.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.stopLoss.value)) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
                         /*
                         Hit Point Validation
@@ -890,16 +741,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         */
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            if (variable.current.position.stopLoss.value < candle.min) {
-                                variable.current.position.stopLoss.value = candle.min
+                            if (tradingEngine.current.position.stopLoss.value < candle.min) {
+                                tradingEngine.current.position.stopLoss.value = candle.min
                             }
                         } else {
-                            if (variable.current.position.stopLoss.value > candle.max) {
-                                variable.current.position.stopLoss.value = candle.max
+                            if (tradingEngine.current.position.stopLoss.value > candle.max) {
+                                tradingEngine.current.position.stopLoss.value = candle.max
                             }
                         }
 
-                        let slippedStopLoss = variable.current.position.stopLoss.value
+                        let slippedStopLoss = tradingEngine.current.position.stopLoss.value
 
                         /* Apply the Slippage */
                         let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
@@ -915,8 +766,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         tradingEngine.current.strategy.stageType.value = 'Close Stage'
                         checkAnnouncements(strategy.closeStage, 'Stop')
 
-                        variable.current.position.stopLoss.stage = 'No Stage'
-                        variable.current.position.takeProfit.stage = 'No Stage'
+                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
                         variable.current.position.end = candle.end
                         variable.current.position.status = 1
                         variable.current.position.exitType = 1
@@ -927,7 +778,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
-                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= variable.current.position.takeProfit.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= variable.current.position.takeProfit.value)) {
+                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.takeProfit.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.takeProfit.value)) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
                         /*
                         Hit Point Validation:
@@ -937,16 +788,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         */
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            if (variable.current.position.takeProfit.value > candle.max) {
-                                variable.current.position.takeProfit.value = candle.max
+                            if (tradingEngine.current.position.takeProfit.value > candle.max) {
+                                tradingEngine.current.position.takeProfit.value = candle.max
                             }
                         } else {
-                            if (variable.current.position.takeProfit.value < candle.min) {
-                                variable.current.position.takeProfit.value = candle.min
+                            if (tradingEngine.current.position.takeProfit.value < candle.min) {
+                                tradingEngine.current.position.takeProfit.value = candle.min
                             }
                         }
 
-                        let slippedTakeProfit = variable.current.position.takeProfit.value
+                        let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
                         /* Apply the Slippage */
                         let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
 
@@ -961,8 +812,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         tradingEngine.current.strategy.stageType.value = 'Close Stage'
                         checkAnnouncements(strategy.closeStage, 'Take Profit')
 
-                        variable.current.position.stopLoss.stage = 'No Stage'
-                        variable.current.position.takeProfit.stage = 'No Stage'
+                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
 
                         variable.current.position.end = candle.end
                         variable.current.position.status = 1
@@ -982,7 +833,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Entering code block.') }
 
                     /* Inicializing this counter */
-                    variable.current.distance.toEvent.takePosition = 1
+                    tradingEngine.current.distanceToEvent.takePosition.value = 1
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
@@ -1189,7 +1040,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         calculateStopLoss()
 
                         variable.previous.balance.baseAsset = tradingEngine.current.balance.baseAsset.value
-                        variable.previous.balance.quotedAsset = variable.current.balance.quotedAsset
+                        variable.previous.balance.quotedAsset = tradingEngine.current.balance.quotedAsset.value
 
                         variable.last.position.profitLoss = 0
                         variable.last.position.ROI = 0
@@ -1199,13 +1050,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                             feePaid = variable.current.position.size * variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            variable.current.balance.quotedAsset = variable.current.balance.quotedAsset + variable.current.position.size * variable.current.position.rate - feePaid
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + variable.current.position.size * variable.current.position.rate - feePaid
                             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - variable.current.position.size
                         } else {
                             feePaid = variable.current.position.size / variable.current.position.rate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
                             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + variable.current.position.size / variable.current.position.rate - feePaid
-                            variable.current.balance.quotedAsset = variable.current.balance.quotedAsset - variable.current.position.size
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - variable.current.position.size
                         }
 
                         addRecords()
@@ -1221,7 +1072,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     closePositionNow = false
 
                     /* Inicializing this counter */
-                    variable.current.distance.toEvent.closePosition = 1
+                    tradingEngine.current.distanceToEvent.closePosition.value = 1
 
                     /* Position size and rate */
                     let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
@@ -1293,8 +1144,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                             orderPrice = ticker.last + 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA = variable.current.balance.quotedAsset
-                            amountB = variable.current.balance.quotedAsset / orderPrice
+                            amountA = tradingEngine.current.balance.quotedAsset.value
+                            amountB = tradingEngine.current.balance.quotedAsset.value / orderPrice
                         } else {
                             orderSide = 'sell'
 
@@ -1362,20 +1213,20 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         let feePaid = 0
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            strategy.positionSize = variable.current.balance.quotedAsset / closeRate
+                            strategy.positionSize = tradingEngine.current.balance.quotedAsset.value / closeRate
                             strategy.positionRate = closeRate
 
-                            feePaid = variable.current.balance.quotedAsset / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.balance.quotedAsset.value / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + variable.current.balance.quotedAsset / closeRate - feePaid
-                            variable.current.balance.quotedAsset = 0
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / closeRate - feePaid
+                            tradingEngine.current.balance.quotedAsset.value = 0
                         } else {
                             strategy.positionSize = tradingEngine.current.balance.baseAsset.value * closeRate
                             strategy.positionRate = closeRate
 
                             feePaid = tradingEngine.current.balance.baseAsset.value * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            variable.current.balance.quotedAsset = variable.current.balance.quotedAsset + tradingEngine.current.balance.baseAsset.value * closeRate - feePaid
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * closeRate - feePaid
                             tradingEngine.current.balance.baseAsset.value = 0
                         }
 
@@ -1385,10 +1236,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
                             variable.episode.stat.profitLoss = tradingEngine.current.balance.baseAsset.value - variable.episode.parameters.initial.balance.baseAsset
                         } else {
-                            variable.last.position.profitLoss = variable.current.balance.quotedAsset - variable.previous.balance.quotedAsset
+                            variable.last.position.profitLoss = tradingEngine.current.balance.quotedAsset.value - variable.previous.balance.quotedAsset
                             variable.last.position.ROI = variable.last.position.profitLoss * 100 / variable.current.position.size
                             if (isNaN(variable.last.position.ROI)) { variable.last.position.ROI = 0 }
-                            variable.episode.stat.profitLoss = variable.current.balance.quotedAsset - variable.episode.parameters.initial.balance.quotedAsset
+                            variable.episode.stat.profitLoss = tradingEngine.current.balance.quotedAsset.value - variable.episode.parameters.initial.balance.quotedAsset
                         }
 
                         variable.current.position.stat.ROI = variable.last.position.ROI
@@ -1411,17 +1262,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                         addRecords()
 
-                        variable.current.position.stopLoss.value = 0
-                        variable.current.position.takeProfit.value = 0
+                        tradingEngine.current.position.stopLoss.value = 0
+                        tradingEngine.current.position.takeProfit.value = 0
 
                         variable.current.position.rate = 0
                         variable.current.position.size = 0
 
                         timerToCloseStage = candle.begin
-                        variable.current.position.stopLoss.stage = 'No Stage'
-                        variable.current.position.takeProfit.stage = 'No Stage'
-                        variable.current.position.stopLoss.phase = -1
-                        variable.current.position.takeProfit.phase = -1
+                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+                        tradingEngine.current.position.stopLoss.stopLossPhase.value = -1
+                        tradingEngine.current.position.takeProfit.takeProfitPhase.value = -1
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation.') }
                         controlLoop()
@@ -1491,7 +1342,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 (new Date(candle.begin)).toISOString(),                             // Datetime
                                 tradingSystem.strategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
                                 tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
-                                variable.current.position.situationName,                            // Take Position Situation
+                                tradingEngine.current.position.situationName.value,                            // Take Position Situation
                                 hitOrFial(),                                                        // Result
                                 variable.last.position.ROI,                                         // ROI
                                 exitType()                                                          // Exit Type
@@ -1532,18 +1383,18 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             tradingEngine.current.balance.baseAsset.value = Number.MAX_SAFE_INTEGER
                         }
 
-                        if (variable.current.balance.quotedAsset === Infinity) {
-                            variable.current.balance.quotedAsset = Number.MAX_SAFE_INTEGER
+                        if (tradingEngine.current.balance.quotedAsset.value === Infinity) {
+                            tradingEngine.current.balance.quotedAsset.value = Number.MAX_SAFE_INTEGER
                         }
 
                         simulationRecord = [
                             candle.begin,
                             candle.end,
                             tradingEngine.current.balance.baseAsset.value,
-                            variable.current.balance.quotedAsset,
+                            tradingEngine.current.balance.quotedAsset.value,
                             variable.episode.stat.profitLoss,
                             variable.last.position.profitLoss,
-                            variable.current.position.stopLoss.value,
+                            tradingEngine.current.position.stopLoss.value,
                             variable.episode.count.positions,
                             variable.episode.count.hits,
                             variable.episode.count.fails,
@@ -1554,9 +1405,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             variable.episode.stat.anualizedRateOfReturn,
                             variable.current.position.rate,
                             variable.last.position.ROI,
-                            variable.current.position.takeProfit.value,
-                            variable.current.position.stopLoss.phase,
-                            variable.current.position.takeProfit.phase,
+                            tradingEngine.current.position.takeProfit.value,
+                            tradingEngine.current.position.stopLoss.stopLossPhase.value,
+                            tradingEngine.current.position.takeProfit.takeProfitPhase.value,
                             variable.current.position.size,
                             variable.episode.parameters.initial.balance.baseAsset,
                             sessionParameters.sessionBaseAsset.config.minimumBalance,
@@ -1568,8 +1419,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             '"' + variable.episode.parameters.quotedAsset + '"',
                             '"' + bot.market.marketBaseAsset + '"',
                             '"' + variable.episode.parameters.marketQuotedAsset + '"',
-                            variable.current.position.count.periods,
-                            variable.current.position.stat.days
+                            tradingEngine.current.position.positionCounters.periods.value,
+                            tradingEngine.current.position.positionStatistics.days.value
                         ]
 
                         recordsArray.push(simulationRecord)
@@ -1581,8 +1432,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             candle.begin,
                             candle.end,
                             tradingEngine.current.strategy.index.value,
-                            variable.current.position.stopLoss.phase,
-                            variable.current.position.takeProfit.phase,
+                            tradingEngine.current.position.stopLoss.stopLossPhase.value,
+                            tradingEngine.current.position.takeProfit.takeProfitPhase.value,
                             conditionsValues,
                             formulasErrors,
                             formulasValues
@@ -1653,7 +1504,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                                 variable.current.position.beginRate,
                                 variable.current.position.endRate,
                                 variable.current.position.exitType,
-                                '"' + variable.current.position.situationName + '"'
+                                '"' + tradingEngine.current.position.situationName.value + '"'
                             ]
 
                             positionsArray.push(positionRecord)

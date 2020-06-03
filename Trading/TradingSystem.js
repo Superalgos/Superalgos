@@ -6,6 +6,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     let thisObject = {
         evalConditions: evalConditions,
         evalFormulas: evalFormulas,
+        checkTriggerOn: checkTriggerOn,
+        checkTriggerOff: checkTriggerOff,
+        checkTakePosition: checkTakePosition,
         initialize: initialize,
         finalize: finalize
     }
@@ -178,6 +181,184 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value) }
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error) }
+    }
+
+    function checkTriggerOn() {
+        let tradingSystem = bot.TRADING_SYSTEM
+        let tradingEngine = bot.TRADING_ENGINE
+
+        /* Trigger On Conditions */
+        if (
+            tradingEngine.current.strategy.stageType.value === 'No Stage' &&
+            tradingEngine.current.strategy.index.value === -1
+        ) {
+
+            /*
+            Here we need to pick a strategy, or if there is not suitable strategy for the current
+            market conditions, we pass until the next period.
+ 
+            To pick a new strategy we will evaluate what we call the trigger on. Once we enter
+            into one strategy, we will ignore market conditions for others. However there is also
+            a strategy trigger off which can be hit before taking a position. If hit, we would
+            be outside a strategy again and looking for the condition to enter all over again.
+            */
+
+            for (let j = 0; j < tradingSystem.strategies.length; j++) {
+                if ( // If a strategy was already picked during the loop, we exit it
+                    tradingEngine.current.strategy.stageType.value !== 'No Stage' ||
+                    tradingEngine.current.strategy.index.value !== -1
+                ) { continue }
+
+                let strategy = tradingSystem.strategies[j]
+                let triggerStage = strategy.triggerStage
+
+                if (triggerStage !== undefined) {
+                    if (triggerStage.triggerOn !== undefined) {
+                        for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                            let situation = triggerStage.triggerOn.situations[k]
+                            let passed
+                            if (situation.conditions.length > 0) {
+                                passed = true
+                            }
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m]
+                                let value = false
+                                if (conditions.get(condition.id) !== undefined) {
+                                    value = conditions.get(condition.id).value
+                                }
+
+                                if (value === false) { passed = false }
+                            }
+
+                            if (passed) {
+
+                                tradingEngine.current.strategy.stageType.value = 'Trigger Stage'
+                                checkAnnouncements(triggerStage)
+
+                                tradingEngine.current.strategy.index.value = j
+                                tradingEngine.current.strategy.begin.value = candle.begin
+                                tradingEngine.current.strategy.beginRate.value = candle.min
+                                tradingEngine.current.strategy.endRate.value = candle.min // In case the strategy does not get exited
+                                tradingEngine.current.strategy.situationName.value = situation.name
+                                tradingEngine.current.strategy.strategyName.value = strategy.name
+
+                                tradingEngine.current.distanceToEvent.triggerOn.value = 1
+
+                                checkAnnouncements(triggerStage.triggerOn)
+                                saveAsLastTriggerOnSnapshot = true
+
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering into Strategy: ' + strategy.name) }
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function checkTriggerOff() {
+        let tradingSystem = bot.TRADING_SYSTEM
+        let tradingEngine = bot.TRADING_ENGINE
+
+        /* Trigger Off Condition */
+        if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let triggerStage = strategy.triggerStage
+
+            if (triggerStage !== undefined) {
+                if (triggerStage.triggerOff !== undefined) {
+                    for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+                        let situation = triggerStage.triggerOff.situations[k]
+                        let passed
+                        if (situation.conditions.length > 0) {
+                            passed = true
+                        }
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let condition = situation.conditions[m]
+                            let value = false
+                            if (conditions.get(condition.id) !== undefined) {
+                                value = conditions.get(condition.id).value
+                            }
+
+                            if (value === false) { passed = false }
+                        }
+
+                        if (passed) {
+                            tradingEngine.current.strategy.end.value = candle.end
+                            tradingEngine.current.strategy.endRate.value = candle.min
+                            tradingEngine.current.strategy.status.value = 'Closed'
+                            tradingEngine.current.strategy.stageType.value = 'No Stage'
+                            tradingEngine.current.strategy.index.value = -1
+
+                            tradingEngine.current.distanceToEvent.triggerOff.value = 1
+
+                            checkAnnouncements(triggerStage.triggerOff)
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Strategy: ' + strategy.name) }
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    function checkTakePosition() {
+        let tradingSystem = bot.TRADING_SYSTEM
+        let tradingEngine = bot.TRADING_ENGINE
+
+        /* Take Position Condition */
+        if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+            let triggerStage = strategy.triggerStage
+
+            if (triggerStage !== undefined) {
+                if (triggerStage.takePosition !== undefined) {
+                    for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+                        let situation = triggerStage.takePosition.situations[k]
+                        let passed
+                        if (situation.conditions.length > 0) {
+                            passed = true
+                        }
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+                            let condition = situation.conditions[m]
+                            let value = false
+                            if (conditions.get(condition.id) !== undefined) {
+                                value = conditions.get(condition.id).value
+                            }
+
+                            if (value === false) { passed = false }
+                        }
+
+                        if (passed) {
+                            tradingEngine.current.strategy.stageType.value = 'Open Stage'
+                            checkAnnouncements(strategy.openStage)
+
+                            tradingEngine.current.position.stopLossStage.value = 'Open Stage'
+                            tradingEngine.current.position.takeProfitStage.value = 'Open Stage'
+                            tradingEngine.current.position.stopLossPhase.value = 0
+                            tradingEngine.current.position.takeProfitPhase.value = 0
+
+                            takePositionNow = true
+                            tradingEngine.current.position.situationName.value = situation.name
+
+                            checkAnnouncements(triggerStage.takePosition)
+                            saveAsLastTakePositionSnapshot = true
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met.') }
+                            break
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -4,7 +4,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const FULL_LOG = true
 
     let thisObject = {
-        setCandle: setCandle,
         setChart: setChart,
         evalConditions: evalConditions,
         evalFormulas: evalFormulas,
@@ -23,7 +22,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     let chart
-    let candle
 
     let tradingSystem
     let tradingEngine
@@ -45,7 +43,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function finalize() {
         chart = undefined
-        candle = undefined
+
         tradingSystem = undefined
         tradingEngine = undefined
 
@@ -56,10 +54,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         formulas = undefined
         formulasValues = undefined
         formulasErrors = undefined
-    }
-
-    function setCandle(pCandle) {
-        candle = pCandle // We need candle to be a local object accessible from conditions and formulas.
     }
 
     function setChart(pChart) {
@@ -260,9 +254,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 checkAnnouncements(triggerStage)
 
                                 tradingEngine.current.strategy.index.value = j
-                                tradingEngine.current.strategy.begin.value = candle.begin
-                                tradingEngine.current.strategy.beginRate.value = candle.min
-                                tradingEngine.current.strategy.endRate.value = candle.min // In case the strategy does not get exited
+                                tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
+                                tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
+                                tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value // In case the strategy does not get exited
                                 tradingEngine.current.strategy.situationName.value = situation.name
                                 tradingEngine.current.strategy.strategyName.value = strategy.name
 
@@ -307,8 +301,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                         }
 
                         if (passed) {
-                            tradingEngine.current.strategy.end.value = candle.end
-                            tradingEngine.current.strategy.endRate.value = candle.min
+                            tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
+                            tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
                             tradingEngine.current.strategy.status.value = 'Closed'
                             tradingEngine.current.strategy.stageType.value = 'No Stage'
                             tradingEngine.current.strategy.index.value = -1
@@ -686,8 +680,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
 
             if (
-                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.stopLoss.value) ||
-                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.stopLoss.value)
+                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
+                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
             ) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
                 /*
@@ -698,12 +692,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 */
 
                 if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    if (tradingEngine.current.position.stopLoss.value < candle.min) {
-                        tradingEngine.current.position.stopLoss.value = candle.min
+                    if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
+                        tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
                     }
                 } else {
-                    if (tradingEngine.current.position.stopLoss.value > candle.max) {
-                        tradingEngine.current.position.stopLoss.value = candle.max
+                    if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.candle.max.value) {
+                        tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.max.value
                     }
                 }
 
@@ -725,7 +719,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
                 tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                tradingEngine.current.position.end.value = candle.end
+                tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
                 tradingEngine.current.position.status.value = 1
                 tradingEngine.current.position.exitType.value = 1
 
@@ -735,8 +729,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
 
             if (
-                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.takeProfit.value) ||
-                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.takeProfit.value)
+                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
+                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
             ) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
                 /*
@@ -747,12 +741,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 */
 
                 if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    if (tradingEngine.current.position.takeProfit.value > candle.max) {
-                        tradingEngine.current.position.takeProfit.value = candle.max
+                    if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
+                        tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
                     }
                 } else {
-                    if (tradingEngine.current.position.takeProfit.value < candle.min) {
-                        tradingEngine.current.position.takeProfit.value = candle.min
+                    if (tradingEngine.current.position.takeProfit.value < tradingEngine.current.candle.min.value) {
+                        tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.min.value
                     }
                 }
 
@@ -774,7 +768,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
                 tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
 
-                tradingEngine.current.position.end.value = candle.end
+                tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
                 tradingEngine.current.position.status.value = 1
                 tradingEngine.current.position.exitType.value = 2
 
@@ -806,7 +800,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function getPositionRate() {
-        const DEFAULT_VALUE = candle.close
+        const DEFAULT_VALUE = tradingEngine.current.candle.close.value
         let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
         if (strategy.openStage === undefined) return { DEFAULT_VALUE }

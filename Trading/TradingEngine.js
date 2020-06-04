@@ -3,6 +3,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     const MODULE_NAME = 'Trading Engine'
 
     let thisObject = {
+        setCurrentCandle: setCurrentCandle,
         updatePositionCounters: updatePositionCounters,
         updateDistanceToEventsCounters: updateDistanceToEventsCounters,
         getReadyToTakePosition: getReadyToTakePosition,
@@ -30,6 +31,58 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function finalize() {
         tradingEngine = undefined
+    }
+
+    function setCurrentCandle(candle) {
+        cloneValues(tradingEngine.current.candle, tradingEngine.previous.candle)
+
+        tradingEngine.current.candle.begin.value = candle.begin
+        tradingEngine.current.candle.end.value = candle.end
+        tradingEngine.current.candle.open.value = candle.open
+        tradingEngine.current.candle.close.value = candle.close
+        tradingEngine.current.candle.min.value = candle.min
+        tradingEngine.current.candle.max.value = candle.max
+    }
+
+    function cloneValues(originNode, destinationNode) {
+        if (originNode === undefined) { return }
+        if (destinationNode === undefined) { return }
+
+        /* Here copy the node value */
+        destinationNode.value = originNode.value
+
+        /* Now we go down through all the children  of the origin node, assuming the destination node has the same children structure*/
+        let nodeDefinition = bot.APP_SCHEMA_MAP.get(originNode.type)
+        if (nodeDefinition === undefined) { return }
+
+        if (nodeDefinition.properties !== undefined) {
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                let property = nodeDefinition.properties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        if (property.name !== previousPropertyName) {
+                            if (originNode[property.name] !== undefined && destinationNode[property.name] !== undefined) {
+                                cloneValues(originNode[property.name], destinationNode[property.name])
+                            }
+                            previousPropertyName = property.name
+                        }
+                        break
+                    }
+                    case 'array': {
+                        if (originNode[property.name] !== undefined && destinationNode[property.name] !== undefined) {
+                            let originNodePropertyArray = originNode[property.name]
+                            let destinationNodePropertyArray = destinationNode[property.name]
+                            for (let m = 0; m < originNodePropertyArray.length; m++) {
+                                cloneValues(originNodePropertyArray[m], destinationNodePropertyArray[m])
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
     }
 
     function initializeNode(node) {
@@ -64,7 +117,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                     case 'array': {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
-                            object[property.name] = []
                             for (let m = 0; m < nodePropertyArray.length; m++) {
                                 initializeNode(nodePropertyArray[m])
                             }

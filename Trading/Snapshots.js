@@ -4,6 +4,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     let thisObject = {
         manageSnapshots: manageSnapshots,
+        addCodeToSnapshot: addCodeToSnapshot,
         initialize: initialize,
         finalize: finalize
     }
@@ -68,6 +69,62 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
         if (snapshots.headers === undefined) {
             snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
+        }
+    }
+
+    function addCodeToSnapshot(code) {
+        if (code === undefined) { return }
+
+        try {
+            let instructionsArray = code.split(' ')
+            for (let i = 0; i < instructionsArray.length; i++) {
+                let instruction = instructionsArray[i]
+                instruction = instruction.replace('(', '')
+                instruction = instruction.replace(')', '')
+                instruction = instruction.replace(/</g, '')
+                instruction = instruction.replace(/>/g, '')
+                instruction = instruction.replace(/<=/g, '')
+                instruction = instruction.replace(/>=/g, '')
+                instruction = instruction.replace(/!=/g, '')
+                instruction = instruction.replace(/!==/g, '')
+                instruction = instruction.replace(/==/g, '')
+                instruction = instruction.replace(/===/g, '')
+                instruction = instruction.replace(/{/g, '')
+                instruction = instruction.replace(/}/g, '')
+                if (instruction.indexOf('chart') >= 0) {
+                    let parts = instruction.split('.')
+                    let timeFrame = parts[1]
+                    let product = parts[2]
+                    let property
+                    checkPrevious(3)
+                    function checkPrevious(index) {
+                        property = parts[index]
+                        if (property === 'previous') {
+                            product = product + '.previous'
+                            checkPrevious(index + 1)
+                        }
+                    }
+
+                    // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                    if (timeFrame !== 'atAnyvariable.timeFrame') {
+                        timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                    }
+                    let key = timeFrame + '-' + product + '-' + property
+                    let existingKey = snapshotKeys.get(key)
+
+                    if (existingKey === undefined) { // means that at the current loop this property of this product was not used before.
+                        snapshotKeys.set(key, key)
+                        snapshotLoopHeaders.push(key)
+
+                        let value = eval(instruction)
+                        snapshotDataRecord.push(value)
+                    }
+                }
+            }
+        } catch (err) {
+            logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> code = ' + code)
+            logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
+            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         }
     }
 }

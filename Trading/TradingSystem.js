@@ -9,11 +9,17 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         checkTriggerOn: checkTriggerOn,
         checkTriggerOff: checkTriggerOff,
         checkTakePosition: checkTakePosition,
+        checkStopPhases: checkStopPhases,
+        calculateStopLoss: calculateStopLoss,
+        checkTakeProfitPhases: checkTakeProfitPhases,
+        calculateTakeProfit: calculateTakeProfit,
         initialize: initialize,
         finalize: finalize
     }
 
     let chart
+    let tradingSystem
+    let tradingEngine
 
     let conditions = new Map()
     let conditionsValues = []
@@ -27,10 +33,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function initialize(pChart) {
         chart = pChart
+        tradingSystem = bot.TRADING_SYSTEM
+        tradingEngine = bot.TRADING_ENGINE
     }
 
     function finalize() {
         chart = undefined
+        tradingSystem = undefined
+        tradingEngine = undefined
 
         conditions = undefined
         conditionsValues = undefined
@@ -184,9 +194,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function checkTriggerOn() {
-        let tradingSystem = bot.TRADING_SYSTEM
-        let tradingEngine = bot.TRADING_ENGINE
-
         /* Trigger On Conditions */
         if (
             tradingEngine.current.strategy.stageType.value === 'No Stage' &&
@@ -260,9 +267,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function checkTriggerOff() {
-        let tradingSystem = bot.TRADING_SYSTEM
-        let tradingEngine = bot.TRADING_ENGINE
-
         /* Trigger Off Condition */
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
             let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
@@ -309,9 +313,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function checkTakePosition() {
-        let tradingSystem = bot.TRADING_SYSTEM
-        let tradingEngine = bot.TRADING_ENGINE
-
         /* Take Position Condition */
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
             let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
@@ -356,6 +357,306 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             break
                         }
                     }
+                }
+            }
+        }
+    }
+
+    function checkStopPhases() {
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let parentNode
+        let j = tradingEngine.current.strategy.index.value
+        let p
+
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.stopLoss !== undefined) {
+                    parentNode = openStage.initialDefinition
+                    p = tradingEngine.current.position.stopLoss.stopLossPhase.value
+                }
+            }
+        }
+
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.stopLoss !== undefined) {
+                parentNode = manageStage
+                p = tradingEngine.current.position.stopLoss.stopLossPhase.value - 1
+            }
+        }
+
+        if (parentNode !== undefined) {
+            let phase = parentNode.stopLoss.phases[p]
+
+            /* Check the next Phase Event. */
+            let nextPhaseEvent = phase.nextPhaseEvent
+            if (nextPhaseEvent !== undefined) {
+                for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                    let situation = nextPhaseEvent.situations[k]
+                    let passed
+                    if (situation.conditions.length > 0) {
+                        passed = true
+                    }
+
+                    for (let m = 0; m < situation.conditions.length; m++) {
+                        let condition = situation.conditions[m]
+                        let value = false
+                        if (conditions.get(condition.id) !== undefined) {
+                            value = conditions.get(condition.id).value
+                        }
+
+                        if (value === false) { passed = false }
+                    }
+
+                    if (passed) {
+                        tradingEngine.current.position.stopLoss.stopLossPhase.value++
+                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                        if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
+                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                            checkAnnouncements(manageStage, 'Take Profit')
+                        }
+
+                        checkAnnouncements(nextPhaseEvent)
+                        return
+                    }
+                }
+            }
+
+            /* Check the Move to Phase Events. */
+            for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                let moveToPhaseEvent = phase.moveToPhaseEvents[n]
+                if (moveToPhaseEvent !== undefined) {
+                    for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+                        let situation = moveToPhaseEvent.situations[k]
+                        let passed
+                        if (situation.conditions.length > 0) {
+                            passed = true
+                        }
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m]
+                            let value = false
+                            if (conditions.get(condition.id) !== undefined) {
+                                value = conditions.get(condition.id).value
+                            }
+
+                            if (value === false) { passed = false }
+                        }
+
+                        if (passed) {
+
+                            let moveToPhase = moveToPhaseEvent.referenceParent
+                            if (moveToPhase !== undefined) {
+                                for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
+                                    if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
+                                        tradingEngine.current.position.stopLoss.stopLossPhase.value = q + 1
+                                    }
+                                }
+                            } else {
+                                moveToPhaseEvent.error = 'This Node needs to reference a Phase.'
+                                continue
+                            }
+
+                            tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                            if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
+                                tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                                checkAnnouncements(manageStage, 'Take Profit')
+                            }
+
+                            checkAnnouncements(moveToPhaseEvent)
+                            return
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function calculateStopLoss() {
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let phase
+        let key
+
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.stopLoss !== undefined) {
+                    phase = openStage.initialDefinition.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
+                    key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value)
+                }
+            }
+        }
+
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.stopLoss !== undefined) {
+                phase = manageStage.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
+                key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value - 1)
+            }
+        }
+
+        if (phase !== undefined) {
+            if (phase.formula !== undefined) {
+                let previousValue = tradingEngine.current.position.stopLoss.value
+
+                tradingEngine.current.position.stopLoss.value = formulas.get(key)
+
+                if (tradingEngine.current.position.stopLoss.value !== previousValue) {
+                    checkAnnouncements(phase, tradingEngine.current.position.stopLoss.value)
+                }
+            }
+        }
+    }
+
+
+    function checkTakeProfitPhases() {
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let parentNode
+        let j = tradingEngine.current.strategy.index.value
+        let p
+
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.takeProfit !== undefined) {
+                    parentNode = openStage.initialDefinition
+                    p = tradingEngine.current.position.takeProfit.takeProfitPhase.value
+                }
+            }
+        }
+
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.takeProfit !== undefined) {
+                parentNode = manageStage
+                p = tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1
+            }
+        }
+
+        if (parentNode !== undefined) {
+            let phase = parentNode.takeProfit.phases[p]
+            if (phase === undefined) { return } // trying to jump to a phase that does not exists.
+
+            /* Check the next Phase Event. */
+            let nextPhaseEvent = phase.nextPhaseEvent
+            if (nextPhaseEvent !== undefined) {
+                for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                    let situation = nextPhaseEvent.situations[k]
+                    let passed
+                    if (situation.conditions.length > 0) {
+                        passed = true
+                    }
+
+                    for (let m = 0; m < situation.conditions.length; m++) {
+                        let condition = situation.conditions[m]
+                        let value = false
+                        if (conditions.get(condition.id) !== undefined) {
+                            value = conditions.get(condition.id).value
+                        }
+
+                        if (value === false) { passed = false }
+                    }
+
+                    if (passed) {
+                        tradingEngine.current.position.takeProfit.takeProfitPhase.value++
+                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                        if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
+                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                            checkAnnouncements(manageStage, 'Stop')
+                        }
+
+                        checkAnnouncements(nextPhaseEvent)
+                        return
+                    }
+                }
+            }
+
+            /* Check the Move to Phase Events. */
+            for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                let moveToPhaseEvent = phase.moveToPhaseEvents[n]
+                if (moveToPhaseEvent !== undefined) {
+                    for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+                        let situation = moveToPhaseEvent.situations[k]
+                        let passed
+                        if (situation.conditions.length > 0) {
+                            passed = true
+                        }
+
+                        for (let m = 0; m < situation.conditions.length; m++) {
+
+                            let condition = situation.conditions[m]
+                            let value = false
+                            if (conditions.get(condition.id) !== undefined) {
+                                value = conditions.get(condition.id).value
+                            }
+
+                            if (value === false) { passed = false }
+                        }
+
+                        if (passed) {
+
+                            let moveToPhase = moveToPhaseEvent.referenceParent
+                            if (moveToPhase !== undefined) {
+                                for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
+                                    if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
+                                        tradingEngine.current.position.takeProfit.takeProfitPhase.value = q + 1
+                                    }
+                                }
+                            } else {
+                                moveToPhaseEvent.error = 'This Node needs to reference a Phase.'
+                                continue
+                            }
+
+                            tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                            if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
+                                tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                                checkAnnouncements(manageStage, 'Stop')
+                            }
+
+                            checkAnnouncements(moveToPhaseEvent)
+                            return
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function calculateTakeProfit() {
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let phase
+        let key
+
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.takeProfit !== undefined) {
+                    phase = openStage.initialDefinition.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
+                    key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value)
+                }
+            }
+        }
+
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.takeProfit !== undefined) {
+                phase = manageStage.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
+                key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1)
+            }
+        }
+
+        if (phase !== undefined) {
+            if (phase.formula !== undefined) {
+                let previousValue = tradingEngine.current.position.stopLoss.value
+
+                tradingEngine.current.position.takeProfit.value = formulas.get(key)
+
+                if (tradingEngine.current.position.takeProfit.value !== previousValue) {
+                    checkAnnouncements(phase, tradingEngine.current.position.takeProfit.value)
                 }
             }
         }

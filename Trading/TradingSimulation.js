@@ -294,7 +294,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
                 let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
-                tradingSystemModule.initialize(chart)
+                tradingSystemModule.initialize(chart, candle)
                 tradingSystemModule.evalConditions()
                 tradingSystemModule.evalFormulas()
 
@@ -341,7 +341,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 tradingSystemModule.checkTriggerOn()
                 tradingSystemModule.checkTriggerOff()
-                tradingSystemModule.checkTakePosition()
+                takePositionNow = tradingSystemModule.checkTakePosition()
 
                 /* Stop Loss Management */
                 if (
@@ -361,153 +361,19 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     tradingSystemModule.calculateTakeProfit()
                 }
 
-                tradingSystemModule.finalize()
 
-                /* Keeping Position Counters Up-to-date */
-                if (
-                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
-                ) {
-                    if (takePositionNow === true) {
-                        tradingEngine.current.position.positionCounters.periods.value = 0
-                    }
-
-                    tradingEngine.current.position.positionCounters.periods.value++
-                    tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
-                } else {
-                    tradingEngine.current.position.positionCounters.periods.value = 0
-                    tradingEngine.current.position.positionStatistics.days.value = 0
-                }
-
-                /* Keeping Distance Counters Up-to-date */
-                if (
-                    tradingEngine.current.distanceToEvent.triggerOn.value > 0 // with this we avoind counting before the first event happens.
-                ) {
-                    tradingEngine.current.distanceToEvent.triggerOn.value++
-                }
-
-                if (
-                    tradingEngine.current.distanceToEvent.triggerOff.value > 0 // with this we avoind counting before the first event happens.
-                ) {
-                    tradingEngine.current.distanceToEvent.triggerOff.value++
-                }
-
-                if (
-                    tradingEngine.current.distanceToEvent.takePosition.value > 0 // with this we avoind counting before the first event happens.
-                ) {
-                    tradingEngine.current.distanceToEvent.takePosition.value++
-                }
-
-                if (
-                    tradingEngine.current.distanceToEvent.closePosition.value > 0 // with this we avoind counting before the first event happens.
-                ) {
-                    tradingEngine.current.distanceToEvent.closePosition.value++
-                }
+                tradingEngineModule.updatePositionCounters()
+                tradingEngineModule.updateDistanceToEventsCounters()
 
                 /* Checking if Stop or Take Profit were hit */
                 if (
                     (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
                     takePositionNow !== true
                 ) {
-                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
-                    /* Checking what happened since the last execution. We need to know if the Stop Loss
-                        or our Take Profit were hit. */
-
-                    /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
-
-                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.stopLoss.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.stopLoss.value)) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
-                        /*
-                        Hit Point Validation
- 
-                        This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
-                        If we take the stop loss value at those situation would be a huge distortion of facts.
-                        */
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            if (tradingEngine.current.position.stopLoss.value < candle.min) {
-                                tradingEngine.current.position.stopLoss.value = candle.min
-                            }
-                        } else {
-                            if (tradingEngine.current.position.stopLoss.value > candle.max) {
-                                tradingEngine.current.position.stopLoss.value = candle.max
-                            }
-                        }
-
-                        let slippedStopLoss = tradingEngine.current.position.stopLoss.value
-
-                        /* Apply the Slippage */
-                        let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            slippedStopLoss = slippedStopLoss + slippageAmount
-                        } else {
-                            slippedStopLoss = slippedStopLoss - slippageAmount
-                        }
-
-                        closeRate = slippedStopLoss
-
-                        tradingEngine.current.strategy.stageType.value = 'Close Stage'
-                        checkAnnouncements(strategy.closeStage, 'Stop')
-
-                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                        tradingEngine.current.position.end.value = candle.end
-                        tradingEngine.current.position.status.value = 1
-                        tradingEngine.current.position.exitType.value = 1
-                        tradingEngine.current.position.endRate.value = closeRate
-
-                        closePositionNow = true
-                    }
-
-                    /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
-
-                    if ((sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.takeProfit.value) || (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.takeProfit.value)) {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
-                        /*
-                        Hit Point Validation:
- 
-                        This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
-                        If we take the stop loss value at those situation would be a huge distortion of facts.
-                        */
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            if (tradingEngine.current.position.takeProfit.value > candle.max) {
-                                tradingEngine.current.position.takeProfit.value = candle.max
-                            }
-                        } else {
-                            if (tradingEngine.current.position.takeProfit.value < candle.min) {
-                                tradingEngine.current.position.takeProfit.value = candle.min
-                            }
-                        }
-
-                        let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
-                        /* Apply the Slippage */
-                        let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            slippedTakeProfit = slippedTakeProfit + slippageAmount
-                        } else {
-                            slippedTakeProfit = slippedTakeProfit - slippageAmount
-                        }
-
-                        closeRate = slippedTakeProfit
-
-                        tradingEngine.current.strategy.stageType.value = 'Close Stage'
-                        checkAnnouncements(strategy.closeStage, 'Take Profit')
-
-                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-
-                        tradingEngine.current.position.end.value = candle.end
-                        tradingEngine.current.position.status.value = 1
-                        tradingEngine.current.position.exitType.value = 2
-                        tradingEngine.current.position.endRate.value = closeRate
-
-                        closePositionNow = true
-                        addToSnapshots = true
-                    }
+                    closePositionNow = tradingSystemModule.checkStopLossOrTakeProfitWasHit()
                 }
+
+                tradingSystemModule.finalize()
 
                 /* Taking a Position */
                 if (
@@ -520,10 +386,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     tradingEngine.current.distanceToEvent.takePosition.value = 1
 
                     /* Position size and rate */
-                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
-                    tradingEngine.current.position.size.value = strategy.positionSize
-                    tradingEngine.current.position.rate.value = strategy.positionRate
+                    tradingEngine.current.position.size.value = getPositionSize()
+                    tradingEngine.current.position.rate.value = getPositionRate()
 
                     /* We take what was calculated at the formula and apply the slippage. */
                     let slippageAmount = tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.slippage.positionRate / 100
@@ -536,8 +400,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                     if (bot.startMode === 'Live') {
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in Live Mode.')
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionSize = ' + strategy.positionSize)
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> strategy.positionRate = ' + strategy.positionRate)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.size.value  = ' + tradingEngine.current.position.size.value)
+                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> slippageAmount = ' + slippageAmount)
                         logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
                     }
@@ -897,20 +761,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         let feePaid = 0
 
                         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            strategy.positionSize = tradingEngine.current.balance.quotedAsset.value / closeRate
-                            strategy.positionRate = closeRate
 
-                            feePaid = tradingEngine.current.balance.quotedAsset.value / closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / closeRate - feePaid
+                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
                             tradingEngine.current.balance.quotedAsset.value = 0
                         } else {
-                            strategy.positionSize = tradingEngine.current.balance.baseAsset.value * closeRate
-                            strategy.positionRate = closeRate
 
-                            feePaid = tradingEngine.current.balance.baseAsset.value * closeRate * bot.VALUES_TO_USE.feeStructure.taker / 100
+                            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
 
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * closeRate - feePaid
+                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
                             tradingEngine.current.balance.baseAsset.value = 0
                         }
 
@@ -1370,10 +1230,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function afterLoop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> afterLoop -> Entering function.') }
 
-                /*
-                Before returning we need to see if we have to record some of our counters at the variable.
-                To do that, the condition to be met is that this execution must include all candles of the current day.
-                */
+                tradingEngineModule.finalize()
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> callback -> recordsArray.length = ' + recordsArray.length) }
 

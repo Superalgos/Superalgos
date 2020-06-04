@@ -13,11 +13,15 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         calculateStopLoss: calculateStopLoss,
         checkTakeProfitPhases: checkTakeProfitPhases,
         calculateTakeProfit: calculateTakeProfit,
+        checkStopLossOrTakeProfitWasHit: checkStopLossOrTakeProfitWasHit,
+        getPositionSize: getPositionSize,
+        getPositionRate: getPositionRate,
         initialize: initialize,
         finalize: finalize
     }
 
     let chart
+    let candle
     let tradingSystem
     let tradingEngine
 
@@ -31,14 +35,16 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     return thisObject
 
-    function initialize(pChart) {
+    function initialize(pChart, pCandle) {
         chart = pChart
+        candle = pCandle
         tradingSystem = bot.TRADING_SYSTEM
         tradingEngine = bot.TRADING_ENGINE
     }
 
     function finalize() {
         chart = undefined
+        candle = undefined
         tradingSystem = undefined
         tradingEngine = undefined
 
@@ -347,19 +353,19 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingEngine.current.position.stopLossPhase.value = 0
                             tradingEngine.current.position.takeProfitPhase.value = 0
 
-                            takePositionNow = true
                             tradingEngine.current.position.situationName.value = situation.name
 
                             checkAnnouncements(triggerStage.takePosition)
                             saveAsLastTakePositionSnapshot = true
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met.') }
-                            break
+                            return true
                         }
                     }
                 }
             }
         }
+        return false
     }
 
     function checkStopPhases() {
@@ -511,7 +517,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         }
     }
 
-
     function checkTakeProfitPhases() {
         let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
 
@@ -660,6 +665,149 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 }
             }
         }
+    }
+
+    function checkStopLossOrTakeProfitWasHit() {
+        {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+            /* Checking what happened since the last execution. We need to know if the Stop Loss
+                or our Take Profit were hit. */
+
+            /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+
+            if (
+                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.stopLoss.value) ||
+                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.stopLoss.value)
+            ) {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
+                /*
+                Hit Point Validation
+
+                This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
+                If we take the stop loss value at those situation would be a huge distortion of facts.
+                */
+
+                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (tradingEngine.current.position.stopLoss.value < candle.min) {
+                        tradingEngine.current.position.stopLoss.value = candle.min
+                    }
+                } else {
+                    if (tradingEngine.current.position.stopLoss.value > candle.max) {
+                        tradingEngine.current.position.stopLoss.value = candle.max
+                    }
+                }
+
+                let slippedStopLoss = tradingEngine.current.position.stopLoss.value
+
+                /* Apply the Slippage */
+                let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
+
+                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    slippedStopLoss = slippedStopLoss + slippageAmount
+                } else {
+                    slippedStopLoss = slippedStopLoss - slippageAmount
+                }
+
+                tradingEngine.current.position.endRate.value = slippedStopLoss
+
+                tradingEngine.current.strategy.stageType.value = 'Close Stage'
+                checkAnnouncements(strategy.closeStage, 'Stop')
+
+                tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+                tradingEngine.current.position.end.value = candle.end
+                tradingEngine.current.position.status.value = 1
+                tradingEngine.current.position.exitType.value = 1
+
+                return true
+            }
+
+            /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
+
+            if (
+                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && candle.min <= tradingEngine.current.position.takeProfit.value) ||
+                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && candle.max >= tradingEngine.current.position.takeProfit.value)
+            ) {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
+                /*
+                Hit Point Validation:
+
+                This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
+                If we take the stop loss value at those situation would be a huge distortion of facts.
+                */
+
+                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (tradingEngine.current.position.takeProfit.value > candle.max) {
+                        tradingEngine.current.position.takeProfit.value = candle.max
+                    }
+                } else {
+                    if (tradingEngine.current.position.takeProfit.value < candle.min) {
+                        tradingEngine.current.position.takeProfit.value = candle.min
+                    }
+                }
+
+                let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
+                /* Apply the Slippage */
+                let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
+
+                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    slippedTakeProfit = slippedTakeProfit + slippageAmount
+                } else {
+                    slippedTakeProfit = slippedTakeProfit - slippageAmount
+                }
+
+                tradingEngine.current.position.endRate.value = slippedTakeProfit
+
+                tradingEngine.current.strategy.stageType.value = 'Close Stage'
+                checkAnnouncements(strategy.closeStage, 'Take Profit')
+
+                tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+
+                tradingEngine.current.position.end.value = candle.end
+                tradingEngine.current.position.status.value = 1
+                tradingEngine.current.position.exitType.value = 2
+
+                addToSnapshots = true
+                return true
+            }
+        }
+        return false
+    }
+
+    function getPositionSize() {
+        let balance
+        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+            balance = tradingEngine.current.balance.baseAsset.value
+        } else {
+            balance = tradingEngine.current.balance.quotedAsset.value
+        }
+        const DEFAULT_VALUE = balance
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+        if (strategy.openStage === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition.positionSize === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition.positionSize.formula === undefined) return { DEFAULT_VALUE }
+
+        let value = formulas.get(strategy.openStage.initialDefinition.positionSize.formula.id)
+        if (value === undefined) return { DEFAULT_VALUE }
+        return value
+    }
+
+    function getPositionRate() {
+        const DEFAULT_VALUE = candle.close
+        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+
+        if (strategy.openStage === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition.positionRate === undefined) return { DEFAULT_VALUE }
+        if (strategy.openStage.initialDefinition.positionRate.formula === undefined) return { DEFAULT_VALUE }
+
+        let value = formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
+        if (value === undefined) return { DEFAULT_VALUE }
+        return value
     }
 }
 

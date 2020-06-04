@@ -3,23 +3,29 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     const MODULE_NAME = 'Trading Engine'
 
     let thisObject = {
+        updatePositionCounters: updatePositionCounters,
+        updateDistanceToEventsCounters: updateDistanceToEventsCounters,
         initialize: initialize,
         finalize: finalize
     }
+
+    let tradingEngine
 
     return thisObject
 
     function initialize() {
         /* Here we will go through all the nodes in the Trading Engine hiriarchy and apply the initial value to the value property when needed */
 
-        if (bot.TRADING_ENGINE.isInitialized !== true || bot.RESUME === false) {
-            bot.TRADING_ENGINE.isInitialized = true
-            initializeNode(bot.TRADING_ENGINE)
+        tradingEngine = bot.TRADING_ENGINE
+
+        if (tradingEngine.isInitialized !== true || bot.RESUME === false) {
+            tradingEngine.isInitialized = true
+            initializeNode(tradingEngine)
         }
     }
 
     function finalize() {
-
+        tradingEngine = undefined
     }
 
     function initializeNode(node) {
@@ -63,6 +69,50 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                     }
                 }
             }
+        }
+    }
+
+    function updatePositionCounters() {
+        /* Keeping Position Counters Up-to-date */
+        if (
+            (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
+        ) {
+            if (takePositionNow === true) {
+                tradingEngine.current.position.positionCounters.periods.value = 0
+            }
+
+            tradingEngine.current.position.positionCounters.periods.value++
+            tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
+        } else {
+            tradingEngine.current.position.positionCounters.periods.value = 0
+            tradingEngine.current.position.positionStatistics.days.value = 0
+        }
+    }
+
+    function updateDistanceToEventsCounters() {
+        /* Keeping Distance Counters Up-to-date */
+        if (
+            tradingEngine.current.distanceToEvent.triggerOn.value > 0 // with this we avoind counting before the first event happens.
+        ) {
+            tradingEngine.current.distanceToEvent.triggerOn.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.triggerOff.value > 0 // with this we avoind counting before the first event happens.
+        ) {
+            tradingEngine.current.distanceToEvent.triggerOff.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.takePosition.value > 0 // with this we avoind counting before the first event happens.
+        ) {
+            tradingEngine.current.distanceToEvent.takePosition.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.closePosition.value > 0 // with this we avoind counting before the first event happens.
+        ) {
+            tradingEngine.current.distanceToEvent.closePosition.value++
         }
     }
 }

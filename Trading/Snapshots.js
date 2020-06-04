@@ -11,6 +11,17 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     let tradingEngine
 
+    /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
+
+    let snapshotKeys = new Map()
+    snapshotLoopHeaders = []
+    snapshotDataRecord = []
+    saveAsLastTriggerOnSnapshot = false
+    saveAsLastTakePositionSnapshot = false
+    addToSnapshots = false
+
+    let announcementsToBeMade = []
+
     return thisObject
 
     function initialize() {

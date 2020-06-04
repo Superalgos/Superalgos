@@ -168,16 +168,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering function.') }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + currentCandleIndex) }
 
-                /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
 
-                let snapshotKeys = new Map()
-                snapshotLoopHeaders = []
-                snapshotDataRecord = []
-                saveAsLastTriggerOnSnapshot = false
-                saveAsLastTakePositionSnapshot = false
-                addToSnapshots = false
-
-                let announcementsToBeMade = []
                 let candle = candles[currentCandleIndex]
 
                 tradingEngineModule.setCurrentCandle(candle)

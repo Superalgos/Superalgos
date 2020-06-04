@@ -4,6 +4,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const FULL_LOG = true
 
     let thisObject = {
+        setCandle: setCandle,
+        setChart: setChart,
         evalConditions: evalConditions,
         evalFormulas: evalFormulas,
         checkTriggerOn: checkTriggerOn,
@@ -22,6 +24,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     let chart
     let candle
+
     let tradingSystem
     let tradingEngine
 
@@ -35,9 +38,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     return thisObject
 
-    function initialize(pChart, pCandle) {
-        chart = pChart
-        candle = pCandle
+    function initialize() {
         tradingSystem = bot.TRADING_SYSTEM
         tradingEngine = bot.TRADING_ENGINE
     }
@@ -55,6 +56,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         formulas = undefined
         formulasValues = undefined
         formulasErrors = undefined
+    }
+
+    function setCandle(pCandle) {
+        candle = pCandle // We need candle to be a local object accessible from conditions and formulas.
+    }
+
+    function setChart(pChart) {
+        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
     }
 
     function evalConditions() {

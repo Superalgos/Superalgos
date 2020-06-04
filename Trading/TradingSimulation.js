@@ -84,6 +84,26 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()
 
+            const TRADING_ENGINE_MODULE = require('./TradingExecution.js')
+            let tradingExecutionModule = TRADING_ENGINE_MODULE.newTradingExecution(bot, logger)
+            tradingExecutionModule.initialize()
+
+            const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
+            let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
+            tradingRecordsModule.initialize()
+
+            const SNAPSHOTS_MODULE = require('./Snapshots.js')
+            let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
+            snapshotsModule.initialize()
+
+            const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
+            let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
+            announcementsModule.initialize()
+
+            const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
+            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
+            tradingSystemModule.initialize()
+
             /* Main Array and Maps */
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
@@ -292,9 +312,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
                 }
 
-                const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-                let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
-                tradingSystemModule.initialize(chart, candle)
+
+                tradingSystemModule.setCandle(candle)
+                tradingSystemModule.setChart(chart)
                 tradingSystemModule.evalConditions()
                 tradingSystemModule.evalFormulas()
 
@@ -373,455 +393,26 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     closePositionNow = tradingSystemModule.checkStopLossOrTakeProfitWasHit()
                 }
 
-                tradingSystemModule.finalize()
+
 
                 /* Taking a Position */
                 if (
                     takePositionNow === true
                 ) {
                     takePositionNow = false
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Entering code block.') }
-
-                    /* Inicializing this counter */
-                    tradingEngine.current.distanceToEvent.takePosition.value = 1
-
-                    /* Position size and rate */
-                    tradingEngine.current.position.size.value = getPositionSize()
-                    tradingEngine.current.position.rate.value = getPositionRate()
-
-                    /* We take what was calculated at the formula and apply the slippage. */
-                    let slippageAmount = tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.slippage.positionRate / 100
-
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                        tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
-                    } else {
-                        tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value + slippageAmount
-                    }
-
-                    if (bot.startMode === 'Live') {
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in Live Mode.')
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.size.value  = ' + tradingEngine.current.position.size.value)
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> slippageAmount = ' + slippageAmount)
-                        logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
-                    }
-
-                    /* Update the trade record information. */
-                    tradingEngine.current.position.begin.value = candle.begin
-                    tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
-
-                    /* Check if we need to execute. */
-                    if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
-                        /* Check that we are in LIVE MODE */
-                        if (bot.startMode === 'Live') {
-                            /* We see if we need to put the actual order at the exchange. */
-                            if (variable.executionContext !== undefined) {
-                                switch (variable.executionContext.status) {
-                                    case 'Without a Position': { // We need to put the order because It was not put yet.
-                                        if (strategy.openStage !== undefined) {
-                                            if (strategy.openStage.openExecution !== undefined) {
-                                                putOpeningOrder()
-                                                return
-                                            }
-                                        }
-                                        break
-                                    }
-                                    case 'Position Closed': { // Waiting for a confirmation that the position was closed.
-                                        if (strategy.openStage !== undefined) {
-                                            if (strategy.openStage.openExecution !== undefined) {
-                                                putOpeningOrder()
-                                                return
-                                            }
-                                        }
-                                        break
-                                    }
-                                    case 'Taking Position': { // Waiting for a confirmation that the position was taken.
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is Taking Position.') }
-                                        break
-                                    }
-                                    case 'In a Position': { // This should mean that we already put the order at the exchange.
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Exiting code block because status is In a Position.') }
-                                        break
-                                    }
-                                }
-                            } else { // The context does not exist so it means we are not in a position.
-                                if (strategy.openStage !== undefined) {
-                                    if (strategy.openStage.openExecution !== undefined) {
-                                        putOpeningOrder()
-                                        return
-                                    }
-                                }
-                            }
-                        } else {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Not trading live.') }
-                        }
-                    } else {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionNow -> Not the last closed candle.') }
-                    }
-
-                    takePositionAtSimulation()
-
-                    return
-
-                    function putOpeningOrder() {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Entering function.') }
-
-                        /* We wont take a position unless we are withing the sessionParameters.timeRange.config.initialDatetime and the sessionParameters.timeRange.config.finalDatetime range */
-                        if (sessionParameters.timeRange.config.initialDatetime !== undefined) {
-                            if (candle.end < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> sessionParameters.timeRange.config.initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
-                                takePositionAtSimulation()
-                                return
-                            }
-                        }
-
-                        /* We wont take a position if we are past the final datetime */
-                        if (sessionParameters.timeRange.config.finalDatetime !== undefined) {
-                            if (candle.begin > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> sessionParameters.timeRange.config.finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
-                                takePositionAtSimulation()
-                                return
-                            }
-                        }
-
-                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-                        if (variable.executionContext !== undefined) {
-                            if (variable.executionContext.periods !== undefined) {
-                                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution.') }
-                                    takePositionAtSimulation()
-                                    return
-                                }
-                            }
-                        }
-
-                        /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
-                        if (currentDay) {
-                            let today = new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-                            let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-                            if (today.valueOf() !== processDay.valueOf()) {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading.') }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> today = ' + today) }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> processDay = ' + processDay) }
-                                takePositionAtSimulation()
-                                return
-                            }
-                        }
-
-                        let orderPrice
-                        let amountA
-                        let amountB
-                        let orderSide
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            orderSide = 'sell'
-
-                            orderPrice = tradingEngine.current.position.rate.value
-
-                            amountA = tradingEngine.current.position.size.value * orderPrice
-                            amountB = tradingEngine.current.position.size.value
-                        } else {
-                            orderSide = 'buy'
-
-                            orderPrice = tradingEngine.current.position.rate.value
-
-                            amountA = tradingEngine.current.position.size.value
-                            amountB = tradingEngine.current.position.size.value / orderPrice
-                        }
-
-                        variable.executionContext = {
-                            status: 'Taking Position',
-                            periods: tradingEngine.episode.episodeCounters.periods
-                        }
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order.') }
-                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
-
-                        function onOrderCreated(err, order) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Entering function.') }
-
-                            try {
-                                switch (err.result) {
-                                    case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
-                                        variable.executionContext = {
-                                            status: 'In a Position',
-                                            periods: tradingEngine.episode.episodeCounters.periods,
-                                            amountA: amountA,
-                                            amountB: amountB,
-                                            orderId: order.id
-                                        }
-                                        takePositionAtSimulation()
-                                        return
-                                    }
-                                    case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE ') }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = ' + err.message) }
-                                        strategy.openStage.openExecution.error = err.message
-                                        afterLoop()
-                                        return
-                                    }
-                                    case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE ') }
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Message = ' + err.message) }
-                                        strategy.openStage.openExecution.error = err.message
-                                        afterLoop()
-                                        return
-                                    }
-                                }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[ERROR] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> Unexpected Response -> Message = ' + err.message) }
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                                return
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] runSimulation  -> loop -> putOpeningOrder -> onOrderCreated ->  err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                                return
-                            }
-                        }
-                    }
-
-                    function takePositionAtSimulation() {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionAtSimulation -> Entering function.') }
-
-                        /* Continue with the simulation */
-                        calculateTakeProfit()
-                        calculateStopLoss()
-
-                        tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
-                        tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
-
-                        tradingEngine.last.position.profitLoss.value = 0
-                        tradingEngine.last.position.ROI.value = 0
-
-                        let feePaid = 0
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
-                        } else {
-                            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
-                        }
-
-                        addRecords()
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> takePositionAtSimulation -> Exiting Loop Body after taking position at simulation.') }
-                        controlLoop()
-                        return
-                    }
+                    tradingEngineModule.getReadyToTakePosition(candle)
+                    tradingExecutionModule.takePosition()
+                    tradingEngineModule.takePosition()
                 }
 
-                if (closePositionNow === true) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing a Position -> Entering code block.') }
-
+                /* Closing a Position */
+                if (
+                    closePositionNow === true
+                ) {
                     closePositionNow = false
-
-                    /* Inicializing this counter */
-                    tradingEngine.current.distanceToEvent.closePosition.value = 1
-
-                    /* Position size and rate */
-                    let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
-                    if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
-                        /* Check that we are in LIVE MODE */
-                        if (bot.startMode === 'Live') {
-                            /* We see if we need to put the actual order at the exchange. */
-                            if (variable.executionContext !== undefined) {
-                                switch (variable.executionContext.status) {
-                                    case 'Without a Position': { // No way to close anything at the exchange.
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Without a Position.') }
-                                        break
-                                    }
-                                    case 'In a Position': { // This should mean that we already put the order at the exchange.
-                                        if (strategy.closeStage !== undefined) {
-                                            if (strategy.closeStage.closeExecution !== undefined) {
-                                                putClosingOrder()
-                                                return
-                                            }
-                                        }
-                                        break
-                                    }
-                                    case 'Closing Position': { // Waiting for a confirmation that the position was taken.
-                                        if (strategy.closeStage !== undefined) {
-                                            if (strategy.closeStage.closeExecution !== undefined) {
-                                                putClosingOrder()
-                                                return
-                                            }
-                                        }
-                                        break
-                                    }
-
-                                    case 'Position Closed': { //
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing a Position -> Exiting code block because status is Position Closed.') }
-                                        break
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing a Position -> Not within the last 10 candles.') }
-                    }
-
-                    closePositionAtSimulation()
-                    return
-
-                    function putClosingOrder() {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> putClosingOrder -> Entering function.') }
-
-                        /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
-                        if (variable.executionContext !== undefined) {
-                            if (variable.executionContext.periods !== undefined) {
-                                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution.') }
-                                    closePositionAtSimulation()
-                                    return
-                                }
-                            }
-                        }
-
-                        let orderPrice
-                        let amountA
-                        let amountB
-                        let orderSide
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            orderSide = 'buy'
-
-                            orderPrice = ticker.last + 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
-
-                            amountA = tradingEngine.current.balance.quotedAsset.value
-                            amountB = tradingEngine.current.balance.quotedAsset.value / orderPrice
-                        } else {
-                            orderSide = 'sell'
-
-                            orderPrice = ticker.last - 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
-
-                            amountA = tradingEngine.current.balance.baseAsset.value * orderPrice
-                            amountB = tradingEngine.current.balance.baseAsset.value
-                        }
-
-                        variable.executionContext = {
-                            status: 'Closing Position',
-                            periods: tradingEngine.episode.episodeCounters.periods
-                        }
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange.') }
-                        exchangeAPI.createOrder(bot.market, orderSide, orderPrice, amountA, amountB, onOrderCreated)
-
-                        function onOrderCreated(err, order) {
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Entering function.') }
-
-                            try {
-                                switch (err.result) {
-                                    case global.DEFAULT_OK_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
-                                        variable.executionContext = {
-                                            status: 'Position Closed',
-                                            periods: tradingEngine.episode.episodeCounters.periods,
-                                            amountA: amountA,
-                                            amountB: amountB,
-                                            orderId: order.id
-                                        }
-                                        closePositionAtSimulation()
-                                        return
-                                    }
-                                    case global.DEFAULT_FAIL_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_FAIL_RESPONSE ') }
-                                        /* We will assume that the problem is temporary, and expect that it will work at the next execution. */
-                                        strategy.closeStage.closeExecution.error = err.message
-                                        afterLoop()
-                                        return
-                                    }
-                                    case global.DEFAULT_RETRY_RESPONSE.result: {
-                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_RETRY_RESPONSE ') }
-                                        strategy.closeStage.closeExecution.error = err.message
-                                        afterLoop()
-                                        return
-                                    }
-                                }
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[ERROR] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> Unexpected Response -> Message = ' + err.message) }
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                                return
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] runSimulation  -> loop -> putClosingOrder -> onOrderCreated ->  err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                                return
-                            }
-                        }
-                    }
-
-                    function closePositionAtSimulation() {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> closePositionAtSimulation -> Entering function.') }
-
-                        tradingEngine.episode.positionCounters.positions.value++
-
-                        let feePaid = 0
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-
-                            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
-                            tradingEngine.current.balance.quotedAsset.value = 0
-                        } else {
-
-                            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
-
-                            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
-                            tradingEngine.current.balance.baseAsset.value = 0
-                        }
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
-                            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
-                            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
-                            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
-                        } else {
-                            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
-                            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
-                            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
-                            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
-                        }
-
-                        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.ROI.value
-
-                        if (tradingEngine.last.position.profitLoss.value > 0) {
-                            tradingEngine.episode.episodeCounters.hits.value++
-                        } else {
-                            tradingEngine.episode.episodeCounters.fails.value++
-                        }
-
-                        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
-                            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
-                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days * 365
-                        } else {
-                            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
-                            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
-                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days * 365
-                        }
-
-                        addRecords()
-
-                        tradingEngine.current.position.stopLoss.value = 0
-                        tradingEngine.current.position.takeProfit.value = 0
-
-                        tradingEngine.current.position.rate.value = 0
-                        tradingEngine.current.position.size.value = 0
-
-                        timerToCloseStage = candle.begin
-                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                        tradingEngine.current.position.stopLoss.stopLossPhase.value = -1
-                        tradingEngine.current.position.takeProfit.takeProfitPhase.value = -1
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> closePositionAtSimulation -> Exiting Loop Body after closing position at simulation.') }
-                        controlLoop()
-                        return
-                    }
+                    tradingEngineModule.getReadyToClosePosition(candle)
+                    tradingExecutionModule.closePosition()
+                    tradingEngineModule.closePosition()
                 }
 
                 /* Closing the Closing Stage */
@@ -843,218 +434,23 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
                 }
 
-                /* Not a buy or sell condition */
+                snapshotsModule.manageSnapshots()
+                tradingRecordsModule.addSimulationRecord()
+                tradingRecordsModule.addConditionsRecord()
+                tradingRecordsModule.addStrategyRecord()
+                tradingRecordsModule.addPositionRecord()
 
-                addRecords()
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Loop Body after adding a record.') }
+                /* We will remmember the last candle processed, so that if it is the last one of this run we can use it to continue from there next time. */
+                tradingEngine.last.candle.begin = candle.begin
+                tradingEngine.last.candle.end = candle.end
+
+                /* After everything at the simulation level was done, we will do the annoucements that are pending. */
+                makeAnnoucements()
+
+
                 controlLoop()
                 return
 
-                function addRecords() {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> addRecords -> Entering function.') }
-
-                    manageSnapshots()
-                    addSimulationRecord()
-                    addConditionsRecord()
-                    addStrategyRecord()
-                    addPositionRecord()
-
-                    /* We will remmember the last candle processed, so that if it is the last one of this run we can use it to continue from there next time. */
-                    tradingEngine.last.candle.begin = candle.begin
-                    tradingEngine.last.candle.end = candle.end
-
-                    /* After everything at the simulation level was done, we will do the annoucements that are pending. */
-                    makeAnnoucements()
-
-                    function manageSnapshots() {
-                        /* Snapshots Management (before we generate the trade record and delete that info) */
-                        if (saveAsLastTriggerOnSnapshot === true) {
-                            snapshots.lastTriggerOn = snapshotDataRecord
-                            saveAsLastTriggerOnSnapshot = false
-                        }
-
-                        if (saveAsLastTakePositionSnapshot === true) {
-                            snapshots.lastTakePosition = snapshotDataRecord
-                            saveAsLastTakePositionSnapshot = false
-                        }
-
-                        if (addToSnapshots === true) {
-                            let closeValues = [
-                                tradingEngine.episode.positionCounters.positions.value,                                   // Position Number
-                                (new Date(candle.begin)).toISOString(),                             // Datetime
-                                tradingSystem.strategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
-                                tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
-                                tradingEngine.current.position.situationName.value,                            // Take Position Situation
-                                hitOrFial(),                                                        // Result
-                                tradingEngine.last.position.ROI.value,                                         // ROI
-                                exitType()                                                          // Exit Type
-                            ]
-
-                            function hitOrFial() {
-                                if (tradingEngine.last.position.ROI.value > 0) { return 'HIT' } else { return 'FAIL' }
-                            }
-
-                            function exitType() {
-                                switch (tradingEngine.current.position.exitType.value) {
-                                    case 1: return 'Stop'
-                                    case 2: return 'Take Profit'
-                                }
-                            }
-
-
-                            if (positionedAtYesterday === false) {
-                                snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
-                                snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
-                            }
-                            snapshots.lastTriggerOn = undefined
-                            snapshots.lastTakePosition = undefined
-                            addToSnapshots = false
-                        }
-
-                        let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
-                        if (snapshots.headers === undefined) {
-                            snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshotLoopHeaders)))
-                        }
-                    }
-
-                    function addSimulationRecord() {
-                        /* Simulation Record */
-                        let simulationRecord
-
-                        if (tradingEngine.current.balance.baseAsset.value === Infinity) {
-                            tradingEngine.current.balance.baseAsset.value = Number.MAX_SAFE_INTEGER
-                        }
-
-                        if (tradingEngine.current.balance.quotedAsset.value === Infinity) {
-                            tradingEngine.current.balance.quotedAsset.value = Number.MAX_SAFE_INTEGER
-                        }
-
-                        simulationRecord = [
-                            candle.begin,
-                            candle.end,
-                            tradingEngine.current.balance.baseAsset.value,
-                            tradingEngine.current.balance.quotedAsset.value,
-                            tradingEngine.episode.episodeStatistics.profitLoss.value,
-                            tradingEngine.last.position.profitLoss.value,
-                            tradingEngine.current.position.stopLoss.value,
-                            tradingEngine.episode.positionCounters.positions.value,
-                            tradingEngine.episode.episodeCounters.hits.value,
-                            tradingEngine.episode.episodeCounters.fails.value,
-                            tradingEngine.episode.episodeStatistics.hitRatio.value,
-                            tradingEngine.episode.episodeStatistics.ROI.value,
-                            tradingEngine.episode.episodeCounters.periods,
-                            tradingEngine.episode.episodeStatistics.days,
-                            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value,
-                            tradingEngine.current.position.rate.value,
-                            tradingEngine.last.position.ROI.value,
-                            tradingEngine.current.position.takeProfit.value,
-                            tradingEngine.current.position.stopLoss.stopLossPhase.value,
-                            tradingEngine.current.position.takeProfit.takeProfitPhase.value,
-                            tradingEngine.current.position.size.value,
-                            sessionParameters.sessionBaseAsset.config.initialBalance,
-                            sessionParameters.sessionBaseAsset.config.minimumBalance,
-                            sessionParameters.sessionBaseAsset.config.maximumBalance,
-                            sessionParameters.sessionQuotedAsset.config.initialBalance,
-                            sessionParameters.sessionQuotedAsset.config.minimumBalance,
-                            sessionParameters.sessionQuotedAsset.config.maximumBalance,
-                            '"' + sessionParameters.sessionBaseAsset.name + '"',
-                            '"' + sessionParameters.sessionQuotedAsset.name + '"',
-                            '"' + bot.market.marketBaseAsset + '"',
-                            '"' + bot.market.marketQuotedAsset + '"',
-                            tradingEngine.current.position.positionCounters.periods.value,
-                            tradingEngine.current.position.positionStatistics.days.value
-                        ]
-
-                        recordsArray.push(simulationRecord)
-                    }
-
-                    function addConditionsRecord() {
-                        /* Prepare the information for the Conditions File */
-                        let conditionsRecord = [
-                            candle.begin,
-                            candle.end,
-                            tradingEngine.current.strategy.index.value,
-                            tradingEngine.current.position.stopLoss.stopLossPhase.value,
-                            tradingEngine.current.position.takeProfit.takeProfitPhase.value,
-                            conditionsValues,
-                            formulasErrors,
-                            formulasValues
-                        ]
-
-                        conditionsArray.push(conditionsRecord)
-                    }
-
-                    function addStrategyRecord() {
-                        /*
-                        Lets see if there will be an open strategy ...
-                        Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
-                        */
-                        if (tradingEngine.current.strategy.begin.value !== 0 && tradingEngine.current.strategy.end.value === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
-                            tradingEngine.current.strategy.status.value = 'Open'
-                            tradingEngine.current.strategy.end.value = candle.end
-                        }
-
-                        /* Prepare the information for the Strategies File */
-                        if (tradingEngine.current.strategy.begin.value !== 0 && tradingEngine.current.strategy.end.value !== 0) {
-                            let strategyRecord = [
-                                tradingEngine.current.strategy.begin.value,
-                                tradingEngine.current.strategy.end.value,
-                                tradingEngine.current.strategy.status.value,
-                                tradingEngine.current.strategy.index.value,
-                                tradingEngine.current.strategy.beginRate.value,
-                                tradingEngine.current.strategy.endRate.value,
-                                '"' + tradingEngine.current.strategy.situationName.value + '"',
-                                '"' + tradingEngine.current.strategy.strategyName.value + '"'
-                            ]
-
-                            strategiesArray.push(strategyRecord)
-
-                            inializeCurrentStrategy()
-                        }
-                    }
-
-                    function addPositionRecord() {
-                        /*
-                        Lets see if there will be an open trade ...
-                        Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
-                        */
-                        if (tradingEngine.current.position.begin.value !== 0 &&
-                            tradingEngine.current.position.end.value === 0 &&
-                            currentCandleIndex === candles.length - 2 &&
-                            lastCandle.end !== lastInstantOfTheDay) {
-
-                            /* This means the trade is open */
-                            tradingEngine.current.position.status.value = 2
-                            tradingEngine.current.position.end.value = candle.end
-                            tradingEngine.current.position.endRate.value = candle.close
-
-                            /* Here we will calculate the ongoing ROI */
-                            if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                                tradingEngine.current.position.positionStatistics.ROI.value = (tradingEngine.current.position.rate.value - candle.close) / tradingEngine.current.position.rate.value * 100
-                            } else {
-                                tradingEngine.current.position.positionStatistics.ROI.value = (candle.close - tradingEngine.current.position.rate.value) / tradingEngine.current.position.rate.value * 100
-                            }
-                        }
-
-                        /* Prepare the information for the Positions File */
-                        if (tradingEngine.current.position.begin.value !== 0 && tradingEngine.current.position.end.value !== 0) {
-                            let positionRecord = [
-                                tradingEngine.current.position.begin.value,
-                                tradingEngine.current.position.end.value,
-                                tradingEngine.current.position.status.value,
-                                tradingEngine.current.position.positionStatistics.ROI.value,
-                                tradingEngine.current.position.beginRate.value,
-                                tradingEngine.current.position.endRate.value,
-                                tradingEngine.current.position.exitType.value,
-                                '"' + tradingEngine.current.position.situationName.value + '"'
-                            ]
-
-                            positionsArray.push(positionRecord)
-
-                            initializeCurrentPosition()
-                        }
-                    }
-                }
 
                 function checkAnnouncements(node, value) {
                     /*
@@ -1231,8 +627,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> afterLoop -> Entering function.') }
 
                 tradingEngineModule.finalize()
+                tradingExecutionModule.finalize()
+                tradingSystemModule.finalize()
+                tradingRecordsModule.finalize()
+                snapshotsModule.finalize()
+                announcementsModule.finalize()
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> callback -> recordsArray.length = ' + recordsArray.length) }
 
                 callback(tradingSystem, snapshots.headers, snapshots.triggerOn, snapshots.takePosition)
             }

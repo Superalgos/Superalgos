@@ -112,9 +112,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             /* Last Candle */
             let lastCandle = candles[candles.length - 1]
 
-            /* Main Simulation Loop: We go thourgh all the candles at this time period. */
-            let currentCandleIndex
-
             /* For Loop Level heartbeat */
             let loopingDay
             let previousLoopingDay
@@ -131,10 +128,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let diff = lastBegin - firstBegin
                     let amount = diff / sessionParameters.timeFrame.config.value
 
-                    currentCandleIndex = Math.trunc(amount) + 1 // Because we need to start from the next candle
-                    if (currentCandleIndex < 0 || currentCandleIndex > candles.length - 1) {
+                    tradingEngine.current.candle.index.value = Math.trunc(amount) + 1 // Because we need to start from the next candle
+                    if (tradingEngine.current.candle.index.value < 0 || tradingEngine.current.candle.index.value > candles.length - 1) {
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> Cannot resume simulation.')
-                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> currentCandleIndex = ' + currentCandleIndex)
+                        logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> tradingEngine.current.candle.index.value = ' + tradingEngine.current.candle.index.value)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> firstBegin = ' + firstBegin)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> lastBegin = ' + lastBegin)
                         logger.write(MODULE_NAME, '[ERROR] runSimulation -> initializeLoop -> diff = ' + diff)
@@ -150,14 +147,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let diff = targetEnd - firstEnd
                     let amount = diff / sessionParameters.timeFrame.config.value
 
-                    currentCandleIndex = Math.trunc(amount)
-                    if (currentCandleIndex < 0) { currentCandleIndex = 0 }
-                    if (currentCandleIndex > candles.length - 1) {
+                    tradingEngine.current.candle.index.value = Math.trunc(amount)
+                    if (tradingEngine.current.candle.index.value < 0) { tradingEngine.current.candle.index.value = 0 }
+                    if (tradingEngine.current.candle.index.value > candles.length - 1) {
                         /* 
                         This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
                         meaning that the dataSet needs to be updated with more up-to-date data. 
                         */
-                        currentCandleIndex = candles.length - 1
+                        tradingEngine.current.candle.index.value = candles.length - 1
                     }
                 }
 
@@ -166,10 +163,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering function.') }
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + currentCandleIndex) }
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.candle.index.value) }
 
 
-                let candle = candles[currentCandleIndex]
+                let candle = candles[tradingEngine.current.candle.index.value]
 
                 tradingEngineModule.setCurrentCandle(candle)
 
@@ -264,7 +261,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (loopingDay.valueOf() !== previousLoopingDay) {
                     let processingDate = loopingDay.getUTCFullYear() + '-' + utilities.pad(loopingDay.getUTCMonth() + 1, 2) + '-' + utilities.pad(loopingDay.getUTCDate(), 2)
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + currentCandleIndex + ' @ ' + processingDate) }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.candle.index.value + ' @ ' + processingDate) }
 
                     /*  Telling the world we are alive and doing well */
                     let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime.valueOf())
@@ -285,9 +282,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEngine.episode.episodeStatistics.days = tradingEngine.episode.episodeCounters.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
 
                 if (processingDailyFiles) {
-                    /* We skip the candle at the head of the market because currentCandleIndex has not closed yet. */
+                    /* We skip the candle at the head of the market because tradingEngine.current.candle.index.value has not closed yet. */
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
-                    if (currentCandleIndex === candles.length - 1) {
+                    if (tradingEngine.current.candle.index.value === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             /* We are at the head of the market, thus we skip the last candle because it has not close yet. */
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet.') }
@@ -298,7 +295,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         }
                     }
                 } else { // We are processing Market Files
-                    if (currentCandleIndex === candles.length - 1) {
+                    if (tradingEngine.current.candle.index.value === candles.length - 1) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Skipping Candle because it is the last one and has not been closed yet.') }
                         controlLoop()
                         return
@@ -459,8 +456,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     return
                 }
 
-                currentCandleIndex++
-                if (currentCandleIndex < candles.length) {
+                tradingEngine.current.candle.index.value++
+                if (tradingEngine.current.candle.index.value < candles.length) {
                     setImmediate(loop) // This will execute the next loop in the next iteration of the NodeJs event loop allowing for other callbacks to be executed.
                 } else {
                     afterLoop()

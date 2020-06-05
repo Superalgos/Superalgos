@@ -95,7 +95,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
         Lets see if there will be an open strategy ...
         Except if we are at the head of the market (remember we skipped the last candle for not being closed.)
         */
-        if (tradingEngine.current.strategy.begin.value !== 0 && tradingEngine.current.strategy.end.value === 0 && currentCandleIndex === candles.length - 2 && lastCandle.end !== lastInstantOfTheDay) {
+        if (
+            tradingEngine.current.strategy.begin.value !== 0 &&
+            tradingEngine.current.strategy.end.value === 0 &&
+            currentCandleIndex === candles.length - 2 &&
+            lastCandle.end !== lastInstantOfTheDay
+        ) {
             tradingEngine.current.strategy.status.value = 'Open'
             tradingEngine.current.strategy.end.value = candle.end
         }

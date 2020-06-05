@@ -79,6 +79,9 @@
                         }
                     }
 
+                    if (checkParemeters() === false) { return }
+
+
                     /* Extract values from different sources and consolidate them under one structure that is going to be used later on. */
                     setValuesToUse(message)
 
@@ -116,6 +119,121 @@
                 }
             }
 
+            function checkParemeters() {
+                /*
+                Here we check all the Session Parameters received. If something critical is missing we abort returning false. If something
+                non critical is missing, we complete it with a default value.
+                */
+
+                if (bot.SESSION.parameters === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Node with no Parameters."); }
+                    return false
+                }
+
+                /* Time Range */
+                if (bot.SESSION.parameters.timeRange === undefined) { // if the Time Range is missing we create a default one.
+                    bot.SESSION.parameters.timeRange = {
+                        name: 'Missing Time Range',
+                        type: 'Time Range',
+                        config: {
+                            initialDatetime: (new Date()).valueOf(),
+                            finalDatetime: (new Date()).valueOf()
+                        }
+                    }
+                }
+                if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) { // if the initialDatetime is missing we create a default one.
+                    bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date()).valueOf()
+                }
+                if (bot.SESSION.parameters.timeRange.config.finalDatetime === undefined) { // if the finalDatetime is missing we create a default one.
+                    bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date()).valueOf()
+                }
+
+                /* Time Frame */
+                if (bot.SESSION.parameters.timeFrame === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Time Frame."); }
+                    return false
+                }
+                if (bot.SESSION.parameters.timeFrame.label === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Time Frame Label configuration."); }
+                    return false
+                }
+
+                /* Session Base Asset */
+                if (bot.SESSION.parameters.sessionBaseAsset === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Session Base Asset."); }
+                    return false
+                }
+                if (bot.SESSION.parameters.sessionBaseAsset.config.initialBalance === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Session Base Asset with no initialBalance configuration."); }
+                    return false
+                }
+                if (bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance === undefined) {
+                    bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance = 0
+                }
+                if (bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance === undefined) {
+                    bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
+                }
+
+                /* Session Quoted Asset */
+                if (bot.SESSION.parameters.sessionQuotedAsset === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Session Quoted Asset."); }
+                    return false
+                }
+                if (bot.SESSION.parameters.sessionQuotedAsset.config.initialBalance === undefined) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Session Quoted Asset with no initialBalance configuration."); }
+                    return false
+                }
+                if (bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance === undefined) {
+                    bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance = 0
+                }
+                if (bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance === undefined) {
+                    bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
+                }
+
+                /* Slippage */
+                if (bot.SESSION.parameters.slippage === undefined) { // if the Slippage is missing we create a default one.
+                    bot.SESSION.parameters.timeRange = {
+                        name: 'Missing Slippage',
+                        type: 'Slippage',
+                        config: {
+                            positionRate: 0,
+                            stopLoss: 0,
+                            takeProfit: 0
+                        }
+                    }
+                }
+                if (bot.SESSION.parameters.slippage.config.positionRate === undefined) { // if the positionRate is missing we create a default one.
+                    bot.SESSION.parameters.slippage.config.positionRate = 0
+                }
+                if (bot.SESSION.parameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
+                    bot.SESSION.parameters.slippage.config.stopLoss = 0
+                }
+                if (bot.SESSION.parameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
+                    bot.SESSION.parameters.slippage.config.takeProfit = 0
+                }
+
+                /* Fee Structure */
+                if (bot.SESSION.parameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
+                    bot.SESSION.parameters.feeStructure = {
+                        name: 'Missing Fee Structure',
+                        type: 'Fee Structure',
+                        config: {
+                            maker: 0,
+                            taker: 0
+                        }
+                    }
+                }
+                if (bot.SESSION.parameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
+                    bot.SESSION.parameters.feeStructure.config.maker = 0
+                }
+                if (bot.SESSION.parameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
+                    bot.SESSION.parameters.feeStructure.config.taker = 0
+                }
+
+                return true
+            }
+
+
             function stopSession(message) {
                 try {
                     bot.STOP_SESSION = true
@@ -127,39 +245,38 @@
             }
 
             function checkDatetimes() {
-                if (bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding initialDatetime with present datetime because " + bot.VALUES_TO_USE.timeRange.initialDatetime + " is in the past."); }
-                    bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
+                if (bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding initialDatetime with present datetime because " + bot.SESSION.parameters.timeRange.config.initialDatetime + " is in the past."); }
+                    bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
                 }
-                if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() < (new Date()).valueOf()) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding finalDatetime with present datetime plus one year because " + bot.VALUES_TO_USE.timeRange.finalDatetime + " is in the past."); }
-                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
+                if (bot.SESSION.parameters.timeRange.config.finalDatetime.valueOf() < (new Date()).valueOf()) {
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> checkDatetimes -> Overriding finalDatetime with present datetime plus one year because " + bot.SESSION.parameters.timeRange.config.finalDatetime + " is in the past."); }
+                    bot.SESSION.parameters.timeRange.config.finalDatetime = new Date() + ONE_YEAR_IN_MILISECONDS
                 }
             }
 
             function startBackTesting(message) {
                 bot.startMode = "Backtest"
-                if (bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf() > (new Date()).valueOf()) {
-                    bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
+                if (bot.SESSION.parameters.timeRange.config.finalDatetime.valueOf() > (new Date()).valueOf()) {
+                    bot.SESSION.parameters.timeRange.config.finalDatetime = new Date()
                 }
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
+                bot.multiPeriodProcessDatetime = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 return true
             }
 
             function startLiveTrading(message) {
 
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startLiveTrading -> Key name or Secret not provided, not possible to run the process in Live mode."); }
-                    console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
+                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return
                 }
 
                 bot.startMode = "Live"
                 checkDatetimes()
                 bot.resumeExecution = false;
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
+                bot.multiPeriodProcessDatetime = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
                 pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
@@ -176,7 +293,7 @@
                 bot.startMode = "Live"
                 checkDatetimes()
                 bot.resumeExecution = false;
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
+                bot.multiPeriodProcessDatetime = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
 
                 /* Reduce the balance */
@@ -207,7 +324,7 @@
                 checkDatetimes()
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.multiPeriodProcessDatetime = new Date(bot.VALUES_TO_USE.timeRange.initialDatetime.valueOf())
+                bot.multiPeriodProcessDatetime = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
                 return true
             }
@@ -234,49 +351,28 @@
             }
 
             function setValuesToUse(message) {
-                /*
-                    Base on the information received we will determined which values ultimatelly are going to be used,
-                    and once we do, they will become constants across the multiple loops executions.
-                */
-
-                /* Set all default values */
-                bot.VALUES_TO_USE = {
-                    slippage: {
-                        positionRate: 0,
-                        stopLoss: 0,
-                        takeProfit: 0
-                    },
-                    feeStructure: {
-                        maker: 0,
-                        taker: 0
-                    },
-                    timeRange: {
-                        initialDatetime: new Date(),
-                        finalDatetime: new Date()
-                    }
-                }
 
                 /* Session Type Dependant Default Values */
 
                 switch (bot.SESSION.type) {
                     case 'Backtesting Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date((new Date()).valueOf() - ONE_YEAR_IN_MILISECONDS)
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date()
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date((new Date()).valueOf() - ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date()
                         break
                     }
                     case 'Live Trading Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                     case 'Fordward Testing Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                     case 'Paper Trading Session': {
-                        bot.VALUES_TO_USE.timeRange.initialDatetime = new Date()
-                        bot.VALUES_TO_USE.timeRange.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                 }
@@ -415,14 +511,14 @@
                                         if (isNaN(Date.parse(config.initialDatetime)) === true) {
                                             parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use initialDatatime provided at Session Parameters because it is not a valid Date.");
                                         } else {
-                                            bot.VALUES_TO_USE.timeRange.initialDatetime = new Date(config.initialDatetime)
+                                            bot.SESSION.parameters.timeRange.config.initialDatetime = new Date(config.initialDatetime)
                                         }
                                     }
                                     if (config.finalDatetime !== undefined) {
                                         if (isNaN(Date.parse(config.finalDatetime)) === true) {
                                             parentLogger.write(MODULE_NAME, "[WARN] initialize -> runSession -> setValuesToUse -> Cannot use finalDatetime provided at Session Parameters because it is not a valid Date.");
                                         } else {
-                                            bot.VALUES_TO_USE.timeRange.finalDatetime = new Date(config.finalDatetime)
+                                            bot.SESSION.parameters.timeRange.config.finalDatetime = new Date(config.finalDatetime)
                                         }
                                     }
                                 }

@@ -46,20 +46,20 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingEngine = bot.TRADING_ENGINE
             let sessionParameters = bot.SESSION.parameters
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> sessionParameters.timeRange.config.initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> sessionParameters.timeRange.config.finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
-            let timerToCloseStage = 0
+            let timerToCloseStage = 0 // TODO
 
-            /* Stop Loss Management */
+            /* Stop Loss Management TODO */
             const MIN_STOP_LOSS_VALUE = 0.0000000001 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
 
-            /* Take Profit Management */
+            /* Take Profit Management TODO */
             const MIN_TAKE_PROFIT_VALUE = 0.0000000001 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
 
-            /* Variables for this executioin only */
+            /* Variables to know when we need to open or close a position. */
             let takePositionNow = false
             let closePositionNow = false
 
@@ -101,7 +101,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             /* Last Candle */
             let lastCandle = candles[candles.length - 1] // TODO Maybe remove this
 
-            /* Variable needed for heartbeat functionality */
+            /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousheartBeatDate
 

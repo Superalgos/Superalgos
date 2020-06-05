@@ -11,8 +11,17 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     let tradingEngine
 
-    /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
 
+    /* Snapshots of Trigger On and Take Positions */
+    let snapshots = {
+        headers: undefined,
+        triggerOn: [],
+        takePosition: [],
+        lastTriggerOn: undefined,
+        lastTakePosition: undefined
+    }
+
+    /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
     let snapshotKeys = new Map()
     snapshotLoopHeaders = []
     snapshotDataRecord = []
@@ -68,10 +77,9 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             }
 
 
-            if (positionedAtYesterday === false) {
-                snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
-                snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
-            }
+            snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
+            snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
+
             snapshots.lastTriggerOn = undefined
             snapshots.lastTakePosition = undefined
             addToSnapshots = false

@@ -27,8 +27,8 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
         /* Check if we need to execute. */
         if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
             /* Check that we are in LIVE MODE */
-            if (bot.startMode === 'Live') {
-                logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in Live Mode.')
+            if (bot.SESSION.type === 'Live Trading Session' || bot.SESSION.type === 'Fordward Testion Session') {
+                logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in ' + bot.SESSION.type)
                 logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.size.value  = ' + tradingEngine.current.position.size.value)
                 logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.rate.value = ' + tradingEngine.current.position.rate.value)
                 logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> slippageAmount = ' + slippageAmount)
@@ -201,7 +201,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
     function closePosition() {
         if (currentCandleIndex > candles.length - 10) { /* Only at the last candles makes sense to check if we are in live mode or not. */
             /* Check that we are in LIVE MODE */
-            if (bot.startMode === 'Live') {
+            if (bot.SESSION.type === 'Live Trading Session' || bot.SESSION.type === 'Fordward Testion Session') {
                 /* We see if we need to put the actual order at the exchange. */
                 if (variable.executionContext !== undefined) {
                     switch (variable.executionContext.status) {

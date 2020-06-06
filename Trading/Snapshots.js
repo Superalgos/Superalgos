@@ -76,7 +76,6 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                 }
             }
 
-
             snapshots.triggerOn.push(closeValues.concat(snapshots.lastTriggerOn))
             snapshots.takePosition.push(closeValues.concat(snapshots.lastTakePosition))
 

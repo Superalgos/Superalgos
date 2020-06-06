@@ -63,8 +63,6 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
         }
     }
 
-
-
     function sendMessage(message) {
         if (bot.SESSION.socialBots !== undefined) {
             if (bot.SESSION.socialBots.bots !== undefined) {

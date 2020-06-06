@@ -63,13 +63,9 @@
     }
 
     function start(callBackFunction) {
-
         try {
-
-
             let currentTimeFrame
             let currentTimeFrameLabel
-
             let market = bot.market;
             let botNeverRan = true;
 
@@ -88,10 +84,7 @@
             getContextVariables();
 
             function getContextVariables() {
-
                 try {
-
-
                     let thisReport;
                     let reportKey;
                     let statusReport;
@@ -222,7 +215,6 @@
 
                             function getFile() {
                                 try {
-
                                     if (datasetModule.node.config.codeName !== "Single-File") {
                                         dependencyControlLoop();
                                         return
@@ -238,7 +230,6 @@
                                     datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
                                     function onFileReceived(err, text) {
-
                                         try {
                                             if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
 
@@ -270,7 +261,6 @@
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
-
                         }
                         catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles -> timeFramesLoop -> dependencyLoopBody -> err = " + err.stack);
@@ -279,9 +269,7 @@
                     }
 
                     function dependencyControlLoop() {
-
                         try {
-
                             dependencyIndex++;
 
                             if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
@@ -305,8 +293,6 @@
             }
 
             function processMarketFiles() {
-
-
                 try {
                     let n;
                     timeFramesLoop();
@@ -341,15 +327,12 @@
 
                             function dependencyLoopBody() {
                                 try {
-
                                     let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                                     let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
-
                                     getFile();
 
                                     function getFile() {
                                         try {
-
                                             if (dependency.referenceParent.config.codeName !== "Multi-Period-Market") {
                                                 dependencyControlLoop();
                                                 return
@@ -385,7 +368,6 @@
                                                     dataFiles.set(dependency.id, dataFile);
 
                                                     dependencyControlLoop();
-
                                                 }
                                                 catch (err) {
                                                     logger.write(MODULE_NAME, "[ERROR] start -> processMarketFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
@@ -461,10 +443,7 @@
                     advanceTime();
 
                     function advanceTime() {
-
                         try {
-
-
                             bot.multiPeriodProcessDatetime = new Date(bot.multiPeriodProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
                             previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
 
@@ -501,7 +480,6 @@
                     }
 
                     function checkStopTaskGracefully() {
-
                         try {
                             /* Validation that we dont need to stop. */
                             if (global.STOP_TASK_GRACEFULLY === true) {
@@ -517,7 +495,6 @@
 
                     function checkStopProcessing() {
                         try {
-
                             /* Validation that we dont need to stop. */
                             if (bot.STOP_SESSION === true) {
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -581,7 +558,6 @@
 
                             function dependencyLoopBody() {
                                 try {
-
                                     let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                                     let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
 
@@ -597,7 +573,6 @@
 
                                     function getPreviousFile() {
                                         try {
-
                                             if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                                                 dependencyControlLoop();
                                                 return
@@ -673,7 +648,6 @@
 
                                     function getCurrentFile() {
                                         try {
-
                                             if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                                                 dependencyControlLoop();
                                                 return
@@ -828,10 +802,8 @@
                                         }
                                     }
 
-
                                     function onDailyStatusReport() {
                                         try {
-
                                             /* The next run we need the process to continue at the date it finished. */
                                             processConfig.framework.startDate.resumeExecution = true;
 
@@ -844,7 +816,6 @@
 
                                     function onMarketStatusReport() {
                                         try {
-
                                             /* This is where we check if we need reached the user defined end datetime.  */
                                             const now = new Date()
                                             if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
@@ -885,7 +856,6 @@
 
             function writeDataRanges(currentTimeFrameLabel, callBack) {
                 try {
-
                     let outputDatasetIndex = -1;
                     controlLoop();
 
@@ -952,7 +922,6 @@
             }
 
             function writeDailyStatusReport(lastFileDate, callBack) {
-
                 try {
                     let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
                     let thisReport = statusDependencies.statusReports.get(reportKey);

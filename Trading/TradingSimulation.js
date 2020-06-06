@@ -25,7 +25,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
         timeFrame,
         timeFrameLabel,
         currentDay,
-        s,
+        simulationState,
         exchangeAPI,
         recordsArray,
         conditionsArray,
@@ -42,8 +42,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 processingDailyFiles = true
             }
 
-            let tradingSystem = bot.TRADING_SYSTEM
-            let tradingEngine = bot.TRADING_ENGINE
+            let tradingSystem = simulationState.tradingSystem
+            let tradingEngine = simulationState.tradingEngine
             let sessionParameters = bot.SESSION.parameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }

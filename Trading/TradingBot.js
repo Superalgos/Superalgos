@@ -128,9 +128,11 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             let tradingSystem = {}
 
-            if (s === true) {
+            if (bot.RESUME === true) {
                 readFiles()
             } else {
+                simulationState.tradingEngine = bot.SESSION.tradingEngine
+                simulationState.tradingSystem = bot.SESSION.tradingSystem
                 runSimulation()
             }
 

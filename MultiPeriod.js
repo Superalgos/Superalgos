@@ -79,7 +79,7 @@
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
 
-            let variable
+            let simulationState
 
             getContextVariables();
 
@@ -152,8 +152,8 @@
                     }
 
                     thisReport = statusReport.file;
-                    variable = thisReport.variable;
-                    if (variable === undefined) { variable = {} } // This should happen only when there is no status report
+                    simulationState = thisReport.simulationState;
+                    if (simulationState === undefined) { simulationState = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
                         if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
@@ -454,80 +454,10 @@
                     function dependencyLoopBody() {
                         let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
+                        let file
+                        getFile()
 
-                        let previousFile;
-                        let currentFile;
-
-                        if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateBeginOfMarket.valueOf()) {
-                            getPreviousFile();
-                        } else {
-                            previousFile = [];
-                            getCurrentFile()
-                        }
-
-                        function getPreviousFile() {
-                            if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
-                                dependencyControlLoop();
-                                return
-                            }
-
-                            if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
-                                    dependencyControlLoop();
-                                    return
-                                }
-                            }
-
-                            let dateForPath = previousDay.getUTCFullYear() + '/' + utilities.pad(previousDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(previousDay.getUTCDate(), 2);
-                            let filePath
-
-                            if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
-                            } else {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
-                            }
-                            let fileName = "Data.json";
-
-                            datasetModule.getTextFile(filePath, fileName, onFileReceived);
-
-                            function onFileReceived(err, text) {
-                                try {
-                                    if ((err.message === "File does not exist." && botNeverRan === true) || err.code === 'The specified key does not exist.') {
-                                        /*
-                                        Sometimes one of the dependencies of an indicator for some reasons are not calculated from the begining of the market.
-                                        When that happens we can not find those files. What we do in this situation is to move the time fordward until we can find
-                                        all the dependencies and the first run of the bot is successful.
-
-                                        After that, we will not accept more missing files on any of the dependencies, and if any is missing we will abort the processing.
-                                        */
-                                        logger.write(MODULE_NAME, "[WARN] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> Skipping day because file " + filePath + "/" + fileName + " was not found.");
-                                        advanceTime();
-                                        return;
-                                    }
-
-                                    if ((err.result === "Fail Because" && err.message === "File does not exist.") || err.code === 'The specified key does not exist.') {
-                                        logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
-                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                        return;
-                                    }
-
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err.stack);
-                                        callBackFunction(err);
-                                        return;
-                                    }
-
-                                    previousFile = JSON.parse(text);
-                                    getCurrentFile();
-                                }
-                                catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getPreviousFile -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-                        }
-
-                        function getCurrentFile() {
+                        function getFile() {
                             if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
                                 dependencyControlLoop();
                                 return
@@ -560,19 +490,18 @@
                                     }
 
                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> Not Ok -> err = " + err.code);
+                                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> Not Ok -> err = " + err.code);
                                         callBackFunction(err);
                                         return;
                                     }
 
-                                    currentFile = JSON.parse(text);
-                                    let dataFile = previousFile.concat(currentFile);
-                                    dataFiles.set(dependency.id, dataFile);
+                                    file = JSON.parse(text);
+                                    dataFiles.set(dependency.id, file);
                                     dependencyControlLoop();
 
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getCurrentFile -> onFileReceived -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -613,7 +542,7 @@
                         currentTimeFrame,
                         currentTimeFrameLabel,
                         bot.multiPeriodProcessDatetime,
-                        variable,
+                        simulationState,
                         onBotFinished);
 
                     function onBotFinished(err) {
@@ -736,7 +665,7 @@
 
                 thisReport.file.lastExecution = bot.currentDaytime;
                 thisReport.file.lastFile = lastFileDate;
-                thisReport.file.variable = variable;
+                thisReport.file.simulationState = simulationState;
                 thisReport.save(callBack);
 
                 bot.hasTheBotJustStarted = false;
@@ -747,7 +676,7 @@
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.processDatetime;
-                thisReport.file.variable = variable;
+                thisReport.file.simulationState = simulationState;
                 thisReport.save(callBack);
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodProcessDatetime);

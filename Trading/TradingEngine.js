@@ -4,7 +4,8 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     let thisObject = {
         setCurrentCandle: setCurrentCandle,
-        updatePositionCounters: updatePositionCounters,
+        updateEpisodeCountersAndStatistics: updateEpisodeCountersAndStatistics,
+        updatePositionCountersAndStatistics: updatePositionCountersAndStatistics,
         updateDistanceToEventsCounters: updateDistanceToEventsCounters,
         getReadyToTakePosition: getReadyToTakePosition,
         takePosition: takePosition,
@@ -128,7 +129,12 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         }
     }
 
-    function updatePositionCounters() {
+    function updateEpisodeCountersAndStatistics() {
+        tradingEngine.episode.episodeCounters.periods++
+        tradingEngine.episode.episodeStatistics.days = tradingEngine.episode.episodeCounters.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
+    }
+
+    function updatePositionCountersAndStatistics() {
         /* Keeping Position Counters Up-to-date */
         if (
             (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')

@@ -812,5 +812,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         if (value === undefined) return { DEFAULT_VALUE }
         return value
     }
+
+    function isItInside(elementWithTimestamp, elementWithBeginEnd) {
+        /* 
+        The function is to allow in Conditions and Formulas to easily know when an element with timestamp (like the ones of single files) are inside the time range
+        of an element with a time range, like a candle.
+        */
+        if (elementWithTimestamp.timestamp >= elementWithBeginEnd.begin && elementWithTimestamp.timestamp <= elementWithBeginEnd.end) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 }
 

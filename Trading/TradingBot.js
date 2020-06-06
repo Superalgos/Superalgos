@@ -43,7 +43,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
         }
     }
 
-    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, variable, callBackFunction) {
+    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
         try {
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
@@ -128,7 +128,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             let tradingSystem = {}
 
-            if (bot.RESUME === true) {
+            if (s === true) {
                 readFiles()
             } else {
                 runSimulation()
@@ -499,7 +499,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     timeFrame,
                     timeFrameLabel,
                     currentDay,
-                    variable,
+                    simulationState,
                     exchangeAPI,
                     recordsArray,
                     conditionsArray,

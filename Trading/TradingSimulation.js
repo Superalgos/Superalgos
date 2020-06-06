@@ -25,7 +25,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
         timeFrame,
         timeFrameLabel,
         currentDay,
-        variable,
+        s,
         exchangeAPI,
         recordsArray,
         conditionsArray,
@@ -172,7 +172,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     afterLoop()
                     return
                 }
-
 
                 heartBeat()
 

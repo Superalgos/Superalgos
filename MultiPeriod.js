@@ -197,98 +197,68 @@
             }
 
             function processSingleFiles() {
+                let dependencyIndex = 0;
+                dataFiles = new Map();
+                dependencyLoopBody();
 
-                try {
-                    let dependencyIndex = 0;
-                    dataFiles = new Map();
+                function dependencyLoopBody() {
+                    let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
+                    let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
+                    getFile();
 
-                    dependencyLoopBody();
+                    function getFile() {
+                        if (datasetModule.node.config.codeName !== "Single-File") {
+                            dependencyControlLoop();
+                            return
+                        }
 
-                    function dependencyLoopBody() {
+                        if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                            dependencyControlLoop();
+                            return
+                        }
 
-                        try {
+                        let fileName = "Data.json";
+                        let filePath = datasetModule.node.parentNode.config.codeName + '/' + datasetModule.node.config.codeName;
+                        datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
-                            let dependency = dataDependenciesModule.nodeArray[dependencyIndex];
-                            let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex];
+                        function onFileReceived(err, text) {
+                            try {
+                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
 
-                            getFile();
-
-                            function getFile() {
-                                try {
-                                    if (datasetModule.node.config.codeName !== "Single-File") {
-                                        dependencyControlLoop();
-                                        return
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                                    if (err.message === 'File does not exist.') {
+                                        logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
+                                        callBackFunction(global.DEFAULT_RETRY_RESPONSE);
+                                    } else {
+                                        logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
+                                        callBackFunction(err);
                                     }
-
-                                    if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                                        dependencyControlLoop();
-                                        return
-                                    }
-
-                                    let fileName = "Data.json";
-                                    let filePath = datasetModule.node.parentNode.config.codeName + '/' + datasetModule.node.config.codeName;
-                                    datasetModule.getTextFile(filePath, fileName, onFileReceived);
-
-                                    function onFileReceived(err, text) {
-                                        try {
-                                            if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, "[INFO] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> text = " + text); }
-
-                                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                                if (err.message === 'File does not exist.') {
-                                                    logger.write(MODULE_NAME, "[ERROR] The file " + filePath + '/' + fileName + ' does not exist and it is required to continue. This process will retry to read it in a while. In the meantime make yourself sure that the process that generates it has ran properly.');
-                                                    callBackFunction(global.DEFAULT_RETRY_RESPONSE);
-                                                } else {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.message);
-                                                    callBackFunction(err);
-                                                }
-                                                return;
-                                            }
-
-                                            let dataFile = JSON.parse(text);
-                                            dataFiles.set(dependency.id, dataFile);
-
-                                            dependencyControlLoop();
-
-                                        }
-                                        catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                        }
-                                    }
+                                    return;
                                 }
-                                catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles -> timeFramesLoop -> dependencyLoopBody -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                        }
-                    }
 
-                    function dependencyControlLoop() {
-                        try {
-                            dependencyIndex++;
+                                let dataFile = JSON.parse(text);
+                                dataFiles.set(dependency.id, dataFile);
 
-                            if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
-                                dependencyLoopBody();
-                            } else {
-                                let mapKey = "Single Files"
-                                multiPeriodDataFiles.set(mapKey, dataFiles)
-                                processMarketFiles();
+                                dependencyControlLoop();
+
                             }
-                        }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles -> dependencyControlLoop -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            catch (err) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles ->  dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                            }
                         }
                     }
                 }
-                catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processSingleFiles -> err = " + err.stack);
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                function dependencyControlLoop() {
+                    dependencyIndex++
+                    if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
+                        dependencyLoopBody()
+                    } else {
+                        let mapKey = "Single Files"
+                        multiPeriodDataFiles.set(mapKey, dataFiles)
+                        processMarketFiles()
+                    }
                 }
             }
 

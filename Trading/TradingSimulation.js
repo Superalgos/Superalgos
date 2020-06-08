@@ -1,10 +1,7 @@
 exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILITIES) {
     const FULL_LOG = true
-    const LOG_FILE_CONTENT = false
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
     const MODULE_NAME = 'Trading Simulation -> ' + bot.SESSION.name
-
-    const GMT_SECONDS = ':00.000 GMT+0000'
 
     let thisObject = {
         finalize: finalize,
@@ -22,25 +19,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
     function runSimulation(
         chart,
         dataDependencies,
-        timeFrame,
-        timeFrameLabel,
-        currentDay,
         simulationState,
         exchangeAPI,
-        recordsArray,
-        conditionsArray,
-        strategiesArray,
-        positionsArray,
+        outputDatasets,
+        outputDatasetsMap,
         callback,
         callBackFunction) {
         try {
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> Entering function.') }
-            let processingDailyFiles
-            if (timeFrame > global.dailyFilePeriods[0][0]) {
-                processingDailyFiles = false
-            } else {
-                processingDailyFiles = true
-            }
 
             let tradingSystem = simulationState.tradingSystem
             let tradingEngine = simulationState.tradingEngine
@@ -63,12 +48,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let takePositionNow = false
             let closePositionNow = false
 
-            /* In some cases we need to know if we are positioned at the last candle of the calendar day, for that we need these variables. */
-            let lastInstantOfTheDay = 0
-            if (currentDay) {
-                lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1
-            }
-
             /* These are the Modules we will need to run the Simulation */
             const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
@@ -80,7 +59,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
             let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
-            tradingRecordsModule.initialize()
+            tradingRecordsModule.initialize(outputDatasets, outputDatasetsMap)
 
             const SNAPSHOTS_MODULE = require('./Snapshots.js')
             let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
@@ -255,18 +234,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 snapshotsModule.manageSnapshots()
-                tradingRecordsModule.addSimulationRecord()
-                tradingRecordsModule.addConditionsRecord()
-                tradingRecordsModule.addStrategyRecord()
-                tradingRecordsModule.addPositionRecord()
+                tradingRecordsModule.appendRecords()
                 annoucementsModule.makeAnnoucements()           // After everything at the simulation level was done, we will do the annoucements that are pending. 
 
                 controlLoop()
             }
 
             function controlLoop() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> Entering function.') }
-
                 /* Checking if we should continue processing this loop or not. */
                 if (bot.STOP_SESSION === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
@@ -374,7 +348,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 */
 
                 /* Finding the Current Element on Market Files */
-                if (processingDailyFiles) {
+                if (bot.processingDailyFiles) {
                     for (let j = 0; j < global.dailyFilePeriods.length; j++) {
                         let mapKey = dailyFilePeriods[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
@@ -430,7 +404,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 We skip the candle at the head of the market because it has not closed yet. The procedure to determine if we are at the head of the market is different 
 when we are processing Market Files than when we are processing Daily Files. TODO Check that the procedure is good for Beta 6
 */
-                if (processingDailyFiles) { // We are processing Daily Files
+                if (bot.processingDailyFiles) { // We are processing Daily Files
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (tradingEngine.current.candle.index.value === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {

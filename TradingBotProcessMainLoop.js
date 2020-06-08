@@ -8,9 +8,7 @@
     let USER_BOT_MODULE;
     let USER_BOT_COMMONS;
 
-    const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
-    const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
-    const MULTI_PERIOD = require(ROOT_DIR + 'MultiPeriod');
+    const TRADING_PROCESS_MODULE = require(ROOT_DIR + '/Trading/TradingProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
     const SESSION = require(ROOT_DIR + 'Session');
 
@@ -526,8 +524,8 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeExchangeAPI -> onInizialized -> Execution finished well."); }
 
                                             switch (processConfig.framework.name) {
-                                                case 'Multi-Period': {
-                                                    processFramework = MULTI_PERIOD.newMultiPeriod(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
+                                                case 'Trading-Process': {
+                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

@@ -45,8 +45,13 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
     function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
         try {
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Entering function.') }
 
+            bot.processingDailyFiles
+            if (timeFrame > global.dailyFilePeriods[0][0]) {
+                bot.processingDailyFiles = false
+            } else {
+                bot.processingDailyFiles = true
+            }
             let chart = {}
             let mainDependency = {}
 
@@ -89,7 +94,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             }
 
             /* Single Files */
-
             let dataFiles = multiPeriodDataFiles.get('Single Files')
             let products = {}
 
@@ -103,24 +107,12 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             }
 
             /* Simulation */
-
+            const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
             const TRADING_SIMULATION = require('./TradingSimulation.js')
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
-
             let market = bot.market
-
-            const SIMULATED_RECORDS_FOLDER_NAME = 'Trading-Simulation'
-            const CONDITIONS_FOLDER_NAME = 'Simulation-Conditions'
-            const STRATEGIES_FOLDER_NAME = 'Simulation-Strategies'
-            const TRADES_FOLDER_NAME = 'Simulation-Trades'
-            const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
-
-            const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
-
-            let recordsArray = []
-            let conditionsArray = []
-            let strategiesArray = []
-            let positionsArray = []
+            let totalFilesRead = 0
+            let outputDatasetsMap = new Map()
 
             let snapshotHeaders
             let triggerOnSnapshot
@@ -128,369 +120,78 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
             let tradingSystem = {}
 
-            if (bot.RESUME === true) {
-                readFiles()
-            } else {
+            if (bot.RESUME !== true) {
                 simulationState.tradingEngine = bot.SESSION.tradingEngine
                 simulationState.tradingSystem = bot.SESSION.tradingSystem
-                runSimulation()
             }
+            readFiles()
+            return
 
             function readFiles() {
-
-                if (timeFrame > global.dailyFilePeriods[0][0]) {
-                    readMarketFiles(runSimulation)
+                /* 
+                This bot have an output of files that it generates. At every call to the bot, it needs to read the previously generated
+                files in order to later append more information after the execution is over. Here in this function we are going to
+                read those output files and get them ready for appending content during the simulation.
+                */
+                if (bot.processingDailyFiles) {
+                    readDailyFiles()
                 } else {
-                    readDailyFiles(runSimulation)
+                    readMarketFiles()
                 }
             }
 
-            function readMarketFiles(callBack) {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> Entering function.') }
+            function readMarketFiles() {
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
 
-                readRecordsFile()
-
-                function readRecordsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readRecordsFile -> Entering function.') }
+                    if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SIMULATED_RECORDS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
+                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readRecordsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    recordsArray = []
-                                    readConditionsFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readRecordsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readRecordsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readRecordsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                recordsArray = JSON.parse(text)
-                                readConditionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readRecordsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readRecordsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        readOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
                     }
                 }
+            }
 
-                function readConditionsFile() {
+            function readOutputFile(fileName, filePath, productName) {
+
+                filePath += '/' + fileName
+
+                fileStorage.getTextFile(filePath, onFileRead, true)
+
+                function onFileRead(err, text) {
                     try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readConditionsFile -> Entering function.') }
 
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + CONDITIONS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readConditionsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    conditionsArray = []
-                                    readStrategiesFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                conditionsArray = JSON.parse(text)
-                                conditionsArray = conditionsArray[1] // conditionsArray[0] = a snapshot of the trading system. 
-                                readStrategiesFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
+                        if (err.message === 'File does not exist.') {
+                            outputDatasetsMap.set(productName, [])
+                            anotherFileRead()
+                            return
                         }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readConditionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
 
-                function readStrategiesFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readStrategiesFile -> Entering function.') }
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> filePath = ' + filePath)
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
 
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readStrategiesFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    strategiesArray = []
-                                    readPositionsFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readStrategiesFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readStrategiesFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                strategiesArray = JSON.parse(text)
-                                readPositionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
+                            callBackFunction(err)
+                            return
                         }
+
+                        outputDatasetsMap.set(productName, JSON.parse(text))
+                        anotherFileRead()
                     } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readStrategiesFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function readPositionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readPositionsFile -> Entering function.') }
-
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readMarketFiles -> readPositionsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    positionsArray = []
-                                    callBack()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readPositionsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readPositionsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                positionsArray = JSON.parse(text)
-                                callBack()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readPositionsFile -> err = ' + err.stack)
+                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                     }
                 }
             }
 
-            function readDailyFiles(callBack) {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> Entering function.') }
-
-                readRecordsFile()
-
-                function readRecordsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readRecordsFile -> Entering function.') }
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SIMULATED_RECORDS_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readRecordsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    recordsArray = []
-                                    readConditionsFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readRecordsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readRecordsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readRecordsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                recordsArray = JSON.parse(text)
-                                readConditionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readRecordsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readRecordsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function readConditionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readConditionsFile -> Entering function.') }
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readConditionsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    conditionsArray = []
-                                    readStrategiesFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                conditionsArray = JSON.parse(text)
-                                conditionsArray = conditionsArray[1] // conditionsArray[0] = a snapshot of the trading system. 
-                                readStrategiesFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readConditionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function readStrategiesFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readStrategiesFile -> Entering function.') }
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    strategiesArray = []
-                                    readPositionsFile()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                strategiesArray = JSON.parse(text)
-                                readPositionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readStrategiesFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function readPositionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readPositionsFile -> Entering function.') }
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.getTextFile(filePath, onFileRead, true)
-
-                        function onFileRead(err, text) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> readDailyFiles -> readPositionsFile -> onFileRead -> Entering function.') }
-
-                                if (err.message === 'File does not exist.') {
-                                    positionsArray = []
-                                    callBack()
-                                    return
-                                }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                positionsArray = JSON.parse(text)
-                                callBack()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> onFileRead -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> readDailyFiles -> readPositionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
+            function anotherFileRead() {
+                totalFilesRead++
+                if (totalFilesRead === outputDatasets.length) {
+                    runSimulation()
                 }
             }
 
@@ -498,18 +199,14 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                 tradingSimulation.runSimulation(
                     chart,
                     dataDependencies,
-                    timeFrame,
-                    timeFrameLabel,
-                    currentDay,
                     simulationState,
                     exchangeAPI,
-                    recordsArray,
-                    conditionsArray,
-                    strategiesArray,
-                    positionsArray,
+                    outputDatasets,
+                    outputDatasetsMap,
                     writeFiles,
                     callBackFunction)
             }
+
 
             function writeFiles(pTradingSystem, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
                 tradingSystem = pTradingSystem
@@ -518,10 +215,10 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                 triggerOnSnapshot = pTriggerOnSnapshot
                 takePositionSnapshot = pTakePositionSnapshot
 
-                if (timeFrame > global.dailyFilePeriods[0][0]) {
-                    writeMarketFiles()
-                } else {
+                if (bot.processingDailyFiles) {
                     writeDailyFiles()
+                } else {
+                    writeMarketFiles()
                 }
             }
 

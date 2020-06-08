@@ -1,8 +1,12 @@
-﻿exports.newMultiPeriod = function newMultiPeriod(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS) {
+﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS) {
 
+    /*
+    This Module will load all the process data dependencies from files and send them to the Trading Bot.
+    After execution, will save the time range and status report of the process.
+    */
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-    const MODULE_NAME = "Multi Period";
+    const MODULE_NAME = "Trading Process";
     const GMT_SECONDS = ':00.000 GMT+0000';
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
@@ -21,7 +25,7 @@
 
     let botInstance;
 
-    const FILE_STORAGE = require('./FileStorage.js');
+    const FILE_STORAGE = require('../FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
     let processConfig;
@@ -29,7 +33,6 @@
     return thisObject;
 
     function initialize(pProcessConfig, pStatusDependencies, pDataDependencies, exchangeAPI, callBackFunction) {
-
         try {
 
             logger.fileName = MODULE_NAME;
@@ -39,7 +42,7 @@
             dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
 
-            let USER_BOT_MODULE = require("./Trading/TradingBot")
+            let USER_BOT_MODULE = require("./TradingBot")
 
             botInstance = USER_BOT_MODULE.newTradingBot(bot, logger, UTILITIES, FILE_STORAGE);
             botInstance.initialize(exchangeAPI, callBackFunction);

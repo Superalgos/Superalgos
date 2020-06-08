@@ -27,18 +27,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     let tradingEngine
 
     let conditions = new Map()
-    let conditionsValues = []
-    let conditionsErrors = []
-
     let formulas = new Map()
-    let formulasValues = []
-    let formulasErrors = []
 
     return thisObject
 
     function initialize() {
         tradingSystem = bot.TRADING_SYSTEM
         tradingEngine = bot.TRADING_ENGINE
+
+        tradingSystem.highlights = []
+        tradingSystem.conditionsErrors = []
+        tradingSystem.formulasValues = []
+        tradingSystem.formulasErrors = []
     }
 
     function finalize() {
@@ -48,12 +48,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingEngine = undefined
 
         conditions = undefined
-        conditionsValues = undefined
-        conditionsErrors = undefined
+        tradingSystem.highlights = undefined
+        tradingSystem.conditionsErrors = undefined
 
         formulas = undefined
-        formulasValues = undefined
-        formulasErrors = undefined
+        tradingSystem.formulasValues = undefined
+        tradingSystem.formulasErrors = undefined
     }
 
     function setChart(pChart) {
@@ -151,12 +151,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         conditions.set(node.id, value)
 
         if (value === true) {
-            conditionsValues.push(1)
+            tradingSystem.highlights.push(1)
         } else {
-            conditionsValues.push(0)
+            tradingSystem.highlights.push(0)
         }
 
-        formulasErrors.push(error)
+        tradingSystem.conditionsErrors.push(error)
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value) }
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error) }
@@ -196,7 +196,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             formulaValues.push(0)
         }
 
-        formulasErrors.push(error)
+        tradingSystem.formulasErrors.push(error)
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value) }
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error) }

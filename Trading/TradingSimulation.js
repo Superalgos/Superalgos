@@ -401,9 +401,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function checkIfWeAreAtTheHeadOfTheMarket() {
                 /* 
-We skip the candle at the head of the market because it has not closed yet. The procedure to determine if we are at the head of the market is different 
-when we are processing Market Files than when we are processing Daily Files. TODO Check that the procedure is good for Beta 6
-*/
+                We skip the candle at the head of the market because it has not closed yet. The procedure to determine if we are at the head of the market is different 
+                when we are processing Market Files than when we are processing Daily Files. TODO Check that the procedure is good for Beta 6
+                */
                 if (bot.processingDailyFiles) { // We are processing Daily Files
                     let candlesPerDay = ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (tradingEngine.current.candle.index.value === candles.length - 1) {

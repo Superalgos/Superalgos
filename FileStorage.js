@@ -198,9 +198,6 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
         recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
 
         function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
-
-            logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> Entering Function.')
-
             /* Choose path for either logs or data */
             let fileLocation
             if (filePath.indexOf("/Logs/") > 0) {
@@ -210,7 +207,6 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             try {
-
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */

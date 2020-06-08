@@ -1,8 +1,5 @@
 exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STORAGE) {
     const FULL_LOG = true
-    const LOG_FILE_CONTENT = false
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
-
     const MODULE_NAME = 'Trading Bot'
 
     let thisObject = {
@@ -112,6 +109,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
             let market = bot.market
             let totalFilesRead = 0
+            let totalFilesWritten = 0
             let outputDatasetsMap = new Map()
 
             let snapshotHeaders
@@ -149,6 +147,22 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
+
+                        readOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
+                    }
+                }
+            }
+
+            function readDailyFiles() {
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
+
+                    if (dataset.config.type === 'Daily Files') {
+
+                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
+                        let fileName = 'Data.json'
+                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
                         readOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
                     }
@@ -207,14 +221,10 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     callBackFunction)
             }
 
-
-            function writeFiles(pTradingSystem, pSnapshotHeaders, pTriggerOnSnapshot, pTakePositionSnapshot) {
-                tradingSystem = pTradingSystem
-
-                snapshotHeaders = pSnapshotHeaders
-                triggerOnSnapshot = pTriggerOnSnapshot
-                takePositionSnapshot = pTakePositionSnapshot
-
+            function writeFiles() {
+                /*
+                The output of files which were appended with information during the simulation execution, now needs to be saved.
+                */
                 if (bot.processingDailyFiles) {
                     writeDailyFiles()
                 } else {
@@ -223,471 +233,69 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             }
 
             function writeMarketFiles() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> Entering function.') }
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
 
-                writeRecordsFile()
-
-                function writeRecordsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeRecordsFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(recordsArray)
+                    if (dataset.config.type === 'Market Files') {
 
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SIMULATED_RECORDS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
+                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeConditionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeRecordsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeRecordsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writeConditionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeConditionsFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(conditionsArray)
-
-                        fileContent = '[' + JSON.stringify(tradingSystem) + ',' + fileContent + ']'
-
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + CONDITIONS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeStrategiesFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeConditionsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeConditionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writeStrategiesFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeStrategiesFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(strategiesArray)
-
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writePositionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeStrategiesFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writePositionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(positionsArray)
-
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeSnapshotFiles()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writePositionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writeSnapshotFiles() {
-                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
-
-                    function onFinish() {
-                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
-                    }
-                }
-
-                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeSnapshotFile -> Entering function.') }
-
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-                        let separator = '\r\n'
-
-                        parseRecord(snapshotHeaders)
-
-                        for (let i = 0; i < snapshotArray.length; i++) {
-                            let record = snapshotArray[i]
-                            parseRecord(record)
-                            fileRecordCounter++
-                        }
-
-                        function parseRecord(record) {
-                            for (let j = 0; j < record.length; j++) {
-                                let property = record[j]
-
-                                fileContent = fileContent + '' + property
-                                if (j !== record.length - 1) {
-                                    fileContent = fileContent + ','
-                                }
-                            }
-                            fileContent = fileContent + separator
-                        }
-
-                        fileContent = '' + fileContent + ''
-
-                        let fileName = pFileName + '.csv'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SNAPSHOTS_FOLDER_NAME + '/' + 'Multi-Period-Market' + '/' + timeFrameLabel
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                callBack(global.DEFAULT_OK_RESPONSE)
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeMarketFiles -> writeSnapshotFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        writeOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
                     }
                 }
             }
 
             function writeDailyFiles() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> Entering function.') }
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
 
-                writeRecordsFile()
+                    if (dataset.config.type === 'Daily Files') {
 
-                function writeRecordsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeRecordsFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(recordsArray)
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
+                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2);
                         let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SIMULATED_RECORDS_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
+                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeConditionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeRecordsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeRecordsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                        writeOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
                     }
                 }
+            }
 
-                function writeConditionsFile() {
+            function writeOutputFile(fileName, filePath, productName) {
+
+                filePath += '/' + fileName
+                let fileContent = JSON.stringify(outputDatasetsMap.get(productName))
+
+                fileStorage.createTextFile(filePath, fileContent, onFileCreated)
+
+                function onFileCreated(err) {
                     try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeConditionsFile -> Entering function.') }
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> filePath = ' + filePath)
+                            logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> market = ' + market.baseAsset + '_' + market.quotedAsset)
 
-                        let fileContent = JSON.stringify(conditionsArray)
-
-                        fileContent = '[' + JSON.stringify(tradingSystem) + ',' + fileContent + ']'
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + CONDITIONS_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeStrategiesFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeConditionsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
+                            callBackFunction(err)
+                            return
                         }
+
+                        anotherFileWritten()
                     } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeConditionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writeStrategiesFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeStrategiesFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(strategiesArray)
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + STRATEGIES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writePositionsFile()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeStrategiesFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writePositionsFile() {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> Entering function.') }
-
-                        let fileContent = JSON.stringify(positionsArray)
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = 'Data.json'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + TRADES_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                writeSnapshotFiles()
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writePositionsFile -> err = ' + err.stack)
-                        callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                    }
-                }
-
-                function writeSnapshotFiles() {
-                    writeSnapshotFile(triggerOnSnapshot, 'Trigger-On', onFinish)
-
-                    function onFinish() {
-                        writeSnapshotFile(takePositionSnapshot, 'Take-Position', callBackFunction)
-                    }
-                }
-
-                function writeSnapshotFile(snapshotArray, pFileName, callBack) {
-                    try {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeSnapshotFile -> Entering function.') }
-
-                        let fileRecordCounter = 0
-
-                        let fileContent = ''
-                        let separator = '\r\n'
-
-                        parseRecord(snapshotHeaders)
-
-                        for (let i = 0; i < snapshotArray.length; i++) {
-                            let record = snapshotArray[i]
-                            parseRecord(record)
-                            fileRecordCounter++
-                        }
-
-                        function parseRecord(record) {
-                            for (let j = 0; j < record.length; j++) {
-                                let property = record[j]
-
-                                fileContent = fileContent + '' + property
-                                if (j !== record.length - 1) {
-                                    fileContent = fileContent + ','
-                                }
-                            }
-                            fileContent = fileContent + separator
-                        }
-
-                        fileContent = '' + fileContent + ''
-
-                        let dateForPath = currentDay.getUTCFullYear() + '/' + utilities.pad(currentDay.getUTCMonth() + 1, 2) + '/' + utilities.pad(currentDay.getUTCDate(), 2)
-                        let fileName = pFileName + '.csv'
-                        let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + SNAPSHOTS_FOLDER_NAME + '/' + 'Multi-Period-Daily' + '/' + timeFrameLabel + '/' + dateForPath
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                        function onFileCreated(err) {
-                            try {
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> Entering function.') }
-                                if (LOG_FILE_CONTENT === true) { logger.write(MODULE_NAME, '[INFO] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> fileContent = ' + fileContent) }
-
-                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = ' + err.stack)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> filePath = ' + filePath)
-                                    logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> market = ' + market.baseAsset + '_' + market.quotedAsset)
-
-                                    callBackFunction(err)
-                                    return
-                                }
-
-                                callBack(global.DEFAULT_OK_RESPONSE)
-                            } catch (err) {
-                                logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> onFileCreated -> err = ' + err.stack)
-                                callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                            }
-                        }
-                    } catch (err) {
-                        logger.write(MODULE_NAME, '[ERROR] start -> writeDailyFiles -> writeSnapshotFile -> err = ' + err.stack)
+                        logger.write(MODULE_NAME, '[ERROR] start -> readMarketFiles -> readOutputFile -> onFileRead -> err = ' + err.stack)
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                     }
                 }
             }
+
+            function anotherFileWritten() {
+                totalFilesWritten++
+                if (totalFilesWritten === outputDatasets.length) {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                }
+            }
+
         } catch (err) {
             logger.write(MODULE_NAME, '[ERROR] start -> err = ' + err.stack)
             callBackFunction(global.DEFAULT_FAIL_RESPONSE)

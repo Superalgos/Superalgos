@@ -20,7 +20,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
         chart,
         dataDependencies,
         simulationState,
-        exchangeAPI,
         outputDatasets,
         outputDatasetsMap,
         callback,
@@ -49,6 +48,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let closePositionNow = false
 
             /* These are the Modules we will need to run the Simulation */
+
+            const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
+            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
+            exchangeAPI.initialize();
+
             const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()

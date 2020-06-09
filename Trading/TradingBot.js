@@ -14,8 +14,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
     const COMMONS = require('../Commons.js')
     let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE)
 
-    let exchangeAPI
-
     return thisObject
 
     function finalize() {
@@ -25,14 +23,11 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
         commons = undefined
     }
 
-    function initialize(pExchangeAPI, callBackFunction) {
+    function initialize(callBackFunction) {
         try {
             logger.fileName = MODULE_NAME
             logger.initialize()
 
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] initialize -> Entering function.') }
-
-            exchangeAPI = pExchangeAPI
             callBackFunction(global.DEFAULT_OK_RESPONSE)
         } catch (err) {
             logger.write(MODULE_NAME, '[ERROR] initialize -> err = ' + err.stack)
@@ -42,7 +37,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
     function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
         try {
-
             bot.processingDailyFiles
             if (timeFrame > global.dailyFilePeriods[0][0]) {
                 bot.processingDailyFiles = false
@@ -104,19 +98,13 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             }
 
             /* Simulation */
-            const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
             const TRADING_SIMULATION = require('./TradingSimulation.js')
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
+
             let market = bot.market
             let totalFilesRead = 0
             let totalFilesWritten = 0
             let outputDatasetsMap = new Map()
-
-            let snapshotHeaders
-            let triggerOnSnapshot
-            let takePositionSnapshot
-
-            let tradingSystem = {}
 
             if (bot.RESUME !== true) {
                 simulationState.tradingEngine = bot.SESSION.tradingEngine
@@ -214,7 +202,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
                     chart,
                     dataDependencies,
                     simulationState,
-                    exchangeAPI,
                     outputDatasets,
                     outputDatasetsMap,
                     writeFiles,

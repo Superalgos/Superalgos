@@ -11,6 +11,11 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     let tradingEngine
 
+    const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
+
+    let snapshotHeaders
+    let triggerOnSnapshot
+    let takePositionSnapshot
 
     /* Snapshots of Trigger On and Take Positions */
     let snapshots = {

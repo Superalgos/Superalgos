@@ -98,6 +98,13 @@
             let fixedTimeLoopIntervalHandle;
             bot.STOP_SESSION = true;
 
+            /* Errors sent to the UI */
+            bot.sessionError = sessionError
+
+            /* Heartbeats sent to the UI */
+            bot.sessionHeartBeat = sessionHeartBeat
+            bot.processHeartBeat = processHeartBeat
+
             loop();
 
             function loop() {
@@ -122,9 +129,7 @@
 
                     let nextWaitTime;
 
-                    /* Heartbeats sent to the UI */
-                    bot.sessionHeartBeat = sessionHeartBeat
-                    bot.processHeartBeat = processHeartBeat
+                    /* We tell the UI that we are running. */
                     processHeartBeat()
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
@@ -898,6 +903,20 @@
                     processingDate: processingDate
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
+            }
+
+            function sessionError(node, errorMessage) {
+                let event = {
+                    nodeName: node.name,
+                    nodeType: node.type,
+                    nodeId: node.id,
+                    errorMessage: errorMessage
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     bot.STOP_SESSION = true

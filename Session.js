@@ -60,7 +60,7 @@
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = message.event.resume
-                    bot.SESSION.stop = sessionStop // stop function
+                    bot.SESSION.stop = stopSession // stop function
 
                     setUpAppSchema()
                     setUpSessionFolderName()
@@ -142,7 +142,9 @@
                 */
 
                 if (bot.SESSION.parameters === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Node with no Parameters."); }
+                    let errorMessage = "Session Node with no Parameters."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION, errorMessage)
                     return false
                 }
 
@@ -190,21 +192,29 @@
 
                 /* Time Frame */
                 if (bot.SESSION.parameters.timeFrame === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Time Frame."); }
+                    let errorMessage = "Session Parameters Node with no Time Frame."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.timeFrame.label === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Time Frame Label configuration."); }
+                if (bot.SESSION.parameters.timeFrame.config.label === undefined) {
+                    let errorMessage = "Session Parameters Node with no Time Frame Label configuration."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
                     return false
                 }
 
                 /* Session Base Asset */
                 if (bot.SESSION.parameters.sessionBaseAsset === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Session Base Asset."); }
+                    let errorMessage = "Session Parameters Node with no Session Base Asset."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters, errorMessage)
                     return false
                 }
                 if (bot.SESSION.parameters.sessionBaseAsset.config.initialBalance === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Session Base Asset with no initialBalance configuration."); }
+                    let errorMessage = "Session Parameters Session Base Asset with no initialBalance configuration."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters.sessionBaseAsset, errorMessage)
                     return false
                 }
                 if (bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance === undefined) {
@@ -216,11 +226,15 @@
 
                 /* Session Quoted Asset */
                 if (bot.SESSION.parameters.sessionQuotedAsset === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Node with no Session Quoted Asset."); }
+                    let errorMessage = "Session Parameters Node with no Session Quoted Asset."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters, errorMessage)
                     return false
                 }
                 if (bot.SESSION.parameters.sessionQuotedAsset.config.initialBalance === undefined) {
-                    if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> Session Parameters Session Quoted Asset with no initialBalance configuration."); }
+                    let errorMessage = "Session Parameters Session Quoted Asset with no initialBalance configuration."
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+                    bot.sessionError(bot.SESSION.parameters.sessionQuotedAsset, errorMessage)
                     return false
                 }
                 if (bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance === undefined) {

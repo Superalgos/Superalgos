@@ -45,6 +45,12 @@
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Run Session', undefined, bot.sessionKey, undefined, runSession)
             global.EVENT_SERVER_CLIENT.listenToEvent(bot.sessionKey, 'Stop Session', undefined, bot.sessionKey, undefined, stopSession)
 
+            /* Errors sent to the UI */
+            bot.sessionError = sessionError
+
+            /* Heartbeats sent to the UI */
+            bot.sessionHeartBeat = sessionHeartBeat
+
             callBackFunction(global.DEFAULT_OK_RESPONSE)
             return
 
@@ -369,6 +375,32 @@
                     if (timeFrameLabel === label) {
                         return value
                     }
+                }
+            }
+
+            function sessionHeartBeat(processingDate) {
+                let event = {
+                    seconds: (new Date()).getSeconds(),
+                    processingDate: processingDate
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
+                }
+            }
+
+            function sessionError(node, errorMessage) {
+                let event = {
+                    nodeName: node.name,
+                    nodeType: node.type,
+                    nodeId: node.id,
+                    errorMessage: errorMessage
+                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
+
+                if (global.STOP_TASK_GRACEFULLY === true) {
+                    bot.STOP_SESSION = true
                 }
             }
 

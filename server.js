@@ -197,6 +197,16 @@ function bootLoader() {
         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
     }
 
+    global.taskError = function taskError(node, errorMessage) {
+        let event = {
+            nodeName: node.name,
+            nodeType: node.type,
+            nodeId: node.id,
+            errorMessage: errorMessage
+        }
+        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Error', event)
+    }
+
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let config = global.TASK_NODE.bot.processes[processIndex].config
 

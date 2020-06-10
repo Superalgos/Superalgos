@@ -99,10 +99,9 @@
             bot.STOP_SESSION = true;
 
             /* Errors sent to the UI */
-            bot.sessionError = sessionError
+            bot.processError = processError
 
             /* Heartbeats sent to the UI */
-            bot.sessionHeartBeat = sessionHeartBeat
             bot.processHeartBeat = processHeartBeat
 
             loop();
@@ -897,30 +896,14 @@
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Heartbeat', event)
             }
 
-            function sessionHeartBeat(processingDate) {
-                let event = {
-                    seconds: (new Date()).getSeconds(),
-                    processingDate: processingDate
-                }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Heartbeat', event)
-
-                if (global.STOP_TASK_GRACEFULLY === true) {
-                    bot.STOP_SESSION = true
-                }
-            }
-
-            function sessionError(node, errorMessage) {
+            function processError(node, errorMessage) {
                 let event = {
                     nodeName: node.name,
                     nodeType: node.type,
                     nodeId: node.id,
                     errorMessage: errorMessage
                 }
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
-
-                if (global.STOP_TASK_GRACEFULLY === true) {
-                    bot.STOP_SESSION = true
-                }
+                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
             }
 
             function processStopped() {

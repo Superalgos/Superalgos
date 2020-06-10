@@ -48,45 +48,45 @@
 
             /* Some very basic validations that we have all the information needed. */
             if (statusDependencyNode.referenceParent === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Dependency without Reference Parent. Status Dependency = " + JSON.stringify(statusDependencyNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode, "Status Dependency without Reference Parent.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Report not attached to a Process Definition. Status Report = " + JSON.stringify(statusDependencyNode.referenceParent));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent, "Status Report not attached to a Process Definition.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition witn no codeName defined.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition not attached to a Bot. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition not attached to a Bot.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode, "Bot with no codeName defined.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode, "Bot not attached to a Data Mine.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode, "Data Mine witn no codeName defined.")
                 return
+            }
+
+            function validationFailed(errorInNode, errorMessage) {
+                let nodeString = JSON.stringify(errorInNode)
+                logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
+                bot.processError(errorInNode, errorMessage)
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 
             /* Simplifying the access to basic info */

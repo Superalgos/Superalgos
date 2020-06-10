@@ -85,7 +85,7 @@
             }
 
         } catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -99,21 +99,23 @@
 
             let fixedTimeLoopIntervalHandle;
 
-            if (bot.runAtFixedInterval === true) {
+            /* Errors sent to the UI */
+            bot.processError = processError
 
+            /* Heartbeats sent to the UI */
+            bot.processHeartBeat = processHeartBeat
+
+            if (bot.runAtFixedInterval === true) {
                 fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
                 loop(); // First run.
-
             } else {
-
                 loop();
-
             }
 
             function loop() {
 
                 try {
-                    processHeartBeat(undefined, undefined, "Running...") 
+                    processHeartBeat(undefined, undefined, "Running...")
                     function pad(str, max) {
                         str = str.toString();
                         return str.length < max ? pad(" " + str, max) : str;
@@ -134,26 +136,25 @@
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
-                    /* Loop Heartbeat sent to the UI */
-                    bot.processHeartBeat = processHeartBeat
-                    processHeartBeat() 
+                    /* We tell the UI that we are running. */
+                    processHeartBeat()
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
 
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
-                    const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents'); 
-                    const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');   
+                    const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents');
+                    const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
 
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
-                    /* High level log entry  */ 
+                    /* High level log entry  */
 
-                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10)  + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30) 
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) )
+                    console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8))
 
                     /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
 
@@ -374,7 +375,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.stack);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -385,7 +386,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -464,7 +465,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.stack);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -475,7 +476,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -564,7 +565,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.stack);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -575,7 +576,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -598,7 +599,7 @@
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents ->  onFinished -> Entering function."); }
 
                                     processExecutionEvents.finalize()
-                                    processExecutionEvents =  undefined
+                                    processExecutionEvents = undefined
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
@@ -676,7 +677,7 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
-                            if(global.WRITE_LOGS_TO_FILES === 'true'){
+                            if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.persist();
                             }
 
@@ -703,8 +704,8 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.") 
-                                    if(global.WRITE_LOGS_TO_FILES === 'true'){
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
+                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
                                         logger.persist();
                                     }
                                 }
@@ -715,7 +716,7 @@
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
-                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.") 
+                                    processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
                                     logger.persist();
                                 }
                                     break;
@@ -727,7 +728,7 @@
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
-                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.") 
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
                                         logger.persist();
                                     }
                                 }
@@ -740,7 +741,7 @@
                                     } else {
                                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
                                         nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
-                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.") 
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
                                         logger.persist();
                                     }
                                 }
@@ -805,7 +806,7 @@
                     }
 
                 } catch (err) {
-                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = "+ err.stack);
+                    parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
                     clearInterval(fixedTimeLoopIntervalHandle);
                     clearTimeout(nextLoopTimeoutHandle);
                     clearTimeout(checkLoopHealthHandle);
@@ -830,7 +831,7 @@
         }
 
         catch (err) {
-            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = "+ err.stack);
+            parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
             clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
             clearTimeout(checkLoopHealthHandle);

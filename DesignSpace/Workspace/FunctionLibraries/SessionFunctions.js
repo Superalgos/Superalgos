@@ -41,6 +41,7 @@ function newSessionFunctions () {
 
     lightingPath = '' +
     'Trading Engine->' +
+    'Dynamic Indicators->Indicator Function->Formula->' +
     'Episode->Current->Last->Previous->' +
     'Episode Counters->Episode Statistics->' +
     'Periods->Positions->Hits->Fails->' +
@@ -63,7 +64,7 @@ function newSessionFunctions () {
     lightingPath = '' +
     'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
     'Parameters->' +
-    'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
+    'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->User Defined Parameters->' +
     'Exchange Account Asset->Asset->' +
     'Social Bots->Telegram Bot->'
 

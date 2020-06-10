@@ -9,7 +9,7 @@
     }
 
     const SOCIAL_BOTS_MODULE = require('./SocialBots.js')
-    let socialBotsModule = SOCIAL_BOTS_MODULE.newSocialBots(bot, logger)
+    let socialBotsModule = SOCIAL_BOTS_MODULE.newSocialBots(bot, parentLogger)
 
     return thisObject;
 

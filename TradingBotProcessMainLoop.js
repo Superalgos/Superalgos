@@ -166,7 +166,7 @@
                         console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
                             + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
 
-                        nextWaitTime = 'Normal';
+                        nextWaitTime = 'Waiting for Session';
                         loopControl(nextWaitTime);
                         return
                     }
@@ -745,12 +745,38 @@
                         function onContinue() {
                             /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
                             switch (nextWaitTime) {
+                                case 'Waiting for Session': {
+                                    let waitTime = processConfig.sessionRunWaitTime
+                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
+                                    let waitingTime = waitTime / 1000 / 60
+                                    let label = 'minute/s'
+                                    if (waitingTime < 1) {
+                                        waitingTime = waitTime / 1000
+                                        label = 'seconds'
+                                    }
+                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ")
+                                    logger.persist();
+                                }
+                                    break
                                 case 'Normal': {
                                     let waitTime
-                                    if (bot.SESSION.type === 'Live Trading Session' || bot.SESSION.type === 'Fordward Testion Session') {
-                                        waitTime = processConfig.liveWaitTime
-                                    } else {
-                                        waitTime = processConfig.normalWaitTime
+                                    switch (bot.SESSION.type) {
+                                        case 'Live Trading Session': {
+                                            waitTime = processConfig.liveTradingWaitTime
+                                        }
+                                            break
+                                        case 'Fordward Tessting Session': {
+                                            waitTime = processConfig.fordwardTestingWaitTime
+                                        }
+                                            break
+                                        case 'Paper Trading Session': {
+                                            waitTime = processConfig.paperTradingWaitTime
+                                        }
+                                            break
+                                        case 'Backtesting Session': {
+                                            waitTime = processConfig.backtestingWaitTime
+                                        }
+                                            break
                                     }
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
@@ -765,9 +791,7 @@
                                         label = 'seconds'
                                     }
                                     processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for next execution.")
-                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
-                                        logger.persist();
-                                    }
+                                    logger.persist();
                                 }
                                     break;
                                 case 'Retry': {

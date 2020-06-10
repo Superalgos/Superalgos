@@ -144,7 +144,7 @@
                 processInstance.referenceParent.config.framework !== undefined &&
                 (processInstance.referenceParent.config.framework.name === 'Multi-Period-Market' ||
                     processInstance.referenceParent.config.framework.name === 'Multi-Period-Daily' ||
-                    processInstance.referenceParent.config.framework.name === 'Multi-Period')
+                    processInstance.referenceParent.config.framework.name === 'Trading-Process')
             ) {
                 botConfig = processInstance.referenceParent.parentNode.config
                 botConfig.definedByUI = true

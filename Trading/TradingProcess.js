@@ -79,7 +79,6 @@
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-
             let simulationState
 
             getContextVariables();
@@ -127,7 +126,7 @@
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
 
                     /* Validation that the data is not up-to-date. */
-                    if (bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
+                    if (bot.tradingProcessDate.valueOf() - ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> " + "Head of the market is @ " + contextVariables.dateEndOfMarket); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> You need to UPDATE your datasets in order to run a " + bot.SESSION.type) }
@@ -364,18 +363,18 @@
                     callTheBot()
                     return
                 }
-                bot.multiPeriodProcessDatetime = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                bot.tradingProcessDate = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
                 advanceTime();
 
                 function advanceTime() {
-                    bot.multiPeriodProcessDatetime = new Date(bot.multiPeriodProcessDatetime.valueOf() + ONE_DAY_IN_MILISECONDS);
-                    previousDay = new Date(bot.multiPeriodProcessDatetime.valueOf() - ONE_DAY_IN_MILISECONDS);
+                    bot.tradingProcessDate = new Date(bot.tradingProcessDate.valueOf() + ONE_DAY_IN_MILISECONDS);
+                    previousDay = new Date(bot.tradingProcessDate.valueOf() - ONE_DAY_IN_MILISECONDS);
 
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> bot.multiPeriodProcessDatetime = " + bot.multiPeriodProcessDatetime); }
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> bot.tradingProcessDate = " + bot.tradingProcessDate); }
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> previousDay = " + previousDay); }
 
                     /* Validation that we are not going past the user defined end date. */
-                    if (bot.multiPeriodProcessDatetime.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                    if (bot.tradingProcessDate.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
 
                         const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> " + logText); }
@@ -386,7 +385,7 @@
                     }
 
                     /* Validation that we are not going past the head of the market. */
-                    if (bot.multiPeriodProcessDatetime.valueOf() > contextVariables.dateEndOfMarket.valueOf() + ONE_DAY_IN_MILISECONDS - 1) {
+                    if (bot.tradingProcessDate.valueOf() > contextVariables.dateEndOfMarket.valueOf() + ONE_DAY_IN_MILISECONDS - 1) {
 
                         const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> " + logText); }
@@ -418,7 +417,7 @@
 
                 function timeFramesLoop() {
                     /*  Telling the world we are alive and doing well */
-                    let processingDate = bot.multiPeriodProcessDatetime.getUTCFullYear() + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
+                    let processingDate = bot.tradingProcessDate.getUTCFullYear() + '-' + utilities.pad(bot.tradingProcessDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.tradingProcessDate.getUTCDate(), 2);
                     bot.processHeartBeat(processingDate)
                     /*
                     We will iterate through all posible timeFrames.
@@ -471,7 +470,7 @@
                                 }
                             }
 
-                            let dateForPath = bot.multiPeriodProcessDatetime.getUTCFullYear() + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.multiPeriodProcessDatetime.getUTCDate(), 2);
+                            let dateForPath = bot.tradingProcessDate.getUTCFullYear() + '/' + utilities.pad(bot.tradingProcessDate.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.tradingProcessDate.getUTCDate(), 2);
                             let filePath
                             if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
@@ -536,73 +535,73 @@
                         }
                     }
                 }
+            }
 
-                function callTheBot() {
-                    botInstance.start(
-                        multiPeriodDataFiles,
-                        currentTimeFrame,
-                        currentTimeFrameLabel,
-                        bot.multiPeriodProcessDatetime,
-                        simulationState,
-                        onBotFinished);
+            function callTheBot() {
+                botInstance.start(
+                    multiPeriodDataFiles,
+                    currentTimeFrame,
+                    currentTimeFrameLabel,
+                    bot.tradingProcessDate,
+                    simulationState,
+                    onBotFinished);
 
-                    function onBotFinished(err) {
-                        try {
-                            if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                callBackFunction(err);
-                                return;
-                            }
+                function onBotFinished(err) {
+                    try {
+                        if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                            callBackFunction(err);
+                            return;
+                        }
 
-                            botNeverRan = false
-                            bot.RESUME = true // From here on, all other loops executions must resume from where we left at this current run.
+                        botNeverRan = false
+                        bot.RESUME = true // From here on, all other loops executions must resume from where we left at this current run.
 
-                            if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
-                                writeMarketStatusReport(onMarketStatusReport)
+                        if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
+                            writeMarketStatusReport(onMarketStatusReport)
 
-                            } else {
-                                writeDataRanges(currentTimeFrameLabel, onWritten);
-                            }
+                        } else {
+                            writeDataRanges(currentTimeFrameLabel, onWritten);
+                        }
 
-                            function onWritten(err) {
-                                try {
+                        function onWritten(err) {
+                            try {
 
-                                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
-                                        callBackFunction(err);
-                                        return;
-                                    }
-
-                                    writeDailyStatusReport(bot.multiPeriodProcessDatetime, onDailyStatusReport);
-                                } catch (err) {
+                                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
-                                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                }
-                            }
-
-                            function onDailyStatusReport() {
-                                /* The next run we need the process to continue at the date it finished. */
-                                processConfig.framework.startDate.resumeExecution = true;
-                                advanceTime();
-                            }
-
-                            function onMarketStatusReport() {
-                                /* This is where we check if we need reached the user defined end datetime.  */
-                                const now = new Date()
-                                if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
-                                    const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
-
-                                    bot.STOP_SESSION = true
-                                    callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                    callBackFunction(err);
                                     return;
                                 }
-                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+
+                                writeDailyStatusReport(bot.tradingProcessDate, onDailyStatusReport);
+                            } catch (err) {
+                                logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
+                                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
-                        catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> err = " + err.stack);
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+
+                        function onDailyStatusReport() {
+                            /* The next run we need the process to continue at the date it finished. */
+                            processConfig.framework.startDate.resumeExecution = true;
+                            advanceTime();
                         }
+
+                        function onMarketStatusReport() {
+                            /* This is where we check if we need reached the user defined end datetime.  */
+                            const now = new Date()
+                            if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                                const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
+
+                                bot.STOP_SESSION = true
+                                callBackFunction(global.DEFAULT_OK_RESPONSE);
+                                return;
+                            }
+                            callBackFunction(global.DEFAULT_OK_RESPONSE);
+                        }
+                    }
+                    catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> err = " + err.stack);
+                        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
             }
@@ -613,7 +612,7 @@
 
                 function productLoopBody() {
                     let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                    writeDataRange(contextVariables.dateBeginOfMarket, bot.multiPeriodProcessDatetime, productCodeName, currentTimeFrameLabel, controlLoop);
+                    writeDataRange(contextVariables.dateBeginOfMarket, bot.tradingProcessDate, productCodeName, currentTimeFrameLabel, controlLoop);
                 }
 
                 function controlLoop() {
@@ -680,7 +679,7 @@
                 thisReport.file.simulationState = simulationState;
                 thisReport.save(callBack);
 
-                logger.newInternalLoop(bot.codeName, bot.process, bot.multiPeriodProcessDatetime);
+                logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);
             }
         }
         catch (err) {

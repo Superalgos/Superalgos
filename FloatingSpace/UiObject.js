@@ -33,6 +33,7 @@ function newUiObject () {
     showAvailabilityToReferenceAttach: showAvailabilityToReferenceAttach,
     highlight: highlight,
     setErrorMessage: setErrorMessage,
+    resetErrorMessage: resetErrorMessage,
     setValue: setValue,
     setPercentage: setPercentage,
     setStatus: setStatus,
@@ -107,6 +108,7 @@ function newUiObject () {
   let currentStatus = ''
   let rightDragging = false
 
+  let eventSubscriptionIdOnError
   let eventSubscriptionIdOnRunning
   let eventSubscriptionIdOnStopped
   let lastHeartBeat
@@ -177,6 +179,9 @@ function newUiObject () {
       }
       if (eventSubscriptionIdOnStopped !== undefined) {
         eventsServerClient.stopListening(key, eventSubscriptionIdOnStopped, 'UiObject')
+      }
+      if (eventSubscriptionIdOnError !== undefined) {
+        eventsServerClient.stopListening(key, eventSubscriptionIdOnError, 'UiObject')
       }
     }
   }
@@ -710,6 +715,11 @@ function newUiObject () {
     }
   }
 
+  function resetErrorMessage () {
+    errorMessage = undefined
+    hasError = false
+  }
+
   function setValue (value, counter) {
     if (value !== undefined) {
       currentValue = value
@@ -760,6 +770,7 @@ function newUiObject () {
 
   function run (pEventsServerClient, callBackFunction) {
     finalizeEventsServerClient()
+    resetErrorMessage()
     eventsServerClient = pEventsServerClient
 
     /* We setup the circular progress bar. */
@@ -772,7 +783,12 @@ function newUiObject () {
     thisObject.circularProgressBar.fitFunction = thisObject.fitFunction
     thisObject.circularProgressBar.container = thisObject.container
 
-    /* We will wait to hear the Running event in order to confirm the execution was really started */
+    setupRunningEventListener(callBackFunction)
+    setupErrorEventListener(callBackFunction)
+  }
+
+  function setupRunningEventListener (callBackFunction) {
+      /* We will wait to hear the Running event in order to confirm the execution was really started */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
     eventsServerClient.listenToEvent(key, 'Running', undefined, 'UiObject', onResponse, onRunning)
 
@@ -813,6 +829,24 @@ function newUiObject () {
     stop(callBackFunction, event)
   }
 
+  function setupErrorEventListener (callBackFunction) {
+    let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
+    eventsServerClient.listenToEvent(key, 'Error', undefined, key, onResponse, onError)
+
+    function onResponse (message) {
+      eventSubscriptionIdOnError = message.eventSubscriptionId
+    }
+
+    function onError (message) {
+      setErrorMessage(message.event.errorMessage, 10)
+
+      let event = {
+        type: 'Secondary Action Already Executed'
+      }
+      completeStop(callBackFunction, event)
+    }
+  }
+
   function stop (callBackFunction, event) {
     /* We will wait to the event that the execution was terminated in order to call back the menu item */
     let key = thisObject.payload.node.name + '-' + thisObject.payload.node.type + '-' + thisObject.payload.node.id
@@ -823,21 +857,27 @@ function newUiObject () {
     }
 
     function onStopped () {
-      if (thisObject.payload === undefined) { return }
-      if (callBackFunction !== undefined) {
-        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
-      }
-
-      if (thisObject.circularProgressBar !== undefined) {
-        thisObject.circularProgressBar.finalize()
-        thisObject.circularProgressBar = undefined
-      }
-      thisObject.isRunning = false
-      hasValue = false
-      hasPercentage = false
-      hasStatus = false
-      lastHeartBeat = undefined
+      completeStop(callBackFunction, event)
     }
+  }
+
+  function completeStop (callBackFunction, event) {
+    if (thisObject.payload === undefined) { return }
+    if (callBackFunction !== undefined) {
+      callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, event)
+    }
+
+    if (thisObject.circularProgressBar !== undefined) {
+      thisObject.circularProgressBar.finalize()
+      thisObject.circularProgressBar = undefined
+    }
+    thisObject.isRunning = false
+    hasValue = false
+    hasPercentage = false
+    hasStatus = false
+    lastHeartBeat = undefined
+
+    finalizeEventsServerClient()
   }
 
   function iconPhysics () {
@@ -1291,7 +1331,7 @@ function newUiObject () {
       position = canvas.floatingSpace.transformPointToMap(position)
     }
 
-    let radius = thisObject.container.frame.radius * 3.5
+    let radius = thisObject.container.frame.radius * 2.5
             /* Label Text */
     let labelPoint
     let fontSize = thisObject.payload.floatingObject.currentFontSize * 3 / 4

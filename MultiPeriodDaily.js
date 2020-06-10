@@ -18,7 +18,7 @@
     let dataDependenciesModule;
     let dataFiles = new Map;
 
-    let botInstance;
+    let indicatorOutputModule;
 
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
 
@@ -42,10 +42,10 @@
             dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
 
-            let USER_BOT_MODULE = require("./IndicatorBot")
+            let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-            botInstance = USER_BOT_MODULE.newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE);
-            botInstance.initialize(callBackFunction);
+            indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(bot, logger, UTILITIES, FILE_STORAGE);
+            indicatorOutputModule.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
@@ -57,7 +57,7 @@
         dataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        botInstance = undefined
+        indicatorOutputModule = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -574,7 +574,7 @@
 
                                     } else {
 
-                                        callTheBot();
+                                        generateOutput();
 
                                     }
                                 }
@@ -584,28 +584,28 @@
                                 }
                             }
 
-                            function callTheBot() {
+                            function generateOutput() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> Entering function."); }
 
                                     const timeFrame = global.dailyFilePeriods[n][0];
                                     const timeFrameLabel = global.dailyFilePeriods[n][1];
 
-                                    botInstance.start(
+                                    indicatorOutputModule.start(
                                         dataFiles,
                                         timeFrame,
                                         timeFrameLabel,
                                         bot.multiPeriodDailyProcessDatetime,
                                         interExecutionMemoryArray[n],
-                                        onBotFinished);
+                                        onOutputGenerated);
 
-                                    function onBotFinished(err) {
+                                    function onOutputGenerated(err) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> onOutputGenerated -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
@@ -617,13 +617,13 @@
                                             periodsControlLoop();
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> err = " + err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> onOutputGenerated -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }

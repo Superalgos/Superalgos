@@ -132,9 +132,9 @@
 
             /* Process Loops Declarations. */
 
-            const INDICATOR_BOT_MAIN_LOOP_MODULE = require('./IndicatorBotProcessMainLoop');
-            const SENSOR_BOT_MAIN_LOOP_MODULE = require('./SensorBotProcessMainLoop');
-            const TRADING_ENGINE_MAIN_LOOP_MODULE = require('./TradingBotProcessMainLoop');
+            const INDICATOR_BOT_MODULE = require('./IndicatorBot');
+            const SENSOR_BOT = require('./SensorBot');
+            const TRADING_BOT_MODULE = require('./TradingBot');
 
             let botConfig;
             let processInstance = global.TASK_NODE.bot.processes[processIndex]
@@ -144,7 +144,7 @@
                 processInstance.referenceParent.config.framework !== undefined &&
                 (processInstance.referenceParent.config.framework.name === 'Multi-Period-Market' ||
                     processInstance.referenceParent.config.framework.name === 'Multi-Period-Daily' ||
-                    processInstance.referenceParent.config.framework.name === 'Trading-Process')
+                    processInstance.referenceParent.config.framework.name === 'Low-Frequency-Trading-Process')
             ) {
                 botConfig = processInstance.referenceParent.parentNode.config
                 botConfig.definedByUI = true
@@ -396,14 +396,14 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> Entering function."); }
 
-                            let extractionBotMainLoop = SENSOR_BOT_MAIN_LOOP_MODULE.newSensorBotProcessMainLoop(pBotConfig, logger);
-                            extractionBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            let sensorBot = SENSOR_BOT.newSensorBot(pBotConfig, logger);
+                            sensorBot.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    extractionBotMainLoop.run(whenRunFinishes);
+                                    sensorBot.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
@@ -461,14 +461,14 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runIndicatorBot -> Entering function."); }
 
-                            let indicatorBotMainLoop = INDICATOR_BOT_MAIN_LOOP_MODULE.newIndicatorBotProcessMainLoop(pBotConfig, logger);
-                            indicatorBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            let indicatorBot = INDICATOR_BOT_MODULE.newIndicatorBot(pBotConfig, logger);
+                            indicatorBot.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    indicatorBotMainLoop.run(whenRunFinishes);
+                                    indicatorBot.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 
@@ -524,14 +524,14 @@
 
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runTradingBot -> Entering function."); }
 
-                            let tradingBotMainLoop = TRADING_ENGINE_MAIN_LOOP_MODULE.newTradingBotProcessMainLoop(pBotConfig, logger);
-                            tradingBotMainLoop.initialize(pProcessConfig, onInitializeReady);
+                            let tradingBot = TRADING_BOT_MODULE.newTradingBot(pBotConfig, logger);
+                            tradingBot.initialize(pProcessConfig, onInitializeReady);
 
                             function onInitializeReady(err) {
 
                                 if (err.result === global.DEFAULT_OK_RESPONSE.result) {
 
-                                    tradingBotMainLoop.run(whenRunFinishes);
+                                    tradingBot.run(whenRunFinishes);
 
                                     function whenRunFinishes(err) {
 

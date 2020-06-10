@@ -1,4 +1,4 @@
-﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS) {
+﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, TRADING_OUTPUT_MODULE, USER_BOT_COMMONS) {
 
     /*
     This Module will load all the process data dependencies from files and send them to the Trading Bot.
@@ -23,7 +23,7 @@
     let dataFiles = new Map();
     let multiPeriodDataFiles = new Map();
 
-    let botInstance;
+    let tradingOutputModule;
 
     const FILE_STORAGE = require('../FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(logger);
@@ -41,9 +41,9 @@
             dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
 
-            let USER_BOT_MODULE = require("./TradingBot")
-            botInstance = USER_BOT_MODULE.newTradingBot(bot, logger, UTILITIES, FILE_STORAGE);
-            botInstance.initialize(callBackFunction);
+            let TRADING_OUTPUT_MODULE = require("./TradingOutput")
+            tradingOutputModule = TRADING_OUTPUT_MODULE.newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE);
+            tradingOutputModule.initialize(callBackFunction);
 
         } catch (err) {
             logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
@@ -56,8 +56,8 @@
         multiPeriodDataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        botInstance.finalize()
-        botInstance = undefined
+        tradingOutputModule.finalize()
+        tradingOutputModule = undefined
         fileStorage = undefined
         processConfig = undefined
         thisObject = undefined
@@ -360,7 +360,7 @@
             function processDailyFiles() {
                 let n = 0;
                 if (currentTimeFrame) {
-                    callTheBot()
+                    buildCharts()
                     return
                 }
                 bot.tradingProcessDate = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
@@ -528,7 +528,7 @@
                     } else {
                         n = 0;
                         if (currentTimeFrame !== undefined) {
-                            callTheBot();
+                            buildCharts();
                         } else {
                             logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesControlLoop -> Time Frame not Recognized. Can not continue.");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -537,16 +537,67 @@
                 }
             }
 
-            function callTheBot() {
-                botInstance.start(
-                    multiPeriodDataFiles,
+            function buildCharts() {
+                const COMMONS = require('../Commons.js')
+                let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE)
+
+                let chart = {}
+                let mainDependency = {}
+
+                /* The first phase here is about checking that we have everything we need at the definition level. */
+                let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
+                if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
+
+                let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
+                if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
+
+                /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
+                for (let j = 0; j < global.marketFilesPeriods.length; j++) {
+                    let timeFrameLabel = marketFilesPeriods[j][1]
+                    let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
+                    let products = {}
+
+                    if (dataFiles !== undefined) {
+                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+
+                        let propertyName = 'at' + timeFrameLabel.replace('-', '')
+                        chart[propertyName] = products
+                    }
+                }
+
+                for (let j = 0; j < global.dailyFilePeriods.length; j++) {
+                    let timeFrameLabel = global.dailyFilePeriods[j][1]
+                    let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
+                    let products = {}
+
+                    if (dataFiles !== undefined) {
+                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+
+                        let propertyName = 'at' + timeFrameLabel.replace('-', '')
+                        chart[propertyName] = products
+                    }
+                }
+
+                /* Single Files */
+                let dataFiles = multiPeriodDataFiles.get('Single Files')
+                let products = {}
+
+                if (dataFiles !== undefined) {
+                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+
+                    let propertyName = 'atAnyTimeFrame'
+                    chart[propertyName] = products
+                }
+
+                tradingOutputModule.start(
+                    chart,
                     currentTimeFrame,
                     currentTimeFrameLabel,
                     bot.tradingProcessDate,
                     simulationState,
-                    onBotFinished);
+                    onOutputGenerated);
 
-                function onBotFinished(err) {
+                function onOutputGenerated(err) {
                     try {
                         if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                             callBackFunction(err);
@@ -567,14 +618,14 @@
                             try {
 
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onWritten -> err = " + err.stack);
                                     callBackFunction(err);
                                     return;
                                 }
 
                                 writeDailyStatusReport(bot.tradingProcessDate, onDailyStatusReport);
                             } catch (err) {
-                                logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> onWritten -> err = " + err.stack);
+                                logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onWritten -> err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                             }
                         }
@@ -590,7 +641,7 @@
                             const now = new Date()
                             if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> callTheBot -> onBotFinished -> onMarketStatusReport -> " + logText); }
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onMarketStatusReport -> " + logText); }
 
                                 bot.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
@@ -600,7 +651,7 @@
                         }
                     }
                     catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> callTheBot -> onBotFinished -> err = " + err.stack);
+                        logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> err = " + err.stack);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }

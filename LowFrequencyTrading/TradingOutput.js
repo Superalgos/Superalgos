@@ -1,4 +1,4 @@
-exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STORAGE) {
+exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE) {
     const FULL_LOG = true
     const MODULE_NAME = 'Trading Bot'
 
@@ -10,9 +10,6 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
 
     let utilities = UTILITIES.newCloudUtilities(logger)
     let fileStorage = FILE_STORAGE.newFileStorage(logger)
-
-    const COMMONS = require('../Commons.js')
-    let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE)
 
     return thisObject
 
@@ -35,7 +32,7 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
         }
     }
 
-    function start(multiPeriodDataFiles, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
+    function start(chart, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
         try {
             bot.processingDailyFiles
             if (timeFrame > global.dailyFilePeriods[0][0]) {
@@ -43,61 +40,8 @@ exports.newTradingBot = function newTradingBot(bot, logger, UTILITIES, FILE_STOR
             } else {
                 bot.processingDailyFiles = true
             }
-            let chart = {}
-            let mainDependency = {}
 
-            /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
-            if (commons.validateDataDependencies(dataDependencies, callBackFunction) !== true) { return }
-
-            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
-            if (commons.validateOutputDatasets(outputDatasets, callBackFunction) !== true) { return }
-
-            /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
-            for (let j = 0; j < global.marketFilesPeriods.length; j++) {
-                let timeFrameLabel = marketFilesPeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                let products = {}
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Inflating Data Files for timeFrame = ' + timeFrameLabel) }
-
-                if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
-
-                    let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                    chart[propertyName] = products
-                }
-            }
-
-            for (let j = 0; j < global.dailyFilePeriods.length; j++) {
-                let timeFrameLabel = global.dailyFilePeriods[j][1]
-                let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                let products = {}
-
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Inflating Data Files for timeFrame = ' + timeFrameLabel) }
-
-                if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
-
-                    let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                    chart[propertyName] = products
-                }
-            }
-
-            /* Single Files */
-            let dataFiles = multiPeriodDataFiles.get('Single Files')
-            let products = {}
-
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] start -> Inflating Data Files from Single Files.') }
-
-            if (dataFiles !== undefined) {
-                commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
-
-                let propertyName = 'atAnyTimeFrame'
-                chart[propertyName] = products
-            }
-
-            /* Simulation */
+            /* Preparing everything for the Simulation */
             const TRADING_SIMULATION = require('./TradingSimulation.js')
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
 

@@ -1,19 +1,15 @@
-﻿exports.newTradingBotProcessMainLoop = function newTradingBotProcessMainLoop(bot, parentLogger) {
+﻿exports.newSensorBot = function newSensorBot(bot, parentLogger) {
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Trading Process Main Loop";
+    const MODULE_NAME = "Sensor Process Main Loop";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
-    let USER_BOT_COMMONS;
+    let COMMONS_MODULE;
 
-    const TRADING_PROCESS_MODULE = require(ROOT_DIR + '/Trading/TradingProcess.js');
     const FILE_STORAGE = require('./FileStorage.js');
-    const SESSION = require(ROOT_DIR + 'Session');
-
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
-    let session = SESSION.newSession(bot, parentLogger)
 
     const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
@@ -31,20 +27,19 @@
     return thisObject;
 
     function initialize(pProcessConfig, callBackFunction) {
+
         /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
+
         try {
+            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
+
             processConfig = pProcessConfig;
+
             if (bot.definedByUI === true) {
                 /* The code of the bot is defined at the UI. No need to load a file with the code. */
-                session.initialize(processConfig, onSessionInitialized)
-
-                function onSessionInitialized(err) {
-                    callBackFunction(err);
-                }
+                callBackFunction(global.DEFAULT_OK_RESPONSE);
                 return
             }
-
-            bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
 
             let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
@@ -52,6 +47,7 @@
             fileStorage.getTextFile(filePath, onBotDownloaded);
 
             function onBotDownloaded(err, text) {
+
                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onInizialized -> onBotDownloaded -> err = " + err.message);
@@ -59,9 +55,14 @@
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     return;
                 }
-
                 USER_BOT_MODULE = {}
-                USER_BOT_MODULE.newUserBot = eval(text); // Use this for production
+
+                try {
+                    USER_BOT_MODULE.newUserBot = eval(text); // TODO This needs to be changed function
+                } catch (err) {
+                    parentLogger.write(MODULE_NAME, "[ERROR] initialize -> onBotDownloaded -> err = " + err.stack);
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                }
 
                 filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo;
                 filePath += "/Commons.js"
@@ -69,22 +70,20 @@
                 fileStorage.getTextFile(filePath, onCommonsDownloaded);
 
                 function onCommonsDownloaded(err, text) {
+
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         parentLogger.write(MODULE_NAME, "[WARN] initialize -> onBotDownloaded -> onCommonsDownloaded -> Commons not found: " + err.code || err.message);
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
+                    COMMONS_MODULE = {}
 
-                    USER_BOT_COMMONS = {}
-                    USER_BOT_COMMONS.newCommons = eval(text); // Use this for production
+                    COMMONS_MODULE.newCommons = eval(text); // TODO This needs to be changed function
 
-                    session.initialize(onSessionInitialized)
-
-                    function onSessionInitialized(err) {
-                        callBackFunction(err);
-                    }
+                    callBackFunction(global.DEFAULT_OK_RESPONSE);
                 }
             }
+
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -92,11 +91,13 @@
     }
 
     function run(callBackFunction) {
+
         try {
-            /* Some initial values*/
+            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] run -> Entering function."); }
+
             bot.enableCheckLoopHealth = true;
+
             let fixedTimeLoopIntervalHandle;
-            bot.STOP_SESSION = true;
 
             /* Errors sent to the UI */
             bot.processError = processError
@@ -104,9 +105,15 @@
             /* Heartbeats sent to the UI */
             bot.processHeartBeat = processHeartBeat
 
-            loop();
+            if (bot.runAtFixedInterval === true) {
+                fixedTimeLoopIntervalHandle = setInterval(loop, bot.fixedInterval);
+                loop(); // First run.
+            } else {
+                loop();
+            }
 
             function loop() {
+
                 try {
                     processHeartBeat(undefined, undefined, "Running...")
                     function pad(str, max) {
@@ -115,6 +122,7 @@
                     }
 
                     /* For each loop we want to create a new log file. */
+
                     if (logger !== undefined) {
                         logger.finalize()
                     }
@@ -126,7 +134,7 @@
                     bot.loopCounter++;
                     bot.loopStartTime = new Date().valueOf();
 
-                    let nextWaitTime;
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Entering function."); }
 
                     /* We tell the UI that we are running. */
                     processHeartBeat()
@@ -136,8 +144,6 @@
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
-                    const DATA_DEPENDENCIES = require(ROOT_DIR + 'DataDependencies');
-                    const DATA_SET = require(ROOT_DIR + 'DataSet');
                     const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents');
                     const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');
 
@@ -148,50 +154,35 @@
                     /* High level log entry  */
 
                     console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30)
-                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
+                        + "      Main Loop     # " + pad(Number(bot.loopCounter), 8))
 
-                    /* Checking if we need to need to emit any event */
-
-                    if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Running')
-                        bot.SESSION_STATUS = 'Running'
-                    }
-
-                    if (bot.SESSION_STATUS === 'Running' && bot.STOP_SESSION === true) {
-                        global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
-                        bot.SESSION_STATUS = 'Stopped'
-                    }
-
-                    /* Checking if we should process this loop or not.*/
-                    if (bot.STOP_SESSION === true) {
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran."); }
-
-                        console.log(new Date().toISOString() + " " + pad(bot.codeName, 20) + " " + pad(bot.process, 30)
-                            + " Waiting for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ");
-
-                        nextWaitTime = 'Waiting for Session';
-                        loopControl(nextWaitTime);
-                        return
-                    }
-
-                    /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+                    /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
 
                     let processExecutionEvents
                     let userBot;
-                    let processFramework;
                     let statusDependencies;
-                    let dataDependencies;
+                    let exchangeAPI;
+
+                    let nextWaitTime;
 
                     initializeProcessExecutionEvents();
 
                     function initializeProcessExecutionEvents() {
+
                         try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeProcessExecutionEvents ->  Entering function."); }
+
                             processExecutionEvents = PROCESS_EXECUTION_EVENTS.newProcessExecutionEvents(bot, logger)
+
                             processExecutionEvents.initialize(onInizialized);
 
                             function onInizialized(err) {
+
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeProcessExecutionEvents ->  onInizialized -> Entering function."); }
+
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Execution finished well.");
@@ -252,11 +243,19 @@
                     }
 
                     function startProcessExecutionEvents() {
+
                         try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents ->  Entering function."); }
+
                             processExecutionEvents.start(onStarted);
 
                             function onStarted(err) {
+
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents ->  onStarted -> Entering function."); }
+
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessExecutionEvents -> onStarted -> Execution finished well.");
@@ -323,16 +322,25 @@
                     }
 
                     function initializeStatusDependencies() {
+
                         try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies ->  Entering function."); }
+
                             statusDependencies = STATUS_DEPENDENCIES.newStatusDependencies(bot, logger, STATUS_REPORT, UTILITIES, PROCESS_OUTPUT);
+
                             statusDependencies.initialize(onInizialized);
 
                             function onInizialized(err) {
+
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies ->  onInizialized -> Entering function."); }
+
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
                                             logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
-                                            initializeDataDependencies();
+                                            initializeUserBot();
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -342,7 +350,6 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
                                             processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
                                             logger.persist();
@@ -389,112 +396,37 @@
                         }
                     }
 
-                    function initializeDataDependencies() {
+                    function initializeUserBot() {
+
                         try {
-                            dataDependencies = DATA_DEPENDENCIES.newDataDependencies(bot, logger, DATA_SET);
-                            dataDependencies.initialize(onInizialized);
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  Entering function."); }
+
+                            usertBot = USER_BOT_MODULE.newUserBot(bot, logger, COMMONS_MODULE, UTILITIES, FILE_STORAGE, STATUS_REPORT, exchangeAPI);
+
+                            usertBot.initialize(statusDependencies, onInizialized);
 
                             function onInizialized(err) {
+
                                 try {
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot ->  onInizialized -> Entering function."); }
+
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well."); }
-                                            switch (processConfig.framework.name) {
-                                                case 'Trading-Process': {
-                                                    processFramework = TRADING_PROCESS_MODULE.newTradingProcess(bot, logger, UTILITIES, USER_BOT_MODULE, USER_BOT_COMMONS);
-                                                    intitializeProcessFramework();
-                                                    break;
-                                                }
-                                                default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + processConfig.framework.name);
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(err);
-                                                    return;
-                                                }
-                                            }
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> initializeUserBot -> onInizialized > Execution finished well.");
+                                            startUserBot();
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> initializeUserBot -> onInizialized > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
                                             processStopped()
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
-                                        }
-                                        default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
-                                        }
-                                    }
-
-                                } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
-                                }
-                            }
-
-                        } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
-                        }
-                    }
-
-                    function intitializeProcessFramework() {
-                        try {
-                            processFramework.initialize(processConfig, statusDependencies, dataDependencies, onInizialized);
-
-                            function onInizialized(err) {
-                                try {
-                                    switch (err.result) {
-                                        case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> intitializeProcessFramework -> onInizialized -> Execution finished well.");
-                                            startProcessFramework();
-                                            return;
-                                        }
-                                        case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
-                                            nextWaitTime = 'Retry';
-                                            loopControl(nextWaitTime);
-                                            return;
-                                        }
-                                        case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
-                                            processStopped()
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
@@ -507,7 +439,7 @@
 
                                             switch (err.message) {
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -519,8 +451,8 @@
                                             }
                                         }
                                         default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized > Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -533,7 +465,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> onInizialized -> err = " + err.stack);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -544,7 +476,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeUserBot -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -554,36 +486,35 @@
                         }
                     }
 
-                    function startProcessFramework() {
+                    function startUserBot() {
+
                         try {
-                            processFramework.start(onFinished);
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot ->  Entering function."); }
+
+                            usertBot.start(onFinished);
 
                             function onFinished(err) {
+
                                 try {
-                                    processFramework.finalize()
-                                    processFramework = undefined
-                                    dataDependencies.finalize()
-                                    dataDependencies = undefined
-                                    statusDependencies.finalize()
-                                    statusDependencies = undefined
+
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot ->  onFinished -> Entering function."); }
 
                                     switch (err.result) {
                                         case global.DEFAULT_OK_RESPONSE.result: {
-                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startProcessFramework -> onFinished -> Execution finished well.");
-                                            nextWaitTime = 'Normal';
+                                            logger.write(MODULE_NAME, "[INFO] run -> loop -> startUserBot -> onFinished > Execution finished well.");
                                             finishProcessExecutionEvents()
                                             return;
                                         }
                                         case global.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
                                             processStopped()
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Operation Failed. Aborting the process.");
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
                                             clearTimeout(nextLoopTimeoutHandle);
@@ -596,19 +527,19 @@
 
                                             switch (err.message) {
                                                 case "Dependency does not exist.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Dependency does not exist. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Dependency not ready.": {
-                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency not ready. This Loop will go to sleep.");
+                                                    logger.write(MODULE_NAME, "[WARN] run -> loop -> startUserBot -> onFinished > Dependency not ready. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
+                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled custom response received. -> err = " + err.message);
                                                     logger.persist();
                                                     clearInterval(fixedTimeLoopIntervalHandle);
                                                     clearTimeout(nextLoopTimeoutHandle);
@@ -620,8 +551,8 @@
                                             }
                                         }
                                         default: {
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished > Unhandled err.result received. -> err = " + err.message);
 
                                             logger.persist();
                                             clearInterval(fixedTimeLoopIntervalHandle);
@@ -634,7 +565,7 @@
                                     }
 
                                 } catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> onFinished -> err = " + err.stack);
                                     logger.persist();
                                     clearInterval(fixedTimeLoopIntervalHandle);
                                     clearTimeout(nextLoopTimeoutHandle);
@@ -645,7 +576,7 @@
                             }
 
                         } catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> startUserBot -> err = " + err.stack);
                             logger.persist();
                             clearInterval(fixedTimeLoopIntervalHandle);
                             clearTimeout(nextLoopTimeoutHandle);
@@ -656,11 +587,17 @@
                     }
 
                     function finishProcessExecutionEvents() {
+
                         try {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents ->  Entering function."); }
+
                             processExecutionEvents.finish(onFinished);
 
                             function onFinished(err) {
                                 try {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> finishProcessExecutionEvents ->  onFinished -> Entering function."); }
+
                                     processExecutionEvents.finalize()
                                     processExecutionEvents = undefined
 
@@ -725,83 +662,58 @@
                     }
 
                     function loopControl(nextWaitTime) {
+
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Entering function."); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime); }
 
                         /* We show we reached the end of the loop. */
-                        processHeartBeat()
-
                         /* Here we check if we must stop the loop gracefully. */
+
                         shallWeStop(onStop, onContinue);
 
                         function onStop() {
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Entering function."); }
+
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onStop -> Stopping the Loop Gracefully. See you next time!"); }
 
                             if (global.WRITE_LOGS_TO_FILES === 'true') {
                                 logger.persist();
                             }
 
-                            global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
+                            clearInterval(fixedTimeLoopIntervalHandle);
+                            clearTimeout(nextLoopTimeoutHandle);
+                            clearTimeout(checkLoopHealthHandle);
+                            bot.enableCheckLoopHealth = false;
                             processStopped()
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
+
                         }
 
                         function onContinue() {
-                            /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
-                            switch (nextWaitTime) {
-                                case 'Waiting for Session': {
-                                    let waitTime = processConfig.sessionRunWaitTime
-                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
-                                    let waitingTime = waitTime / 1000 / 60
-                                    let label = 'minute/s'
-                                    if (waitingTime < 1) {
-                                        waitingTime = waitTime / 1000
-                                        label = 'seconds'
-                                    }
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for " + bot.processNode.session.type + " " + bot.processNode.session.name + " to be ran. ")
-                                    logger.persist();
-                                }
-                                    break
-                                case 'Normal': {
-                                    let waitTime
-                                    switch (bot.SESSION.type) {
-                                        case 'Live Trading Session': {
-                                            waitTime = processConfig.liveTradingWaitTime
-                                        }
-                                            break
-                                        case 'Fordward Tessting Session': {
-                                            waitTime = processConfig.fordwardTestingWaitTime
-                                        }
-                                            break
-                                        case 'Paper Trading Session': {
-                                            waitTime = processConfig.paperTradingWaitTime
-                                        }
-                                            break
-                                        case 'Backtesting Session': {
-                                            waitTime = processConfig.backtestingWaitTime
-                                        }
-                                            break
-                                    }
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> onContinue -> Entering function."); }
+
+                            /* Sensor bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+
+                            switch (nextWaitTime) {
+                                case 'Normal': {
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.normalWaitTime / 1000) + " seconds."); }
                                     if (processConfig.deadWaitTime > 0) {
                                         checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
                                     }
-                                    nextLoopTimeoutHandle = setTimeout(loop, waitTime);
-                                    let waitingTime = waitTime / 1000 / 60
-                                    let label = 'minute/s'
-                                    if (waitingTime < 1) {
-                                        waitingTime = waitTime / 1000
-                                        label = 'seconds'
+                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.normalWaitTime);
+                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.normalWaitTime / 1000 + " seconds for next execution.")
+                                    if (global.WRITE_LOGS_TO_FILES === 'true') {
+                                        logger.persist();
                                     }
-                                    processHeartBeat(undefined, undefined, "Waiting " + waitingTime + " " + label + " for next execution.")
-                                    logger.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
                                     if (processConfig.deadWaitTime > 0) {
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
+                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.retryWaitTime * 5, bot.loopCounter);
                                     }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
@@ -809,17 +721,29 @@
                                 }
                                     break;
                                 case 'Sleep': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
-                                    logger.persist();
+                                    if (bot.runAtFixedInterval === true) {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Sleep exit point reached."); }
+                                        logger.persist();
+                                        return;
+                                    } else {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.sleepWaitTime / 60000) + " minutes."); }
+                                        nextLoopTimeoutHandle = setTimeout(loop, processConfig.sleepWaitTime);
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.sleepWaitTime / 60000 + " minutes for next execution.")
+                                        logger.persist();
+                                    }
                                 }
                                     break;
                                 case 'Coma': {
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
-                                    nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
-                                    processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
-                                    logger.persist();
+                                    if (bot.runAtFixedInterval === true) {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Fixed Interval Coma exit point reached."); }
+                                        logger.persist();
+                                        return;
+                                    } else {
+                                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.comaWaitTime / 3600000) + " hours."); }
+                                        nextLoopTimeoutHandle = setTimeout(loop, processConfig.comaWaitTime);
+                                        processHeartBeat(undefined, undefined, "Waiting " + processConfig.comaWaitTime / 3600000 + " hours for next execution.")
+                                        logger.persist();
+                                    }
                                 }
                                     break;
                             }
@@ -857,8 +781,13 @@
                     }
 
                     function shallWeStop(stopCallBack, continueCallBack) {
+
                         try {
+
                             /* IMPORTANT: This function is exactly the same on the 3 modules. */
+
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> shallWeStop -> Entering function. "); }
+
                             if (!global.STOP_TASK_GRACEFULLY) {
                                 continueCallBack();
                             } else {
@@ -909,15 +838,9 @@
             function processStopped() {
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
             }
+        }
 
-            function sessionStopped() {
-                if (bot.SESSION_STATUS === 'Running') {
-                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
-                    bot.SESSION_STATUS = 'Stopped'
-                }
-            }
-
-        } catch (err) {
+        catch (err) {
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
             clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);

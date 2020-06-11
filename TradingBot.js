@@ -19,7 +19,6 @@
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
     let nextLoopTimeoutHandle;
-    let checkLoopHealthHandle;
 
     let thisObject = {
         initialize: initialize,
@@ -94,7 +93,6 @@
     function run(callBackFunction) {
         try {
             /* Some initial values*/
-            bot.enableCheckLoopHealth = true;
             let fixedTimeLoopIntervalHandle;
             bot.STOP_SESSION = true;
 
@@ -132,7 +130,6 @@
                     processHeartBeat()
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-
                     const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
                     const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
                     const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
@@ -142,16 +139,13 @@
                     const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
-
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.
 
                     /* High level log entry  */
-
                     console.log(new Date().toISOString() + " " + pad(bot.exchange, 20) + " " + pad(bot.market.baseAsset + '/' + bot.market.quotedAsset, 10) + " " + pad(bot.codeName, 30) + " " + pad(bot.process, 30)
                         + "      Main Loop     # " + pad(Number(bot.loopCounter), 8) + " " + bot.processNode.session.type + " " + bot.processNode.session.name)
 
                     /* Checking if we need to need to emit any event */
-
                     if (bot.SESSION_STATUS === 'Idle' && bot.STOP_SESSION === false) {
                         global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Running')
                         bot.SESSION_STATUS = 'Running'
@@ -218,7 +212,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -226,7 +219,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -260,7 +252,6 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Operation Failed. Aborting the process.");
                                             global.unexpectedError = err.message
                                             processStopped()
@@ -274,7 +265,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -282,7 +272,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -325,7 +314,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -333,7 +321,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -388,7 +375,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -396,7 +382,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -443,7 +428,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -451,7 +435,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -523,7 +506,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -531,7 +513,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -576,7 +557,6 @@
                                             return
                                         }
                                     }
-
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> err = " + err.stack);
                                     global.unexpectedError = err.message
@@ -584,7 +564,6 @@
                                     return
                                 }
                             }
-
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> err = " + err.stack);
                             global.unexpectedError = err.message
@@ -611,7 +590,6 @@
 
                             global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Stopped')
                             processStopped()
-                            callBackFunction(global.DEFAULT_OK_RESPONSE);
                             return;
                         }
 
@@ -653,9 +631,6 @@
                                     }
 
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (waitTime / 1000 / 60) + " minute/s."); }
-                                    if (processConfig.deadWaitTime > 0) {
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
-                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, waitTime);
                                     let waitingTime = waitTime / 1000 / 60
                                     let label = 'minute/s'
@@ -669,9 +644,6 @@
                                     break;
                                 case 'Retry': {
                                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (processConfig.retryWaitTime / 1000) + " seconds."); }
-                                    if (processConfig.deadWaitTime > 0) {
-                                        checkLoopHealthHandle = setTimeout(checkLoopHealth, processConfig.deadWaitTime, bot.loopCounter);
-                                    }
                                     nextLoopTimeoutHandle = setTimeout(loop, processConfig.retryWaitTime);
                                     processHeartBeat(undefined, undefined, "Trying to recover from some problem. Waiting " + processConfig.retryWaitTime / 1000 + " seconds for next execution.")
                                     logger.persist();
@@ -691,36 +663,6 @@
                                     logger.persist();
                                 }
                                     break;
-                            }
-                        }
-                    }
-
-                    function checkLoopHealth(pLastLoop) {
-
-                        if (bot.enableCheckLoopHealth === false || global.STOP_TASK_GRACEFULLY === true) {
-
-                            logger.write(MODULE_NAME, "[WARN] run -> loop -> checkLoopHealth -> bot.enableCheckLoopHealth = " + bot.enableCheckLoopHealth);
-
-                            return;
-                        } // This gets disabled anytime the Main Loop is shut down by any condition.
-
-                        if (bot.loopCounter <= pLastLoop + 1) {    // This means that the next loop started but also stopped executing abruptally.
-
-                            let now = new Date().valueOf();
-
-                            if (now - bot.loopStartTime > processConfig.deadWaitTime) {
-
-                                logger.write(MODULE_NAME, "[ERROR] run -> loop -> checkLoopHealth -> Dead loop found -> pLastLoop = " + pLastLoop);
-                                console.log((new Date().toISOString() + " [ERROR] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found dead. Resurrecting it now."));
-
-                                logger.persist();                       // We persist the logs of the failed execution.
-                                clearTimeout(nextLoopTimeoutHandle);            // We cancel the timeout in case the original loop was still running and schedulled to reexecute.
-                                loop();                                 // We restart the loop so that the processing can continue.
-
-                            } else {
-
-                                console.log((new Date().toISOString() + " [WARN] run -> loop -> checkLoopHealth -> " + pad(bot.codeName, 20) + " " + pad(bot.process, 30) + " Loop # " + pad(Number(bot.loopCounter), 5) + " found delayed but still alive. No action taken."));
-
                             }
                         }
                     }
@@ -786,9 +728,6 @@
                 logger.persist();
                 clearInterval(fixedTimeLoopIntervalHandle);
                 clearTimeout(nextLoopTimeoutHandle);
-                clearTimeout(checkLoopHealthHandle);
-                bot.enableCheckLoopHealth = false;
-
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 
@@ -803,8 +742,6 @@
             parentLogger.write(MODULE_NAME, "[ERROR] run -> err = " + err.stack);
             clearInterval(fixedTimeLoopIntervalHandle);
             clearTimeout(nextLoopTimeoutHandle);
-            clearTimeout(checkLoopHealthHandle);
-            bot.enableCheckLoopHealth = false;
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

@@ -90,7 +90,7 @@
                     let statusReport;
 
                     /* We are going to use the start date as beging of market date. */
-                    contextVariables.dateBeginOfMarket = bot.VALUES_TO_USE.timeRange.initialDatetime
+                    contextVariables.dateBeginOfMarket = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)
 
                     /*
                         Here we get the status report from the bot who knows which is the end of the market.
@@ -281,7 +281,7 @@
                     let dependencyIndex = 0;
                     dataFiles = new Map();
 
-                    if (bot.VALUES_TO_USE.timeFrame === timeFrameLabel) {
+                    if (bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.marketFilesPeriods[n][0];
                         currentTimeFrameLabel = global.marketFilesPeriods[n][1];
                     }
@@ -299,7 +299,7 @@
                             }
 
                             if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                                if (!(bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                     dependencyControlLoop();
                                     return
                                 }
@@ -374,7 +374,7 @@
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> previousDay = " + previousDay); }
 
                     /* Validation that we are not going past the user defined end date. */
-                    if (bot.tradingProcessDate.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                    if (bot.tradingProcessDate.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
 
                         const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> " + logText); }
@@ -442,7 +442,7 @@
                         }
                     }
 
-                    if (bot.VALUES_TO_USE.timeFrame === timeFrameLabel) {
+                    if (bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = global.dailyFilePeriods[n][0];
                         currentTimeFrameLabel = global.dailyFilePeriods[n][1];
                     }
@@ -464,7 +464,7 @@
                             }
 
                             if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
-                                if (!(bot.VALUES_TO_USE.timeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                                if (!(bot.SESSION.parameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                     dependencyControlLoop();
                                     return
                                 }
@@ -639,7 +639,7 @@
                         function onMarketStatusReport() {
                             /* This is where we check if we need reached the user defined end datetime.  */
                             const now = new Date()
-                            if (now.valueOf() >= bot.VALUES_TO_USE.timeRange.finalDatetime.valueOf()) {
+                            if (now.valueOf() >= bot.SESSION.parameters.timeRange.config.finalDatetime) {
                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onMarketStatusReport -> " + logText); }
 

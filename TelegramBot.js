@@ -30,7 +30,7 @@ exports.newTelegramBot = function newTelegramBot(bot, logger) {
 
             thisObject.telegramAPI = new Telegram(botToken)
 
-            const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started with an initial balance of " + " " + bot.VALUES_TO_USE.initialBalanceA + " " + bot.VALUES_TO_USE.baseAsset + "."
+            const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started."
             thisObject.telegramAPI.sendMessage(thisObject.chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeTelegramBot -> Telegram API error -> err = " + err))
 
         } catch (err) {

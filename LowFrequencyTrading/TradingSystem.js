@@ -704,7 +704,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 let slippedStopLoss = tradingEngine.current.position.stopLoss.value
 
                 /* Apply the Slippage */
-                let slippageAmount = slippedStopLoss * bot.VALUES_TO_USE.slippage.stopLoss / 100
+                let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
 
                 if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                     slippedStopLoss = slippedStopLoss + slippageAmount
@@ -752,7 +752,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
                 /* Apply the Slippage */
-                let slippageAmount = slippedTakeProfit * bot.VALUES_TO_USE.slippage.takeProfit / 100
+                let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
 
                 if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
                     slippedTakeProfit = slippedTakeProfit + slippageAmount

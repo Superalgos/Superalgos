@@ -167,9 +167,13 @@
                 }
                 if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) { // if the initialDatetime is missing we create a default one.
                     bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date()).valueOf()
+                } else {
+                    bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
                 }
                 if (bot.SESSION.parameters.timeRange.config.finalDatetime === undefined) { // if the finalDatetime is missing we create a default one.
                     bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date()).valueOf()
+                } else {
+                    bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
                 }
                 /* Session Type Forced Values */
                 switch (bot.SESSION.type) {
@@ -310,7 +314,7 @@
                 bot.resumeExecution = false;
                 bot.tradingProcessDatee = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
-                pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
+                pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
                 return true
             }
 
@@ -343,7 +347,7 @@
                 bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
                 bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.VALUES_TO_USE.timeFrame)
+                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
 
                 return true
             }

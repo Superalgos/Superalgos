@@ -187,7 +187,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         tradingEngine.current.position.rate.value = getPositionRate()
 
         /* We take what was calculated at the formula and apply the slippage. */
-        let slippageAmount = tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.slippage.positionRate / 100
+        let slippageAmount = tradingEngine.current.position.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
 
         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
             tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
@@ -213,12 +213,12 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         let feePaid = 0
 
         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
+            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
             tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
         } else {
-            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
+            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
             tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
@@ -240,13 +240,13 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
         if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
 
-            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
+            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
             tradingEngine.current.balance.quotedAsset.value = 0
         } else {
 
-            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.VALUES_TO_USE.feeStructure.taker / 100
+            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
             tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
             tradingEngine.current.balance.baseAsset.value = 0

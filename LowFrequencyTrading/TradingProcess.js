@@ -558,7 +558,7 @@
                     let products = {}
 
                     if (dataFiles !== undefined) {
-                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         chart[propertyName] = products
@@ -571,7 +571,7 @@
                     let products = {}
 
                     if (dataFiles !== undefined) {
-                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+                        commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         chart[propertyName] = products
@@ -583,7 +583,7 @@
                 let products = {}
 
                 if (dataFiles !== undefined) {
-                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, timeFrame)
+                    commons.inflateDatafiles(dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                     let propertyName = 'atAnyTimeFrame'
                     chart[propertyName] = products

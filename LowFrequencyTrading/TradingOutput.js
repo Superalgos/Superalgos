@@ -45,8 +45,11 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             const TRADING_SIMULATION = require('./TradingSimulation.js')
             let tradingSimulation = TRADING_SIMULATION.newTradingSimulation(bot, logger, UTILITIES)
 
+            let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
             let market = bot.market
+            let totalFilesToBeRead = 0
             let totalFilesRead = 0
+            let totalFilesToBeWritten = 0
             let totalFilesWritten = 0
             let outputDatasetsMap = new Map()
 
@@ -102,9 +105,8 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             }
 
             function readOutputFile(fileName, filePath, productName) {
-
+                totalFilesToBeRead++
                 filePath += '/' + fileName
-
                 fileStorage.getTextFile(filePath, onFileRead, true)
 
                 function onFileRead(err, text) {
@@ -136,7 +138,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
             function anotherFileRead() {
                 totalFilesRead++
-                if (totalFilesRead === outputDatasets.length) {
+                if (totalFilesRead === totalFilesToBeRead) {
                     runSimulation()
                 }
             }
@@ -144,9 +146,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             function runSimulation() {
                 tradingSimulation.runSimulation(
                     chart,
-                    dataDependencies,
                     simulationState,
-                    outputDatasets,
                     outputDatasetsMap,
                     writeFiles,
                     callBackFunction)
@@ -195,7 +195,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             }
 
             function writeOutputFile(fileName, filePath, productName) {
-
+                totalFilesToBeWritten++
                 filePath += '/' + fileName
                 let fileContent = JSON.stringify(outputDatasetsMap.get(productName))
 
@@ -222,7 +222,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
 
             function anotherFileWritten() {
                 totalFilesWritten++
-                if (totalFilesWritten === outputDatasets.length) {
+                if (totalFilesWritten === totalFilesToBeWritten) {
                     callBackFunction(global.DEFAULT_OK_RESPONSE)
                 }
             }

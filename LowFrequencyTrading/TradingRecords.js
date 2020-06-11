@@ -10,7 +10,6 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
 
     let tradingEngine
     let tradingSystem
-    let outputDatasets
     let outputDatasetsMap
 
     return thisObject
@@ -18,14 +17,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
     function initialize(pOutputDatasets, pOutputDatasetsMap) {
         tradingEngine = bot.TRADING_ENGINE
         tradingSystem = bot.TRADING_SYSTEM
-        outputDatasets = pOutputDatasets        // These are the nodes defined at the UI
         outputDatasetsMap = pOutputDatasetsMap  // These are the files turned into arrays, stored in a Map by Product codeName.
     }
 
     function finalize() {
         tradingEngine = undefined
         tradingSystem = undefined
-        outputDatasets = undefined
         outputDatasetsMap = undefined
     }
 
@@ -35,6 +32,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
+        let outputDatasets = bot.processNode.referenceParent.processOutput.outputDatasets
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]
             let dataset = outputDatasetNode.referenceParent

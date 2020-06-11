@@ -18,9 +18,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
     function runSimulation(
         chart,
-        dataDependencies,
         simulationState,
-        outputDatasets,
         outputDatasetsMap,
         callback,
         callBackFunction) {
@@ -57,13 +55,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()
 
-            const TRADING_ENGINE_MODULE = require('./TradingExecution.js')
-            let tradingExecutionModule = TRADING_ENGINE_MODULE.newTradingExecution(bot, logger)
+            const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
+            let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger)
             tradingExecutionModule.initialize()
 
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
             let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
-            tradingRecordsModule.initialize(outputDatasets, outputDatasetsMap)
+            tradingRecordsModule.initialize(outputDatasetsMap)
 
             const SNAPSHOTS_MODULE = require('./Snapshots.js')
             let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
@@ -350,6 +348,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
+                let dataDependencies = bot.processNode.referenceParent.processDependencies.dataDependencies
 
                 /* Finding the Current Element on Market Files */
                 if (bot.processingDailyFiles) {

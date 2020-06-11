@@ -4,12 +4,12 @@
     const LOG_FILE_CONTENT = false;
     const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
     const MODULE_NAME = "Trading Simulation -> " + bot.SESSION.name;
-    
+
     const GMT_SECONDS = ':00.000 GMT+0000';
 
     let thisObject = {
         finalize: finalize,
-        runSimulation: runSimulation 
+        runSimulation: runSimulation
     };
 
     let utilities = UTILITIES.newCloudUtilities(bot, logger);
@@ -45,7 +45,7 @@
             let strategiesArray = [];
             let tradesArray = [];
 
-            let tradingSystem = bot.TRADING_SYSTEM 
+            let tradingSystem = bot.TRADING_SYSTEM
 
             /* Initial Default Values */
 
@@ -150,7 +150,7 @@
                 profit: 0,
                 exitType: 0,
                 beginRate: 0,
-                endRate: 0, 
+                endRate: 0,
                 takePositionSituation: ''
             }
 
@@ -549,8 +549,8 @@
 
                 /* We are going to take snapshots of the values of indicators at key moments of the sumulation. */
 
-                let snapshotKeys =  new Map()
-                snapshotLoopHeaders = []             
+                let snapshotKeys = new Map()
+                snapshotLoopHeaders = []
                 snapshotDataRecord = []
                 saveAsLastTriggerOnSnapshot = false
                 saveAsLastTakePositionSnapshot = false
@@ -581,7 +581,7 @@
                         let thisChart = chart[propertyName]
 
                         for (let k = 0; k < dataDependencies.length; k++) {
-                            let dataDependencyNode = dataDependencies[k] 
+                            let dataDependencyNode = dataDependencies[k]
                             if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Daily') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
@@ -600,7 +600,7 @@
 
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
-                        if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Market') {continue}
+                        if (dataDependencyNode.referenceParent.code.codeName !== 'Multi-Period-Market') { continue }
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.code.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.code.pluralVariableName
                         let currentElement = getElement(thisChart[pluralVariableName], candle, 'Market' + '-' + mapKey + '-' + pluralVariableName)
@@ -618,7 +618,7 @@
                     }
                 }
 
-                let propertyName = 'atAnyTimeFrame' 
+                let propertyName = 'atAnyTimeFrame'
                 let thisChart = chart[propertyName]
 
                 for (let k = 0; k < dataDependencies.length; k++) {
@@ -1303,11 +1303,11 @@
                         minimumBalance = bot.VALUES_TO_USE.minimumBalanceB
                         maximumBalance = bot.VALUES_TO_USE.maximumBalanceB
                     }
-                    
+
                     let stopRunningDate = new Date(candle.begin)
                     if (balance <= minimumBalance) {
                         tradingSystem.error = "Min Balance @ " + stopRunningDate.toLocaleString()
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> " + tradingSystem.error ); }
+                        if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] runSimulation -> " + tradingSystem.error); }
                         afterLoop()
                         return
                     }
@@ -1335,7 +1335,7 @@
                         if (
                             strategyStage !== 'No Stage' ||
                             currentStrategyIndex !== -1
-                        )  {continue}
+                        ) { continue }
 
                         let strategy = tradingSystem.strategies[j];
 
@@ -1408,7 +1408,7 @@
                             }
                         }
                     }
-                     
+
                 }
 
                 /* Trigger Off Condition */
@@ -1537,7 +1537,7 @@
 
                                     takePositionNow = true
                                     currentTrade.takePositionSituation = situation.name
-                                    
+
                                     checkAnnouncements(triggerStage.takePosition)
                                     saveAsLastTakePositionSnapshot = true
 
@@ -1687,7 +1687,7 @@
                                             strategyStage = 'Manage Stage'
                                             checkAnnouncements(manageStage, 'Take Profit')
                                         }
-                                        
+
                                         if (processingDailyFiles) {
                                             if (positionedAtYesterday) {
                                                 yesterday.stopLossPhase = stopLossPhase;
@@ -1792,7 +1792,7 @@
 
                     if (parentNode !== undefined) {
                         let phase = parentNode.takeProfit.phases[p];
-                        if (phase === undefined) {return} // trying to jump to a phase that does not exists.
+                        if (phase === undefined) { return } // trying to jump to a phase that does not exists.
 
                         /* Check the next Phase Event. */
                         let nextPhaseEvent = phase.nextPhaseEvent;
@@ -2288,7 +2288,7 @@
                     }
 
                     takePositionAtSimulation()
-                
+
                     return
 
                     function putOpeningOrder() {
@@ -2341,20 +2341,20 @@
                         let amountA
                         let amountB
                         let orderSide
- 
+
 
                         if (baseAsset === bot.market.baseAsset) {
                             orderSide = "sell"
 
-                            orderPrice = tradePositionRate  
+                            orderPrice = tradePositionRate
 
                             amountA = tradePositionSize * orderPrice
                             amountB = tradePositionSize
- 
+
                         } else {
                             orderSide = "buy"
 
-                            orderPrice = tradePositionRate  
+                            orderPrice = tradePositionRate
 
                             amountA = tradePositionSize
                             amountB = tradePositionSize / orderPrice
@@ -2554,7 +2554,7 @@
 
                             orderPrice = ticker.last + 100; // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.
 
-                            amountA =  balanceQuotedAsset 
+                            amountA = balanceQuotedAsset
                             amountB = balanceQuotedAsset / orderPrice
 
                         } else {
@@ -2902,7 +2902,7 @@
                         baseAsset: quotedBaseAsset,
                         quotedAsset: quotedQuotedAsset,
                         marketBaseAsset: '"' + bot.market.baseAsset + '"',
-                        marketQuotedAsset: '"' + bot.market.quotedAsset +  '"' ,
+                        marketQuotedAsset: '"' + bot.market.quotedAsset + '"',
                         positionPeriods: positionPeriods,
                         positionDays: positionDays,
                         distanceToLastTriggerOn: distanceToLast.triggerOn,
@@ -2935,10 +2935,9 @@
                         currentStrategy.status = 2; // This means the strategy is open, i.e. that has a begin but no end.
                         currentStrategy.end = candle.end
                     }
-                    
+
                     /* Prepare the information for the Strategies File*/
-                    if (currentStrategy.begin !== 0 && currentStrategy.end !== 0)            
-                     {
+                    if (currentStrategy.begin !== 0 && currentStrategy.end !== 0) {
                         strategiesArray.push(currentStrategy);
 
                         currentStrategy = {
@@ -3037,7 +3036,7 @@
                     }
 
                     /* Prepare the information for the Trades File */
-                    if (currentTrade.begin !== 0 && currentTrade.end !== 0) { 
+                    if (currentTrade.begin !== 0 && currentTrade.end !== 0) {
 
                         currentTrade.profit = lastTradeProfitLoss;
 
@@ -3071,7 +3070,7 @@
                     }
 
                     /* After everything at the simulation level was done, we will do the annoucements that are pending.*/
-                    makeAnnoucements()  
+                    makeAnnoucements()
                 }
 
                 function checkAnnouncements(node, value) {
@@ -3206,7 +3205,7 @@
                                 if (existingKey === undefined) {// means that at the current loop this property of this product was not used before.
                                     snapshotKeys.set(key, key)
                                     snapshotLoopHeaders.push(key)
- 
+
                                     let value = eval(instruction)
                                     snapshotDataRecord.push(value)
                                 }
@@ -3339,7 +3338,7 @@
             }
 
             function getElement(pArray, currentCandle, datasetName) {
-                if (pArray === undefined) {return}
+                if (pArray === undefined) { return }
                 try {
                     let element;
                     for (let i = 0; i < pArray.length; i++) {
@@ -3358,13 +3357,6 @@
                                 } else {
                                     return
                                 }
-                            }
-                            if (
-                                i === pArray.length - 1 // If we reach the end of the array, then we return the last element.
-                                &&
-                                element.end < currentCandle.end
-                            ) {
-                                return element
                             }
                         }
                     }

@@ -124,7 +124,7 @@ exports.newDebugLog = function newDebugLog() {
 
             function writeLog() {
 
-                fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated);
+                fileStorage.createTextFile(filePath + '/' + fileName, contentToPersist + '\r\n' + "]", onFileCreated, undefined, true);
                 function onFileCreated(err) {
                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                         console.log("[ERROR] DebugLog -> persist -> onInizialized -> onFileCreated -> err = " + err.message);

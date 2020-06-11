@@ -2,7 +2,7 @@
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Indicator Process Main Loop";
+    const MODULE_NAME = "Indicator Bot";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -1107,11 +1107,18 @@
             }
 
             function processError(node, errorMessage) {
-                let event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    errorMessage: errorMessage
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        errorMessage: errorMessage
+                    }
+                } else {
+                    event = {
+                        errorMessage: errorMessage
+                    }
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
             }

@@ -191,13 +191,13 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
         }
     }
 
-    function createTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
+    function createTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp) {
 
         let currentRetryWriteTextFile = 0
 
-        recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
+        recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp)
 
-        function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious) {
+        function recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious, noTemp) {
             /* Choose path for either logs or data */
             let fileLocation
             if (filePath.indexOf("/Logs/") > 0) {
@@ -218,7 +218,11 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                 Then we delete the original file, if exists, and finally we rename the temporary into the original name.
                 */
                 const fs = require('fs')
-                fs.writeFile(fileLocation + '.tmp', fileContent, onFileWritenn)
+                if (noTemp === true) {
+                    fs.writeFile(fileLocation, fileContent, onFileWritenn)
+                } else {
+                    fs.writeFile(fileLocation + '.tmp', fileContent, onFileWritenn)
+                }
 
                 function onFileWritenn(err) {
                     let retryTimeToUse = FAST_RETRY_TIME_IN_MILISECONDS
@@ -231,6 +235,10 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
                         setTimeout(retry, retryTimeToUse)
                     } else {
 
+                        if (noTemp === true) {
+                            callBackFunction(global.DEFAULT_OK_RESPONSE)
+                            return
+                        }
                         if (keepPrevious === true) {
                             /*
                             In some cases, we are going to keep a copy of the previous version of the file being written. This will be usefull to recover from crashes

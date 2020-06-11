@@ -2,7 +2,7 @@
 
     const ROOT_DIR = './';
 
-    const MODULE_NAME = "Trading Process Main Loop";
+    const MODULE_NAME = "Trading Bot";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
@@ -205,49 +205,33 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> onInizialized -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeProcessExecutionEvents -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -278,47 +262,32 @@
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> onStarted -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessExecutionEvents -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -342,50 +311,34 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                             return;
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> onInizialized -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeStatusDependencies -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -408,13 +361,9 @@
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " + processConfig.framework.name);
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(err);
-                                                    return;
+                                                    global.unexpectedError = err.message
+                                                    processStopped()
+                                                    return
                                                 }
                                             }
                                             return;
@@ -426,50 +375,33 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -492,65 +424,39 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         case global.CUSTOM_OK_RESPONSE.result: {
-
-                                            switch (err.message) {
-                                                default: {
-                                                    logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(err);
-                                                    return;
-                                                }
-                                            }
+                                            logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -581,16 +487,10 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            sessionStopped()
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         case global.CUSTOM_OK_RESPONSE.result: {
 
@@ -609,49 +509,34 @@
                                                 }
                                                 default: {
                                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
-                                                    logger.persist();
-                                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                                    clearTimeout(nextLoopTimeoutHandle);
-                                                    clearTimeout(checkLoopHealthHandle);
-                                                    bot.enableCheckLoopHealth = false;
-                                                    callBackFunction(err);
-                                                    return;
+                                                    global.unexpectedError = err.message
+                                                    processStopped()
+                                                    return
                                                 }
                                             }
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -678,49 +563,33 @@
                                             return;
                                         }
                                         case global.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            processStopped()
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Operation Failed. Aborting the process.");
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(err);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                         default: {
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
                                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> Unhandled err.result received. -> err = " + err.message);
-
-                                            logger.persist();
-                                            clearInterval(fixedTimeLoopIntervalHandle);
-                                            clearTimeout(nextLoopTimeoutHandle);
-                                            clearTimeout(checkLoopHealthHandle);
-                                            bot.enableCheckLoopHealth = false;
-                                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                                            return;
+                                            global.unexpectedError = err.message
+                                            processStopped()
+                                            return
                                         }
                                     }
 
                                 } catch (err) {
                                     logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> onFinished -> err = " + err.stack);
-                                    logger.persist();
-                                    clearInterval(fixedTimeLoopIntervalHandle);
-                                    clearTimeout(nextLoopTimeoutHandle);
-                                    clearTimeout(checkLoopHealthHandle);
-                                    bot.enableCheckLoopHealth = false;
-                                    callBackFunction(err);
+                                    global.unexpectedError = err.message
+                                    processStopped()
+                                    return
                                 }
                             }
 
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> finishProcessExecutionEvents -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(err);
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
@@ -866,23 +735,17 @@
                             }
                         } catch (err) {
                             logger.write(MODULE_NAME, "[ERROR] run -> loop -> shallWeStop -> err = " + err.stack);
-                            logger.persist();
-                            clearInterval(fixedTimeLoopIntervalHandle);
-                            clearTimeout(nextLoopTimeoutHandle);
-                            clearTimeout(checkLoopHealthHandle);
-                            bot.enableCheckLoopHealth = false;
-                            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-                            return;
+                            global.unexpectedError = err.message
+                            processStopped()
+                            return
                         }
                     }
 
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] run -> loop -> err = " + err.stack);
-                    clearInterval(fixedTimeLoopIntervalHandle);
-                    clearTimeout(nextLoopTimeoutHandle);
-                    clearTimeout(checkLoopHealthHandle);
-                    bot.enableCheckLoopHealth = false;
-                    callBackFunction(err);
+                    global.unexpectedError = err.message
+                    processStopped()
+                    return
                 }
             }
 
@@ -897,17 +760,36 @@
             }
 
             function processError(node, errorMessage) {
-                let event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    errorMessage: errorMessage
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        errorMessage: errorMessage
+                    }
+                } else {
+                    event = {
+                        errorMessage: errorMessage
+                    }
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Error', event)
             }
 
             function processStopped() {
-                global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
+                if (global.unexpectedError !== undefined) {
+                    processError(undefined, "An unexpected error caused the Process to stop.")
+                } else {
+                    global.EVENT_SERVER_CLIENT.raiseEvent(bot.processKey, 'Stopped')
+                }
+                sessionStopped()
+                logger.persist();
+                clearInterval(fixedTimeLoopIntervalHandle);
+                clearTimeout(nextLoopTimeoutHandle);
+                clearTimeout(checkLoopHealthHandle);
+                bot.enableCheckLoopHealth = false;
+
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 
             function sessionStopped() {

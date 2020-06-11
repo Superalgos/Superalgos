@@ -395,11 +395,18 @@
             }
 
             function sessionError(node, errorMessage) {
-                let event = {
-                    nodeName: node.name,
-                    nodeType: node.type,
-                    nodeId: node.id,
-                    errorMessage: errorMessage
+                let event
+                if (node !== undefined) {
+                    event = {
+                        nodeName: node.name,
+                        nodeType: node.type,
+                        nodeId: node.id,
+                        errorMessage: errorMessage
+                    }
+                } else {
+                    event = {
+                        errorMessage: errorMessage
+                    }
                 }
                 global.EVENT_SERVER_CLIENT.raiseEvent(bot.sessionKey, 'Error', event)
 

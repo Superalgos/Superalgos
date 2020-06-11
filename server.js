@@ -91,6 +91,10 @@ process.on('message', message => {
 let shuttingDownProcess = false
 global.EXIT_NODE_PROCESS = function exitProcess() {
 
+    if (global.unexpectedError !== undefined) {
+        global.taskError(undefined, "An unexpected error caused the Task to stop.")
+    }
+
     if (shuttingDownProcess === true) { return }
     shuttingDownProcess = true
 
@@ -198,12 +202,20 @@ function bootLoader() {
     }
 
     global.taskError = function taskError(node, errorMessage) {
-        let event = {
-            nodeName: node.name,
-            nodeType: node.type,
-            nodeId: node.id,
-            errorMessage: errorMessage
+        let event
+        if (node !== undefined) {
+            event = {
+                nodeName: node.name,
+                nodeType: node.type,
+                nodeId: node.id,
+                errorMessage: errorMessage
+            }
+        } else {
+            event = {
+                errorMessage: errorMessage
+            }
         }
+
         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Error', event)
     }
 

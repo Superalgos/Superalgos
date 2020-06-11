@@ -300,7 +300,7 @@
             function startBackTesting(message) {
                 bot.resumeExecution = false; // TODO change this for the new way of handling resuming
                 bot.hasTheBotJustStarted = true // TODO see if this is necesary
-                bot.tradingProcessDatee = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()) //  Here we initialize the date of the process.
+                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()) //  Here we initialize the date of the process.
                 return true
             }
 
@@ -312,7 +312,7 @@
                 }
 
                 bot.resumeExecution = false;
-                bot.tradingProcessDatee = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
+                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
                 pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
                 return true
@@ -327,7 +327,7 @@
                 }
 
                 bot.resumeExecution = false;
-                bot.tradingProcessDatee = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
+                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
 
                 /* Reduce the balance */
@@ -356,7 +356,7 @@
 
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
-                bot.tradingProcessDatee = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
+                bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.label)
                 return true
             }

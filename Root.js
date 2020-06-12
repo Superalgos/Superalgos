@@ -35,7 +35,6 @@
 
     global.dailyFilePeriods = JSON.parse(global.dailyFilePeriods);
 
-    const ROOT_DIR = './';
     const MODULE_NAME = "Root";
     const WAIT_TIME_FOR_ALL_PROCESS_INSTANCES_TO_START = 10000 // This avoid a race condition that could happen if one process finished before all the other even started.
 
@@ -387,7 +386,7 @@
                         try {
                             global.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();
@@ -452,7 +451,7 @@
                         try {
                             global.TOTAL_PROCESS_INSTANCES_CREATED++
 
-                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();
@@ -515,7 +514,7 @@
                         global.TOTAL_PROCESS_INSTANCES_CREATED++
 
                         try {
-                            const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+                            const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
                             let logger;
 
                             logger = DEBUG_MODULE.newDebugLog();

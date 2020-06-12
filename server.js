@@ -25,6 +25,8 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
+global.ROOT_DIR = './';
+
 const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 global.LOGGER_MAP = new Map()
 global.SESSION_MAP = new Map()

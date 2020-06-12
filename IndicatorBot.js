@@ -1,19 +1,17 @@
 ﻿exports.newIndicatorBot = function newIndicatorBot(bot, parentLogger) {
 
-    const ROOT_DIR = './';
-
     const MODULE_NAME = "Indicator Bot";
     const FULL_LOG = true;
 
     let USER_BOT_MODULE;
     let COMMONS_MODULE;
 
-    const MULTI_PERIOD_MARKET = require(ROOT_DIR + 'MultiPeriodMarket');
-    const MULTI_PERIOD_DAILY = require(ROOT_DIR + 'MultiPeriodDaily');
+    const MULTI_PERIOD_MARKET = require(global.ROOT_DIR + 'MultiPeriodMarket');
+    const MULTI_PERIOD_DAILY = require(global.ROOT_DIR + 'MultiPeriodDaily');
     const FILE_STORAGE = require('./FileStorage.js');
     let fileStorage = FILE_STORAGE.newFileStorage(parentLogger);
 
-    const DEBUG_MODULE = require(ROOT_DIR + 'DebugLog');
+    const DEBUG_MODULE = require(global.ROOT_DIR + 'DebugLog');
     let logger; // We need this here in order for the loopHealth function to work and be able to rescue the loop when it gets in trouble.
 
     let nextLoopTimeoutHandle;
@@ -118,13 +116,13 @@
                     processHeartBeat()
 
                     /* We define here all the modules that the rest of the infraestructure, including the bots themselves can consume. */
-                    const UTILITIES = require(ROOT_DIR + 'CloudUtilities');
-                    const STATUS_REPORT = require(ROOT_DIR + 'StatusReport');
-                    const STATUS_DEPENDENCIES = require(ROOT_DIR + 'StatusDependencies');
-                    const DATA_DEPENDENCIES = require(ROOT_DIR + 'DataDependencies');
-                    const DATA_SET = require(ROOT_DIR + 'DataSet');
-                    const PROCESS_EXECUTION_EVENTS = require(ROOT_DIR + 'ProcessExecutionEvents');
-                    const PROCESS_OUTPUT = require(ROOT_DIR + 'ProcessOutput');
+                    const UTILITIES = require(global.ROOT_DIR + 'CloudUtilities');
+                    const STATUS_REPORT = require(global.ROOT_DIR + 'StatusReport');
+                    const STATUS_DEPENDENCIES = require(global.ROOT_DIR + 'StatusDependencies');
+                    const DATA_DEPENDENCIES = require(global.ROOT_DIR + 'DataDependencies');
+                    const DATA_SET = require(global.ROOT_DIR + 'DataSet');
+                    const PROCESS_EXECUTION_EVENTS = require(global.ROOT_DIR + 'ProcessExecutionEvents');
+                    const PROCESS_OUTPUT = require(global.ROOT_DIR + 'ProcessOutput');
 
                     /* We define the datetime for the process that we are running now. This will be the official processing time for both the infraestructure and the bot. */
                     bot.processDatetime = new Date();           // This will be considered the process date and time, so as to have it consistenly all over the execution.

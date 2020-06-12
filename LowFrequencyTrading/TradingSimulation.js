@@ -47,7 +47,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             /* These are the Modules we will need to run the Simulation */
 
-            const EXCHANGE_API = require(ROOT_DIR + 'ExchangeAPI');
+            const EXCHANGE_API = require(global.ROOT_DIR + 'ExchangeAPI');
             exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
             exchangeAPI.initialize();
 
@@ -280,44 +280,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 callback(tradingSystem, snapshots.headers, snapshots.triggerOn, snapshots.takePosition)
             }
 
-            function getElement(pArray, currentCandle, datasetName) {
-                if (pArray === undefined) { return }
-                try {
-                    let element
-                    for (let i = 0; i < pArray.length; i++) {
-                        element = pArray[i]
-
-                        if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
-                            return element
-                        } else {
-                            if (
-                                i > 0 &&
-                                element.end > currentCandle.end
-                            ) {
-                                let previousElement = pArray[i - 1]
-                                if (previousElement.end < currentCandle.end) {
-                                    return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
-                                } else {
-                                    return
-                                }
-                            }
-                            if (
-                                i === pArray.length - 1 // If we reach the end of the array, then we return the last element.
-                                &&
-                                element.end < currentCandle.end
-                            ) {
-                                return element
-                            }
-                        }
-                    }
-                    return
-                } catch (err) {
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
-                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
-                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
-                }
-            }
-
             function heartBeat() {
                 /* We will produce a simulation level heartbeat in order to inform the user this is running. */
                 heartBeatDate = new Date(Math.trunc(candle.begin / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
@@ -399,6 +361,37 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         currentElement = elementArray[elementArray.length - 1]
                     }
                     thisChart[singularVariableName] = currentElement
+                }
+            }
+
+            function getElement(pArray, currentCandle, datasetName) {
+                if (pArray === undefined) { return }
+                try {
+                    let element
+                    for (let i = 0; i < pArray.length; i++) {
+                        element = pArray[i]
+
+                        if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
+                            return element
+                        } else {
+                            if (
+                                i > 0 &&
+                                element.end > currentCandle.end
+                            ) {
+                                let previousElement = pArray[i - 1]
+                                if (previousElement.end < currentCandle.end) {
+                                    return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
+                                } else {
+                                    return
+                                }
+                            }
+                        }
+                    }
+                    return
+                } catch (err) {
+                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
+                    logger.write(MODULE_NAME, '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
                 }
             }
 

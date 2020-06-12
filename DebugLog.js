@@ -1,6 +1,5 @@
 exports.newDebugLog = function newDebugLog() {
 
-    const ROOT_DIR = './';
     const MODULE_NAME = "DebugLog";
 
     let executionDatetime = "D." + global.EXECUTION_DATETIME.getUTCFullYear() +

@@ -724,7 +724,11 @@
                 logger.persist();
                 clearInterval(fixedTimeLoopIntervalHandle);
                 clearTimeout(nextLoopTimeoutHandle);
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                if (global.unexpectedError !== undefined) {
+                    callBackFunction(global.DEFAULT_FAIL_RESPONSE)
+                } else {
+                    callBackFunction(global.DEFAULT_OK_RESPONSE)
+                }
             }
 
             function sessionStopped() {

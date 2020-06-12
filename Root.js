@@ -404,14 +404,11 @@
                                         let botId = pBotConfig.dataMine + "." + pBotConfig.codeName + "." + pBotConfig.process;
 
                                         if (err.result === global.DEFAULT_OK_RESPONSE.result) {
-
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot execution finished sucessfully.");
                                             logger.write(MODULE_NAME, "[INFO] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bot Id = " + botId);
 
                                             logger.persist();
-
                                         } else {
-
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> err = " + err.message);
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Execution will be stopped. ");
                                             logger.write(MODULE_NAME, "[ERROR] start -> bootingBot -> runSensorBot -> onInitializeReady -> whenStartFinishes -> Bye.");

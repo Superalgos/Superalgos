@@ -47,6 +47,8 @@ function newSessionFunctions () {
     'Periods->Positions->Hits->Fails->' +
     'Profit Loss->Hit Ratio->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
     'Formula->' +
+    'Candle->' +
+    'Begin->End->Open->Close->Min->Max->Index->' +
     'Balance->Base Asset->Quoted Asset->' +
     'Distance To Event->' +
     'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->' +

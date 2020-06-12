@@ -88,8 +88,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             initializeLoop()
 
             function initializeLoop() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initializeLoop -> Entering function.') }
-
                 if (bot.RESUME === true && tradingEngine.last.candle !== undefined) {
                     /* Estimate the Initial Candle based on the last candle saved at tradingEngine */
                     let firstBegin = candles[0].begin
@@ -266,8 +264,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             }
 
             function afterLoop() {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> afterLoop -> Entering function.') }
-
                 tradingEngineModule.finalize()
                 tradingExecutionModule.finalize()
                 tradingSystemModule.finalize()
@@ -275,8 +271,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 snapshotsModule.finalize()
                 announcementsModule.finalize()
 
-
-                callback(tradingSystem, snapshots.headers, snapshots.triggerOn, snapshots.takePosition)
+                callback()
             }
 
             function heartBeat() {

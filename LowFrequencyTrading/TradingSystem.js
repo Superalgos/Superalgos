@@ -44,9 +44,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function finalize() {
         chart = undefined
 
-        tradingSystem = undefined
-        tradingEngine = undefined
-
         conditions = undefined
         tradingSystem.highlights = undefined
         tradingSystem.conditionsErrors = undefined
@@ -54,6 +51,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         formulas = undefined
         tradingSystem.formulasValues = undefined
         tradingSystem.formulasErrors = undefined
+
+        tradingSystem = undefined
+        tradingEngine = undefined
     }
 
     function setChart(pChart) {

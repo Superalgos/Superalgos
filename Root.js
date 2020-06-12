@@ -252,7 +252,7 @@
                     let processConfig = global.TASK_NODE.bot.processes[processIndex].referenceParent.config
 
                     if (processConfig.framework !== undefined) {
-                        if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Multi-Period") {
+                        if (processConfig.framework.name === "Multi-Period-Daily" || processConfig.framework.name === "Multi-Period-Market" || processConfig.framework.name === "Low-Frequency-Trading-Process") {
                             if (processConfig.framework.startDate !== undefined) {
                                 processConfig.framework.startDate.resumeExecution = true;
                                 if (processConfig.startMode.noTime !== undefined) {

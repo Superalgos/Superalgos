@@ -607,7 +607,6 @@
 
                         if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
                             writeMarketStatusReport(onMarketStatusReport)
-
                         } else {
                             writeDataRanges(currentTimeFrameLabel, onWritten);
                         }
@@ -644,6 +643,9 @@
                                 bot.STOP_SESSION = true
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
+                            }
+                            if (bot.SESSION.type === 'Backtesting Session') {
+                                bot.STOP_SESSION = true
                             }
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                         }
@@ -709,7 +711,7 @@
             }
 
             function writeDailyStatusReport(lastFileDate, callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
+                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName + "-" + "dataSet.V1";
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.currentDaytime;
@@ -721,7 +723,7 @@
             }
 
             function writeMarketStatusReport(callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period" + "-" + "dataSet.V1";
+                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName + "-" + "dataSet.V1";
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.processDatetime;

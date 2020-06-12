@@ -54,8 +54,8 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             let outputDatasetsMap = new Map()
 
             if (bot.RESUME !== true) {
-                bot.simulationState.tradingEngine = bot.simulationState.tradingEngine
-                bot.simulationState.tradingSystem = bot.simulationState.tradingSystem
+                bot.simulationState.tradingEngine = bot.TRADING_ENGINE
+                bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
             }
             readFiles()
             return

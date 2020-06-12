@@ -102,13 +102,6 @@
                 }
             }
 
-            /* This stuff is still hardcoded and unresolved. */
-            statusDependencyNode.botVersion = {
-                "major": 1,
-                "minor": 0
-            }
-            statusDependencyNode.dataSetVersion = "dataSet.V1"
-
             if (bot.SESSION !== undefined && statusDependencyNode.bottype === "Trading Bot") {
                 sessionPath = bot.SESSION.folderName + "/"
             }
@@ -204,8 +197,8 @@
             let fileName = "Status.Report.json";
             let filePath;
 
-            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.process
 
             if (ownerId !== botId) {
 
@@ -301,8 +294,8 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> Entering function."); }
 
-            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.process
 
             if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 

@@ -772,8 +772,7 @@
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate); }
 
                 try {
-
-                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Daily" + "-" + "dataSet.V1";
+                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Daily"
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.currentDaytime;
@@ -783,7 +782,6 @@
                     thisReport.save(callBack);
 
                     bot.hasTheBotJustStarted = false;
-
                 }
                 catch (err) {
                     logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);

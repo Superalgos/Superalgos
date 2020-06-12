@@ -155,8 +155,7 @@
                     if (bot.simulationState === undefined) { bot.simulationState = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
-                        if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
-
+                        if (bot.RESUME !== true) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> Starting from the begining because bot has just started and resume execution was true."); }
                             startFromBegining();
                             return;
@@ -628,8 +627,6 @@
                         }
 
                         function onDailyStatusReport() {
-                            /* The next run we need the process to continue at the date it finished. */
-                            processConfig.framework.startDate.resumeExecution = true;
                             advanceTime();
                         }
 
@@ -711,26 +708,24 @@
             }
 
             function writeDailyStatusReport(lastFileDate, callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName + "-" + "dataSet.V1";
+                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.currentDaytime;
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.simulationState = bot.simulationState;
                 thisReport.save(callBack);
-
-                bot.hasTheBotJustStarted = false;
             }
 
             function writeMarketStatusReport(callBack) {
-                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName + "-" + "dataSet.V1";
+                let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.processDatetime;
                 thisReport.file.simulationState = bot.simulationState;
-                thisReport.save(callBack);
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);
+                thisReport.save(callBack);
             }
         }
         catch (err) {

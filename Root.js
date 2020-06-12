@@ -179,7 +179,7 @@
                             botConfig.repo = global.TASK_NODE.bot.config.repo;
                             bootingBot(processIndex);
                         } catch (err) {
-                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + JSON.stringify(err));
+                            console.log(logDisplace + "Root : [ERROR] start -> getBotConfigFromFile -> onInizialized -> onFileReceived -> err = " + err.stack);
                             return;
                         }
                     }
@@ -212,13 +212,6 @@
                     }
                     botConfig.uiStartDate = global.TASK_NODE.bot.config.startDate
                     botConfig.config = global.TASK_NODE.bot.config
-
-                    /* This stuff is still hardcoded and unresolved. */
-                    botConfig.version = {
-                        "major": 1,
-                        "minor": 0
-                    }
-                    botConfig.dataSetVersion = "dataSet.V1"
 
                     /* Loop Counter */
                     botConfig.loopCounter = 0;

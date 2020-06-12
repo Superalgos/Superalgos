@@ -4,7 +4,7 @@
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Status Dependencies";
 
-    let bot = BOT 
+    let bot = BOT
 
     let thisObject = {
         nodeArray: undefined,
@@ -47,7 +47,7 @@
                 let statusDependency = {
                     dependency: thisObject.nodeArray[i]
                 }
-                    
+
                 dependenciesToProcess.push(statusDependency)
 
             }
@@ -124,7 +124,7 @@
                         }
                     }
                     catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = "+ err.stack);
+                        logger.write(MODULE_NAME, "[ERROR] initialize -> onLoad -> err = " + err.stack);
                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                     }
                 }
@@ -137,14 +137,14 @@
                     loadCount++;
                     logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Total Added = " + loadCount);
 
-                    let key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process + "-" + statusDependency.dependency.dataSetVersion;
+                    let key = statusDependency.dependency.dataMine + "-" + statusDependency.dependency.bot + "-" + statusDependency.dependency.process
 
                     thisObject.keys.push(key);
                     thisObject.statusReports.set(key, statusReportModule);
 
                     if (statusReportModule.mainUtility !== undefined) {
                         thisObject.reportsByMainUtility.set(statusReportModule.mainUtility, statusReportModule)
-                    } 
+                    }
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] initialize -> addReport -> Report added to Map. -> key = " + key); }
 
@@ -161,7 +161,7 @@
             }
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

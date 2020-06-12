@@ -204,8 +204,8 @@ exports.newDataSet = function newDataSet(BOT, logger) {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFolderPath = " + pFolderPath); }
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] createTextFile -> pFileName = " + pFileName); }
 
-            let ownerId = thisObject.node.dataMine + "-" + thisObject.node.bot + "-" + thisObject.node.botVersion.major + "-" + thisObject.node.botVersion.minor + "-" + thisObject.node.dataSetVersion;
-            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.dataSetVersion;
+            let ownerId = thisObject.node.dataMine + "-" + thisObject.node.bot
+            let botId = bot.dataMine + "-" + bot.codeName
 
             if (ownerId !== botId) {
 

@@ -141,13 +141,6 @@
                 contextSummary.bot = outputDatasetNode.referenceParent.parentNode.parentNode.config.codeName
                 contextSummary.dataMine = outputDatasetNode.referenceParent.parentNode.parentNode.parentNode.config.codeName
 
-                /* This stuff is still hardcoded and unresolved. */
-                contextSummary.botVersion = {
-                    "major": 1,
-                    "minor": 0
-                }
-                contextSummary.dataSetVersion = "dataSet.V1"
-
                 let fileContent = commons.generateFileContent(outputData, outputDatasetNode.referenceParent.parentNode.record, resultsWithIrregularPeriods, processingDailyFiles, currentDay, callBackFunction)
                 commons.writeFile(contextSummary, fileContent, anotherFileWritten, processingDailyFiles, timeFrameLabel, currentDay, callBackFunction)
             }

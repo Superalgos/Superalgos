@@ -41,8 +41,6 @@
                 return
             }
 
-            bot.resumeExecution = processConfig.framework.startDate.resumeExecution // We are inherating this from root, but from here we need it at bot
-
             let filePath = bot.dataMine + "/" + "bots" + "/" + bot.repo + "/" + pProcessConfig.codeName
             filePath += "/User.Bot.js"
 

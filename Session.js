@@ -55,7 +55,6 @@
             return
 
             function runSession(message) {
-
                 try {
                     if (bot.SESSION_STATUS === 'Idle' || bot.SESSION_STATUS === 'Running') { return } // This happens when the UI is reloaded, the session was running and tries to run it again.
 
@@ -299,40 +298,31 @@
             }
 
             function startBackTesting(message) {
-                bot.resumeExecution = false; // TODO change this for the new way of handling resuming
-                bot.hasTheBotJustStarted = true // TODO see if this is necesary
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf()) //  Here we initialize the date of the process.
                 return true
             }
 
             function startLiveTrading(message) {
-
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) { // TODO Remove this from Process .env
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
 
-                bot.resumeExecution = false;
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                bot.hasTheBotJustStarted = true
                 pProcessConfig.liveWaitTime = sessionParameters.timeFrame.config.value
                 return true
             }
 
             function startFordwardTesting(message) {
-
                 if (process.env.KEY === undefined || process.env.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false
                 }
 
-                bot.resumeExecution = false;
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                bot.hasTheBotJustStarted = true
 
                 /* Reduce the balance */
-
                 let balancePercentage = 1 // This is the default value
 
                 if (bot.SESSION.config.balancePercentage !== undefined) {
@@ -354,9 +344,6 @@
             }
 
             function startPaperTrading(message) {
-
-                bot.resumeExecution = false;
-                bot.hasTheBotJustStarted = true
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
                 return true

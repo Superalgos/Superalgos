@@ -141,9 +141,7 @@ exports.newDebugLog = function newDebugLog() {
 
 
     function write(pModule, pMessage) {
-
         try {
-
             if (disableLogging === true) { return; }
 
             if (thisObject.bot === undefined) { return; }

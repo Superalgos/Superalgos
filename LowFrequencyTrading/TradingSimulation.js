@@ -138,6 +138,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString()) }
 
+                tradingEngineModule.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
+
                 if (checkIfWeAreAtTheHeadOfTheMarket() === false) {
                     afterLoop()
                     return
@@ -154,8 +156,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 heartBeat()
-
-                tradingEngineModule.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
                 positionChartAtCurrentCandle()
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
@@ -422,11 +422,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function checkInitialAndFinalDatetime() {
                 /* Here we check that the current candle is not outside of user-defined time range at the session parameters.*/
-                if (candle.end < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
+                if (tradingEngine.current.candle.end.value < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     return false
                 }
-                if (candle.begin > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
+                if (tradingEngine.current.candle.begin.value > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     return false
                 }
@@ -457,7 +457,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         maximumBalance = sessionParameters.sessionQuotedAsset.config.maximumBalance
                     }
 
-                    let stopRunningDate = new Date(candle.begin)
+                    let stopRunningDate = new Date(tradingEngine.current.candle.begin.value)
                     if (balance <= minimumBalance) {
                         tradingSystem.error = 'Min Balance @ ' + stopRunningDate.toLocaleString()
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkMinimunAndMaximunBalance -> ' + tradingSystem.error) }

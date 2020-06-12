@@ -213,6 +213,7 @@
                     bot.sessionError(bot.SESSION.parameters.timeFrame, errorMessage)
                     return false
                 }
+                bot.SESSION.parameters.timeFrame.config.value = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
 
                 /* Session Base Asset */
                 if (bot.SESSION.parameters.sessionBaseAsset === undefined) {
@@ -314,7 +315,7 @@
                 bot.resumeExecution = false;
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
                 bot.hasTheBotJustStarted = true
-                pProcessConfig.liveWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
+                pProcessConfig.liveWaitTime = sessionParameters.timeFrame.config.value
                 return true
             }
 
@@ -347,7 +348,7 @@
                 bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
                 bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.config.label)
+                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
 
                 return true
             }
@@ -357,7 +358,7 @@
                 bot.resumeExecution = false;
                 bot.hasTheBotJustStarted = true
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.normalWaitTime = getTimeFrameFromLabel(bot.SESSION.parameters.timeFrame.label)
+                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
                 return true
             }
 

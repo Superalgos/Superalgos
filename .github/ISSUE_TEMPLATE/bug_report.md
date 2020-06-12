@@ -21,15 +21,17 @@ assignees: ''
 
 ## Explain your issue
 
-1. Clearly explain what you wish to accomplish.
+### 1. Explain what the problem seems to be.
 
-2. Explain, step by step, what you've done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise.
+### 2. Clearly explain what you wish to accomplish.
 
-3. Explain what is the result you expect from your actions.
+### 3. Explain, step by step, what you've done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise.
 
-4. Explain what happens instead of the expected results.
+### 4. Explain what is the result you expect from your actions.
 
-5. Explain what errors you have found on-screen, on the browser console application, or in the ```Log-Files``` folder.
+### 5. Explain what happens instead of the expected results.
+
+### 6. Explain what errors you have found on-screen, on the browser console application, or in the ```Log-Files``` folder.
 
 ## Attach a video reproducing the issue
 

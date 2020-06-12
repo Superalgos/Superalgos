@@ -18,14 +18,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
     function runSimulation(
         chart,
-        simulationState,
         outputDatasetsMap,
         callback,
         callBackFunction) {
         try {
 
-            let tradingSystem = simulationState.tradingSystem
-            let tradingEngine = simulationState.tradingEngine
+            let tradingSystem = bot.simulationState.tradingSystem
+            let tradingEngine = bot.simulationState.tradingEngine
             let sessionParameters = bot.SESSION.parameters
 
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
@@ -47,7 +46,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             /* These are the Modules we will need to run the Simulation */
 
-            const EXCHANGE_API = require(global.ROOT_DIR + 'ExchangeAPI');
+            const EXCHANGE_API = require('../ExchangeAPI');
             exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
             exchangeAPI.initialize();
 

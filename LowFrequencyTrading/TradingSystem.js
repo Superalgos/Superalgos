@@ -32,8 +32,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     return thisObject
 
     function initialize() {
-        tradingSystem = bot.TRADING_SYSTEM
-        tradingEngine = bot.TRADING_ENGINE
+        tradingSystem = bot.simulationState.tradingSystem
+        tradingEngine = bot.simulationState.tradingEngine
 
         tradingSystem.highlights = []
         tradingSystem.conditionsErrors = []
@@ -61,11 +61,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function evalConditions() {
-        evalNode(bot.TRADING_SYSTEM, 'Conditions')
+        evalNode(bot.simulationState.tradingSystem, 'Conditions')
     }
 
     function evalFormulas() {
-        evalNode(bot.TRADING_SYSTEM, 'Formulas')
+        evalNode(bot.simulationState.tradingSystem, 'Formulas')
     }
 
     function evalNode(node, evaluating) {

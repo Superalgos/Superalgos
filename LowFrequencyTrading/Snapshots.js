@@ -39,7 +39,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     return thisObject
 
     function initialize() {
-        tradingEngine = bot.TRADING_ENGINE
+        tradingEngine = bot.simulationState.tradingEngine
     }
 
     function finalize() {

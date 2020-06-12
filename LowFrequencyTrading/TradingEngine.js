@@ -22,7 +22,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function initialize() {
         /* Here we will go through all the nodes in the Trading Engine hiriarchy and apply the initial value to the value property when needed */
 
-        tradingEngine = bot.TRADING_ENGINE
+        tradingEngine = bot.simulationState.tradingEngine
 
         if (tradingEngine.isInitialized !== true || bot.RESUME === false) {
             tradingEngine.isInitialized = true

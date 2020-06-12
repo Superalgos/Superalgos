@@ -15,8 +15,8 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
     return thisObject
 
     function initialize(pOutputDatasets, pOutputDatasetsMap) {
-        tradingEngine = bot.TRADING_ENGINE
-        tradingSystem = bot.TRADING_SYSTEM
+        tradingEngine = bot.simulationState.tradingEngine
+        tradingSystem = bot.simulationState.tradingSystem
         outputDatasetsMap = pOutputDatasetsMap  // These are the files turned into arrays, stored in a Map by Product codeName.
     }
 

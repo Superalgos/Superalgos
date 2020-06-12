@@ -15,7 +15,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
     function initialize() {
 
-        tradingEngine = bot.TRADING_ENGINE
+        tradingEngine = bot.simulationState.tradingEngine
 
     }
 

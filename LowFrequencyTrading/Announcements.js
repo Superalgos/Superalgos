@@ -14,7 +14,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
     return thisObject
 
     function initialize() {
-        tradingEngine = bot.TRADING_ENGINE
+        tradingEngine = bot.simulationState.tradingEngine
     }
 
     function finalize() {

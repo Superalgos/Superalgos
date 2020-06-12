@@ -32,7 +32,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
         }
     }
 
-    function start(chart, timeFrame, timeFrameLabel, currentDay, simulationState, callBackFunction) {
+    function start(chart, timeFrame, timeFrameLabel, currentDay, callBackFunction) {
         try {
             bot.processingDailyFiles
             if (timeFrame > global.dailyFilePeriods[0][0]) {
@@ -54,8 +54,8 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             let outputDatasetsMap = new Map()
 
             if (bot.RESUME !== true) {
-                simulationState.tradingEngine = bot.SESSION.tradingEngine
-                simulationState.tradingSystem = bot.SESSION.tradingSystem
+                bot.simulationState.tradingEngine = bot.simulationState.tradingEngine
+                bot.simulationState.tradingSystem = bot.simulationState.tradingSystem
             }
             readFiles()
             return
@@ -146,7 +146,6 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             function runSimulation() {
                 tradingSimulation.runSimulation(
                     chart,
-                    simulationState,
                     outputDatasetsMap,
                     writeFiles,
                     callBackFunction)

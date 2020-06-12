@@ -79,7 +79,6 @@
             };
 
             let previousDay;                        // Holds the date of the previous day relative to the processing date.
-            let simulationState
 
             getContextVariables();
 
@@ -152,8 +151,8 @@
                     }
 
                     thisReport = statusReport.file;
-                    simulationState = thisReport.simulationState;
-                    if (simulationState === undefined) { simulationState = {} } // This should happen only when there is no status report
+                    bot.simulationState = thisReport.simulationState;
+                    if (bot.simulationState === undefined) { bot.simulationState = {} } // This should happen only when there is no status report
 
                     if (thisReport.lastFile !== undefined) {
                         if (bot.hasTheBotJustStarted === true && bot.resumeExecution === false) {
@@ -594,7 +593,6 @@
                     currentTimeFrame,
                     currentTimeFrameLabel,
                     bot.tradingProcessDate,
-                    simulationState,
                     onOutputGenerated);
 
                 function onOutputGenerated(err) {
@@ -716,7 +714,7 @@
 
                 thisReport.file.lastExecution = bot.currentDaytime;
                 thisReport.file.lastFile = lastFileDate;
-                thisReport.file.simulationState = simulationState;
+                thisReport.file.simulationState = bot.simulationState;
                 thisReport.save(callBack);
 
                 bot.hasTheBotJustStarted = false;
@@ -727,7 +725,7 @@
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.processDatetime;
-                thisReport.file.simulationState = simulationState;
+                thisReport.file.simulationState = bot.simulationState;
                 thisReport.save(callBack);
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);

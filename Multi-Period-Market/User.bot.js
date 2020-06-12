@@ -96,7 +96,7 @@
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -132,7 +132,7 @@
 
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs" + "-" + "dataSet.V1" 
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -167,7 +167,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     statusReport = statusDependencies.statusReports.get(reportKey);
@@ -904,7 +904,7 @@
 
                 try {
 
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market" 
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;

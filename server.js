@@ -27,7 +27,8 @@ global.CUSTOM_FAIL_RESPONSE = {
 
 global.ROOT_DIR = './';
 
-const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+global.ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
+global.ONE_MIN_IN_MILISECONDS = 60 * 1000
 global.LOGGER_MAP = new Map()
 global.SESSION_MAP = new Map()
 
@@ -316,9 +317,9 @@ function startRoot(processIndex) {
 }
 
 global.getPercentage = function (fromDate, currentDate, lastDate) {
-    let fromDays = Math.trunc(fromDate.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let currentDays = Math.trunc(currentDate.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let lastDays = Math.trunc(lastDate.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let fromDays = Math.trunc(fromDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let currentDays = Math.trunc(currentDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let lastDays = Math.trunc(lastDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
     let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
     if ((lastDays - fromDays) === 0) {
         percentage = 100
@@ -327,8 +328,8 @@ global.getPercentage = function (fromDate, currentDate, lastDate) {
 }
 
 global.areEqualDates = function (date1, date2) {
-    let day1Days = Math.trunc(date1.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let day2Days = Math.trunc(date2.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
 
     if (day1Days === day2Days) {
         return true

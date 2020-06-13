@@ -86,7 +86,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
         /* We wont take a position unless we are withing the sessionParameters.timeRange.config.initialDatetime and the sessionParameters.timeRange.config.finalDatetime range */
         if (sessionParameters.timeRange.config.initialDatetime !== undefined) {
-            if (candle.end < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
+            if (candle.end < sessionParameters.timeRange.config.initialDatetime) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because current candle ends before the start date.  -> sessionParameters.timeRange.config.initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
                 takePositionAtSimulation()
                 return
@@ -95,7 +95,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
         /* We wont take a position if we are past the final datetime */
         if (sessionParameters.timeRange.config.finalDatetime !== undefined) {
-            if (candle.begin > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
+            if (candle.begin > sessionParameters.timeRange.config.finalDatetime) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> putOpeningOrder -> Not placing the trade at the exchange because current candle begins after the end date. -> sessionParameters.timeRange.config.finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
                 takePositionAtSimulation()
                 return
@@ -115,8 +115,8 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
         /* We are not going to place orders based on outdated information. The next filter prevents firing orders when backtesting. */
         if (currentDay) {
-            let today = new Date(Math.trunc((new Date().valueOf()) / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
-            let processDay = new Date(Math.trunc(currentDay.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+            let today = new Date(Math.trunc((new Date().valueOf()) / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
+            let processDay = new Date(Math.trunc(currentDay.valueOf() / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
             if (today.valueOf() !== processDay.valueOf()) {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because the current candle belongs to the previous day and that is considered simulation and not live trading.') }
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> today = ' + today) }

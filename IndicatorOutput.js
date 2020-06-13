@@ -1,9 +1,5 @@
 ﻿exports.newIndicatorOutput = function newIndicatorOutput(bot, logger, UTILITIES, FILE_STORAGE) {
-
     const FULL_LOG = true;
-    const LOG_FILE_CONTENT = false;
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
-
     const MODULE_NAME = "Indicator Bot";
 
     let thisObject = {

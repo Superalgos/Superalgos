@@ -2,8 +2,6 @@
 
     const FULL_LOG = true;
     const LOG_FILE_CONTENT = false;
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
-    const ONE_MIN_IN_MILISECONDS = 60 * 1000;
 
     const MODULE_NAME = "Commons";
 
@@ -199,7 +197,7 @@
 
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: global.ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -290,8 +288,8 @@
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: ONE_DAY_IN_MILISECONDS,
-            ONE_MIN_IN_MILISECONDS: ONE_MIN_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: global.ONE_DAY_IN_MILISECONDS,
+            ONE_MIN_IN_MILISECONDS: global.ONE_MIN_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -340,7 +338,7 @@
 
         if (processingDailyFiles) {
             /* Initialization of Last Instance */
-            lastInstantOfTheDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+            lastInstantOfTheDay = currentDay.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1;
 
             if (interExecutionMemory[productName] === undefined) {
                 /* The first time the intialization variables goes to the Inter Execution Memory. */
@@ -457,7 +455,7 @@
                             at the next day, in whole, even if it starts in the previous day.
                         */
 
-                        let lastInstantOdDay = currentDay.valueOf() + ONE_DAY_IN_MILISECONDS - 1;
+                        let lastInstantOdDay = currentDay.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1;
 
                         if (record.end < currentDay.valueOf() - 1) { continue; }
                         if (record.end === lastInstantOdDay) { continue; }

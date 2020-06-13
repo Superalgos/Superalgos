@@ -8,7 +8,6 @@
     const LOG_FILE_CONTENT = false;
     const MODULE_NAME = "Trading Process";
     const GMT_SECONDS = ':00.000 GMT+0000';
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
 
     thisObject = {
         initialize: initialize,
@@ -125,7 +124,7 @@
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf());
 
                     /* Validation that the data is not up-to-date. */
-                    if (bot.tradingProcessDate.valueOf() - ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
+                    if (bot.tradingProcessDate.valueOf() - global.ONE_DAY_IN_MILISECONDS > contextVariables.dateEndOfMarket.valueOf() && bot.SESSION.type !== "Backtesting Session") {
 
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> " + "Head of the market is @ " + contextVariables.dateEndOfMarket); }
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[ERROR] start -> getContextVariables -> You need to UPDATE your datasets in order to run a " + bot.SESSION.type) }
@@ -359,12 +358,12 @@
                     buildCharts()
                     return
                 }
-                bot.tradingProcessDate = new Date(contextVariables.lastFile.valueOf() - ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                bot.tradingProcessDate = new Date(contextVariables.lastFile.valueOf() - global.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
                 advanceTime();
 
                 function advanceTime() {
-                    bot.tradingProcessDate = new Date(bot.tradingProcessDate.valueOf() + ONE_DAY_IN_MILISECONDS);
-                    previousDay = new Date(bot.tradingProcessDate.valueOf() - ONE_DAY_IN_MILISECONDS);
+                    bot.tradingProcessDate = new Date(bot.tradingProcessDate.valueOf() + global.ONE_DAY_IN_MILISECONDS);
+                    previousDay = new Date(bot.tradingProcessDate.valueOf() - global.ONE_DAY_IN_MILISECONDS);
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> bot.tradingProcessDate = " + bot.tradingProcessDate); }
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> previousDay = " + previousDay); }
@@ -381,7 +380,7 @@
                     }
 
                     /* Validation that we are not going past the head of the market. */
-                    if (bot.tradingProcessDate.valueOf() > contextVariables.dateEndOfMarket.valueOf() + ONE_DAY_IN_MILISECONDS - 1) {
+                    if (bot.tradingProcessDate.valueOf() > contextVariables.dateEndOfMarket.valueOf() + global.ONE_DAY_IN_MILISECONDS - 1) {
 
                         const logText = "Head of the market found @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> " + logText); }
@@ -674,7 +673,7 @@
             function writeDataRange(pBegin, pEnd, productCodeName, currentTimeFrameLabel, callBack) {
                 let dataRange = {
                     begin: pBegin.valueOf(),
-                    end: pEnd.valueOf() + ONE_DAY_IN_MILISECONDS
+                    end: pEnd.valueOf() + global.ONE_DAY_IN_MILISECONDS
                 };
 
                 let fileContent = JSON.stringify(dataRange);

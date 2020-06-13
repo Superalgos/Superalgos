@@ -1,6 +1,5 @@
 exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILITIES) {
     const FULL_LOG = true
-    const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
     const MODULE_NAME = 'Trading Simulation -> ' + bot.SESSION.name
 
     let thisObject = {
@@ -110,7 +109,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 } else {
                     /* Estimate Initial Candle based on the timeRage configured for the session. */
                     let firstEnd = candles[0].end
-                    let targetEnd = sessionParameters.timeRange.config.initialDatetime.valueOf()
+                    let targetEnd = sessionParameters.timeRange.config.initialDatetime
                     let diff = targetEnd - firstEnd
                     let amount = diff / sessionParameters.timeFrame.config.value
 
@@ -143,13 +142,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     return
                 }
 
-                if (checkInitialAndFinalDatetime() === false) {
+                if (checkMinimunAndMaximunBalance() === false) {
                     afterLoop()
                     return
                 }
 
-                if (checkMinimunAndMaximunBalance() === false) {
-                    afterLoop()
+                if (checkInitialAndFinalDatetime() === false) {
+                    controlLoop()
                     return
                 }
 
@@ -276,15 +275,15 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function heartBeat() {
                 /* We will produce a simulation level heartbeat in order to inform the user this is running. */
-                heartBeatDate = new Date(Math.trunc(candle.begin / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
+                heartBeatDate = new Date(Math.trunc(tradingEngine.current.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
                 if (heartBeatDate.valueOf() !== previousheartBeatDate) {
                     let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.candle.index.value + ' @ ' + processingDate) }
 
                     /*  Telling the world we are alive and doing well */
-                    let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime.valueOf())
-                    let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime.valueOf())
+                    let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
+                    let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
                     let currentDateString = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
                     let currentDate = new Date(heartBeatDate)
@@ -335,7 +334,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                        let currentElement = getElement(thisChart[pluralVariableName], candle, 'Market' + '-' + mapKey + '-' + pluralVariableName)
+                        let currentElement = getElement(thisChart[pluralVariableName], 'Market' + '-' + mapKey + '-' + pluralVariableName)
                         thisChart[singularVariableName] = currentElement
                     }
                 }
@@ -358,22 +357,22 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
             }
 
-            function getElement(pArray, currentCandle, datasetName) {
+            function getElement(pArray, datasetName) {
                 if (pArray === undefined) { return }
                 try {
                     let element
                     for (let i = 0; i < pArray.length; i++) {
                         element = pArray[i]
 
-                        if (currentCandle.end === element.end) { // when there is an exact match at the end we take that element
+                        if (tradingEngine.current.candle.end.value === element.end) { // when there is an exact match at the end we take that element
                             return element
                         } else {
                             if (
                                 i > 0 &&
-                                element.end > currentCandle.end
+                                element.end > tradingEngine.current.candle.end.value
                             ) {
                                 let previousElement = pArray[i - 1]
-                                if (previousElement.end < currentCandle.end) {
+                                if (previousElement.end < tradingEngine.current.candle.end.value) {
                                     return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
                                 } else {
                                     return
@@ -395,7 +394,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 when we are processing Market Files than when we are processing Daily Files. TODO Check that the procedure is good for Beta 6
                 */
                 if (bot.processingDailyFiles) { // We are processing Daily Files
-                    let candlesPerDay = ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
+                    let candlesPerDay = global.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (tradingEngine.current.candle.index.value === candles.length - 1) {
                         if ((candles.length < candlesPerDay) || (candles.length > candlesPerDay && candles.length < candlesPerDay * 2)) {
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkIfWeAreAtTheHeadOfTheMarket -> Skipping Candle because it is the last one and has not been closed yet.') }
@@ -417,11 +416,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function checkInitialAndFinalDatetime() {
                 /* Here we check that the current candle is not outside of user-defined time range at the session parameters.*/
-                if (tradingEngine.current.candle.end.value < sessionParameters.timeRange.config.initialDatetime.valueOf()) {
+                if (tradingEngine.current.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.') }
                     return false
                 }
-                if (tradingEngine.current.candle.begin.value > sessionParameters.timeRange.config.finalDatetime.valueOf()) {
+                if (tradingEngine.current.candle.begin.value > sessionParameters.timeRange.config.finalDatetime) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.') }
                     return false
                 }

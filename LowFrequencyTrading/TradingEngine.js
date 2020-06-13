@@ -16,6 +16,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     let tradingEngine
+    let sessionParameters
 
     return thisObject
 
@@ -23,6 +24,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         /* Here we will go through all the nodes in the Trading Engine hiriarchy and apply the initial value to the value property when needed */
 
         tradingEngine = bot.simulationState.tradingEngine
+        sessionParameters = bot.SESSION.parameters
 
         if (tradingEngine.isInitialized !== true || bot.RESUME === false) {
             tradingEngine.isInitialized = true
@@ -32,6 +34,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function finalize() {
         tradingEngine = undefined
+        sessionParameters = undefined
     }
 
     function setCurrentCandle(candle) {
@@ -131,7 +134,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function updateEpisodeCountersAndStatistics() {
         tradingEngine.episode.episodeCounters.periods++
-        tradingEngine.episode.episodeStatistics.days = tradingEngine.episode.episodeCounters.periods * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
+        tradingEngine.episode.episodeStatistics.days = tradingEngine.episode.episodeCounters.periods * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
     }
 
     function updatePositionCountersAndStatistics() {
@@ -144,7 +147,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
             }
 
             tradingEngine.current.position.positionCounters.periods.value++
-            tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / ONE_DAY_IN_MILISECONDS
+            tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
         } else {
             tradingEngine.current.position.positionCounters.periods.value = 0
             tradingEngine.current.position.positionStatistics.days.value = 0

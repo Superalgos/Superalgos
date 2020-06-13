@@ -83,7 +83,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        readOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
+                        readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
@@ -99,7 +99,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
-                        readOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
+                        readOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
@@ -172,7 +172,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel
 
-                        writeOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
+                        writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }
@@ -188,7 +188,7 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
                         let fileName = 'Data.json'
                         let filePath = bot.filePathRoot + '/Output/' + bot.SESSION.folderName + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
-                        writeOutputFile(fileName, filePath, dataset.parentNode.config.pluralVariableName)
+                        writeOutputFile(fileName, filePath, dataset.parentNode.config.codeName)
                     }
                 }
             }

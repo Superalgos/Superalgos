@@ -233,7 +233,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 snapshotsModule.manageSnapshots()
                 tradingRecordsModule.appendRecords()
-                annoucementsModule.makeAnnoucements()           // After everything at the simulation level was done, we will do the annoucements that are pending. 
+                announcementsModule.makeAnnoucements()           // After everything at the simulation level was done, we will do the annoucements that are pending. 
 
                 controlLoop()
             }

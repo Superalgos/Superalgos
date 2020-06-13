@@ -45,7 +45,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
                     }
                 }
 
-                if (tradingEngine.episode.episodeCounters.periods > lastPeriodAnnounced) {
+                if (tradingEngine.episode.episodeCounters.periods.value > lastPeriodAnnounced) {
                     if (isNaN(value) === false) {
                         /* The Value Variation is what tells us how much the value already announced must change in order to annouce it again. */
                         let valueVariation
@@ -72,12 +72,12 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
 
                     /* Next, we will remmeber this announcement was already done, so that it is not announced again in further processing of the same day. */
                     if (newAnnouncementRecord.periods !== undefined) {
-                        newAnnouncementRecord.periods = tradingEngine.episode.episodeCounters.periods
+                        newAnnouncementRecord.periods = tradingEngine.episode.episodeCounters.periods.value
                         newAnnouncementRecord.value = value
                     } else {
                         newAnnouncementRecord = {
                             key: key,
-                            periods: tradingEngine.episode.episodeCounters.periods,
+                            periods: tradingEngine.episode.episodeCounters.periods.value,
                             value: value
                         }
                         variable.announcements.push(newAnnouncementRecord)

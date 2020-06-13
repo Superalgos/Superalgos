@@ -105,7 +105,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
         if (variable.executionContext !== undefined) {
             if (variable.executionContext.periods !== undefined) {
-                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
+                if (tradingEngine.episode.episodeCounters.periods.value <= variable.executionContext.periods) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Not placing the trade at the exchange because it was already placed at a previous execution.') }
                     takePositionAtSimulation()
                     return
@@ -149,7 +149,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
         variable.executionContext = {
             status: 'Taking Position',
-            periods: tradingEngine.episode.episodeCounters.periods
+            periods: tradingEngine.episode.episodeCounters.periods.value
         }
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> Ready to create order.') }
@@ -164,7 +164,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putOpeningOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
                         variable.executionContext = {
                             status: 'In a Position',
-                            periods: tradingEngine.episode.episodeCounters.periods,
+                            periods: tradingEngine.episode.episodeCounters.periods.value,
                             amountA: amountA,
                             amountB: amountB,
                             orderId: order.id
@@ -244,7 +244,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
         /* Mechanism to avoid putting the same order over and over again at different executions of the simulation engine. */
         if (variable.executionContext !== undefined) {
             if (variable.executionContext.periods !== undefined) {
-                if (tradingEngine.episode.episodeCounters.periods <= variable.executionContext.periods) {
+                if (tradingEngine.episode.episodeCounters.periods.value <= variable.executionContext.periods) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> Exiting function because this closing was already submited at a previous execution.') }
                     closePositionAtSimulation()
                     return
@@ -275,7 +275,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
 
         variable.executionContext = {
             status: 'Closing Position',
-            periods: tradingEngine.episode.episodeCounters.periods
+            periods: tradingEngine.episode.episodeCounters.periods.value
         }
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> About to close position at the exchange.') }
@@ -290,7 +290,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> putClosingOrder -> onOrderCreated -> DEFAULT_OK_RESPONSE ') }
                         variable.executionContext = {
                             status: 'Position Closed',
-                            periods: tradingEngine.episode.episodeCounters.periods,
+                            periods: tradingEngine.episode.episodeCounters.periods.value,
                             amountA: amountA,
                             amountB: amountB,
                             orderId: order.id

@@ -34,7 +34,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     saveAsLastTakePositionSnapshot = false
     addToSnapshots = false
 
-    let announcementsToBeMade = []
+
 
     return thisObject
 

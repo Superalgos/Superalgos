@@ -10,6 +10,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
     }
 
     let tradingEngine
+    let announcementsToBeMade = []
 
     return thisObject
 

@@ -732,6 +732,12 @@ function newUiObject () {
     }
   }
 
+  function resetValue () {
+    currentValue = undefined
+    hasValue = false
+    valueCounter = 0
+  }
+
   function setPercentage (percentage, counter) {
     if (percentage !== undefined) {
       currentPercentage = percentage
@@ -744,6 +750,12 @@ function newUiObject () {
     }
   }
 
+  function resetPercentage () {
+    currentPercentage = undefined
+    hasPercentage = false
+    percentageCounter = 0
+  }
+
   function setStatus (status, counter) {
     if (status !== undefined) {
       currentStatus = status
@@ -754,6 +766,12 @@ function newUiObject () {
         statusCounter = 100
       }
     }
+  }
+
+  function resetStatus () {
+    currentStatus = undefined
+    hasStatus = false
+    statusCounter = 0
   }
 
   function heartBeat () {
@@ -771,6 +789,9 @@ function newUiObject () {
   function run (pEventsServerClient, callBackFunction) {
     finalizeEventsServerClient()
     resetErrorMessage()
+    resetPercentage()
+    resetValue()
+    resetStatus()
     eventsServerClient = pEventsServerClient
 
     /* We setup the circular progress bar. */

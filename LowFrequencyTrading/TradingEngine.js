@@ -26,9 +26,10 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         tradingEngine = bot.simulationState.tradingEngine
         sessionParameters = bot.SESSION.parameters
 
-        if (tradingEngine.isInitialized !== true || bot.RESUME === false) {
-            tradingEngine.isInitialized = true
+        if (bot.RESUME === false) {
             initializeNode(tradingEngine)
+            tradingEngine.current.balance.baseAsset.value = sessionParameters.sessionBaseAsset.config.initialBalance
+            tradingEngine.current.balance.quotedAsset.value = sessionParameters.sessionQuotedAsset.config.initialBalance
         }
     }
 

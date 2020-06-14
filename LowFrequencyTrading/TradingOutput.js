@@ -56,9 +56,43 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             if (bot.RESUME !== true) {
                 bot.simulationState.tradingEngine = bot.TRADING_ENGINE
                 bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
+                initializeOutputs()
+            } else {
+                readFiles()
             }
-            readFiles()
             return
+
+            function initializeOutputs() {
+                if (bot.processingDailyFiles) {
+                    initializeDailyFiles()
+                } else {
+                    initializeMarketFiles()
+                }
+            }
+
+            function initializeDailyFiles() {
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
+
+                    if (dataset.config.type === 'Daily Files') {
+                        outputDatasetsMap.set(dataset.parentNode.config.codeName, [])
+                    }
+                }
+                runSimulation()
+            }
+
+            function initializeMarketFiles() {
+                for (let i = 0; i < outputDatasets.length; i++) {
+                    let outputDatasetNode = outputDatasets[i]
+                    let dataset = outputDatasetNode.referenceParent
+
+                    if (dataset.config.type === 'Market Files') {
+                        outputDatasetsMap.set(dataset.parentNode.config.codeName, [])
+                    }
+                }
+                runSimulation()
+            }
 
             function readFiles() {
                 /* 

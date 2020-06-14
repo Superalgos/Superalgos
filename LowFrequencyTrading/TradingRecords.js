@@ -38,17 +38,17 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             let dataset = outputDatasetNode.referenceParent
             let product = dataset.parentNode
             let record
+            let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
             if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
                 record = scanRecordDefinition(product)
+                outputDatasetArray.push(record)
             }
 
             if (bot.processingDailyFiles === false && dataset.config.type === 'Market Files') {
                 record = scanRecordDefinition(product)
+                outputDatasetArray.push(record)
             }
-
-            let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
-            outputDatasetArray.push(record)
         }
 
         function scanRecordDefinition(product) {
@@ -112,6 +112,9 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 value = safeValue(value)
                 if (recordProperty.config.isString === true) {
                     value = '"' + value + '"'
+                }
+                if (recordProperty.config.decimals !== undefined) {
+                    value = value.toFixed(decimals)
                 }
                 record.push(value)
             }

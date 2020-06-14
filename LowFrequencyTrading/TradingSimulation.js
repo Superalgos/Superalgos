@@ -77,9 +77,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
 
-            /* Last Candle */
-            let lastCandle = candles[candles.length - 1] // TODO Maybe remove this
-
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousheartBeatDate

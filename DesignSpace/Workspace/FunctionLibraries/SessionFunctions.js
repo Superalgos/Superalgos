@@ -24,7 +24,7 @@ function newSessionFunctions () {
     'Parameters->' +
     'Base Asset->Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->' +
     'Exchange Account Asset->Asset->' +
-    'Strategy->' +
+    'Trading Strategy->' +
     'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
     'Announcement->Formula->' +
     'Open Stage->Initial Definition->Open Execution->' +

@@ -100,7 +100,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name])
+                                evalNode(node[property.name], evaluating)
                             }
                             previousPropertyName = property.name
                         }
@@ -109,9 +109,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     case 'array': {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
-                            object[property.name] = []
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m])
+                                evalNode(nodePropertyArray[m], evaluating)
                             }
                         }
                         break
@@ -191,9 +190,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         formulas.set(node.id, value)
 
         if (value === true) {
-            formulaValues.push(1)
+            tradingSystem.formulasValues.push(1)
         } else {
-            formulaValues.push(0)
+            tradingSystem.formulasValues.push(0)
         }
 
         tradingSystem.formulasErrors.push(error)

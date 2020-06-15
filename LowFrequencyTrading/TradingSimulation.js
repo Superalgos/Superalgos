@@ -151,9 +151,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 heartBeat()
                 positionChartAtCurrentCandle()
+                tradingSystemModule.setChart(chart)
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
-                tradingSystemModule.setChart(chart)
+
                 tradingSystemModule.evalConditions()
                 tradingSystemModule.evalFormulas()
                 tradingSystemModule.checkTriggerOn()

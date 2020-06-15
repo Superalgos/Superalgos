@@ -114,7 +114,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     value = '"' + value + '"'
                 }
                 if (recordProperty.config.decimals !== undefined) {
-                    value = value.toFixed(decimals)
+                    value = Number(value.toFixed(recordProperty.config.decimals))
                 }
                 record.push(value)
             }

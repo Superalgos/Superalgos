@@ -271,6 +271,42 @@ function newPlottersManager () {
                 }
                 connector.nodesErrors.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesErrors.onRecordChange)
               }
+              if (plotterModule.nodesRunning !== undefined) {
+                connector.nodesRunning = newNodesRunning()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesRunning.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesRunning.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesRunning.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesRunning.onRecordChange)
+              }
+              if (plotterModule.nodesStatus !== undefined) {
+                connector.nodesStatus = newNodesStatus()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesStatus.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesStatus.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesStatus.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesStatus.onRecordChange)
+              }
+              if (plotterModule.nodesProgress !== undefined) {
+                connector.nodesProgress = newNodesProgress()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesProgress.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesProgress.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesProgress.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesProgress.onRecordChange)
+              }
             }
             thisObject.connectors.push(connector)
           }
@@ -334,6 +370,18 @@ function newPlottersManager () {
     if (connector.nodesErrors !== undefined) {
       connector.plotter.container.eventHandler.stopListening(connector.nodesErrors.onRecordChangeEventsSubscriptionId)
       connector.nodesErrors.finalize()
+    }
+    if (connector.nodesStatus !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.nodesStatus.onRecordChangeEventsSubscriptionId)
+      connector.nodesStatus.finalize()
+    }
+    if (connector.nodesProgress !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.Progress.onRecordChangeEventsSubscriptionId)
+      connector.Progress.finalize()
+    }
+    if (connector.nodesRunning !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.nodesRunning.onRecordChangeEventsSubscriptionId)
+      connector.nodesRunning.finalize()
     }
   }
 

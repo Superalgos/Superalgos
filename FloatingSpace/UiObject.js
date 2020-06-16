@@ -20,7 +20,6 @@ function newUiObject () {
     formulaEditor: undefined,
     uiObjectTitle: undefined,
     circularProgressBar: undefined,
-    isRunningAtBackend: undefined,
     isRunning: undefined,
     shortcutKey: undefined,
     isShowing: undefined,
@@ -32,6 +31,7 @@ function newUiObject () {
     getReadyToReferenceAttach: getReadyToReferenceAttach,
     showAvailabilityToReferenceAttach: showAvailabilityToReferenceAttach,
     highlight: highlight,
+    runningAtBackend: runningAtBackend,
     setErrorMessage: setErrorMessage,
     resetErrorMessage: resetErrorMessage,
     setValue: setValue,
@@ -70,6 +70,9 @@ function newUiObject () {
 
   let isHighlighted
   let highlightCounter = 0
+
+  let isRunningAtBackend
+  let runningAtBackendCounter = 0
 
   let hasError
   let errorMessageCounter = 0
@@ -321,6 +324,7 @@ function newUiObject () {
 
     iconPhysics()
     highlightPhisycs()
+    runningAtBackendPhisycs()
     errorMessagePhisycs()
     valuePhisycs()
     percentagePhisycs()
@@ -672,6 +676,14 @@ function newUiObject () {
     }
   }
 
+  function runningAtBackendPhisycs () {
+    runningAtBackendCounter--
+    if (runningAtBackendCounter < 0) {
+      runningAtBackendCounter = 0
+      isRunningAtBackend = false
+    }
+  }
+
   function errorMessagePhisycs () {
     errorMessageCounter--
     if (errorMessageCounter < 0) {
@@ -707,6 +719,11 @@ function newUiObject () {
   function highlight () {
     isHighlighted = true
     highlightCounter = 30
+  }
+
+  function runningAtBackend () {
+    isRunningAtBackend = true
+    runningAtBackendCounter = 5
   }
 
   function setErrorMessage (message, duration) {
@@ -1820,7 +1837,7 @@ function newUiObject () {
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         let additionalImageSize = 0
-        if (thisObject.isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
+        if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
         if (canvas.floatingSpace.inMapMode === true) {
           totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
@@ -1846,7 +1863,7 @@ function newUiObject () {
 
     if (executingIcon !== undefined) {
       if (executingIcon.canDrawIcon === true) {
-        if (thisObject.isRunningAtBackend === true) {
+        if (isRunningAtBackend === true) {
           const DISTANCE_FROM_CENTER = thisObject.container.frame.radius / 3 + 50
           const EXECUTING_ICON_SIZE = 20 + thisObject.container.frame.radius / 6
 

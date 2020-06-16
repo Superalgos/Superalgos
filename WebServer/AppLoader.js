@@ -115,22 +115,25 @@ function newAppLoader() {
 
                 'EventsServerClient.js',
 
-                'VideoRecorder.js',
-                'Plotter.js',
+                'Plotting/Plotter.js',
+                'Plotting/NodesHighlights.js',
+                'Plotting/NodesErrors.js',
+                'Plotting/NodesValues.js',
+                'Plotting/NodesStatus.js',
+                'Plotting/NodesProgress.js',
+                'Plotting/NodesRunning.js',
+
                 'LegacyPlotter.js',
                 'PlotterPanel.js',
 
+                'VideoRecorder.js',
                 'ProductStorage.js',
-
                 'SplashScreen.js',
                 'Canvas.js',
                 'EventHandler.js',
                 'Frame.js',
-
                 'Animation.js',
-
                 'Container.js',
-
                 'Utilities.js',
                 'PostLoader.js'
             ])

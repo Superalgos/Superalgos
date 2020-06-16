@@ -325,6 +325,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'Plotting': // This means the Plotting folder.
+                {
+                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Plotting/' + requestParameters[2], response)
+                }
+                break
+
             case 'TopSpace': // This means the TopSpace folder.
                 {
                     respondWithFile(process.env.PATH_TO_CANVAS_APP + '/TopSpace/' + requestParameters[2], response)

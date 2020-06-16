@@ -4,7 +4,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const FULL_LOG = true
 
     let thisObject = {
-        setChart: setChart,
+        reset: reset,
         evalConditions: evalConditions,
         evalFormulas: evalFormulas,
         checkTriggerOn: checkTriggerOn,
@@ -34,30 +34,33 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
-
-        tradingSystem.highlights = []
-        tradingSystem.conditionsErrors = []
-        tradingSystem.formulasValues = []
-        tradingSystem.formulasErrors = []
     }
 
     function finalize() {
         chart = undefined
 
         conditions = undefined
-        tradingSystem.highlights = undefined
-        tradingSystem.conditionsErrors = undefined
-
         formulas = undefined
-        tradingSystem.formulasValues = undefined
-        tradingSystem.formulasErrors = undefined
+
+        tradingSystem.highlights = undefined
+        tradingSystem.errors = undefined
+        tradingSystem.values = undefined
+        tradingSystem.status = undefined
+        tradingSystem.progress = undefined
+        tradingSystem.running = undefined
 
         tradingSystem = undefined
         tradingEngine = undefined
     }
 
-    function setChart(pChart) {
+    function reset(pChart) {
         chart = pChart // We need chat to be a local object accessible from conditions and formulas.
+        tradingSystem.highlights = []
+        tradingSystem.errors = []
+        tradingSystem.values = []
+        tradingSystem.status = []
+        tradingSystem.progress = []
+        tradingSystem.running = []
     }
 
     function evalConditions() {
@@ -143,19 +146,20 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 */
             } else {
                 error = err.message
-                node.error = error
             }
         }
 
         conditions.set(node.id, value)
 
         if (value === true) {
-            tradingSystem.highlights.push(1)
-        } else {
-            tradingSystem.highlights.push(0)
+            tradingSystem.highlights.push([node.id, ''])
         }
-
-        tradingSystem.conditionsErrors.push(error)
+        if (error !== undefined) {
+            tradingSystem.errors.push([node.id, error])
+        }
+        if (value !== undefined) {
+            tradingSystem.values.push([node.id, value])
+        }
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value) }
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error) }
@@ -183,19 +187,17 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 */
             } else {
                 error = err.message
-                node.error = error
             }
         }
 
         formulas.set(node.id, value)
 
-        if (value === true) {
-            tradingSystem.formulasValues.push(1)
-        } else {
-            tradingSystem.formulasValues.push(0)
+        if (error !== undefined) {
+            tradingSystem.errors.push([node.id, error])
         }
-
-        tradingSystem.formulasErrors.push(error)
+        if (value !== undefined) {
+            tradingSystem.values.push([node.id, value])
+        }
 
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value) }
         if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error) }

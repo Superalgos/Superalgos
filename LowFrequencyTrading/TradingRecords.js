@@ -106,15 +106,26 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 */
                 let value
                 if (targetNode !== undefined) {
-                    value = targetNode.value
-                }
-
-                value = safeValue(value)
-                if (recordProperty.config.isString === true) {
-                    value = '"' + value + '"'
-                }
-                if (recordProperty.config.decimals !== undefined) {
-                    value = Number(value.toFixed(recordProperty.config.decimals))
+                    if (targetNode.type !== undefined) {
+                        /*
+                        In this case the Target Node is really a node (since it has a type), so we extract the value
+                        from its value property.
+                        */
+                        value = targetNode.value
+                        value = safeValue(value)
+                        if (recordProperty.config.isString === true) {
+                            value = '"' + value + '"'
+                        }
+                        if (recordProperty.config.decimals !== undefined) {
+                            value = Number(value.toFixed(recordProperty.config.decimals))
+                        }
+                    } else {
+                        /*
+                        In this case the Target Node is not really node, but the value itself. Se we return this as the
+                        value of the Record Property.
+                        */
+                        value = targetNode
+                    }
                 }
                 record.push(value)
             }

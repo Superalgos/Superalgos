@@ -153,6 +153,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         if (value === true) {
             tradingSystem.highlights.push([node.id, ''])
+            tradingSystem.errors.push([node.id, 'La concha del mono'])
+            tradingSystem.progress.push([node.id, 85])
+            tradingSystem.status.push([node.id, 'Waiting for la concha del mono'])
+            tradingSystem.running.push([node.id, true])
         }
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])

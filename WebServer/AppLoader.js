@@ -60,6 +60,7 @@ function newAppLoader() {
                 'Utilities/DrawPrint.js',
                 'Utilities/LoadSaveFrame.js',
                 'Utilities/NodeConfig.js',
+                'Utilities/HiriarchyMap.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',

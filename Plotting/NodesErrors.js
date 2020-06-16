@@ -8,29 +8,38 @@ function newNodesErrors () {
     initialize: initialize,
     finalize: finalize
   }
-
-  let rootNode
+  let hiriarchyMap
   return thisObject
 
   function finalize () {
-    rootNode = undefined
+    hiriarchyMap = undefined
   }
 
   function initialize (pRootNode) {
-    rootNode = pRootNode
+    let rootNode = canvas.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
+    hiriarchyMap = getHiriarchyMap(rootNode)
   }
 
   function onRecordChange (currentRecord) {
-    evalNode(rootNode, currentRecord.array, 0, applyError)
+    if (currentRecord === undefined) { return }
+    let array = currentRecord.errors
+    if (array === undefined) { return }
+    for (let i = 0; i < array.length; i++) {
+      let arrayItem = array[0]
+      let nodeId = arrayItem[0]
+      let value = arrayItem[1]
+      applyValue(nodeId, value)
+    }
   }
 
-  function applyError (node, errorMessage) {
+  function applyValue (nodeId, value) {
+    let node = hiriarchyMap.get(nodeId)
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
-    if (errorMessage === '') {
-      node.payload.uiObject.resetErrorMessage(errorMessage)
+    if (value === '') {
+      node.payload.uiObject.resetErrorMessage()
     } else {
-      node.payload.uiObject.setErrorMessage(errorMessage)
+      node.payload.uiObject.setErrorMessage(value)
     }
   }
 }

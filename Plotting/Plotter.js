@@ -245,9 +245,7 @@ function newPlotter () {
   function draw () {
     try {
       thisObject.container.frame.draw()
-      if (productDefinition.referenceParent.shapes !== undefined) {
-        plotShapes()
-      }
+      plot()
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }
     }
@@ -491,13 +489,10 @@ function newPlotter () {
     }
   }
 
-  function plotShapes () {
+  function plot () {
     try {
       /* Clean the pannel at places where there is no record. */
-      let currentRecord = {
-        data: undefined
-      }
-      thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
+      thisObject.container.eventHandler.raiseEvent('Current Record Changed', undefined)
 
       for (let i = 0; i < records.length; i++) {
         let record = records[i]
@@ -541,11 +536,7 @@ function newPlotter () {
         let atMousePosition = false
         if (userPositionDate >= record.begin && userPositionDate <= record.end) {
           atMousePosition = true
-
-          let currentRecord = {
-            data: record
-          }
-          thisObject.container.eventHandler.raiseEvent('Current Record Changed', currentRecord)
+          thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
         }
 
         /* If there is code we execute it now. */
@@ -794,7 +785,7 @@ function newPlotter () {
 
       logged = false
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] plotShapes -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] plot -> err = ' + err.stack) }
     }
   }
 

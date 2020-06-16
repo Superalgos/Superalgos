@@ -157,6 +157,7 @@ function newLayer () {
                         'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                         'Data Storage->Network Node->' +
                         'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +
@@ -173,12 +174,13 @@ function newLayer () {
                         'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                         'Polygon Border->Style->Style Condition->Style->' +
                         'Polygon Vertex->Point->' +
-                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
+                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
+                        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->'
       thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
       /* Here we validate that we have all the needed information */
-      if (thisObject.definition.referenceParent === undefined) { return }
-      if (thisObject.definition.referenceParent.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent === undefined) { return } // Data Product
+      if (thisObject.definition.referenceParent.parentNode === undefined) { return } // Single Market Data
       if (thisObject.definition.referenceParent.parentNode.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode === undefined) { return }
@@ -223,7 +225,6 @@ function newLayer () {
       }
 
       thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
-
       thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
       if (thisObject.plotterModule.config.icon !== undefined) {

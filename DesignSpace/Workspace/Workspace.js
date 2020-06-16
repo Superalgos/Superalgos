@@ -14,6 +14,7 @@ function newWorkspace () {
     replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
+    getHierarchyHeadsById: getHierarchyHeadsById,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
     stopAllRunningTasks: stopAllRunningTasks,
@@ -353,6 +354,16 @@ function newWorkspace () {
       }
     }
     return nodes
+  }
+
+  function getHierarchyHeadsById (nodeId) {
+    let hiriatchyHeads = getHierarchyHeads()
+    for (let i = 0; i < hiriatchyHeads.length; i++) {
+      let hiriatchyHead = hiriatchyHeads[i]
+      if (hiriatchyHead.id === nodeId) {
+        return hiriatchyHead
+      }
+    }
   }
 
   function replaceWorkspaceByLoadingOne (name) {

@@ -100,9 +100,7 @@ function newPlotterPanel () {
     const PANEL_HEIGHT = UI_PANEL.HEIGHT.NORMAL
 
     if (currentRecord === undefined) { return }
-    if (currentRecord.data === undefined) { return }
-
-    let record = currentRecord.data
+    let record = currentRecord
 
     /* First we execute code if provided. */
     if (panelNode.javascriptCode !== undefined) {

@@ -137,11 +137,25 @@ function newPlottersManager () {
       let exchange = layer.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
       let plotterModule = layer.definition.referenceParent.referenceParent.referenceParent
       let session
+      let tradingSystem
+      let tradingEngine
 
+      /*
+      A layer can be referencing a Data Product in two different branches of the Network hiriatchy.
+      In one of those braches we can get the Session node, at the other we Cannot.
+      */
       if (layer.definition.referenceParent.parentNode.parentNode !== undefined) {
         if (layer.definition.referenceParent.parentNode.parentNode.type === 'Session Reference') {
           if (layer.definition.referenceParent.parentNode.parentNode.referenceParent !== undefined) {
             session = layer.definition.referenceParent.parentNode.parentNode.referenceParent
+
+            /* From the session we might be able to reach the Trading System or the Trading Engine */
+            if (session.tradingSystemReference !== undefined) {
+              tradingSystem = session.tradingSystemReference.referenceParent
+            }
+            if (session.tradingEngineReference !== undefined) {
+              tradingEngine = session.tradingEngineReference.referenceParent
+            }
           }
         }
       }
@@ -169,67 +183,97 @@ function newPlottersManager () {
       )
 
       function onProductStorageInitialized (err) {
-        try {
-          if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
             /* Now we have all the initial data loaded and ready to be delivered to the new instance of the plotter. */
-            let plotter
+          let plotter
 
-            if (plotterModule.config.isLegacy !== true) {
-              plotter = newPlotter()
-            } else {
-              plotter = getNewPlotter(dataMine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
+          if (plotterModule.config.isLegacy !== true) {
+            plotter = newPlotter()
+          } else {
+            plotter = getNewPlotter(dataMine.config.codeName, plotterModule.parentNode.config.codeName, plotterModule.config.codeName)
+          }
+
+          plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
+          plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
+          plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
+          plotter.fitFunction = thisObject.fitFunction
+          plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, product)
+
+          function onPlotterInizialized () {
+            let connector = {
+              layer: layer,
+              plotter: plotter,
+              storage: storage
             }
+            /* Let the Plotter listen to the event of Cursor Files loaded, so that it can react recalculating if needed. */
+            plotter.onDailyFileLoadedPlotterEventsSubscriptionId = storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded)
+            /* Lets load now this plotter panels. */
+            connector.panels = []
 
-            plotter.container.connectToParent(thisObject.container, true, true, false, true, true, true, false, false, true)
-            plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
-            plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
-            plotter.fitFunction = thisObject.fitFunction
-            plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, product)
+            if (product !== undefined) {
+              /* Here we setup the panels associated with this plotter */
+              for (let i = 0; i < plotterModule.panels.length; i++) {
+                let panel = plotterModule.panels[i]
 
-            function onPlotterInizialized () {
-              try {
-                let connector = {
-                  layer: layer,
-                  plotter: plotter,
-                  storage: storage
-                }
-                /* Let the Plotter listen to the event of Cursor Files loaded, so that it can react recalculating if needed. */
-                plotter.onDailyFileLoadedPlotterEventsSubscriptionId = storage.eventHandler.listenToEvent('Daily File Loaded', plotter.onDailyFileLoaded)
-                /* Lets load now this plotter panels. */
-                connector.panels = []
-
-                if (product !== undefined) {
-                  /* Here we setup the panels associated with this plotter */
-                  for (let i = 0; i < plotterModule.panels.length; i++) {
-                    let panel = plotterModule.panels[i]
-
-                    let parameters = {
-                      dataMine: dataMine.config.codeName,
-                      plotterCodeName: plotterModule.parentNode.config.codeName,
-                      moduleCodeName: plotterModule.config.codeName,
-                      panelNode: panel
-                    }
-
-                    let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.
-                    let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
-                    let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
-
-                    /* Connect Panel to the Plotter via an Event. */
-                    connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
-                    connector.panels.push(plotterPanelHandle)
-                  }
-
-                  connector.layer.panels = connector.panels
+                let parameters = {
+                  dataMine: dataMine.config.codeName,
+                  plotterCodeName: plotterModule.parentNode.config.codeName,
+                  moduleCodeName: plotterModule.config.codeName,
+                  panelNode: panel
                 }
 
-                thisObject.connectors.push(connector)
-              } catch (err) {
-                if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> onProductStorageInitialized -> onPlotterInizialized -> err = ' + err.stack) }
+                let owner = thisObject.payload.node.payload.parentNode.id // Panels are owned by the time machine.
+                let plotterPanelHandle = canvas.panelsSpace.createNewPanel('Plotter Panel', parameters, owner, layer.session)
+                let plotterPanel = canvas.panelsSpace.getPanel(plotterPanelHandle)
+
+                /* Connect Panel to the Plotter via an Event. */
+                connector.plotter.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', plotterPanel.onRecordChange)
+                connector.panels.push(plotterPanelHandle)
+              }
+              connector.layer.panels = connector.panels
+
+              /*
+              Next we will check the different types of Plotting related to connecting to an existing node branch.
+              */
+              if (plotterModule.nodesHighlights !== undefined) {
+                connector.nodesHighlights = newNodesHighlights()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesHighlights.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesHighlights.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesHighlights.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesHighlights.onRecordChange)
+              }
+              if (plotterModule.nodesValues !== undefined) {
+                connector.nodesValues = newNodesValues()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesValues.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesValues.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesValues.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesValues.onRecordChange)
+              }
+              if (plotterModule.nodesErrors !== undefined) {
+                connector.nodesErrors = newNodesErrors()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesErrors.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesErrors.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesErrors.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesErrors.onRecordChange)
               }
             }
+            thisObject.connectors.push(connector)
           }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initializePlotter -> onProductStorageInitialized -> err = ' + err.stack) }
         }
       }
     } catch (err) {
@@ -263,8 +307,8 @@ function newPlottersManager () {
           for (let j = 0; j < connector.panels.length; j++) {
             canvas.panelsSpace.destroyPanel(connector.panels[j])
           }
-                    /* Finally the Storage Objects */
-
+            /* Finally the Storage Objects */
+          finalizeNodesPlotting(connector)
           if (connector.plotter.finalize !== undefined) {
             connector.plotter.container.eventHandler.stopListening(connector.plotter.onRecordChangeEventsSubscriptionId)
             connector.plotter.container.finalize()
@@ -275,6 +319,21 @@ function newPlottersManager () {
           return // We already found the product woth changes and processed it.
         }
       }
+    }
+  }
+
+  function finalizeNodesPlotting (connector) {
+    if (connector.nodesHighlights !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.nodesHighlights.onRecordChangeEventsSubscriptionId)
+      connector.nodesHighlights.finalize()
+    }
+    if (connector.nodesValues !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.nodesValues.onRecordChangeEventsSubscriptionId)
+      connector.nodesValues.finalize()
+    }
+    if (connector.nodesErrors !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.nodesErrors.onRecordChangeEventsSubscriptionId)
+      connector.nodesErrors.finalize()
     }
   }
 

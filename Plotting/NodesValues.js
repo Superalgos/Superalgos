@@ -9,24 +9,37 @@ function newNodesValues () {
     finalize: finalize
   }
 
-  let rootNode
+  let hiriarchyMap
   return thisObject
 
   function finalize () {
-    rootNode = undefined
+    hiriarchyMap = undefined
   }
 
   function initialize (pRootNode) {
-    rootNode = pRootNode
+    let rootNode = canvas.designSpace.workspace.getHierarchyHeadsById(pRootNode.id)
+    hiriarchyMap = getHiriarchyMap(rootNode)
   }
 
   function onRecordChange (currentRecord) {
-    evalNode(rootNode, currentRecord.array, 0, applyValue)
+    if (currentRecord === undefined) { return }
+    let array = currentRecord.values
+    if (array === undefined) { return }
+    for (let i = 0; i < array.length; i++) {
+      let arrayItem = array[0]
+      let nodeId = arrayItem[0]
+      let value = arrayItem[1]
+      applyValue(nodeId, value)
+    }
   }
 
-  function applyValue (node, value) {
+  function applyValue (nodeId, value) {
+    let node = hiriarchyMap.get(nodeId)
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
-    node.payload.uiObject.setValue(value)
+    if (value === true) { value = 'true' }
+    if (value === false) { value = 'false' }
+    node.payload.uiObject.setValue(value, 30)
   }
 }
+

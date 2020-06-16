@@ -245,7 +245,9 @@ function newPlotter () {
   function draw () {
     try {
       thisObject.container.frame.draw()
-      plotChart()
+      if (productDefinition.referenceParent.shapes !== undefined) {
+        plotShapes()
+      }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] draw -> err = ' + err.stack) }
     }
@@ -489,7 +491,7 @@ function newPlotter () {
     }
   }
 
-  function plotChart () {
+  function plotShapes () {
     try {
       /* Clean the pannel at places where there is no record. */
       let currentRecord = {
@@ -792,7 +794,7 @@ function newPlotter () {
 
       logged = false
     } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] plotChart -> err = ' + err.stack) }
+      if (ERROR_LOG === true) { logger.write('[ERROR] plotShapes -> err = ' + err.stack) }
     }
   }
 

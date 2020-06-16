@@ -199,6 +199,7 @@ function newPlottersManager () {
                 connector.panels = []
 
                 if (product !== undefined) {
+                  /* Here we setup the panels associated with this plotter */
                   for (let i = 0; i < plotterModule.panels.length; i++) {
                     let panel = plotterModule.panels[i]
 

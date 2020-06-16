@@ -20,7 +20,7 @@ function newUiObject () {
     formulaEditor: undefined,
     uiObjectTitle: undefined,
     circularProgressBar: undefined,
-    isExecuting: undefined,
+    isRunningAtBackend: undefined,
     isRunning: undefined,
     shortcutKey: undefined,
     isShowing: undefined,
@@ -35,8 +35,11 @@ function newUiObject () {
     setErrorMessage: setErrorMessage,
     resetErrorMessage: resetErrorMessage,
     setValue: setValue,
+    resetValue: resetValue,
     setPercentage: setPercentage,
+    resetPercentage: resetPercentage,
     setStatus: setStatus,
+    resetStatus: resetStatus,
     physics: physics,
     invisiblePhysics: invisiblePhysics,
     drawBackground: drawBackground,
@@ -1817,7 +1820,7 @@ function newUiObject () {
     if (icon !== undefined) {
       if (icon.canDrawIcon === true) {
         let additionalImageSize = 0
-        if (thisObject.isExecuting === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
+        if (thisObject.isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
         let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
         if (canvas.floatingSpace.inMapMode === true) {
           totalImageSize = canvas.floatingSpace.transformImagesizeToMap(totalImageSize)
@@ -1843,7 +1846,7 @@ function newUiObject () {
 
     if (executingIcon !== undefined) {
       if (executingIcon.canDrawIcon === true) {
-        if (thisObject.isExecuting === true) {
+        if (thisObject.isRunningAtBackend === true) {
           const DISTANCE_FROM_CENTER = thisObject.container.frame.radius / 3 + 50
           const EXECUTING_ICON_SIZE = 20 + thisObject.container.frame.radius / 6
 

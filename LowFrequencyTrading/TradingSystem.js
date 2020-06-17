@@ -10,11 +10,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         checkTriggerOn: checkTriggerOn,
         checkTriggerOff: checkTriggerOff,
         checkTakePosition: checkTakePosition,
-        checkStopPhases: checkStopPhases,
+        checkStopPhasesEvents: checkStopPhasesEvents,
         calculateStopLoss: calculateStopLoss,
-        checkTakeProfitPhases: checkTakeProfitPhases,
+        checkTakeProfitPhaseEvents: checkTakeProfitPhaseEvents,
         calculateTakeProfit: calculateTakeProfit,
         checkStopLossOrTakeProfitWasHit: checkStopLossOrTakeProfitWasHit,
+        exitStrategyAfterPosition: exitStrategyAfterPosition,
         getPositionSize: getPositionSize,
         getPositionRate: getPositionRate,
         initialize: initialize,
@@ -152,7 +153,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         conditions.set(node.id, value)
 
         if (value === true) {
-            tradingSystem.highlights.push([node.id, ''])
+            tradingSystem.highlights.push(node.id)
             tradingSystem.errors.push([node.id, 'La concha del mono'])
             tradingSystem.progress.push([node.id, 85])
             tradingSystem.status.push([node.id, 'Waiting for la concha del mono'])
@@ -208,26 +209,19 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function checkTriggerOn() {
-        /* Trigger On Conditions */
         if (
-            tradingEngine.current.strategy.stageType.value === 'No Stage' &&
-            tradingEngine.current.strategy.index.value === -1
+            tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
         ) {
-
             /*
-            Here we need to pick a strategy, or if there is not suitable strategy for the current
-            market conditions, we pass until the next period.
- 
-            To pick a new strategy we will evaluate what we call the trigger on. Once we enter
-            into one strategy, we will ignore market conditions for others. However there is also
+            To pick a new strategy we will check that any of the situations of the trigger on is true. 
+            Once we enter into one strategy, we will ignore market conditions for others. However there is also
             a strategy trigger off which can be hit before taking a position. If hit, we would
-            be outside a strategy again and looking for the condition to enter all over again.
+            be outside a strategy again and looking for the conditions to enter all over again.
             */
 
             for (let j = 0; j < tradingSystem.strategies.length; j++) {
-                if ( // If a strategy was already picked during the loop, we exit it
-                    tradingEngine.current.strategy.stageType.value !== 'No Stage' ||
-                    tradingEngine.current.strategy.index.value !== -1
+                if ( // If a strategy was already picked during the loop, we exit the loop
+                    tradingEngine.current.strategy.index.value !== tradingEngine.current.strategy.index.config.initialValue
                 ) { continue }
 
                 let strategy = tradingSystem.strategies[j]
@@ -243,45 +237,50 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             }
 
                             for (let m = 0; m < situation.conditions.length; m++) {
-
                                 let condition = situation.conditions[m]
                                 let value = false
                                 if (conditions.get(condition.id) !== undefined) {
                                     value = conditions.get(condition.id).value
                                 }
-
                                 if (value === false) { passed = false }
                             }
 
+                            tradingSystem.values.push([situation.id, passed])
                             if (passed) {
+                                tradingSystem.highlights.push(situation.id)
+                                tradingSystem.highlights.push(triggerStage.triggerOn.id)
+                                tradingSystem.highlights.push(triggerStage.id)
 
                                 tradingEngine.current.strategy.stageType.value = 'Trigger Stage'
-                                checkAnnouncements(triggerStage)
-
+                                tradingEngine.current.strategy.status.value = 'Open'
                                 tradingEngine.current.strategy.index.value = j
                                 tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
+                                tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value       // TODO: overrride with the node Formula
                                 tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
-                                tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value // In case the strategy does not get exited
+                                tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value   // TODO: overrride with the node Formula
                                 tradingEngine.current.strategy.situationName.value = situation.name
                                 tradingEngine.current.strategy.strategyName.value = strategy.name
 
                                 tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
+                                /* TODO See what to do with this:
                                 checkAnnouncements(triggerStage.triggerOn)
+                                checkAnnouncements(triggerStage)
                                 saveAsLastTriggerOnSnapshot = true
+                                */
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Entering into Strategy: ' + strategy.name) }
-                                break
+                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name) }
+                                return true // This Means that we have just met the conditions to trigger on.
                             }
                         }
                     }
                 }
             }
         }
+        return false // This Means that we have not met the conditions to trigger on.
     }
 
     function checkTriggerOff() {
-        /* Trigger Off Condition */
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
             let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
             let triggerStage = strategy.triggerStage
@@ -301,36 +300,41 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             if (conditions.get(condition.id) !== undefined) {
                                 value = conditions.get(condition.id).value
                             }
-
                             if (value === false) { passed = false }
                         }
 
+                        tradingSystem.values.push([situation.id, passed])
                         if (passed) {
+                            tradingSystem.highlights.push(situation.id)
+                            tradingSystem.highlights.push(triggerStage.triggerOff.id)
+                            tradingSystem.highlights.push(triggerStage.id)
+
                             tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
                             tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
                             tradingEngine.current.strategy.status.value = 'Closed'
                             tradingEngine.current.strategy.stageType.value = 'No Stage'
-                            tradingEngine.current.strategy.index.value = -1
+                            tradingEngine.current.strategy.index.value = tradingEngine.current.strategy.index.config.initialValue
 
                             tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
+                            /* TODO See what to do with this:
                             checkAnnouncements(triggerStage.triggerOff)
+                            */
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Exiting Strategy: ' + strategy.name) }
-                            break
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name) }
+                            return true // This Means that we have just met the conditions to trigger off.
                         }
                     }
                 }
             }
         }
-
+        return false // This Means that we have not met the conditions to trigger off.
     }
 
     function checkTakePosition() {
         /* Take Position Condition */
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
             let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
             let triggerStage = strategy.triggerStage
 
             if (triggerStage !== undefined) {
@@ -352,10 +356,13 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             if (value === false) { passed = false }
                         }
 
+                        tradingSystem.values.push([situation.id, passed])
                         if (passed) {
-                            tradingEngine.current.strategy.stageType.value = 'Open Stage'
-                            checkAnnouncements(strategy.openStage)
+                            tradingSystem.highlights.push(situation.id)
+                            tradingSystem.highlights.push(triggerStage.takePosition.id)
+                            tradingSystem.highlights.push(triggerStage.id)
 
+                            tradingEngine.current.strategy.stageType.value = 'Open Stage'
                             tradingEngine.current.position.stopLossStage.value = 'Open Stage'
                             tradingEngine.current.position.takeProfitStage.value = 'Open Stage'
                             tradingEngine.current.position.stopLossPhase.value = 0
@@ -363,125 +370,138 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                             tradingEngine.current.position.situationName.value = situation.name
 
+                            /* TODO See what to do with this:
                             checkAnnouncements(triggerStage.takePosition)
+                            checkAnnouncements(strategy.openStage)
                             saveAsLastTakePositionSnapshot = true
+                            */
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Conditions at the Take Position Event were met.') }
-                            return true
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.') }
+                            return true // This Means that we have just met the conditions to take position.
                         }
                     }
                 }
             }
         }
-        return false
+        return false // This Means that we have not met the conditions to take position.
     }
 
-    function checkStopPhases() {
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+    function checkStopPhasesEvents() {
+        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let openStage = strategy.openStage
+            let manageStage = strategy.manageStage
+            let parentNode
+            let p
 
-        let openStage = strategy.openStage
-        let manageStage = strategy.manageStage
-        let parentNode
-        let j = tradingEngine.current.strategy.index.value
-        let p
-
-        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
-            if (openStage.initialDefinition !== undefined) {
-                if (openStage.initialDefinition.stopLoss !== undefined) {
-                    parentNode = openStage.initialDefinition
-                    p = tradingEngine.current.position.stopLoss.stopLossPhase.value
-                }
-            }
-        }
-
-        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
-            if (manageStage.stopLoss !== undefined) {
-                parentNode = manageStage
-                p = tradingEngine.current.position.stopLoss.stopLossPhase.value - 1
-            }
-        }
-
-        if (parentNode !== undefined) {
-            let phase = parentNode.stopLoss.phases[p]
-
-            /* Check the next Phase Event. */
-            let nextPhaseEvent = phase.nextPhaseEvent
-            if (nextPhaseEvent !== undefined) {
-                for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-                    let situation = nextPhaseEvent.situations[k]
-                    let passed
-                    if (situation.conditions.length > 0) {
-                        passed = true
-                    }
-
-                    for (let m = 0; m < situation.conditions.length; m++) {
-                        let condition = situation.conditions[m]
-                        let value = false
-                        if (conditions.get(condition.id) !== undefined) {
-                            value = conditions.get(condition.id).value
-                        }
-
-                        if (value === false) { passed = false }
-                    }
-
-                    if (passed) {
-                        tradingEngine.current.position.stopLoss.stopLossPhase.value++
-                        tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
-                        if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
-                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
-                            checkAnnouncements(manageStage, 'Take Profit')
-                        }
-
-                        checkAnnouncements(nextPhaseEvent)
-                        return
+            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
+                if (openStage.initialDefinition !== undefined) {
+                    if (openStage.initialDefinition.stopLoss !== undefined) {
+                        parentNode = openStage.initialDefinition
+                        p = tradingEngine.current.position.stopLoss.stopLossPhase.value
                     }
                 }
             }
 
-            /* Check the Move to Phase Events. */
-            for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                if (moveToPhaseEvent !== undefined) {
-                    for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-                        let situation = moveToPhaseEvent.situations[k]
+            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
+                if (manageStage.stopLoss !== undefined) {
+                    parentNode = manageStage
+                    p = tradingEngine.current.position.stopLoss.stopLossPhase.value - 1
+                }
+            }
+
+            if (parentNode !== undefined) {
+                let phase = parentNode.stopLoss.phases[p]
+
+                /* Check the next Phase Event. */
+                let nextPhaseEvent = phase.nextPhaseEvent
+                if (nextPhaseEvent !== undefined) {
+                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                        let situation = nextPhaseEvent.situations[k]
                         let passed
                         if (situation.conditions.length > 0) {
                             passed = true
                         }
 
                         for (let m = 0; m < situation.conditions.length; m++) {
-
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
                                 value = conditions.get(condition.id).value
                             }
-
                             if (value === false) { passed = false }
                         }
 
+                        tradingSystem.values.push([situation.id, passed])
                         if (passed) {
+                            tradingSystem.highlights.push(situation.id)
+                            tradingSystem.highlights.push(nextPhaseEvent.id)
+                            tradingSystem.highlights.push(phase.id)
+                            tradingSystem.highlights.push(parentNode.stopLoss.id)
+                            tradingSystem.highlights.push(parentNode.id)
 
-                            let moveToPhase = moveToPhaseEvent.referenceParent
-                            if (moveToPhase !== undefined) {
-                                for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
-                                    if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
-                                        tradingEngine.current.position.stopLoss.stopLossPhase.value = q + 1
-                                    }
-                                }
-                            } else {
-                                moveToPhaseEvent.error = 'This Node needs to reference a Phase.'
-                                continue
-                            }
-
+                            tradingEngine.current.position.stopLoss.stopLossPhase.value++
                             tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
                             if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                 tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                 checkAnnouncements(manageStage, 'Take Profit')
                             }
 
-                            checkAnnouncements(moveToPhaseEvent)
-                            return
+                            checkAnnouncements(nextPhaseEvent)
+                            return // only one event can pass at the time
+                        }
+                    }
+                }
+
+                /* Check the Move to Phase Events. */
+                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                    let moveToPhaseEvent = phase.moveToPhaseEvents[n]
+                    if (moveToPhaseEvent !== undefined) {
+                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+                            let situation = moveToPhaseEvent.situations[k]
+                            let passed
+                            if (situation.conditions.length > 0) {
+                                passed = true
+                            }
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m]
+                                let value = false
+                                if (conditions.get(condition.id) !== undefined) {
+                                    value = conditions.get(condition.id).value
+                                }
+                                if (value === false) { passed = false }
+                            }
+
+                            tradingSystem.values.push([situation.id, passed])
+                            if (passed) {
+                                tradingSystem.highlights.push(situation.id)
+                                tradingSystem.highlights.push(moveToPhaseEvent.id)
+                                tradingSystem.highlights.push(phase.id)
+                                tradingSystem.highlights.push(parentNode.stopLoss.id)
+                                tradingSystem.highlights.push(parentNode.id)
+
+                                let moveToPhase = moveToPhaseEvent.referenceParent
+                                if (moveToPhase !== undefined) {
+                                    for (let q = 0; q < parentNode.stopLoss.phases.length; q++) {
+                                        if (parentNode.stopLoss.phases[q].id === moveToPhase.id) {
+                                            tradingEngine.current.position.stopLoss.stopLossPhase.value = q + 1
+                                        }
+                                    }
+                                } else {
+                                    tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
+                                    continue
+                                }
+
+                                tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                                if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
+                                    tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                                    checkAnnouncements(manageStage, 'Take Profit')
+                                }
+                                checkAnnouncements(moveToPhaseEvent)
+                                return // only one event can pass at the time
+                            }
                         }
                     }
                 }
@@ -490,148 +510,160 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function calculateStopLoss() {
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-        let openStage = strategy.openStage
-        let manageStage = strategy.manageStage
-        let phase
-        let key
+        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let openStage = strategy.openStage
+            let manageStage = strategy.manageStage
+            let phase
+            let key
 
-        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
-            if (openStage.initialDefinition !== undefined) {
-                if (openStage.initialDefinition.stopLoss !== undefined) {
-                    phase = openStage.initialDefinition.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
-                    key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value)
+            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
+                if (openStage.initialDefinition !== undefined) {
+                    if (openStage.initialDefinition.stopLoss !== undefined) {
+                        phase = openStage.initialDefinition.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
+                        key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value)
+                    }
                 }
             }
-        }
 
-        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
-            if (manageStage.stopLoss !== undefined) {
-                phase = manageStage.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
-                key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value - 1)
+            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
+                if (manageStage.stopLoss !== undefined) {
+                    phase = manageStage.stopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
+                    key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'stopLoss' + '-' + (tradingEngine.current.position.stopLoss.stopLossPhase.value - 1)
+                }
             }
-        }
 
-        if (phase !== undefined) {
-            if (phase.formula !== undefined) {
-                let previousValue = tradingEngine.current.position.stopLoss.value
+            if (phase !== undefined) {
+                if (phase.formula !== undefined) {
+                    let previousValue = tradingEngine.current.position.stopLoss.value
+                    tradingEngine.current.position.stopLoss.value = formulas.get(key)
 
-                tradingEngine.current.position.stopLoss.value = formulas.get(key)
-
-                if (tradingEngine.current.position.stopLoss.value !== previousValue) {
-                    checkAnnouncements(phase, tradingEngine.current.position.stopLoss.value)
+                    if (tradingEngine.current.position.stopLoss.value !== previousValue) {
+                        checkAnnouncements(phase, tradingEngine.current.position.stopLoss.value)
+                    }
                 }
             }
         }
     }
 
-    function checkTakeProfitPhases() {
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+    function checkTakeProfitPhaseEvents() {
+        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let openStage = strategy.openStage
+            let manageStage = strategy.manageStage
+            let parentNode
+            let p
 
-        let openStage = strategy.openStage
-        let manageStage = strategy.manageStage
-        let parentNode
-        let j = tradingEngine.current.strategy.index.value
-        let p
-
-        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
-            if (openStage.initialDefinition !== undefined) {
-                if (openStage.initialDefinition.takeProfit !== undefined) {
-                    parentNode = openStage.initialDefinition
-                    p = tradingEngine.current.position.takeProfit.takeProfitPhase.value
-                }
-            }
-        }
-
-        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
-            if (manageStage.takeProfit !== undefined) {
-                parentNode = manageStage
-                p = tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1
-            }
-        }
-
-        if (parentNode !== undefined) {
-            let phase = parentNode.takeProfit.phases[p]
-            if (phase === undefined) { return } // trying to jump to a phase that does not exists.
-
-            /* Check the next Phase Event. */
-            let nextPhaseEvent = phase.nextPhaseEvent
-            if (nextPhaseEvent !== undefined) {
-                for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
-                    let situation = nextPhaseEvent.situations[k]
-                    let passed
-                    if (situation.conditions.length > 0) {
-                        passed = true
-                    }
-
-                    for (let m = 0; m < situation.conditions.length; m++) {
-                        let condition = situation.conditions[m]
-                        let value = false
-                        if (conditions.get(condition.id) !== undefined) {
-                            value = conditions.get(condition.id).value
-                        }
-
-                        if (value === false) { passed = false }
-                    }
-
-                    if (passed) {
-                        tradingEngine.current.position.takeProfit.takeProfitPhase.value++
-                        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
-                        if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
-                            tradingEngine.current.strategy.stageType.value = 'Manage Stage'
-                            checkAnnouncements(manageStage, 'Stop')
-                        }
-
-                        checkAnnouncements(nextPhaseEvent)
-                        return
+            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
+                if (openStage.initialDefinition !== undefined) {
+                    if (openStage.initialDefinition.takeProfit !== undefined) {
+                        parentNode = openStage.initialDefinition
+                        p = tradingEngine.current.position.takeProfit.takeProfitPhase.value
                     }
                 }
             }
 
-            /* Check the Move to Phase Events. */
-            for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
-                let moveToPhaseEvent = phase.moveToPhaseEvents[n]
-                if (moveToPhaseEvent !== undefined) {
-                    for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
-                        let situation = moveToPhaseEvent.situations[k]
+            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
+                if (manageStage.takeProfit !== undefined) {
+                    parentNode = manageStage
+                    p = tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1
+                }
+            }
+
+            if (parentNode !== undefined) {
+                let phase = parentNode.takeProfit.phases[p]
+                if (phase === undefined) { return } // trying to jump to a phase that does not exists.
+
+                /* Check the next Phase Event. */
+                let nextPhaseEvent = phase.nextPhaseEvent
+                if (nextPhaseEvent !== undefined) {
+                    for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
+                        let situation = nextPhaseEvent.situations[k]
                         let passed
                         if (situation.conditions.length > 0) {
                             passed = true
                         }
 
                         for (let m = 0; m < situation.conditions.length; m++) {
-
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
                                 value = conditions.get(condition.id).value
                             }
-
                             if (value === false) { passed = false }
                         }
 
+                        tradingSystem.values.push([situation.id, passed])
                         if (passed) {
+                            tradingSystem.highlights.push(situation.id)
+                            tradingSystem.highlights.push(nextPhaseEvent.id)
+                            tradingSystem.highlights.push(phase.id)
+                            tradingSystem.highlights.push(parentNode.takeProfit.id)
+                            tradingSystem.highlights.push(parentNode.id)
 
-                            let moveToPhase = moveToPhaseEvent.referenceParent
-                            if (moveToPhase !== undefined) {
-                                for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
-                                    if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
-                                        tradingEngine.current.position.takeProfit.takeProfitPhase.value = q + 1
-                                    }
-                                }
-                            } else {
-                                moveToPhaseEvent.error = 'This Node needs to reference a Phase.'
-                                continue
-                            }
-
+                            tradingEngine.current.position.takeProfit.takeProfitPhase.value++
                             tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
                             if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                 tradingEngine.current.strategy.stageType.value = 'Manage Stage'
                                 checkAnnouncements(manageStage, 'Stop')
                             }
 
-                            checkAnnouncements(moveToPhaseEvent)
-                            return
+                            checkAnnouncements(nextPhaseEvent)
+                            return // only one event can pass at the time
+                        }
+                    }
+                }
+
+                /* Check the Move to Phase Events. */
+                for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
+                    let moveToPhaseEvent = phase.moveToPhaseEvents[n]
+                    if (moveToPhaseEvent !== undefined) {
+                        for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
+                            let situation = moveToPhaseEvent.situations[k]
+                            let passed
+                            if (situation.conditions.length > 0) {
+                                passed = true
+                            }
+
+                            for (let m = 0; m < situation.conditions.length; m++) {
+
+                                let condition = situation.conditions[m]
+                                let value = false
+                                if (conditions.get(condition.id) !== undefined) {
+                                    value = conditions.get(condition.id).value
+                                }
+                                if (value === false) { passed = false }
+                            }
+
+                            tradingSystem.values.push([situation.id, passed])
+                            if (passed) {
+                                tradingSystem.highlights.push(situation.id)
+                                tradingSystem.highlights.push(nextPhaseEvent.id)
+                                tradingSystem.highlights.push(phase.id)
+                                tradingSystem.highlights.push(parentNode.takeProfit.id)
+                                tradingSystem.highlights.push(parentNode.id)
+
+                                let moveToPhase = moveToPhaseEvent.referenceParent
+                                if (moveToPhase !== undefined) {
+                                    for (let q = 0; q < parentNode.takeProfit.phases.length; q++) {
+                                        if (parentNode.takeProfit.phases[q].id === moveToPhase.id) {
+                                            tradingEngine.current.position.takeProfit.takeProfitPhase.value = q + 1
+                                        }
+                                    }
+                                } else {
+                                    tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
+                                    continue
+                                }
+
+                                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                                if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
+                                    tradingEngine.current.strategy.stageType.value = 'Manage Stage'
+                                    checkAnnouncements(manageStage, 'Stop')
+                                }
+
+                                checkAnnouncements(moveToPhaseEvent)
+                                return // only one event can pass at the time
+                            }
                         }
                     }
                 }
@@ -640,36 +672,37 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function calculateTakeProfit() {
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-        let openStage = strategy.openStage
-        let manageStage = strategy.manageStage
-        let phase
-        let key
+        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let openStage = strategy.openStage
+            let manageStage = strategy.manageStage
+            let phase
+            let key
 
-        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
-            if (openStage.initialDefinition !== undefined) {
-                if (openStage.initialDefinition.takeProfit !== undefined) {
-                    phase = openStage.initialDefinition.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
-                    key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value)
+            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
+                if (openStage.initialDefinition !== undefined) {
+                    if (openStage.initialDefinition.takeProfit !== undefined) {
+                        phase = openStage.initialDefinition.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
+                        key = tradingEngine.current.strategy.index.value + '-' + 'openStage' + '-' + 'initialDefinition' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value)
+                    }
                 }
             }
-        }
 
-        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
-            if (manageStage.takeProfit !== undefined) {
-                phase = manageStage.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
-                key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1)
+            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
+                if (manageStage.takeProfit !== undefined) {
+                    phase = manageStage.takeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
+                    key = tradingEngine.current.strategy.index.value + '-' + 'manageStage' + '-' + 'takeProfit' + '-' + (tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1)
+                }
             }
-        }
 
-        if (phase !== undefined) {
-            if (phase.formula !== undefined) {
-                let previousValue = tradingEngine.current.position.stopLoss.value
+            if (phase !== undefined) {
+                if (phase.formula !== undefined) {
+                    let previousValue = tradingEngine.current.position.stopLoss.value
+                    tradingEngine.current.position.takeProfit.value = formulas.get(key)
 
-                tradingEngine.current.position.takeProfit.value = formulas.get(key)
-
-                if (tradingEngine.current.position.takeProfit.value !== previousValue) {
-                    checkAnnouncements(phase, tradingEngine.current.position.takeProfit.value)
+                    if (tradingEngine.current.position.takeProfit.value !== previousValue) {
+                        checkAnnouncements(phase, tradingEngine.current.position.takeProfit.value)
+                    }
                 }
             }
         }
@@ -677,111 +710,130 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function checkStopLossOrTakeProfitWasHit() {
         {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
-
-            /* Checking what happened since the last execution. We need to know if the Stop Loss
-                or our Take Profit were hit. */
-
-            /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
-
-            if (
-                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
-                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
-            ) {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Stop Loss was hit.') }
-                /*
-                Hit Point Validation
-
-                This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
-                If we take the stop loss value at those situation would be a huge distortion of facts.
+            if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+                let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+                /* 
+                Checking what happened since the last execution. We need to know if the Stop Loss
+                or our Take Profit were hit. 
                 */
 
-                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
-                        tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
+                /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+                if (
+                    (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
+                    (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
+                ) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.') }
+                    /*
+                    Hit Point Validation
+    
+                    This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
+                    If we take the stop loss value at those situation would be a huge distortion of facts.
+                    */
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                        if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
+                            tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
+                        }
+                    } else {
+                        if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.candle.max.value) {
+                            tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.max.value
+                        }
                     }
-                } else {
-                    if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.candle.max.value) {
-                        tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.max.value
+
+                    let slippedStopLoss = tradingEngine.current.position.stopLoss.value
+
+                    /* Apply the Slippage */
+                    let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
+
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                        slippedStopLoss = slippedStopLoss + slippageAmount
+                    } else {
+                        slippedStopLoss = slippedStopLoss - slippageAmount
                     }
+
+                    tradingEngine.current.position.endRate.value = slippedStopLoss
+
+                    tradingEngine.current.strategy.stageType.value = 'Close Stage'
+                    checkAnnouncements(strategy.closeStage, 'Stop')
+
+                    tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                    tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+                    tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
+                    tradingEngine.current.position.status.value = 1
+                    tradingEngine.current.position.exitType.value = 1
+
+                    return true // This means that the STOP was hit.
                 }
 
-                let slippedStopLoss = tradingEngine.current.position.stopLoss.value
+                /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
+                if (
+                    (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
+                    (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
+                ) {
+                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.') }
+                    /*
+                    Hit Point Validation:
+    
+                    This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
+                    If we take the stop loss value at those situation would be a huge distortion of facts.
+                    */
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                        if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
+                            tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
+                        }
+                    } else {
+                        if (tradingEngine.current.position.takeProfit.value < tradingEngine.current.candle.min.value) {
+                            tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.min.value
+                        }
+                    }
 
-                /* Apply the Slippage */
-                let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
+                    let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
+                    /* Apply the Slippage */
+                    let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
 
-                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    slippedStopLoss = slippedStopLoss + slippageAmount
-                } else {
-                    slippedStopLoss = slippedStopLoss - slippageAmount
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                        slippedTakeProfit = slippedTakeProfit + slippageAmount
+                    } else {
+                        slippedTakeProfit = slippedTakeProfit - slippageAmount
+                    }
+
+                    tradingEngine.current.position.endRate.value = slippedTakeProfit
+
+                    tradingEngine.current.strategy.stageType.value = 'Close Stage'
+                    checkAnnouncements(strategy.closeStage, 'Take Profit')
+
+                    tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+                    tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+
+                    tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
+                    tradingEngine.current.position.status.value = 1
+                    tradingEngine.current.position.exitType.value = 2
+
+                    addToSnapshots = true
+                    return true // This means that the Take Profit was hit.
                 }
-
-                tradingEngine.current.position.endRate.value = slippedStopLoss
-
-                tradingEngine.current.strategy.stageType.value = 'Close Stage'
-                checkAnnouncements(strategy.closeStage, 'Stop')
-
-                tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-                tradingEngine.current.position.status.value = 1
-                tradingEngine.current.position.exitType.value = 1
-
-                return true
             }
+            return false // This means that the neither the STOP nor the Take Profit were hit.
+        }
+    }
 
-            /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
+    function exitStrategyAfterPosition() {
+        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+            if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
+                tradingEngine.current.strategy.end.value = candle.end
+                tradingEngine.current.strategy.endRate.value = candle.min
+                tradingEngine.current.strategy.status.value = 'Closed'
 
-            if (
-                (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
-                (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
-            ) {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Take Profit was hit.') }
-                /*
-                Hit Point Validation:
+                tradingEngine.current.strategy.index.value = -1
+                tradingEngine.current.strategy.stageType.value = 'No Stage'
 
-                This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
-                If we take the stop loss value at those situation would be a huge distortion of facts.
-                */
+                timerToCloseStage = 0
+                tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
-                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
-                        tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
-                    }
-                } else {
-                    if (tradingEngine.current.position.takeProfit.value < tradingEngine.current.candle.min.value) {
-                        tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.min.value
-                    }
-                }
-
-                let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
-                /* Apply the Slippage */
-                let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
-
-                if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
-                    slippedTakeProfit = slippedTakeProfit + slippageAmount
-                } else {
-                    slippedTakeProfit = slippedTakeProfit - slippageAmount
-                }
-
-                tradingEngine.current.position.endRate.value = slippedTakeProfit
-
-                tradingEngine.current.strategy.stageType.value = 'Close Stage'
-                checkAnnouncements(strategy.closeStage, 'Take Profit')
-
-                tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-
-                tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-                tradingEngine.current.position.status.value = 1
-                tradingEngine.current.position.exitType.value = 2
-
-                addToSnapshots = true
-                return true
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Exiting the Strategy.') }
+            } else {
+                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Waiting for timer.') }
             }
         }
-        return false
     }
 
     function getPositionSize() {

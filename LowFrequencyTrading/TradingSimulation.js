@@ -40,8 +40,10 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
 
             /* Variables to know when we need to open or close a position. */
-            let takePositionNow = false
-            let closePositionNow = false
+            let triggeringOn
+            let triggeringOff
+            let takingPosition
+            let closingPosition
 
             /* These are the Modules we will need to run the Simulation */
 
@@ -79,7 +81,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
-            let previousheartBeatDate
+            let previousHeartBeatDate
 
             initializeLoop()
 
@@ -154,28 +156,27 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.reset(chart)
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
-
+                /*
+                The next step is about evaluationg Conditions and Formulas of the Trading System.
+                */
                 tradingSystemModule.evalConditions()
                 tradingSystemModule.evalFormulas()
-                tradingSystemModule.checkTriggerOn()
-                tradingSystemModule.checkTriggerOff()
-                takePositionNow = tradingSystemModule.checkTakePosition()
+                /*
+                Next we check if we will be triggering on, off or taking position.
+                */
+                triggeringOn = tradingSystemModule.checkTriggerOn()
+                triggeringOff = tradingSystemModule.checkTriggerOff()
+                takingPosition = tradingSystemModule.checkTakePosition()
 
                 /* Stop Loss Management */
-                if (
-                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
-                    takePositionNow !== true
-                ) {
-                    tradingSystemModule.checkStopPhases()
+                if (takingPosition !== true) {
+                    tradingSystemModule.checkStopPhasesEvents()
                     tradingSystemModule.calculateStopLoss()
                 }
 
                 /* Take Profit Management */
-                if (
-                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
-                    takePositionNow !== true
-                ) {
-                    tradingSystemModule.checkTakeProfitPhases()
+                if (takingPosition !== true) {
+                    tradingSystemModule.checkTakeProfitPhaseEvents()
                     tradingSystemModule.calculateTakeProfit()
                 }
 
@@ -183,51 +184,28 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingEngineModule.updateDistanceToEventsCounters()
 
                 /* Checking if Stop or Take Profit were hit */
-                if (
-                    (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') &&
-                    takePositionNow !== true
-                ) {
-                    closePositionNow = tradingSystemModule.checkStopLossOrTakeProfitWasHit()
+                if (takingPosition !== true) {
+                    closingPosition = tradingSystemModule.checkStopLossOrTakeProfitWasHit()
                 }
 
                 /* Taking a Position */
-                if (
-                    takePositionNow === true
-                ) {
-                    takePositionNow = false
+                if (takingPosition === true) {
                     tradingEngineModule.getReadyToTakePosition(candle)
                     tradingExecutionModule.takePosition()
                     tradingEngineModule.takePosition()
+                    takingPosition = false
                 }
 
                 /* Closing a Position */
-                if (
-                    closePositionNow === true
-                ) {
-                    closePositionNow = false
+                if (closingPosition === true) {
                     tradingEngineModule.getReadyToClosePosition(candle)
                     tradingExecutionModule.closePosition()
                     tradingEngineModule.closePosition()
+                    closingPosition = false
                 }
 
-                /* Closing the Closing Stage  TODO This should die once we have execution working. */
-                if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
-                    if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
-                        tradingEngine.current.strategy.end.value = candle.end
-                        tradingEngine.current.strategy.endRate.value = candle.min
-                        tradingEngine.current.strategy.status.value = 'Closed'
-
-                        tradingEngine.current.strategy.index.value = -1
-                        tradingEngine.current.strategy.stageType.value = 'No Stage'
-
-                        timerToCloseStage = 0
-                        tradingEngine.current.distanceToEvent.triggerOff.value = 1
-
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing the Closing Stage -> Exiting Close Stage.') }
-                    } else {
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Closing the Closing Stage -> Waiting for timer.') }
-                    }
-                }
+                /* After a position was closed, we need to close the strategy. */
+                tradingSystem.exitStrategyAfterPosition()
 
                 snapshotsModule.manageSnapshots()
                 tradingRecordsModule.appendRecords()
@@ -274,7 +252,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function heartBeat() {
                 /* We will produce a simulation level heartbeat in order to inform the user this is running. */
                 heartBeatDate = new Date(Math.trunc(tradingEngine.current.candle.begin.value / global.ONE_DAY_IN_MILISECONDS) * global.ONE_DAY_IN_MILISECONDS)
-                if (heartBeatDate.valueOf() !== previousheartBeatDate) {
+                if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
                     let processingDate = heartBeatDate.getUTCFullYear() + '-' + utilities.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + utilities.pad(heartBeatDate.getUTCDate(), 2)
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Simulation ' + bot.sessionKey + ' Loop # ' + tradingEngine.current.candle.index.value + ' @ ' + processingDate) }
@@ -292,7 +270,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         logger.newInternalLoop(bot.codeName, bot.process, currentDate, percentage)
                     }
                 }
-                previousheartBeatDate = heartBeatDate.valueOf()
+                previousHeartBeatDate = heartBeatDate.valueOf()
             }
 
             function positionChartAtCurrentCandle() {

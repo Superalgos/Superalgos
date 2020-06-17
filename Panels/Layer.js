@@ -175,7 +175,7 @@ function newLayer () {
                         'Polygon Border->Style->Style Condition->Style->' +
                         'Polygon Vertex->Point->' +
                         'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
-                        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->'
+                        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Record Values->'
       thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
       /* Here we validate that we have all the needed information */

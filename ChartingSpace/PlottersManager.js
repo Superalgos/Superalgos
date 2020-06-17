@@ -131,7 +131,7 @@ function newPlottersManager () {
         baseAsset: baseAsset,
         quotedAsset: quotedAsset
       }
-      let product = layer.definition.referenceParent.referenceParent
+      let productDefinition = layer.definition.referenceParent.referenceParent
       let bot = layer.definition.referenceParent.referenceParent.parentNode
       let dataMine = layer.definition.referenceParent.referenceParent.parentNode.parentNode
       let exchange = layer.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
@@ -171,7 +171,7 @@ function newPlottersManager () {
         dataMine,
         bot,
         session,
-        product,
+        productDefinition,
         exchange,
         market,
         datetime,
@@ -197,7 +197,7 @@ function newPlottersManager () {
           plotter.container.frame.position.x = thisObject.container.frame.width / 2 - plotter.container.frame.width / 2
           plotter.container.frame.position.y = thisObject.container.frame.height / 2 - plotter.container.frame.height / 2
           plotter.fitFunction = thisObject.fitFunction
-          plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, product)
+          plotter.initialize(storage, datetime, timeFrame, coordinateSystem, onPlotterInizialized, productDefinition)
 
           function onPlotterInizialized () {
             let connector = {
@@ -210,7 +210,7 @@ function newPlottersManager () {
             /* Lets load now this plotter panels. */
             connector.panels = []
 
-            if (product !== undefined) {
+            if (productDefinition !== undefined) {
               /* Here we setup the panels associated with this plotter */
               for (let i = 0; i < plotterModule.panels.length; i++) {
                 let panel = plotterModule.panels[i]
@@ -235,7 +235,7 @@ function newPlottersManager () {
               /*
               Next we will check the different types of Plotting related to connecting to an existing node branch.
               */
-              if (plotterModule.nodesHighlights !== undefined) {
+              if (plotterModule.nodesHighlights !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesHighlights = newNodesHighlights()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -247,7 +247,7 @@ function newPlottersManager () {
                 }
                 connector.nodesHighlights.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesHighlights.onRecordChange)
               }
-              if (plotterModule.nodesValues !== undefined) {
+              if (plotterModule.nodesValues !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesValues = newNodesValues()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -259,7 +259,7 @@ function newPlottersManager () {
                 }
                 connector.nodesValues.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesValues.onRecordChange)
               }
-              if (plotterModule.nodesErrors !== undefined) {
+              if (plotterModule.nodesErrors !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesErrors = newNodesErrors()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -271,7 +271,7 @@ function newPlottersManager () {
                 }
                 connector.nodesErrors.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesErrors.onRecordChange)
               }
-              if (plotterModule.nodesRunning !== undefined) {
+              if (plotterModule.nodesRunning !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesRunning = newNodesRunning()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -283,7 +283,7 @@ function newPlottersManager () {
                 }
                 connector.nodesRunning.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesRunning.onRecordChange)
               }
-              if (plotterModule.nodesStatus !== undefined) {
+              if (plotterModule.nodesStatus !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesStatus = newNodesStatus()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -295,7 +295,7 @@ function newPlottersManager () {
                 }
                 connector.nodesStatus.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesStatus.onRecordChange)
               }
-              if (plotterModule.nodesProgress !== undefined) {
+              if (plotterModule.nodesProgress !== undefined && plotterModule.config.connectTo !== undefined) {
                 connector.nodesProgress = newNodesProgress()
                 switch (plotterModule.config.connectTo) {
                   case 'Trading System':
@@ -306,6 +306,15 @@ function newPlottersManager () {
                     break
                 }
                 connector.nodesProgress.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesProgress.onRecordChange)
+              }
+              /*
+              Another type of plotting is with Record Values. This method uses the record definition to find the target node
+              and from there is looks into its children all based on the Record Definition configuration.
+              */
+              if (plotterModule.recordValues !== undefined) {
+                connector.recordValues = newRecordValues()
+                connector.recordValues.initialize(tradingSystem, tradingEngine, productDefinition)
+                connector.recordValues.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.recordValues.onRecordChange)
               }
             }
             thisObject.connectors.push(connector)
@@ -382,6 +391,10 @@ function newPlottersManager () {
     if (connector.nodesRunning !== undefined) {
       connector.plotter.container.eventHandler.stopListening(connector.nodesRunning.onRecordChangeEventsSubscriptionId)
       connector.nodesRunning.finalize()
+    }
+    if (connector.recordValues !== undefined) {
+      connector.plotter.container.eventHandler.stopListening(connector.recordValues.onRecordChangeEventsSubscriptionId)
+      connector.recordValues.finalize()
     }
   }
 

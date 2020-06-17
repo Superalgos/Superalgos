@@ -1432,7 +1432,7 @@ function newUiObject () {
       label = currentValue
       if (!isNaN(label)) {
         if (currentValue.toFixed !== undefined) {
-          label = dynamicDecimals(currentValue, 2)
+          label = dynamicDecimals(currentValue)
         }
       }
 

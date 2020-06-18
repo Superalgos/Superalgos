@@ -62,7 +62,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             let closeValues = [
                 tradingEngine.episode.positionCounters.positions.value,                                   // Position Number
                 (new Date(candle.begin)).toISOString(),                             // Datetime
-                tradingSystem.strategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
+                tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
                 tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
                 tradingEngine.current.position.situationName.value,                            // Take Position Situation
                 hitOrFial(),                                                        // Result

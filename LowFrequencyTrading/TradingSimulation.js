@@ -46,7 +46,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let closingPosition
 
             /* These are the Modules we will need to run the Simulation */
-
             const EXCHANGE_API = require('../ExchangeAPI');
             exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
             exchangeAPI.initialize();
@@ -82,6 +81,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             /* Variables needed for heartbeat functionality */
             let heartBeatDate
             let previousHeartBeatDate
+
+            /* This determines where we are standing */ 
+            bot.sessionAndMarketBaseAssetsAreEqual = (sessionParameters.sessionBaseAsset.referenceParent.referenceParent.config.codeName === bot.market.baseAsset)
 
             initializeLoop()
 
@@ -417,7 +419,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let maximumBalance
                     let balance
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
                         balance = tradingEngine.current.balance.baseAsset.value
                         minimumBalance = sessionParameters.sessionBaseAsset.config.minimumBalance
                         maximumBalance = sessionParameters.sessionBaseAsset.config.maximumBalance

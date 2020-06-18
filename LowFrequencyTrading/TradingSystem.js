@@ -219,12 +219,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             be outside a strategy again and looking for the conditions to enter all over again.
             */
 
-            for (let j = 0; j < tradingSystem.strategies.length; j++) {
+            for (let j = 0; j < tradingSystem.tradingStrategies.length; j++) {
                 if ( // If a strategy was already picked during the loop, we exit the loop
                     tradingEngine.current.strategy.index.value !== tradingEngine.current.strategy.index.config.initialValue
                 ) { continue }
 
-                let strategy = tradingSystem.strategies[j]
+                let strategy = tradingSystem.tradingStrategies[j]
                 let triggerStage = strategy.triggerStage
 
                 if (triggerStage !== undefined) {
@@ -282,7 +282,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function checkTriggerOff() {
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let triggerStage = strategy.triggerStage
 
             if (triggerStage !== undefined) {
@@ -334,7 +334,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function checkTakePosition() {
         /* Take Position Condition */
         if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let triggerStage = strategy.triggerStage
 
             if (triggerStage !== undefined) {
@@ -388,7 +388,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function checkStopPhasesEvents() {
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
             let parentNode
@@ -511,7 +511,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function calculateStopLoss() {
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
             let phase
@@ -548,7 +548,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function checkTakeProfitPhaseEvents() {
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
             let parentNode
@@ -673,7 +673,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function calculateTakeProfit() {
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
             let phase
@@ -711,7 +711,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function checkStopLossOrTakeProfitWasHit() {
         {
             if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-                let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 /* 
                 Checking what happened since the last execution. We need to know if the Stop Loss
                 or our Take Profit were hit. 
@@ -719,7 +719,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                 if (
-                    (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
+                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
                     (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
                 ) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.') }
@@ -729,7 +729,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
                     If we take the stop loss value at those situation would be a huge distortion of facts.
                     */
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
                         if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
                             tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
                         }
@@ -744,7 +744,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     /* Apply the Slippage */
                     let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
                         slippedStopLoss = slippedStopLoss + slippageAmount
                     } else {
                         slippedStopLoss = slippedStopLoss - slippageAmount
@@ -766,7 +766,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                 if (
-                    (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
+                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
                     (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
                 ) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.') }
@@ -776,7 +776,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
                     If we take the stop loss value at those situation would be a huge distortion of facts.
                     */
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
                         if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
                             tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
                         }
@@ -790,7 +790,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     /* Apply the Slippage */
                     let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
                         slippedTakeProfit = slippedTakeProfit + slippageAmount
                     } else {
                         slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -838,13 +838,13 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function getPositionSize() {
         let balance
-        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
             balance = tradingEngine.current.balance.baseAsset.value
         } else {
             balance = tradingEngine.current.balance.quotedAsset.value
         }
         const DEFAULT_VALUE = balance
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+        let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
 
         if (strategy.openStage === undefined) return { DEFAULT_VALUE }
         if (strategy.openStage.initialDefinition === undefined) return { DEFAULT_VALUE }
@@ -858,7 +858,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function getPositionRate() {
         const DEFAULT_VALUE = tradingEngine.current.candle.close.value
-        let strategy = tradingSystem.strategies[tradingEngine.current.strategy.index.value]
+        let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
 
         if (strategy.openStage === undefined) return { DEFAULT_VALUE }
         if (strategy.openStage.initialDefinition === undefined) return { DEFAULT_VALUE }

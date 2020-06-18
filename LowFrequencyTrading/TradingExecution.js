@@ -131,7 +131,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
         let amountB
         let orderSide
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
             orderSide = 'sell'
 
             orderPrice = tradingEngine.current.position.rate.value
@@ -257,7 +257,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
         let amountB
         let orderSide
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
             orderSide = 'buy'
 
             orderPrice = ticker.last + 100 // This is provisional and totally arbitrary, until we have a formula on the designer that defines this stuff.

@@ -60,7 +60,7 @@ function newSessionFunctions () {
     'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
     'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +
-    'Position Statistics->Days->ROI->User Defined Statistic->' +
+    'Position Statistics->Profit Loss->Days->ROI->User Defined Statistic->' +
     'Formula'
 
     let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)

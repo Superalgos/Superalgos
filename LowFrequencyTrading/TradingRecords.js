@@ -37,16 +37,41 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             let outputDatasetNode = outputDatasets[i]
             let dataset = outputDatasetNode.referenceParent
             let product = dataset.parentNode
-            let record
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
             if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
-                record = scanRecordDefinition(product)
-                outputDatasetArray.push(record)
+                persistRecord()
             }
 
             if (bot.processingDailyFiles === false && dataset.config.type === 'Market Files') {
-                record = scanRecordDefinition(product)
+                persistRecord()
+            }
+
+            function persistRecord() {
+                let record = scanRecordDefinition(product)
+
+                if (product.config.saveAsObjects === true) {
+                    /* 
+                    We check that the existing file does not contain at the end a record that
+                    does not signal that the object is closed.  
+                    If it does, we replace it with the new one until at some point it will signal
+                    does the object is closed. 
+                    */
+                    let lastRecord = outputDatasetArray[outputDatasetArray.length - 1]
+                    if (lastRecord !== undefined) {
+                        for (let j = 0; j < product.record.properties.length; j++) {
+                            let recordProperty = product.record.properties[j]
+                            if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
+                                let propertyValue = record[j]
+                                if (propertyValue !== product.config.propertyValueThatClosesObject) {
+                                    outputDatasetArray.splice(outputDatasetArray.length - 1, 1)
+
+                                }
+                            }
+                        }
+                    }
+                }
+                /* We add every record to the existing file. */
                 outputDatasetArray.push(record)
             }
         }

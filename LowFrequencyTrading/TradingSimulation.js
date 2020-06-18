@@ -82,7 +82,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let heartBeatDate
             let previousHeartBeatDate
 
-            /* This determines where we are standing */ 
+            /* This determines where we are standing */
             bot.sessionAndMarketBaseAssetsAreEqual = (sessionParameters.sessionBaseAsset.referenceParent.referenceParent.config.codeName === bot.market.baseAsset)
 
             initializeLoop()
@@ -207,7 +207,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 }
 
                 /* After a position was closed, we need to close the strategy. */
-                tradingSystem.exitStrategyAfterPosition()
+                tradingSystemModule.exitStrategyAfterPosition()
 
                 snapshotsModule.manageSnapshots()
                 tradingRecordsModule.appendRecords()

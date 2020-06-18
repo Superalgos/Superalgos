@@ -77,10 +77,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         /* Here we check if there is a codition to be evaluated */
         if (node.type === 'Condition' && evaluating === 'Conditions') {
-            if (node.code !== undefined) {
-                /* We will eval this condition */
-                evalCondition(node)
-            }
+            /* We will eval this condition */
+            evalCondition(node)
         }
 
         /* Here we check if there is a formula to be evaluated */
@@ -127,11 +125,21 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function evalCondition(node) {
         let value
         let error
+        /*
+        The code can be at the condition node if it was done with the Conditions Editor, or it can also be
+        at a Javascript Code node. If there is a Javascript object we will give it preference and take the code
+        from there. Otherwise we will take the code from the Condition node.
+        */
+        let code = node.code
+        if (node.javascriptCode !== undefined) {
+            if (node.javascriptCode.code !== undefined) {
+                code = node.javascriptCode.code
+            }
+        }
 
         try {
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + node.code) }
-
-            value = eval(node.code)
+            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + code) }
+            value = eval(code)
         } catch (err) {
             /*
                 One possible error is that the conditions references a .previous that is undefined. This
@@ -139,8 +147,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             */
             value = false
 
-            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 ||
-                node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
+            if (code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 ||
+                code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
             ) {
                 /*
                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
@@ -154,10 +162,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         if (value === true) {
             tradingSystem.highlights.push(node.id)
-            tradingSystem.errors.push([node.id, 'La concha del mono'])
-            tradingSystem.progress.push([node.id, 85])
-            tradingSystem.status.push([node.id, 'Waiting for la concha del mono'])
-            tradingSystem.running.push([node.id, true])
         }
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])
@@ -240,9 +244,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 let condition = situation.conditions[m]
                                 let value = false
                                 if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id).value
+                                    value = conditions.get(condition.id)
                                 }
-                                if (value === false) { passed = false }
+                                if (value !== true) { passed = false }
                             }
 
                             tradingSystem.values.push([situation.id, passed])
@@ -298,9 +302,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id).value
+                                value = conditions.get(condition.id)
                             }
-                            if (value === false) { passed = false }
+                            if (value !== true) { passed = false }
                         }
 
                         tradingSystem.values.push([situation.id, passed])
@@ -350,10 +354,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id).value
+                                value = conditions.get(condition.id)
                             }
 
-                            if (value === false) { passed = false }
+                            if (value !== true) { passed = false }
                         }
 
                         tradingSystem.values.push([situation.id, passed])
@@ -363,11 +367,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(triggerStage.id)
 
                             tradingEngine.current.strategy.stageType.value = 'Open Stage'
-                            tradingEngine.current.position.stopLossStage.value = 'Open Stage'
-                            tradingEngine.current.position.takeProfitStage.value = 'Open Stage'
-                            tradingEngine.current.position.stopLossPhase.value = 0
-                            tradingEngine.current.position.takeProfitPhase.value = 0
-
+                            tradingEngine.current.position.stopLoss.stopLossStage.value = 'Open Stage'
+                            tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Open Stage'
+                            tradingEngine.current.position.stopLoss.stopLossPhase.value = 0
+                            tradingEngine.current.position.takeProfit.takeProfitPhase.value = 0
                             tradingEngine.current.position.situationName.value = situation.name
 
                             /* TODO See what to do with this:

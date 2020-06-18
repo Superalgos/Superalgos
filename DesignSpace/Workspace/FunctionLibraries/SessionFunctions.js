@@ -57,6 +57,8 @@ function newSessionFunctions () {
     'Strategy Counters->Periods->' +
     'Position->' +
     'Begin->End->Rate->Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
+    'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +
     'Position Statistics->Days->ROI->User Defined Statistic->' +
     'Formula'

@@ -1,8 +1,5 @@
 exports.newTradingSystem = function newTradingSystem(bot, logger) {
-
     const MODULE_NAME = 'Trading System'
-    const FULL_LOG = true
-
     let thisObject = {
         reset: reset,
         evalConditions: evalConditions,
@@ -15,6 +12,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         checkTakeProfitPhaseEvents: checkTakeProfitPhaseEvents,
         calculateTakeProfit: calculateTakeProfit,
         checkStopLossOrTakeProfitWasHit: checkStopLossOrTakeProfitWasHit,
+        getReadyToTakePosition: getReadyToTakePosition,
+        takePosition: takePosition,
+        getReadyToClosePosition: getReadyToClosePosition,
+        closePosition: closePosition,
         exitStrategyAfterPosition: exitStrategyAfterPosition,
         getPositionSize: getPositionSize,
         getPositionRate: getPositionRate,
@@ -138,7 +139,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         }
 
         try {
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + code) }
+            logger.write(MODULE_NAME, '[INFO] evalCondition -> code = ' + code)
             value = eval(code)
         } catch (err) {
             /*
@@ -170,8 +171,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             tradingSystem.values.push([node.id, value])
         }
 
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value) }
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error) }
+        logger.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
+        logger.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error)
     }
 
     function evalFormula(node) {
@@ -179,7 +180,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         let error
 
         try {
-            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> code = ' + node.code) }
+            logger.write(MODULE_NAME, '[INFO] evalFormula -> code = ' + node.code)
             value = eval(node.code)
         } catch (err) {
             /*
@@ -208,8 +209,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             tradingSystem.values.push([node.id, value])
         }
 
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value) }
-        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error) }
+        logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
+        logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
     }
 
     function checkTriggerOn() {
@@ -273,7 +274,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 saveAsLastTriggerOnSnapshot = true
                                 */
 
-                                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name) }
+                                logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name)
                                 return true // This Means that we have just met the conditions to trigger on.
                             }
                         }
@@ -325,7 +326,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             checkAnnouncements(triggerStage.triggerOff)
                             */
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name) }
+                            logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name)
                             return true // This Means that we have just met the conditions to trigger off.
                         }
                     }
@@ -379,7 +380,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             saveAsLastTakePositionSnapshot = true
                             */
 
-                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.') }
+                            logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.')
                             return true // This Means that we have just met the conditions to take position.
                         }
                     }
@@ -725,7 +726,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
                     (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
                 ) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.') }
+                    logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
                     /*
                     Hit Point Validation
     
@@ -772,7 +773,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
                     (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
                 ) {
-                    if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.') }
+                    logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
                     /*
                     Hit Point Validation:
     
@@ -819,6 +820,126 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         }
     }
 
+    function getReadyToTakePosition() {
+        /* Inicializing this counter */
+        tradingEngine.current.distanceToEvent.takePosition.value = 1
+
+        /* Position size and rate */
+        tradingEngine.current.position.size.value = getPositionSize()
+        tradingEngine.current.position.rate.value = getPositionRate()
+
+        /* We take what was calculated at the formula and apply the slippage. */
+        let slippageAmount = tradingEngine.current.position.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
+
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
+            tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
+        } else {
+            tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value + slippageAmount
+        }
+
+        /* Update the position information. */
+        tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
+        tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
+    }
+
+    function takePosition() {
+        calculateTakeProfit() // TODO: Check if this is really necesary
+        calculateStopLoss() // TODO: Check if this is really necesary
+
+        tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
+        tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
+
+        tradingEngine.last.position.profitLoss.value = 0
+        tradingEngine.last.position.ROI.value = 0
+
+        let feePaid = 0
+
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
+            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+
+            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
+            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
+        } else {
+            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+
+            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
+            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
+        }
+    }
+
+    function getReadyToClosePosition() {
+        /* Inicializing this counter */
+        tradingEngine.current.distanceToEvent.closePosition.value = 1
+
+        /* Position size and rate */
+        let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+    }
+
+    function closePosition() {
+        tradingEngine.episode.positionCounters.positions.value++
+
+        let feePaid = 0
+
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
+
+            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+
+            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
+            tradingEngine.current.balance.quotedAsset.value = 0
+        } else {
+
+            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+
+            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
+            tradingEngine.current.balance.baseAsset.value = 0
+        }
+
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
+            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
+            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
+        } else {
+            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
+            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
+        }
+
+        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.ROI.value
+
+        if (tradingEngine.last.position.profitLoss.value > 0) {
+            tradingEngine.episode.episodeCounters.hits.value++
+        } else {
+            tradingEngine.episode.episodeCounters.fails.value++
+        }
+
+        if (bot.sessionAndMarketBaseAssetsAreEqual) {
+            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
+            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
+            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
+        } else {
+            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
+            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
+            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
+        }
+
+        addRecords()
+
+        tradingEngine.current.position.stopLoss.value = 0
+        tradingEngine.current.position.takeProfit.value = 0
+
+        tradingEngine.current.position.rate.value = 0
+        tradingEngine.current.position.size.value = 0
+
+        timerToCloseStage = candle.begin
+        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
+        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
+        tradingEngine.current.position.stopLoss.stopLossPhase.value = -1
+        tradingEngine.current.position.takeProfit.takeProfitPhase.value = -1
+
+    }
+
     function exitStrategyAfterPosition() {
         if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
             if (candle.begin - 5 * 60 * 1000 > timerToCloseStage) {
@@ -832,9 +953,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 timerToCloseStage = 0
                 tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Exiting the Strategy.') }
+                logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Exiting the Strategy.')
             } else {
-                if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Waiting for timer.') }
+                logger.write(MODULE_NAME, '[INFO] exitStrategyAfterPosition -> Waiting for timer.')
             }
         }
     }

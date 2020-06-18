@@ -182,6 +182,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     tradingSystemModule.calculateTakeProfit()
                 }
 
+                tradingEngineModule.resetPositionCountersAndStatistics()
                 tradingEngineModule.updatePositionCountersAndStatistics()
                 tradingEngineModule.updateDistanceToEventsCounters()
 
@@ -192,17 +193,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* Taking a Position */
                 if (takingPosition === true) {
-                    tradingEngineModule.getReadyToTakePosition(candle)
+                    tradingSystemModule.getReadyToTakePosition()
                     tradingExecutionModule.takePosition()
-                    tradingEngineModule.takePosition()
+                    tradingSystemModule.takePosition()
                     takingPosition = false
                 }
 
                 /* Closing a Position */
                 if (closingPosition === true) {
-                    tradingEngineModule.getReadyToClosePosition(candle)
+                    tradingSystemModule.getReadyToClosePosition()
                     tradingExecutionModule.closePosition()
-                    tradingEngineModule.closePosition()
+                    tradingSystemModule.closePosition()
                     closingPosition = false
                 }
 

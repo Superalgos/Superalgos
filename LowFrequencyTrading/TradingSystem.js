@@ -27,6 +27,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     let tradingSystem
     let tradingEngine
+    let sessionParameters
 
     let conditions = new Map()
     let formulas = new Map()
@@ -36,6 +37,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
+        sessionParameters = bot.SESSION.parameters
     }
 
     function finalize() {
@@ -53,6 +55,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         tradingSystem = undefined
         tradingEngine = undefined
+        sessionParameters = undefined
     }
 
     function reset(pChart) {
@@ -724,7 +727,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                 if (
                     (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
-                    (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
+                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
                     /*
@@ -771,7 +774,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                 if (
                     (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
-                    (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
+                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
                     /*
@@ -849,8 +852,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
         tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
-        tradingEngine.last.position.profitLoss.value = 0
-        tradingEngine.last.position.ROI.value = 0
+        tradingEngine.last.position.positionStatistics.profitLoss.value = 0
+        tradingEngine.last.position.positionStatistics.ROI.value = 0
 
         let feePaid = 0
 
@@ -895,20 +898,20 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         }
 
         if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
-            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
-            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+            tradingEngine.last.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
+            tradingEngine.last.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            if (isNaN(tradingEngine.last.position.positionStatistics.ROI.value)) { tradingEngine.last.position.positionStatistics.ROI.value = 0 }
             tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
         } else {
-            tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
-            tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
-            if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
+            tradingEngine.last.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
+            tradingEngine.last.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            if (isNaN(tradingEngine.last.position.positionStatistics.ROI.value)) { tradingEngine.last.position.positionStatistics.ROI.value = 0 }
             tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
         }
 
-        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.ROI.value
+        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.ROI.value
 
-        if (tradingEngine.last.position.profitLoss.value > 0) {
+        if (tradingEngine.last.position.positionStatistics.profitLoss.value > 0) {
             tradingEngine.episode.episodeCounters.hits.value++
         } else {
             tradingEngine.episode.episodeCounters.fails.value++

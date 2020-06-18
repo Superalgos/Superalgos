@@ -66,12 +66,12 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                 tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
                 tradingEngine.current.position.situationName.value,                            // Take Position Situation
                 hitOrFial(),                                                        // Result
-                tradingEngine.last.position.ROI.value,                                         // ROI
+                tradingEngine.last.position.positionStatistics.ROI.value,                                         // ROI
                 exitType()                                                          // Exit Type
             ]
 
             function hitOrFial() {
-                if (tradingEngine.last.position.ROI.value > 0) { return 'HIT' } else { return 'FAIL' }
+                if (tradingEngine.last.position.positionStatistics.ROI.value > 0) { return 'HIT' } else { return 'FAIL' }
             }
 
             function exitType() {

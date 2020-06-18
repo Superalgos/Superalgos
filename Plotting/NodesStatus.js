@@ -26,7 +26,7 @@ function newNodesStatus () {
     let array = currentRecord.status
     if (array === undefined) { return }
     for (let i = 0; i < array.length; i++) {
-      let arrayItem = array[0]
+      let arrayItem = array[i]
       let nodeId = arrayItem[0]
       let value = arrayItem[1]
       applyValue(nodeId, value)

@@ -26,14 +26,12 @@ function newNodesHighlights () {
     let array = currentRecord.highlights
     if (array === undefined) { return }
     for (let i = 0; i < array.length; i++) {
-      let arrayItem = array[0]
-      let nodeId = arrayItem[0]
-      let value = arrayItem[1]
-      applyValue(nodeId, value)
+      let nodeId = array[i]
+      highlight(nodeId)
     }
   }
 
-  function applyValue (nodeId, value) {
+  function highlight (nodeId) {
     let node = hiriarchyMap.get(nodeId)
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }

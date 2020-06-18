@@ -33,6 +33,7 @@ function newNodesHighlights () {
 
   function highlight (nodeId) {
     let node = hiriarchyMap.get(nodeId)
+    if (node === undefined) { return }
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
     node.payload.uiObject.highlight()

@@ -193,7 +193,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         /* We take what was calculated at the formula and apply the slippage. */
         let slippageAmount = tradingEngine.current.position.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
             tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
         } else {
             tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value + slippageAmount
@@ -216,7 +216,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
         let feePaid = 0
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
             feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
             tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
@@ -242,7 +242,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
         let feePaid = 0
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
 
             feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
@@ -256,7 +256,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
             tradingEngine.current.balance.baseAsset.value = 0
         }
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
             tradingEngine.last.position.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
             tradingEngine.last.position.ROI.value = tradingEngine.last.position.profitLoss.value * 100 / tradingEngine.current.position.size.value
             if (isNaN(tradingEngine.last.position.ROI.value)) { tradingEngine.last.position.ROI.value = 0 }
@@ -276,7 +276,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
             tradingEngine.episode.episodeCounters.fails.value++
         }
 
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
             tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
             tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.positionCounters.positions.value
             tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365

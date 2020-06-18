@@ -719,8 +719,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                 if (
-                    (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
-                    (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
+                    (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
+                    (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
                 ) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.') }
                     /*
@@ -729,7 +729,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
                     If we take the stop loss value at those situation would be a huge distortion of facts.
                     */
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
                         if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
                             tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
                         }
@@ -744,7 +744,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     /* Apply the Slippage */
                     let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
                         slippedStopLoss = slippedStopLoss + slippageAmount
                     } else {
                         slippedStopLoss = slippedStopLoss - slippageAmount
@@ -766,8 +766,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                 if (
-                    (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
-                    (sessionParameters.sessionBaseAsset.name !== bot.market.marketBaseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
+                    (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
+                    (sessionParameters.sessionBaseAsset.name !== bot.market.baseAsset && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
                 ) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.') }
                     /*
@@ -776,7 +776,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
                     If we take the stop loss value at those situation would be a huge distortion of facts.
                     */
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
                         if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
                             tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
                         }
@@ -790,7 +790,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     /* Apply the Slippage */
                     let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
                         slippedTakeProfit = slippedTakeProfit + slippageAmount
                     } else {
                         slippedTakeProfit = slippedTakeProfit - slippageAmount
@@ -838,7 +838,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function getPositionSize() {
         let balance
-        if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+        if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
             balance = tradingEngine.current.balance.baseAsset.value
         } else {
             balance = tradingEngine.current.balance.quotedAsset.value

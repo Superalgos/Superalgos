@@ -417,7 +417,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let maximumBalance
                     let balance
 
-                    if (sessionParameters.sessionBaseAsset.name === bot.market.marketBaseAsset) {
+                    if (sessionParameters.sessionBaseAsset.name === bot.market.baseAsset) {
                         balance = tradingEngine.current.balance.baseAsset.value
                         minimumBalance = sessionParameters.sessionBaseAsset.config.minimumBalance
                         maximumBalance = sessionParameters.sessionBaseAsset.config.maximumBalance

@@ -409,7 +409,7 @@
                         results.push(product[variableName]);
                     }
 
-                    /* While we are positioned at Yesterday, we keey updating this data structure. */
+                    /* While we are positioned at Yesterday, we keep updating this data structure. */
                     if (processingDailyFiles) {
                         if (positionedAtYesterday) {
                             yesterday.variable = JSON.parse(JSON.stringify(variable))

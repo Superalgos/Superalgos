@@ -131,7 +131,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 of Nodes defined in the Record Properties but not all of them exist at the Root Node.
                 We filter out those cases by not extracting the value from the value property.
                 */
-                let value
+                let value = 0 // This is a default value, since we do not want null in files because it breakes JSON format.
                 if (targetNode !== undefined) {
                     if (targetNode.type !== undefined) {
                         /*
@@ -139,10 +139,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         from its value property.
                         */
                         value = targetNode.value
-                        value = safeValue(value)
-                        if (recordProperty.config.isString === true) {
-                            value = '"' + value + '"'
-                        }
+
                         if (recordProperty.config.decimals !== undefined) {
                             value = Number(value.toFixed(recordProperty.config.decimals))
                         }
@@ -154,13 +151,16 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode
                     }
                 }
+                if (recordProperty.config.isString !== true) {
+                    value = safeNumericValue(value)
+                }
                 record.push(value)
             }
             return record
         }
     }
 
-    function safeValue(value) {
+    function safeNumericValue(value) {
         /*
         The purpose of this function is to check that value variable does not have a value that 
         will later break the JSON format of files where this is going to be stored at. 
@@ -169,6 +169,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             value = Number.MAX_SAFE_INTEGER
         }
         if (value === undefined) {
+            value = 0
+        }
+        if (value === null) {
+            value = 0
+        }
+        if (isNaN(value)) {
             value = 0
         }
         return value

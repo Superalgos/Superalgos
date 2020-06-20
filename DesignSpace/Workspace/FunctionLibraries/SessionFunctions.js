@@ -32,7 +32,7 @@ function newSessionFunctions () {
     'Initial Stop->Initial Take Profit->' +
     'Manage Stage->' +
     'Stop->Take Profit->' +
-    'Phase->Formula->Next Phase Event->Move to Phase Event->Phase->' +
+    'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
     'Situation->Condition->Javascript Code->' +
     'Close Stage->Close Execution->' +
     'Announcement->Formula->'

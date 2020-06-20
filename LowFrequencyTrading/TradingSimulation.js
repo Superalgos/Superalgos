@@ -33,8 +33,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
-            let timerToCloseStage = 0 // TODO
-
             /* Stop Loss Management TODO */
             const MIN_STOP_LOSS_VALUE = 0.0000000001 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER

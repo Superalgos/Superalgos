@@ -12,6 +12,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     let tradingEngine
+    let tradingSystem
 
     const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
 
@@ -36,19 +37,20 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     saveAsLastTakePositionSnapshot = false
     addToSnapshots = false
 
-
-
     return thisObject
 
     function initialize() {
         tradingEngine = bot.simulationState.tradingEngine
+        tradingSystem = bot.simulationState.tradingSystem
     }
 
     function finalize() {
         tradingEngine = undefined
+        tradingSystem = undefined
     }
 
     function manageSnapshots() {
+        return // TODO enable this to run
         /* Snapshots Management (before we generate the trade record and delete that info) */
         if (saveAsLastTriggerOnSnapshot === true) {
             snapshots.lastTriggerOn = snapshotDataRecord
@@ -62,8 +64,8 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
         if (addToSnapshots === true) {
             let closeValues = [
-                tradingEngine.episode.positionCounters.positions.value,                                   // Position Number
-                (new Date(candle.begin)).toISOString(),                             // Datetime
+                tradingEngine.episode.episodeCounters.positions.value,                                   // Position Number
+                (new Date(tradingEngine.current.candle.begin.value)).toISOString(),                             // Datetime
                 tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].name,     // Strategy Name
                 tradingEngine.current.strategy.situationName.value,                            // Trigger On Situation
                 tradingEngine.current.position.situationName.value,                            // Take Position Situation

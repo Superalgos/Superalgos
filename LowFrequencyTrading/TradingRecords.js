@@ -41,6 +41,10 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
+            if (product.config.codeName === 'Strategy-Objects') {
+                let a = 1
+            }
+
             if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
                 persistRecord()
             }
@@ -53,28 +57,36 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 let record = scanRecordDefinition(product)
 
                 if (product.config.saveAsObjects === true) {
-                    /* 
-                    We check that the existing file does not contain at the end a record that
-                    does not signal that the object is closed.  
-                    If it does, we replace it with the new one until at some point it will signal
-                    does the object is closed. 
-                    */
-                    let lastRecord = outputDatasetArray[outputDatasetArray.length - 1]
-                    if (lastRecord !== undefined) {
-                        for (let j = 0; j < product.record.properties.length; j++) {
-                            let recordProperty = product.record.properties[j]
-                            if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
-                                let propertyValue = record[j]
-                                if (propertyValue !== product.config.propertyValueThatClosesObject) {
+                    for (let j = 0; j < product.record.properties.length; j++) {
+                        let recordProperty = product.record.properties[j]
+                        if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
+                            let propertyValue = record[j]
+                            /* 
+                            We check that the existing file does not contain at the end a record that
+                            does not signal that the object is closed.  
+                            If it does, we replace it with the new one until at some point it will signal
+                            does the object is closed. 
+                            */
+                            let lastRecord = outputDatasetArray[outputDatasetArray.length - 1]
+                            if (lastRecord !== undefined) {
+                                let lastRecordValue = lastRecord[j]
+                                if (lastRecordValue !== product.config.propertyValueThatClosesObject) {
                                     outputDatasetArray.splice(outputDatasetArray.length - 1, 1)
-
                                 }
                             }
+                            /*
+                            We will add a record everytime that proeprty value does not match this
+                            */
+                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                outputDatasetArray.push(record)
+                            }
+                            break
                         }
                     }
+                } else {
+                    /* We add every record to the existing file. */
+                    outputDatasetArray.push(record)
                 }
-                /* We add every record to the existing file. */
-                outputDatasetArray.push(record)
             }
         }
 
@@ -151,7 +163,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode
                     }
                 }
-                if (recordProperty.config.isString !== true) {
+                if (recordProperty.config.isString !== true && Array.isArray(value) !== true) {
                     value = safeNumericValue(value)
                 }
                 record.push(value)

@@ -158,6 +158,8 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 heartBeat()
                 positionChartAtCurrentCandle()
                 tradingSystemModule.reset(chart)
+                tradingSystemModule.mantainStrategies()
+                tradingSystemModule.mantainPositions()
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
                 /*

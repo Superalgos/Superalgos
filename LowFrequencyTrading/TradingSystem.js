@@ -6,6 +6,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const MODULE_NAME = 'Trading System'
     let thisObject = {
         reset: reset,
+        mantainStrategies: mantainStrategies,
+        mantainPositions: mantainPositions,
         evalConditions: evalConditions,
         evalFormulas: evalFormulas,
         checkTriggerOn: checkTriggerOn,
@@ -70,6 +72,16 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingSystem.status = []
         tradingSystem.progress = []
         tradingSystem.running = []
+    }
+
+    function mantainStrategies() {
+        if (tradingEngine.current.strategy.status.value === 'Closed') {
+            resetStrategy()
+        }
+    }
+
+    function mantainPositions() {
+
     }
 
     function evalConditions() {
@@ -264,12 +276,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 tradingSystem.highlights.push(triggerStage.id)
 
                                 tradingEngine.current.strategy.stageType.value = 'Trigger Stage'
-                                tradingEngine.current.strategy.status.value = 'Open'
+                                openStrategy()
                                 tradingEngine.current.strategy.index.value = j
-                                tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
-                                tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value       // TODO: overrride with the node Formula
-                                tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
-                                tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value   // TODO: overrride with the node Formula
                                 tradingEngine.current.strategy.situationName.value = situation.name
                                 tradingEngine.current.strategy.strategyName.value = strategy.name
 
@@ -321,9 +329,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(triggerStage.triggerOff.id)
                             tradingSystem.highlights.push(triggerStage.id)
 
-                            tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
-                            tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
-                            tradingEngine.current.strategy.status.value = 'Closed'
+                            closeTrateggy()
                             tradingEngine.current.strategy.stageType.value = 'No Stage'
                             tradingEngine.current.strategy.index.value = tradingEngine.current.strategy.index.config.initialValue
 
@@ -982,10 +988,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function exitStrategyAfterPosition() {
         if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
 
-            tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
-            tradingEngine.current.strategy.status.value = 'Closed'
-
+            closeTrateggy()
             tradingEngine.current.strategy.index.value = tradingEngine.current.strategy.index.config.initialValue
             tradingEngine.current.strategy.stageType.value = 'No Stage'
 
@@ -1039,5 +1042,22 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         }
     }
 
+    function closeTrateggy() {
+        tradingEngine.current.strategy.status.value = 'Closed'
+        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
+        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+    }
+
+    function openStrategy() {
+        tradingEngine.current.strategy.status.value = 'Open'
+        tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
+        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value       // TODO: overrride with the node Formula
+        tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
+        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value   // TODO: overrride with the node Formula
+    }
+
+    function resetStrategy() {
+        tradingEngine.current.strategy.status.value = tradingEngine.current.strategy.status.config.initialValue
+    }
 }
 

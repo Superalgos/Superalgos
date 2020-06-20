@@ -1,4 +1,8 @@
 exports.newTradingSystem = function newTradingSystem(bot, logger) {
+    /*
+    The Trading System is the user defined set of rules compliant with the Trading Protocol that
+    defines the trading logic to be applied during each cycle of the Simulation.
+    */
     const MODULE_NAME = 'Trading System'
     let thisObject = {
         reset: reset,

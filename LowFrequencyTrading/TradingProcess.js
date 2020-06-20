@@ -1,7 +1,6 @@
 ﻿exports.newTradingProcess = function newTradingProcess(bot, logger, UTILITIES, TRADING_OUTPUT_MODULE, USER_BOT_COMMONS) {
-
     /*
-    This Module will load all the process data dependencies from files and send them to the Trading Bot.
+    This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
     */
     const FULL_LOG = true;

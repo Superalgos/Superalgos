@@ -1,5 +1,7 @@
 exports.newSnapshots = function newSnapshots(bot, logger) {
-
+    /*
+    This module encapsulates the snapshots functionality.
+    */
     const MODULE_NAME = 'Snapshots'
 
     let thisObject = {

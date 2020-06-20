@@ -1,4 +1,8 @@
 exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILITIES) {
+    /*
+    This Module represents the trading simulacion. Escentially a loop through a set of candles and 
+    the execution at each loop cycle of the Trading System Protocol.
+    */
     const FULL_LOG = true
     const MODULE_NAME = 'Trading Simulation -> ' + bot.SESSION.name
 

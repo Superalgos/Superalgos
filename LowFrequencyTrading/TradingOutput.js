@@ -1,4 +1,8 @@
 exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FILE_STORAGE) {
+    /*
+    This module will load if necesary all the data outputs so that they can be appended with new
+    records if needed. After running the simulation, it will save all the data outputs.
+    */
     const FULL_LOG = true
     const MODULE_NAME = 'Trading Bot'
 

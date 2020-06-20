@@ -1,5 +1,7 @@
 exports.newTradingRecords = function newTradingRecords(bot, logger) {
-
+    /*
+    This module facilitates the appending of records to the output of the process.
+    */
     const MODULE_NAME = 'Trading Records'
 
     let thisObject = {

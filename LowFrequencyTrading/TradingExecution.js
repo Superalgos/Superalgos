@@ -1,5 +1,7 @@
 exports.newTradingExecution = function newTradingExecution(bot, logger) {
-
+    /*
+    The Trading Execution modules manages the execution of orders against the exchanges.
+    */
     const MODULE_NAME = 'Trading Execution'
 
     let thisObject = {

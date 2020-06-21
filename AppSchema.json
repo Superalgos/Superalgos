@@ -64,7 +64,7 @@
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"Module-Name\", \n  \"icon\": \"histogram|band|moving-average|oscillator|trend\"\n}"
         },
         "editors": {
             "config": true
@@ -135,7 +135,7 @@
             "compatibleTypes": "->Plotter Module->"
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "editors": {
             "config": true
@@ -201,7 +201,7 @@
             "compatibleTypes": "->Plotter Panel->"
         },
         "initialValues": {
-            "code": "{\n     \"valueDecimals\": 2\n}"
+            "code": "{\n  \"valueDecimals\": 2\n}"
         },
         "properties": [
             {
@@ -249,7 +249,7 @@
             "formula": true
         },
         "initialValues": {
-            "code": "// Type you code here"
+            "code": "// Type you code"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Panel Data->"
@@ -284,7 +284,7 @@
             "code": true
         },
         "initialValues": {
-            "code": "// Type you code here"
+            "code": "// Type you code"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Condition->Procedure Initialization->Procedure Loop->Plotter Module->Plotter Panel->Master Script->"
@@ -399,7 +399,7 @@
             "formula": true
         },
         "initialValues": {
-            "code": "x = record.begin\ny = record.propertyA"
+            "code": "x = record.begin\ny = record.property"
         },
         "menuItems": [
             {
@@ -697,7 +697,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{}"
+            "code": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
         },
         "menuItems": [
             {
@@ -947,7 +947,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "properties": [
             {
@@ -1792,7 +1792,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}"
+            "code": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this process\"\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -2204,7 +2204,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"maker\": 0.15,\n\"taker\": 0.25\n}"
+            "code": "{ \n\"maker\": 0.1,\n\"taker\": 0.1\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -2273,7 +2273,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\"\n}"
+            "code": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this process\"\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -2358,7 +2358,7 @@
         ],
         "isTitleAllwaysVisible": true,
         "initialValues": {
-            "code": "{ \n\"folderName\": \"Type here the folder name where you want the logs of this process to be stored to.\",\n\"balancePercentage\": \"Type here the the % of the balance to be used in this test.\"\n}"
+            "code": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this session\",\n\"balancePercentage\": \"Type the percentage of the balance to be used in this test\"\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -2654,7 +2654,7 @@
         "level": 2,
         "icon": "data-mine",
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here a name with no spaces or dashes.\"\n}"
+            "code": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
         },
         "properties": [
             {
@@ -2718,7 +2718,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 0,
         "chainAttachesTo": {
@@ -2775,7 +2775,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"Multi-Period-Market|Daily\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Period-Market|Daily\" \n  }\n}"
         },
         "level": 1,
         "chainAttachesTo": {
@@ -3066,7 +3066,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"Product-Name\", \n  \"singularVariableName\": \"productName\", \n  \"pluralVariableName\": \"productNames\"\n}"
         },
         "level": 3,
         "referenceAttachesTo": {
@@ -3130,7 +3130,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
         },
         "level": 2,
         "chainAttachesTo": {
@@ -3179,7 +3179,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 3,
         "chainAttachesTo": {
@@ -3329,7 +3329,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\",\n\"isString\": false,\n\"isCalculated\": false\n}"
+            "code": "{ \n  \"codeName\": \"\",\n  \"isString\": false,\n  \"isCalculated\": false\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
@@ -3377,7 +3377,7 @@
             "formula": true
         },
         "initialValues": {
-            "code": "// Write your Formula code here."
+            "code": "// Type your formula"
         },
         "level": 4,
         "chainAttachesTo": {
@@ -3605,7 +3605,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 3,
         "chainAttachesTo": {
@@ -3662,7 +3662,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "level": 2,
         "icon": "plotter",
@@ -3715,7 +3715,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"\"\n}"
+            "code": "{ \n  \"codeName\": \"\"\n}"
         },
         "properties": [
             {
@@ -4697,7 +4697,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"botToken\": \"Paste here the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Write here the chat or group id where the announcements are going to be sent to, as it is a number with no quotes please.\"\n}"
+            "code": "{ \n\"botToken\": \"Paste the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Type or paste the chat or group id -a number with no quotes- where announcements are going to be sent to\"\n}"
         },
         "addLeftIcons": true,
         "level": 4,
@@ -4740,7 +4740,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"text\": \"Write here what you want to announce when there is no Formula.\"\n}"
+            "code": "{ \n\"text\": \"Type the message you wish to announce when there is no formula\"\n}"
         },
         "addLeftIcons": true,
         "level": 4,
@@ -5020,7 +5020,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the name of the exchange here.\"\n}"
+            "code": "{ \n\"codeName\": \"Type the name of the exchange\"\n}"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Crypto Exchanges->"
@@ -5175,7 +5175,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the code name of the asset here.\"\n}"
+            "code": "{ \n\"codeName\": \"Type the code name of the asset\"\n}"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Assets->"
@@ -5362,7 +5362,7 @@
             "config": true
         },
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Write here the name of the market.\"\n}"
+            "code": "{ \n\"codeName\": \"Type the name of the market\"\n}"
         },
         "chainAttachesTo": {
             "compatibleTypes": "->Exchange Markets->"
@@ -5586,7 +5586,7 @@
             }
         ],
         "initialValues": {
-            "code": "{ \n\"codeName\": \"Paste your exchange API name or label here\",\n\"secret\": \"Paste your exchange API secret key here. To keep you exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing.\"\n}"
+            "code": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

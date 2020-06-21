@@ -589,6 +589,7 @@ function newPlotter () {
           record.dataPoints = dataPoints
         }
 
+        /* Here we are going to plot all the polygons. */
         for (let j = 0; j < productDefinition.referenceParent.shapes.polygons.length; j++) {
           let polygon = productDefinition.referenceParent.shapes.polygons[j]
           /* We will check if we need to plot this Polygon or not. */
@@ -773,6 +774,35 @@ function newPlotter () {
             browserCanvasContext.setLineDash(strokeStyle.lineDash)
             browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
             browserCanvasContext.stroke()
+          }
+        }
+
+        /* Here we are going to plot images. */
+        for (let j = 0; j < productDefinition.referenceParent.shapes.images.length; j++) {
+          let image = productDefinition.referenceParent.shapes.images[j]
+          if (image.imagePosition === undefined) { continue }
+          if (image.imagePosition.referenceParent === undefined) { continue }
+          let imageName = ''
+          let imageSize = 0
+          let offsetX = 0
+          let offsetY = 0
+          let imagePosition = {x: 0, y: 0}
+          if (image.config.codeName !== undefined) { imageName = image.config.codeName }
+          if (image.config.size !== undefined) { imageSize = image.config.size }
+          if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
+          if (image.imagePosition.config.offsetY !== undefined) { offsetX = image.imagePosition.config.offsetY }
+          let dataPointObject = dataPoints.get(image.imagePosition.referenceParent.id)
+          let dataPoint = {
+            x: dataPointObject.x,
+            y: dataPointObject.y
+          }
+          dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+          dataPoint = thisObject.fitFunction(dataPoint)
+          imagePosition.x = dataPoint.x
+          imagePosition.y = dataPoint.y
+          let imageToDraw = canvas.designSpace.iconCollection.get(imageName)
+          if (imageToDraw.canDrawIcon === true) {
+            browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 + offsetY, imageSize, imageSize)
           }
         }
       }

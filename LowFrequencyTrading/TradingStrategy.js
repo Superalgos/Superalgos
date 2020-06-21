@@ -6,10 +6,11 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
     let thisObject = {
         openStrategy: openStrategy,
         closeStrategy: closeStrategy,
+        updateEnds: updateEnds,
         updateStageType: updateStageType,
-        resetStrategy: resetStrategy,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
+        resetStrategy: resetStrategy,
         initialize: initialize,
         finalize: finalize
     }
@@ -29,9 +30,9 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
     function openStrategy(stageType, index, situationName, strategyName) {
         tradingEngine.current.strategy.status.value = 'Open'
         tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
-        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value       // TODO: overrride with the node Formula
+        tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
-        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value   // TODO: overrride with the node Formula
+        tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
 
         tradingEngine.current.strategy.stageType.value = stageType
         tradingEngine.current.strategy.index.value = index
@@ -50,6 +51,13 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
         tradingEngine.current.strategy.stageType.value = tradingEngine.current.strategy.stageType.config.initialValue
         tradingEngine.current.strategy.index.value = tradingEngine.current.strategy.index.config.initialValue
         tradingEngine.current.strategy.strategyCounters.periods.value = tradingEngine.current.strategy.strategyCounters.periods.config.initialValue
+    }
+
+    function updateEnds() {
+        if (tradingEngine.current.strategy.status.value === 'Open') {
+            tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+        }
     }
 
     function updateStageType(stageType) {

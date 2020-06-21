@@ -85,6 +85,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function mantainStrategies() {
         tradingStrategyModule.updateStatus()
         tradingStrategyModule.updateCounters()
+        tradingStrategyModule.updateEnds()
     }
 
     function mantainPositions() {

@@ -174,7 +174,8 @@ function newLayer () {
                         'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                         'Polygon Border->Style->Style Condition->Style->' +
                         'Polygon Vertex->Point->' +
-                        'Image->Image Position->Point->' +
+                        'Image->Image Condition->Image Position->Point->' +
+                        'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                         'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
                         'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Record Values->'
       thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)

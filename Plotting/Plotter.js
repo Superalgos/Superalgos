@@ -502,7 +502,7 @@ function newPlotter () {
         To enable that we need to link all records to the previous one in this way.
         */
         if (i == 0) {
-          record.previous = record
+          record.previous = {} // this way it wont be undefined
         } else {
           record.previous = records[i - 1]
         }
@@ -782,6 +782,10 @@ function newPlotter () {
           let image = productDefinition.referenceParent.shapes.images[j]
           if (image.imagePosition === undefined) { continue }
           if (image.imagePosition.referenceParent === undefined) { continue }
+          if (image.imageCondition !== undefined) {
+            let mustPlot = eval(image.imageCondition.code)
+            if (mustPlot !== true) { continue }
+          }
           let imageName = ''
           let imageSize = 0
           let offsetX = 0
@@ -790,8 +794,9 @@ function newPlotter () {
           if (image.config.codeName !== undefined) { imageName = image.config.codeName }
           if (image.config.size !== undefined) { imageSize = image.config.size }
           if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
-          if (image.imagePosition.config.offsetY !== undefined) { offsetX = image.imagePosition.config.offsetY }
+          if (image.imagePosition.config.offsetY !== undefined) { offsetY = image.imagePosition.config.offsetY }
           let dataPointObject = dataPoints.get(image.imagePosition.referenceParent.id)
+          if (dataPointObject === undefined) { continue }
           let dataPoint = {
             x: dataPointObject.x,
             y: dataPointObject.y
@@ -802,8 +807,47 @@ function newPlotter () {
           imagePosition.y = dataPoint.y
           let imageToDraw = canvas.designSpace.iconCollection.get(imageName)
           if (imageToDraw.canDrawIcon === true) {
-            browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 + offsetY, imageSize, imageSize)
+            browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
           }
+        }
+
+        /* Here we are going to plot texts. */
+        for (let j = 0; j < productDefinition.referenceParent.shapes.texts.length; j++) {
+          let text = productDefinition.referenceParent.shapes.texts[j]
+          if (text.textPosition === undefined) { continue }
+          if (text.textPosition.referenceParent === undefined) { continue }
+          if (text.textCondition !== undefined) {
+            let mustPlot = eval(text.textCondition.code)
+            if (mustPlot !== true) { continue }
+          }
+          if (text.textFormula === undefined) { continue }
+          if (text.textStyle === undefined) { continue }
+          let value = eval(text.textFormula.code)
+          let fontSize = 0
+          let opacity = 0
+          let paletteColor = UI_COLOR.GREY
+          let offsetX = 0
+          let offsetY = 0
+          let textPosition = {x: 0, y: 0}
+          if (text.textStyle.config.fontSize !== undefined) { fontSize = text.textStyle.config.fontSize }
+          if (text.textStyle.config.opacity !== undefined) { opacity = text.textStyle.config.opacity }
+          if (text.textStyle.config.paletteColor !== undefined) { paletteColor = eval(text.textStyle.config.paletteColor) }
+          if (text.textPosition.config.offsetX !== undefined) { offsetX = text.textPosition.config.offsetX }
+          if (text.textPosition.config.offsetY !== undefined) { offsetY = text.textPosition.config.offsetY }
+          let dataPointObject = dataPoints.get(text.textPosition.referenceParent.id)
+          if (dataPointObject === undefined) { continue }
+          let dataPoint = {
+            x: dataPointObject.x,
+            y: dataPointObject.y
+          }
+          dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+          dataPoint = thisObject.fitFunction(dataPoint)
+          textPosition.x = dataPoint.x
+          textPosition.y = dataPoint.y
+
+          browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+          browserCanvasContext.fillStyle = 'rgba(' + paletteColor + ', ' + opacity + ')'
+          browserCanvasContext.fillText(value, textPosition.x + offsetX, textPosition.y - offsetY)
         }
       }
 

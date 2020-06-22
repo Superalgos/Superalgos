@@ -7,8 +7,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     let thisObject = {
         setCurrentCandle: setCurrentCandle,
         updateEpisodeCountersAndStatistics: updateEpisodeCountersAndStatistics,
-        resetPositionCountersAndStatistics: resetPositionCountersAndStatistics,
-        updatePositionCountersAndStatistics: updatePositionCountersAndStatistics,
         updateDistanceToEventsCounters: updateDistanceToEventsCounters,
         initialize: initialize,
         finalize: finalize
@@ -98,6 +96,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
                 node.value = node.config.initialValue
             }
         }
+        node.initialize = initializeNode // This will allow anyone to initialize this node and its children.
 
         /* Now we go down through all this node children */
         let nodeDefinition = bot.APP_SCHEMA_MAP.get(node.type)
@@ -135,26 +134,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function updateEpisodeCountersAndStatistics() {
         tradingEngine.episode.episodeCounters.periods.value++
         tradingEngine.episode.episodeStatistics.days.value = tradingEngine.episode.episodeCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
-    }
-
-    function resetPositionCountersAndStatistics() {
-        /* Keeping Position Counters Up-to-date */
-        if (
-            (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
-        ) { return }
-
-        tradingEngine.current.position.positionCounters.periods.value = tradingEngine.current.position.positionCounters.periods.config.initialValue
-        tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionStatistics.days.config.initialValue
-    }
-
-    function updatePositionCountersAndStatistics() {
-        /* Keeping Position Counters Up-to-date */
-        if (
-            (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage')
-        ) {
-            tradingEngine.current.position.positionCounters.periods.value++
-            tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
-        }
     }
 
     function updateDistanceToEventsCounters() {

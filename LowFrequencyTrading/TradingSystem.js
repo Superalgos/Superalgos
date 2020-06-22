@@ -41,6 +41,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
     let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger)
 
+    const TRADING_POSITION_MODULE = require('./TradingPosition.js')
+    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger)
+
     return thisObject
 
     function initialize() {
@@ -49,11 +52,15 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         sessionParameters = bot.SESSION.parameters
 
         tradingStrategyModule.initialize()
+        tradingPositionModule.initialize()
     }
 
     function finalize() {
         tradingStrategyModule.finalize()
         tradingStrategyModule = undefined
+
+        tradingPositionModule.finalize()
+        tradingPositionModule = undefined
 
         chart = undefined
 
@@ -89,7 +96,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function mantainPositions() {
-
+        tradingPositionModule.updateStatus()
+        tradingPositionModule.updateCounters()
+        tradingPositionModule.updateEnds()
     }
 
     function evalConditions() {
@@ -333,7 +342,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(triggerStage.triggerOff.id)
                             tradingSystem.highlights.push(triggerStage.id)
 
-                            tradingStrategyModule.closeStrategy()
+                            tradingStrategyModule.closeStrategy('Trigger Off')
 
                             tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
@@ -353,7 +362,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
     function checkTakePosition() {
         /* Take Position Condition */
-        if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+        if (
+            tradingEngine.current.strategy.stageType.value === 'Trigger Stage' &&
+            tradingEngine.current.strategy.status.value === 'Open'
+        ) {
             let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let triggerStage = strategy.triggerStage
 
@@ -383,12 +395,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(triggerStage.id)
 
                             tradingStrategyModule.updateStageType('Open Stage')
-
-                            tradingEngine.current.position.stopLoss.stopLossStage.value = 'Open Stage'
-                            tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Open Stage'
-                            tradingEngine.current.position.stopLoss.stopLossPhase.value = 0
-                            tradingEngine.current.position.takeProfit.takeProfitPhase.value = 0
-                            tradingEngine.current.position.situationName.value = situation.name
+                            tradingPositionModule.openPosition(situation.name)
 
                             /* TODO See what to do with this:
                             checkAnnouncements(triggerStage.takePosition)
@@ -470,8 +477,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(parentNode.id)
                             tradingSystem.highlights.push(stage.id)
 
-                            tradingEngine.current.position.stopLoss.stopLossPhase.value++
-                            tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
+                            tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1, 'Manage Stage')
+
                             if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                 tradingStrategyModule.updateStageType('Manage Stage')
                                 /* TODO ANNOUNCEMENT
@@ -521,7 +528,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 if (moveToPhase !== undefined) {
                                     for (let q = 0; q < stopLoss.phases.length; q++) {
                                         if (stopLoss.phases[q].id === moveToPhase.id) {
-                                            tradingEngine.current.position.stopLoss.stopLossPhase.value = q + 1
+                                            tradingPositionModule.updateStopLoss(q + 1, 'Manage Stage')
                                         }
                                     }
                                 } else {
@@ -529,7 +536,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                     continue
                                 }
 
-                                tradingEngine.current.position.stopLoss.stopLossStage.value = 'Manage Stage'
                                 if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                     tradingStrategyModule.updateStageType('Manage Stage')
                                     /* TODO ANNOUNCEMENT
@@ -572,7 +578,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             if (phase !== undefined) {
                 if (phase.formula !== undefined) {
                     let previousValue = tradingEngine.current.position.stopLoss.value
-                    tradingEngine.current.position.stopLoss.value = formulas.get(phase.formula.id)
+                    tradingPositionModule.applyStopLossFormula(formulas, phase.formula.id)
 
                     /* TODO ANNOUNCEMENTS
                     if (tradingEngine.current.position.stopLoss.value !== previousValue) {
@@ -648,8 +654,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.highlights.push(parentNode.id)
                             tradingSystem.highlights.push(stage.id)
 
-                            tradingEngine.current.position.takeProfit.takeProfitPhase.value++
-                            tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
+                            tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1, 'Manage Stage')
+
                             if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                 tradingStrategyModule.updateStageType('Manage Stage')
                                 /* TODO ANNOUNCEMENT
@@ -698,7 +704,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 if (moveToPhase !== undefined) {
                                     for (let q = 0; q < takeProfit.phases.length; q++) {
                                         if (takeProfit.phases[q].id === moveToPhase.id) {
-                                            tradingEngine.current.position.takeProfit.takeProfitPhase.value = q + 1
+                                            tradingPositionModule.updateTakeProfit(q + 1, 'Manage Stage')
                                         }
                                     }
                                 } else {
@@ -706,7 +712,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                     continue
                                 }
 
-                                tradingEngine.current.position.takeProfit.takeProfitStage.value = 'Manage Stage'
                                 if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                     tradingStrategyModule.updateStageType('Manage Stage')
                                     /* TODO ANNOUNCEMENT
@@ -748,8 +753,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
             if (phase !== undefined) {
                 if (phase.formula !== undefined) {
-                    let previousValue = tradingEngine.current.position.stopLoss.value
-                    tradingEngine.current.position.takeProfit.value = formulas.get(phase.formula.id)
+                    let previousValue = tradingEngine.current.position.takeProfit.value
+                    tradingPositionModule.applyTakeProfitFormula(formulas, phase.formula.id)
 
                     /* TODO ANNOUNCEMENTS 
                     if (tradingEngine.current.position.takeProfit.value !== previousValue) {
@@ -776,45 +781,16 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
-                    /*
-                    Hit Point Validation
-    
-                    This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
-                    If we take the stop loss value at those situation would be a huge distortion of facts.
-                    */
-                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                        if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
-                            tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
-                        }
-                    } else {
-                        if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.candle.max.value) {
-                            tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.max.value
-                        }
-                    }
 
-                    let slippedStopLoss = tradingEngine.current.position.stopLoss.value
-
-                    /* Apply the Slippage */
-                    let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
-
-                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                        slippedStopLoss = slippedStopLoss + slippageAmount
-                    } else {
-                        slippedStopLoss = slippedStopLoss - slippageAmount
-                    }
-
-                    tradingEngine.current.position.endRate.value = slippedStopLoss
+                    tradingPositionModule.preventStopLossDistortion()
+                    tradingPositionModule.applySlippageToStopLoss()
+                    tradingPositionModule.closePosition('Stop Loss')
 
                     tradingStrategyModule.updateStageType('Close Stage')
+
                     /* TODO ANNOUNCEMENT
                     checkAnnouncements(strategy.closeStage, 'Stop')
                     */
-                    tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                    tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-                    tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-                    tradingEngine.current.position.status.value = 1
-                    tradingEngine.current.position.exitType.value = 1
-
                     return true // This means that the STOP was hit.
                 }
 
@@ -824,46 +800,16 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
-                    /*
-                    Hit Point Validation:
-    
-                    This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
-                    If we take the stop loss value at those situation would be a huge distortion of facts.
-                    */
-                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                        if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
-                            tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
-                        }
-                    } else {
-                        if (tradingEngine.current.position.takeProfit.value < tradingEngine.current.candle.min.value) {
-                            tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.min.value
-                        }
-                    }
 
-                    let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
-                    /* Apply the Slippage */
-                    let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
-
-                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                        slippedTakeProfit = slippedTakeProfit + slippageAmount
-                    } else {
-                        slippedTakeProfit = slippedTakeProfit - slippageAmount
-                    }
-
-                    tradingEngine.current.position.endRate.value = slippedTakeProfit
+                    tradingPositionModule.preventTakeProfitDistortion()
+                    tradingPositionModule.applySlippageToTakeProfit()
+                    tradingPositionModule.closePosition('Take Profit')
 
                     tradingStrategyModule.updateStageType('Close Stage')
+
                     /* TODO ANNOUNCEMENT
                     checkAnnouncements(strategy.closeStage, 'Take Profit')
                     */
-                    tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-                    tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-
-                    tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-                    tradingEngine.current.position.status.value = 1
-                    tradingEngine.current.position.exitType.value = 2
-
-                    addToSnapshots = true
                     return true // This means that the Take Profit was hit.
                 }
             }
@@ -872,31 +818,20 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function getReadyToTakePosition() {
+        /* Updating Episode Counters */
+        tradingEngine.episode.episodeCounters.positions.value++
+
         /* Inicializing this counter */
         tradingEngine.current.distanceToEvent.takePosition.value = 1
 
         /* Position size and rate */
-        tradingEngine.current.position.size.value = getPositionSize()
-        tradingEngine.current.position.rate.value = getPositionRate()
+        tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
 
-        /* We take what was calculated at the formula and apply the slippage. */
-        let slippageAmount = tradingEngine.current.position.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
-
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value - slippageAmount
-        } else {
-            tradingEngine.current.position.rate.value = tradingEngine.current.position.rate.value + slippageAmount
-        }
-
-        /* Update the position information. */
-        tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
-        tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
+        /* We take what was calculated at the formula of position rate and apply the slippage. */
+        tradingPositionModule.applySlippageToRate()
     }
 
     function takePosition() {
-        calculateTakeProfit() // TODO: Check if this is really necesary
-        calculateStopLoss() // TODO: Check if this is really necesary
-
         tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
         tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
@@ -927,70 +862,44 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function closePosition() {
-        tradingEngine.episode.episodeCounters.positions.value++
-
+        /* We calculate the new balances after the position is closed. */
         let feePaid = 0
-
         if (bot.sessionAndMarketBaseAssetsAreEqual) {
-
             feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
             tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
             tradingEngine.current.balance.quotedAsset.value = 0
         } else {
-
             feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
             tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
             tradingEngine.current.balance.baseAsset.value = 0
         }
 
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.last.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
-            tradingEngine.last.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
-            if (isNaN(tradingEngine.last.position.positionStatistics.ROI.value)) { tradingEngine.last.position.positionStatistics.ROI.value = 0 }
-            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
-        } else {
-            tradingEngine.last.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
-            tradingEngine.last.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
-            if (isNaN(tradingEngine.last.position.positionStatistics.ROI.value)) { tradingEngine.last.position.positionStatistics.ROI.value = 0 }
-            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
-        }
+        tradingPositionModule.updateStatistics()
 
-        tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.last.position.positionStatistics.ROI.value
-
+        /* Recalculating Episode Counters */
         if (tradingEngine.last.position.positionStatistics.profitLoss.value > 0) {
             tradingEngine.episode.episodeCounters.hits.value++
         } else {
             tradingEngine.episode.episodeCounters.fails.value++
         }
 
+        /* Recalculating Episode Statistics */
         if (bot.sessionAndMarketBaseAssetsAreEqual) {
+            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
             tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
             tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
             tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
         } else {
+            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
             tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
             tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
             tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
         }
-
-        tradingEngine.current.position.stopLoss.value = 0
-        tradingEngine.current.position.takeProfit.value = 0
-
-        tradingEngine.current.position.rate.value = 0
-        tradingEngine.current.position.size.value = 0
-
-        tradingEngine.current.position.stopLoss.stopLossStage.value = 'No Stage'
-        tradingEngine.current.position.takeProfit.takeProfitStage.value = 'No Stage'
-        tradingEngine.current.position.stopLoss.stopLossPhase.value = -1
-        tradingEngine.current.position.takeProfit.takeProfitPhase.value = -1
-
     }
 
     function exitStrategyAfterPosition() {
         if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
-            tradingStrategyModule.closeStrategy()
+            tradingStrategyModule.closeStrategy('Position Closed')
             tradingEngine.current.distanceToEvent.triggerOff.value = 1
         }
     }

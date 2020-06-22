@@ -40,17 +40,15 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
         tradingEngine.current.strategy.strategyName.value = strategyName
     }
 
-    function closeStrategy() {
+    function closeStrategy(exitType) {
         tradingEngine.current.strategy.status.value = 'Closed'
+        tradingEngine.current.strategy.exitType.value = exitType
         tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
     }
 
     function resetStrategy() {
-        tradingEngine.current.strategy.status.value = tradingEngine.current.strategy.status.config.initialValue
-        tradingEngine.current.strategy.stageType.value = tradingEngine.current.strategy.stageType.config.initialValue
-        tradingEngine.current.strategy.index.value = tradingEngine.current.strategy.index.config.initialValue
-        tradingEngine.current.strategy.strategyCounters.periods.value = tradingEngine.current.strategy.strategyCounters.periods.config.initialValue
+        tradingEngine.current.strategy.initialize(tradingEngine.current.strategy)
     }
 
     function updateEnds() {

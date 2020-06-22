@@ -41,10 +41,6 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
-            if (product.config.codeName === 'Strategy-Objects') {
-                let a = 1
-            }
-
             if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
                 persistRecord()
             }
@@ -91,6 +87,9 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
         }
 
         function scanRecordDefinition(product) {
+            if (product.config.codeName === 'Position-Objects') {
+                let a = 1
+            }
             /*
             The Product Root Node is the root of the node hiriarchy branch that we need to look at
             in order to fnd the node where we are going to extract the value.
@@ -166,6 +165,9 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 if (recordProperty.config.isString !== true && Array.isArray(value) !== true) {
                     value = safeNumericValue(value)
                 }
+                if (recordProperty.config.isString === true && Array.isArray(value) !== true) {
+                    value = safeStringValue(value)
+                }
                 record.push(value)
             }
             return record
@@ -188,6 +190,20 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
         }
         if (isNaN(value)) {
             value = 0
+        }
+        return value
+    }
+
+    function safeStringValue(value) {
+        /*
+        The purpose of this function is to check that value variable does not have a value that 
+        will later break the JSON format of files where this is going to be stored at. 
+        */
+        if (value === undefined) {
+            value = ''
+        }
+        if (value === null) {
+            value = ''
         }
         return value
     }

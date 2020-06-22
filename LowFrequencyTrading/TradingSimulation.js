@@ -186,8 +186,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     tradingSystemModule.calculateTakeProfit()
                 }
 
-                tradingEngineModule.resetPositionCountersAndStatistics()
-                tradingEngineModule.updatePositionCountersAndStatistics()
                 tradingEngineModule.updateDistanceToEventsCounters()
 
                 /* Checking if Stop or Take Profit were hit */
@@ -198,6 +196,16 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 /* Taking a Position */
                 if (takingPosition === true) {
                     tradingSystemModule.getReadyToTakePosition()
+                    /* 
+                    Whem we calculated all the formulas at the begining of the loop, we didn't know
+                    we were going to take position in this same loop cycle. Some might formulas depends on 
+                    calculations that are triggered only when we are taking position. For that reason
+                    we will calculate all formulas again, and after that the Stop Loss and Take Profit.
+                    */
+                    tradingSystemModule.evalFormulas()
+                    tradingSystemModule.calculateTakeProfit()
+                    tradingSystemModule.calculateStopLoss()
+
                     tradingExecutionModule.takePosition()
                     tradingSystemModule.takePosition()
                     takingPosition = false

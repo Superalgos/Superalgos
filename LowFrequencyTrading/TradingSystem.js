@@ -463,9 +463,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id).value
+                                value = conditions.get(condition.id)
                             }
-                            if (value === false) { passed = false }
+                            if (value !== true) { passed = false }
                         }
 
                         tradingSystem.values.push([situation.id, passed])
@@ -510,9 +510,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 let condition = situation.conditions[m]
                                 let value = false
                                 if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id).value
+                                    value = conditions.get(condition.id)
                                 }
-                                if (value === false) { passed = false }
+                                if (value !== true) { passed = false }
                             }
 
                             tradingSystem.values.push([situation.id, passed])
@@ -640,9 +640,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             let condition = situation.conditions[m]
                             let value = false
                             if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id).value
+                                value = conditions.get(condition.id)
                             }
-                            if (value === false) { passed = false }
+                            if (value !== true) { passed = false }
                         }
 
                         tradingSystem.values.push([situation.id, passed])
@@ -686,9 +686,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 let condition = situation.conditions[m]
                                 let value = false
                                 if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id).value
+                                    value = conditions.get(condition.id)
                                 }
-                                if (value === false) { passed = false }
+                                if (value !== true) { passed = false }
                             }
 
                             tradingSystem.values.push([situation.id, passed])

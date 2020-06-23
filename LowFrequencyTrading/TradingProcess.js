@@ -729,6 +729,7 @@
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
+
     function pad(str, max) {
         str = str.toString();
         return str.length < max ? pad(" " + str, max) : str;

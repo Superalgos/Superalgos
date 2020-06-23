@@ -694,7 +694,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
-                                tradingSystem.highlights.push(nextPhaseEvent.id)
+                                tradingSystem.highlights.push(moveToPhaseEvent.id)
                                 tradingSystem.highlights.push(phase.id)
                                 tradingSystem.highlights.push(takeProfit.id)
                                 tradingSystem.highlights.push(parentNode.id)

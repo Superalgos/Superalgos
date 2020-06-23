@@ -31,7 +31,7 @@ function newSessionFunctions () {
     'Position Size->Position Rate->Formula->' +
     'Initial Stop->Initial Take Profit->' +
     'Manage Stage->' +
-    'Stop->Take Profit->' +
+    'Managed Stop Loss->Managed Take Profit->' +
     'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
     'Situation->Condition->Javascript Code->' +
     'Close Stage->Close Execution->' +

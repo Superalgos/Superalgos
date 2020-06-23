@@ -53,6 +53,7 @@ function newRecordValues () {
 
   function applyValue (node, value) {
     if (node === undefined) { return }
+    if (node === undefined) { return }
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
     if (value === true) { value = 'true' }

@@ -252,6 +252,7 @@ function newPlotter () {
   }
 
   function recalculate () {
+    if (canvas.chartingSpace.visible !== true) { return }
     try {
       if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
         recalculateUsingMarketFiles()
@@ -873,11 +874,7 @@ function newPlotter () {
   }
 
   function onDragFinished () {
-    try {
-      recalculate()
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] onDragFinished -> err = ' + err.stack) }
-    }
+    recalculate()
   }
 
   function onDisplace (event) {

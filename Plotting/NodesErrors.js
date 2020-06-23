@@ -34,6 +34,7 @@ function newNodesErrors () {
 
   function applyValue (nodeId, value) {
     let node = hiriarchyMap.get(nodeId)
+    if (node === undefined) { return }
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
     if (value === '') {

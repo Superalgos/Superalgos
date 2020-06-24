@@ -68,10 +68,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
             snapshotsModule.initialize()
 
-            const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
-            let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
-            announcementsModule.initialize()
-
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
             let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
             tradingSystemModule.initialize()
@@ -224,7 +220,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 snapshotsModule.manageSnapshots()
                 tradingRecordsModule.appendRecords()
-                announcementsModule.makeAnnoucements()           // After everything at the simulation level was done, we will do the annoucements that are pending. 
 
                 controlLoop()
             }
@@ -259,7 +254,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.finalize()
                 tradingRecordsModule.finalize()
                 snapshotsModule.finalize()
-                announcementsModule.finalize()
 
                 callback()
             }

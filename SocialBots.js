@@ -19,29 +19,22 @@ exports.newSocialBots = function newSocialBots(bot, logger) {
                     let socialBot = bot.SESSION.socialBots.bots[i]
                     if (socialBot.type === "Telegram Bot") {
                         let config = socialBot.config
-                        socialBot.botInstance = SOCIAL_BOTS_MODULE.newTelegramBot(bot, logger)
+                        socialBot.botInstance = TELEGRAM_BOT_MODULE.newTelegramBot(bot, logger)
                         socialBot.botInstance.initialize(config.botToken, config.chatId)
                     }
                 }
             }
 
-            function announce(announcement) {
+            function announce(text) {
                 if (bot.SESSION.socialBots.bots !== undefined) {
                     for (let i = 0; i < bot.SESSION.socialBots.bots.length; i++) {
                         let socialBot = bot.SESSION.socialBots.bots[i]
                         try {
-                            let config = announcement.config
-
                             if (socialBot.type === "Telegram Bot") {
-                                if (announcement.formulaValue !== undefined) {
-                                    socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, announcement.formulaValue).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
-                                } else {
-                                    socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, config.text).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
-                                }
+                                socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, text).catch(err => logger.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
                             }
-
                         } catch (err) {
-                            parentLogger.write(MODULE_NAME, "[WARN] initialize -> announce -> err = " + err.stack);
+                            logger.write(MODULE_NAME, "[WARN] initialize -> announce -> err = " + err.stack);
                         }
                     }
                 }

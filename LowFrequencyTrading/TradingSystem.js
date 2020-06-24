@@ -44,6 +44,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
     let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger)
 
+    const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
+
     return thisObject
 
     function initialize() {
@@ -53,6 +56,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
+        announcementsModule.initialize()
     }
 
     function finalize() {
@@ -61,6 +65,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         tradingPositionModule.finalize()
         tradingPositionModule = undefined
+
+        announcementsModule.finalize()
+        announcementsModule = undefined
 
         chart = undefined
 
@@ -296,9 +303,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                                 tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
+                                announcementsModule.makeAnnoucements(triggerStage.triggerOn)
+                                announcementsModule.makeAnnoucements(triggerStage)
                                 /* TODO See what to do with this:
-                                checkAnnouncements(triggerStage.triggerOn)
-                                checkAnnouncements(triggerStage)
                                 saveAsLastTriggerOnSnapshot = true
                                 */
 
@@ -346,9 +353,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                             tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
-                            /* TODO See what to do with this:
-                            checkAnnouncements(triggerStage.triggerOff)
-                            */
+                            announcementsModule.makeAnnoucements(triggerStage.triggerOff)
 
                             logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name)
                             return true // This Means that we have just met the conditions to trigger off.
@@ -397,9 +402,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingStrategyModule.updateStageType('Open Stage')
                             tradingPositionModule.openPosition(situation.name)
 
+                            announcementsModule.makeAnnoucements(triggerStage.takePosition)
+                            announcementsModule.makeAnnoucements(strategy.openStage)
                             /* TODO See what to do with this:
-                            checkAnnouncements(triggerStage.takePosition)
-                            checkAnnouncements(strategy.openStage)
                             saveAsLastTakePositionSnapshot = true
                             */
 
@@ -481,14 +486,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                             if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                 tradingStrategyModule.updateStageType('Manage Stage')
-                                /* TODO ANNOUNCEMENT
-                                checkAnnouncements(manageStage, 'Take Profit')
-                                */
+                                announcementsModule.makeAnnoucements(manageStage)
                             }
-
-                            /* TODO ANNOUNCEMENT
-                            checkAnnouncements(nextPhaseEvent)
-                            */
+                            announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
                         }
                     }
@@ -538,13 +538,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                                 if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
                                     tradingStrategyModule.updateStageType('Manage Stage')
-                                    /* TODO ANNOUNCEMENT
-                                    checkAnnouncements(manageStage, 'Take Profit')
-                                    */
+                                    announcementsModule.makeAnnoucements(manageStage)
                                 }
-                                /*
-                                checkAnnouncements(moveToPhaseEvent)
-                                */
+                                announcementsModule.makeAnnoucements(moveToPhaseEvent)
                                 return // only one event can pass at the time
                             }
                         }
@@ -580,11 +576,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     let previousValue = tradingEngine.current.position.stopLoss.value
                     tradingPositionModule.applyStopLossFormula(formulas, phase.formula.id)
 
-                    /* TODO ANNOUNCEMENTS
                     if (tradingEngine.current.position.stopLoss.value !== previousValue) {
-                        checkAnnouncements(phase, tradingEngine.current.position.stopLoss.value)
+                        announcementsModule.makeAnnoucements(phase)
                     }
-                    */
                 }
             }
         }
@@ -658,13 +652,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                             if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                 tradingStrategyModule.updateStageType('Manage Stage')
-                                /* TODO ANNOUNCEMENT
-                                checkAnnouncements(manageStage, 'Stop')
-                                */
+                                announcementsModule.makeAnnoucements(manageStage)
                             }
-                            /* TODO ANNOUNCEMENT
-                            checkAnnouncements(nextPhaseEvent)
-                            */
+                            announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
                         }
                     }
@@ -714,13 +704,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                                 if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
                                     tradingStrategyModule.updateStageType('Manage Stage')
-                                    /* TODO ANNOUNCEMENT
-                                    checkAnnouncements(manageStage, 'Stop')
-                                    */
+                                    announcementsModule.makeAnnoucements(manageStage)
                                 }
-                                /* TODO ANNOUNCEMENT
-                                checkAnnouncements(moveToPhaseEvent)
-                                */
+                                announcementsModule.makeAnnoucements(moveToPhaseEvent)
                                 return // only one event can pass at the time
                             }
                         }
@@ -756,11 +742,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     let previousValue = tradingEngine.current.position.takeProfit.value
                     tradingPositionModule.applyTakeProfitFormula(formulas, phase.formula.id)
 
-                    /* TODO ANNOUNCEMENTS 
                     if (tradingEngine.current.position.takeProfit.value !== previousValue) {
-                        checkAnnouncements(phase, tradingEngine.current.position.takeProfit.value)
+                        announcementsModule.makeAnnoucements(phase)
                     }
-                    */
                 }
             }
         }
@@ -785,12 +769,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     tradingPositionModule.preventStopLossDistortion()
                     tradingPositionModule.applySlippageToStopLoss()
                     tradingPositionModule.closePosition('Stop Loss')
-
                     tradingStrategyModule.updateStageType('Close Stage')
-
-                    /* TODO ANNOUNCEMENT
-                    checkAnnouncements(strategy.closeStage, 'Stop')
-                    */
+                    announcementsModule.makeAnnoucements(strategy.closeStage)
                     return true // This means that the STOP was hit.
                 }
 
@@ -804,12 +784,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     tradingPositionModule.preventTakeProfitDistortion()
                     tradingPositionModule.applySlippageToTakeProfit()
                     tradingPositionModule.closePosition('Take Profit')
-
                     tradingStrategyModule.updateStageType('Close Stage')
-
-                    /* TODO ANNOUNCEMENT
-                    checkAnnouncements(strategy.closeStage, 'Take Profit')
-                    */
+                    announcementsModule.makeAnnoucements(strategy.closeStage)
                     return true // This means that the Take Profit was hit.
                 }
             }

@@ -716,9 +716,13 @@ function newUiObject () {
     }
   }
 
-  function highlight () {
+  function highlight (counter) {
     isHighlighted = true
-    highlightCounter = 30
+    if (counter !== undefined) {
+      highlightCounter = counter
+    } else {
+      highlightCounter = 30
+    }
   }
 
   function runningAtBackend () {
@@ -1718,7 +1722,7 @@ function newUiObject () {
 
       if (isHighlighted === true) {
         VISIBLE_RADIUS = thisObject.container.frame.radius * 1
-        let OPACITY = highlightCounter / 30
+        let OPACITY = highlightCounter / 10
 
         browserCanvasContext.beginPath()
         browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, VISIBLE_RADIUS, 0, Math.PI * 2, true)

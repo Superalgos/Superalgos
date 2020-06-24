@@ -37,6 +37,6 @@ function newNodesHighlights () {
     if (node === undefined) { return }
     if (node.payload === undefined) { return }
     if (node.payload.uiObject === undefined) { return }
-    node.payload.uiObject.highlight()
+    node.payload.uiObject.highlight(10)
   }
 }

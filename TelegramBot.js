@@ -30,8 +30,8 @@ exports.newTelegramBot = function newTelegramBot(bot, logger) {
 
             thisObject.telegramAPI = new Telegram(botToken)
 
-            const messge = bot.SESSION.type + " '" + bot.SESSION.name + "' was started."
-            thisObject.telegramAPI.sendMessage(thisObject.chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeTelegramBot -> Telegram API error -> err = " + err))
+            const message = "Telegram bot is starting."
+            thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeTelegramBot -> Telegram API error -> err = " + err))
 
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[WARN] initialize -> err = " + err.stack);
@@ -40,12 +40,12 @@ exports.newTelegramBot = function newTelegramBot(bot, logger) {
     }
 
     function finalize() {
-        const messge = "I have been ordered to shut down. Goodbye!"
-        telegramAPI.sendMessage(thisObject.chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] finalize -> Telegram API error -> err = " + err))
+        const message = "Telegram bot is signing off."
+        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] finalize -> Telegram API error -> err = " + err))
     }
 
     function sendMessage(message) {
-        thisObject.telegramAPI.sendMessage(thisObject.chatId, messge).catch(err => parentLogger.write(MODULE_NAME, "[WARN] announce -> Telegram API error -> err = " + err))
+        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] announce -> Telegram API error -> err = " + err))
     }
 
 }

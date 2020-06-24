@@ -373,7 +373,7 @@
                         const logText = "User Defined End Datetime reached @ " + previousDay.getUTCFullYear() + "/" + (previousDay.getUTCMonth() + 1) + "/" + previousDay.getUTCDate() + ".";
                         if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> advanceTime -> " + logText); }
 
-                        bot.STOP_SESSION = true
+                        bot.SESSION.stop(logText)
                         callBackFunction(global.DEFAULT_OK_RESPONSE);
                         return;
                     }
@@ -633,12 +633,12 @@
                                 const logText = "User Defined End Datetime reached @ " + now.getUTCFullYear() + "/" + (now.getUTCMonth() + 1) + "/" + now.getUTCDate() + ".";
                                 if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onMarketStatusReport -> " + logText); }
 
-                                bot.STOP_SESSION = true
+                                bot.SESSION.stop('because it just finished.')
                                 callBackFunction(global.DEFAULT_OK_RESPONSE);
                                 return;
                             }
                             if (bot.SESSION.type === 'Backtesting Session') {
-                                bot.STOP_SESSION = true
+                                bot.SESSION.stop('Backtesting Session over Market Files Finished.')
                             }
                             callBackFunction(global.DEFAULT_OK_RESPONSE);
                         }

@@ -100,7 +100,7 @@
                         bot.STOP_SESSION = true
                     }
 
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' was started.")
+                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is starting.")
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> runSession -> err = " + err.stack);
                 }
@@ -108,10 +108,10 @@
 
             function stopSession(commandOrigin) {
                 try {
-                    if (reason === undefined) { commandOrigin = ' from the User Interface.' }
-                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' was stopped " + commandOrigin)
-                    bot.STOP_SESSION = true
+                    if (commandOrigin === undefined) { commandOrigin = ' from the User Interface.' }
+                    socialBotsModule.sendMessage(bot.SESSION.type + " '" + bot.SESSION.name + "' is stopping " + commandOrigin)
                     socialBotsModule.finalize()
+                    bot.STOP_SESSION = true
                 } catch (err) {
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> stopSession -> err = " + err.stack);
                 }

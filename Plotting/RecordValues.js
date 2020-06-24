@@ -52,6 +52,7 @@ function newRecordValues () {
   }
 
   function applyValue (node, value) {
+    if (canvas.chartingSpace.visible !== true) { return }
     if (node === undefined) { return }
     if (node === undefined) { return }
     if (node.payload === undefined) { return }

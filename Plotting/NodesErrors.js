@@ -33,6 +33,7 @@ function newNodesErrors () {
   }
 
   function applyValue (nodeId, value) {
+    if (canvas.chartingSpace.visible !== true) { return }
     let node = hiriarchyMap.get(nodeId)
     if (node === undefined) { return }
     if (node.payload === undefined) { return }

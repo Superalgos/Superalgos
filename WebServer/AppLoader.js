@@ -123,6 +123,7 @@ function newAppLoader() {
                 'Plotting/NodesStatus.js',
                 'Plotting/NodesProgress.js',
                 'Plotting/NodesRunning.js',
+                'Plotting/NodesAnnouncements.js',
                 'Plotting/RecordValues.js',
 
                 'LegacyPlotter.js',

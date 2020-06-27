@@ -41,6 +41,6 @@ function newNodesAnnouncements () {
     if (node.payload.uiObject === undefined) { return }
     if (value === true) { value = 'true' }
     if (value === false) { value = 'false' }
-    node.payload.uiObject.setValue(value, 1)
+    node.payload.uiObject.setValue(value, 20)
   }
 }

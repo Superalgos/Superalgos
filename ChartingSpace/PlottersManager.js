@@ -307,6 +307,18 @@ function newPlottersManager () {
                 }
                 connector.nodesProgress.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesProgress.onRecordChange)
               }
+              if (plotterModule.nodesAnnouncements !== undefined && plotterModule.config.connectTo !== undefined) {
+                connector.nodesAnnounements = newNodesAnnouncements()
+                switch (plotterModule.config.connectTo) {
+                  case 'Trading System':
+                    connector.nodesAnnounements.initialize(tradingSystem)
+                    break
+                  case 'Trading Engine':
+                    connector.nodesAnnounements.initialize(tradingEngine)
+                    break
+                }
+                connector.nodesAnnounements.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesAnnounements.onRecordChange)
+              }
               /*
               Another type of plotting is with Record Values. This method uses the record definition to find the target node
               and from there is looks into its children all based on the Record Definition configuration.

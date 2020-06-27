@@ -8,18 +8,20 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
         finalize: finalize
     }
 
+    let tradingSystem
     let tradingEngine
-    let announcementsToBeMade = []
 
     return thisObject
 
     function initialize() {
+        tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
     }
 
     function finalize() {
+        tradingSystem = undefined
         tradingEngine = undefined
-        announcementsToBeMade = undefined
+        bot.SESSION.messagesSent = undefined
     }
 
     function makeAnnoucements(node) {
@@ -48,6 +50,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
 
                     if (bot.SESSION.socialBots !== undefined) {
                         bot.SESSION.socialBots.announce(text)
+                        tradingSystem.announcements.push([announcement.id, text])
                     } else {
                         tradingSystem.errors.push([announcement.id, 'Could not announce because session does not have Social Bots.'])
                     }

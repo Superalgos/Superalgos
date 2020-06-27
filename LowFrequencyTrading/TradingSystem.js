@@ -87,6 +87,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function reset(pChart) {
+        /* This function helps reset data structures at every cycle of the simulation loop/=. */
         chart = pChart // We need chat to be a local object accessible from conditions and formulas.
         tradingSystem.highlights = []
         tradingSystem.errors = []
@@ -94,6 +95,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingSystem.status = []
         tradingSystem.progress = []
         tradingSystem.running = []
+        tradingSystem.announcements = []
     }
 
     function mantainStrategies() {

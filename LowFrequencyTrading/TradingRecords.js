@@ -12,6 +12,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
 
     let tradingEngine
     let tradingSystem
+    let sessionParameters
     let outputDatasetsMap
 
     return thisObject
@@ -19,12 +20,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
     function initialize(pOutputDatasetsMap) {
         tradingEngine = bot.simulationState.tradingEngine
         tradingSystem = bot.simulationState.tradingSystem
+        sessionParameters = bot.SESSION.parameters
         outputDatasetsMap = pOutputDatasetsMap  // These are the files turned into arrays, stored in a Map by Product codeName.
     }
 
     function finalize() {
         tradingEngine = undefined
         tradingSystem = undefined
+        sessionParameters = undefined
         outputDatasetsMap = undefined
     }
 

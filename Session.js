@@ -2,7 +2,6 @@
 
     const MODULE_NAME = "Session"
     const FULL_LOG = true;
-    const ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 
     let thisObject = {
         initialize: initialize
@@ -15,10 +14,7 @@
 
     function initialize(pProcessConfig, callBackFunction) {
         try {
-            if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[INFO] initialize -> Entering function."); }
-
             /* Initialize this info so that everything is logged propeerly */
-
             bot.SESSION = {
                 name: bot.processNode.session.name,
                 id: bot.processNode.session.id
@@ -184,17 +180,17 @@
                     }
                     case 'Live Trading Session': {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                     case 'Fordward Testing Session': {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                     case 'Paper Trading Session': {
                         bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + ONE_YEAR_IN_MILISECONDS)
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
                         break
                     }
                 }

@@ -27,6 +27,7 @@ global.CUSTOM_FAIL_RESPONSE = {
 
 global.ROOT_DIR = './';
 
+global.ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
 global.ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
 global.ONE_MIN_IN_MILISECONDS = 60 * 1000
 global.LOGGER_MAP = new Map()

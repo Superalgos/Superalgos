@@ -47,6 +47,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
     let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
 
+    const SNAPSHOTS_MODULE = require('./Snapshots.js')
+    let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
+
     return thisObject
 
     function initialize() {
@@ -57,6 +60,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
         announcementsModule.initialize()
+        snapshotsModule.initialize()
     }
 
     function finalize() {
@@ -68,6 +72,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         announcementsModule.finalize()
         announcementsModule = undefined
+
+        snapshotsModule.finalize()
+        snapshotsModule = undefined
 
         chart = undefined
 
@@ -130,7 +137,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         /* Here we check if there is a formula to be evaluated */
         if (node.type === 'Formula' && evaluating === 'Formulas') {
             if (node.code !== undefined) {
-                /* We will eval this condition */
+                /* We will eval this formula */
                 evalFormula(node)
             }
         }
@@ -307,9 +314,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                                 announcementsModule.makeAnnoucements(triggerStage.triggerOn)
                                 announcementsModule.makeAnnoucements(triggerStage)
-                                /* TODO See what to do with this:
-                                saveAsLastTriggerOnSnapshot = true
-                                */
+
+                                if (sessionParameters.snapshots !== undefined) {
+                                    if (sessionParameters.snapshots.config.strategy === true) {
+                                        snapshotsModule.strategyEntry()
+                                    }
+                                }
 
                                 logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name)
                                 return true // This Means that we have just met the conditions to trigger on.

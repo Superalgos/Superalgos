@@ -188,5 +188,10 @@ exports.newTradingPosition = function newTradingPosition(bot, logger) {
             tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.current.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
         }
         tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+        if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'HIT'
+        } else {
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'FAIL'
+        }
     }
 }

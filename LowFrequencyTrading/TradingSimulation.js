@@ -64,10 +64,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
             tradingRecordsModule.initialize(outputDatasetsMap)
 
-            const SNAPSHOTS_MODULE = require('./Snapshots.js')
-            let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
-            snapshotsModule.initialize()
-
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
             let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
             tradingSystemModule.initialize()
@@ -217,8 +213,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 /* After a position was closed, we need to close the strategy. */
                 tradingSystemModule.exitStrategyAfterPosition()
-
-                snapshotsModule.manageSnapshots()
                 tradingRecordsModule.appendRecords()
 
                 controlLoop()
@@ -253,7 +247,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingExecutionModule.finalize()
                 tradingSystemModule.finalize()
                 tradingRecordsModule.finalize()
-                snapshotsModule.finalize()
 
                 callback()
             }

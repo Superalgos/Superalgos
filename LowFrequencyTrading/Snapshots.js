@@ -20,10 +20,6 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     const SNAPSHOTS_FOLDER_NAME = 'Snapshots'
 
-    let snapshotHeaders
-    let triggerOnSnapshot
-    let takePositionSnapshot
-
     /* Snapshots of Strategies and Positions */
     let snapshots = {
         headers: [],
@@ -49,6 +45,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     function finalize() {
+        writeSnapshotFiles()
         tradingEngine = undefined
         tradingSystem = undefined
         sessionParameters = undefined
@@ -71,7 +68,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     function strategyExit() {
-        getResults()
+        getResults(tradingEngine.current.strategy.begin.value)
         let valuesArray = closeValues.concat(strategyValues)
         snapshots.strategies.push(valuesArray)
     }
@@ -88,7 +85,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     function positionExit() {
-        getResults()
+        getResults(tradingEngine.current.position.begin.value)
         let valuesArray = closeValues.concat(positionValues)
         snapshots.positions.push(valuesArray)
     }
@@ -231,22 +228,86 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         }
     }
 
-    function getResults() {
+    function getResults(openDatetime) {
 
-        let closeHeaders = ['Trade Number', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
         closeValues = [
-            tradingEngine.episode.episodeCounters.positions.value,                                          // Position Number
-            (new Date(tradingEngine.current.candle.begin.value)).toISOString(),                             // Datetime
-            tradingEngine.last.strategy.strategyName.value,                                                 // Strategy Name
-            tradingEngine.last.strategy.situationName.value,                                                // Trigger On Situation
-            tradingEngine.last.position.situationName.value,                                                // Take Position Situation
-            tradingEngine.last.position.positionStatistics.hitFail.value,                                   // Result
-            tradingEngine.last.position.positionStatistics.ROI.value,                                       // ROI
-            tradingEngine.last.position.exitType.value                                                      // Exit Type
+            tradingEngine.episode.episodeCounters.positions.value,                                             // Position Number
+            (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
+            tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name
+            tradingEngine.current.strategy.situationName.value,                                                // Trigger On Situation
+            tradingEngine.current.position.situationName.value,                                                // Take Position Situation
+            tradingEngine.current.position.positionStatistics.hitFail.value,                                   // Result
+            tradingEngine.current.position.positionStatistics.ROI.value,                                       // ROI
+            tradingEngine.current.position.exitType.value                                                      // Exit Type
         ]
 
         if (createCloseHeaders === true) {
             snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshots.headers)))
+        }
+    }
+
+    function writeSnapshotFiles() {
+
+        if (sessionParameters.snapshots !== undefined) {
+            if (sessionParameters.snapshots.config.strategy === true) {
+                writeSnapshotFile(snapshots.strategies, 'Strategies')
+            }
+        }
+
+        if (sessionParameters.snapshots !== undefined) {
+            if (sessionParameters.snapshots.config.strategy === true) {
+                writeSnapshotFile(snapshots.positions, 'Positions')
+            }
+        }
+    }
+
+    function writeSnapshotFile(snapshotArray, pFileName) {
+        try {
+            const FILE_STORAGE = require('../FileStorage.js');
+            let fileStorage = FILE_STORAGE.newFileStorage(logger);
+
+            let fileContent = "";
+            let separator = "\r\n";
+
+            parseRecord(snapshots.headers)
+
+            for (let i = 0; i < snapshotArray.length; i++) {
+                let record = snapshotArray[i];
+                parseRecord(record)
+                fileRecordCounter++;
+            }
+
+            function parseRecord(record) {
+                for (let j = 0; j < record.length; j++) {
+                    let property = record[j]
+
+                    fileContent = fileContent + '' + property
+                    if (j !== record.length - 1) {
+                        fileContent = fileContent + ","
+                    }
+                }
+                fileContent = fileContent + separator
+            }
+
+            fileContent = "" + fileContent + "";
+
+            let fileName = pFileName + '.csv';
+            let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + SNAPSHOTS_FOLDER_NAME;
+            filePath += '/' + fileName
+
+            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+
+            function onFileCreated(err) {
+                if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                    logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> err = " + err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> filePath = " + filePath);
+                    logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> onFileCreated -> market = " + market.baseAsset + "_" + market.quotedAsset);
+                }
+            }
+        }
+        catch (err) {
+            logger.write(MODULE_NAME, "[ERROR] writeSnapshotFile -> err = " + err.stack);
         }
     }
 }

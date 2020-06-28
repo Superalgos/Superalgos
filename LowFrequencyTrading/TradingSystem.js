@@ -315,9 +315,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 announcementsModule.makeAnnoucements(triggerStage.triggerOn)
                                 announcementsModule.makeAnnoucements(triggerStage)
 
-                                if (sessionParameters.snapshots !== undefined) {
-                                    if (sessionParameters.snapshots.config.strategy === true) {
-                                        snapshotsModule.strategyEntry()
+                                if (bot.SESSION.type === 'Backtesting Session') {
+                                    if (sessionParameters.snapshots !== undefined) {
+                                        if (sessionParameters.snapshots.config.strategy === true) {
+                                            snapshotsModule.strategyEntry()
+                                        }
                                     }
                                 }
 
@@ -416,9 +418,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
                             announcementsModule.makeAnnoucements(triggerStage.takePosition)
                             announcementsModule.makeAnnoucements(strategy.openStage)
-                            /* TODO See what to do with this:
-                            saveAsLastTakePositionSnapshot = true
-                            */
+
+                            if (bot.SESSION.type === 'Backtesting Session') {
+                                if (sessionParameters.snapshots !== undefined) {
+                                    if (sessionParameters.snapshots.config.position === true) {
+                                        snapshotsModule.positionEntry()
+                                    }
+                                }
+                            }
 
                             logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.')
                             return true // This Means that we have just met the conditions to take position.
@@ -889,6 +896,22 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
             tradingStrategyModule.closeStrategy('Position Closed')
             tradingEngine.current.distanceToEvent.triggerOff.value = 1
+        }
+
+        if (bot.SESSION.type === 'Backtesting Session') {
+            if (sessionParameters.snapshots !== undefined) {
+                if (sessionParameters.snapshots.config.strategy === true) {
+                    snapshotsModule.strategyExit()
+                }
+            }
+        }
+
+        if (bot.SESSION.type === 'Backtesting Session') {
+            if (sessionParameters.snapshots !== undefined) {
+                if (sessionParameters.snapshots.config.position === true) {
+                    snapshotsModule.positionExit()
+                }
+            }
         }
     }
 

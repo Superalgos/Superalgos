@@ -60,7 +60,7 @@ function newSessionFunctions () {
     'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
     'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +
-    'Position Statistics->Profit Loss->Days->ROI->User Defined Statistic->' +
+    'Position Statistics->Profit Loss->Days->ROI->Hit Fail->User Defined Statistic->' +
     'Formula'
 
     let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
@@ -68,7 +68,7 @@ function newSessionFunctions () {
     lightingPath = '' +
     'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
     'Parameters->' +
-    'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Sanpshots->User Defined Parameters->' +
+    'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->User Defined Parameters->' +
     'Exchange Account Asset->Asset->' +
     'Social Bots->Telegram Bot->'
 

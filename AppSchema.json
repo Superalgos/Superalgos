@@ -436,7 +436,7 @@
                 "name": "polygonCondition",
                 "type": "node",
                 "childType": "Polygon Condition",
-                "autoAdd": true
+                "autoAdd": false
             },
             {
                 "name": "polygonBody",

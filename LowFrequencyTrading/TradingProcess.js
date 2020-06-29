@@ -317,7 +317,8 @@
                                     }
 
                                     let dataFile = JSON.parse(text);
-                                    dataFiles.set(dependency.id, dataFile);
+                                    let trimmedDataFile = trimDataFile(dataFile, datasetModule.node.parentNode.record)
+                                    dataFiles.set(dependency.id, trimmedDataFile);
 
                                     dependencyControlLoop();
                                 }
@@ -722,6 +723,33 @@
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);
                 thisReport.save(callBack);
+            }
+
+            function trimDataFile(dataFile, recordDefinition) {
+                /* 
+                Here we will discard all the records in a file that are outside of the current time range.
+                */
+                let beginIndex
+                let endIndex
+                let result = []
+                for (let i = 0; i < recordDefinition.properties.length; i++) {
+                    let property = recordDefinition.properties[i]
+                    if (property.config.codeName === 'begin') {
+                        beginIndex = i
+                    }
+                    if (property.config.codeName === 'end') {
+                        endIndex = i
+                    }
+                }
+                for (let i = 0; i < dataFile.length; i++) {
+                    let dataRecord = dataFile[i]
+                    let begin = dataRecord[beginIndex]
+                    let end = dataRecord[endIndex]
+                    if (end < bot.SESSION.parameters.timeRange.config.initialDatetime) { continue }
+                    if (begin > bot.SESSION.parameters.timeRange.config.finalDatetime) { continue }
+                    result.push(dataRecord)
+                }
+                return result
             }
         }
         catch (err) {

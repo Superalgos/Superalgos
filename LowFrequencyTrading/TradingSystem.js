@@ -96,6 +96,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     function reset(pChart) {
         /* This function helps reset data structures at every cycle of the simulation loop/=. */
         chart = pChart // We need chat to be a local object accessible from conditions and formulas.
+        snapshotsModule.reset(chart)
+
         tradingSystem.highlights = []
         tradingSystem.errors = []
         tradingSystem.values = []
@@ -893,10 +895,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function exitStrategyAfterPosition() {
-        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
-            tradingStrategyModule.closeStrategy('Position Closed')
-            tradingEngine.current.distanceToEvent.triggerOff.value = 1
-        }
+        if (tradingEngine.current.strategy.stageType.value !== 'Close Stage') { return }
+
+        tradingStrategyModule.closeStrategy('Position Closed')
+        tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
         if (bot.SESSION.type === 'Backtesting Session') {
             if (sessionParameters.snapshots !== undefined) {

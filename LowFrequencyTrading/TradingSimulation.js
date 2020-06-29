@@ -124,7 +124,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.candle.index.value) }
-
                 let candle = candles[tradingEngine.current.candle.index.value] // This is the current candle the Simulation is working at.
 
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString()) }

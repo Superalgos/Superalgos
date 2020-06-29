@@ -5,6 +5,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     const MODULE_NAME = 'Snapshots'
 
     let thisObject = {
+        reset: reset,
         strategyEntry: strategyEntry,
         strategyExit: strategyExit,
         positionEntry: positionEntry,
@@ -27,7 +28,8 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         positions: []
     }
 
-    let snapshotKeys = new Map()            // This is to prevent adding the same indicator / variable to the output collection.
+    let positionKeys = new Map()            // This is to prevent adding the same indicator / variable to the output collection.
+    let strategyKeys = new Map()
     let createHeaders = true                // This is going to be true only once
     let createCloseHeaders = true           // This is going to be true only once
     let closeValues
@@ -35,6 +37,8 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     let addToStrategyValues
     let positionValues
     let addToPositionValues
+
+    let chart
 
     return thisObject
 
@@ -49,6 +53,16 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         tradingEngine = undefined
         tradingSystem = undefined
         sessionParameters = undefined
+
+        positionKeys = undefined
+        strategyKeys = undefined
+
+        chart = undefined
+    }
+
+    function reset(pChart) {
+        /* This function helps reset data structures at every cycle of the simulation loop/=. */
+        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
     }
 
     function strategyEntry() {
@@ -57,6 +71,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         If the strategy exists with a trade, this information will be added to the snapshots file.
         */
 
+        strategyKeys = new Map()
         strategyValues = []
         addToStrategyValues = true
 
@@ -68,12 +83,14 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     function strategyExit() {
-        getResults(tradingEngine.current.strategy.begin.value)
+        getResults(tradingEngine.current.strategy.begin.value, tradingEngine.current.strategy.end.value)
         let valuesArray = closeValues.concat(strategyValues)
         snapshots.strategies.push(valuesArray)
     }
 
     function positionEntry() {
+
+        positionKeys = new Map()
         positionValues = []
         addToPositionValues = true
 
@@ -85,7 +102,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     }
 
     function positionExit() {
-        getResults(tradingEngine.current.position.begin.value)
+        getResults(tradingEngine.current.position.begin.value, tradingEngine.current.position.end.value)
         let valuesArray = closeValues.concat(positionValues)
         snapshots.positions.push(valuesArray)
     }
@@ -201,21 +218,27 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     let key = timeFrame + '-' + product + '-' + property
-                    let existingKey = snapshotKeys.get(key)
+                    let existingKey
 
-                    if (existingKey === undefined) { // means that at the current loop this property of this product was not used before.
-                        snapshotKeys.set(key, key)
-                        if (createHeaders === true) {
-                            snapshots.headers.push(key)
-                        }
+                    if (addToStrategyValues === true) {
+                        addValues(strategyKeys, strategyValues)
+                    }
 
-                        let value = eval(instruction)
-                        if (addToStrategyValues === true) {
-                            strategyValues.push(value)
-                        }
+                    if (addToPositionValues === true) {
+                        addValues(positionKeys, positionValues)
+                    }
 
-                        if (addToPositionValues === true) {
-                            positionValues.push(value)
+                    function addValues(keys, values) {
+                        existingKey = keys.get(key)
+
+                        if (existingKey === undefined) { // means that at the current loop this property of this product was not used before.
+                            keys.set(key, key)
+                            if (createHeaders === true) {
+                                snapshots.headers.push(key)
+                            }
+
+                            let value = eval(instruction)
+                            values.push(value)
                         }
                     }
                 }
@@ -224,16 +247,16 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             tradingSystem.errors.push(nodeWithCode.id, err.message)
             logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
             logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE)
         }
     }
 
-    function getResults(openDatetime) {
+    function getResults(openDatetime, closeDatetime) {
 
         let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
         closeValues = [
             tradingEngine.episode.episodeCounters.positions.value,                                             // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
+            (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
             tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name
             tradingEngine.current.strategy.situationName.value,                                                // Trigger On Situation
             tradingEngine.current.position.situationName.value,                                                // Take Position Situation
@@ -244,6 +267,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
         if (createCloseHeaders === true) {
             snapshots.headers = closeHeaders.concat(JSON.parse(JSON.stringify(snapshots.headers)))
+            createCloseHeaders = false
         }
     }
 
@@ -275,7 +299,6 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             for (let i = 0; i < snapshotArray.length; i++) {
                 let record = snapshotArray[i];
                 parseRecord(record)
-                fileRecordCounter++;
             }
 
             function parseRecord(record) {

@@ -61,6 +61,7 @@
                     bot.SESSION = JSON.parse(message.event.session)
                     bot.DEPENDENCY_FILTER = JSON.parse(message.event.dependencyFilter)
                     bot.RESUME = message.event.resume
+                    bot.FIRST_EXECUTION = true
                     bot.SESSION.stop = stopSession // stop function
 
                     setUpAppSchema()

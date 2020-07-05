@@ -66,7 +66,6 @@
             let currentTimeFrame
             let currentTimeFrameLabel
             let market = bot.market;
-            let botNeverRan = true;
 
             /* Context Variables */
 
@@ -256,6 +255,10 @@
                 }
             }
 
+            /* 
+            We do market files first since if the simulation is run on daily files, there will be a loop to getch each daus files and we do not need
+            that loop to reload market files. 
+            */
             function processMarketFiles() {
                 let n;
                 timeFramesLoop();
@@ -523,7 +526,7 @@
                     } else {
                         n = 0;
                         if (currentTimeFrame !== undefined) {
-                            buildCharts();
+                            buildCharts(advanceTime);
                         } else {
                             logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> timeFramesControlLoop -> Time Frame not Recognized. Can not continue.");
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -532,7 +535,7 @@
                 }
             }
 
-            function buildCharts() {
+            function buildCharts(advanceTime) {
                 const COMMONS = require('../Commons.js')
                 let commons = COMMONS.newCommons(bot, logger, UTILITIES, FILE_STORAGE)
 
@@ -598,8 +601,7 @@
                             return;
                         }
 
-                        botNeverRan = false
-                        bot.RESUME = true // From here on, all other loops executions must resume from where we left at this current run.
+                        bot.FIRST_EXECUTION = false // From here on, all other loops executions wont be the first execution.
 
                         if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
                             writeMarketStatusReport(onMarketStatusReport)

@@ -53,9 +53,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             }
 
             function persistRecord() {
+                pruneOutputFile(product, outputDatasetArray)
                 let record = scanRecordDefinition(product)
 
                 if (product.config.saveAsObjects === true) {
+                    /* For saving objects we need to take care of a different set of rules. */
                     for (let j = 0; j < product.record.properties.length; j++) {
                         let recordProperty = product.record.properties[j]
                         if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
@@ -73,26 +75,50 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                                     outputDatasetArray.splice(outputDatasetArray.length - 1, 1)
                                 }
                             }
-                            /*
-                            We will add a record everytime that proeprty value does not match this
-                            */
-                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                outputDatasetArray.push(record)
+                            if (bot.processingDailyFiles) {
+                                /*
+                                When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
+                                since the object will be duplicated on the next day. How do we know we are positioned at the last candle
+                                of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                                time frame. 
+                                */
+                                let currentDay = new Date(tradingEngine.current.candle.end.value)
+                                let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
+                                if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
+                                    /*
+                                    We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                                    */
+                                    if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                        outputDatasetArray.push(record)
+                                    }
+                                } else {
+                                    /*
+                                    When we are not at the end of the day, we will save the object normally, like in market files.
+                                    */
+                                    if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                        outputDatasetArray.push(record)
+                                    }
+                                }
+                            }
+                            else {
+                                /*
+                                For Market Files we will add a record everytime that proeprty value does not match this
+                                */
+                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                    outputDatasetArray.push(record)
+                                }
                             }
                             break
                         }
                     }
                 } else {
-                    /* We add every record to the existing file. */
+                    /* When we are not dealing with objects, we add every record to the existing file. */
                     outputDatasetArray.push(record)
                 }
             }
         }
 
         function scanRecordDefinition(product) {
-            if (product.config.codeName === 'Position-Objects') {
-                let a = 1
-            }
             /*
             The Product Root Node is the root of the node hiriarchy branch that we need to look at
             in order to fnd the node where we are going to extract the value.
@@ -209,5 +235,30 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             value = ''
         }
         return value
+    }
+
+    function pruneOutputFile(product, outputFile) {
+        if (outputFile.isPrunned === true) { return }
+        /*
+        When a session is resumed, we will be potentially reading output files belonging to a previous session execution. 
+        For that reason we need to prune all the records that are beyond the current candle. We do not delete everything
+        because we might be resuming a stopped session, which is fine. 
+        */
+        for (let i = 0; i < outputFile.length; i++) {
+            let record = outputFile[i]
+
+            for (let j = 0; j < product.record.properties.length; j++) {
+                let recordProperty = product.record.properties[j]
+                if (recordProperty.config.codeName === 'end') {
+                    let end = record[j]
+                    if (end >= tradingEngine.current.candle.end.value) {
+                        outputFile.splice(i, 1)
+                        pruneOutputFile(product, outputFile)
+                        return
+                    }
+                }
+            }
+        }
+        outputFile.isPrunned = true
     }
 }

@@ -57,7 +57,10 @@ exports.newTradingOutput = function newTradingOutput(bot, logger, UTILITIES, FIL
             let totalFilesWritten = 0
             let outputDatasetsMap = new Map()
 
-            if (bot.RESUME !== true) {
+            if (bot.FIRST_EXECUTION === true && bot.RESUME === false) {
+                /* 
+                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
+                */
                 bot.simulationState.tradingEngine = bot.TRADING_ENGINE
                 bot.simulationState.tradingSystem = bot.TRADING_SYSTEM
                 initializeOutputs()

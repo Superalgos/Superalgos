@@ -82,7 +82,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             initializeLoop()
 
             function initializeLoop() {
-                if (bot.RESUME === true && tradingEngine.last.candle !== undefined) {
+                if (bot.FIRST_EXECUTION === false && tradingEngine.last.candle !== undefined) {
                     /* Estimate the Initial Candle based on the last candle saved at tradingEngine */
                     let firstBegin = candles[0].begin
                     let lastBegin = tradingEngine.last.candle.begin
@@ -294,7 +294,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                            let currentElement = getElement(thisChart[pluralVariableName], candle, 'Daily' + '-' + mapKey + '-' + pluralVariableName)
+                            let currentElement = getElement(thisChart[pluralVariableName], 'Daily' + '-' + mapKey + '-' + pluralVariableName)
                             thisChart[singularVariableName] = currentElement
                         }
                     }

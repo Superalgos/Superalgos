@@ -59,6 +59,6 @@ function newRecordValues () {
     if (node.payload.uiObject === undefined) { return }
     if (value === true) { value = 'true' }
     if (value === false) { value = 'false' }
-    node.payload.uiObject.setValue(value, 30)
+    node.payload.uiObject.setValue(value, 1)
   }
 }

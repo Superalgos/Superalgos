@@ -14,6 +14,7 @@ function newWorkspace () {
     replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
+    getHierarchyHeadsById: getHierarchyHeadsById,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
     stopAllRunningTasks: stopAllRunningTasks,
@@ -148,9 +149,9 @@ function newWorkspace () {
           let webSocketsPort
           /* At this point the node does not have the payload property yet, that is why we have to do this manually */
           try {
-            let code = JSON.parse(networkNode.code)
-            host = code.host
-            webSocketsPort = code.webSocketsPort
+            let config = JSON.parse(networkNode.config)
+            host = config.host
+            webSocketsPort = config.webSocketsPort
           } catch (err) {
             console.log('[ERROR] networkNode ' + networkNode.name + ' has an invalid configuration. Cannot know the host name and webSocketsPort.')
             return
@@ -345,7 +346,7 @@ function newWorkspace () {
     let nodes = []
     for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
       let rootNode = thisObject.workspaceNode.rootNodes[i]
-      let nodeDefinition = APP_SCHEMA_MAP.get(rootNode.type)
+      let nodeDefinition = getNodeDefinition(rootNode)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.isHierarchyHead === true) {
           nodes.push(rootNode)
@@ -353,6 +354,16 @@ function newWorkspace () {
       }
     }
     return nodes
+  }
+
+  function getHierarchyHeadsById (nodeId) {
+    let hiriatchyHeads = getHierarchyHeads()
+    for (let i = 0; i < hiriatchyHeads.length; i++) {
+      let hiriatchyHead = hiriatchyHeads[i]
+      if (hiriatchyHead.id === nodeId) {
+        return hiriatchyHead
+      }
+    }
   }
 
   function replaceWorkspaceByLoadingOne (name) {
@@ -561,7 +572,12 @@ function newWorkspace () {
         break
       case 'Run Session':
         {
-          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, callBackFunction)
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, false, callBackFunction)
+        }
+        break
+      case 'Resume Session':
+        {
+          functionLibrarySessionFunctions.runSession(payload.node, functionLibraryProtocolNode, functionLibraryDependenciesFilter, true, callBackFunction)
         }
         break
       case 'Stop Session':
@@ -596,7 +612,7 @@ function newWorkspace () {
         break
       case 'Open Documentation':
         {
-          let definition = APP_SCHEMA_MAP.get(payload.node.type)
+          let definition = getNodeDefinition(payload.node)
           if (definition !== undefined) {
             if (definition.docURL !== undefined) {
               let newTab = window.open(definition.docURL, '_blank')

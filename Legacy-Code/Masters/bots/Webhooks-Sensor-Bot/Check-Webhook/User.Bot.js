@@ -50,7 +50,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 try {
                     let reportKey;
 
-                    reportKey = "Masters" + "-" + "Webhooks" + "-" + "Check-Webhook" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Webhooks" + "-" + "Check-Webhook" 
 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 

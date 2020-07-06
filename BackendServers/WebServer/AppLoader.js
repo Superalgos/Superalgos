@@ -54,7 +54,13 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js', 
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
                                
-                'Utilities/RoundedCornersBackground.js',
+                'Utilities/CoordinateTransformations.js',
+                'Utilities/DateRateTransformations.js',
+                'Utilities/Download.js',
+                'Utilities/DrawPrint.js',
+                'Utilities/LoadSaveFrame.js',
+                'Utilities/NodeConfig.js',
+                'Utilities/HiriarchyMap.js',
 
                 'Panels/LayersPanel.js',
                 'Panels/UpDownButton.js',
@@ -110,22 +116,27 @@ function newAppLoader() {
 
                 'EventsServerClient.js',
 
-                'VideoRecorder.js',
-                'Plotter.js',
+                'Plotting/Plotter.js',
+                'Plotting/NodesHighlights.js',
+                'Plotting/NodesErrors.js',
+                'Plotting/NodesValues.js',
+                'Plotting/NodesStatus.js',
+                'Plotting/NodesProgress.js',
+                'Plotting/NodesRunning.js',
+                'Plotting/NodesAnnouncements.js',
+                'Plotting/RecordValues.js',
+
                 'LegacyPlotter.js',
                 'PlotterPanel.js',
 
+                'VideoRecorder.js',
                 'ProductStorage.js',
-
                 'SplashScreen.js',
                 'Canvas.js',
                 'EventHandler.js',
                 'Frame.js',
-
                 'Animation.js',
-
                 'Container.js',
-
                 'Utilities.js',
                 'PostLoader.js'
             ])
@@ -187,7 +198,7 @@ function newAppLoader() {
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationPartialResultsPanel.js',
+            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationEpisodePanel.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
             'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',

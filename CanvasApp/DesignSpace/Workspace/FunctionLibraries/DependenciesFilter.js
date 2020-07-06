@@ -14,7 +14,7 @@ function newDependenciesFilter () {
     function recursiveFilter (node) {
       filter(node.code)
 
-      let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+      let nodeDefinition = getNodeDefinition (node)
       if (nodeDefinition !== undefined) {
         if (nodeDefinition.properties !== undefined) {
           let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.

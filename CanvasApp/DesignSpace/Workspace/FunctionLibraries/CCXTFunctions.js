@@ -44,7 +44,7 @@ function newCCXTFunctions () {
         if (existingExchange === undefined) {
           let newExchange = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
           newExchange.name = exchange.name
-          newExchange.code = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
+          newExchange.config = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
           newExchange.payload.floatingObject.collapseToggle()
           newExchange.exchangeAssets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
           newExchange.exchangeMarkets.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -114,7 +114,7 @@ function newCCXTFunctions () {
           function addAsset (name) {
             let newAsseet = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Asset')
             newAsseet.name = name
-            newAsseet.code = '{ \n\"codeName\": \"' + name + '\"\n}'
+            newAsseet.config = '{ \n\"codeName\": \"' + name + '\"\n}'
           }
         }
       }
@@ -182,7 +182,7 @@ function newCCXTFunctions () {
           function addMarket (name, baseAsset, quotedAsset) {
             let newMarket = functionLibraryUiObjectsFromNodes.addUIObject(node, 'Market')
             newMarket.name = name
-            newMarket.code = '{ \n\"codeName\": \"' + name + '\"\n}'
+            newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
             newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
             newMarket.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_050X
             newMarket.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE

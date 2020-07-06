@@ -18,7 +18,7 @@ function newSuperScriptsFunctions () {
         if (exchange === undefined) {
           functionLibraryUiObjectsFromNodes.createUiObjectFromNode(templateClone, target, target)
         } else {
-          let definition = APP_SCHEMA_MAP.get(target.type)
+          let definition = getNodeDefinition (target)
           for (let i = 0; i < definition.properties.length; i++) {
             let property = definition.properties[i]
             if (property.childType === exchangeNodeType) {

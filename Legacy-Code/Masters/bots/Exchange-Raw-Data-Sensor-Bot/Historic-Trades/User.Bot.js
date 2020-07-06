@@ -52,25 +52,25 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
             exchangeId = bot.exchange.toLowerCase()
 
             /* Applying the parameters defined by the user at the Exchange node */
-            if (bot.exchangeNode.code.API !== undefined) {
-                for (let i = 0; i < bot.exchangeNode.code.API.length; i++) {
-                    if (bot.exchangeNode.code.API[i].method === 'fetchTrades') {
-                        if (bot.exchangeNode.code.API[i].class !== undefined) {
-                            exchangeId = bot.exchangeNode.code.API[i].class
+            if (bot.exchangeNode.config.API !== undefined) {
+                for (let i = 0; i < bot.exchangeNode.config.API.length; i++) {
+                    if (bot.exchangeNode.config.API[i].method === 'fetchTrades') {
+                        if (bot.exchangeNode.config.API[i].class !== undefined) {
+                            exchangeId = bot.exchangeNode.config.API[i].class
                         }
-                        if (bot.exchangeNode.code.API[i].fetchType !== undefined) {
-                            fetchType = bot.exchangeNode.code.API[i].fetchType
+                        if (bot.exchangeNode.config.API[i].fetchType !== undefined) {
+                            fetchType = bot.exchangeNode.config.API[i].fetchType
                         }
-                        if (bot.exchangeNode.code.API[i].fetchTradesMethod !== undefined) {
+                        if (bot.exchangeNode.config.API[i].fetchTradesMethod !== undefined) {
                             options = {
-                                'fetchTradesMethod': bot.exchangeNode.code.API[i].fetchTradesMethod
+                                'fetchTradesMethod': bot.exchangeNode.config.API[i].fetchTradesMethod
                             }
                         }
-                        if (bot.exchangeNode.code.API[i].firstId !== undefined) {
-                            firstId = bot.exchangeNode.code.API[i].firstId
+                        if (bot.exchangeNode.config.API[i].firstId !== undefined) {
+                            firstId = bot.exchangeNode.config.API[i].firstId
                         }
-                        if (bot.exchangeNode.code.API[i].rateLimit !== undefined) {
-                            rateLimit = bot.exchangeNode.code.API[i].rateLimit
+                        if (bot.exchangeNode.config.API[i].rateLimit !== undefined) {
+                            rateLimit = bot.exchangeNode.config.API[i].rateLimit
                         }
                     }
                 }
@@ -136,7 +136,7 @@ exports.newUserBot = function newUserBot(bot, logger, COMMONS, UTILITIES, FILE_S
                 try {
                     let reportKey;
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" + "-" + "dataSet.V1";
+                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-Trades" 
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> getContextVariables -> reportKey = " + reportKey); }
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {

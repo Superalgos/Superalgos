@@ -125,7 +125,7 @@ function newSplashScreen () {
 
     fontSize = 35
 
-    title = 'Beta 5'
+    title = 'Beta 6'
 
     titlePoint = {
       x: thisObject.container.frame.width / 2 - title.length / 2 * fontSize * FONT_ASPECT_RATIO - 20,

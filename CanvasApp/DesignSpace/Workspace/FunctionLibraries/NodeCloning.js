@@ -19,12 +19,13 @@ function newNodeCloning () {
 
     function cloneNode (node) {
       if (node === undefined) { return }
-      let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+      let nodeDefinition = getNodeDefinition(node)
       if (nodeDefinition !== undefined) {
         let object = {
           type: node.type,
           name: node.name,
-          code: node.code
+          code: node.code,
+          config: node.config
         }
 
       /* Children Nodes */
@@ -71,12 +72,13 @@ function newNodeCloning () {
 
     function redirectReferenceParents (node) {
       if (node === undefined) { return }
-      let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+      let nodeDefinition = getNodeDefinition(node)
       if (nodeDefinition !== undefined) {
         let object = {
           type: node.type,
           name: node.name,
-          code: node.code
+          code: node.code,
+          config: node.config
         }
 
       /* Children Nodes */

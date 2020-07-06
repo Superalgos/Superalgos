@@ -150,3 +150,72 @@ function drawIcon (icon, xFactor, yFactor, xOffset, yOffset, imageSize, containe
     }
   }
 }
+
+function drawContainerBackground (container, color, opacity, fitFunction) {
+  let fromPoint = {
+    x: 0,
+    y: 0
+  }
+
+  let toPoint = {
+    x: container.frame.width,
+    y: container.frame.height
+  }
+
+  fromPoint = transformThisPoint(fromPoint, container)
+  toPoint = transformThisPoint(toPoint, container)
+
+  fromPoint = fitFunction(fromPoint)
+  toPoint = fitFunction(toPoint)
+
+  browserCanvasContext.beginPath()
+  browserCanvasContext.rect(fromPoint.x, fromPoint.y, toPoint.x - fromPoint.x, toPoint.y - fromPoint.y)
+  browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
+  browserCanvasContext.closePath()
+  browserCanvasContext.fill()
+}
+
+function printLabel (labelToPrint, x, y, opacity, fontSize, color, center, container, fitFunction, noDecimals, fixedDecimals) {
+  if (labelToPrint === undefined) { return }
+  let labelPoint
+  if (color === undefined) { color = UI_COLOR.DARK }
+  if (fontSize === undefined) { fontSize = 10 };
+
+  browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+  let label = labelToPrint
+  if (isNaN(label) === false && label !== '') {
+    if (fixedDecimals !== true) {
+      label = dynamicDecimals(labelToPrint)
+    }
+    label = label.toLocaleString()
+    if (noDecimals === true) {
+      label = Math.trunc(label)
+    }
+  }
+
+  let xOffset = label.length / 2 * fontSize * FONT_ASPECT_RATIO
+
+  if (center === true) {
+    labelPoint = {
+      x: x - xOffset,
+      y: y
+    }
+  } else {
+    labelPoint = {
+      x: x,
+      y: y
+    }
+  }
+
+  if (container !== undefined) {
+    labelPoint = container.frame.frameThisPoint(labelPoint)
+  }
+
+  if (fitFunction !== undefined) {
+    labelPoint = fitFunction(labelPoint)
+  }
+
+  browserCanvasContext.fillStyle = 'rgba(' + color + ', ' + opacity + ')'
+  browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+}
+

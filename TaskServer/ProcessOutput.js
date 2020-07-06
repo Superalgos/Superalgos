@@ -30,29 +30,29 @@
 
                         /* Some validations to verify that everything is in place. */
                         if (outputDataset.referenceParent !== undefined) {
-                            if (outputDataset.referenceParent.code.codeName === undefined) {
+                            if (outputDataset.referenceParent.config.codeName === undefined) {
                                 logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Dataset Definition not defined. Dataset Definition = " + JSON.stringify(outputDataset.referenceParent));
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 return
-                            } 
+                            }
                             if (outputDataset.referenceParent.parentNode !== undefined) {
-                                if (outputDataset.referenceParent.parentNode.code.codeName === undefined) {
+                                if (outputDataset.referenceParent.parentNode.config.codeName === undefined) {
                                     logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Product not defined. Product = " + JSON.stringify(outputDataset.referenceParent.parentNode));
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                     return
-                                } 
+                                }
                                 if (outputDataset.referenceParent.parentNode.parentNode !== undefined) {
-                                    if (outputDataset.referenceParent.parentNode.parentNode.code.codeName === undefined) {
+                                    if (outputDataset.referenceParent.parentNode.parentNode.config.codeName === undefined) {
                                         logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Bot not defined. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         return
-                                    } 
+                                    }
                                     if (outputDataset.referenceParent.parentNode.parentNode.parentNode !== undefined) {
-                                        if (outputDataset.referenceParent.parentNode.parentNode.parentNode.code.codeName === undefined) {
+                                        if (outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
                                             logger.write(MODULE_NAME, "[ERROR] raiseEvents -> codeName at Data Mine not defined. Data Mine = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode.parentNode));
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                             return
-                                        }                                        
+                                        }
                                     } else {
                                         logger.write(MODULE_NAME, "[ERROR] raiseEvents -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(outputDataset.referenceParent.parentNode.parentNode));
                                         callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -76,10 +76,10 @@
 
                         /* All good, lets emit the event. */
 
-                        let dataMine = outputDataset.referenceParent.parentNode.parentNode.parentNode.code.codeName
-                        let botName = outputDataset.referenceParent.parentNode.parentNode.code.codeName
-                        let product = outputDataset.referenceParent.parentNode.code.codeName
-                        let dataset = outputDataset.referenceParent.code.codeName
+                        let dataMine = outputDataset.referenceParent.parentNode.parentNode.parentNode.config.codeName
+                        let botName = outputDataset.referenceParent.parentNode.parentNode.config.codeName
+                        let product = outputDataset.referenceParent.parentNode.config.codeName
+                        let dataset = outputDataset.referenceParent.config.codeName
 
                         key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {

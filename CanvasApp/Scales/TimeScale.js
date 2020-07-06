@@ -172,12 +172,12 @@ function newTimeScale () {
 
   function saveObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      code.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
-      code.toDate = (new Date(coordinateSystem.max.x)).toISOString()
-      code.autoMinScale = coordinateSystem.autoMinXScale
-      code.autoMaxScale = coordinateSystem.autoMaxXScale
-      thisObject.payload.node.code = JSON.stringify(code, null, 4)
+      let config = JSON.parse(thisObject.payload.node.config)
+      config.fromDate = (new Date(coordinateSystem.min.x)).toISOString()
+      config.toDate = (new Date(coordinateSystem.max.x)).toISOString()
+      config.autoMinScale = coordinateSystem.autoMinXScale
+      config.autoMaxScale = coordinateSystem.autoMaxXScale
+      thisObject.payload.node.config = JSON.stringify(config, null, 4)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -185,24 +185,24 @@ function newTimeScale () {
 
   function readObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
+      let config = JSON.parse(thisObject.payload.node.config)
 
       if (
-      (isNaN(Date.parse(code.fromDate)) || code.fromDate === null || code.fromDate === undefined) ||
-      (isNaN(Date.parse(code.toDate)) || code.toDate === null || code.toDate === undefined)
+      (isNaN(Date.parse(config.fromDate)) || config.fromDate === null || config.fromDate === undefined) ||
+      (isNaN(Date.parse(config.toDate)) || config.toDate === null || config.toDate === undefined)
         ) {
         // not using this value
       } else {
-        if (thisObject.fromDate !== Date.parse(code.fromDate) || thisObject.toDate !== Date.parse(code.toDate)) {
-          thisObject.fromDate = Date.parse(code.fromDate)
-          thisObject.toDate = Date.parse(code.toDate)
+        if (thisObject.fromDate !== Date.parse(config.fromDate) || thisObject.toDate !== Date.parse(config.toDate)) {
+          thisObject.fromDate = Date.parse(config.fromDate)
+          thisObject.toDate = Date.parse(config.toDate)
           coordinateSystem.min.x = thisObject.fromDate
           coordinateSystem.max.x = thisObject.toDate
 
-          if (code.autoMinScale !== undefined && (code.autoMinScale === true || code.autoMinScale === false) && code.autoMaxScale !== undefined && (code.autoMaxScale === true || code.autoMaxScale === false)) {
-            coordinateSystem.autoMinXScale = code.autoMinScale
-            coordinateSystem.autoMaxXScale = code.autoMaxScale
-            autoScaleButton.setStatus(code.autoMinScale, code.autoMaxScale)
+          if (config.autoMinScale !== undefined && (config.autoMinScale === true || config.autoMinScale === false) && config.autoMaxScale !== undefined && (config.autoMaxScale === true || config.autoMaxScale === false)) {
+            coordinateSystem.autoMinXScale = config.autoMinScale
+            coordinateSystem.autoMaxXScale = config.autoMaxScale
+            autoScaleButton.setStatus(config.autoMinScale, config.autoMaxScale)
           }
           coordinateSystem.recalculateScale()
         }

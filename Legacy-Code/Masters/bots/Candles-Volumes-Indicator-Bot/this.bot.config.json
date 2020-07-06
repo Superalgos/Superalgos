@@ -2,14 +2,7 @@
   "displayName": "Candles Volumes",
   "codeName": "Candles-Volumes",
   "type": "Indicator Bot",
-  "version": {
-    "major": 1,
-    "minor": 0,
-    "patch": 0
-  },
   "dataMine": "Masters",
-  "profilePicture": "Candles Volumes.png",
-  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "Multi-Period-Market",
@@ -52,34 +45,19 @@
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-OHLCVs",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Historic-OHLCVs"
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
           "process": "Historic-OHLCVs",
-          "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month",
           "waitUntilNextUpdate": true
         },
         {
           "dataMine": "Masters",
           "bot": "Candles-Volumes",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Market",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Multi-Period-Market"
         }
       ]
     },
@@ -124,34 +102,19 @@
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Historic-OHLCVs",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Historic-OHLCVs"
         },
         {
           "dataMine": "Masters",
           "bot": "Exchange-Raw-Data",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
           "process": "Historic-OHLCVs",
-          "dataSetVersion": "dataSet.V1",
           "dataSetSection": "Month",
           "waitUntilNextUpdate": true
         },
         {
           "dataMine": "Masters",
           "bot": "Candles-Volumes",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Multi-Period-Daily",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Multi-Period-Daily"
         }
       ]
     }

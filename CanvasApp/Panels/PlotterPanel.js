@@ -100,9 +100,7 @@ function newPlotterPanel () {
     const PANEL_HEIGHT = UI_PANEL.HEIGHT.NORMAL
 
     if (currentRecord === undefined) { return }
-    if (currentRecord.data === undefined) { return }
-
-    let record = currentRecord.data
+    let record = currentRecord
 
     /* First we execute code if provided. */
     if (panelNode.javascriptCode !== undefined) {
@@ -151,24 +149,24 @@ function newPlotterPanel () {
         }
       }
 
-      if (panelData.code.valueDecimals !== undefined) {
+      if (panelData.config.valueDecimals !== undefined) {
         if (value !== undefined) {
           if (isNaN(value) === false) {
-            value = dynamicDecimals(value, panelData.code.valueDecimals)
+            value = dynamicDecimals(value, panelData.config.valueDecimals)
           }
         }
       }
 
-      if (panelData.code.labelText !== undefined) {
-        labelText = panelData.code.labelText
+      if (panelData.config.labelText !== undefined) {
+        labelText = panelData.config.labelText
       }
 
-      if (panelData.code.labelPosition !== undefined) {
-        labelPosition = panelData.code.labelPosition
+      if (panelData.config.labelPosition !== undefined) {
+        labelPosition = panelData.config.labelPosition
       }
 
-      if (panelData.code.valuePosition !== undefined) {
-        valuePosition = panelData.code.valuePosition
+      if (panelData.config.valuePosition !== undefined) {
+        valuePosition = panelData.config.valuePosition
       }
 
       printLabel(labelText, X_AXIS, UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor, '0.60', undefined, undefined, true, thisObject.container, thisObject.fitFunction)

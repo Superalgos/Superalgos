@@ -29,10 +29,8 @@ function newDashboard () {
         for (let i = 0; i < APP_SCHEMA_ARRAY.length; i++) {
           let nodeDefinition = APP_SCHEMA_ARRAY[i]
           let key = nodeDefinition.type
-
           APP_SCHEMA_MAP.set(key, nodeDefinition)
         }
-
         startCanvas()
       }
 

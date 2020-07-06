@@ -157,6 +157,7 @@ function newLayer () {
                         'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
                         'Data Storage->Network Node->' +
                         'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+                        'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
                         'Market->Market Base Asset->Asset->' +
                         'Market Quoted Asset->Asset->' +
                         'Exchange Markets->Crypto Exchange->' +
@@ -173,12 +174,15 @@ function newLayer () {
                         'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
                         'Polygon Border->Style->Style Condition->Style->' +
                         'Polygon Vertex->Point->' +
-                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->'
+                        'Image->Image Condition->Image Position->Point->' +
+                        'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
+                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
+                        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
       thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
       /* Here we validate that we have all the needed information */
-      if (thisObject.definition.referenceParent === undefined) { return }
-      if (thisObject.definition.referenceParent.parentNode === undefined) { return }
+      if (thisObject.definition.referenceParent === undefined) { return } // Data Product
+      if (thisObject.definition.referenceParent.parentNode === undefined) { return } // Single Market Data
       if (thisObject.definition.referenceParent.parentNode.referenceParent === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode === undefined) { return }
@@ -200,7 +204,7 @@ function newLayer () {
       /* Get ready to draw this layer */
       thisObject.baseAsset = thisObject.definition.referenceParent.parentNode.referenceParent.baseAsset.referenceParent
       thisObject.quotedAsset = thisObject.definition.referenceParent.parentNode.referenceParent.quotedAsset.referenceParent
-      thisObject.market = thisObject.baseAsset.code.codeName + '/' + thisObject.quotedAsset.code.codeName
+      thisObject.market = thisObject.baseAsset.config.codeName + '/' + thisObject.quotedAsset.config.codeName
       thisObject.exchange = thisObject.definition.referenceParent.parentNode.referenceParent.parentNode.parentNode
 
       /* Some basic validations. */
@@ -223,11 +227,10 @@ function newLayer () {
       }
 
       thisObject.plotterModule = thisObject.definition.referenceParent.referenceParent.referenceParent
-
       thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
-      if (thisObject.plotterModule.code.icon !== undefined) {
-        thisObject.plotterTypeIcon = canvas.designSpace.iconCollection.get(thisObject.plotterModule.code.icon)
+      if (thisObject.plotterModule.config.icon !== undefined) {
+        thisObject.plotterTypeIcon = canvas.designSpace.iconCollection.get(thisObject.plotterModule.config.icon)
       }
 
       thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -240,12 +243,12 @@ function newLayer () {
       }
 
       function getIcon (node) {
-        let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+        let nodeDefinition = getNodeDefinition(node)
         let iconName
         if (nodeDefinition.alternativeIcons !== undefined) {
           for (let i = 0; i < nodeDefinition.alternativeIcons.length; i++) {
             alternativeIcon = nodeDefinition.alternativeIcons[i]
-            if (alternativeIcon.codeName === node.code.codeName) {
+            if (alternativeIcon.codeName === node.config.codeName) {
               iconName = alternativeIcon.iconName
             }
           }

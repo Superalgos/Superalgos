@@ -8,7 +8,6 @@
     "patch": 0
   },
   "dataMine": "Masters",
-  "dataSetVersion": "dataSet.V1",
   "processes": [
     {
       "name": "Check-Webhook",
@@ -41,12 +40,7 @@
         {
           "dataMine": "Masters",
           "bot": "Webhooks",
-          "botVersion": {
-            "major": 1,
-            "minor": 0
-          },
-          "process": "Check-Webhook",
-          "dataSetVersion": "dataSet.V1"
+          "process": "Check-Webhook"
         }
       ]
     }

@@ -285,7 +285,13 @@ function newDesignSpace () {
       'arrangement-vertical-right',
       'arrangement-vertical-left',
       'arrangement-concave',
-      'move-to-phase-event'
+      'move-to-phase-event',
+      'open-execution',
+      'move-order',
+      'market-order',
+      'limit-order',
+      'execution-algorithm',
+      'cancel-order'
     ]
 
     for (let i = 0; i < iconsNames.length; i++) {

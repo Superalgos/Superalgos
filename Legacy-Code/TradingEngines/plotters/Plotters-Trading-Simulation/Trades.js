@@ -27,7 +27,7 @@
 
         // Secondary functions and properties.
 
-        currentRecord: undefined
+        record: undefined
     };
 
     /* this is part of the module template */
@@ -366,11 +366,11 @@
                         record.begin = dailyFile[i][0];
                         record.end = dailyFile[i][1];
                         record.status = dailyFile[i][2];
-                        record.lastTradeROI = dailyFile[i][3];
+                        record.variable_last_position_ROI = dailyFile[i][3];
                         record.beginRate = dailyFile[i][4];
                         record.endRate = dailyFile[i][5];
                         record.exitType = dailyFile[i][6];
-                        record.takePositionSituation = dailyFile[i][7];
+                        record.situationName = dailyFile[i][7];
 
                         if (
                             (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
@@ -381,8 +381,8 @@
 
                             if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
-                                thisObject.currentRecord = record;
-                                thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.currentRecord);
+                                thisObject.record = record;
+                                thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.record);
 
                             }
                         }
@@ -432,11 +432,11 @@
                 record.begin = marketFile[i][0];
                 record.end = marketFile[i][1];
                 record.status = marketFile[i][2];
-                record.lastTradeROI = marketFile[i][3];
+                record.variable_last_position_ROI = marketFile[i][3];
                 record.beginRate = marketFile[i][4];
                 record.endRate = marketFile[i][5];
                 record.exitType = marketFile[i][6];
-                record.takePositionSituation = marketFile[i][7];
+                record.situationName = marketFile[i][7];
 
                 if (
                     (record.begin >= leftDate.valueOf() && record.end <= rightDate.valueOf()) &&
@@ -447,8 +447,8 @@
 
                     if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
 
-                        thisObject.currentRecord = record;
-                        thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.currentRecord);
+                        thisObject.record = record;
+                        thisObject.container.eventHandler.raiseEvent("Current Trade Changed", thisObject.record);
 
                     }
                 }
@@ -478,9 +478,9 @@
 
                 if (userPositionDate >= record.begin && userPositionDate <= record.end) {
 
-                    let currentRecord = {
+                    let record = {
                     };
-                    thisObject.container.eventHandler.raiseEvent("Current Trade Record Changed", currentRecord);
+                    thisObject.container.eventHandler.raiseEvent("Current Trade Record Changed", record);
                 }
 
                 let recordPoint1 = {
@@ -518,7 +518,7 @@
                 recordPoint2 = thisObject.fitFunction(recordPoint2);
                 recordPoint3 = thisObject.fitFunction(recordPoint3);
 
-                let line0 = record.takePositionSituation
+                let line0 = record.situationName
                 let line1 = '';
                 let line2 = '';
 
@@ -541,10 +541,10 @@
                     line1 = 'Open Position';
                 }
 
-                if (record.lastTradeROI < 0) {
-                    line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
+                if (record.variable_last_position_ROI < 0) {
+                    line2 = 'ROI:' + (record.variable_last_position_ROI).toFixed(2) + ' %';
                 } else {
-                    line2 = 'ROI:' + (record.lastTradeROI).toFixed(2) + ' %';
+                    line2 = 'ROI:' + (record.variable_last_position_ROI).toFixed(2) + ' %';
                 }
 
                 /* Draw the triangle  that represents the trade. */
@@ -559,7 +559,7 @@
 
                 let opacity = '0.25';
 
-                if (record.lastTradeROI > 0) {
+                if (record.variable_last_position_ROI > 0) {
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + opacity + ')';
                     browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', ' + opacity + ')';
                 } else {

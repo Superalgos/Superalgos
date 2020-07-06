@@ -1,5 +1,5 @@
 ﻿exports.newExchangeAPI = function newExchangeAPI(logger, BOT) {
-  
+
     let MODULE_NAME = "Exchange API";
     let LOG_INFO = true;
     let apiClient;
@@ -22,8 +22,7 @@
 
     return thisObject;
 
-    function initialize(callBackFunction) {
-        try { 
+    function initialize() {
         exchangeId = bot.exchange.toLowerCase()
 
         let key = process.env.KEY
@@ -41,18 +40,11 @@
             verbose: false,
             options: options
         }
-
         exchange = new exchangeClass(exchangeConstructorParams)
-
-        callBackFunction(global.DEFAULT_OK_RESPONSE)
-    } catch (err) {
-            logError("initialize -> err = " + err.message);
-        callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-    }
     }
 
     function getMaxDecimalPositions() {
-        return 8 
+        return 8
     }
 
     async function getTicker(market, callBackFunction) {
@@ -62,13 +54,13 @@
             let ticker
 
             if (exchange.has['fetchTicker']) {
-                ticker = await (exchange.fetchTicker(symbol)) 
+                ticker = await (exchange.fetchTicker(symbol))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, ticker)
             } else {
                 logError("getTicker -> Exchange does not support fetchTicker command.");
                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
-            
+
         } catch (err) {
             logError("getTicker -> err = " + err.message);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -83,7 +75,7 @@
             let openOrders
 
             if (exchange.has['fetchOpenOrders']) {
-                openOrders = await(exchange.fetchOpenOrders (symbol))
+                openOrders = await (exchange.fetchOpenOrders(symbol))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, openOrders)
             } else {
                 logError("getOpenOrders -> Exchange does not support fetchOpenOrders command.");
@@ -116,7 +108,7 @@
         }
     }
 
-    async function createOrder(market, side,  price,  cost,  amount, callBackFunction) {
+    async function createOrder(market, side, price, cost, amount, callBackFunction) {
         try {
             logInfo("createOrder -> Entering function.");
 
@@ -137,7 +129,7 @@
             let order
 
             if (exchange.has['createOrder']) {
-                order = await(exchange.createOrder(symbol, type, side, amount))
+                order = await (exchange.createOrder(symbol, type, side, amount))
                 callBackFunction(global.DEFAULT_OK_RESPONSE, order)
             } else {
                 logError("createOrder -> Exchange does not support createOrder command.");

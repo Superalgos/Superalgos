@@ -52,10 +52,10 @@ function newConfigEditor () {
       thisObject.visible = false
       let textArea = document.getElementById('textArea')
       textArea.style.display = 'none'
-      thisObject.payload.node.code = textArea.value
+      thisObject.payload.node.config = textArea.value
 
       try {
-        let code = JSON.parse(thisObject.payload.node.code)
+        let config = JSON.parse(thisObject.payload.node.config)
       } catch (err) {
         thisObject.payload.uiObject.setErrorMessage(err.message, 10)
       }
@@ -72,7 +72,7 @@ function newConfigEditor () {
     thisObject.payload.uiObject.setErrorMessage('', 0)
 
     let textArea = document.getElementById('textArea')
-    textArea.value = payload.node.code
+    textArea.value = payload.node.config
     textArea.style = 'resize: none;' +
                      ' border: none;' +
                      ' outline: none;' +
@@ -94,7 +94,7 @@ function newConfigEditor () {
     if (thisObject.visible === true) {
       if (point.x === VERY_LARGE_NUMBER) {
         /* The the mouse leaves the canvas, and event of mouse over with a ridiculous coordinate is triggered so that
-        anyone can react. In our case, the code editor has a text area that is not part of the canvas, so the event is
+        anyone can react. In our case, the config editor has a text area that is not part of the canvas, so the event is
         triggered. We compensate recognizing this coordinate and returning our container. */
         return thisObject.container
       }

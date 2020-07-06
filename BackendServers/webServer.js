@@ -325,6 +325,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'Plotting': // This means the Plotting folder.
+                {
+                    respondWithFile(process.env.PATH_TO_CANVAS_APP + '/Plotting/' + requestParameters[2], response)
+                }
+                break
+
             case 'TopSpace': // This means the TopSpace folder.
                 {
                     respondWithFile(process.env.PATH_TO_CANVAS_APP + '/TopSpace/' + requestParameters[2], response)
@@ -581,46 +587,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             case 'Storage':
                 {
                     respondWithFile(process.env.STORAGE_PATH + '/' + request.url.substring(9), response)
-                }
-                break
-
-            case 'GetDefinition':
-                {
-                    respondWithFile(process.env.INTER_PROCESS_FILES_PATH + '/definition.json', response)
-                }
-                break
-
-            case 'SaveDefinition':
-                {
-                    let fs = require('fs')
-                    let body = ''
-
-                    request.on('data', function (data) {
-                        body += data
-                        // Too much POST data
-                        if (body.length > 1e6) {
-                            request.connection.destroy()
-                        }
-                    })
-
-                    request.on('end', function () {
-                        try {
-                            let filePath = process.env.INTER_PROCESS_FILES_PATH + '/definition.json'
-                            fs.writeFile(filePath, body, onFileWrite)
-                        } catch (e) {
-                            console.log('[ERROR] Error writing user config.', e)
-                            respondWithContent(undefined, response)
-                        }
-
-                        function onFileWrite(err) {
-                            if (err) {
-                                respondWithContent(undefined, response)
-                            } else {
-                                let responseContent = 'User config updated.'
-                                respondWithContent(responseContent, response)
-                            }
-                        }
-                    })
                 }
                 break
 

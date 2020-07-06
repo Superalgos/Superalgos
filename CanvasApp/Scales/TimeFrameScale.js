@@ -313,9 +313,9 @@ function newTimeFrameScale () {
 
   function saveObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      code.value = timeFrameLabel
-      thisObject.payload.node.code = JSON.stringify(code)
+      let config = JSON.parse(thisObject.payload.node.config)
+      config.value = timeFrameLabel
+      thisObject.payload.node.config = JSON.stringify(config)
     } catch (err) {
        // we ignore errors here since most likely they will be parsing errors.
     }
@@ -323,14 +323,14 @@ function newTimeFrameScale () {
 
   function readObjectState () {
     try {
-      let code = JSON.parse(thisObject.payload.node.code)
-      if (code.value !== timeFrameLabel) {
+      let config = JSON.parse(thisObject.payload.node.config)
+      if (config.value !== timeFrameLabel) {
         let found = false
         for (let i = 0; i < timeFramesMasterArray.length; i++) {
           let timeFrameArray = timeFramesMasterArray[i]
           for (let j = 0; j < timeFrameArray.length; j++) {
             let record = timeFrameArray[j]
-            if (code.value === record[1]) {
+            if (config.value === record[1]) {
               filePeriodIndex = i
               timeFrameIndex = j
               found = true

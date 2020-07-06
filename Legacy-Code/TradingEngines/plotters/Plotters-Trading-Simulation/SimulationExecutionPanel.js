@@ -19,7 +19,7 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
 
     container.frame.containerName = "Trading Execution";
 
-    let currentRecord;
+    let record;
     let upDownButton
 
     return thisObject;
@@ -30,7 +30,7 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
         thisObject.fitFunction = undefined
         thisObject.isVisible = undefined
 
-        currentRecord = undefined
+        record = undefined
         upDownButton.finalize()
         upDownButton = undefined
     }
@@ -75,7 +75,7 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
 
     function onRecordChange(lastCurrentCandle) {
 
-        currentRecord = lastCurrentCandle;
+        record = lastCurrentCandle;
 
     }
 
@@ -93,7 +93,7 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
 
     function plot() {
 
-        if (currentRecord === undefined) { return; }
+        if (record === undefined) { return; }
 
         const frameBodyHeight = thisObject.container.frame.getBodyHeight();
         const frameTitleHeight = thisObject.container.frame.height - frameBodyHeight;
@@ -101,7 +101,7 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
         const X_AXIS = thisObject.container.frame.width / 2;
         const Y_AXIS = frameTitleHeight + frameBodyHeight / 2;
 
-        record = currentRecord
+        record = record
 
         point = {
             x: X_AXIS,
@@ -395,28 +395,28 @@ function newTradingEnginesPlottersTradingSimulationSimulationExecutionSimulation
         browserCanvasContext.beginPath();
 
         let y;
-        let recordDate = new Date(currentRecord.datetime)
+        let recordDate = new Date(record.datetime)
 
         printLabel('Market Rate', X_AXIS, frameTitleHeight + frameBodyHeight * 0.05 / 2, '1');
-        printLabel(currentRecord.marketRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10 / 2, '0.50');
+        printLabel(record.marketRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.10 / 2, '0.50');
 
         printLabel('Sell Rate', X_AXIS, frameTitleHeight + frameBodyHeight * 0.15 / 2, '1');
-        printLabel(currentRecord.lastSellRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.20 / 2, '0.50');
+        printLabel(record.lastSellRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.20 / 2, '0.50');
 
         printLabel('Sell Executed Rate', X_AXIS, frameTitleHeight + frameBodyHeight * 0.25 / 2, '1');
-        printLabel(currentRecord.sellExecRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.30 / 2, '0.50');
+        printLabel(record.sellExecRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.30 / 2, '0.50');
 
         printLabel('Buy Rate', X_AXIS, frameTitleHeight + frameBodyHeight * 0.35 / 2, '1');
-        printLabel(currentRecord.lastBuyRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.40 / 2, '0.40');
+        printLabel(record.lastBuyRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.40 / 2, '0.40');
 
         printLabel('Buy Executed Rate', X_AXIS, frameTitleHeight + frameBodyHeight * 0.45 / 2, '1');
-        printLabel(currentRecord.buyExecRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.50 / 2, '0.50');
+        printLabel(record.buyExecRate, X_AXIS, frameTitleHeight + frameBodyHeight * 0.50 / 2, '0.50');
 
         printLabel('ROI Asset A', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.25 / 2), '1');
-        printLabel((currentRecord.combinedProfitsB).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.30 / 2), '0.50');
+        printLabel((record.combinedProfitsB).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.30 / 2), '0.50');
 
         printLabel('ROI Asset B', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.15 / 2), '1');
-        printLabel((currentRecord.combinedProfitsA).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.20 / 2), '0.50');
+        printLabel((record.combinedProfitsA).toFixed(2) + '%', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.20 / 2), '0.50');
 
         printLabel('Datetime', X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.05 / 2), '1');
         printLabel(recordDate.toUTCString(), X_AXIS, frameTitleHeight + frameBodyHeight * (1 - 0.1 / 2), '0.50');

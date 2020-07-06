@@ -16,7 +16,7 @@
     let dataDependenciesModule;
     let dataFiles = new Map();
 
-    let botInstance;
+    let indicatorOutputModule;
 
     let processConfig;
 
@@ -35,13 +35,13 @@
             dataDependenciesModule = pDataDependencies;
             processConfig = pProcessConfig;
 
-            let USER_BOT_MODULE = require("./IndicatorBot")
+            let INDICATOR_OUTPUT_MODULE = require("./IndicatorOutput")
 
-            botInstance = USER_BOT_MODULE.newIndicatorBot(bot, logger, UTILITIES, FILE_STORAGE);
-            botInstance.initialize(callBackFunction);
+            indicatorOutputModule = INDICATOR_OUTPUT_MODULE.newIndicatorOutput(bot, logger, UTILITIES, FILE_STORAGE);
+            indicatorOutputModule.initialize(callBackFunction);
 
         } catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] initialize -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
@@ -50,7 +50,7 @@
         dataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
-        botInstance = undefined
+        indicatorOutputModule = undefined
         processConfig = undefined
         thisObject = undefined
     }
@@ -100,7 +100,7 @@
 
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -137,13 +137,13 @@
                                             if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> Entering function."); }
 
                                             let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
-                                            let fileName =  "Data.json";
+                                            let fileName = "Data.json";
 
                                             let filePath
-                                            if (dependency.referenceParent.code.codeName === "Multi-Period-Market") {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + timeFrameLabel;
+                                            if (dependency.referenceParent.config.codeName === "Multi-Period-Market") {
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
                                             } else {
-                                                filePath = dependency.referenceParent.parentNode.code.codeName + '/' + dependency.referenceParent.code.codeName + "/" + dateForPath;
+                                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
                                             }
                                             datasetModule.getTextFile(filePath, fileName, onFileReceived);
 
@@ -156,7 +156,7 @@
 
                                                     if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
-                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = "+ err.stack);
+                                                        logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
                                                         callBackFunction(err);
                                                         return;
                                                     }
@@ -168,20 +168,20 @@
 
                                                 }
                                                 catch (err) {
-                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = "+ err.stack);
+                                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + err.stack);
                                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                                 }
                                             }
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> err = "+ err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> dependencyLoopBody -> getFile -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
 
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> dependencyLoopBody -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoop -> dependencyLoopBody -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -200,38 +200,38 @@
 
                                     } else {
 
-                                        callTheBot();
+                                        generateOutput();
 
                                     }
                                 }
                                 catch (err) {
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> dependencyControlLoop -> err = "+ err.stack);
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> dependencyControlLoop -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
 
-                            function callTheBot() {
+                            function generateOutput() {
 
                                 try {
 
-                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> Entering function."); }
+                                    if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> Entering function."); }
 
                                     const timeFrame = global.marketFilesPeriods[n][0];
                                     const timeFrameLabel = global.marketFilesPeriods[n][1];
 
-                                    botInstance.start(
+                                    indicatorOutputModule.start(
                                         dataFiles,
                                         timeFrame,
                                         timeFrameLabel,
                                         undefined,
                                         undefined,
-                                        onBotFinished);
+                                        onOutputGenerated);
 
-                                    function onBotFinished(err) {
+                                    function onOutputGenerated(err) {
 
                                         try {
 
-                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> Entering function."); }
+                                            if (FULL_LOG === true) { logger.write(MODULE_NAME, "[INFO] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> onOutputGenerated -> Entering function."); }
 
                                             if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
 
@@ -242,19 +242,19 @@
                                             periodsControlLoop();
                                         }
                                         catch (err) {
-                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> onBotFinished -> err = "+ err.stack);
+                                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> onOutputGenerated -> err = " + err.stack);
                                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                         }
                                     }
                                 }
-                                catch(err){
-                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> callTheBot -> err = "+ err.stack);
+                                catch (err) {
+                                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> generateOutput -> err = " + err.stack);
                                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsLoopBody -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -278,14 +278,14 @@
                             }
                         }
                         catch (err) {
-                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsControlLoop -> err = "+ err.stack);
+                            logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> periodsControlLoop -> err = " + err.stack);
                             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                         }
                     }
 
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] start -> processTimeFrames -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
@@ -296,7 +296,7 @@
 
                 try {
 
-                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Market" + "-" + "dataSet.V1";
+                    let reportKey = bot.dataMine + "-" + bot.codeName + "-" + "Multi-Period-Market"
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = bot.processDatetime;
@@ -304,23 +304,23 @@
 
                     if (global.areEqualDates(bot.processDatetime, new Date()) === false) {
                         logger.newInternalLoop(bot.codeName, bot.process, bot.processDatetime);
-                    } 
-                    
+                    }
+
                     /*  Telling the world we are alive and doing well */
                     let currentDateString = bot.processDatetime.getUTCFullYear() + '-' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '-' + utilities.pad(bot.processDatetime.getUTCDate(), 2);
                     let currentDate = new Date(bot.processDatetime)
                     let lastDate = new Date()
-                    bot.processHeartBeat(currentDateString, global.getPercentage(currentDate, currentDate, lastDate)) 
+                    bot.processHeartBeat(currentDateString, global.getPercentage(currentDate, currentDate, lastDate))
                 }
                 catch (err) {
-                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = "+ err.stack);
+                    logger.write(MODULE_NAME, "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(global.DEFAULT_FAIL_RESPONSE);
                 }
             }
         }
 
         catch (err) {
-            logger.write(MODULE_NAME, "[ERROR] start -> err = "+ err.stack);
+            logger.write(MODULE_NAME, "[ERROR] start -> err = " + err.stack);
             callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }

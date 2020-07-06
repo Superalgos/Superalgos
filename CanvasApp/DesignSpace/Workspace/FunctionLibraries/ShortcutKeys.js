@@ -6,7 +6,7 @@ function newShortcutKeys () {
 
   function getNodeByShortcutKey (node, searchingKey) {
     if (node === undefined) { return }
-    let nodeDefinition = APP_SCHEMA_MAP.get(node.type)
+    let nodeDefinition = getNodeDefinition (node)
     if (nodeDefinition !== undefined) {
       /* Check Self first */
       if (node.payload.uiObject.shortcutKey === searchingKey) {

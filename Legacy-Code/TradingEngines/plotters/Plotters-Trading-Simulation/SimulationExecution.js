@@ -342,7 +342,7 @@
     function plotChart() {
         try {
 
-            let currentRecord
+            let record
 
             let point = {
                 x: 0,
@@ -358,7 +358,7 @@
                 for (let i = 0; i < history.length; i++) {
 
                     record = history[i];
-                    currentRecord = record
+                    record = record
 
                     let timestamp = record.date // Math.trunc(record.date / timeFrame) * timeFrame + timeFrame / 2;
 
@@ -427,7 +427,7 @@
                         point2.y = point2.y - diff;
                         point3.y = point3.y - diff;
 
-                        currentRecord.timeFrame = diff
+                        record.timeFrame = diff
 
                         point2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point2);
                         point3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point3);
@@ -502,7 +502,7 @@
                         point2.y = point2.y + diff;
                         point3.y = point3.y + diff;
 
-                        currentRecord.timeFrame = diff
+                        record.timeFrame = diff
 
                         point2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point2);
                         point3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point3);
@@ -575,7 +575,7 @@
                         point2.y = point2.y - diff;
                         point3.y = point3.y - diff;
 
-                        currentRecord.timeFrame = diff
+                        record.timeFrame = diff
 
                         point2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point2);
                         point3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point3);
@@ -649,7 +649,7 @@
                         point2.y = point2.y + diff;
                         point3.y = point3.y + diff;
 
-                        currentRecord.timeFrame = diff
+                        record.timeFrame = diff
 
                         point2 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point2);
                         point3 = canvas.chartingSpace.viewport.fitIntoVisibleArea(point3);
@@ -683,7 +683,7 @@
                     /* Send the current record to the panel */
 
                     if (userPositionDate >= record.date - 30000 && userPositionDate < record.date + 30000) {
-                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentRecord);
+                        thisObject.container.eventHandler.raiseEvent("Current Record Changed", record);
                     }
 
                     /* Circles */

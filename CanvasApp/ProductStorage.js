@@ -85,7 +85,7 @@ function newProductStorage (name) {
       for (let i = 0; i < product.datasets.length; i++) {
         let dataset = product.datasets[i]
 
-        switch (dataset.code.type) {
+        switch (dataset.config.type) {
           case 'Market Files': {
             dataSetsToLoad++
 
@@ -122,7 +122,7 @@ function newProductStorage (name) {
           }
             break
           default:
-            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> dataset with no type defined or type not supported -> dataset.code.type = ' + dataset.code.type) }
+            if (ERROR_LOG === true) { logger.write('[WARN] initialize -> dataset with no type defined or type not supported -> dataset.config.type = ' + dataset.config.type) }
         }
 
         function onMarketFileReady (err, pCaller) {

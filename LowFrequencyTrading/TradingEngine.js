@@ -5,6 +5,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     */
     const MODULE_NAME = 'Trading Engine'
     let thisObject = {
+        cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
         updateEpisodeCountersAndStatistics: updateEpisodeCountersAndStatistics,
         updateDistanceToEventsCounters: updateDistanceToEventsCounters,

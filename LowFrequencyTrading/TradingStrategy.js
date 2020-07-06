@@ -45,6 +45,13 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
         tradingEngine.current.strategy.exitType.value = exitType
         tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
+        /*
+        Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
+        */
+        const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
+        let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+
+        tradingEngineModule.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 
     function resetStrategy() {

@@ -57,6 +57,13 @@ exports.newTradingPosition = function newTradingPosition(bot, logger) {
         tradingEngine.current.position.status.value = 'Closed'
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.exitType.value = exitType
+        /*
+        Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
+        */
+        const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
+        let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
+
+        tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
     }
 
     function resetPosition() {

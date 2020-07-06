@@ -832,9 +832,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
         tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
-        tradingEngine.last.position.positionStatistics.profitLoss.value = 0
-        tradingEngine.last.position.positionStatistics.ROI.value = 0
-
         let feePaid = 0
 
         if (bot.sessionAndMarketBaseAssetsAreEqual) {
@@ -874,7 +871,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingPositionModule.updateStatistics()
 
         /* Recalculating Episode Counters */
-        if (tradingEngine.last.position.positionStatistics.profitLoss.value > 0) {
+        if (tradingEngine.current.position.positionStatistics.profitLoss.value > 0) {
             tradingEngine.episode.episodeCounters.hits.value++
         } else {
             tradingEngine.episode.episodeCounters.fails.value++

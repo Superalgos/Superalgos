@@ -165,6 +165,9 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 triggeringOff = tradingSystemModule.checkTriggerOff()
                 takingPosition = tradingSystemModule.checkTakePosition()
 
+                /* Time to check the execution of orders */
+                tradingSystemModule.checkExecution()
+
                 /* Stop Loss Management */
                 if (takingPosition !== true) {
                     tradingSystemModule.checkStopPhasesEvents()

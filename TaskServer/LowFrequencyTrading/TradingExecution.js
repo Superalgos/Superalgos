@@ -26,7 +26,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
     }
 
     function takePosition() {
-        /* Check that we are in LIVE MODE */
+        /* Check that we are in LIVE or FORWARD MODE */
         if (bot.SESSION.type === 'Live Trading Session' || bot.SESSION.type === 'Fordward Testion Session') {
             logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> Taking a Position in ' + bot.SESSION.type)
             logger.write(MODULE_NAME, '[PERSIST] runSimulation -> loop -> takePositionNow -> tradingEngine.current.position.size.value  = ' + tradingEngine.current.position.size.value)

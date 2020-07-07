@@ -13,6 +13,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         checkTriggerOn: checkTriggerOn,
         checkTriggerOff: checkTriggerOff,
         checkTakePosition: checkTakePosition,
+        checkExecution: checkExecution,
         checkStopPhasesEvents: checkStopPhasesEvents,
         calculateStopLoss: calculateStopLoss,
         checkTakeProfitPhaseEvents: checkTakeProfitPhaseEvents,
@@ -295,14 +296,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 passed = true
                             }
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
-                                let condition = situation.conditions[m]
-                                let value = false
-                                if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id)
-                                }
-                                if (value !== true) { passed = false }
-                            }
+                            passed = checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -350,14 +344,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             passed = true
                         }
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
-                            let condition = situation.conditions[m]
-                            let value = false
-                            if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id)
-                            }
-                            if (value !== true) { passed = false }
-                        }
+                        passed = checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -399,15 +386,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             passed = true
                         }
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
-                            let condition = situation.conditions[m]
-                            let value = false
-                            if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id)
-                            }
-
-                            if (value !== true) { passed = false }
-                        }
+                        passed = checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -437,6 +416,89 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             }
         }
         return false // This Means that we have not met the conditions to take position.
+    }
+
+    function checkExecution() {
+        if (tradingEngine.current.strategy.stageType.value === 'Open Stage') {
+            let executionNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage.openExecution
+            checkExecutionAlgorithms(executionNode)
+        }
+
+        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+            let executionNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage.closeExecution
+            checkExecutionAlgorithms(executionNode)
+        }
+
+        function checkExecutionAlgorithms(executionNode) {
+            for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
+                let executionAlgorithm = executionNode.executionAlgorithms[i]
+                checkOrders(executionAlgorithm.marketBuyOrders)
+                checkOrders(executionAlgorithm.marketSellOrders)
+                checkOrders(executionAlgorithm.limitBuyOrders)
+                checkOrders(executionAlgorithm.limitSellOrders)
+            }
+        }
+
+        function checkOrders(orders) {
+            for (let i = 0; i < orders.length; i++) {
+                let order = orders[i]
+                switch (order.status) {
+                    case 'Open': {
+                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent)
+                        if (mustCancelOrder === true) {
+                            // Cancel Order
+                            order.status = 'Closed'
+                            order.exitType = 'Cancelled'
+                        }
+
+                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent)
+                        if (mustMoveOrder === true && order.status === 'Open') {
+                            // Move Order
+                            order.status = 'Open'
+                        }
+                    }
+                        break
+                    case 'Closed': {
+                        // Nothing to do here
+                    }
+                        break
+                    default: {
+                        order.status = 'Not Open'
+                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent)
+                        if (mustCreateOrder === true) {
+                            // Create Order
+                            order.status = 'Open'
+                        }
+                    }
+                }
+            }
+        }
+
+        function checkOrderEvent(event) {
+            if (event !== undefined) {
+                for (let k = 0; k < event.situations.length; k++) {
+                    let situation = event.situations[k]
+                    let passed
+                    if (situation.conditions.length > 0) {
+                        passed = true
+                    }
+
+                    passed = checkConditions(situation, passed)
+
+                    tradingSystem.values.push([situation.id, passed])
+                    if (passed) {
+                        tradingSystem.highlights.push(situation.id)
+                        tradingSystem.highlights.push(event.id)
+                        tradingSystem.highlights.push(event.payload.parentNode.id)                                          // order
+                        tradingSystem.highlights.push(event.payload.parentNode.payload.parentNode.id)                       // algorithm
+                        tradingSystem.highlights.push(event.payload.parentNode.payload.parentNode.payload.parentNode.id)    // execution
+
+                        announcementsModule.makeAnnoucements(event)
+                        return true  // only one event can pass at the time
+                    }
+                }
+            }
+        }
     }
 
     function checkStopPhasesEvents() {
@@ -485,14 +547,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             passed = true
                         }
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
-                            let condition = situation.conditions[m]
-                            let value = false
-                            if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id)
-                            }
-                            if (value !== true) { passed = false }
-                        }
+                        passed = checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -526,15 +581,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 passed = true
                             }
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m]
-                                let value = false
-                                if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id)
-                                }
-                                if (value !== true) { passed = false }
-                            }
+                            passed = checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -651,14 +698,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             passed = true
                         }
 
-                        for (let m = 0; m < situation.conditions.length; m++) {
-                            let condition = situation.conditions[m]
-                            let value = false
-                            if (conditions.get(condition.id) !== undefined) {
-                                value = conditions.get(condition.id)
-                            }
-                            if (value !== true) { passed = false }
-                        }
+                        passed = checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -692,15 +732,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                                 passed = true
                             }
 
-                            for (let m = 0; m < situation.conditions.length; m++) {
-
-                                let condition = situation.conditions[m]
-                                let value = false
-                                if (conditions.get(condition.id) !== undefined) {
-                                    value = conditions.get(condition.id)
-                                }
-                                if (value !== true) { passed = false }
-                            }
+                            passed = checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -958,6 +990,25 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         } else {
             return false
         }
+    }
+
+    function checkConditions(situation, passed) {
+        for (let m = 0; m < situation.conditions.length; m++) {
+
+            let condition = situation.conditions[m]
+            let value = false
+            if (conditions.get(condition.id) !== undefined) {
+                value = conditions.get(condition.id)
+            }
+            if (value === true) {
+                tradingSystem.highlights.push(condition.id)
+            }
+            else {
+                passed = false
+            }
+            tradingSystem.values.push([condition.id, value])
+        }
+        return passed
     }
 }
 

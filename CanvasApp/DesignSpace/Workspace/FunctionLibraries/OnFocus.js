@@ -5,9 +5,9 @@ function newOnFocus () {
   return thisObject
 
   function getNodeThatIsOnFocus (node) {
-    if (node === undefined) { return }
+    if (node === undefined || node === null) { return }
     if (node.payload === undefined) { return }
-    let nodeDefinition = getNodeDefinition (node)
+    let nodeDefinition = getNodeDefinition(node)
     if (nodeDefinition !== undefined) {
       /* First we ask the question to ourself */
       if (node.payload.uiObject.isOnFocus === true) {

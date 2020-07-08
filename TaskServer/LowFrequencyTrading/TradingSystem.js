@@ -432,26 +432,26 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         function checkExecutionAlgorithms(executionNode) {
             for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                 let executionAlgorithm = executionNode.executionAlgorithms[i]
-                checkOrders(executionAlgorithm.marketBuyOrders)
-                checkOrders(executionAlgorithm.marketSellOrders)
-                checkOrders(executionAlgorithm.limitBuyOrders)
-                checkOrders(executionAlgorithm.limitSellOrders)
+                checkOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
             }
         }
 
-        function checkOrders(orders) {
+        function checkOrders(orders, executionAlgorithm, executionNode) {
             for (let i = 0; i < orders.length; i++) {
                 let order = orders[i]
                 switch (order.status) {
                     case 'Open': {
-                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent)
+                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent, order, executionAlgorithm, executionNode)
                         if (mustCancelOrder === true) {
                             // Cancel Order
                             order.status = 'Closed'
                             order.exitType = 'Cancelled'
                         }
 
-                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent)
+                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent, order, executionAlgorithm, executionNode)
                         if (mustMoveOrder === true && order.status === 'Open') {
                             // Move Order
                             order.status = 'Open'
@@ -464,7 +464,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                         break
                     default: {
                         order.status = 'Not Open'
-                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent)
+                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent, order, executionAlgorithm, executionNode)
                         if (mustCreateOrder === true) {
                             // Create Order
                             order.status = 'Open'
@@ -474,7 +474,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
             }
         }
 
-        function checkOrderEvent(event) {
+        function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
             if (event !== undefined) {
                 for (let k = 0; k < event.situations.length; k++) {
                     let situation = event.situations[k]
@@ -489,9 +489,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     if (passed) {
                         tradingSystem.highlights.push(situation.id)
                         tradingSystem.highlights.push(event.id)
-                        tradingSystem.highlights.push(event.payload.parentNode.id)                                          // order
-                        tradingSystem.highlights.push(event.payload.parentNode.payload.parentNode.id)                       // algorithm
-                        tradingSystem.highlights.push(event.payload.parentNode.payload.parentNode.payload.parentNode.id)    // execution
+                        tradingSystem.highlights.push(order.id)
+                        tradingSystem.highlights.push(executionAlgorithm.id)
+                        tradingSystem.highlights.push(executionNode.id)
 
                         announcementsModule.makeAnnoucements(event)
                         return true  // only one event can pass at the time

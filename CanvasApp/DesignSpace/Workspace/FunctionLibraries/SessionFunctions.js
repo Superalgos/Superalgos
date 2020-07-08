@@ -39,7 +39,7 @@ function newSessionFunctions () {
     'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
     'Position Size->Position Rate->Formula->' +
     'Create Order Event->Move Order Event->Cancel Order Event->' +
-    'Situation->Condition->'
+    'Situation->Condition->Javascript Code->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

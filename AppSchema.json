@@ -3497,7 +3497,7 @@
             "compatibleTypes": "->Episode Statistics->Position Statistics->"
         },
         "icon": "tron",
-        "propertyNameAtParent": "userDefinedStatistic",
+        "propertyNameAtParent": "userDefinedStatistics",
         "properties": [
             {
                 "name": "formula",

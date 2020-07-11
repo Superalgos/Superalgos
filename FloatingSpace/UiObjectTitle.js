@@ -51,7 +51,7 @@ function newUiObjectTitle () {
     thisObject.payload = payload
 
     thisObject.allwaysVisible = false // Default value
-    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.isTitleAllwaysVisible === true) {
         thisObject.allwaysVisible = true
@@ -100,7 +100,7 @@ function newUiObjectTitle () {
     if (thisObject.payload.title === undefined) { return }
 
     /* It is possible to override the default title by setting the APP SCHEMA property 'title' */
-    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition.title !== undefined) {
       thisObject.payload.title = ''
       thisObject.payload.node.name = ''
@@ -170,6 +170,7 @@ function newUiObjectTitle () {
             if (titleReference.indexOf('Use Child @') === 0) {
               let propertyName = titleReference.substring(titleReference.indexOf('@') + 1, titleReference.length)
               let childNode = thisObject.payload.node[propertyName]
+              if (childNode === undefined) { break }
               thisObject.payload.title = thisObject.payload.title + separator + childNode.name
               thisObject.payload.node.name = thisObject.payload.node.name + separator + childNode.name
             }
@@ -221,7 +222,7 @@ function newUiObjectTitle () {
   }
 
   function onMouseClick (event) {
-    let nodeDefinition = getNodeDefinition (thisObject.payload.node)
+    let nodeDefinition = getNodeDefinition(thisObject.payload.node)
     if (nodeDefinition.title !== undefined) { return }
 
     let checkPoint = {
@@ -329,7 +330,7 @@ function newUiObjectTitle () {
             labelPoint.x = labelPoint.x - label.length / 2 * fontSize * FONT_ASPECT_RATIO
             labelPoint.y = labelPoint.y - 35
 
-            let nodeDefinition = getNodeDefinition (thisObject.payload.node)
+            let nodeDefinition = getNodeDefinition(thisObject.payload.node)
             if (nodeDefinition !== undefined) {
               if (nodeDefinition.isHierarchyHead !== true) {
                 return

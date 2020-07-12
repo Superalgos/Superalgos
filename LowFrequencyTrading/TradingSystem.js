@@ -8,24 +8,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         reset: reset,
         mantainStrategies: mantainStrategies,
         mantainPositions: mantainPositions,
-        evalConditions: evalConditions,
-        evalFormulas: evalFormulas,
-        checkTriggerOn: checkTriggerOn,
-        checkTriggerOff: checkTriggerOff,
-        checkTakePosition: checkTakePosition,
-        checkExecution: checkExecution,
-        checkStopPhasesEvents: checkStopPhasesEvents,
-        calculateStopLoss: calculateStopLoss,
-        checkTakeProfitPhaseEvents: checkTakeProfitPhaseEvents,
-        calculateTakeProfit: calculateTakeProfit,
-        checkStopLossOrTakeProfitWasHit: checkStopLossOrTakeProfitWasHit,
-        getReadyToTakePosition: getReadyToTakePosition,
-        takePosition: takePosition,
-        getReadyToClosePosition: getReadyToClosePosition,
-        closePosition: closePosition,
-        exitStrategyAfterPosition: exitStrategyAfterPosition,
-        getPositionSize: getPositionSize,
-        getPositionRate: getPositionRate,
+        triggerStage: triggerStage,
+        openStage: openStage,
+        manageStage: manageStage,
+        closeStage: closeStage,
         initialize: initialize,
         finalize: finalize
     }
@@ -51,6 +37,15 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     const SNAPSHOTS_MODULE = require('./Snapshots.js')
     let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
 
+    const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
+    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger)
+
+    /* Variables to know when we need to open or close a position. */
+    let triggeringOn
+    let triggeringOff
+    let takingPosition
+    let closingPosition
+
     return thisObject
 
     function initialize() {
@@ -62,6 +57,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingPositionModule.initialize()
         announcementsModule.initialize()
         snapshotsModule.initialize()
+        tradingExecutionModule.initialize()
     }
 
     function finalize() {
@@ -76,6 +72,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         snapshotsModule.finalize()
         snapshotsModule = undefined
+
+        tradingExecutionModule.finalize()
+        tradingExecutionModule = undefined
 
         chart = undefined
 
@@ -120,28 +119,39 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         tradingPositionModule.updateEnds()
     }
 
-    function evalConditions() {
-        evalNode(bot.simulationState.tradingSystem, 'Conditions')
+    function evalConditions(startingNode, descendentOfNodeType) {
+        evalNode(startingNode, 'Conditions', descendentOfNodeType)
     }
 
-    function evalFormulas() {
-        evalNode(bot.simulationState.tradingSystem, 'Formulas')
+    function evalFormulas(startingNode, descendentOfNodeType) {
+        evalNode(startingNode, 'Formulas', descendentOfNodeType)
     }
 
-    function evalNode(node, evaluating) {
+    function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
         if (node === undefined) { return }
+
+        /* Verify if this node is decendent of the specified node type */
+        if (isDescendent !== true) {
+            if (node.type === descendentOfNodeType) {
+                isDescendent = true
+            }
+        }
 
         /* Here we check if there is a codition to be evaluated */
         if (node.type === 'Condition' && evaluating === 'Conditions') {
             /* We will eval this condition */
-            evalCondition(node)
+            if (isDescendent === true) {
+                evalCondition(node)
+            }
         }
 
         /* Here we check if there is a formula to be evaluated */
         if (node.type === 'Formula' && evaluating === 'Formulas') {
             if (node.code !== undefined) {
                 /* We will eval this formula */
-                evalFormula(node)
+                if (isDescendent === true) {
+                    evalFormula(node)
+                }
             }
         }
 
@@ -158,7 +168,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name], evaluating)
+                                evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent)
                             }
                             previousPropertyName = property.name
                         }
@@ -168,7 +178,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m], evaluating)
+                                evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent)
                             }
                         }
                         break
@@ -268,29 +278,89 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
         logger.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
     }
 
-    function checkTriggerOn() {
-        if (
-            tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
-        ) {
-            /*
-            To pick a new strategy we will check that any of the situations of the trigger on is true. 
-            Once we enter into one strategy, we will ignore market conditions for others. However there is also
-            a strategy trigger off which can be hit before taking a position. If hit, we would
-            be outside a strategy again and looking for the conditions to enter all over again.
-            */
+    function triggerStage() {
+        /*
+        We check if we will be triggering on, off or taking position.
+        */
+        triggeringOn = checkTriggerOn()
+        triggeringOff = checkTriggerOff()
+        takingPosition = checkTakePosition()
 
-            for (let j = 0; j < tradingSystem.tradingStrategies.length; j++) {
-                if ( // If a strategy was already picked during the loop, we exit the loop
-                    tradingEngine.current.strategy.index.value !== tradingEngine.current.strategy.index.config.initialValue
-                ) { continue }
+        function checkTriggerOn() {
+            if (
+                tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
+            ) {
+                /*
+                To pick a new strategy we will check that any of the situations of the trigger on is true. 
+                Once we enter into one strategy, we will ignore market conditions for others. However there is also
+                a strategy trigger off which can be hit before taking a position. If hit, we would
+                be outside a strategy again and looking for the conditions to enter all over again.
+                */
+                evalConditions(tradingSystem, 'Trigger On Event')
 
-                let strategy = tradingSystem.tradingStrategies[j]
+                for (let j = 0; j < tradingSystem.tradingStrategies.length; j++) {
+                    if ( // If a strategy was already picked during the loop, we exit the loop
+                        tradingEngine.current.strategy.index.value !== tradingEngine.current.strategy.index.config.initialValue
+                    ) { continue }
+
+                    let strategy = tradingSystem.tradingStrategies[j]
+                    let triggerStage = strategy.triggerStage
+
+                    if (triggerStage !== undefined) {
+                        if (triggerStage.triggerOn !== undefined) {
+                            for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
+                                let situation = triggerStage.triggerOn.situations[k]
+                                let passed
+                                if (situation.conditions.length > 0) {
+                                    passed = true
+                                }
+
+                                passed = checkConditions(situation, passed)
+
+                                tradingSystem.values.push([situation.id, passed])
+                                if (passed) {
+                                    tradingSystem.highlights.push(situation.id)
+                                    tradingSystem.highlights.push(triggerStage.triggerOn.id)
+                                    tradingSystem.highlights.push(triggerStage.id)
+
+                                    tradingStrategyModule.openStrategy('Trigger Stage', j, situation.name, strategy.name)
+
+                                    tradingEngine.current.distanceToEvent.triggerOn.value = 1
+
+                                    announcementsModule.makeAnnoucements(triggerStage.triggerOn)
+                                    announcementsModule.makeAnnoucements(triggerStage)
+
+                                    if (bot.SESSION.type === 'Backtesting Session') {
+                                        if (sessionParameters.snapshots !== undefined) {
+                                            if (sessionParameters.snapshots.config.strategy === true) {
+                                                snapshotsModule.strategyEntry()
+                                            }
+                                        }
+                                    }
+
+                                    logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name)
+                                    return true // This Means that we have just met the conditions to trigger on.
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false // This Means that we have not met the conditions to trigger on.
+        }
+
+        function checkTriggerOff() {
+            if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
+                evalConditions(strategy, 'Trigger Off Event')
+
                 if (triggerStage !== undefined) {
-                    if (triggerStage.triggerOn !== undefined) {
-                        for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
-                            let situation = triggerStage.triggerOn.situations[k]
+                    if (triggerStage.triggerOff !== undefined) {
+                        for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
+                            let situation = triggerStage.triggerOff.situations[k]
                             let passed
                             if (situation.conditions.length > 0) {
                                 passed = true
@@ -301,208 +371,201 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
-                                tradingSystem.highlights.push(triggerStage.triggerOn.id)
+                                tradingSystem.highlights.push(triggerStage.triggerOff.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingStrategyModule.openStrategy('Trigger Stage', j, situation.name, strategy.name)
+                                tradingStrategyModule.closeStrategy('Trigger Off')
 
-                                tradingEngine.current.distanceToEvent.triggerOn.value = 1
+                                tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
-                                announcementsModule.makeAnnoucements(triggerStage.triggerOn)
-                                announcementsModule.makeAnnoucements(triggerStage)
+                                announcementsModule.makeAnnoucements(triggerStage.triggerOff)
+
+                                logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name)
+                                return true // This Means that we have just met the conditions to trigger off.
+                            }
+                        }
+                    }
+                }
+            }
+            return false // This Means that we have not met the conditions to trigger off.
+        }
+
+        function checkTakePosition() {
+            /* Take Position Condition */
+            if (
+                tradingEngine.current.strategy.stageType.value === 'Trigger Stage' &&
+                tradingEngine.current.strategy.status.value === 'Open'
+            ) {
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let triggerStage = strategy.triggerStage
+
+                evalConditions(strategy, 'Take Position Event')
+                evalFormulas(strategy, 'Take Position Event')
+
+                if (triggerStage !== undefined) {
+                    if (triggerStage.takePosition !== undefined) {
+                        for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
+                            let situation = triggerStage.takePosition.situations[k]
+                            let passed
+                            if (situation.conditions.length > 0) {
+                                passed = true
+                            }
+
+                            passed = checkConditions(situation, passed)
+
+                            tradingSystem.values.push([situation.id, passed])
+                            if (passed) {
+                                tradingSystem.highlights.push(situation.id)
+                                tradingSystem.highlights.push(triggerStage.takePosition.id)
+                                tradingSystem.highlights.push(triggerStage.id)
+
+                                tradingStrategyModule.updateStageType('Open Stage')
+                                tradingPositionModule.openPosition(situation.name)
+
+                                announcementsModule.makeAnnoucements(triggerStage.takePosition)
+                                announcementsModule.makeAnnoucements(strategy.openStage)
 
                                 if (bot.SESSION.type === 'Backtesting Session') {
                                     if (sessionParameters.snapshots !== undefined) {
-                                        if (sessionParameters.snapshots.config.strategy === true) {
-                                            snapshotsModule.strategyEntry()
+                                        if (sessionParameters.snapshots.config.position === true) {
+                                            snapshotsModule.positionEntry()
                                         }
                                     }
                                 }
 
-                                logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name)
-                                return true // This Means that we have just met the conditions to trigger on.
+                                logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.')
+                                return true // This Means that we have just met the conditions to take position.
                             }
                         }
                     }
                 }
             }
+            return false // This Means that we have not met the conditions to take position.
         }
-        return false // This Means that we have not met the conditions to trigger on.
     }
 
-    function checkTriggerOff() {
-        if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-            let triggerStage = strategy.triggerStage
+    function openStage() {
 
-            if (triggerStage !== undefined) {
-                if (triggerStage.triggerOff !== undefined) {
-                    for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
-                        let situation = triggerStage.triggerOff.situations[k]
-                        let passed
-                        if (situation.conditions.length > 0) {
-                            passed = true
-                        }
-
-                        passed = checkConditions(situation, passed)
-
-                        tradingSystem.values.push([situation.id, passed])
-                        if (passed) {
-                            tradingSystem.highlights.push(situation.id)
-                            tradingSystem.highlights.push(triggerStage.triggerOff.id)
-                            tradingSystem.highlights.push(triggerStage.id)
-
-                            tradingStrategyModule.closeStrategy('Trigger Off')
-
-                            tradingEngine.current.distanceToEvent.triggerOff.value = 1
-
-                            announcementsModule.makeAnnoucements(triggerStage.triggerOff)
-
-                            logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name)
-                            return true // This Means that we have just met the conditions to trigger off.
-                        }
-                    }
-                }
-            }
-        }
-        return false // This Means that we have not met the conditions to trigger off.
-    }
-
-    function checkTakePosition() {
-        /* Take Position Condition */
-        if (
-            tradingEngine.current.strategy.stageType.value === 'Trigger Stage' &&
-            tradingEngine.current.strategy.status.value === 'Open'
-        ) {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-            let triggerStage = strategy.triggerStage
-
-            if (triggerStage !== undefined) {
-                if (triggerStage.takePosition !== undefined) {
-                    for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
-                        let situation = triggerStage.takePosition.situations[k]
-                        let passed
-                        if (situation.conditions.length > 0) {
-                            passed = true
-                        }
-
-                        passed = checkConditions(situation, passed)
-
-                        tradingSystem.values.push([situation.id, passed])
-                        if (passed) {
-                            tradingSystem.highlights.push(situation.id)
-                            tradingSystem.highlights.push(triggerStage.takePosition.id)
-                            tradingSystem.highlights.push(triggerStage.id)
-
-                            tradingStrategyModule.updateStageType('Open Stage')
-                            tradingPositionModule.openPosition(situation.name)
-
-                            announcementsModule.makeAnnoucements(triggerStage.takePosition)
-                            announcementsModule.makeAnnoucements(strategy.openStage)
-
-                            if (bot.SESSION.type === 'Backtesting Session') {
-                                if (sessionParameters.snapshots !== undefined) {
-                                    if (sessionParameters.snapshots.config.position === true) {
-                                        snapshotsModule.positionEntry()
-                                    }
-                                }
-                            }
-
-                            logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.')
-                            return true // This Means that we have just met the conditions to take position.
-                        }
-                    }
-                }
-            }
-        }
-        return false // This Means that we have not met the conditions to take position.
-    }
-
-    function checkExecution() {
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage') {
-            let executionNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage.openExecution
-            checkExecutionAlgorithms(executionNode)
+            let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
+            let executionNode = stageNode.openExecution
+
+            evalConditions(stageNode, 'Initial Definition')
+            evalFormulas(stageNode, 'Initial Definition')
+
+            /* Taking a Position */
+            if (takingPosition === true) {
+                getReadyToTakePosition()
+
+                calculateTakeProfit()
+                calculateStopLoss()
+
+                tradingExecutionModule.takePosition()
+                takePosition()
+            }
+
+            /* Every Loop Cycle Activity */
+            evalConditions(stageNode, 'Open Execution')
+            evalFormulas(stageNode, 'Open Execution')
+
+            checkExecution(executionNode)
+
         }
 
-        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
-            let executionNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage.closeExecution
-            checkExecutionAlgorithms(executionNode)
-        }
+        function getReadyToTakePosition() {
+            /* Updating Episode Counters */
+            tradingEngine.episode.episodeCounters.positions.value++
 
-        function checkExecutionAlgorithms(executionNode) {
-            for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
-                let executionAlgorithm = executionNode.executionAlgorithms[i]
-                checkOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+            /* Inicializing this counter */
+            tradingEngine.current.distanceToEvent.takePosition.value = 1
+
+            /* Position size and rate */
+            tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
+
+            /* We take what was calculated at the formula of position rate and apply the slippage. */
+            tradingPositionModule.applySlippageToRate()
+
+            function getPositionSize() {
+                let balance
+                if (bot.sessionAndMarketBaseAssetsAreEqual) {
+                    balance = tradingEngine.current.balance.baseAsset.value
+                } else {
+                    balance = tradingEngine.current.balance.quotedAsset.value
+                }
+                const DEFAULT_VALUE = balance
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+
+                if (strategy.openStage === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition.positionSize === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition.positionSize.formula === undefined) return DEFAULT_VALUE
+
+                let value = formulas.get(strategy.openStage.initialDefinition.positionSize.formula.id)
+                if (value === undefined) return DEFAULT_VALUE
+                return value
+            }
+
+            function getPositionRate() {
+                const DEFAULT_VALUE = tradingEngine.current.candle.close.value
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+
+                if (strategy.openStage === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition.positionRate === undefined) return DEFAULT_VALUE
+                if (strategy.openStage.initialDefinition.positionRate.formula === undefined) return DEFAULT_VALUE
+
+                let value = formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
+                if (value === undefined) return DEFAULT_VALUE
+                return value
             }
         }
 
-        function checkOrders(orders, executionAlgorithm, executionNode) {
-            for (let i = 0; i < orders.length; i++) {
-                let order = orders[i]
-                switch (order.status) {
-                    case 'Open': {
-                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent, order, executionAlgorithm, executionNode)
-                        if (mustCancelOrder === true) {
-                            // Cancel Order
-                            order.status = 'Closed'
-                            order.exitType = 'Cancelled'
-                        }
+        function takePosition() {
+            tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
+            tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
-                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent, order, executionAlgorithm, executionNode)
-                        if (mustMoveOrder === true && order.status === 'Open') {
-                            // Move Order
-                            order.status = 'Open'
-                        }
-                    }
-                        break
-                    case 'Closed': {
-                        // Nothing to do here
-                    }
-                        break
-                    default: {
-                        order.status = 'Not Open'
-                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent, order, executionAlgorithm, executionNode)
-                        if (mustCreateOrder === true) {
-                            // Create Order
-                            order.status = 'Open'
-                        }
-                    }
-                }
-            }
-        }
+            let feePaid = 0
 
-        function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
-            if (event !== undefined) {
-                for (let k = 0; k < event.situations.length; k++) {
-                    let situation = event.situations[k]
-                    let passed
-                    if (situation.conditions.length > 0) {
-                        passed = true
-                    }
+            if (bot.sessionAndMarketBaseAssetsAreEqual) {
+                feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
-                    passed = checkConditions(situation, passed)
+                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
+                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
+            } else {
+                feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
 
-                    tradingSystem.values.push([situation.id, passed])
-                    if (passed) {
-                        tradingSystem.highlights.push(situation.id)
-                        tradingSystem.highlights.push(event.id)
-                        tradingSystem.highlights.push(order.id)
-                        tradingSystem.highlights.push(executionAlgorithm.id)
-                        tradingSystem.highlights.push(executionNode.id)
-
-                        announcementsModule.makeAnnoucements(event)
-                        return true  // only one event can pass at the time
-                    }
-                }
+                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
+                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
             }
         }
     }
 
-    function checkStopPhasesEvents() {
+    function manageStage() {
+        if (takingPosition === true) {
+            /* We jump the management at the loop cycle where the position is being taken. */
+            takingPosition = false
+            return
+        }
+
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+            let manageStage = strategy.manageStage
+            evalConditions(manageStage, 'Manage Stage')
+            evalFormulas(manageStage, 'Manage Stage')
+
+            /* Stop Loss Management */
+            checkStopPhasesEvents()
+            calculateStopLoss()
+
+            /* Take Profit Management */
+            checkTakeProfitPhaseEvents()
+            calculateTakeProfit()
+
+            /* Checking if Stop or Take Profit were hit */
+            closingPosition = checkStopLossOrTakeProfitWasHit()
+        }
+
+        function checkStopPhasesEvents() {
             let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
@@ -616,44 +679,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 }
             }
         }
-    }
 
-    function calculateStopLoss() {
-        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-            let openStage = strategy.openStage
-            let manageStage = strategy.manageStage
-            let phase
-
-            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
-                if (openStage.initialDefinition !== undefined) {
-                    if (openStage.initialDefinition.initialStopLoss !== undefined) {
-                        phase = openStage.initialDefinition.initialStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
-                    }
-                }
-            }
-
-            if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
-                if (manageStage.managedStopLoss !== undefined) {
-                    phase = manageStage.managedStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
-                }
-            }
-
-            if (phase !== undefined) {
-                if (phase.formula !== undefined) {
-                    let previousValue = tradingEngine.current.position.stopLoss.value
-                    tradingPositionModule.applyStopLossFormula(formulas, phase.formula.id)
-
-                    if (tradingEngine.current.position.stopLoss.value !== previousValue) {
-                        announcementsModule.makeAnnoucements(phase)
-                    }
-                }
-            }
-        }
-    }
-
-    function checkTakeProfitPhaseEvents() {
-        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+        function checkTakeProfitPhaseEvents() {
             let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let openStage = strategy.openStage
             let manageStage = strategy.manageStage
@@ -767,45 +794,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                 }
             }
         }
-    }
 
-    function calculateTakeProfit() {
-        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-            let openStage = strategy.openStage
-            let manageStage = strategy.manageStage
-            let phase
-
-            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
-                if (openStage.initialDefinition !== undefined) {
-                    if (openStage.initialDefinition.initialTakeProfit !== undefined) {
-                        phase = openStage.initialDefinition.initialTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
-                    }
-                }
-            }
-
-            if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
-                if (manageStage.managedTakeProfit !== undefined) {
-                    phase = manageStage.managedTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
-                }
-            }
-
-            if (phase !== undefined) {
-                if (phase.formula !== undefined) {
-                    let previousValue = tradingEngine.current.position.takeProfit.value
-                    tradingPositionModule.applyTakeProfitFormula(formulas, phase.formula.id)
-
-                    if (tradingEngine.current.position.takeProfit.value !== previousValue) {
-                        announcementsModule.makeAnnoucements(phase)
-                    }
-                }
-            }
-        }
-    }
-
-    function checkStopLossOrTakeProfitWasHit() {
-        {
-            if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+        function checkStopLossOrTakeProfitWasHit() {
+            {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 /* 
                 Checking what happened since the last execution. We need to know if the Stop Loss
@@ -841,143 +832,264 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     announcementsModule.makeAnnoucements(strategy.closeStage)
                     return true // This means that the Take Profit was hit.
                 }
+                return false // This means that the neither the STOP nor the Take Profit were hit.
             }
-            return false // This means that the neither the STOP nor the Take Profit were hit.
         }
     }
 
-    function getReadyToTakePosition() {
-        /* Updating Episode Counters */
-        tradingEngine.episode.episodeCounters.positions.value++
+    function closeStage() {
 
-        /* Inicializing this counter */
-        tradingEngine.current.distanceToEvent.takePosition.value = 1
+        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+            let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
+            let executionNode = stageNode.closeExecution
 
-        /* Position size and rate */
-        tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
+            evalConditions(stageNode, 'Close Execution')
+            evalFormulas(stageNode, 'Close Execution')
 
-        /* We take what was calculated at the formula of position rate and apply the slippage. */
-        tradingPositionModule.applySlippageToRate()
-    }
+            /* Closing a Position */
+            if (closingPosition === true) {
+                getReadyToClosePosition()
+                tradingExecutionModule.closePosition()
+                closePosition()
+                closingPosition = false
+            }
 
-    function takePosition() {
-        tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
-        tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
-
-        let feePaid = 0
-
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
-            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
-            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
-        } else {
-            feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
-            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
-            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
-        }
-    }
-
-    function getReadyToClosePosition() {
-        /* Inicializing this counter */
-        tradingEngine.current.distanceToEvent.closePosition.value = 1
-
-        /* Position size and rate */
-        let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-    }
-
-    function closePosition() {
-        /* We calculate the new balances after the position is closed. */
-        let feePaid = 0
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-            tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
-            tradingEngine.current.balance.quotedAsset.value = 0
-        } else {
-            feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-            tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
-            tradingEngine.current.balance.baseAsset.value = 0
+            checkExecution(executionNode)
         }
 
-        tradingPositionModule.updateStatistics()
+        /* After a position was closed, we need to close the strategy. */
+        exitStrategyAfterPosition()
 
-        /* Recalculating Episode Counters */
-        if (tradingEngine.current.position.positionStatistics.profitLoss.value > 0) {
-            tradingEngine.episode.episodeCounters.hits.value++
-        } else {
-            tradingEngine.episode.episodeCounters.fails.value++
+        function getReadyToClosePosition() {
+            /* Inicializing this counter */
+            tradingEngine.current.distanceToEvent.closePosition.value = 1
+
+            /* Position size and rate */
+            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
         }
 
-        /* Recalculating Episode Statistics */
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
-            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
-            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
-            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
-        } else {
-            tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
-            tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
-            tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
-            tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
+        function closePosition() {
+            /* We calculate the new balances after the position is closed. */
+            let feePaid = 0
+            if (bot.sessionAndMarketBaseAssetsAreEqual) {
+                feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
+                tradingEngine.current.balance.quotedAsset.value = 0
+            } else {
+                feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
+                tradingEngine.current.balance.baseAsset.value = 0
+            }
+
+            tradingPositionModule.updateStatistics()
+
+            /* Recalculating Episode Counters */
+            if (tradingEngine.current.position.positionStatistics.profitLoss.value > 0) {
+                tradingEngine.episode.episodeCounters.hits.value++
+            } else {
+                tradingEngine.episode.episodeCounters.fails.value++
+            }
+
+            /* Recalculating Episode Statistics */
+            if (bot.sessionAndMarketBaseAssetsAreEqual) {
+                tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
+                tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
+                tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
+                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
+            } else {
+                tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
+                tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
+                tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
+                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
+            }
         }
-    }
 
-    function exitStrategyAfterPosition() {
-        if (tradingEngine.current.strategy.stageType.value !== 'Close Stage') { return }
+        function exitStrategyAfterPosition() {
+            if (tradingEngine.current.strategy.stageType.value !== 'Close Stage') { return }
 
-        tradingStrategyModule.closeStrategy('Position Closed')
-        tradingEngine.current.distanceToEvent.triggerOff.value = 1
+            tradingStrategyModule.closeStrategy('Position Closed')
+            tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
-        if (bot.SESSION.type === 'Backtesting Session') {
-            if (sessionParameters.snapshots !== undefined) {
-                if (sessionParameters.snapshots.config.strategy === true) {
-                    snapshotsModule.strategyExit()
+            if (bot.SESSION.type === 'Backtesting Session') {
+                if (sessionParameters.snapshots !== undefined) {
+                    if (sessionParameters.snapshots.config.strategy === true) {
+                        snapshotsModule.strategyExit()
+                    }
                 }
             }
-        }
 
-        if (bot.SESSION.type === 'Backtesting Session') {
-            if (sessionParameters.snapshots !== undefined) {
-                if (sessionParameters.snapshots.config.position === true) {
-                    snapshotsModule.positionExit()
+            if (bot.SESSION.type === 'Backtesting Session') {
+                if (sessionParameters.snapshots !== undefined) {
+                    if (sessionParameters.snapshots.config.position === true) {
+                        snapshotsModule.positionExit()
+                    }
                 }
             }
         }
     }
 
-    function getPositionSize() {
-        let balance
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            balance = tradingEngine.current.balance.baseAsset.value
-        } else {
-            balance = tradingEngine.current.balance.quotedAsset.value
-        }
-        const DEFAULT_VALUE = balance
+    function calculateStopLoss() {
         let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let phase
 
-        if (strategy.openStage === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition.positionSize === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition.positionSize.formula === undefined) return DEFAULT_VALUE
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.initialStopLoss !== undefined) {
+                    phase = openStage.initialDefinition.initialStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value]
+                }
+            }
+        }
 
-        let value = formulas.get(strategy.openStage.initialDefinition.positionSize.formula.id)
-        if (value === undefined) return DEFAULT_VALUE
-        return value
+        if (tradingEngine.current.position.stopLoss.stopLossStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.managedStopLoss !== undefined) {
+                phase = manageStage.managedStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
+            }
+        }
+
+        if (phase !== undefined) {
+            if (phase.formula !== undefined) {
+                let previousValue = tradingEngine.current.position.stopLoss.value
+                tradingPositionModule.applyStopLossFormula(formulas, phase.formula.id)
+
+                if (tradingEngine.current.position.stopLoss.value !== previousValue) {
+                    announcementsModule.makeAnnoucements(phase)
+                }
+            }
+        }
     }
 
-    function getPositionRate() {
-        const DEFAULT_VALUE = tradingEngine.current.candle.close.value
+    function calculateTakeProfit() {
         let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+        let openStage = strategy.openStage
+        let manageStage = strategy.manageStage
+        let phase
 
-        if (strategy.openStage === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition.positionRate === undefined) return DEFAULT_VALUE
-        if (strategy.openStage.initialDefinition.positionRate.formula === undefined) return DEFAULT_VALUE
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage' && openStage !== undefined) {
+            if (openStage.initialDefinition !== undefined) {
+                if (openStage.initialDefinition.initialTakeProfit !== undefined) {
+                    phase = openStage.initialDefinition.initialTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value]
+                }
+            }
+        }
 
-        let value = formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
-        if (value === undefined) return DEFAULT_VALUE
-        return value
+        if (tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Manage Stage' && manageStage !== undefined) {
+            if (manageStage.managedTakeProfit !== undefined) {
+                phase = manageStage.managedTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
+            }
+        }
+
+        if (phase !== undefined) {
+            if (phase.formula !== undefined) {
+                let previousValue = tradingEngine.current.position.takeProfit.value
+                tradingPositionModule.applyTakeProfitFormula(formulas, phase.formula.id)
+
+                if (tradingEngine.current.position.takeProfit.value !== previousValue) {
+                    announcementsModule.makeAnnoucements(phase)
+                }
+            }
+        }
+    }
+
+    function checkExecution(executionNode) {
+
+        checkExecutionAlgorithms(executionNode)
+
+        function checkExecutionAlgorithms(executionNode) {
+            for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
+                let executionAlgorithm = executionNode.executionAlgorithms[i]
+                checkOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
+                checkOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+            }
+        }
+
+        function checkOrders(orders, executionAlgorithm, executionNode) {
+            for (let i = 0; i < orders.length; i++) {
+                let order = orders[i]
+
+                /* Basic Validations */
+                if (order.referenceParent === undefined) { continue }
+                if (order.referenceParent.identifier === undefined) { continue }
+                if (order.referenceParent.begin === undefined) { continue }
+                if (order.referenceParent.end === undefined) { continue }
+                if (order.referenceParent.rate === undefined) { continue }
+                if (order.referenceParent.size === undefined) { continue }
+                if (order.referenceParent.status === undefined) { continue }
+                if (order.referenceParent.algorithmName === undefined) { continue }
+                if (order.referenceParent.orderCounters === undefined) { continue }
+                if (order.referenceParent.orderCounters.periods === undefined) { continue }
+                if (order.positionSize === undefined) { continue }
+                if (order.positionSize.formula === undefined) { continue }
+
+                switch (order.referenceParent.status.value) {
+                    case 'Open': {
+                        order.referenceParent.end.value = tradingEngine.current.candle.end.value
+
+                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent, order, executionAlgorithm, executionNode)
+                        if (mustCancelOrder === true) {
+                            // Cancel Order
+                            order.referenceParent.status.value = 'Closed'
+                            order.referenceParent.exitType.value = 'Cancelled'
+                        }
+
+                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent, order, executionAlgorithm, executionNode)
+                        if (mustMoveOrder === true && order.referenceParent.status.value === 'Open') {
+                            // Move Order
+                            order.referenceParent.status.value = 'Open'
+                        }
+                    }
+                        break
+                    case 'Closed': {
+                        // Nothing to do here
+                    }
+                        break
+                    default: {
+                        order.referenceParent.status.value = 'Not Open'
+                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent, order, executionAlgorithm, executionNode)
+                        if (mustCreateOrder === true) {
+                            // Create Order
+                            order.referenceParent.identifier.value = global.UNIQUE_ID()
+                            order.referenceParent.begin.value = tradingEngine.current.candle.begin.value
+                            order.referenceParent.end.value = tradingEngine.current.candle.end.value
+                            order.referenceParent.rate.value = tradingEngine.current.candle.end.value
+                            order.referenceParent.size.value = formulas.get(order.positionSize.formula.id)
+                            order.referenceParent.status.value = 'Open'
+                            order.referenceParent.algorithmName.value = executionAlgorithm.name
+                            order.referenceParent.orderCounters.periods++
+                        }
+                    }
+                }
+            }
+        }
+
+        function checkOrderEvent(event, order, executionAlgorithm, executionNode) {
+            if (event !== undefined) {
+                for (let k = 0; k < event.situations.length; k++) {
+                    let situation = event.situations[k]
+                    let passed
+                    if (situation.conditions.length > 0) {
+                        passed = true
+                    }
+
+                    passed = checkConditions(situation, passed)
+
+                    tradingSystem.values.push([situation.id, passed])
+                    if (passed) {
+                        tradingSystem.highlights.push(situation.id)
+                        tradingSystem.highlights.push(event.id)
+                        tradingSystem.highlights.push(order.id)
+                        tradingSystem.highlights.push(executionAlgorithm.id)
+                        tradingSystem.highlights.push(executionNode.id)
+
+                        announcementsModule.makeAnnoucements(event)
+                        return true  // only one event can pass at the time
+                    }
+                }
+            }
+        }
     }
 
     function isItInside(elementWithTimestamp, elementWithBeginEnd) {
@@ -993,6 +1105,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     }
 
     function checkConditions(situation, passed) {
+        /* Given a Situation, we check if all children conditions are true or not */
         for (let m = 0; m < situation.conditions.length; m++) {
 
             let condition = situation.conditions[m]

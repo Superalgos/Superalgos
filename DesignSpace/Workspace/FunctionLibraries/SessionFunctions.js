@@ -37,6 +37,7 @@ function newSessionFunctions () {
     'Close Stage->Close Execution->' +
     'Announcement->Formula->' +
     'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
+    'Market Order->Limit Order->'
     'Position Size->Position Rate->Formula->' +
     'Create Order Event->Move Order Event->Cancel Order Event->' +
     'Situation->Condition->Javascript Code->'

@@ -37,10 +37,10 @@ function newSessionFunctions () {
     'Close Stage->Close Execution->' +
     'Announcement->Formula->' +
     'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-    'Market Order->Limit Order->'
     'Position Size->Position Rate->Formula->' +
     'Create Order Event->Move Order Event->Cancel Order Event->' +
-    'Situation->Condition->Javascript Code->'
+    'Situation->Condition->Javascript Code->' +
+    'Market Order->Limit Order->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -58,15 +58,20 @@ function newSessionFunctions () {
     'Distance To Event->' +
     'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->' +
     'Strategy->' +
-    'Begin->End->Strategy Name->Index->Stage Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Identifier->Begin->End->Strategy Name->Index->Stage Type->Status->Begin Rate->End Rate->Situation Name->' +
     'Strategy Counters->Periods->' +
     'Position->' +
-    'Begin->End->Rate->Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Identifier->Begin->End->Rate->Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
     'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
     'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +
     'Position Statistics->Profit Loss->Days->ROI->Hit Fail->User Defined Statistic->' +
-    'Formula'
+    'Formula->' +
+    'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
+    'Market Order->Limit Order->' +
+    'Identifier->Begin->End->Rate->Size->Exit Type->Status->Algorithm Name->' +
+    'Order Counters->Periods->' +
+    'Order Statistics->Percentage Filled->Actual Rate->Fees Paid->Days->User Defined Statistic->'
 
     let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

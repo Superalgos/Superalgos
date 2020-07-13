@@ -1011,9 +1011,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 let tradingSystemOrder = orders[i]
 
                 /* Basic Validations */
-                if (tradingSystemOrder.positionSize === undefined) { continue }
-                if (tradingSystemOrder.positionSize.formula === undefined) { continue }
-                if (tradingSystemOrder.referenceParent === undefined) { continue }
+                if (tradingSystemOrder.config.positionSizePercentage === undefined) { continue }
 
                 let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
 
@@ -1059,7 +1057,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
                             tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
                             tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value
-                            tradingEngineOrder.size.value = formulas.get(tradingSystemOrder.positionSize.formula.id)
+                            tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
                             tradingEngineOrder.status.value = 'Open'
                             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                             tradingEngineOrder.orderCounters.periods.value++

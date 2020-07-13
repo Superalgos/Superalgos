@@ -55,7 +55,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             tradingRecordsModule.initialize(outputDatasetsMap)
 
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
+            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger, tradingEngineModule)
             tradingSystemModule.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */

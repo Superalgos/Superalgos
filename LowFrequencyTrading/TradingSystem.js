@@ -1,4 +1,4 @@
-exports.newTradingSystem = function newTradingSystem(bot, logger) {
+exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineModule) {
     /*
     The Trading System is the user defined set of rules compliant with the Trading Protocol that
     defines the trading logic to be applied during each cycle of the Simulation.
@@ -26,10 +26,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
     let formulas = new Map()
 
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
-    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger)
+    let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger, tradingEngineModule)
 
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
-    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger)
+    let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger, tradingEngineModule)
 
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
     let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
@@ -1008,37 +1008,41 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
 
         function checkOrders(orders, executionAlgorithm, executionNode) {
             for (let i = 0; i < orders.length; i++) {
-                let order = orders[i]
+                let tradingSystemOrder = orders[i]
 
                 /* Basic Validations */
-                if (order.referenceParent === undefined) { continue }
-                if (order.referenceParent.identifier === undefined) { continue }
-                if (order.referenceParent.begin === undefined) { continue }
-                if (order.referenceParent.end === undefined) { continue }
-                if (order.referenceParent.rate === undefined) { continue }
-                if (order.referenceParent.size === undefined) { continue }
-                if (order.referenceParent.status === undefined) { continue }
-                if (order.referenceParent.algorithmName === undefined) { continue }
-                if (order.referenceParent.orderCounters === undefined) { continue }
-                if (order.referenceParent.orderCounters.periods === undefined) { continue }
-                if (order.positionSize === undefined) { continue }
-                if (order.positionSize.formula === undefined) { continue }
+                if (tradingSystemOrder.positionSize === undefined) { continue }
+                if (tradingSystemOrder.positionSize.formula === undefined) { continue }
+                if (tradingSystemOrder.referenceParent === undefined) { continue }
 
-                switch (order.referenceParent.status.value) {
+                let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
+
+                if (tradingEngineOrder.identifier === undefined) { continue }
+                if (tradingEngineOrder.begin === undefined) { continue }
+                if (tradingEngineOrder.end === undefined) { continue }
+                if (tradingEngineOrder.rate === undefined) { continue }
+                if (tradingEngineOrder.size === undefined) { continue }
+                if (tradingEngineOrder.status === undefined) { continue }
+                if (tradingEngineOrder.algorithmName === undefined) { continue }
+                if (tradingEngineOrder.orderCounters === undefined) { continue }
+                if (tradingEngineOrder.orderCounters.periods === undefined) { continue }
+
+
+                switch (tradingEngineOrder.status.value) {
                     case 'Open': {
-                        order.referenceParent.end.value = tradingEngine.current.candle.end.value
+                        tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
 
-                        let mustCancelOrder = checkOrderEvent(order.cancelOrderEvent, order, executionAlgorithm, executionNode)
+                        let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (mustCancelOrder === true) {
                             // Cancel Order
-                            order.referenceParent.status.value = 'Closed'
-                            order.referenceParent.exitType.value = 'Cancelled'
+                            tradingEngineOrder.status.value = 'Closed'
+                            tradingEngineOrder.exitType.value = 'Cancelled'
                         }
 
-                        let mustMoveOrder = checkOrderEvent(order.moveOrderEvent, order, executionAlgorithm, executionNode)
-                        if (mustMoveOrder === true && order.referenceParent.status.value === 'Open') {
+                        let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                        if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
                             // Move Order
-                            order.referenceParent.status.value = 'Open'
+                            tradingEngineOrder.status.value = 'Open'
                         }
                     }
                         break
@@ -1047,18 +1051,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger) {
                     }
                         break
                     default: {
-                        order.referenceParent.status.value = 'Not Open'
-                        let mustCreateOrder = checkOrderEvent(order.createOrderEvent, order, executionAlgorithm, executionNode)
+                        tradingEngineOrder.status.value = 'Not Open'
+                        let mustCreateOrder = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (mustCreateOrder === true) {
                             // Create Order
-                            order.referenceParent.identifier.value = global.UNIQUE_ID()
-                            order.referenceParent.begin.value = tradingEngine.current.candle.begin.value
-                            order.referenceParent.end.value = tradingEngine.current.candle.end.value
-                            order.referenceParent.rate.value = tradingEngine.current.candle.end.value
-                            order.referenceParent.size.value = formulas.get(order.positionSize.formula.id)
-                            order.referenceParent.status.value = 'Open'
-                            order.referenceParent.algorithmName.value = executionAlgorithm.name
-                            order.referenceParent.orderCounters.periods++
+                            tradingEngineOrder.identifier.value = global.UNIQUE_ID()
+                            tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
+                            tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
+                            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value
+                            tradingEngineOrder.size.value = formulas.get(tradingSystemOrder.positionSize.formula.id)
+                            tradingEngineOrder.status.value = 'Open'
+                            tradingEngineOrder.algorithmName.value = executionAlgorithm.name
+                            tradingEngineOrder.orderCounters.periods.value++
                         }
                     }
                 }

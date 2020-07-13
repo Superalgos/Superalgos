@@ -1,4 +1,4 @@
-exports.newTradingPosition = function newTradingPosition(bot, logger) {
+exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Positions.
     */
@@ -60,9 +60,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger) {
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
-        const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
-        let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
-
         tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
     }
 

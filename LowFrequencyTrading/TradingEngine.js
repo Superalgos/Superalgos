@@ -5,6 +5,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     */
     const MODULE_NAME = 'Trading Engine'
     let thisObject = {
+        getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
         updateEpisodeCountersAndStatistics: updateEpisodeCountersAndStatistics,
@@ -15,6 +16,7 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     let tradingEngine
     let sessionParameters
+    let nodesMap = new Map()
 
     return thisObject
 
@@ -34,6 +36,11 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     function finalize() {
         tradingEngine = undefined
         sessionParameters = undefined
+        nodesMap = undefined
+    }
+
+    function getNodeById(NodeId) {
+        return nodesMap.get(NodeId)
     }
 
     function setCurrentCandle(candle) {
@@ -90,6 +97,8 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
 
     function initializeNode(node) {
         if (node === undefined) { return }
+        /* Add to Node Map */
+        nodesMap.set(node.id, node)
 
         /* Here we initialize the node value */
         if (node.config !== undefined) {

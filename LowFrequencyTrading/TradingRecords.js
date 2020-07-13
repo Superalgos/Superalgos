@@ -45,85 +45,107 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
             if (bot.processingDailyFiles === true && dataset.config.type === 'Daily Files') {
-                persistRecord()
+                persistRecords()
             }
 
             if (bot.processingDailyFiles === false && dataset.config.type === 'Market Files') {
-                persistRecord()
+                persistRecords()
             }
 
-            function persistRecord() {
-                pruneOutputFile(product, outputDatasetArray)
-                let record = scanRecordDefinition(product)
+            function persistRecords() {
 
-                if (product.config.saveAsObjects === true) {
-                    /* For saving objects we need to take care of a different set of rules. */
-                    for (let j = 0; j < product.record.properties.length; j++) {
-                        let recordProperty = product.record.properties[j]
-                        if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
-                            let propertyValue = record[j]
-                            /* 
-                            We check that the existing file does not contain at the end a record that
-                            does not signal that the object is closed.  
-                            If it does, we replace it with the new one until at some point it will signal
-                            does the object is closed. 
+                /* Clean the file from information of previous executions */
+                pruneOutputFile(product, outputDatasetArray)
+
+                /*
+                The product root can be a node or a node property of type array.
+                */
+                let productRoot = eval(product.config.nodePath)
+
+                if (product.config.nodePathType === 'array') {
+                    /* 
+                    This means that the configured nodePath is not pointing to a node, but to a node property that is an array.
+                    For that reason we will assume that each element of the array is a record to be outputed
+                    */
+                    for (let index = 0; index < productRoot.length; index++) {
+                        /*
+                        The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+                        */
+                        let productRootNode = productRoot[index]
+                        let record = scanRecordDefinition(product, productRootNode, index)
+                        persistIndividualRecord(record, product, outputDatasetArray)
+                    }
+                } else {
+                    /*
+                    This means that the configured nodePath points to a single node, which is the one whose children constitutes
+                    the record to be saved at the output file.
+                    */
+                    /*
+                    The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+                    */
+                    let productRootNode = productRoot
+                    let record = scanRecordDefinition(product, productRootNode)
+                    persistIndividualRecord(record, product, outputDatasetArray)
+                }
+            }
+        }
+
+        function persistIndividualRecord(record, product, outputDatasetArray) {
+
+            if (product.config.saveAsObjects === true) {
+                /* For saving objects we need to take care of a different set of rules. */
+                for (let j = 0; j < product.record.properties.length; j++) {
+                    let recordProperty = product.record.properties[j]
+                    if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
+                        let propertyValue = record[j]
+
+                        /* Remove Open Records */
+                        spliceOpenRecords(j, product, outputDatasetArray)
+
+                        if (bot.processingDailyFiles) {
+                            /*
+                            When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
+                            since the object will be duplicated on the next day. How do we know we are positioned at the last candle
+                            of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                            time frame. 
                             */
-                            let lastRecord = outputDatasetArray[outputDatasetArray.length - 1]
-                            if (lastRecord !== undefined) {
-                                let lastRecordValue = lastRecord[j]
-                                if (lastRecordValue !== product.config.propertyValueThatClosesObject) {
-                                    outputDatasetArray.splice(outputDatasetArray.length - 1, 1)
-                                }
-                            }
-                            if (bot.processingDailyFiles) {
+                            let currentDay = new Date(tradingEngine.current.candle.end.value)
+                            let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
+                            if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
                                 /*
-                                When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
-                                since the object will be duplicated on the next day. How do we know we are positioned at the last candle
-                                of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
-                                time frame. 
+                                We will save the object only if it is closed, becasuse we are at the last candle of the day.
                                 */
-                                let currentDay = new Date(tradingEngine.current.candle.end.value)
-                                let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
-                                if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
-                                    /*
-                                    We will save the object only if it is closed, becasuse we are at the last candle of the day.
-                                    */
-                                    if (propertyValue === product.config.propertyValueThatClosesObject) {
-                                        outputDatasetArray.push(record)
-                                    }
-                                } else {
-                                    /*
-                                    When we are not at the end of the day, we will save the object normally, like in market files.
-                                    */
-                                    if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                        outputDatasetArray.push(record)
-                                    }
+                                if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                    outputDatasetArray.push(record)
                                 }
-                            }
-                            else {
+                            } else {
                                 /*
-                                For Market Files we will add a record everytime that proeprty value does not match this
+                                When we are not at the end of the day, we will save the object normally, like in market files.
                                 */
                                 if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
                                     outputDatasetArray.push(record)
                                 }
                             }
-                            break
                         }
+                        else {
+                            /*
+                            For Market Files we will add a record everytime that proeprty value does not match this
+                            */
+                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                outputDatasetArray.push(record)
+                            }
+                        }
+                        break
                     }
-                } else {
-                    /* When we are not dealing with objects, we add every record to the existing file. */
-                    outputDatasetArray.push(record)
                 }
+            } else {
+                /* When we are not dealing with objects, we add every record to the existing file. */
+                outputDatasetArray.push(record)
             }
         }
 
-        function scanRecordDefinition(product) {
-            /*
-            The Product Root Node is the root of the node hiriarchy branch that we need to look at
-            in order to fnd the node where we are going to extract the value.
-            */
-            let productRootNode = eval(product.config.nodePath)
+        function scanRecordDefinition(product, productRootNode, index) {
+
             let record = []
             for (let j = 0; j < product.record.properties.length; j++) {
                 let recordProperty = product.record.properties[j]
@@ -201,64 +223,84 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             }
             return record
         }
-    }
 
-    function safeNumericValue(value) {
-        /*
-        The purpose of this function is to check that value variable does not have a value that 
-        will later break the JSON format of files where this is going to be stored at. 
-        */
-        if (value === Infinity) {
-            value = Number.MAX_SAFE_INTEGER
+        function safeNumericValue(value) {
+            /*
+            The purpose of this function is to check that value variable does not have a value that 
+            will later break the JSON format of files where this is going to be stored at. 
+            */
+            if (value === Infinity) {
+                value = Number.MAX_SAFE_INTEGER
+            }
+            if (value === undefined) {
+                value = 0
+            }
+            if (value === null) {
+                value = 0
+            }
+            if (isNaN(value)) {
+                value = 0
+            }
+            return value
         }
-        if (value === undefined) {
-            value = 0
-        }
-        if (value === null) {
-            value = 0
-        }
-        if (isNaN(value)) {
-            value = 0
-        }
-        return value
-    }
 
-    function safeStringValue(value) {
-        /*
-        The purpose of this function is to check that value variable does not have a value that 
-        will later break the JSON format of files where this is going to be stored at. 
-        */
-        if (value === undefined) {
-            value = ''
+        function safeStringValue(value) {
+            /*
+            The purpose of this function is to check that value variable does not have a value that 
+            will later break the JSON format of files where this is going to be stored at. 
+            */
+            if (value === undefined) {
+                value = ''
+            }
+            if (value === null) {
+                value = ''
+            }
+            return value
         }
-        if (value === null) {
-            value = ''
+
+        function pruneOutputFile(product, outputFile) {
+            if (outputFile.isPrunned === true) { return }
+            /*
+            When a session is resumed, we will be potentially reading output files belonging to a previous session execution. 
+            For that reason we need to prune all the records that are beyond the current candle. We do not delete everything
+            because we might be resuming a stopped session, which is fine. 
+            */
+            for (let i = 0; i < outputFile.length; i++) {
+                let record = outputFile[i]
+
+                for (let j = 0; j < product.record.properties.length; j++) {
+                    let recordProperty = product.record.properties[j]
+                    if (recordProperty.config.codeName === 'end') {
+                        let end = record[j]
+                        if (end >= tradingEngine.current.candle.end.value) {
+                            outputFile.splice(i, 1)
+                            pruneOutputFile(product, outputFile)
+                            return
+                        }
+                    }
+                }
+            }
+            outputFile.isPrunned = true
         }
-        return value
-    }
 
-    function pruneOutputFile(product, outputFile) {
-        if (outputFile.isPrunned === true) { return }
-        /*
-        When a session is resumed, we will be potentially reading output files belonging to a previous session execution. 
-        For that reason we need to prune all the records that are beyond the current candle. We do not delete everything
-        because we might be resuming a stopped session, which is fine. 
-        */
-        for (let i = 0; i < outputFile.length; i++) {
-            let record = outputFile[i]
+        function spliceOpenRecords(j, product, outputDatasetArray) {
+            /*
+            Before adding records to the output file, we need to remove all open records, 
+            because we will be adding the same records later with potentially
+            new or updated information.
+            */
 
-            for (let j = 0; j < product.record.properties.length; j++) {
-                let recordProperty = product.record.properties[j]
-                if (recordProperty.config.codeName === 'end') {
-                    let end = record[j]
-                    if (end >= tradingEngine.current.candle.end.value) {
-                        outputFile.splice(i, 1)
-                        pruneOutputFile(product, outputFile)
+            for (let i = 0; i < outputDatasetArray.length; i++) {
+                let dataRecord = outputDatasetArray[i]
+                if (dataRecord !== undefined) {
+                    let dataRecordValue = dataRecord[j]
+                    if (dataRecordValue !== product.config.propertyValueThatClosesObject) {
+                        outputDatasetArray.splice(i, 1)
+                        spliceOpenRecords(j, product, outputDatasetArray)
                         return
                     }
                 }
             }
         }
-        outputFile.isPrunned = true
     }
 }

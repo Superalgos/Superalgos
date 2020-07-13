@@ -1,4 +1,4 @@
-exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
+exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEngineModule) {
     /*
     This module packages all functions related to Strategies.
     */
@@ -48,8 +48,6 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger) {
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-        const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
-        let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
 
         tradingEngineModule.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }

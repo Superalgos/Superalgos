@@ -40,7 +40,8 @@ function newSessionFunctions () {
     'Position Size->Position Rate->Formula->' +
     'Create Order Event->Move Order Event->Cancel Order Event->' +
     'Situation->Condition->Javascript Code->' +
-    'Market Order->Limit Order->'
+    'Market Order->Limit Order->' +
+    'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
 
     let tradingSystem = functionLibraryProtocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

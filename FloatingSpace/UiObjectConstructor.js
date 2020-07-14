@@ -74,7 +74,7 @@ function newUiObjectConstructor () {
     */
 
     if (userAddingNew === true) {
-      let definition = getNodeDefinition (payload.parentNode)
+      let definition = getNodeDefinition(payload.parentNode)
       if (definition.properties !== undefined) {
         for (let i = 0; i < definition.properties.length; i++) {
           let property = definition.properties[i]
@@ -406,7 +406,7 @@ function newUiObjectConstructor () {
   function getMenuItemsInitialValues (uiObject, floatingObject, payload) {
     let menuItemsInitialValues = []
 
-    let nodeDefinition = getNodeDefinition (payload.node)
+    let nodeDefinition = getNodeDefinition(payload.node)
     if (nodeDefinition !== undefined) {
       if (nodeDefinition.editors !== undefined) {
         if (nodeDefinition.editors.config === true) {
@@ -450,7 +450,12 @@ function newUiObjectConstructor () {
 
         /* We need to reference the real function based on its name */
         if (menutItemDefinition.actionFunction !== undefined) {
-          newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
+          try {
+            newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
+          } catch (err) {
+            console.log('Error at Menu Item Action Function: ' + menutItemDefinition.actionFunction + ' ' + err.stack)
+            continue
+          }
         }
 
         /* Adding default values */
@@ -495,7 +500,7 @@ function newUiObjectConstructor () {
       }
 
       default: {
-        let nodeDefinition = getNodeDefinition (payload.node)
+        let nodeDefinition = getNodeDefinition(payload.node)
         if (nodeDefinition !== undefined) {
           switch (nodeDefinition.level) {
             case 0: {

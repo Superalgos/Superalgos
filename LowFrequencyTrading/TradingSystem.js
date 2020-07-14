@@ -1029,6 +1029,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 switch (tradingEngineOrder.status.value) {
                     case 'Open': {
                         tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
+                        tradingEngineOrder.orderCounters.periods.value++
+                        tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
                         let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (mustCancelOrder === true) {
@@ -1050,8 +1052,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         break
                     default: {
                         tradingEngineOrder.status.value = 'Not Open'
-                        let mustCreateOrder = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (mustCreateOrder === true) {
+                        let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                        if (situationName !== undefined) {
                             // Create Order
                             tradingEngineOrder.identifier.value = global.UNIQUE_ID()
                             tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
@@ -1059,8 +1061,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value
                             tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
                             tradingEngineOrder.status.value = 'Open'
+                            tradingEngineOrder.orderName.value = tradingSystemOrder.name
                             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
-                            tradingEngineOrder.orderCounters.periods.value++
+                            tradingEngineOrder.situationName.value = situationName
                         }
                     }
                 }
@@ -1087,7 +1090,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         tradingSystem.highlights.push(executionNode.id)
 
                         announcementsModule.makeAnnoucements(event)
-                        return true  // only one event can pass at the time
+                        return situation.name  // if the event is triggered, we return the name of the situation that passed
                     }
                 }
             }

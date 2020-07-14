@@ -323,7 +323,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     tradingSystem.highlights.push(triggerStage.triggerOn.id)
                                     tradingSystem.highlights.push(triggerStage.id)
 
-                                    tradingStrategyModule.openStrategy('Trigger Stage', j, situation.name, strategy.name)
+                                    tradingStrategyModule.openStrategy(j, situation.name, strategy.name)
+                                    tradingStrategyModule.updateStageType('Trigger Stage')
 
                                     tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
@@ -1024,7 +1025,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 if (tradingEngineOrder.algorithmName === undefined) { continue }
                 if (tradingEngineOrder.orderCounters === undefined) { continue }
                 if (tradingEngineOrder.orderCounters.periods === undefined) { continue }
-
+                if (tradingEngineOrder.orderStatistics.days === undefined) { continue }
+                if (tradingEngineOrder.orderStatistics.percentageFilled === undefined) { continue }
+                if (tradingEngineOrder.orderStatistics.actualRate === undefined) { continue }
+                if (tradingEngineOrder.orderStatistics.feesPaid === undefined) { continue }
 
                 switch (tradingEngineOrder.status.value) {
                     case 'Open': {
@@ -1037,13 +1041,17 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             // Cancel Order
                             tradingEngineOrder.status.value = 'Closed'
                             tradingEngineOrder.exitType.value = 'Cancelled'
+                            break
                         }
 
                         let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
                             // Move Order
                             tradingEngineOrder.status.value = 'Open'
+                            break
                         }
+
+                        simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
                     }
                         break
                     case 'Closed': {
@@ -1065,6 +1073,55 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                             tradingEngineOrder.situationName.value = situationName
                         }
+                    }
+                }
+            }
+        }
+
+        function simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder) {
+            switch (bot.SESSION.type) {
+                case 'Backtesting Session': {
+                    break
+                }
+                case 'Live Trading Session': {
+                    return
+                }
+                case 'Fordward Testing Session': {
+                    return
+                }
+                case 'Paper Trading Session': {
+                    break
+                }
+            }
+
+            if (tradingSystemOrder.simulatedExchangeEvents === undefined) { return }
+
+            /* Partial Fill Simulation */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                    if (tradingEngineOrder.orderStatistics.percentageFilled.value >= 100) {
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = 100
+                        tradingEngineOrder.status.value = 'Closed'
+                        tradingEngineOrder.exitType.value = 'Filled'
+                    }
+                }
+            }
+
+            /* Actual Rate Simulation */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                    if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+                        tradingEngineOrder.orderStatistics.actualRate.value = formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                    }
+                }
+            }
+
+            /* Fees Paid Simulation */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
+                    if (tradingEngineOrder.orderStatistics.feesPaid.value === tradingEngineOrder.orderStatistics.feesPaid.config.initialValue) {
+                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
                     }
                 }
             }

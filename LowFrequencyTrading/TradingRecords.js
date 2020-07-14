@@ -57,6 +57,17 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 /* Clean the file from information of previous executions */
                 pruneOutputFile(product, outputDatasetArray)
 
+                /* Clean Open Records */
+                if (product.config.saveAsObjects === true) {
+                    for (let j = 0; j < product.record.properties.length; j++) {
+                        let recordProperty = product.record.properties[j]
+                        if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
+                            /* Remove Open Records */
+                            spliceOpenRecords(j, product, outputDatasetArray)
+                        }
+                    }
+                }
+
                 /*
                 The product root can be a node or a node property of type array.
                 */
@@ -98,9 +109,6 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     let recordProperty = product.record.properties[j]
                     if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
                         let propertyValue = record[j]
-
-                        /* Remove Open Records */
-                        spliceOpenRecords(j, product, outputDatasetArray)
 
                         if (bot.processingDailyFiles) {
                             /*

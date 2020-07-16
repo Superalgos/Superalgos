@@ -5,7 +5,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     const MODULE_NAME = 'Trading Position'
     let thisObject = {
         openPosition: openPosition,
-        closePosition: closePosition,
+        closingPosition: closingPosition,
         applyStopLossFormula: applyStopLossFormula,
         applyTakeProfitFormula: applyTakeProfitFormula,
         preventStopLossDistortion: preventStopLossDistortion,
@@ -53,8 +53,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.takeProfitPhase.value = 0
     }
 
-    function closePosition(exitType) {
-        tradingEngine.current.position.status.value = 'Closed'
+    function closingPosition(exitType) {
+        tradingEngine.current.position.status.value = 'Closing'
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.exitType.value = exitType
         /*

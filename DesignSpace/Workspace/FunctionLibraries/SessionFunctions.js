@@ -59,10 +59,10 @@ function newSessionFunctions () {
     'Distance To Event->' +
     'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->' +
     'Strategy->' +
-    'Identifier->Begin->End->Strategy Name->Index->Stage Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Identifier->Begin->End->Strategy Name->Index->Trigger Stage Status->Open Stage Status->Manage Stage Status->Close Stage Status->Status->Begin Rate->End Rate->Situation Name->' +
     'Strategy Counters->Periods->' +
     'Position->' +
-    'Identifier->Begin->End->Rate->Size->Orders Size->Filled Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Identifier->Begin->End->Rate->Size->Open Stage Orders Size->Open Stage Filled Size->Close Stage Orders Size->Close Stage Filled Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
     'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
     'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +

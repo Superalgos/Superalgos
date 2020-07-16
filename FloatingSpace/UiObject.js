@@ -1406,6 +1406,7 @@ function newUiObject () {
   }
 
   function drawValue () {
+    if (currentValue === null) { return }
     if (hasValue === false) { return }
     if (canvas.floatingSpace.inMapMode === true) { return }
     if (thisObject.payload === undefined) { return }
@@ -1435,7 +1436,7 @@ function newUiObject () {
       const MAX_LABEL_LENGTH = 65
 
       label = currentValue
-      if (!isNaN(label)) {
+      if (!isNaN(currentValue)) {
         if (currentValue.toFixed !== undefined) {
           label = dynamicDecimals(currentValue)
         }

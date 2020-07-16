@@ -7,7 +7,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         openStrategy: openStrategy,
         closeStrategy: closeStrategy,
         updateEnds: updateEnds,
-        updateStageType: updateStageType,
+        updateStageStatus: updateStageStatus,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
         resetStrategy: resetStrategy,
@@ -62,8 +62,25 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         }
     }
 
-    function updateStageType(stageType) {
-        tradingEngine.current.strategy.stageType.value = stageType
+    function updateStageStatus(stage, status) {
+        switch (stage) {
+            case 'Trigger Stage': {
+                tradingEngine.current.strategy.triggerStageStatus.value = status
+                break
+            }
+            case 'Open Stage': {
+                tradingEngine.current.strategy.openStageStatus.value = status
+                break
+            }
+            case 'Manage Stage': {
+                tradingEngine.current.strategy.manageStageStatus.value = status
+                break
+            }
+            case 'Close Stage': {
+                tradingEngine.current.strategy.closeStageStatus.value = status
+                break
+            }
+        }
     }
 
     function updateStatus() {

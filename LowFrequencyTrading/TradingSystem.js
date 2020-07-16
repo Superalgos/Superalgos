@@ -40,12 +40,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
     let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger)
 
-    /* Variables to know when we need to open or close a position. */
-    let triggeringOn
-    let triggeringOff
-    let takingPosition
-    let closingPosition
-
     return thisObject
 
     function initialize() {
@@ -282,9 +276,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         /*
         We check if we will be triggering on, off or taking position.
         */
-        triggeringOn = checkTriggerOn()
-        triggeringOff = checkTriggerOff()
-        takingPosition = checkTakePosition()
+        checkTriggerOn()
+        checkTriggerOff()
+        checkTakePosition()
 
         function checkTriggerOn() {
             if (
@@ -324,7 +318,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     tradingSystem.highlights.push(triggerStage.id)
 
                                     tradingStrategyModule.openStrategy(j, situation.name, strategy.name)
-                                    tradingStrategyModule.updateStageType('Trigger Stage')
+                                    tradingStrategyModule.updateStageStatus('Trigger Stage', 'Open')
 
                                     tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
@@ -340,18 +334,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     }
 
                                     logger.write(MODULE_NAME, '[INFO] checkTriggerOn -> Entering into Strategy: ' + strategy.name)
-                                    return true // This Means that we have just met the conditions to trigger on.
+                                    return
                                 }
                             }
                         }
                     }
                 }
             }
-            return false // This Means that we have not met the conditions to trigger on.
+            return
         }
 
         function checkTriggerOff() {
-            if (tradingEngine.current.strategy.stageType.value === 'Trigger Stage') {
+            if (tradingEngine.current.strategy.triggerStageStatus.value === 'Open') {
 
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let triggerStage = strategy.triggerStage
@@ -376,26 +370,26 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(triggerStage.id)
 
                                 tradingStrategyModule.closeStrategy('Trigger Off')
+                                tradingStrategyModule.updateStageStatus('Trigger Stage', 'Close')
 
                                 tradingEngine.current.distanceToEvent.triggerOff.value = 1
 
                                 announcementsModule.makeAnnoucements(triggerStage.triggerOff)
 
                                 logger.write(MODULE_NAME, '[INFO] checkTriggerOff -> Closing Strategy: ' + strategy.name)
-                                return true // This Means that we have just met the conditions to trigger off.
+                                return
                             }
                         }
                     }
                 }
             }
-            return false // This Means that we have not met the conditions to trigger off.
+            return
         }
 
         function checkTakePosition() {
             /* Take Position Condition */
             if (
-                tradingEngine.current.strategy.stageType.value === 'Trigger Stage' &&
-                tradingEngine.current.strategy.status.value === 'Open'
+                tradingEngine.current.strategy.triggerStageStatus.value === 'Open'
             ) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
                 let triggerStage = strategy.triggerStage
@@ -420,7 +414,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(triggerStage.takePosition.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingStrategyModule.updateStageType('Open Stage')
+                                tradingStrategyModule.updateStageStatus('Open Stage', 'Open')
+                                tradingStrategyModule.updateStageStatus('Trigger Stage', 'Close')
                                 tradingPositionModule.openPosition(situation.name)
 
                                 announcementsModule.makeAnnoucements(triggerStage.takePosition)
@@ -435,20 +430,32 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 }
 
                                 logger.write(MODULE_NAME, '[INFO] checkTakePosition -> Conditions at the Take Position Event were met.')
-                                return true // This Means that we have just met the conditions to take position.
+                                tradingStrategyModule.updateStageStatus('Manage Stage', 'Opening')
                             }
                         }
                     }
                 }
             }
-            return false // This Means that we have not met the conditions to take position.
+            return
         }
     }
 
     function openStage() {
 
-        /* Most of the stuff happens when we are at the Open Stage */
-        if (tradingEngine.current.strategy.stageType.value === 'Open Stage') {
+        /* 
+        if the Close stage is opened while the open stage is still open that means that
+        we need to stop placing orders, check what happened to the orders already placed,
+        and cancel all unfilled limit orders. We call this the Closing status of the Open Stage.
+        */
+        if (tradingEngine.current.strategy.openStageStatus.value === 'Open' && tradingEngine.current.strategy.closeStageStatus.value === 'Open') {
+            tradingStrategyModule.updateStageStatus('Open Stage', 'Closing')
+        }
+
+        /*
+        While the Open Stage is Open, we do our regular stuff: place orders and check 
+        what happened to the orders already placed.
+        */
+        if (tradingEngine.current.strategy.openStageStatus.value === 'Open') {
 
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
             let executionNode = stageNode.openExecution
@@ -457,7 +464,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalFormulas(stageNode, 'Initial Definition')
 
             /* Taking a Position */
-            if (takingPosition === true) {
+            if (tradingEngine.current.strategy.manageStageStatus.value === 'Opening') {
                 getReadyToTakePosition()
 
                 calculateTakeProfit()
@@ -471,27 +478,45 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
-            checkExecution(executionNode)
+            checkExecution(executionNode, false, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+
+            /*
+            The Open is finished when the fillSize reaches the Position Size.
+            This can happens at any time when we update the filledSize value when we see 
+            at the exchange that orders were filled.
+            */
+            if (tradingEngine.current.position.openStageFilledSize.value === tradingEngine.current.position.size.value) {
+                tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
+            }
         }
 
-        /* 
-        We might have jumped to the Close Stage before we leave the Open Stage.
-        In such cases there are orders that need to be checked what happened to them,
-        and others that need to be cancelled.
+        /*
+        During the closing status, we do not place new orders, just check 
+        if the ones placed were filled, and cancel the ones not filled.
         */
-        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+        if (tradingEngine.current.strategy.openStageStatus.value === 'Closing') {
 
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
             let executionNode = stageNode.openExecution
 
             /* Check if there are unfilled orders */
-            if (tradingEngine.current.position.ordersSize.value !== tradingEngine.current.position.filledSize.value) {
+            if (tradingEngine.current.position.openStageOrdersSize.value !== tradingEngine.current.position.openStageFilledSize.value) {
                 /* There are unfilled orders, we will check if they were executed, and cancel the ones that were not. */
 
                 evalConditions(stageNode, 'Open Execution')
                 evalFormulas(stageNode, 'Open Execution')
 
-                checkExecution(executionNode, true)
+                checkExecution(executionNode, true, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+            }
+
+            /*
+            The Closing is finished when the fillSize reaches the ordersSize.
+            This can happens either because we update the filledSize value when we see 
+            at the exchange that orders were filled, or we reduce the ordersSize when
+            we cancel not yet filled orders.
+            */
+            if (tradingEngine.current.position.openStageFilledSize.value === tradingEngine.current.position.openStageOrdersSize.value) {
+                tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
             }
         }
 
@@ -564,13 +589,13 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     function manageStage() {
-        if (takingPosition === true) {
+        if (tradingEngine.current.strategy.manageStageStatus.value === 'Opening') {
             /* We jump the management at the loop cycle where the position is being taken. */
-            takingPosition = false
+            tradingStrategyModule.updateStageStatus('Manage Stage', 'Open')
             return
         }
 
-        if (tradingEngine.current.strategy.stageType.value === 'Open Stage' || tradingEngine.current.strategy.stageType.value === 'Manage Stage') {
+        if (tradingEngine.current.strategy.manageStageStatus.value === 'Open') {
             let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
             let manageStage = strategy.manageStage
             evalConditions(manageStage, 'Manage Stage')
@@ -585,7 +610,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             calculateTakeProfit()
 
             /* Checking if Stop or Take Profit were hit */
-            closingPosition = checkStopLossOrTakeProfitWasHit()
+            checkStopLossOrTakeProfitWasHit()
         }
 
         function checkStopPhasesEvents() {
@@ -820,9 +845,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     tradingPositionModule.preventStopLossDistortion()
                     tradingPositionModule.applySlippageToStopLoss()
                     tradingPositionModule.closePosition('Stop Loss')
-                    tradingStrategyModule.updateStageType('Close Stage')
+                    tradingStrategyModule.updateStageStatus('Close Stage', 'Opening')
                     announcementsModule.makeAnnoucements(strategy.closeStage)
-                    return true // This means that the STOP was hit.
+                    return
                 }
 
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
@@ -835,37 +860,46 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     tradingPositionModule.preventTakeProfitDistortion()
                     tradingPositionModule.applySlippageToTakeProfit()
                     tradingPositionModule.closePosition('Take Profit')
-                    tradingStrategyModule.updateStageType('Close Stage')
+                    tradingStrategyModule.updateStageStatus('Close Stage', 'Opening')
                     announcementsModule.makeAnnoucements(strategy.closeStage)
-                    return true // This means that the Take Profit was hit.
+                    return
                 }
-                return false // This means that the neither the STOP nor the Take Profit were hit.
+                return
             }
         }
     }
 
     function closeStage() {
 
-        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+        /* 
+        This will happen only once, as soon as the Take Profit or Stop was hit.
+        */
+        if (tradingEngine.current.strategy.closeStageStatus.value === 'Opening') {
+            getReadyToClosePosition()
+            tradingExecutionModule.closePosition()
+            closePosition()
+            tradingStrategyModule.updateStageStatus('Close Stage', 'Open')
+        }
+
+        /*
+        This will happen as long as the Close Stage is Open.
+        */
+        if (tradingEngine.current.strategy.closeStageStatus.value === 'Open') {
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
             let executionNode = stageNode.closeExecution
 
             evalConditions(stageNode, 'Close Execution')
             evalFormulas(stageNode, 'Close Execution')
 
-            /* Closing a Position */
-            if (closingPosition === true) {
-                getReadyToClosePosition()
-                tradingExecutionModule.closePosition()
-                closePosition()
-                closingPosition = false
-            }
-
-            checkExecution(executionNode)
+            checkExecution(executionNode, false, tradingEngine.current.position.openStageFilledSize, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
         }
 
-        /* After a position was closed, we need to close the strategy. */
-        exitStrategyAfterPosition()
+        if (tradingEngine.current.strategy.closeStageStatus.value === 'Closing') {
+
+            /* After a position was closed, we need to close the strategy. */
+            exitStrategyAfterPosition()
+            tradingStrategyModule.updateStageStatus('Close Stage', 'Closed')
+        }
 
         function getReadyToClosePosition() {
             /* Inicializing this counter */
@@ -909,7 +943,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         function exitStrategyAfterPosition() {
-            if (tradingEngine.current.strategy.stageType.value !== 'Close Stage') { return }
 
             tradingStrategyModule.closeStrategy('Position Closed')
             tradingEngine.current.distanceToEvent.triggerOff.value = 1
@@ -996,7 +1029,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
     }
 
-    function checkExecution(executionNode, exitStageNow) {
+    function checkExecution(executionNode, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
 
         checkExecutionAlgorithms(executionNode)
 
@@ -1039,7 +1072,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         tradingEngineOrder.orderCounters.periods.value++
                         tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
-                        if (exitStageNow !== true) {
+                        if (stageIsClosing !== true) {
                             let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                             if (mustCancelOrder === true) {
                                 // Cancel Order
@@ -1064,7 +1097,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     }
                         break
                     default: {
-                        if (exitStageNow === true) { return }
+                        if (stageIsClosing === true) { return }
 
                         tradingEngineOrder.status.value = 'Not Open'
                         let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
@@ -1081,11 +1114,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                             /* The size depends on the Formula but also on how much of the total size has already been used. */
                             tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
-                            if (tradingEngine.current.position.ordersSize.value + tradingEngineOrder.size.value > tradingEngine.current.position.size.value) {
+                            if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit) {
                                 /* We reduce the size to the remaining size of the position. */
-                                tradingEngineOrder.size.value = tradingEngineOrder.size.value - tradingEngine.current.position.ordersSize.value
+                                tradingEngineOrder.size.value = stageSizeLimit - stageOrdersSize.value
                             }
-                            tradingEngine.current.position.ordersSize.value = tradingEngine.current.position.ordersSize.value + tradingEngineOrder.size.value
+                            stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
                         }
                     }
                 }
@@ -1126,16 +1159,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     }
 
                     /* Filled Size Calculation */
-                    let filledSize = tradingEngineOrder.size.value * percentageFilled / 100
-                    tradingEngine.current.position.filledSize.value = tradingEngine.current.position.filledSize.value + filledSize
+                    stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * percentageFilled / 100
 
-                    if (exitStageNow !== true) {
-                        /* Passing to Manage Stage Verification */
-                        if (tradingEngine.current.position.size.value === tradingEngine.current.position.filledSize.value) {
-                            tradingStrategyModule.updateStageType('Manage Stage')
-                            announcementsModule.makeAnnoucements(manageStage)
-                        }
-                    } else {
+                    if (stageIsClosing === true) {
                         if (tradingEngineOrder.orderStatistics.percentageFilled.value === 0) {
                             tradingEngineOrder.status.value = 'Closed'
                             tradingEngineOrder.exitType.value = 'Forced to Cancel'

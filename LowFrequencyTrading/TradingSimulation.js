@@ -356,8 +356,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function checkMinimunAndMaximunBalance() {
                 /* Checks for Minimun and Maximun Balance. We do the check while not inside any strategy only. */
                 if (
-                    tradingEngine.current.strategy.stageType.value === 'No Stage' &&
-                    tradingEngine.current.strategy.index.value === -1
+                    tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
                 ) {
                     /* 
                     First thing to do is to check if we are below the minimum balance, or above the maximun balance.

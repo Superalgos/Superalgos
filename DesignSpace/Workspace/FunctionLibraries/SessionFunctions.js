@@ -62,7 +62,7 @@ function newSessionFunctions () {
     'Identifier->Begin->End->Strategy Name->Index->Stage Type->Status->Begin Rate->End Rate->Situation Name->' +
     'Strategy Counters->Periods->' +
     'Position->' +
-    'Identifier->Begin->End->Rate->Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+    'Identifier->Begin->End->Rate->Size->Orders Size->Filled Size->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
     'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
     'Take Profit->Take Profit Stage->Take Profit Phase->' +
     'Position Counters->Periods->' +

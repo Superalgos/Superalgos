@@ -27,14 +27,13 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         tradingEngine = undefined
     }
 
-    function openStrategy(stageType, index, situationName, strategyName) {
+    function openStrategy(index, situationName, strategyName) {
         tradingEngine.current.strategy.status.value = 'Open'
         tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.strategy.beginRate.value = tradingEngine.current.candle.min.value
         tradingEngine.current.strategy.endRate.value = tradingEngine.current.candle.min.value
 
-        tradingEngine.current.strategy.stageType.value = stageType
         tradingEngine.current.strategy.index.value = index
         tradingEngine.current.strategy.situationName.value = situationName
         tradingEngine.current.strategy.strategyName.value = strategyName

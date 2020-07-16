@@ -447,7 +447,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
     function openStage() {
 
+        /* Most of the stuff happens when we are at the Open Stage */
         if (tradingEngine.current.strategy.stageType.value === 'Open Stage') {
+
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
             let executionNode = stageNode.openExecution
 
@@ -470,7 +472,27 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalFormulas(stageNode, 'Open Execution')
 
             checkExecution(executionNode)
+        }
 
+        /* 
+        We might have jumped to the Close Stage before we leave the Open Stage.
+        In such cases there are orders that need to be checked what happened to them,
+        and others that need to be cancelled.
+        */
+        if (tradingEngine.current.strategy.stageType.value === 'Close Stage') {
+
+            let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
+            let executionNode = stageNode.openExecution
+
+            /* Check if there are unfilled orders */
+            if (tradingEngine.current.position.ordersSize.value !== tradingEngine.current.position.filledSize.value) {
+                /* There are unfilled orders, we will check if they were executed, and cancel the ones that were not. */
+
+                evalConditions(stageNode, 'Open Execution')
+                evalFormulas(stageNode, 'Open Execution')
+
+                checkExecution(executionNode, true)
+            }
         }
 
         function getReadyToTakePosition() {
@@ -624,10 +646,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                             tradingPositionModule.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1, 'Manage Stage')
 
-                            if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
-                                tradingStrategyModule.updateStageType('Manage Stage')
-                                announcementsModule.makeAnnoucements(manageStage)
-                            }
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
                         }
@@ -668,10 +686,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     continue
                                 }
 
-                                if (tradingEngine.current.position.takeProfit.takeProfitPhase.value > 0) {
-                                    tradingStrategyModule.updateStageType('Manage Stage')
-                                    announcementsModule.makeAnnoucements(manageStage)
-                                }
                                 announcementsModule.makeAnnoucements(moveToPhaseEvent)
                                 return // only one event can pass at the time
                             }
@@ -739,10 +753,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                             tradingPositionModule.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1, 'Manage Stage')
 
-                            if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
-                                tradingStrategyModule.updateStageType('Manage Stage')
-                                announcementsModule.makeAnnoucements(manageStage)
-                            }
                             announcementsModule.makeAnnoucements(nextPhaseEvent)
                             return // only one event can pass at the time
                         }
@@ -783,10 +793,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     continue
                                 }
 
-                                if (tradingEngine.current.position.stopLoss.stopLossPhase.value > 0) {
-                                    tradingStrategyModule.updateStageType('Manage Stage')
-                                    announcementsModule.makeAnnoucements(manageStage)
-                                }
                                 announcementsModule.makeAnnoucements(moveToPhaseEvent)
                                 return // only one event can pass at the time
                             }
@@ -864,9 +870,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         function getReadyToClosePosition() {
             /* Inicializing this counter */
             tradingEngine.current.distanceToEvent.closePosition.value = 1
-
-            /* Position size and rate */
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
         }
 
         function closePosition() {
@@ -993,7 +996,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
     }
 
-    function checkExecution(executionNode) {
+    function checkExecution(executionNode, exitStageNow) {
 
         checkExecutionAlgorithms(executionNode)
 
@@ -1036,19 +1039,21 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         tradingEngineOrder.orderCounters.periods.value++
                         tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
-                        let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (mustCancelOrder === true) {
-                            // Cancel Order
-                            tradingEngineOrder.status.value = 'Closed'
-                            tradingEngineOrder.exitType.value = 'Cancelled'
-                            break
-                        }
+                        if (exitStageNow !== true) {
+                            let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                            if (mustCancelOrder === true) {
+                                // Cancel Order
+                                tradingEngineOrder.status.value = 'Closed'
+                                tradingEngineOrder.exitType.value = 'Cancelled'
+                                break
+                            }
 
-                        let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
-                            // Move Order
-                            tradingEngineOrder.status.value = 'Open'
-                            break
+                            let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                            if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
+                                // Move Order
+
+                                break
+                            }
                         }
 
                         simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
@@ -1059,6 +1064,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     }
                         break
                     default: {
+                        if (exitStageNow === true) { return }
+
                         tradingEngineOrder.status.value = 'Not Open'
                         let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (situationName !== undefined) {
@@ -1067,11 +1074,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
                             tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
                             tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value
-                            tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
                             tradingEngineOrder.status.value = 'Open'
                             tradingEngineOrder.orderName.value = tradingSystemOrder.name
                             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                             tradingEngineOrder.situationName.value = situationName
+
+                            /* The size depends on the Formula but also on how much of the total size has already been used. */
+                            tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
+                            if (tradingEngine.current.position.ordersSize.value + tradingEngineOrder.size.value > tradingEngine.current.position.size.value) {
+                                /* We reduce the size to the remaining size of the position. */
+                                tradingEngineOrder.size.value = tradingEngineOrder.size.value - tradingEngine.current.position.ordersSize.value
+                            }
+                            tradingEngine.current.position.ordersSize.value = tradingEngine.current.position.ordersSize.value + tradingEngineOrder.size.value
                         }
                     }
                 }
@@ -1099,11 +1113,37 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Partial Fill Simulation */
             if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value >= 100) {
-                        tradingEngineOrder.orderStatistics.percentageFilled.value = 100
+
+                    /* Percentage Filled Calculation */
+                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                    }
+                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
                         tradingEngineOrder.status.value = 'Closed'
                         tradingEngineOrder.exitType.value = 'Filled'
+                    }
+
+                    /* Filled Size Calculation */
+                    let filledSize = tradingEngineOrder.size.value * percentageFilled / 100
+                    tradingEngine.current.position.filledSize.value = tradingEngine.current.position.filledSize.value + filledSize
+
+                    if (exitStageNow !== true) {
+                        /* Passing to Manage Stage Verification */
+                        if (tradingEngine.current.position.size.value === tradingEngine.current.position.filledSize.value) {
+                            tradingStrategyModule.updateStageType('Manage Stage')
+                            announcementsModule.makeAnnoucements(manageStage)
+                        }
+                    } else {
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value === 0) {
+                            tradingEngineOrder.status.value = 'Closed'
+                            tradingEngineOrder.exitType.value = 'Forced to Cancel'
+                        }
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value > 0 && tradingEngineOrder.orderStatistics.percentageFilled.value < 100) {
+                            tradingEngineOrder.status.value = 'Closed'
+                            tradingEngineOrder.exitType.value = 'Partially Filled'
+                        }
                     }
                 }
             }

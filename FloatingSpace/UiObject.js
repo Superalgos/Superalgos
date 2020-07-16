@@ -646,6 +646,7 @@ function newUiObject () {
     if (isDragging !== true) { return }
     if (thisObject.payload.floatingObject.isFrozen === true) { return }
     if (rightDragging === false) { return }
+    if (thisObject.payload === undefined) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
 
     let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))

@@ -1138,15 +1138,22 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                             if (tradingEngineOrder.size.value <= 0) { continue }
 
-                            // Create Order
+                            /* Create Order Procedure */
                             tradingEngineOrder.identifier.value = global.UNIQUE_ID()
                             tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
                             tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
-                            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value
                             tradingEngineOrder.status.value = 'Open'
                             tradingEngineOrder.orderName.value = tradingSystemOrder.name
                             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                             tradingEngineOrder.situationName.value = situationName
+
+                            /* Order Rate Calculation */
+                            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
+                            if (tradingSystemOrder.positionRate !== undefined) {
+                                if (tradingSystemOrder.positionRate.formula !== undefined) {
+                                    tradingEngineOrder.rate.value = formulas.get(tradingSystemOrder.positionRate.formula.id)
+                                }
+                            }
 
                             stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
                         }

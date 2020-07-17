@@ -41,12 +41,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             const MIN_TAKE_PROFIT_VALUE = 0.0000000001 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
 
-            /* Variables to know when we need to open or close a position. */
-            let triggeringOn
-            let triggeringOff
-            let takingPosition
-            let closingPosition
-
             /* These are the Modules we will need to run the Simulation */
             const EXCHANGE_API = require('../ExchangeAPI');
             exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
@@ -56,16 +50,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()
 
-            const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-            let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger)
-            tradingExecutionModule.initialize()
-
             const TRADING_RECORDS_MODULE = require('./TradingRecords.js')
             let tradingRecordsModule = TRADING_RECORDS_MODULE.newTradingRecords(bot, logger)
             tradingRecordsModule.initialize(outputDatasetsMap)
 
             const TRADING_SYSTEM_MODULE = require('./TradingSystem.js')
-            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger)
+            let tradingSystemModule = TRADING_SYSTEM_MODULE.newTradingSystem(bot, logger, tradingEngineModule)
             tradingSystemModule.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
@@ -153,68 +143,21 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.mantainPositions()
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
-                /*
-                The next step is about evaluationg Conditions and Formulas of the Trading System.
-                */
-                tradingSystemModule.evalConditions()
-                tradingSystemModule.evalFormulas()
-                /*
-                Next we check if we will be triggering on, off or taking position.
-                */
-                triggeringOn = tradingSystemModule.checkTriggerOn()
-                triggeringOff = tradingSystemModule.checkTriggerOff()
-                takingPosition = tradingSystemModule.checkTakePosition()
-
-                /* Time to check the execution of orders */
-                tradingSystemModule.checkExecution()
-
-                /* Stop Loss Management */
-                if (takingPosition !== true) {
-                    tradingSystemModule.checkStopPhasesEvents()
-                    tradingSystemModule.calculateStopLoss()
-                }
-
-                /* Take Profit Management */
-                if (takingPosition !== true) {
-                    tradingSystemModule.checkTakeProfitPhaseEvents()
-                    tradingSystemModule.calculateTakeProfit()
-                }
-
                 tradingEngineModule.updateDistanceToEventsCounters()
 
-                /* Checking if Stop or Take Profit were hit */
-                if (takingPosition !== true) {
-                    closingPosition = tradingSystemModule.checkStopLossOrTakeProfitWasHit()
-                }
+                /* Run the Trigger Stage */
+                tradingSystemModule.triggerStage()
 
-                /* Taking a Position */
-                if (takingPosition === true) {
-                    tradingSystemModule.getReadyToTakePosition()
-                    /* 
-                    Whem we calculated all the formulas at the begining of the loop, we didn't know
-                    we were going to take position in this same loop cycle. Some might formulas depends on 
-                    calculations that are triggered only when we are taking position. For that reason
-                    we will calculate all formulas again, and after that the Stop Loss and Take Profit.
-                    */
-                    tradingSystemModule.evalFormulas()
-                    tradingSystemModule.calculateTakeProfit()
-                    tradingSystemModule.calculateStopLoss()
+                /* Run the Open Stage */
+                tradingSystemModule.openStage()
 
-                    tradingExecutionModule.takePosition()
-                    tradingSystemModule.takePosition()
-                    takingPosition = false
-                }
+                /* Run the Manage Stage */
+                tradingSystemModule.manageStage()
 
-                /* Closing a Position */
-                if (closingPosition === true) {
-                    tradingSystemModule.getReadyToClosePosition()
-                    tradingExecutionModule.closePosition()
-                    tradingSystemModule.closePosition()
-                    closingPosition = false
-                }
+                /* Run the Close Stage */
+                tradingSystemModule.closeStage()
 
-                /* After a position was closed, we need to close the strategy. */
-                tradingSystemModule.exitStrategyAfterPosition()
+                /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()
 
                 controlLoop()
@@ -246,9 +189,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
             function afterLoop() {
                 tradingEngineModule.finalize()
-                tradingExecutionModule.finalize()
                 tradingSystemModule.finalize()
                 tradingRecordsModule.finalize()
+
+                tradingEngineModule = undefined
+                tradingSystemModule = undefined
+                tradingRecordsModule = undefined
 
                 callback()
             }
@@ -410,8 +356,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             function checkMinimunAndMaximunBalance() {
                 /* Checks for Minimun and Maximun Balance. We do the check while not inside any strategy only. */
                 if (
-                    tradingEngine.current.strategy.stageType.value === 'No Stage' &&
-                    tradingEngine.current.strategy.index.value === -1
+                    tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
                 ) {
                     /* 
                     First thing to do is to check if we are below the minimum balance, or above the maximun balance.

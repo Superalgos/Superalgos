@@ -71,9 +71,9 @@
         ],
         "menuItems": [
             {
-                "action": "Config Plotter Module",
+                "action": "Configure Plotter Module",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Plotter Module",
+                "label": "Configure Plotter Module",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -400,9 +400,9 @@
         ],
         "menuItems": [
             {
-                "action": "Config Plotter Panel",
+                "action": "Configure Plotter Panel",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Plotter Panel",
+                "label": "Configure Plotter Panel",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -457,9 +457,9 @@
         ],
         "menuItems": [
             {
-                "action": "Config Panel Data",
+                "action": "Configure Panel Data",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Panel Data",
+                "label": "Configure Panel Data",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -782,9 +782,9 @@
         },
         "menuItems": [
             {
-                "action": "Edit Image",
+                "action": "Edit This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Edit Image",
+                "label": "Edit This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -793,7 +793,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Image Position",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -2828,6 +2828,55 @@
         ]
     },
     {
+        "type": "Order Counters",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "periods",
+                "label": "Add Periods",
+                "relatedUiObject": "Periods",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Counter",
+                "relatedUiObject": "User Defined Counter",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Counters",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Order->Limit Order->"
+        },
+        "icon": "approve",
+        "propertyNameAtParent": "orderCounters",
+        "properties": [
+            {
+                "name": "periods",
+                "type": "node",
+                "childType": "Periods",
+                "autoAdd": true
+            },
+            {
+                "name": "userDefinedCounters",
+                "type": "array",
+                "childType": "User Defined Counter",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
         "type": "Positions",
         "menuItems": [
             {
@@ -2958,7 +3007,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->"
+            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->Order Counters->"
         },
         "icon": "us-dollar",
         "propertyNameAtParent": "periods"
@@ -3458,6 +3507,71 @@
         ]
     },
     {
+        "type": "Order Statistics",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Statistic",
+                "relatedUiObject": "User Defined Statistic",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Order Statistics",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Order->Limit Order->"
+        },
+        "icon": "brainstorming",
+        "propertyNameAtParent": "orderStatistics",
+        "properties": [
+            {
+                "name": "percentageFilled",
+                "type": "node",
+                "childType": "Percentage Filled",
+                "autoAdd": true
+            },
+            {
+                "name": "actualRate",
+                "type": "node",
+                "childType": "Actual Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "feesPaid",
+                "type": "node",
+                "childType": "Fees Paid",
+                "autoAdd": true
+            },
+            {
+                "name": "days",
+                "type": "node",
+                "childType": "Days",
+                "autoAdd": true
+            },
+            {
+                "name": "userDefinedStatistics",
+                "type": "array",
+                "childType": "User Defined Statistic",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
         "type": "User Defined Statistic",
         "menuItems": [
             {
@@ -3604,10 +3718,112 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->"
+            "compatibleTypes": "->Episode Statistics->Position Statistics->Order Statistics->"
         },
         "icon": "oscillator",
         "propertyNameAtParent": "days"
+    },
+    {
+        "type": "Percentage Filled",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Statistics->"
+        },
+        "icon": "menu-tensor-free-angles",
+        "propertyNameAtParent": "percentageFilled"
+    },
+    {
+        "type": "Actual Rate",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Statistics->"
+        },
+        "icon": "startup",
+        "propertyNameAtParent": "search"
+    },
+    {
+        "type": "Fees Paid",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Statistics->"
+        },
+        "icon": "tap",
+        "propertyNameAtParent": "feesPaid"
     },
     {
         "type": "ROI",
@@ -4214,6 +4430,12 @@
         "propertyNameAtParent": "strategy",
         "properties": [
             {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
                 "name": "begin",
                 "type": "node",
                 "childType": "Begin",
@@ -4238,9 +4460,27 @@
                 "autoAdd": true
             },
             {
-                "name": "stageType",
+                "name": "triggerStageStatus",
                 "type": "node",
-                "childType": "Stage Type",
+                "childType": "Trigger Stage Status",
+                "autoAdd": true
+            },
+            {
+                "name": "openStageStatus",
+                "type": "node",
+                "childType": "Open Stage Status",
+                "autoAdd": true
+            },
+            {
+                "name": "manageStageStatus",
+                "type": "node",
+                "childType": "Manage Stage Status",
+                "autoAdd": true
+            },
+            {
+                "name": "closeStageStatus",
+                "type": "node",
+                "childType": "Close Stage Status",
                 "autoAdd": true
             },
             {
@@ -4350,11 +4590,11 @@
         "propertyNameAtParent": "index"
     },
     {
-        "type": "Stage Type",
+        "type": "Trigger Stage Status",
         "menuItems": [
             {
-                "action": "Configure Stage Type",
-                "label": "Configure Stage Type",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4363,7 +4603,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Stage Type",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4373,7 +4613,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\n\"initialValue\": \"No Stage\"\n}"
+            "config": "{\n\"initialValue\": \"Not Open\"\n}"
         },
         "addLeftIcons": true,
         "level": 3,
@@ -4381,7 +4621,109 @@
             "compatibleTypes": "->Strategy->"
         },
         "icon": "qtum",
-        "propertyNameAtParent": "stageType"
+        "propertyNameAtParent": "triggerStageStatus"
+    },
+    {
+        "type": "Open Stage Status",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"Not Open\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "monero",
+        "propertyNameAtParent": "openStageStatus"
+    },
+    {
+        "type": "Manage Stage Status",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"Not Open\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "tron",
+        "propertyNameAtParent": "manageStageStatus"
+    },
+    {
+        "type": "Close Stage Status",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"Not Open\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->"
+        },
+        "icon": "stellar",
+        "propertyNameAtParent": "closeStageStatus"
     },
     {
         "type": "Status",
@@ -4407,12 +4749,12 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\n\"initialValue\": \"No Stage\"\n}"
+            "config": "{\n\"initialValue\": \"Not Open\"\n}"
         },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->"
+            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->"
         },
         "icon": "tron",
         "propertyNameAtParent": "status"
@@ -4452,6 +4794,108 @@
         "propertyNameAtParent": "situationName"
     },
     {
+        "type": "Algorithm Name",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Order->Limit Order->"
+        },
+        "icon": "login",
+        "propertyNameAtParent": "algorithmName"
+    },
+    {
+        "type": "Order Name",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Order->Limit Order->"
+        },
+        "icon": "trend",
+        "propertyNameAtParent": "orderName"
+    },
+    {
+        "type": "Identifier",
+        "menuItems": [
+            {
+                "action": "Configure Identifier",
+                "label": "Configure Identifier",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Identifier",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->"
+        },
+        "icon": "support",
+        "propertyNameAtParent": "identifier"
+    },
+    {
         "type": "Begin",
         "menuItems": [
             {
@@ -4480,7 +4924,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Candle->"
+            "compatibleTypes": "->Strategy->Position->Candle->Market Order->Limit Order->"
         },
         "icon": "monero",
         "propertyNameAtParent": "begin"
@@ -4514,7 +4958,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Candle->"
+            "compatibleTypes": "->Strategy->Position->Candle->Market Order->Limit Order->"
         },
         "icon": "upbit",
         "propertyNameAtParent": "end"
@@ -4715,6 +5159,12 @@
         "propertyNameAtParent": "position",
         "properties": [
             {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
                 "name": "begin",
                 "type": "node",
                 "childType": "Begin",
@@ -4736,6 +5186,30 @@
                 "name": "size",
                 "type": "node",
                 "childType": "Size",
+                "autoAdd": true
+            },
+            {
+                "name": "openStageOrdersSize",
+                "type": "node",
+                "childType": "Open Stage Orders Size",
+                "autoAdd": true
+            },
+            {
+                "name": "openStageFilledSize",
+                "type": "node",
+                "childType": "Open Stage Filled Size",
+                "autoAdd": true
+            },
+            {
+                "name": "closeStageOrdersSize",
+                "type": "node",
+                "childType": "Close Stage Orders Size",
+                "autoAdd": true
+            },
+            {
+                "name": "closeStageFilledSize",
+                "type": "node",
+                "childType": "Close Stage Filled Size",
                 "autoAdd": true
             },
             {
@@ -4823,7 +5297,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position->"
+            "compatibleTypes": "->Position->Market Order->Limit Order->"
         },
         "icon": "pantone",
         "propertyNameAtParent": "rate"
@@ -4857,10 +5331,146 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position->"
+            "compatibleTypes": "->Position->Market Order->Limit Order->"
         },
         "icon": "upload",
         "propertyNameAtParent": "size"
+    },
+    {
+        "type": "Open Stage Orders Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "volume",
+        "propertyNameAtParent": "openStageOrdersSize"
+    },
+    {
+        "type": "Open Stage Filled Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "bitmex",
+        "propertyNameAtParent": "openStageFilledSize"
+    },
+    {
+        "type": "Close Stage Orders Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "time-line-chart",
+        "propertyNameAtParent": "closeStageOrdersSize"
+    },
+    {
+        "type": "Close Stage Filled Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "charting-space",
+        "propertyNameAtParent": "closeStageFilledSize"
     },
     {
         "type": "Exit Type",
@@ -4886,12 +5496,12 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\n\"initialValue\": \"\"\n}"
+            "config": "{\n\"initialValue\": \"No Exit\"\n}"
         },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->->Position->"
+            "compatibleTypes": "->Strategy->->Position->Market Order->Limit Order->"
         },
         "icon": "quality",
         "propertyNameAtParent": "exitType"
@@ -5200,7 +5810,81 @@
             "compatibleTypes": "->Market Buy Orders->Market Sell Orders->"
         },
         "icon": "targeting",
-        "propertyNameAtParent": "marketOrders"
+        "propertyNameAtParent": "marketOrders",
+        "properties": [
+            {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "rate",
+                "type": "node",
+                "childType": "Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "size",
+                "type": "node",
+                "childType": "Size",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "orderName",
+                "type": "node",
+                "childType": "Order Name",
+                "autoAdd": true
+            },
+            {
+                "name": "algorithmName",
+                "type": "node",
+                "childType": "Algorithm Name",
+                "autoAdd": true
+            },
+            {
+                "name": "situationName",
+                "type": "node",
+                "childType": "Situation Name",
+                "autoAdd": true
+            },
+            {
+                "name": "orderCounters",
+                "type": "node",
+                "childType": "Order Counters",
+                "autoAdd": true
+            },
+            {
+                "name": "orderStatistics",
+                "type": "node",
+                "childType": "Order Statistics",
+                "autoAdd": true
+            }
+        ]
     },
     {
         "type": "Market Sell Orders",
@@ -5332,7 +6016,81 @@
             "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->"
         },
         "icon": "menu-mobility-unfreeze",
-        "propertyNameAtParent": "limitOrders"
+        "propertyNameAtParent": "limitOrders",
+        "properties": [
+            {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "rate",
+                "type": "node",
+                "childType": "Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "size",
+                "type": "node",
+                "childType": "Size",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "orderName",
+                "type": "node",
+                "childType": "Order Name",
+                "autoAdd": true
+            },
+            {
+                "name": "algorithmName",
+                "type": "node",
+                "childType": "Algorithm Name",
+                "autoAdd": true
+            },
+            {
+                "name": "situationName",
+                "type": "node",
+                "childType": "Situation Name",
+                "autoAdd": true
+            },
+            {
+                "name": "orderCounters",
+                "type": "node",
+                "childType": "Order Counters",
+                "autoAdd": true
+            },
+            {
+                "name": "orderStatistics",
+                "type": "node",
+                "childType": "Order Statistics",
+                "autoAdd": true
+            }
+        ]
     },
     {
         "type": "Parameters",
@@ -6610,7 +7368,7 @@
         "menuItems": [
             {
                 "action": "Configure Status Dependency",
-                "label": "Config Status Dependency",
+                "label": "Configure Status Dependency",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7085,7 +7843,7 @@
         },
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position Size->Position Rate->Phase->Announcement->Record Property->"
+            "compatibleTypes": "->Position Size->Position Rate->Phase->Announcement->Record Property->Simulated Actual Rate->"
         },
         "icon": "pipette",
         "propertyNameAtParent": "formula"
@@ -8316,12 +9074,11 @@
         "type": "Market Buy Order",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionSize",
-                "label": "Add Position Size",
-                "relatedUiObject": "Position Size",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
             },
             {
                 "action": "Add UI Object",
@@ -8329,6 +9086,14 @@
                 "propertyToCheckFor": "createOrderEvent",
                 "label": "Add Create Order Event",
                 "relatedUiObject": "Create Order Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedExchangeEvents",
+                "label": "Add Simulated Events",
+                "relatedUiObject": "Simulated Exchange Events",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8341,24 +9106,33 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"positionSizePercentage\": 100\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Execution Algorithm->"
         },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market Order->"
+        },
         "icon": "market-order",
         "propertyNameAtParent": "marketBuyOrders",
         "properties": [
             {
-                "name": "positionSize",
-                "type": "node",
-                "childType": "Position Size",
-                "autoAdd": true
-            },
-            {
                 "name": "createOrderEvent",
                 "type": "node",
                 "childType": "Create Order Event",
+                "autoAdd": true
+            },
+            {
+                "name": "simulatedExchangeEvents",
+                "type": "node",
+                "childType": "Simulated Exchange Events",
                 "autoAdd": true
             }
         ]
@@ -8367,12 +9141,11 @@
         "type": "Market Sell Order",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionSize",
-                "label": "Add Position Size",
-                "relatedUiObject": "Position Size",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
             },
             {
                 "action": "Add UI Object",
@@ -8380,6 +9153,14 @@
                 "propertyToCheckFor": "createOrderEvent",
                 "label": "Add Create Order Event",
                 "relatedUiObject": "Create Order Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedExchangeEvents",
+                "label": "Add Simulated Events",
+                "relatedUiObject": "Simulated Exchange Events",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8392,24 +9173,33 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"positionSizePercentage\": 100\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Execution Algorithm->"
         },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Market Order->"
+        },
         "icon": "market-order",
         "propertyNameAtParent": "marketSellOrders",
         "properties": [
             {
-                "name": "positionSize",
-                "type": "node",
-                "childType": "Position Size",
-                "autoAdd": true
-            },
-            {
                 "name": "createOrderEvent",
                 "type": "node",
                 "childType": "Create Order Event",
+                "autoAdd": true
+            },
+            {
+                "name": "simulatedExchangeEvents",
+                "type": "node",
+                "childType": "Simulated Exchange Events",
                 "autoAdd": true
             }
         ]
@@ -8418,12 +9208,11 @@
         "type": "Limit Buy Order",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionSize",
-                "label": "Add Position Size",
-                "relatedUiObject": "Position Size",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
             },
             {
                 "action": "Add UI Object",
@@ -8455,6 +9244,14 @@
                 "propertyToCheckFor": "cancelOrderEvent",
                 "label": "Add Cancel Order Event",
                 "relatedUiObject": "Cancel Order Event",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedExchangeEvents",
+                "label": "Add Simulated Events",
+                "relatedUiObject": "Simulated Exchange Events",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -8467,20 +9264,23 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"positionSizePercentage\": 100\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Execution Algorithm->"
         },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Limit Order->"
+        },
         "icon": "limit-order",
         "propertyNameAtParent": "limitBuyOrders",
         "properties": [
-            {
-                "name": "positionSize",
-                "type": "node",
-                "childType": "Position Size",
-                "autoAdd": true
-            },
             {
                 "name": "positionRate",
                 "type": "node",
@@ -8501,6 +9301,12 @@
                 "name": "cancelOrderEvent",
                 "type": "node",
                 "childType": "Cancel Order Event"
+            },
+            {
+                "name": "simulatedExchangeEvents",
+                "type": "node",
+                "childType": "Simulated Exchange Events",
+                "autoAdd": true
             }
         ]
     },
@@ -8508,12 +9314,11 @@
         "type": "Limit Sell Order",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionSize",
-                "label": "Add Position Size",
-                "relatedUiObject": "Position Size",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
             },
             {
                 "action": "Add UI Object",
@@ -8548,6 +9353,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedExchangeEvents",
+                "label": "Add Simulated Events",
+                "relatedUiObject": "Simulated Exchange Events",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -8557,20 +9370,23 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"positionSizePercentage\": 100\n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
             "compatibleTypes": "->Execution Algorithm->"
         },
+        "referenceAttachesTo": {
+            "compatibleTypes": "->Limit Order->"
+        },
         "icon": "limit-order",
         "propertyNameAtParent": "limitSellOrders",
         "properties": [
-            {
-                "name": "positionSize",
-                "type": "node",
-                "childType": "Position Size",
-                "autoAdd": true
-            },
             {
                 "name": "positionRate",
                 "type": "node",
@@ -8591,6 +9407,12 @@
                 "name": "cancelOrderEvent",
                 "type": "node",
                 "childType": "Cancel Order Event"
+            },
+            {
+                "name": "simulatedExchangeEvents",
+                "type": "node",
+                "childType": "Simulated Exchange Events",
+                "autoAdd": true
             }
         ]
     },
@@ -8731,6 +9553,176 @@
             }
         ],
         "propertyNameAtParent": "cancelOrderEvent"
+    },
+    {
+        "type": "Simulated Exchange Events",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Simulated Partial Fill",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedPartialFill",
+                "relatedUiObject": "Simulated Partial Fill",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Simulated Actual Rate",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedActualRate",
+                "relatedUiObject": "Simulated Actual Rate",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Simulated Fees Paid",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "simulatedFeesPaid",
+                "relatedUiObject": "Simulated Fees Paid",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
+        },
+        "icon": "histogram",
+        "properties": [
+            {
+                "name": "simulatedPartialFill",
+                "type": "node",
+                "childType": "Simulated Partial Fill",
+                "autoAdd": true
+            },
+            {
+                "name": "simulatedActualRate",
+                "type": "node",
+                "childType": "Simulated Actual Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "simulatedFeesPaid",
+                "type": "node",
+                "childType": "Simulated Fees Paid",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "simulatedExchangeEvents"
+    },
+    {
+        "type": "Simulated Partial Fill",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"fillProbability\": 1\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Simulated Exchange Events->"
+        },
+        "icon": "hand-drag",
+        "propertyNameAtParent": "simulatedPartialFill"
+    },
+    {
+        "type": "Simulated Actual Rate",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Simulated Exchange Events->"
+        },
+        "icon": "distance-to-parent-000",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "simulatedActualRate"
+    },
+    {
+        "type": "Simulated Fees Paid",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"percentage\": 0.01\n}"
+        },
+        "editors": {
+            "config": true
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Simulated Exchange Events->"
+        },
+        "icon": "session-reference",
+        "propertyNameAtParent": "simulatedFeesPaid"
     },
     {
         "type": "Manage Stage",
@@ -8911,9 +9903,9 @@
         },
         "menuItems": [
             {
-                "action": "Config Telegram Bot",
+                "action": "Configure Telegram Bot",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Telegram Bot",
+                "label": "Configure Telegram Bot",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -8946,9 +9938,9 @@
         },
         "menuItems": [
             {
-                "action": "Config Announcement",
+                "action": "Configure Announcement",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Announcement",
+                "label": "Configure Announcement",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -9159,9 +10151,9 @@
         "type": "Signals Provider",
         "menuItems": [
             {
-                "action": "Config Signals Provider",
+                "action": "Configure Signals Provider",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Signals Provider",
+                "label": "Configure Signals Provider",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -9251,9 +10243,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#crypto-exchange",
         "menuItems": [
             {
-                "action": "Config Crypto Exchange",
+                "action": "Configure Crypto Exchange",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Crypto Exchange",
+                "label": "Configure Crypto Exchange",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -9373,9 +10365,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-assets",
         "menuItems": [
             {
-                "action": "Config Exchange Assets",
+                "action": "Configure Exchange Assets",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Exchange Assets",
+                "label": "Configure Exchange Assets",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -9430,9 +10422,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#asset",
         "menuItems": [
             {
-                "action": "Config Asset",
+                "action": "Configure Asset",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Asset",
+                "label": "Configure Asset",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -9576,9 +10568,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market",
         "menuItems": [
             {
-                "action": "Config Market",
+                "action": "Configure Market",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Config Market",
+                "label": "Configure Market",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },

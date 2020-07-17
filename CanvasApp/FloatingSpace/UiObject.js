@@ -646,6 +646,7 @@ function newUiObject () {
     if (isDragging !== true) { return }
     if (thisObject.payload.floatingObject.isFrozen === true) { return }
     if (rightDragging === false) { return }
+    if (thisObject.payload === undefined) { return }
     if (thisObject.payload.referenceParent === undefined) { return }
 
     let distanceToReferenceParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.referenceParent.payload.position.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.referenceParent.payload.position.y, 2))
@@ -1405,6 +1406,7 @@ function newUiObject () {
   }
 
   function drawValue () {
+    if (currentValue === null) { return }
     if (hasValue === false) { return }
     if (canvas.floatingSpace.inMapMode === true) { return }
     if (thisObject.payload === undefined) { return }
@@ -1434,7 +1436,7 @@ function newUiObject () {
       const MAX_LABEL_LENGTH = 65
 
       label = currentValue
-      if (!isNaN(label)) {
+      if (!isNaN(currentValue)) {
         if (currentValue.toFixed !== undefined) {
           label = dynamicDecimals(currentValue)
         }

@@ -919,6 +919,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
             /* Exiting Everything now. */
             exitPositionAndStrategy()
+
+            /* Reset Exchange Orders */
+            tradingEngine.exchangeOrders.initialize(tradingEngine.exchangeOrders)
         }
 
         function exitPositionAndStrategy() {

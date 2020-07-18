@@ -47,7 +47,6 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-
         tradingEngineModule.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 

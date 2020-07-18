@@ -6,6 +6,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     let thisObject = {
         openPosition: openPosition,
         closingPosition: closingPosition,
+        closePosition: closePosition,
         applyStopLossFormula: applyStopLossFormula,
         applyTakeProfitFormula: applyTakeProfitFormula,
         preventStopLossDistortion: preventStopLossDistortion,
@@ -55,8 +56,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function closingPosition(exitType) {
         tradingEngine.current.position.status.value = 'Closing'
-        tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.exitType.value = exitType
+    }
+
+    function closePosition() {
+        tradingEngine.current.position.status.value = 'Closed'
+        tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */

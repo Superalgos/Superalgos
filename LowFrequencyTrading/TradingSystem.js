@@ -1100,19 +1100,34 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
                         if (stageIsClosing !== true) {
-                            let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                            if (mustCancelOrder === true) {
-                                // Cancel Order
+                            let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                            if (situationName !== undefined) {
+                                /* Since the order was cancelled, we remove the unfilled amount of the order from here */
+                                let unfilledPercentage = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                                let unfilledSize = tradingEngineOrder.size.value * unfilledPercentage / 100
+                                stageOrdersSize.value = stageOrdersSize.value - unfilledSize
+                                stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
+                                /* Cancel the Order */
                                 tradingEngineOrder.status.value = 'Closed'
-                                tradingEngineOrder.exitType.value = 'Cancelled'
+                                tradingEngineOrder.exitType.value = 'Cancelled by Event'
                                 break
                             }
 
-                            let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                            if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
-                                // Move Order
-
-                                break
+                            if (tradingSystemOrder.moveOrderEvents !== undefined) {
+                                for (let j = 0; j < tradingSystemOrder.moveOrderEvents.length; j++) {
+                                    let moveOrderEvent = tradingSystemOrder.moveOrderEvents[j]
+                                    let situationName = checkOrderEvent(moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                                    if (situationName !== undefined) {
+                                        if (moveOrderEvent.positionRate !== undefined) {
+                                            if (moveOrderEvent.positionRate.formula !== undefined) {
+                                                /* Move Order to a different Rate */
+                                                tradingEngineOrder.rate.value = formulas.get(moveOrderEvent.positionRate.formula.id)
+                                                tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
+                                                break
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
 
@@ -1155,6 +1170,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             if (tradingSystemOrder.positionRate !== undefined) {
                                 if (tradingSystemOrder.positionRate.formula !== undefined) {
                                     tradingEngineOrder.rate.value = formulas.get(tradingSystemOrder.positionRate.formula.id)
+                                    tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
                                 }
                             }
 
@@ -1206,7 +1222,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
                         if (tradingEngineOrder.orderStatistics.percentageFilled.value === 0) {
                             tradingEngineOrder.status.value = 'Closed'
-                            tradingEngineOrder.exitType.value = 'Forced to Cancel'
+                            tradingEngineOrder.exitType.value = 'Cancelled by Closing Stage'
                         }
                         if (tradingEngineOrder.orderStatistics.percentageFilled.value > 0 && tradingEngineOrder.orderStatistics.percentageFilled.value < 100) {
                             tradingEngineOrder.status.value = 'Closed'

@@ -40,6 +40,10 @@ global.UNIQUE_ID = function () {
     })
 }
 
+global.PRECISE = function (floatNumber, precision) {
+    return parseFloat(Number.parseFloat(floatNumber).toPrecision(precision))
+}
+
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)

@@ -8,6 +8,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         reset: reset,
         mantainStrategies: mantainStrategies,
         mantainPositions: mantainPositions,
+        mantainOrders: mantainOrders,
         triggerStage: triggerStage,
         openStage: openStage,
         manageStage: manageStage,
@@ -111,6 +112,50 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         tradingPositionModule.updateStatus()
         tradingPositionModule.updateCounters()
         tradingPositionModule.updateEnds()
+    }
+
+    function mantainOrders() {
+        /* Reset All Exchange Orders that are on Closed status, to their initial value */
+        if (tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue) { return }
+
+        let stageNode
+        let executionNode
+
+        stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
+        executionNode = stageNode.openExecution
+        resetExecution(executionNode)
+
+        stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
+        executionNode = stageNode.closeExecution
+        resetExecution(executionNode)
+
+        function resetExecution(executionNode) {
+
+            resetExecutionAlgorithms(executionNode)
+
+            function resetExecutionAlgorithms(executionNode) {
+                for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
+                    let executionAlgorithm = executionNode.executionAlgorithms[i]
+                    resetOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
+                    resetOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
+                    resetOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
+                    resetOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+                }
+            }
+
+            function resetOrders(orders, executionAlgorithm, executionNode) {
+                for (let i = 0; i < orders.length; i++) {
+                    let tradingSystemOrder = orders[i]
+                    if (tradingSystemOrder.referenceParent === undefined) { continue }
+                    let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
+                    if (tradingEngineOrder.status === undefined) { continue }
+                    if (tradingEngineOrder.status.value === 'Closed') {
+                        /* We reset the order data structure inside the Trading Engine to its initial value */
+                        tradingEngineOrder.initialize(tradingEngineOrder)
+                    }
+                }
+            }
+        }
     }
 
     function evalConditions(startingNode, descendentOfNodeType) {
@@ -319,6 +364,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                                     tradingStrategyModule.openStrategy(j, situation.name, strategy.name)
 
+                                    /* Updating Episode Counters */
+                                    tradingEngine.episode.episodeCounters.strategies.value++
+
+                                    /* Initialize this */
                                     tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
                                     announcementsModule.makeAnnoucements(triggerStage.triggerOn)
@@ -404,6 +453,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(triggerStage.takePosition.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
+                                /* Updating Episode Counters */
+                                tradingEngine.episode.episodeCounters.positions.value++
+
+                                /* Inicializing this counter */
+                                tradingEngine.current.distanceToEvent.takePosition.value = 1
+
                                 tradingPositionModule.openPosition(situation.name)
 
                                 announcementsModule.makeAnnoucements(triggerStage.takePosition)
@@ -441,6 +496,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         /* Opening Status Procedure */
         if (tradingEngine.current.strategy.openStageStatus.value === 'Opening') {
+            /* Reset the Exchange Orders data structure to its initial value */
+            tradingEngine.exchangeOrders.initialize(tradingEngine.exchangeOrders)
+
             /* This procedure is intended to run only once */
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
             let executionNode = stageNode.openExecution
@@ -522,11 +580,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         function getReadyToTakePosition() {
-            /* Updating Episode Counters */
-            tradingEngine.episode.episodeCounters.positions.value++
-
-            /* Inicializing this counter */
-            tradingEngine.current.distanceToEvent.takePosition.value = 1
 
             /* Position size and rate */
             tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
@@ -1091,71 +1144,107 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 if (tradingEngineOrder.orderStatistics.feesPaid === undefined) { continue }
 
                 switch (tradingEngineOrder.status.value) {
+                    case 'Not Open': {
+                        {
+                            /* Check if we need to Create this Order */
+                            if (stageIsClosing === true) { continue }
+                            let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                            if (situationName !== undefined) {
+
+                                /* Order Size Calculation */
+                                tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
+                                if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit) {
+                                    /* We reduce the size to the remaining size of the position. */
+                                    tradingEngineOrder.size.value = stageSizeLimit - stageOrdersSize.value
+                                }
+
+                                if (tradingEngineOrder.size.value <= 0) { continue }
+
+                                /* Updating Episode Counters */
+                                tradingEngine.episode.episodeCounters.orders.value++
+
+                                /* Initialize this */
+                                tradingEngine.current.distanceToEvent.createOrder.value = 1
+
+                                /* Create Order Procedure */
+                                tradingEngineOrder.status.value = 'Open'
+                                tradingEngineOrder.identifier.value = global.UNIQUE_ID()
+                                tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
+                                tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
+                                tradingEngineOrder.serialNumber.value = tradingEngine.episode.episodeCounters.orders.value
+                                tradingEngineOrder.orderName.value = tradingSystemOrder.name
+                                tradingEngineOrder.algorithmName.value = executionAlgorithm.name
+                                tradingEngineOrder.situationName.value = situationName
+
+                                /* Order Rate Calculation */
+                                tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
+                                if (tradingSystemOrder.positionRate !== undefined) {
+                                    if (tradingSystemOrder.positionRate.formula !== undefined) {
+                                        tradingEngineOrder.rate.value = formulas.get(tradingSystemOrder.positionRate.formula.id)
+                                        tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
+                                    }
+                                }
+
+                                /* Update State Orders Size */
+                                stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
+                                stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
+                            }
+                        }
+                        break
+                    }
                     case 'Open': {
                         tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
                         tradingEngineOrder.orderCounters.periods.value++
                         tradingEngineOrder.orderStatistics.days.value = tradingEngineOrder.orderCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
+                        /* If the stage is closing we wont be moving or cancelling orders based on defined events */
                         if (stageIsClosing !== true) {
-                            let mustCancelOrder = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                            if (mustCancelOrder === true) {
-                                // Cancel Order
+
+                            /* Check if we need to Cancel this Order */
+                            let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                            if (situationName !== undefined) {
+
+                                /* Since the order was cancelled, we remove the unfilled amount of the order from here */
+                                let unfilledPercentage = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                                let unfilledSize = tradingEngineOrder.size.value * unfilledPercentage / 100
+                                stageOrdersSize.value = stageOrdersSize.value - unfilledSize
+                                stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
+
+                                /* Cancel the Order */
                                 tradingEngineOrder.status.value = 'Closed'
-                                tradingEngineOrder.exitType.value = 'Cancelled'
+                                tradingEngineOrder.exitType.value = 'Cancelled by Event'
+
+                                /* Initialize this */
+                                tradingEngine.current.distanceToEvent.cancelOrder.value = 1
                                 break
                             }
 
-                            let mustMoveOrder = checkOrderEvent(tradingSystemOrder.moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                            if (mustMoveOrder === true && tradingEngineOrder.status.value === 'Open') {
-                                // Move Order
+                            /* Check if we need to Move this Order */
+                            if (tradingSystemOrder.moveOrderEvents !== undefined) {
+                                for (let j = 0; j < tradingSystemOrder.moveOrderEvents.length; j++) {
+                                    let moveOrderEvent = tradingSystemOrder.moveOrderEvents[j]
+                                    let situationName = checkOrderEvent(moveOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
+                                    if (situationName !== undefined) {
+                                        if (moveOrderEvent.positionRate !== undefined) {
+                                            if (moveOrderEvent.positionRate.formula !== undefined) {
 
-                                break
-                            }
-                        }
+                                                /* Move Order to a different Rate */
+                                                tradingEngineOrder.rate.value = formulas.get(moveOrderEvent.positionRate.formula.id)
+                                                tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
 
-                        if (stageIsOpening === false) {
-                            simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
-                        }
-                    }
-                        break
-                    case 'Closed': {
-                        // Nothing to do here
-                    }
-                        break
-                    default: {
-                        if (stageIsClosing === true) { continue }
-
-                        tradingEngineOrder.status.value = 'Not Open'
-                        let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
-                        if (situationName !== undefined) {
-
-                            /* Order Size Calculation */
-                            tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
-                            if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit) {
-                                /* We reduce the size to the remaining size of the position. */
-                                tradingEngineOrder.size.value = stageSizeLimit - stageOrdersSize.value
-                            }
-
-                            if (tradingEngineOrder.size.value <= 0) { continue }
-
-                            /* Create Order Procedure */
-                            tradingEngineOrder.identifier.value = global.UNIQUE_ID()
-                            tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
-                            tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
-                            tradingEngineOrder.status.value = 'Open'
-                            tradingEngineOrder.orderName.value = tradingSystemOrder.name
-                            tradingEngineOrder.algorithmName.value = executionAlgorithm.name
-                            tradingEngineOrder.situationName.value = situationName
-
-                            /* Order Rate Calculation */
-                            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
-                            if (tradingSystemOrder.positionRate !== undefined) {
-                                if (tradingSystemOrder.positionRate.formula !== undefined) {
-                                    tradingEngineOrder.rate.value = formulas.get(tradingSystemOrder.positionRate.formula.id)
+                                                /* Initialize this */
+                                                tradingEngine.current.distanceToEvent.moveOrder.value = 1
+                                                break
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                        }
 
-                            stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
+                        /* Simulate Events that happens at the Exchange, if needed. */
+                        if (stageIsOpening === false) {
+                            simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
                         }
                     }
                 }
@@ -1163,6 +1252,8 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         function simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder) {
+
+            /* Filter by Session Type */
             switch (bot.SESSION.type) {
                 case 'Backtesting Session': {
                     break
@@ -1178,6 +1269,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 }
             }
 
+            /* Filter by what is defined at the Strategy */
             if (tradingSystemOrder.simulatedExchangeEvents === undefined) { return }
 
             /* Partial Fill Simulation */
@@ -1191,22 +1283,44 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     }
                     tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
                     if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
+
+                        /* Close this Order */
                         tradingEngineOrder.status.value = 'Closed'
                         tradingEngineOrder.exitType.value = 'Filled'
+
+                        /* Initialize this */
+                        tradingEngine.current.distanceToEvent.closeOrder.value = 1
                     }
 
                     /* Filled Size Calculation */
                     stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * percentageFilled / 100
+                    stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
 
-                    if (stageIsClosing === true) {
+                    if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
                         if (tradingEngineOrder.orderStatistics.percentageFilled.value === 0) {
+
+                            /* Close this Order */
                             tradingEngineOrder.status.value = 'Closed'
-                            tradingEngineOrder.exitType.value = 'Forced to Cancel'
+                            tradingEngineOrder.exitType.value = 'Cancelled by Closing Stage'
+
+                            /* Initialize this */
+                            tradingEngine.current.distanceToEvent.closeOrder.value = 1
                         }
                         if (tradingEngineOrder.orderStatistics.percentageFilled.value > 0 && tradingEngineOrder.orderStatistics.percentageFilled.value < 100) {
+
+                            /* Close this Order */
                             tradingEngineOrder.status.value = 'Closed'
                             tradingEngineOrder.exitType.value = 'Partially Filled'
+
+                            /* Initialize this */
+                            tradingEngine.current.distanceToEvent.closeOrder.value = 1
                         }
+
+                        /* Since the order was cancelled, we remove the unfilled amount of the order from here */
+                        let unfilledPercentage = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                        let unfilledSize = tradingEngineOrder.size.value * unfilledPercentage / 100
+                        stageOrdersSize.value = stageOrdersSize.value - unfilledSize
+                        stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
                     }
                 }
             }

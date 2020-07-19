@@ -101,57 +101,6 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
             }
         }
 
-        function persistIndividualRecord(record, product, outputDatasetArray) {
-
-            if (product.config.saveAsObjects === true) {
-                /* For saving objects we need to take care of a different set of rules. */
-                for (let j = 0; j < product.record.properties.length; j++) {
-                    let recordProperty = product.record.properties[j]
-                    if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
-                        let propertyValue = record[j]
-
-                        if (bot.processingDailyFiles) {
-                            /*
-                            When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
-                            since the object will be duplicated on the next day. How do we know we are positioned at the last candle
-                            of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
-                            time frame. 
-                            */
-                            let currentDay = new Date(tradingEngine.current.candle.end.value)
-                            let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
-                            if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
-                                /*
-                                We will save the object only if it is closed, becasuse we are at the last candle of the day.
-                                */
-                                if (propertyValue === product.config.propertyValueThatClosesObject) {
-                                    outputDatasetArray.push(record)
-                                }
-                            } else {
-                                /*
-                                When we are not at the end of the day, we will save the object normally, like in market files.
-                                */
-                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                    outputDatasetArray.push(record)
-                                }
-                            }
-                        }
-                        else {
-                            /*
-                            For Market Files we will add a record everytime that proeprty value does not match this
-                            */
-                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
-                                outputDatasetArray.push(record)
-                            }
-                        }
-                        break
-                    }
-                }
-            } else {
-                /* When we are not dealing with objects, we add every record to the existing file. */
-                outputDatasetArray.push(record)
-            }
-        }
-
         function scanRecordDefinition(product, productRootNode, index) {
 
             let record = []
@@ -230,6 +179,57 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 record.push(value)
             }
             return record
+        }
+
+        function persistIndividualRecord(record, product, outputDatasetArray) {
+
+            if (product.config.saveAsObjects === true) {
+                /* For saving objects we need to take care of a different set of rules. */
+                for (let j = 0; j < product.record.properties.length; j++) {
+                    let recordProperty = product.record.properties[j]
+                    if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
+                        let propertyValue = record[j]
+
+                        if (bot.processingDailyFiles) {
+                            /*
+                            When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
+                            since the object will be duplicated on the next day. How do we know we are positioned at the last candle
+                            of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                            time frame. 
+                            */
+                            let currentDay = new Date(tradingEngine.current.candle.end.value)
+                            let nextDay = new Date(tradingEngine.current.candle.end.value + 1)
+                            if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
+                                /*
+                                We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                                */
+                                if (propertyValue === product.config.propertyValueThatClosesObject) {
+                                    outputDatasetArray.push(record)
+                                }
+                            } else {
+                                /*
+                                When we are not at the end of the day, we will save the object normally, like in market files.
+                                */
+                                if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                    outputDatasetArray.push(record)
+                                }
+                            }
+                        }
+                        else {
+                            /*
+                            For Market Files we will add a record everytime that proeprty value does not match this
+                            */
+                            if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
+                                outputDatasetArray.push(record)
+                            }
+                        }
+                        break
+                    }
+                }
+            } else {
+                /* When we are not dealing with objects, we add every record to the existing file. */
+                outputDatasetArray.push(record)
+            }
         }
 
         function safeNumericValue(value) {

@@ -147,29 +147,65 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function updateDistanceToEventsCounters() {
-        /* Keeping Distance Counters Up-to-date */
+        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
         if (
-            tradingEngine.current.distanceToEvent.triggerOn.value > 0 // with this we avoind counting before the first event happens.
+            tradingEngine.current.distanceToEvent.triggerOn.value > 0
         ) {
             tradingEngine.current.distanceToEvent.triggerOn.value++
         }
 
         if (
-            tradingEngine.current.distanceToEvent.triggerOff.value > 0 // with this we avoind counting before the first event happens.
+            tradingEngine.current.distanceToEvent.triggerOff.value > 0
         ) {
             tradingEngine.current.distanceToEvent.triggerOff.value++
         }
 
         if (
-            tradingEngine.current.distanceToEvent.takePosition.value > 0 // with this we avoind counting before the first event happens.
+            tradingEngine.current.distanceToEvent.takePosition.value > 0
         ) {
             tradingEngine.current.distanceToEvent.takePosition.value++
         }
 
         if (
-            tradingEngine.current.distanceToEvent.closePosition.value > 0 // with this we avoind counting before the first event happens.
+            tradingEngine.current.distanceToEvent.closePosition.value > 0
         ) {
             tradingEngine.current.distanceToEvent.closePosition.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.nextPhase.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.nextPhase.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.moveToPhase.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.moveToPhase.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.createOrder.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.createOrder.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.moveOrder.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.moveOrder.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.cancelOrder.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.cancelOrder.value++
+        }
+
+        if (
+            tradingEngine.current.distanceToEvent.closeOrder.value > 0
+        ) {
+            tradingEngine.current.distanceToEvent.closeOrder.value++
         }
     }
 

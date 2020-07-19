@@ -2642,35 +2642,9 @@
         "type": "Episode Counters",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positions",
-                "label": "Add Positions",
-                "relatedUiObject": "Positions",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "fails",
-                "label": "Add Fails",
-                "relatedUiObject": "Fails",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "hits",
-                "label": "Add Hits",
-                "relatedUiObject": "Hits",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "periods",
-                "label": "Add Periods",
-                "relatedUiObject": "Periods",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -2704,9 +2678,21 @@
                 "autoAdd": true
             },
             {
+                "name": "strategies",
+                "type": "node",
+                "childType": "Strategies",
+                "autoAdd": true
+            },
+            {
                 "name": "positions",
                 "type": "node",
                 "childType": "Positions",
+                "autoAdd": true
+            },
+            {
+                "name": "orders",
+                "type": "node",
+                "childType": "Orders",
                 "autoAdd": true
             },
             {
@@ -2909,6 +2895,74 @@
         },
         "icon": "super-scripts",
         "propertyNameAtParent": "positions"
+    },
+    {
+        "type": "Strategies",
+        "menuItems": [
+            {
+                "action": "Configure Strategies",
+                "label": "Configure Strategies",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Strategies",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode Counters->"
+        },
+        "icon": "upbit",
+        "propertyNameAtParent": "strategies"
+    },
+    {
+        "type": "Orders",
+        "menuItems": [
+            {
+                "action": "Configure Orders",
+                "label": "Configure Orders",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete Orders",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Episode Counters->"
+        },
+        "icon": "binance-coin",
+        "propertyNameAtParent": "orders"
     },
     {
         "type": "Fails",
@@ -4187,6 +4241,30 @@
                 "type": "node",
                 "childType": "Move To Phase",
                 "autoAdd": true
+            },
+            {
+                "name": "createOrder",
+                "type": "node",
+                "childType": "Create Order",
+                "autoAdd": true
+            },
+            {
+                "name": "moveOrder",
+                "type": "node",
+                "childType": "Move Order",
+                "autoAdd": true
+            },
+            {
+                "name": "cancelOrder",
+                "type": "node",
+                "childType": "Cancel Order",
+                "autoAdd": true
+            },
+            {
+                "name": "closeOrder",
+                "type": "node",
+                "childType": "Close Order",
+                "autoAdd": true
             }
         ]
     },
@@ -4194,8 +4272,8 @@
         "type": "Trigger On",
         "menuItems": [
             {
-                "action": "Configure Trigger On",
-                "label": "Configure Trigger On",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4204,7 +4282,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Trigger On",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4228,8 +4306,8 @@
         "type": "Trigger Off",
         "menuItems": [
             {
-                "action": "Configure Trigger Off",
-                "label": "Configure Trigger Off",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4238,7 +4316,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Trigger Off",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4262,8 +4340,8 @@
         "type": "Take Position",
         "menuItems": [
             {
-                "action": "Configure Take Position",
-                "label": "Configure Take Position",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4272,7 +4350,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Take Position",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4296,8 +4374,8 @@
         "type": "Close Position",
         "menuItems": [
             {
-                "action": "Configure Close Position",
-                "label": "Configure Close Position",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4306,7 +4384,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Close Position",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4330,14 +4408,14 @@
         "type": "Next Phase",
         "menuItems": [
             {
-                "action": "Configure Next Phase",
-                "label": "Configure Next Phase",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Delete UI Object",
+                "action": "Delete This",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete Next Phase",
@@ -4364,8 +4442,8 @@
         "type": "Move To Phase",
         "menuItems": [
             {
-                "action": "Configure Move To Phase",
-                "label": "Configure Move To Phase",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4374,7 +4452,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Move To Phase",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4393,6 +4471,142 @@
         },
         "icon": "bitmex",
         "propertyNameAtParent": "moveToPhase"
+    },
+    {
+        "type": "Create Order",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Distance To Event->"
+        },
+        "icon": "bitmex",
+        "propertyNameAtParent": "createOrder"
+    },
+    {
+        "type": "Move Order",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Distance To Event->"
+        },
+        "icon": "bitmex",
+        "propertyNameAtParent": "moveOrder"
+    },
+    {
+        "type": "Cancel Order",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Distance To Event->"
+        },
+        "icon": "bitmex",
+        "propertyNameAtParent": "cancelOrder"
+    },
+    {
+        "type": "Close Order",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Distance To Event->"
+        },
+        "icon": "bitmex",
+        "propertyNameAtParent": "closeOrder"
     },
     {
         "type": "Strategy",
@@ -4429,6 +4643,12 @@
         "icon": "poloniex",
         "propertyNameAtParent": "strategy",
         "properties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
             {
                 "name": "identifier",
                 "type": "node",
@@ -4862,6 +5082,40 @@
         "propertyNameAtParent": "orderName"
     },
     {
+        "type": "Serial Number",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->"
+        },
+        "icon": "arrangement-horizontal-top",
+        "propertyNameAtParent": "serialNumber"
+    },
+    {
         "type": "Identifier",
         "menuItems": [
             {
@@ -5158,6 +5412,12 @@
         "icon": "kucoin",
         "propertyNameAtParent": "position",
         "properties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
             {
                 "name": "identifier",
                 "type": "node",
@@ -5813,6 +6073,12 @@
         "propertyNameAtParent": "marketOrders",
         "properties": [
             {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
+            {
                 "name": "identifier",
                 "type": "node",
                 "childType": "Identifier",
@@ -6018,6 +6284,12 @@
         "icon": "menu-mobility-unfreeze",
         "propertyNameAtParent": "limitOrders",
         "properties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
             {
                 "name": "identifier",
                 "type": "node",
@@ -8941,7 +9213,7 @@
         "addLeftIcons": true,
         "level": 5,
         "chainAttachesTo": {
-            "compatibleTypes": "->Initial Definition->Limit Buy Order->Limit Sell Order->"
+            "compatibleTypes": "->Initial Definition->Limit Buy Order->Limit Sell Order->Move Order Event->"
         },
         "icon": "stage-open-postion-rate",
         "properties": [
@@ -9233,17 +9505,15 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "moveOrderEvent",
-                "label": "Add Move Order Event",
-                "relatedUiObject": "Move Order Event",
+                "propertyToCheckFor": "cancelOrderEvent",
+                "label": "Add Cancel Order Event",
+                "relatedUiObject": "Cancel Order Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "cancelOrderEvent",
-                "label": "Add Cancel Order Event",
-                "relatedUiObject": "Cancel Order Event",
+                "label": "Add Move Order Event",
+                "relatedUiObject": "Move Order Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -9293,14 +9563,14 @@
                 "childType": "Create Order Event"
             },
             {
-                "name": "moveOrderEvent",
-                "type": "node",
-                "childType": "Move Order Event"
-            },
-            {
                 "name": "cancelOrderEvent",
                 "type": "node",
                 "childType": "Cancel Order Event"
+            },
+            {
+                "name": "moveOrderEvents",
+                "type": "array",
+                "childType": "Move Order Event"
             },
             {
                 "name": "simulatedExchangeEvents",
@@ -9339,17 +9609,15 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "moveOrderEvent",
-                "label": "Add Move Order Event",
-                "relatedUiObject": "Move Order Event",
+                "propertyToCheckFor": "cancelOrderEvent",
+                "label": "Add Cancel Order Event",
+                "relatedUiObject": "Cancel Order Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "cancelOrderEvent",
-                "label": "Add Cancel Order Event",
-                "relatedUiObject": "Cancel Order Event",
+                "label": "Add Move Order Event",
+                "relatedUiObject": "Move Order Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -9399,14 +9667,14 @@
                 "childType": "Create Order Event"
             },
             {
-                "name": "moveOrderEvent",
-                "type": "node",
-                "childType": "Move Order Event"
-            },
-            {
                 "name": "cancelOrderEvent",
                 "type": "node",
                 "childType": "Cancel Order Event"
+            },
+            {
+                "name": "moveOrderEvents",
+                "type": "array",
+                "childType": "Move Order Event"
             },
             {
                 "name": "simulatedExchangeEvents",
@@ -9467,6 +9735,14 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "positionRate",
+                "label": "Add Position Rate",
+                "relatedUiObject": "Position Rate",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Situation",
                 "relatedUiObject": "Situation",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9495,6 +9771,12 @@
         "icon": "move-order",
         "properties": [
             {
+                "name": "positionRate",
+                "type": "node",
+                "childType": "Position Rate",
+                "autoAdd": true
+            },
+            {
                 "name": "situations",
                 "type": "array",
                 "childType": "Situation",
@@ -9506,7 +9788,7 @@
                 "childType": "Announcement"
             }
         ],
-        "propertyNameAtParent": "moveOrderEvent"
+        "propertyNameAtParent": "moveOrderEvents"
     },
     {
         "type": "Cancel Order Event",

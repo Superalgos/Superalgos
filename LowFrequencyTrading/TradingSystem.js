@@ -517,7 +517,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
-            checkExecution(executionNode, true, false, tradingEngine.current.position.size.value, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+            checkExecution(executionNode, true, false, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
 
             /* From here on, the state is officially Open */
             tradingStrategyModule.updateStageStatus('Open Stage', 'Open')
@@ -537,7 +537,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
-            checkExecution(executionNode, false, false, tradingEngine.current.position.size.value, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+            checkExecution(executionNode, false, false, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
 
             /*
             The Open is finished when the fillSize reaches the Position Size.
@@ -565,7 +565,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 evalConditions(stageNode, 'Open Execution')
                 evalFormulas(stageNode, 'Open Execution')
 
-                checkExecution(executionNode, false, true, tradingEngine.current.position.size.value, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+                checkExecution(executionNode, false, true, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
             }
 
             /*
@@ -951,7 +951,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Close Execution')
             evalFormulas(stageNode, 'Close Execution')
 
-            checkExecution(executionNode, false, false, tradingEngine.current.position.openStageFilledSize.value, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
+            checkExecution(executionNode, false, false, tradingEngine.current.position.openStageFilledSize, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
 
             /* Close the Stage Validation */
             if (tradingEngine.current.position.closeStageFilledSize.value === tradingEngine.current.position.openStageFilledSize.value) {
@@ -1107,6 +1107,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
     function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
 
+        /* Enforcing Precision Limit */
+        stageSizeLimit.value = global.PRECISE(stageSizeLimit.value, 10)
+        stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
+        stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
+
         checkExecutionAlgorithms(executionNode)
 
         function checkExecutionAlgorithms(executionNode) {
@@ -1153,9 +1158,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                                 /* Order Size Calculation */
                                 tradingEngineOrder.size.value = formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
-                                if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit) {
+                                if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit.value) {
                                     /* We reduce the size to the remaining size of the position. */
-                                    tradingEngineOrder.size.value = stageSizeLimit - stageOrdersSize.value
+                                    tradingEngineOrder.size.value = stageSizeLimit.value - stageOrdersSize.value
+                                    tradingEngineOrder.size.value = global.PRECISE(tradingEngineOrder.size.value, 10)
                                 }
 
                                 if (tradingEngineOrder.size.value <= 0) { continue }

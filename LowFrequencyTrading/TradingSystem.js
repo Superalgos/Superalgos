@@ -366,6 +366,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                                     /* Updating Episode Counters */
                                     tradingEngine.episode.episodeCounters.strategies.value++
+
                                     /* Initialize this */
                                     tradingEngine.current.distanceToEvent.triggerOn.value = 1
 
@@ -451,6 +452,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(situation.id)
                                 tradingSystem.highlights.push(triggerStage.takePosition.id)
                                 tradingSystem.highlights.push(triggerStage.id)
+
+                                /* Updating Episode Counters */
+                                tradingEngine.episode.episodeCounters.positions.value++
+
+                                /* Inicializing this counter */
+                                tradingEngine.current.distanceToEvent.takePosition.value = 1
 
                                 tradingPositionModule.openPosition(situation.name)
 
@@ -573,11 +580,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         function getReadyToTakePosition() {
-            /* Updating Episode Counters */
-            tradingEngine.episode.episodeCounters.positions.value++
-
-            /* Inicializing this counter */
-            tradingEngine.current.distanceToEvent.takePosition.value = 1
 
             /* Position size and rate */
             tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
@@ -1158,11 +1160,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                                 if (tradingEngineOrder.size.value <= 0) { continue }
 
+                                /* Updating Episode Counters */
+                                tradingEngine.episode.episodeCounters.orders.value++
+
+                                /* Initialize this */
+                                tradingEngine.current.distanceToEvent.createOrder.value = 1
+
                                 /* Create Order Procedure */
+                                tradingEngineOrder.status.value = 'Open'
                                 tradingEngineOrder.identifier.value = global.UNIQUE_ID()
                                 tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
                                 tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
-                                tradingEngineOrder.status.value = 'Open'
+                                tradingEngineOrder.serialNumber.value = tradingEngine.episode.episodeCounters.orders.value
                                 tradingEngineOrder.orderName.value = tradingSystemOrder.name
                                 tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                                 tradingEngineOrder.situationName.value = situationName
@@ -1179,11 +1188,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 /* Update State Orders Size */
                                 stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
                                 stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
-
-                                /* Updating Episode Counters */
-                                tradingEngine.episode.episodeCounters.orders.value++
-                                /* Initialize this */
-                                tradingEngine.current.distanceToEvent.createOrder.value = 1
                             }
                         }
                         break

@@ -43,6 +43,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function openPosition(situationName) {
         tradingEngine.current.position.status.value = 'Open'
+        tradingEngine.current.position.serialNumber.value = tradingEngine.episode.episodeCounters.positions.value
         tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
 

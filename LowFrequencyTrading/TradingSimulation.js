@@ -141,6 +141,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.reset(chart)
                 tradingSystemModule.mantainPositions()
                 tradingSystemModule.mantainStrategies()
+                tradingSystemModule.mantainOrders()
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
                 tradingEngineModule.updateDistanceToEventsCounters()

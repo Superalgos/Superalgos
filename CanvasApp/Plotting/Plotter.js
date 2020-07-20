@@ -42,6 +42,8 @@ function newPlotter () {
 
   let records = []                                                    // We will have the information to be plotted here.
   let userPositionDate
+  let minUserPositionRate
+  let maxUserPositionRate
 
   let onMouseOverEventSuscriptionId
   let zoomChangedEventSubscriptionId
@@ -148,6 +150,18 @@ function newPlotter () {
   function onMouseOver (event) {
     let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
     userPositionDate = userPosition.valueOf()
+
+    let minPositionPoint = {
+      x: event.x,
+      y: event.y + 2
+    }
+    minUserPositionRate = getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
+
+    let maxPositionPoint = {
+      x: event.x,
+      y: event.y - 2
+    }
+    maxUserPositionRate = getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
   }
 
   function onMarketFilesUpdated () {
@@ -536,8 +550,17 @@ function newPlotter () {
 
         let atMousePosition = false
         if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-          atMousePosition = true
-          thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
+          if (record.rate === undefined) {
+            /* Current Record depends only on begin and end. */
+            atMousePosition = true
+            thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
+          } else {
+            /* Current Record depends also on rate */
+            if (record.rate >= minUserPositionRate && record.rate <= maxUserPositionRate) {
+              atMousePosition = true
+              thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
+            }
+          }
         }
 
         /* If there is code we execute it now. */

@@ -92,8 +92,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     }
 
     function updateSizeAndRate(size, rate) {
-        tradingEngine.current.position.size.value = size
-        tradingEngine.current.position.rate.value = rate
+        tradingEngine.current.position.size.value = global.PRECISE(size, 10)
+        tradingEngine.current.position.rate.value = global.PRECISE(rate, 10)
     }
 
     function applySlippageToRate() {

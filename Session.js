@@ -300,7 +300,7 @@
             }
 
             function startLiveTrading(message) {
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) { // TODO Remove this from Process .env
+                if (bot.KEY === undefined || bot.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
@@ -311,7 +311,7 @@
             }
 
             function startFordwardTesting(message) {
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                if (bot.KEY === undefined || bot.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false

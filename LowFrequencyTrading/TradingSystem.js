@@ -26,6 +26,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     let conditions = new Map()
     let formulas = new Map()
 
+    const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
+    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(bot, logger)
+
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
     let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger, tradingEngineModule)
 
@@ -48,6 +51,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         tradingEngine = bot.simulationState.tradingEngine
         sessionParameters = bot.SESSION.parameters
 
+        exchangeAPIModule.initialize()
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
         announcementsModule.initialize()
@@ -56,6 +60,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     function finalize() {
+        exchangeAPIModule.finalize()
+        exchangeAPIModule = undefined
+
         tradingStrategyModule.finalize()
         tradingStrategyModule = undefined
 
@@ -1166,6 +1173,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                                 if (tradingEngineOrder.size.value <= 0) { continue }
 
+                                /* Place Order at the Exchange */
+                                if (placeOrderAtExchange(tradingSystemOrder, tradingEngineOrder) !== true) { continue }
+
                                 /* Updating Episode Counters */
                                 tradingEngine.episode.episodeCounters.orders.value++
 
@@ -1191,7 +1201,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     }
                                 }
 
-                                /* Update State Orders Size */
+                                /* Update Stage Orders Size */
                                 stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
                                 stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
                             }
@@ -1249,11 +1259,35 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                         }
 
                         /* Simulate Events that happens at the Exchange, if needed. */
-                        if (stageIsOpening === false) {
-                            simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
-                        }
+                        simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
                     }
                 }
+            }
+        }
+
+        function placeOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
+
+            /* Filter by Session Type */
+            switch (bot.SESSION.type) {
+                case 'Backtesting Session': {
+                    return true
+                }
+                case 'Live Trading Session': {
+                    break
+                }
+                case 'Fordward Testing Session': {
+                    break
+                }
+                case 'Paper Trading Session': {
+                    return true
+                }
+            }
+
+            let orderId = exchangeAPIModule.createOrder(tradingSystemOrder, tradingEngineOrder)
+
+            if (orderId !== undefined) {
+                tradingEngineOrder.exchangeId.value = orderId
+                return true
             }
         }
 

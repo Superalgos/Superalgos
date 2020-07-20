@@ -2,17 +2,18 @@
 
     let MODULE_NAME = "Exchange API";
     let LOG_INFO = true;
-    let apiClient;
     let bot = BOT
 
     let thisObject = {
-        initialize: initialize,
         getTicker: getTicker,
         getOpenOrders: getOpenOrders,
         getOrder: getOrder,
         createOrder: createOrder,
-        getMaxDecimalPositions: getMaxDecimalPositions
+        initialize: initialize,
+        finalize: finalize
     };
+
+    let tradingSystem
 
     let exchangeId
     let options = {}
@@ -23,10 +24,12 @@
     return thisObject;
 
     function initialize() {
+        tradingSystem = bot.simulationState.tradingSystem
+
         exchangeId = bot.exchange.toLowerCase()
 
-        let key = process.env.KEY
-        let secret = process.env.SECRET
+        let key = bot.KEY
+        let secret = bot.SECRET
 
         if (key === "undefined") { key = undefined }
         if (secret === "undefined") { secret = undefined }
@@ -43,11 +46,14 @@
         exchange = new exchangeClass(exchangeConstructorParams)
     }
 
-    function getMaxDecimalPositions() {
-        return 8
+    function finalize() {
+        tradingSystem = undefined
+        exchangeId = undefined
+        options = undefined
+        exchange = undefined
     }
 
-    async function getTicker(market, callBackFunction) {
+    async function getTicker(callBackFunction) {
         try {
             logInfo("getTicker -> Entering function.");
             const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
@@ -108,37 +114,60 @@
         }
     }
 
-    async function createOrder(market, side, price, cost, amount, callBackFunction) {
+    async function createOrder(tradingSystemOrder, tradingEngineOrder) {
+
+        let price = tradingEngineOrder.rate                                 // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
+        let amount = tradingEngineOrder.size                                // CCXT: how much of currency you want to trade
+        let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
+        let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
+        let symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
+
+        switch (tradingSystemOrder.type) {
+            case 'Market Buy Order': {
+                type = 'market'
+                side = 'buy'
+                break
+            }
+            case 'Market Sell Order': {
+                type = 'market'
+                side = 'sell'
+                break
+            }
+            case 'Limit Buy Order': {
+                type = 'limit'
+                side = 'buy'
+                break
+            }
+            case 'Limit Sell Order': {
+                type = 'limit'
+                side = 'sell'
+                break
+            }
+        }
+
+        /* Basic Logging */
+        logInfo("createOrder -> symbol = " + symbol);
+        logInfo("createOrder -> side = " + side);
+        logInfo("createOrder -> cost = " + cost);
+        logInfo("createOrder -> amount = " + amount);
+        logInfo("createOrder -> price = " + price);
+
+        /* Basic Validations */
+        if (side !== "buy" && side !== "sell") {
+            logError("createOrder -> side must be either 'buy' or 'sell'.");
+            return
+        }
+        if (exchange.has['createOrder'] === false) {
+            logError("createOrder -> Exchange does not support createOrder command.");
+            return
+        }
+
         try {
-            logInfo("createOrder -> Entering function.");
-
-            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
-
-            logInfo("createOrder -> market = " + market.assetA + "_" + market.assetB);
-            logInfo("createOrder -> side = " + side);
-            logInfo("createOrder -> cost = " + cost);
-            logInfo("createOrder -> amount = " + amount);
-            logInfo("createOrder -> price = " + price);
-
-            if (side !== "buy" && side !== "sell") {
-                logError("createOrder -> side must be either 'buy' or 'sell'.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
-
-            let type = 'market'
-            let order
-
-            if (exchange.has['createOrder']) {
-                order = await (exchange.createOrder(symbol, type, side, amount))
-                callBackFunction(global.DEFAULT_OK_RESPONSE, order)
-            } else {
-                logError("createOrder -> Exchange does not support createOrder command.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
-
+            let order = await (exchange.createOrder(symbol, type, side, amount))
+            return order.id
         } catch (err) {
-            logError("createOrder -> err = " + JSON.stringify(err.stack) || err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            logError("getOrder -> Error = " + err.message);
         }
     }
 

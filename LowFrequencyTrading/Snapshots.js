@@ -244,7 +244,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
                 }
             }
         } catch (err) {
-            tradingSystem.errors.push(nodeWithCode.id, err.message)
+            tradingSystem.errors.push([nodeWithCode.id, err.message])
             logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
             logger.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
         }

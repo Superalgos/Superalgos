@@ -225,18 +225,14 @@
                     /* Bot Type */
                     botConfig.type = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
 
-                    /* Setting the Key to use */
-                    process.env.KEY = undefined
-                    process.env.SECRET = undefined
-
                     if (botConfig.processNode) {
                         if (botConfig.processNode.marketReference) {
                             if (botConfig.processNode.marketReference.keyInstance !== undefined) {
                                 if (botConfig.processNode.marketReference.keyInstance.referenceParent !== undefined) {
                                     let key = botConfig.processNode.marketReference.keyInstance.referenceParent
 
-                                    process.env.KEY = key.config.codeName
-                                    process.env.SECRET = key.config.secret
+                                    botConfig.KEY = key.config.codeName
+                                    botConfig.SECRET = key.config.secret
                                 }
                             }
                         }

@@ -5,10 +5,9 @@
     let bot = BOT
 
     let thisObject = {
-        getTicker: getTicker,
-        getOpenOrders: getOpenOrders,
         getOrder: getOrder,
         createOrder: createOrder,
+        cancelOrder: cancelOrder,
         initialize: initialize,
         finalize: finalize
     };
@@ -53,64 +52,27 @@
         exchange = undefined
     }
 
-    async function getTicker(callBackFunction) {
-        try {
-            logInfo("getTicker -> Entering function.");
-            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
-            let ticker
+    async function getOrder(tradingSystemOrder, tradingEngineOrder) {
 
-            if (exchange.has['fetchTicker']) {
-                ticker = await (exchange.fetchTicker(symbol))
-                callBackFunction(global.DEFAULT_OK_RESPONSE, ticker)
-            } else {
-                logError("getTicker -> Exchange does not support fetchTicker command.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
+        let orderId = tradingEngineOrder.exchangeId.value
 
-        } catch (err) {
-            logError("getTicker -> err = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+        /* Basic Logging */
+        logInfo("getOrder -> Entering function. orderId = " + orderId);
+
+        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+
+        /* Basic Validations */
+        if (exchange.has['fetchOrder'] === false) {
+            logError("getOrder -> Exchange does not support fetchOrder command.");
+            return
         }
-    }
 
-    async function getOpenOrders(market, callBackFunction) {
         try {
-            logInfo("getOpenOrders -> Entering function. market = " + JSON.stringify(market));
-
-            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
-            let openOrders
-
-            if (exchange.has['fetchOpenOrders']) {
-                openOrders = await (exchange.fetchOpenOrders(symbol))
-                callBackFunction(global.DEFAULT_OK_RESPONSE, openOrders)
-            } else {
-                logError("getOpenOrders -> Exchange does not support fetchOpenOrders command.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
-
+            let order = await (exchange.fetchOrder(orderId, symbol))
+            return order
         } catch (err) {
-            logError("getOpenOrders -> Error = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-        }
-    }
-
-    async function getOrder(orderId, market, callBackFunction) {
-        try {
-            logInfo("getOrder -> Entering function. orderId = " + orderId);
-
-            const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
-            let order
-
-            if (exchange.has['fetchOrder']) {
-                order = await (exchange.fetchOrder(orderId, symbol))
-                callBackFunction(global.DEFAULT_OK_RESPONSE, order)
-            } else {
-                logError("getOrder -> Exchange does not support fetchOrder command.");
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
-            }
-        } catch (err) {
+            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
             logError("getOrder -> Error = " + err.message);
-            callBackFunction(global.DEFAULT_FAIL_RESPONSE);
         }
     }
 
@@ -165,6 +127,30 @@
         try {
             let order = await (exchange.createOrder(symbol, type, side, amount))
             return order.id
+        } catch (err) {
+            tradingSystem.errors.push([tradingSystemOrder.id, err.message])
+            logError("getOrder -> Error = " + err.message);
+        }
+    }
+
+    async function cancelOrder(tradingSystemOrder, tradingEngineOrder) {
+
+        let orderId = tradingEngineOrder.exchangeId.value
+
+        /* Basic Logging */
+        logInfo("getOrder -> Entering function. orderId = " + orderId);
+
+        const symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset
+
+        /* Basic Validations */
+        if (exchange.has['fetchOrder'] === false) {
+            logError("getOrder -> Exchange does not support fetchOrder command.");
+            return
+        }
+
+        try {
+            let order = await (exchange.cancelOrder(orderId, symbol))
+            return true
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])
             logError("getOrder -> Error = " + err.message);

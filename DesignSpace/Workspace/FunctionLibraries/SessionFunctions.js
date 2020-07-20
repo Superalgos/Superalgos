@@ -37,7 +37,7 @@ function newSessionFunctions () {
     'Close Stage->Close Execution->' +
     'Announcement->Formula->' +
     'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-    'Create Order Event->Move Order Event->Cancel Order Event->' +
+    'Create Order Event->Cancel Order Event->' +
     'Position Size->Position Rate->Formula->' +
     'Situation->Condition->Javascript Code->' +
     'Market Order->Limit Order->' +
@@ -57,7 +57,7 @@ function newSessionFunctions () {
     'Begin->End->Open->Close->Min->Max->Index->' +
     'Balance->Base Asset->Quoted Asset->' +
     'Distance To Event->' +
-    'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Move Order->Cancel Order->Close Order->' +
+    'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
     'Strategy->' +
     'Serial Number->Identifier->Begin->End->Strategy Name->Index->Trigger Stage Status->Open Stage Status->Manage Stage Status->Close Stage Status->Status->Begin Rate->End Rate->Situation Name->' +
     'Strategy Counters->Periods->' +

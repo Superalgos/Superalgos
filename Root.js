@@ -227,9 +227,9 @@
 
                     if (botConfig.processNode) {
                         if (botConfig.processNode.marketReference) {
-                            if (botConfig.processNode.marketReference.keyInstance !== undefined) {
-                                if (botConfig.processNode.marketReference.keyInstance.referenceParent !== undefined) {
-                                    let key = botConfig.processNode.marketReference.keyInstance.referenceParent
+                            if (botConfig.processNode.marketReference.keyReference !== undefined) {
+                                if (botConfig.processNode.marketReference.keyReference.referenceParent !== undefined) {
+                                    let key = botConfig.processNode.marketReference.keyReference.referenceParent
 
                                     botConfig.KEY = key.config.codeName
                                     botConfig.SECRET = key.config.secret

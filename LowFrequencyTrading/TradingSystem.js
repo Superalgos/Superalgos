@@ -54,8 +54,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         snapshotsModule.initialize()
         tradingExecutionModule.initialize()
 
-        /* Adding Functions to Trading System definition */
-
+        /* Adding Functions used elsewhere to Trading System definition */
         tradingSystem.checkConditions = function (situation, passed) {
             /* Given a Situation, we check if all children conditions are true or not */
             for (let m = 0; m < situation.conditions.length; m++) {

@@ -12,25 +12,35 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
     let tradingEngine
     let tradingSystem
+    let sessionParameters
 
     const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
     let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(bot, logger)
+
+    const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
+    let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
 
     return thisObject
 
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
+        sessionParameters = bot.SESSION.parameters
 
         exchangeAPIModule.initialize()
+        announcementsModule.initialize()
     }
 
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
+        sessionParameters = undefined
 
         exchangeAPIModule.finalize()
         exchangeAPIModule = undefined
+
+        announcementsModule.finalize()
+        announcementsModule = undefined
     }
 
     function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
@@ -89,7 +99,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                             if (situationName !== undefined) {
 
                                 /* Open a new order */
-                                openOrder(tradingSystemOrder, tradingEngineOrder, situationName)
+                                openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName)
                             }
                         }
                         break
@@ -120,7 +130,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
         }
 
-        function openOrder(tradingSystemOrder, tradingEngineOrder, situationName) {
+        function openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
             /* Order Size Calculation */
             tradingEngineOrder.size.value = tradingSystem.formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
             if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit.value) {
@@ -440,7 +450,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         passed = true
                     }
 
-                    passed = checkConditions(situation, passed)
+                    passed = tradingSystem.checkConditions(situation, passed)
 
                     tradingSystem.values.push([situation.id, passed])
                     if (passed) {

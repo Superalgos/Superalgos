@@ -53,6 +53,28 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         announcementsModule.initialize()
         snapshotsModule.initialize()
         tradingExecutionModule.initialize()
+
+        /* Adding Functions to Trading System definition */
+
+        tradingSystem.checkConditions = function (situation, passed) {
+            /* Given a Situation, we check if all children conditions are true or not */
+            for (let m = 0; m < situation.conditions.length; m++) {
+
+                let condition = situation.conditions[m]
+                let value = false
+                if (tradingSystem.conditions.get(condition.id) !== undefined) {
+                    value = tradingSystem.conditions.get(condition.id)
+                }
+                if (value === true) {
+                    tradingSystem.highlights.push(condition.id)
+                }
+                else {
+                    passed = false
+                }
+                tradingSystem.values.push([condition.id, value])
+            }
+            return passed
+        }
     }
 
     function finalize() {
@@ -354,7 +376,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                     passed = true
                                 }
 
-                                passed = checkConditions(situation, passed)
+                                passed = tradingSystem.checkConditions(situation, passed)
 
                                 tradingSystem.values.push([situation.id, passed])
                                 if (passed) {
@@ -407,7 +429,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 passed = true
                             }
 
-                            passed = checkConditions(situation, passed)
+                            passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -445,7 +467,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 passed = true
                             }
 
-                            passed = checkConditions(situation, passed)
+                            passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -714,7 +736,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             passed = true
                         }
 
-                        passed = checkConditions(situation, passed)
+                        passed = tradingSystem.checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -744,7 +766,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 passed = true
                             }
 
-                            passed = checkConditions(situation, passed)
+                            passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -821,7 +843,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                             passed = true
                         }
 
-                        passed = checkConditions(situation, passed)
+                        passed = tradingSystem.checkConditions(situation, passed)
 
                         tradingSystem.values.push([situation.id, passed])
                         if (passed) {
@@ -851,7 +873,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                                 passed = true
                             }
 
-                            passed = checkConditions(situation, passed)
+                            passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
@@ -1115,26 +1137,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         } else {
             return false
         }
-    }
-
-    function checkConditions(situation, passed) {
-        /* Given a Situation, we check if all children conditions are true or not */
-        for (let m = 0; m < situation.conditions.length; m++) {
-
-            let condition = situation.conditions[m]
-            let value = false
-            if (tradingSystem.conditions.get(condition.id) !== undefined) {
-                value = tradingSystem.conditions.get(condition.id)
-            }
-            if (value === true) {
-                tradingSystem.highlights.push(condition.id)
-            }
-            else {
-                passed = false
-            }
-            tradingSystem.values.push([condition.id, value])
-        }
-        return passed
     }
 }
 

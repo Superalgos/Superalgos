@@ -142,6 +142,15 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             /* Check Order Size */
             if (tradingEngineOrder.size.value <= 0) { return }
 
+            /* Order Rate Calculation */
+            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
+            if (tradingSystemOrder.positionRate !== undefined) {
+                if (tradingSystemOrder.positionRate.formula !== undefined) {
+                    tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.positionRate.formula.id)
+                    tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
+                }
+            }
+
             /* Place Order at the Exchange */
             if (createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) !== true) { return }
 
@@ -161,21 +170,12 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             tradingEngineOrder.algorithmName.value = executionAlgorithm.name
             tradingEngineOrder.situationName.value = situationName
 
-            /* Order Rate Calculation */
-            tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
-            if (tradingSystemOrder.positionRate !== undefined) {
-                if (tradingSystemOrder.positionRate.formula !== undefined) {
-                    tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.positionRate.formula.id)
-                    tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
-                }
-            }
-
             /* Update Stage Orders Size */
             stageOrdersSize.value = stageOrdersSize.value + tradingEngineOrder.size.value
             stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
         }
 
-        function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
+        async function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
 
             /* Filter by Session Type */
             switch (bot.SESSION.type) {
@@ -193,7 +193,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
             }
 
-            let orderId = exchangeAPIModule.createOrder(tradingSystemOrder, tradingEngineOrder)
+            let orderId = await exchangeAPIModule.createOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (orderId !== undefined) {
                 tradingEngineOrder.exchangeId.value = orderId

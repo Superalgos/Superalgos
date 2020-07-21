@@ -28,9 +28,6 @@
         let key = bot.KEY
         let secret = bot.SECRET
 
-        if (key === "undefined") { key = undefined }
-        if (secret === "undefined") { secret = undefined }
-
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,
@@ -76,8 +73,8 @@
 
     async function createOrder(tradingSystemOrder, tradingEngineOrder) {
 
-        let price = tradingEngineOrder.rate                                 // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
-        let amount = tradingEngineOrder.size                                // CCXT: how much of currency you want to trade
+        let price = tradingEngineOrder.rate.value                           // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
+        let amount = tradingEngineOrder.size.value                          // CCXT: how much of currency you want to trade
         let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
         let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
         let symbol = bot.market.baseAsset + '/' + bot.market.quotedAsset    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
@@ -108,7 +105,7 @@
         /* Basic Logging */
         logInfo("createOrder -> symbol = " + symbol);
         logInfo("createOrder -> side = " + side);
-        logInfo("createOrder -> cost = " + cost);
+        logInfo("createOrder -> type = " + type);
         logInfo("createOrder -> amount = " + amount);
         logInfo("createOrder -> price = " + price);
 
@@ -123,7 +120,7 @@
         }
 
         try {
-            let order = await (exchange.createOrder(symbol, type, side, amount))
+            let order = await (exchange.createOrder(symbol, type, side, amount, price))
             return order.id
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])

@@ -306,7 +306,7 @@
                 }
 
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.liveWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.liveWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 
@@ -335,14 +335,14 @@
                 bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
                 bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
 
                 return true
             }
 
             function startPaperTrading(message) {
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 

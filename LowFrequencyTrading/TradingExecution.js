@@ -341,7 +341,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             /* Percentage Filled */
             let currentPercentageFilled = tradingEngineOrder.orderStatistics.percentageFilled.value
             let percentageFilled = order.filled * 100 / (order.filled + order.remaining)
-            percentageFilled = global.PRECISE(percentageFilled.value, 10)
+            percentageFilled = global.PRECISE(percentageFilled, 10)
             tradingEngineOrder.orderStatistics.percentageFilled.value = percentageFilled
 
             /* Filled Size Calculation */

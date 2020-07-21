@@ -1,8 +1,6 @@
-﻿exports.newExchangeAPI = function newExchangeAPI(logger, BOT) {
+﻿exports.newExchangeAPI = function newExchangeAPI(bot, logger) {
 
     let MODULE_NAME = "Exchange API";
-    let LOG_INFO = true;
-    let bot = BOT
 
     let thisObject = {
         getOrder: getOrder,
@@ -158,7 +156,7 @@
     }
 
     function logInfo(message) {
-        if (LOG_INFO === true) { logger.write(MODULE_NAME, '[INFO] ' + message) }
+        logger.write(MODULE_NAME, '[INFO] ' + message)
     }
 
     function logError(message) {

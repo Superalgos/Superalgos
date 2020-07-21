@@ -23,26 +23,20 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     let tradingEngine
     let sessionParameters
 
-    tradingSystem.conditions = new Map()
-    tradingSystem.formulas = new Map()
-
-    const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
-    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(bot, logger)
-
     const TRADING_STRATEGY_MODULE = require('./TradingStrategy.js')
     let tradingStrategyModule = TRADING_STRATEGY_MODULE.newTradingStrategy(bot, logger, tradingEngineModule)
 
     const TRADING_POSITION_MODULE = require('./TradingPosition.js')
     let tradingPositionModule = TRADING_POSITION_MODULE.newTradingPosition(bot, logger, tradingEngineModule)
 
+    const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
+    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger, tradingEngineModule)
+
     const ANNOUNCEMENTS_MODULE = require('./Announcements.js')
     let announcementsModule = ANNOUNCEMENTS_MODULE.newAnnouncements(bot, logger)
 
     const SNAPSHOTS_MODULE = require('./Snapshots.js')
     let snapshotsModule = SNAPSHOTS_MODULE.newSnapshots(bot, logger)
-
-    const TRADING_ENGINE_EXECUTION = require('./TradingExecution.js')
-    let tradingExecutionModule = TRADING_ENGINE_EXECUTION.newTradingExecution(bot, logger)
 
     return thisObject
 
@@ -51,7 +45,9 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         tradingEngine = bot.simulationState.tradingEngine
         sessionParameters = bot.SESSION.parameters
 
-        exchangeAPIModule.initialize()
+        tradingSystem.conditions = new Map()
+        tradingSystem.formulas = new Map()
+
         tradingStrategyModule.initialize()
         tradingPositionModule.initialize()
         announcementsModule.initialize()
@@ -60,9 +56,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     function finalize() {
-        exchangeAPIModule.finalize()
-        exchangeAPIModule = undefined
-
         tradingStrategyModule.finalize()
         tradingStrategyModule = undefined
 

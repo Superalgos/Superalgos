@@ -191,12 +191,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
         }
 
         if (
-            tradingEngine.current.distanceToEvent.moveOrder.value > 0
-        ) {
-            tradingEngine.current.distanceToEvent.moveOrder.value++
-        }
-
-        if (
             tradingEngine.current.distanceToEvent.cancelOrder.value > 0
         ) {
             tradingEngine.current.distanceToEvent.cancelOrder.value++

@@ -42,10 +42,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
 
             /* These are the Modules we will need to run the Simulation */
-            const EXCHANGE_API = require('../ExchangeAPI');
-            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
-            exchangeAPI.initialize();
-
             const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()

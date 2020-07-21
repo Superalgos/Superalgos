@@ -1,4 +1,4 @@
-exports.newTradingExecution = function newTradingExecution(bot, logger) {
+exports.newTradingExecution = function newTradingExecution(bot, logger, tradingEngineModule) {
     /*
     The Trading Execution modules manages the execution of orders against the exchanges.
     */
@@ -13,16 +13,24 @@ exports.newTradingExecution = function newTradingExecution(bot, logger) {
     let tradingEngine
     let tradingSystem
 
+    const EXCHANGE_API_MODULE = require('./ExchangeAPI.js')
+    let exchangeAPIModule = EXCHANGE_API_MODULE.newExchangeAPI(bot, logger)
+
     return thisObject
 
     function initialize() {
         tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
+
+        exchangeAPIModule.initialize()
     }
 
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
+
+        exchangeAPIModule.finalize()
+        exchangeAPIModule = undefined
     }
 
     function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {

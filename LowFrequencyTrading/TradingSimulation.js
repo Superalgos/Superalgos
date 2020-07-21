@@ -108,7 +108,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 loop()
             }
 
-            function loop() {
+            async function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.candle.index.value) }
                 let candle = candles[tradingEngine.current.candle.index.value] // This is the current candle the Simulation is working at.
 
@@ -146,13 +146,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.triggerStage()
 
                 /* Run the Open Stage */
-                tradingSystemModule.openStage()
+                await tradingSystemModule.openStage()
 
                 /* Run the Manage Stage */
                 tradingSystemModule.manageStage()
 
                 /* Run the Close Stage */
-                tradingSystemModule.closeStage()
+                await tradingSystemModule.closeStage()
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()

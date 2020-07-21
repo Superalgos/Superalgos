@@ -63,7 +63,7 @@
         }
 
         try {
-            let order = await (exchange.fetchOrder(orderId, symbol))
+            let order = await exchange.fetchOrder(orderId, symbol)
             return order
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])
@@ -144,7 +144,7 @@
         }
 
         try {
-            let order = await (exchange.cancelOrder(orderId, symbol))
+            let order = await exchange.cancelOrder(orderId, symbol)
             return true
         } catch (err) {
             tradingSystem.errors.push([tradingSystemOrder.id, err.message])

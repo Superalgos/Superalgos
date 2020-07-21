@@ -43,26 +43,26 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         announcementsModule = undefined
     }
 
-    function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
+    async function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
 
         /* Enforcing Precision Limit */
         stageSizeLimit.value = global.PRECISE(stageSizeLimit.value, 10)
         stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
         stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
 
-        checkExecutionAlgorithms(executionNode)
+        await checkExecutionAlgorithms(executionNode)
 
-        function checkExecutionAlgorithms(executionNode) {
+        async function checkExecutionAlgorithms(executionNode) {
             for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                 let executionAlgorithm = executionNode.executionAlgorithms[i]
-                checkOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
-                checkOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+                await checkOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
+                await checkOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
+                await checkOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
+                await checkOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
             }
         }
 
-        function checkOrders(orders, executionAlgorithm, executionNode) {
+        async function checkOrders(orders, executionAlgorithm, executionNode) {
             for (let i = 0; i < orders.length; i++) {
 
                 let tradingSystemOrder = orders[i]
@@ -99,7 +99,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                             if (situationName !== undefined) {
 
                                 /* Open a new order */
-                                openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName)
+                                await openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName)
                             }
                         }
                         break
@@ -113,7 +113,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         simulateExchangeEvents(tradingSystemOrder, tradingEngineOrder)
 
                         /* Check Events that happens at the Exchange, if needed. */
-                        checkExchangeEvents(tradingSystemOrder, tradingEngineOrder)
+                        await checkExchangeEvents(tradingSystemOrder, tradingEngineOrder)
 
                         /* If the stage is closing or the order is not still Open, we wont be cancelling orders based on defined events */
                         if (stageIsClosing !== true && tradingEngineOrder.status.value === 'Open') {
@@ -122,7 +122,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                             let situationName = checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                             if (situationName !== undefined) {
                                 simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
-                                exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
+                                await exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
                             }
                         }
                     }
@@ -130,7 +130,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
         }
 
-        function openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
+        async function openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
             /* Order Size Calculation */
             tradingEngineOrder.size.value = tradingSystem.formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
             if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit.value) {
@@ -152,7 +152,8 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
 
             /* Place Order at the Exchange */
-            if (createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) !== true) { return }
+            let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
+            if (result !== true) { return }
 
             /* Updating Episode Counters */
             tradingEngine.episode.episodeCounters.orders.value++
@@ -271,7 +272,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
         }
 
-        function checkExchangeEvents(tradingSystemOrder, tradingEngineOrder) {
+        async function checkExchangeEvents(tradingSystemOrder, tradingEngineOrder) {
 
             /* Filter by Session Type */
             switch (bot.SESSION.type) {
@@ -289,7 +290,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
             }
 
-            let order = exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
+            let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (order === undefined) { return }
 
@@ -300,7 +301,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
 
             /* Status Checks */
-            if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
+            if (order.remaining === 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
                 /* Close this Order */
                 tradingEngineOrder.status.value = 'Closed'
@@ -309,7 +310,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 /* Initialize this */
                 tradingEngine.current.distanceToEvent.closeOrder.value = 1
             }
-            if (tradingEngineOrder.orderStatistics.percentageFilled.value < 100 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
+            if (order.remaining > 0 && order.status === AT_EXCHANGE_STATUS.CLOSED) {
 
                 /* Close this Order */
                 tradingEngineOrder.status.value = 'Closed'
@@ -332,14 +333,14 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
             /* Forced Cancellation Check */
             if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
-                exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
+                await exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
             }
         }
 
         function syncWithExchange(tradingSystemOrder, tradingEngineOrder, order) {
             /* Percentage Filled */
             let currentPercentageFilled = tradingEngineOrder.orderStatistics.percentageFilled.value
-            let percentageFilled = order.filled * 100 / tradingEngineOrder.size
+            let percentageFilled = order.filled * 100 / (order.filled + order.remaining)
             percentageFilled = global.PRECISE(percentageFilled.value, 10)
             tradingEngineOrder.orderStatistics.percentageFilled.value = percentageFilled
 
@@ -348,12 +349,12 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * percentageFilled / 100          // Second add the new filled size
             stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
 
-            /* Actual Rate Simulation */
-            tradingEngineOrder.orderStatistics.actualRate.value = order.cost / order.filled
+            /* Actual Rate Calculation */
+            tradingEngineOrder.orderStatistics.actualRate.value = order.price
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-            /* Fees Paid Simulation */
-            tradingEngineOrder.orderStatistics.feesPaid.value = order.fee.rate
+            /* Fees Paid Calculation */
+            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value - order.amount
             tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
         }
 
@@ -389,7 +390,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
         }
 
-        function exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, exitType) {
+        async function exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder, exitType) {
 
             /* Filter by Session Type */
             switch (bot.SESSION.type) {
@@ -408,7 +409,8 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
 
             /* Check if we can cancel the order at the Exchange. */
-            if (exchangeAPIModule.exchangeCancelOrder(tradingSystemOrder, tradingEngineOrder) === true) {
+            let result = await exchangeAPIModule.cancelOrder(tradingSystemOrder, tradingEngineOrder)
+            if (result === true) {
                 /* Close this Order */
                 tradingEngineOrder.status.value = 'Closed'
                 tradingEngineOrder.exitType.value = exitType
@@ -427,15 +429,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 To sync our accounting, we need to check the order one last time and if it changed, fix it.
                 */
 
-                let order = exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
+                let order = await exchangeAPIModule.getOrder(tradingSystemOrder, tradingEngineOrder)
 
                 if (order === undefined) { return }
-
-                const AT_EXCHANGE_STATUS = {
-                    OPEN: 'open',
-                    CLOSED: 'closed',
-                    CANCELLED: 'canceled'
-                }
 
                 syncWithExchange(tradingSystemOrder, tradingEngineOrder, order)
             }

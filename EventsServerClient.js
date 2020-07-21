@@ -156,7 +156,7 @@ function newEventsServerClient (host, port, hostName) {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Connecting to ' + hostName + ' Network Node. Please wait until the connection is established.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connecting to Superalgos Backend at ' + hostName + ' Network Node. Please wait until the connection is established.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     } else {
       retryCommandsPhysics()
     }

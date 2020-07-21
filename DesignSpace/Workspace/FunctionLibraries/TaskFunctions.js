@@ -32,7 +32,7 @@ function newTaskFunctions () {
     'Trading Bot Instance->' +
     'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
     'Market Reference->' +
-    'Key Instance->Exchange Account Key->' +
+    'Key Reference->Exchange Account Key->' +
     'Market->Exchange Markets->Crypto Exchange->' +
     'Market Base Asset->Market Quoted Asset->Asset->' +
     'Backtesting Session->Live Trading Session->Paper Trading Session->Fordward Testing Session->' +

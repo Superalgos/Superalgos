@@ -227,75 +227,116 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             let previousAmountReceived = tradingEngineOrder.orderStatistics.amountReceived.value
             let previousFeesPaid = tradingEngineOrder.orderStatistics.feesPaid.value
 
-            /* Actual Rate Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
-                    /* Calculate this only once for this order */
-                    if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
-                        tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
-                    }
-                }
-            }
-
-            /* Fees Paid Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
-                    if (tradingEngineOrder.orderStatistics.feesPaid.value === tradingEngineOrder.orderStatistics.feesPaid.config.initialValue) {
-                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
-                        tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
-                    }
-                }
-            } else {
-                /* Fees are simulated based on the Session Paremeters */
-                switch (tradingEngineOrder.type) {
-                    case 'Market Order': {
-                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-                        break
-                    }
-                    case 'Limit Order': {
-                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.maker / 100
-                        break
-                    }
-                }
-            }
-
-            /* Partial Fill Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
-
-                    /* Percentage Filled */
-                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
-                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
-                    }
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-
-                    /* Check if we need to close */
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
-
-                        /* Close this Order */
-                        tradingEngineOrder.status.value = 'Closed'
-                        tradingEngineOrder.exitType.value = 'Filled'
-
-                        /* Initialize this */
-                        tradingEngine.current.distanceToEvent.closeOrder.value = 1
-                    }
-                }
-            }
-
-            /* Size Filled */
-            tradingEngineOrder.orderStatistics.sizeFilled.value = tradingEngineOrder.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
-            tradingEngineOrder.orderStatistics.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.sizeFilled.value, 10)
-
-            /* Amount Received */
-            tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate
-            tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+            actualRateSimulation()
+            feesPaidSimulation()
+            orderFillingSimulation()
+            sizeFilledSimulation()
+            amountReceivedSimulation()
 
             doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
 
+            /* If the Stage is Closing and this order is still open, we need to cancel it now */
             if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
                 simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
+            }
+
+            function actualRateSimulation() {
+                /* Actual Rate Simulation */
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                        /* Calculate this only once for this order */
+                        if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                        }
+                    }
+                } else {
+                    switch (tradingEngineOrder.type) {
+                        case 'Market Order': {
+                            /* Actual Rate is simulated based on the Session Paremeters */
+                            let slippageAmount = tradingEngineOrder.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
+                            switch (tradingSystemOrder.type) {
+                                case 'Market Sell Order': {
+                                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
+                                    break
+                                }
+                                case 'Market Buy Order': {
+                                    tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
+                                    break
+                                }
+                            }
+                            break
+                        }
+                        case 'Limit Order': {
+                            /* In Limit Orders the actual rate is the rate of the order, there is no slippage */
+                            tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value
+                            break
+                        }
+                    }
+                }
+                tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
+            }
+
+            function feesPaidSimulation() {
+                /* Fees Paid Simulation */
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
+                        if (tradingEngineOrder.orderStatistics.feesPaid.value === tradingEngineOrder.orderStatistics.feesPaid.config.initialValue) {
+                            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
+                        }
+                    }
+                } else {
+                    /* Fees are simulated based on the Session Paremeters */
+                    switch (tradingEngineOrder.type) {
+                        case 'Market Order': {
+                            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+                            break
+                        }
+                        case 'Limit Order': {
+                            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.maker / 100
+                            break
+                        }
+                    }
+                }
+                tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
+            }
+
+            function orderFillingSimulation() {
+                /* Order Filling Simulation */
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+
+                        /* Percentage Filled */
+                        let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                            percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                        }
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+                        tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+
+                        /* Check if we need to close */
+                        if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
+
+                            /* Close this Order */
+                            tradingEngineOrder.status.value = 'Closed'
+                            tradingEngineOrder.exitType.value = 'Filled'
+
+                            /* Initialize this */
+                            tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                        }
+                    }
+                }
+            }
+
+            function sizeFilledSimulation() {
+                /* Size Filled */
+                tradingEngineOrder.orderStatistics.sizeFilled.value = tradingEngineOrder.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+                tradingEngineOrder.orderStatistics.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.sizeFilled.value, 10)
+            }
+
+            function amountReceivedSimulation() {
+                /* Amount Received */
+                tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate
+                tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
             }
         }
 

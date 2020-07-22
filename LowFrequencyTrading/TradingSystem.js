@@ -608,9 +608,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Position size and rate */
             tradingPositionModule.updateSizeAndRate(getPositionSize(), getPositionRate())
 
-            /* We take what was calculated at the formula of position rate and apply the slippage, if needed. */
-            tradingPositionModule.applySlippageToRate()
-
             function getPositionSize() {
                 let balance
                 if (bot.sessionAndMarketBaseAssetsAreEqual) {

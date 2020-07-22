@@ -72,7 +72,7 @@ function newSessionFunctions () {
     'Market Order->Limit Order->' +
     'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->' +
     'Order Counters->Periods->' +
-    'Order Statistics->Percentage Filled->Actual Rate->Fees Paid->Days->User Defined Statistic->'
+    'Order Statistics->Size Filled->Percentage Filled->Amount Received->Actual Rate->Fees Paid->Days->User Defined Statistic->'
 
     let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

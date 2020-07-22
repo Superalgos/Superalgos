@@ -233,7 +233,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             sizeFilledSimulation()
             amountReceivedSimulation()
 
-            doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
+            doTheAccounting(tradingSystemOrder, tradingEngineOrder, previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
 
             /* If the Stage is Closing and this order is still open, we need to cancel it now */
             if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
@@ -432,10 +432,10 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             tradingEngineOrder.orderStatistics.actualRate.value = order.price
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-            doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
+            doTheAccounting(tradingSystemOrder, tradingEngineOrder, previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
         }
 
-        function doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid) {
+        function doTheAccounting(tradingSystemOrder, tradingEngineOrder, previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid) {
 
             /*  Unaccount for the previous Stage Filled Size */
             stageFilledSize.value = stageFilledSize.value - tradingEngineOrder.size.value * previousPercentageFilled / 100
@@ -443,9 +443,10 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
             stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
 
+
             /* Balances Update */
-            switch (order.side) {
-                case 'buy': {
+            switch (true) {
+                case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
 
                     /* Undo the previous accounting */
                     tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - previousFeesPaid - previousSizeFilled
@@ -459,7 +460,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
                     break
                 }
-                case 'sell': {
+                case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                     /* Undo the previous accounting */
                     tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + previousFeesPaid + previousSizeFilled

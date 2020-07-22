@@ -47,12 +47,14 @@ global.PRECISE = function (floatNumber, precision) {
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+    console.log(err.stack)
     global.EXIT_NODE_PROCESS()
 })
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log(reason.stack)
     global.EXIT_NODE_PROCESS()
 })
 

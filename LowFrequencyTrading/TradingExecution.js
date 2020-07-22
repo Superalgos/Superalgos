@@ -48,7 +48,6 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         /* Enforcing Precision Limit */
         stageSizeLimit.value = global.PRECISE(stageSizeLimit.value, 10)
         stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
-        stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
 
         await checkExecutionAlgorithms(executionNode)
 
@@ -223,41 +222,18 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             /* Filter by what is defined at the Strategy */
             if (tradingSystemOrder.simulatedExchangeEvents === undefined) { return }
 
-            /* Partial Fill Simulation */
-            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
-                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
-
-                    /* Percentage Filled Calculation */
-                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
-                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
-                    }
-                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
-                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
-
-                        /* Close this Order */
-                        tradingEngineOrder.status.value = 'Closed'
-                        tradingEngineOrder.exitType.value = 'Filled'
-
-                        /* Initialize this */
-                        tradingEngine.current.distanceToEvent.closeOrder.value = 1
-                    }
-
-                    /* Filled Size Calculation */
-                    stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * percentageFilled / 100
-                    stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
-
-                    if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
-                        simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
-                    }
-                }
-            }
+            let previousSizeFilled = tradingEngineOrder.orderStatistics.sizeFilled.value
+            let previousPercentageFilled = tradingEngineOrder.orderStatistics.percentageFilled.value
+            let previousAmountReceived = tradingEngineOrder.orderStatistics.amountReceived.value
+            let previousFeesPaid = tradingEngineOrder.orderStatistics.feesPaid.value
 
             /* Actual Rate Simulation */
             if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                    /* Calculate this only once for this order */
                     if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                        tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
                     }
                 }
             }
@@ -267,8 +243,59 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
                     if (tradingEngineOrder.orderStatistics.feesPaid.value === tradingEngineOrder.orderStatistics.feesPaid.config.initialValue) {
                         tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
+                        tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
                     }
                 }
+            } else {
+                /* Fees are simulated based on the Session Paremeters */
+                switch (tradingEngineOrder.type) {
+                    case 'Market Order': {
+                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.taker / 100
+                        break
+                    }
+                    case 'Limit Order': {
+                        tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * bot.SESSION.parameters.feeStructure.config.maker / 100
+                        break
+                    }
+                }
+            }
+
+            /* Partial Fill Simulation */
+            if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill !== undefined) {
+                if (tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability !== undefined) {
+
+                    /* Percentage Filled */
+                    let percentageFilled = tradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100
+                    if (tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled > 100) {
+                        percentageFilled = 100 - tradingEngineOrder.orderStatistics.percentageFilled.value
+                    }
+                    tradingEngineOrder.orderStatistics.percentageFilled.value = tradingEngineOrder.orderStatistics.percentageFilled.value + percentageFilled
+
+                    /* Check if we need to close */
+                    if (tradingEngineOrder.orderStatistics.percentageFilled.value === 100) {
+
+                        /* Close this Order */
+                        tradingEngineOrder.status.value = 'Closed'
+                        tradingEngineOrder.exitType.value = 'Filled'
+
+                        /* Initialize this */
+                        tradingEngine.current.distanceToEvent.closeOrder.value = 1
+                    }
+                }
+            }
+
+            /* Size Filled */
+            tradingEngineOrder.orderStatistics.sizeFilled.value = tradingEngineOrder.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+            tradingEngineOrder.orderStatistics.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.sizeFilled.value, 10)
+
+            /* Amount Received */
+            tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate
+            tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+
+            doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
+
+            if (stageIsClosing === true && tradingEngineOrder.status.value !== 'Closed') {
+                simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
             }
         }
 
@@ -338,24 +365,74 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         }
 
         function syncWithExchange(tradingSystemOrder, tradingEngineOrder, order) {
+
+            let previousSizeFilled = tradingEngineOrder.orderStatistics.sizeFilled.value
+            let previousPercentageFilled = tradingEngineOrder.orderStatistics.percentageFilled.value
+            let previousAmountReceived = tradingEngineOrder.orderStatistics.amountReceived.value
+            let previousFeesPaid = tradingEngineOrder.orderStatistics.feesPaid.value
+
+            /* Fees Paid */
+            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value - order.amount
+            tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
+
             /* Percentage Filled */
-            let currentPercentageFilled = tradingEngineOrder.orderStatistics.percentageFilled.value
-            let percentageFilled = order.filled * 100 / (order.filled + order.remaining)
-            percentageFilled = global.PRECISE(percentageFilled, 10)
-            tradingEngineOrder.orderStatistics.percentageFilled.value = percentageFilled
+            tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / (order.filled + order.remaining)
+            tradingEngineOrder.orderStatistics.percentageFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
 
-            /* Filled Size Calculation */
-            stageFilledSize.value = stageFilledSize.value - tradingEngineOrder.size.value * currentPercentageFilled / 100   // First remove the current filled size
-            stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * percentageFilled / 100          // Second add the new filled size
-            stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
+            /* Size Filled */
+            tradingEngineOrder.orderStatistics.sizeFilled.value = order.filled
+            tradingEngineOrder.orderStatistics.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderStatistics.sizeFilled.value, 10)
 
-            /* Actual Rate Calculation */
+            /* Amount Received */
+            tradingEngineOrder.orderStatistics.amountReceived.value = order.cost
+            tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+
+            /* Actual Rate */
             tradingEngineOrder.orderStatistics.actualRate.value = order.price
             tradingEngineOrder.orderStatistics.actualRate.value = global.PRECISE(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-            /* Fees Paid Calculation */
-            tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value - order.amount
-            tradingEngineOrder.orderStatistics.feesPaid.value = global.PRECISE(tradingEngineOrder.orderStatistics.feesPaid.value, 10)
+            doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid)
+        }
+
+        function doTheAccounting(previousSizeFilled, previousPercentageFilled, previousAmountReceived, previousFeesPaid) {
+
+            /*  Unaccount for the previous Stage Filled Size */
+            stageFilledSize.value = stageFilledSize.value - tradingEngineOrder.size.value * previousPercentageFilled / 100
+            /*  Account for the current Stage Filled Size */
+            stageFilledSize.value = stageFilledSize.value + tradingEngineOrder.size.value * tradingEngineOrder.orderStatistics.percentageFilled.value / 100
+            stageFilledSize.value = global.PRECISE(stageFilledSize.value, 10)
+
+            /* Balances Update */
+            switch (order.side) {
+                case 'buy': {
+
+                    /* Undo the previous accounting */
+                    tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - previousFeesPaid - previousSizeFilled
+                    /* Account the current filling and fees */
+                    tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngineOrder.orderStatistics.sizeFilled.value + tradingEngineOrder.orderStatistics.feesPaid.value
+
+                    /* Undo the previous accounting */
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value + previousAmountReceived
+                    /* Account the current filling and fees */
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngineOrder.orderStatistics.amountReceived.value
+
+                    break
+                }
+                case 'sell': {
+
+                    /* Undo the previous accounting */
+                    tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + previousFeesPaid + previousSizeFilled
+                    /* Account the current filling and fees */
+                    tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngineOrder.orderStatistics.sizeFilled.value - tradingEngineOrder.orderStatistics.feesPaid.value
+
+                    /* Undo the previous accounting */
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value - previousAmountReceived
+                    /* Account the current filling and fees */
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngineOrder.orderStatistics.amountReceived.value
+
+                    break
+                }
+            }
         }
 
         function simulateCancelOrder(tradingSystemOrder, tradingEngineOrder, exitType) {

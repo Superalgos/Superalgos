@@ -517,12 +517,13 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         /* Opening Status Procedure */
         if (tradingEngine.current.strategy.openStageStatus.value === 'Opening') {
-            /* Reset the Exchange Orders data structure to its initial value */
-            tradingEngine.exchangeOrders.initialize(tradingEngine.exchangeOrders)
 
             /* This procedure is intended to run only once */
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
             let executionNode = stageNode.openExecution
+
+            /* Reset the Exchange Orders data structure to its initial value */
+            tradingEngine.exchangeOrders.initialize(tradingEngine.exchangeOrders)
 
             evalConditions(stageNode, 'Initial Definition')
             evalFormulas(stageNode, 'Initial Definition')
@@ -532,9 +533,11 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             calculateTakeProfit()
             calculateStopLoss()
 
-            takePosition()
+            /* Remember the balance we had before taking the position to later calculate profit or loss */
+            tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
+            tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
-            /* Check Execution in opening stage mode */
+            /* Check Execution in opening stage node */
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
@@ -573,7 +576,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         /* Closing Status Procedure */
         if (tradingEngine.current.strategy.openStageStatus.value === 'Closing') {
             /*
-            During the closing status, we do not place new orders, just check 
+            During the closing stage status, we do not place new orders, just check 
             if the ones placed were filled, and cancel the ones not filled.
             */
             let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
@@ -640,25 +643,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 let value = tradingSystem.formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
                 if (value === undefined) return DEFAULT_VALUE
                 return value
-            }
-        }
-
-        function takePosition() {
-            tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
-            tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
-
-            let feePaid = 0
-
-            if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                feePaid = tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.position.size.value * tradingEngine.current.position.rate.value - feePaid
-                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.current.position.size.value
-            } else {
-                feePaid = tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-
-                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.position.size.value / tradingEngine.current.position.rate.value - feePaid
-                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.current.position.size.value
             }
         }
     }
@@ -996,18 +980,6 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         function exitPositionAndStrategy() {
-
-            /* New Balances Calculation */
-            let feePaid = 0
-            if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                feePaid = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-                tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value - feePaid
-                tradingEngine.current.balance.quotedAsset.value = 0
-            } else {
-                feePaid = tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value * bot.SESSION.parameters.feeStructure.config.taker / 100
-                tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value - feePaid
-                tradingEngine.current.balance.baseAsset.value = 0
-            }
 
             /* Needed for Episode Statistics */
             tradingPositionModule.updateStatistics()

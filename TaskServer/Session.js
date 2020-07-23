@@ -161,38 +161,43 @@
                         }
                     }
                 }
-                if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) { // if the initialDatetime is missing we create a default one.
-                    bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date()).valueOf()
-                } else {
-                    bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
-                }
-                if (bot.SESSION.parameters.timeRange.config.finalDatetime === undefined) { // if the finalDatetime is missing we create a default one.
-                    bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date()).valueOf()
-                } else {
-                    bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
-                }
+
                 /* Session Type Forced Values */
+                let today = new Date((new Date()).valueOf())
+                let aYearAgo = today - global.ONE_YEAR_IN_MILISECONDS
+                let aYearFromNow = today + global.ONE_YEAR_IN_MILISECONDS
                 switch (bot.SESSION.type) {
-                    case 'Live Trading Session': {
-                        if (bot.SESSION.parameters.timeRange.config.finalDatetime.valueOf() > (new Date()).valueOf()) {
-                            bot.SESSION.parameters.timeRange.config.finalDatetime = new Date()
-                        }
+                    case 'Backtesting Session': {
+                        useDefaultDatetimes(aYearAgo, today)
                         break
                     }
                     case 'Live Trading Session': {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
+                        useDefaultDatetimes(today, aYearFromNow)
                         break
                     }
                     case 'Fordward Testing Session': {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
+                        useDefaultDatetimes(today, aYearFromNow)
                         break
                     }
                     case 'Paper Trading Session': {
-                        bot.SESSION.parameters.timeRange.config.initialDatetime = new Date()
-                        bot.SESSION.parameters.timeRange.config.finalDatetime = new Date((new Date()).valueOf() + global.ONE_YEAR_IN_MILISECONDS)
+                        useDefaultDatetimes(today, aYearFromNow)
                         break
+                    }
+                }
+
+                function useDefaultDatetimes(initialDefault, finalDefault) {
+                    /* Initial Datetime */
+                    if (bot.SESSION.parameters.timeRange.config.initialDatetime === undefined) {
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = initialDefault
+                    } else {
+                        bot.SESSION.parameters.timeRange.config.initialDatetime = (new Date(bot.SESSION.parameters.timeRange.config.initialDatetime)).valueOf()
+                    }
+
+                    /* Final Datetime */
+                    if (bot.SESSION.parameters.timeRange.config.finalDatetime === undefined) {
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = finalDefault
+                    } else {
+                        bot.SESSION.parameters.timeRange.config.finalDatetime = (new Date(bot.SESSION.parameters.timeRange.config.finalDatetime)).valueOf()
                     }
                 }
 
@@ -300,18 +305,18 @@
             }
 
             function startLiveTrading(message) {
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) { // TODO Remove this from Process .env
+                if (bot.KEY === undefined || bot.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[ERROR] initialize -> startLiveTrading -> Key 'codeName' or 'secret' not provided. Plese check that and try again."); }
                     return false
                 }
 
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.liveWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.liveWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 
             function startFordwardTesting(message) {
-                if (process.env.KEY === undefined || process.env.SECRET === undefined) {
+                if (bot.KEY === undefined || bot.SECRET === undefined) {
                     if (FULL_LOG === true) { parentLogger.write(MODULE_NAME, "[WARN] initialize -> startFordwardTesting -> Key name or Secret not provided, not possible to run the process in Forward Testing mode."); }
                     console.log("Key 'codeName' or 'secret' not provided. Plese check that and try again.")
                     return false
@@ -335,14 +340,14 @@
                 bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
                 bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
 
-                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
 
                 return true
             }
 
             function startPaperTrading(message) {
                 bot.tradingProcessDate = new Date(bot.SESSION.parameters.timeRange.config.initialDatetime.valueOf())
-                pProcessConfig.normalWaitTime = sessionParameters.timeFrame.config.value
+                pProcessConfig.normalWaitTime = bot.SESSION.parameters.timeFrame.config.value
                 return true
             }
 

@@ -19,14 +19,14 @@ function newAppLoader() {
 
             let plotters
             let modulesArray = []
-           
+
             plotters = defaultPlotters()
-       
+
             modulesArray = modulesArray.concat([
                 'ChartingSpace/Viewport.js',
-          
+
                 'Globals.js',
- 
+
                 'AppSchema.js',
                 'Workspace.js',
 
@@ -44,16 +44,16 @@ function newAppLoader() {
                 'DesignSpace/Workspace/FunctionLibraries/NodeDeleter.js',
                 'DesignSpace/Workspace/FunctionLibraries/ProtocolNode.js',
                 'DesignSpace/Workspace/FunctionLibraries/NodeCloning.js',
-                'DesignSpace/Workspace/FunctionLibraries/NodeChildren.js', 
+                'DesignSpace/Workspace/FunctionLibraries/NodeChildren.js',
                 'DesignSpace/Workspace/FunctionLibraries/TaskFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/SessionFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/ShortcutKeys.js',
                 'DesignSpace/Workspace/FunctionLibraries/OnFocus.js',
                 'DesignSpace/Workspace/FunctionLibraries/SuperScripts.js',
                 'DesignSpace/Workspace/FunctionLibraries/CCXTFunctions.js',
-                'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js', 
+                'DesignSpace/Workspace/FunctionLibraries/WebhookFunctions.js',
                 'DesignSpace/Workspace/FunctionLibraries/DependenciesFilter.js',
-                               
+
                 'Utilities/CoordinateTransformations.js',
                 'Utilities/DateRateTransformations.js',
                 'Utilities/Download.js',
@@ -68,7 +68,7 @@ function newAppLoader() {
                 'Panels/Layer.js',
                 'Panels/PlotterPanel.js',
                 'Panels/PanelsVisibleButton.js',
-                
+
                 'SideSpace/SidePanelTab.js',
                 'SideSpace/ListView.js',
                 'SideSpace/ListItem.js',
@@ -98,7 +98,7 @@ function newAppLoader() {
                 'FloatingSpace/CircularMenuItem.js',
                 'FloatingSpace/CircularProgressBar.js',
                 'FloatingSpace/BusyProgressBar.js',
-                'FloatingSpace/CodeEditor.js', 
+                'FloatingSpace/CodeEditor.js',
                 'FloatingSpace/ConfigEditor.js',
                 'FloatingSpace/ConditionEditor.js',
                 'FloatingSpace/FormulaEditor.js',
@@ -109,7 +109,7 @@ function newAppLoader() {
                 'Scales/TimeFrameScale.js',
                 'Scales/Commons.js',
                 'Scales/AutoScaleButton.js',
-                
+
                 'CockpitSpace/AssetBalances.js',
                 'CockpitSpace/Speedometer.js',
                 'CockpitSpace/FullScreen.js',
@@ -187,23 +187,14 @@ function newAppLoader() {
     }
 
     function defaultPlotters() {
-        return [  
+        return [
             'Plotters/Masters/Plotters-Candles-Volumes/Candles.js',
             'Plotters/Masters/Plotters-Candles-Volumes/CandlePanel.js',
             'Plotters/Masters/Plotters-Candles-Volumes/Volumes.js',
             'Plotters/Masters/Plotters-Candles-Volumes/VolumePanel.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBands.js',
             'Plotters/Masters/Plotters-Bollinger-Bands/BollingerBandsPanel.js',
-            'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulation.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationAssetBalancesPanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationCurrentPositionPanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/TradingSimulationEpisodePanel.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/Conditions.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/Strategies.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/Trades.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecution.js',
-            'Plotters/TradingEngines/Plotters-Trading-Simulation/SimulationExecutionPanel.js'
+            'Plotters/Masters/Plotters-Bollinger-Bands/PercentageBandwidth.js'
         ]
     }
 

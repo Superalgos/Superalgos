@@ -305,6 +305,7 @@ function newPlotter () {
         jsonifiedArray.push(record)
         previous = record
 
+        if (record.begin === undefined || record.end === undefined) { console.log('Could not find the property begin or end which are needed for the plotter to work.') }
         if (datetime.valueOf() >= record.begin && datetime.valueOf() <= record.end) {
           thisObject.currentRecord = record
           thisObject.container.eventHandler.raiseEvent('Current Record Changed', thisObject.currentRecord)
@@ -550,16 +551,16 @@ function newPlotter () {
 
         let atMousePosition = false
         if (userPositionDate >= record.begin && userPositionDate <= record.end) {
-          if (record.rate === undefined) {
-            /* Current Record depends only on begin and end. */
-            atMousePosition = true
-            thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
-          } else {
+          if (record.rate !== undefined && productDefinition.referenceParent.config.useRateAtMousePosition === true) {
             /* Current Record depends also on rate */
             if (record.rate >= minUserPositionRate && record.rate <= maxUserPositionRate) {
               atMousePosition = true
               thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
             }
+          } else {
+            /* Current Record depends only on begin and end. */
+            atMousePosition = true
+            thisObject.container.eventHandler.raiseEvent('Current Record Changed', record)
           }
         }
 

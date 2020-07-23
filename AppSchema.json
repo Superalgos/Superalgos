@@ -71,9 +71,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure Plotter Module",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Plotter Module",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -110,7 +110,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Plotter Module",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -138,7 +138,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Values",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -159,7 +159,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Highlights",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -180,7 +180,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Errors",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -201,7 +201,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Status",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -222,7 +222,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Progress",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -243,7 +243,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Nodes Running",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -285,7 +285,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Record Values",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -363,7 +363,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Shapes",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -400,9 +400,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure Plotter Panel",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Plotter Panel",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -425,7 +425,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Plotter Panel",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -457,9 +457,9 @@
         ],
         "menuItems": [
             {
-                "action": "Configure Panel Data",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Panel Data",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -476,7 +476,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Panel Data",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -511,7 +511,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Data Formula",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -546,7 +546,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Javascript Code",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -582,7 +582,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Chart Points",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -621,7 +621,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Point",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -656,7 +656,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Point Formula",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -706,7 +706,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Image",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -755,7 +755,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Image Condition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -846,7 +846,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Text",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -895,9 +895,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure Text Style",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Text Style",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -906,7 +906,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Text Style",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -941,7 +941,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Text Condition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -979,7 +979,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Text Position",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1013,7 +1013,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Text Formula",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1091,7 +1091,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Polygon",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1175,7 +1175,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Polygon Body",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1224,7 +1224,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Polygon Border",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1275,7 +1275,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Style Condition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1299,9 +1299,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure Style",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Style",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1310,7 +1310,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Style",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1339,7 +1339,7 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.onMenuItemClick",
-                "label": "Delete Polygon Edge",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete"
             }
@@ -1365,7 +1365,7 @@
                 "ring": 1
             },
             {
-                "action": "Configure Workspace",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
                 "label": "Configure Workspace",
                 "iconPathOn": "html",
@@ -1432,7 +1432,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Situation",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1488,7 +1488,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Condition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1518,9 +1518,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-super-scripts.html#super-scripts",
         "menuItems": [
             {
-                "action": "Configure Super Scripts",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Super Scripts",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -1536,7 +1536,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Super Scripts",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1576,7 +1576,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Scripts Library",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1621,7 +1621,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Master Script",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1681,7 +1681,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Template Script",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1724,7 +1724,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Template Structure",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1769,7 +1769,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Template Target",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1806,7 +1806,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Super Action",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1839,7 +1839,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Network",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1863,8 +1863,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#network-node",
         "menuItems": [
             {
-                "action": "Configure Network Node",
-                "label": "Configure Network Node",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -1906,7 +1906,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Network Node",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -1987,7 +1987,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Task Manager",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2068,7 +2068,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Task",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2105,8 +2105,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#trading-bot-instance",
         "menuItems": [
             {
-                "action": "Configure Bot Instance",
-                "label": "Configure Bot Instance",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -2122,7 +2122,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Bot Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2166,7 +2166,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Process Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2212,7 +2212,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Process Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2290,7 +2290,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Process Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2377,8 +2377,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure Session",
-                "label": "Configure Session",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -2394,7 +2394,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2453,7 +2453,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Trading Engine",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2610,7 +2610,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Episode",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2657,7 +2657,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Counters",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2736,7 +2736,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Counters",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2785,7 +2785,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Counters",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2834,7 +2834,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Counters",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2866,8 +2866,8 @@
         "type": "Positions",
         "menuItems": [
             {
-                "action": "Configure Positions",
-                "label": "Configure Positions",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2876,7 +2876,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Positions",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2900,8 +2900,8 @@
         "type": "Strategies",
         "menuItems": [
             {
-                "action": "Configure Strategies",
-                "label": "Configure Strategies",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2910,7 +2910,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Strategies",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2934,8 +2934,8 @@
         "type": "Orders",
         "menuItems": [
             {
-                "action": "Configure Orders",
-                "label": "Configure Orders",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2944,7 +2944,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Orders",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -2968,8 +2968,8 @@
         "type": "Fails",
         "menuItems": [
             {
-                "action": "Configure Fails",
-                "label": "Configure Fails",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -2978,7 +2978,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Fails",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3002,8 +3002,8 @@
         "type": "Hits",
         "menuItems": [
             {
-                "action": "Configure Hits",
-                "label": "Configure Hits",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3012,7 +3012,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Hits",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3036,8 +3036,8 @@
         "type": "Periods",
         "menuItems": [
             {
-                "action": "Configure Periods",
-                "label": "Configure Periods",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3046,7 +3046,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Periods",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3071,7 +3071,7 @@
         "menuItems": [
             {
                 "action": "Configure This",
-                "label": "Configure Periods",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3153,7 +3153,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Episode Statistics",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3514,7 +3514,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Position Statistics",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3579,7 +3579,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Order Statistics",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3594,9 +3594,21 @@
         "propertyNameAtParent": "orderStatistics",
         "properties": [
             {
+                "name": "sizeFilled",
+                "type": "node",
+                "childType": "Size Filled",
+                "autoAdd": true
+            },
+            {
                 "name": "percentageFilled",
                 "type": "node",
                 "childType": "Percentage Filled",
+                "autoAdd": true
+            },
+            {
+                "name": "amountReceived",
+                "type": "node",
+                "childType": "Amount Received",
                 "autoAdd": true
             },
             {
@@ -3679,8 +3691,8 @@
         "type": "Profit Loss",
         "menuItems": [
             {
-                "action": "Configure Profit Loss",
-                "label": "Configure Profit Loss",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3689,7 +3701,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Profit Loss",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3713,8 +3725,8 @@
         "type": "Hit Ratio",
         "menuItems": [
             {
-                "action": "Configure Hit Ratio",
-                "label": "Configure Hit Ratio",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3723,7 +3735,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Hit Ratio",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3747,8 +3759,8 @@
         "type": "Days",
         "menuItems": [
             {
-                "action": "Configure Days",
-                "label": "Configure Days",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3757,7 +3769,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Days",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3776,6 +3788,40 @@
         },
         "icon": "oscillator",
         "propertyNameAtParent": "days"
+    },
+    {
+        "type": "Size Filled",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Statistics->"
+        },
+        "icon": "bot-trading",
+        "propertyNameAtParent": "sizeFilled"
     },
     {
         "type": "Percentage Filled",
@@ -3810,6 +3856,40 @@
         },
         "icon": "menu-tensor-free-angles",
         "propertyNameAtParent": "percentageFilled"
+    },
+    {
+        "type": "Amount Received",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Order Statistics->"
+        },
+        "icon": "support",
+        "propertyNameAtParent": "amountReceived"
     },
     {
         "type": "Actual Rate",
@@ -3883,8 +3963,8 @@
         "type": "ROI",
         "menuItems": [
             {
-                "action": "Configure ROI",
-                "label": "Configure ROI",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3893,7 +3973,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete ROI",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -3951,8 +4031,8 @@
         "type": "Hit Fail",
         "menuItems": [
             {
-                "action": "Configure Hit Fail",
-                "label": "Configure Hit Fail",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -3961,7 +4041,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Hit Fail",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4028,7 +4108,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Current",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4097,7 +4177,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Balance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4132,7 +4212,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Base Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4159,7 +4239,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Quoted Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4192,7 +4272,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Distance To Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4246,12 +4326,6 @@
                 "name": "createOrder",
                 "type": "node",
                 "childType": "Create Order",
-                "autoAdd": true
-            },
-            {
-                "name": "moveOrder",
-                "type": "node",
-                "childType": "Move Order",
                 "autoAdd": true
             },
             {
@@ -4415,10 +4489,10 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Delete This",
+                "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Next Phase",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4505,40 +4579,6 @@
         },
         "icon": "bitmex",
         "propertyNameAtParent": "createOrder"
-    },
-    {
-        "type": "Move Order",
-        "menuItems": [
-            {
-                "action": "Configure This",
-                "label": "Configure This",
-                "iconPathOn": "settings",
-                "iconPathOff": "settings",
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\n\"initialValue\": 0\n}"
-        },
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Distance To Event->"
-        },
-        "icon": "bitmex",
-        "propertyNameAtParent": "moveOrder"
     },
     {
         "type": "Cancel Order",
@@ -4629,7 +4669,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Strategy",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4745,8 +4785,8 @@
         "type": "Strategy Name",
         "menuItems": [
             {
-                "action": "Configure Name",
-                "label": "Configure Name",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4755,7 +4795,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Strategy Name",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4779,8 +4819,8 @@
         "type": "Index",
         "menuItems": [
             {
-                "action": "Configure Index",
-                "label": "Configure Index",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4789,7 +4829,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Index",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -4949,8 +4989,8 @@
         "type": "Status",
         "menuItems": [
             {
-                "action": "Configure Status",
-                "label": "Configure Status",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -4959,7 +4999,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Status",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5119,8 +5159,8 @@
         "type": "Identifier",
         "menuItems": [
             {
-                "action": "Configure Identifier",
-                "label": "Configure Identifier",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5129,7 +5169,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Identifier",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5150,11 +5190,11 @@
         "propertyNameAtParent": "identifier"
     },
     {
-        "type": "Begin",
+        "type": "Exchange Id",
         "menuItems": [
             {
-                "action": "Configure Begin",
-                "label": "Configure Begin",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5163,7 +5203,41 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Begin",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Market Order->Limit Order->"
+        },
+        "icon": "layer-manager",
+        "propertyNameAtParent": "exchangeId"
+    },
+    {
+        "type": "Begin",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5187,8 +5261,8 @@
         "type": "End",
         "menuItems": [
             {
-                "action": "Configure End",
-                "label": "Configure End",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5197,7 +5271,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete End",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5224,7 +5298,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Open",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5245,7 +5319,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Close",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5266,7 +5340,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Min",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5287,7 +5361,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Max",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5305,8 +5379,8 @@
         "type": "Begin Rate",
         "menuItems": [
             {
-                "action": "Configure Begin Rate",
-                "label": "Configure Begin Rate",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5315,7 +5389,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Begin Rate",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5339,8 +5413,8 @@
         "type": "End Rate",
         "menuItems": [
             {
-                "action": "Configure End Rate",
-                "label": "Configure End Rate",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5349,7 +5423,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete End Rate",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5398,7 +5472,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Position",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5532,8 +5606,8 @@
         "type": "Rate",
         "menuItems": [
             {
-                "action": "Configure Rate",
-                "label": "Configure Rate",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5542,7 +5616,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Rate",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5566,8 +5640,8 @@
         "type": "Size",
         "menuItems": [
             {
-                "action": "Configure Size",
-                "label": "Configure Size",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5576,7 +5650,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Size",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5736,8 +5810,8 @@
         "type": "Exit Type",
         "menuItems": [
             {
-                "action": "Configure Exit Type",
-                "label": "Configure Exit Type",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -5746,7 +5820,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exit Type",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5781,7 +5855,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Last",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5822,7 +5896,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Last",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5903,7 +5977,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Previous",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -5970,7 +6044,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Orders",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6082,6 +6156,12 @@
                 "name": "identifier",
                 "type": "node",
                 "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "exchangeId",
+                "type": "node",
+                "childType": "Exchange Id",
                 "autoAdd": true
             },
             {
@@ -6297,6 +6377,12 @@
                 "autoAdd": true
             },
             {
+                "name": "exchangeId",
+                "type": "node",
+                "childType": "Exchange Id",
+                "autoAdd": true
+            },
+            {
                 "name": "begin",
                 "type": "node",
                 "childType": "Begin",
@@ -6378,7 +6464,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Parameters",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6501,7 +6587,7 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#base-asset",
         "menuItems": [
             {
-                "action": "Configure Session Base Asset",
+                "action": "Configure This",
                 "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
@@ -6511,7 +6597,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session Base Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6543,7 +6629,7 @@
         "type": "Session Quoted Asset",
         "menuItems": [
             {
-                "action": "Configure Session Quoted Asset",
+                "action": "Configure This",
                 "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
@@ -6553,7 +6639,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session Quoted Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6589,7 +6675,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Base Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6619,7 +6705,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Base Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6648,16 +6734,16 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "keyInstance",
-                "label": "Add Key Instance",
-                "relatedUiObject": "Key Instance",
+                "propertyToCheckFor": "keyReference",
+                "label": "Add Key Reference",
+                "relatedUiObject": "Key Reference",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Base Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6678,9 +6764,9 @@
         },
         "properties": [
             {
-                "name": "keyInstance",
+                "name": "keyReference",
                 "type": "node",
-                "childType": "Key Instance"
+                "childType": "Key Reference"
             }
         ],
         "icon": "market",
@@ -6691,8 +6777,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-range",
         "menuItems": [
             {
-                "action": "Configure Time Range",
-                "label": "Configure Time Range",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6701,7 +6787,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Time Range",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6726,8 +6812,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#time-frame",
         "menuItems": [
             {
-                "action": "Configure Time Frame",
-                "label": "Configure Time Frame",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6736,7 +6822,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Time Frame",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6761,8 +6847,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#slippage",
         "menuItems": [
             {
-                "action": "Configure Slippage",
-                "label": "Configure Slippage",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6771,7 +6857,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Slippage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6796,8 +6882,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#fee-structure",
         "menuItems": [
             {
-                "action": "Configure Fee Structure",
-                "label": "Configure Fee Structure",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6806,7 +6892,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Fee Structure",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6830,8 +6916,8 @@
         "type": "Snapshots",
         "menuItems": [
             {
-                "action": "Configure Snapshots",
-                "label": "Configure Snapshots",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "settings",
                 "iconPathOff": "settings",
                 "actionFunction": "uiObject.configEditor.activate"
@@ -6840,7 +6926,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Snapshots",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -6931,8 +7017,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure Session",
-                "label": "Configure Session",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -6948,7 +7034,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7034,8 +7120,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure Session",
-                "label": "Configure Session",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7051,7 +7137,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7101,14 +7187,13 @@
         "propertyNameAtParent": "session"
     },
     {
-        "type": "Key Instance",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#key-instance",
+        "type": "Key Reference",
         "menuItems": [
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Key Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7126,7 +7211,7 @@
             "compatibleTypes": "->Exchange Account Key->"
         },
         "icon": "login",
-        "propertyNameAtParent": "keyInstance"
+        "propertyNameAtParent": "keyReference"
     },
     {
         "type": "Live Trading Session",
@@ -7165,8 +7250,8 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
-                "action": "Configure Session",
-                "label": "Configure Session",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7182,7 +7267,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Session",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7194,7 +7279,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"folderName\": \"Type the name of the folder where you wish to store the logs of this process\"\n}"
+            "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
         },
         "level": 2,
         "referenceAttachesTo": {
@@ -7236,8 +7321,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#sensor-bot-instance",
         "menuItems": [
             {
-                "action": "Configure Bot Instance",
-                "label": "Configure Bot Instance",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7253,7 +7338,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Bot Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7287,8 +7372,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#indicator-bot-instance",
         "menuItems": [
             {
-                "action": "Configure Bot Instance",
-                "label": "Configure Bot Instance",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7304,7 +7389,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Bot Instance",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7338,8 +7423,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#data-mine",
         "menuItems": [
             {
-                "action": "Configure Data Mine",
-                "label": "Configure Data Mine",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7373,7 +7458,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Mine",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7417,8 +7502,8 @@
         "type": "Sensor Bot",
         "menuItems": [
             {
-                "action": "Configure Bot",
-                "label": "Configure Bot",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7440,7 +7525,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Sensor Bot",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7480,8 +7565,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#process-definition",
         "menuItems": [
             {
-                "action": "Configure Process",
-                "label": "Configure Process",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7497,7 +7582,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Process Definition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7564,7 +7649,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Process Output",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7606,7 +7691,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Dependencies",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7639,8 +7724,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#status-dependency",
         "menuItems": [
             {
-                "action": "Configure Status Dependency",
-                "label": "Configure Status Dependency",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7650,7 +7735,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Status Dependency",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7686,7 +7771,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Status Report",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7708,7 +7793,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7738,7 +7823,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7757,8 +7842,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#product-definition",
         "menuItems": [
             {
-                "action": "Configure Product",
-                "label": "Configure Product",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7788,7 +7873,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Product Definition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7841,8 +7926,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#dataset-definition",
         "menuItems": [
             {
-                "action": "Configure Definition",
-                "label": "Configure Definition",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7852,7 +7937,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Dataset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7878,8 +7963,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#indicator-bot",
         "menuItems": [
             {
-                "action": "Configure Bot",
-                "label": "Configure Bot",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -7901,7 +7986,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Indicator Bot",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7944,7 +8029,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Output Dataset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7974,7 +8059,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Dependency",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8010,7 +8095,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Record Definition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8037,8 +8122,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#record-property",
         "menuItems": [
             {
-                "action": "Configure Property",
-                "label": "Configure Property",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8056,7 +8141,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Record Property",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8100,7 +8185,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Formula",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8144,7 +8229,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Procedure",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8188,7 +8273,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Initialization",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8226,7 +8311,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Procedure Loop",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8272,7 +8357,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Procedure",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8304,8 +8389,8 @@
         "type": "Trading Bot",
         "menuItems": [
             {
-                "action": "Configure Bot",
-                "label": "Configure Bot",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8327,7 +8412,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Trading Bot",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8367,8 +8452,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-data-mine.html#plotter",
         "menuItems": [
             {
-                "action": "Configure Plotter",
-                "label": "Configure Plotter",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -8384,7 +8469,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Plotter",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8418,9 +8503,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#trading-system",
         "menuItems": [
             {
-                "action": "Configure Trading System",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Trading System",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -8434,7 +8519,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Trading System",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8536,7 +8621,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Stage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8595,7 +8680,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8642,7 +8727,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8689,7 +8774,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8746,7 +8831,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Stage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8793,7 +8878,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Definition",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8847,7 +8932,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Item",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8883,7 +8968,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Item",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -8942,7 +9027,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Phase",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9000,7 +9085,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9047,7 +9132,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9091,7 +9176,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Item",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9127,7 +9212,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Item",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9166,7 +9251,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Position Size",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9204,7 +9289,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Position Rate",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9213,7 +9298,7 @@
         "addLeftIcons": true,
         "level": 5,
         "chainAttachesTo": {
-            "compatibleTypes": "->Initial Definition->Limit Buy Order->Limit Sell Order->Move Order Event->"
+            "compatibleTypes": "->Initial Definition->Limit Buy Order->Limit Sell Order->"
         },
         "icon": "stage-open-postion-rate",
         "properties": [
@@ -9240,7 +9325,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Open Execution",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9300,7 +9385,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Execution Algorithm",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9372,7 +9457,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Market Buy Order",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9439,7 +9524,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Market Sell Order",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9512,12 +9597,6 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Move Order Event",
-                "relatedUiObject": "Move Order Event",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "simulatedExchangeEvents",
                 "label": "Add Simulated Events",
@@ -9528,7 +9607,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Limit Buy Order",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9566,11 +9645,6 @@
                 "name": "cancelOrderEvent",
                 "type": "node",
                 "childType": "Cancel Order Event"
-            },
-            {
-                "name": "moveOrderEvents",
-                "type": "array",
-                "childType": "Move Order Event"
             },
             {
                 "name": "simulatedExchangeEvents",
@@ -9616,12 +9690,6 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Move Order Event",
-                "relatedUiObject": "Move Order Event",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "simulatedExchangeEvents",
                 "label": "Add Simulated Events",
@@ -9632,7 +9700,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Limit Sell Order",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9672,11 +9740,6 @@
                 "childType": "Cancel Order Event"
             },
             {
-                "name": "moveOrderEvents",
-                "type": "array",
-                "childType": "Move Order Event"
-            },
-            {
                 "name": "simulatedExchangeEvents",
                 "type": "node",
                 "childType": "Simulated Exchange Events",
@@ -9703,7 +9766,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -9731,66 +9794,6 @@
         "propertyNameAtParent": "createOrderEvent"
     },
     {
-        "type": "Move Order Event",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionRate",
-                "label": "Add Position Rate",
-                "relatedUiObject": "Position Rate",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Situation",
-                "relatedUiObject": "Situation",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Announcement",
-                "relatedUiObject": "Announcement",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 3,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
-        },
-        "icon": "move-order",
-        "properties": [
-            {
-                "name": "positionRate",
-                "type": "node",
-                "childType": "Position Rate",
-                "autoAdd": true
-            },
-            {
-                "name": "situations",
-                "type": "array",
-                "childType": "Situation",
-                "autoAdd": true
-            },
-            {
-                "name": "announcements",
-                "type": "array",
-                "childType": "Announcement"
-            }
-        ],
-        "propertyNameAtParent": "moveOrderEvents"
-    },
-    {
         "type": "Cancel Order Event",
         "menuItems": [
             {
@@ -9809,7 +9812,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Event",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10026,7 +10029,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Stage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10081,7 +10084,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Stage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10156,7 +10159,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Social Bots",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10185,9 +10188,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure Telegram Bot",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Telegram Bot",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10195,7 +10198,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Telegram Bot",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10220,9 +10223,9 @@
         },
         "menuItems": [
             {
-                "action": "Configure Announcement",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Announcement",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10246,7 +10249,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Announcement",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10372,7 +10375,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Super Actions",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10407,7 +10410,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Signals Providers",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10433,9 +10436,9 @@
         "type": "Signals Provider",
         "menuItems": [
             {
-                "action": "Configure Signals Provider",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Signals Provider",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10453,7 +10456,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Signals Provider",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10497,7 +10500,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Crypto Exchanges",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10525,9 +10528,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#crypto-exchange",
         "menuItems": [
             {
-                "action": "Configure Crypto Exchange",
+                "action": "Configure Thise",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Crypto Exchange",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10559,7 +10562,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Crypto Exchange",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10647,9 +10650,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-assets",
         "menuItems": [
             {
-                "action": "Configure Exchange Assets",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Exchange Assets",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10672,7 +10675,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Assets",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10704,9 +10707,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#asset",
         "menuItems": [
             {
-                "action": "Configure Asset",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Asset",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10714,7 +10717,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10824,7 +10827,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Markets",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10850,9 +10853,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#market",
         "menuItems": [
             {
-                "action": "Configure Market",
+                "action": "Configure This",
                 "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure Market",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html"
             },
@@ -10882,7 +10885,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Market",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10936,7 +10939,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Accounts",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -10983,7 +10986,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Account",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11026,7 +11029,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete User Assets",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11062,7 +11065,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete User Keys",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11093,7 +11096,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Asset",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11121,8 +11124,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-crypto-ecosystem.html#exchange-account-key",
         "menuItems": [
             {
-                "action": "Configure Key",
-                "label": "Configure Key",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11132,7 +11135,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This Key",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11204,7 +11207,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Dashboard",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11231,8 +11234,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-machine",
         "menuItems": [
             {
-                "action": "Configure Time Machine",
-                "label": "Configure Time Machine",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11272,7 +11275,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Crypto Exchange",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11324,8 +11327,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#viewport",
         "menuItems": [
             {
-                "action": "Configure Viewport",
-                "label": "Configure Viewport",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11351,8 +11354,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-scale",
         "menuItems": [
             {
-                "action": "Configure Time Scale",
-                "label": "Configure Time Scale",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11362,7 +11365,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Time Scale",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11387,8 +11390,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#rate-scale",
         "menuItems": [
             {
-                "action": "Configure Rate Scale",
-                "label": "Configure Rate Scale",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11398,7 +11401,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Rate Scale",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11423,8 +11426,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#time-frame-scale",
         "menuItems": [
             {
-                "action": "Configure Frame Scale",
-                "label": "Configure Frame Scale",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11434,7 +11437,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Time Frame Scale",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11486,7 +11489,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Time Timeline Chart",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11527,8 +11530,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layers-manager",
         "menuItems": [
             {
-                "action": "Configure Layers Manager",
-                "label": "Configure Layers Manager",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11544,7 +11547,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Layers Manager",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11577,8 +11580,8 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-charting-space.html#layer",
         "menuItems": [
             {
-                "action": "Configure Layer",
-                "label": "Configure Layer",
+                "action": "Configure This",
+                "label": "Configure This",
                 "iconPathOn": "html",
                 "iconPathOff": "html",
                 "dontShowAtFullscreen": true,
@@ -11596,7 +11599,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Layer",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11654,7 +11657,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Storage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11715,7 +11718,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Tasks",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11779,7 +11782,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Mining",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11835,7 +11838,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Environment",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11891,7 +11894,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Environment",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11926,7 +11929,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Storage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -11969,7 +11972,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Storage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12003,7 +12006,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Exchange Sessions",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12046,7 +12049,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Storage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12083,7 +12086,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Storage",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12128,7 +12131,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Single Market Data",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"
@@ -12166,7 +12169,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "Delete Data Product",
+                "label": "Delete This",
                 "iconPathOn": "delete",
                 "iconPathOff": "delete",
                 "actionFunction": "payload.onMenuItemClick"

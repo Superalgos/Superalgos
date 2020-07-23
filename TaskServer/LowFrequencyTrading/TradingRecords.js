@@ -119,7 +119,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
-                    propertyRootNode = eval(recordProperty.config.nodePath)
+                    try {
+                        propertyRootNode = eval(recordProperty.config.nodePath)
+                    } catch (err) {
+                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.name = " + recordProperty.name);
+                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.config.nodePath = " + recordProperty.config.nodePath);
+                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> err.stack = " + err.stack);
+                        throw 'Can not continue with a Definition Error like this.'
+                    }
                 }
                 /* 
                 The Target Node is the node from where we are going to exctract the value.

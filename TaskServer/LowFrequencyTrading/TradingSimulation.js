@@ -42,10 +42,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
 
             /* These are the Modules we will need to run the Simulation */
-            const EXCHANGE_API = require('../ExchangeAPI');
-            exchangeAPI = EXCHANGE_API.newExchangeAPI(logger, bot);
-            exchangeAPI.initialize();
-
             const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
             tradingEngineModule.initialize()
@@ -112,7 +108,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 loop()
             }
 
-            function loop() {
+            async function loop() {
                 if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> loop -> Processing candle # ' + tradingEngine.current.candle.index.value) }
                 let candle = candles[tradingEngine.current.candle.index.value] // This is the current candle the Simulation is working at.
 
@@ -150,13 +146,13 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 tradingSystemModule.triggerStage()
 
                 /* Run the Open Stage */
-                tradingSystemModule.openStage()
+                await tradingSystemModule.openStage()
 
                 /* Run the Manage Stage */
                 tradingSystemModule.manageStage()
 
                 /* Run the Close Stage */
-                tradingSystemModule.closeStage()
+                await tradingSystemModule.closeStage()
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()

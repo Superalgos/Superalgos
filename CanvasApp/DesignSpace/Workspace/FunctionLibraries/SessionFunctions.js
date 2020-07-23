@@ -37,7 +37,7 @@ function newSessionFunctions () {
     'Close Stage->Close Execution->' +
     'Announcement->Formula->' +
     'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-    'Create Order Event->Move Order Event->Cancel Order Event->' +
+    'Create Order Event->Cancel Order Event->' +
     'Position Size->Position Rate->Formula->' +
     'Situation->Condition->Javascript Code->' +
     'Market Order->Limit Order->' +
@@ -57,7 +57,7 @@ function newSessionFunctions () {
     'Begin->End->Open->Close->Min->Max->Index->' +
     'Balance->Base Asset->Quoted Asset->' +
     'Distance To Event->' +
-    'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Move Order->Cancel Order->Close Order->' +
+    'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
     'Strategy->' +
     'Serial Number->Identifier->Begin->End->Strategy Name->Index->Trigger Stage Status->Open Stage Status->Manage Stage Status->Close Stage Status->Status->Begin Rate->End Rate->Situation Name->' +
     'Strategy Counters->Periods->' +
@@ -70,9 +70,9 @@ function newSessionFunctions () {
     'Formula->' +
     'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
     'Market Order->Limit Order->' +
-    'Serial Number->Identifier->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->' +
+    'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->' +
     'Order Counters->Periods->' +
-    'Order Statistics->Percentage Filled->Actual Rate->Fees Paid->Days->User Defined Statistic->'
+    'Order Statistics->Size Filled->Percentage Filled->Amount Received->Actual Rate->Fees Paid->Days->User Defined Statistic->'
 
     let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

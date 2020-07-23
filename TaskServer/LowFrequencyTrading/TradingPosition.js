@@ -16,7 +16,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateStopLoss: updateStopLoss,
         updateTakeProfit: updateTakeProfit,
         updateSizeAndRate: updateSizeAndRate,
-        applySlippageToRate: applySlippageToRate,
         updateEnds: updateEnds,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
@@ -44,6 +43,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function openPosition(situationName) {
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.episode.episodeCounters.positions.value
+        tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
 
@@ -94,16 +94,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function updateSizeAndRate(size, rate) {
         tradingEngine.current.position.size.value = global.PRECISE(size, 10)
         tradingEngine.current.position.rate.value = global.PRECISE(rate, 10)
-    }
 
-    function applySlippageToRate() {
-        let slippageAmount = tradingEngine.current.position.rate.value * bot.SESSION.parameters.slippage.config.positionRate / 100
-
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value - slippageAmount
-        } else {
-            tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value + slippageAmount
-        }
+        tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
     }
 
     function preventStopLossDistortion() {

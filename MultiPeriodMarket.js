@@ -57,6 +57,15 @@
                     const timeFrame = global.marketFilesPeriods[n][0]
                     const timeFrameLabel = global.marketFilesPeriods[n][1]
 
+                    /* Check Time Frames Filter */
+                    if (bot.marketTimeFrames !== undefined) {
+                        if (bot.marketTimeFrames.includes(timeFrameLabel) === false) {
+                            /* We are not going to process this Time Frame */
+                            timeFramesControlLoop()
+                            return
+                        }
+                    }
+
                     let dependencyIndex = 0;
                     dataFiles = new Map;
 
@@ -69,15 +78,8 @@
                         getFile()
 
                         function getFile() {
-                            let dateForPath = bot.processDatetime.getUTCFullYear() + '/' + utilities.pad(bot.processDatetime.getUTCMonth() + 1, 2) + '/' + utilities.pad(bot.processDatetime.getUTCDate(), 2)
                             let fileName = "Data.json";
-
-                            let filePath
-                            if (dependency.referenceParent.config.codeName === "Multi-Period-Market") {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
-                            } else {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
-                            }
+                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)
 
                             function onFileReceived(err, text) {
@@ -138,6 +140,9 @@
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastExecution = bot.processDatetime;
+                if (bot.marketTimeFrames !== undefined) {
+                    thisReport.file.timeFrames = bot.marketTimeFrames
+                }
                 thisReport.save(callBack)
 
                 if (global.areEqualDates(bot.processDatetime, new Date()) === false) {

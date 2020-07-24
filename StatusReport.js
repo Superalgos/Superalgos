@@ -334,7 +334,7 @@
 
                 let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
 
-                processOutput.raiseEvents(thisObject.file.lastFile, callBackFunction);
+                processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
 
                 return;
             }

@@ -28,7 +28,7 @@ function newTaskFunctions () {
 
     let taskLightingPath = '->Task->' +
     'Sensor Bot Instance->' +
-    'Indicator Bot Instance->' +
+    'Indicator Bot Instance->Time Frames Filter->' +
     'Trading Bot Instance->' +
     'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->' +
     'Market Reference->' +

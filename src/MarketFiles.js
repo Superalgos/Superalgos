@@ -145,10 +145,11 @@ function newMarketFiles () {
     }
   }
 
-  function updateFiles () {
+  function updateFiles (message) {
     try {
       if (finalized === true) { return }
       let updatedFiles = 0
+      if (message.event === undefined) { return }
 
             /* Now we will get the market files */
 
@@ -156,21 +157,23 @@ function newMarketFiles () {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.config.validTimeFrames.includes(periodName) === true) {
-          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+        if (dataset.config.validTimeFrames.includes(periodName) !== true) { continue }
+        if (message.event.timeFrames !== undefined) {
+          if (message.event.timeFrames.includes(periodName) !== true) { continue }
+        }
+        fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
 
-          function onFileReceived (err, file) {
-            try {
-              if (finalized === true) { return }
-              files.set(periodTime, file)
-              updatedFiles++
+        function onFileReceived (err, file) {
+          try {
+            if (finalized === true) { return }
+            files.set(periodTime, file)
+            updatedFiles++
 
-              if (updatedFiles === marketFilesPeriods.length) {
-                thisObject.eventHandler.raiseEvent('Files Updated')
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
+            if (updatedFiles === marketFilesPeriods.length) {
+              thisObject.eventHandler.raiseEvent('Files Updated')
             }
+          } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
           }
         }
       }

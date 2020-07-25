@@ -7,6 +7,7 @@
     };
 
     let utilities = UTILITIES.newCloudUtilities(logger)
+    let fileStorage = FILE_STORAGE.newFileStorage(logger)
 
     let statusDependencies;
     let dataDependenciesModule;
@@ -31,6 +32,7 @@
     }
 
     function finalize() {
+        fileStorage = undefined
         dataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
@@ -130,8 +132,62 @@
                     if (n < global.marketFilesPeriods.length) {
                         timeFramesLoopBody()
                     } else {
-                        writeStatusReport(callBackFunction)
+                        writeTimeFramesFiles(onTimeFrameFilesWritten)
+                        function onTimeFrameFilesWritten() {
+                            writeStatusReport(callBackFunction)
+                        }
                     }
+                }
+            }
+
+            function writeTimeFramesFiles(callBack) {
+                let outputDatasetIndex = -1;
+                controlLoop()
+
+                function productLoopBody() {
+                    let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                    writeTimeFramesFile(productCodeName, controlLoop)
+                }
+
+                function controlLoop() {
+                    outputDatasetIndex++
+                    if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
+                        productLoopBody()
+                    } else {
+                        callBack()
+                    }
+                }
+            }
+
+            function writeTimeFramesFile(productCodeName, callBack) {
+
+                let timeFramesArray = []
+                for (let n = 0; n < global.marketFilesPeriods.length; n++) {
+                    let timeFrameLabel = global.marketFilesPeriods[n][1]
+
+                    /* Check Time Frames Filter */
+                    if (bot.marketTimeFrames !== undefined) {
+                        if (bot.marketTimeFrames.includes(timeFrameLabel) === true) {
+                            timeFramesArray.push(timeFrameLabel)
+                        }
+                    } else {
+                        timeFramesArray.push(timeFrameLabel)
+                    }
+                }
+
+                let fileContent = JSON.stringify(timeFramesArray)
+                let fileName = '/Time.Frames.json';
+                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
+
+                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                function onFileCreated(err) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
+                        callBack(err)
+                        return
+                    }
+                    callBack()
                 }
             }
 

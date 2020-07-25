@@ -276,8 +276,18 @@
                 }
 
                 function timeFramesLoopBody() {
+
                     const timeFrame = global.dailyFilePeriods[n][0]
                     const timeFrameLabel = global.dailyFilePeriods[n][1]
+
+                    /* Check Time Frames Filter */
+                    if (bot.dailyTimeFrames !== undefined) {
+                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === false) {
+                            /* We are not going to process this Time Frame */
+                            timeFramesControlLoop()
+                            return
+                        }
+                    }
 
                     if (processConfig.framework.validPeriods !== undefined) {
                         let validPeriod = false;
@@ -417,8 +427,6 @@
                         }
 
                         function generateOutput() {
-                            const timeFrame = global.dailyFilePeriods[n][0]
-                            const timeFrameLabel = global.dailyFilePeriods[n][1]
 
                             indicatorOutputModule.start(
                                 dataFiles,
@@ -502,6 +510,38 @@
                     }
 
                     global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Data Range Updated', event)
+                    writeTimeFramesFile(productCodeName, callBack)
+                }
+            }
+
+            function writeTimeFramesFile(productCodeName, callBack) {
+
+                let timeFramesArray = []
+                for (let n = 0; n < global.dailyFilePeriods.length; n++) {
+                    let timeFrameLabel = global.dailyFilePeriods[n][1]
+
+                    /* Check Time Frames Filter */
+                    if (bot.marketTimeFrames !== undefined) {
+                        if (bot.dailyTimeFrames.includes(timeFrameLabel) === true) {
+                            timeFramesArray.push(timeFrameLabel)
+                        }
+                    } else {
+                        timeFramesArray.push(timeFrameLabel)
+                    }
+                }
+
+                let fileContent = JSON.stringify(timeFramesArray)
+                let fileName = '/Time.Frames.json';
+                let filePath = bot.filePathRoot + "/Output/" + productCodeName + "/" + bot.process + fileName;
+
+                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                function onFileCreated(err) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFiles -> onFileCreated -> err = " + err.stack)
+                        callBack(err)
+                        return
+                    }
                     callBack(global.DEFAULT_OK_RESPONSE)
                 }
             }

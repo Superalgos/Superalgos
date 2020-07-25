@@ -59,89 +59,80 @@ function newAnimation () {
 
   function animationLoop () {
     try {
-      if (window.canvasApp.visible === true) {
-        /* We set the canvas to its normal width and height */
-        // browserCanvas.width = window.innerWidth
-        // browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
+      /* First thing is to clear the actual canvas */
+      clearBrowserCanvas()
 
-        /* First thing is to clear the actual canvas */
-        clearBrowserCanvas()
-
-        /* We loop through the callback functions collections and execute them all. */
-        let performanceMap = new Map()
-        let totalTimeConsumed = 0
-        let totalElements = 0
-        let chanceToExecute
-        let randomNumber
-        let mustExecute
+      /* We loop through the callback functions collections and execute them all. */
+      let performanceMap = new Map()
+      let totalTimeConsumed = 0
+      let totalElements = 0
+      let chanceToExecute
+      let randomNumber
+      let mustExecute
 
         // console.clear()
-        let row = 0
-        for (const [key, callBackFunction] of callBackFunctions.entries()) {
-          row++
-          switch (key) {
-            case 'Floating Space Physics':
-              chanceToExecute = 50
-              randomNumber = Math.random() * 100 * chanceToExecute
-              if (randomNumber > 100 - chanceToExecute) { mustExecute = true } else { mustExecute = false }
-              break
-            default: {
-              mustExecute = true
-            }
-
+      let row = 0
+      for (const [key, callBackFunction] of callBackFunctions.entries()) {
+        row++
+        switch (key) {
+          case 'Floating Space Physics':
+            chanceToExecute = 50
+            randomNumber = Math.random() * 100 * chanceToExecute
+            if (randomNumber > 100 - chanceToExecute) { mustExecute = true } else { mustExecute = false }
+            break
+          default: {
+            mustExecute = true
           }
-          let timeConsumed = 0
-          if (mustExecute === true) {
-            let t0 = performance.now()
-            callBackFunction()
-            let t1 = performance.now()
-            timeConsumed = t1 - t0
-            if (key === 'Charting Space Draw') {
-              if (Math.random() * 100 > 99) {
-                totalConsumption = 0
-                totalCounter = 0
-              }
 
-              totalConsumption = totalConsumption + timeConsumed
-              totalCounter = totalCounter + 1
-            }
-            performanceMap.set(key, timeConsumed)
-            totalTimeConsumed = totalTimeConsumed + timeConsumed
-            totalElements++
-          }
         }
+        let timeConsumed = 0
+        if (mustExecute === true) {
+          let t0 = performance.now()
+          callBackFunction()
+          let t1 = performance.now()
+          timeConsumed = t1 - t0
+          if (key === 'Charting Space Draw') {
+            if (Math.random() * 100 > 99) {
+              totalConsumption = 0
+              totalCounter = 0
+            }
+
+            totalConsumption = totalConsumption + timeConsumed
+            totalCounter = totalCounter + 1
+          }
+          performanceMap.set(key, timeConsumed)
+          totalTimeConsumed = totalTimeConsumed + timeConsumed
+          totalElements++
+        }
+      }
 
         /* Frame per Seconds */
 
-        ANIMATION_FRAME_PER_SECONDS = Math.trunc(1000 / totalTimeConsumed)
+      ANIMATION_FRAME_PER_SECONDS = Math.trunc(1000 / totalTimeConsumed)
 
         /* Performance Check */
-        if (SHOW_ANIMATION_PERFORMACE === true) {
-          row = 0
-          for (const [key, timeConsumed] of performanceMap.entries()) {
-            row++
-            labelToPrint = key + '   ' + timeConsumed.toFixed(4)
-            printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
-            let percentage = timeConsumed * 100 / totalTimeConsumed
-            labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
-            printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          }
+      if (SHOW_ANIMATION_PERFORMACE === true) {
+        row = 0
+        for (const [key, timeConsumed] of performanceMap.entries()) {
+          row++
+          labelToPrint = key + '   ' + timeConsumed.toFixed(4)
+          printLabel(labelToPrint, 10, 100 + row * 30, 1, 20, UI_COLOR.RED)
+          let percentage = timeConsumed * 100 / totalTimeConsumed
+          labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
+          printLabel(labelToPrint, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+        }
 
           /* Other Variables */
-          row++
-          printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          row++
-          printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          row++
-          printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          row++
-          printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
-          row++
-          printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
-        }
-      } else {
-        browserCanvas.width = 1
-        browserCanvas.height = 1
+        row++
+        printLabel(DEBUG.variable1, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+        row++
+        printLabel(DEBUG.variable2, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+        row++
+        printLabel(DEBUG.variable3, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+        row++
+        printLabel(DEBUG.variable4, 300, 100 + row * 30, 1, 20, UI_COLOR.RED)
+        row++
+        printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, 100 + row * 30, 1, 20, UI_COLOR.TITANIUM_YELLOW)
       }
 
       /* Video Recording */

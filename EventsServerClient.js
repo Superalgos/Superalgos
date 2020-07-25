@@ -9,7 +9,7 @@ function newEventsServerClient (host, port, hostName) {
   logger.fileName = MODULE_NAME
 
   if (host === '' || host === undefined) { host = 'localhost' }
-  if (port === '' || port === undefined) { port = '8080' }
+  if (port === '' || port === undefined) { port = '8081' }
 
   const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
   let WEB_SOCKETS_CONNECTION
@@ -156,7 +156,7 @@ function newEventsServerClient (host, port, hostName) {
     }
 
     if (thisObject.isConnected() !== true) {
-      canvas.cockpitSpace.setStatus('Connecting to ' + hostName + ' Network Node. Please wait until the connection is established.', 100, canvas.cockpitSpace.statusTypes.WARNING)
+      canvas.cockpitSpace.setStatus('Connecting to Superalgos Backend at ' + hostName + ' Network Node. Please wait until the connection is established.', 100, canvas.cockpitSpace.statusTypes.WARNING)
     } else {
       retryCommandsPhysics()
     }

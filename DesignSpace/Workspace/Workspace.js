@@ -14,6 +14,7 @@ function newWorkspace () {
     replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
     save: saveWorkspace,
     getHierarchyHeads: getHierarchyHeads,
+    getHierarchyHeadsById: getHierarchyHeadsById,
     getNodeThatIsOnFocus: getNodeThatIsOnFocus,
     getNodeByShortcutKey: getNodeByShortcutKey,
     stopAllRunningTasks: stopAllRunningTasks,
@@ -66,6 +67,7 @@ function newWorkspace () {
 
   thisObject.nodeChildren = newNodeChildren()
 
+  let isInitialized = false
   let workingAtTask = 0
   let circularProgressBar = newBusyProgressBar()
   circularProgressBar.fitFunction = canvas.floatingSpace.fitIntoVisibleArea
@@ -117,6 +119,7 @@ function newWorkspace () {
         canvas.cockpitSpace.initializePosition()
         canvas.splashScreen.initialize()
         setInterval(saveWorkspace, 60000)
+        isInitialized = true
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -185,16 +188,9 @@ function newWorkspace () {
   }
 
   function saveWorkspace () {
+    if (isInitialized === false) { return }
     /*  When there is an exception while loading the app, the rootNodes of the workspace get into null value. To avoid saving a corrupt staate we are going to verufy we are not in that situation before saving. */
     let workspace = canvas.designSpace.workspace.workspaceNode
-
-    for (let i = 0; i < workspace.rootNodes.length; i++) {
-      let rootNode = workspace.rootNodes[i]
-      if (rootNode === null) {
-        canvas.cockpitSpace.setStatus('Could not save the Workspace. The state of the workspace in memory is corrupt, please reload the App.', 150, canvas.cockpitSpace.statusTypes.WARNING)
-        return
-      }
-    }
 
     let savedSessionTimestamp = window.localStorage.getItem('Session Timestamp')
     if (Number(savedSessionTimestamp) !== sessionTimestamp) {
@@ -353,6 +349,16 @@ function newWorkspace () {
       }
     }
     return nodes
+  }
+
+  function getHierarchyHeadsById (nodeId) {
+    let hiriatchyHeads = getHierarchyHeads()
+    for (let i = 0; i < hiriatchyHeads.length; i++) {
+      let hiriatchyHead = hiriatchyHeads[i]
+      if (hiriatchyHead.id === nodeId) {
+        return hiriatchyHead
+      }
+    }
   }
 
   function replaceWorkspaceByLoadingOne (name) {

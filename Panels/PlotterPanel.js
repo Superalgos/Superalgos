@@ -100,9 +100,7 @@ function newPlotterPanel () {
     const PANEL_HEIGHT = UI_PANEL.HEIGHT.NORMAL
 
     if (currentRecord === undefined) { return }
-    if (currentRecord.data === undefined) { return }
-
-    let record = currentRecord.data
+    let record = currentRecord
 
     /* First we execute code if provided. */
     if (panelNode.javascriptCode !== undefined) {
@@ -114,16 +112,14 @@ function newPlotterPanel () {
       }
     }
 
-    printLabel('Indicator Properties', X_AXIS, UI_PANEL.HEIGHT.NORMAL * 17 / 100, '1.00', 14, undefined, true, thisObject.container, thisObject.fitFunction)
-
     /* Second we go through the panel data. */
     if (panelNode.panelData === undefined) { return }
     for (let i = 0; i < panelNode.panelData.length; i++) {
       let panelData = panelNode.panelData[i]
 
       let labelText = panelData.name
-      let labelPosition = i * 10 + 25
-      let valuePosition = i * 10 + 30
+      let labelPosition = i * 10 + 12
+      let valuePosition = i * 10 + 17
       let value = 'No value defined.'
 
       if (valuePosition > 100) {

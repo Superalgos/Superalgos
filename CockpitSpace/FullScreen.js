@@ -82,7 +82,7 @@ function newFullScreen () {
     } else {
       thisObject.status = 'Off'
       goOutFullscreen()
-      CURRENT_TOP_MARGIN = window.canvasApp.topMargin
+      CURRENT_TOP_MARGIN = TOP_MARGIN
       AT_FULL_SCREEN_MODE = false
     }
   }

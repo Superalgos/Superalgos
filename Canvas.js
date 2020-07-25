@@ -97,12 +97,11 @@ function newCanvas () {
 
   function initialize () {
     try {
+      browserResized()
       initializeBrowserCanvas()
-
       addCanvasEvents()
 
-           /* Instantiate all the children spaces of Canvas object */
-
+       /* Instantiate all the children spaces of Canvas object */
       thisObject.floatingSpace = newFloatingSpace()
       thisObject.floatingSpace.initialize()
 
@@ -199,14 +198,10 @@ function newCanvas () {
   }
 
   function browserResized () {
-    try {
-      browserCanvas = document.getElementById('canvas')
+    browserCanvas = document.getElementById('canvas')
 
-      browserCanvas.width = window.innerWidth
-      browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] browserResized -> err = ' + err.stack) }
-    }
+    browserCanvas.width = window.innerWidth
+    browserCanvas.height = window.innerHeight - CURRENT_TOP_MARGIN
   }
 
   function checkMediaRecording (event) {

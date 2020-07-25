@@ -83,22 +83,6 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
         let requestParameters = request.url.split('/')
 
-        if (requestParameters[1].indexOf('index.html') >= 0) {
-            /*
-            We use this to solve the problem when someone is arriving to the site with a sessionToken in the queryString. We extract here that
-            token, that will be sent later embedded into the HTML code, so that it can enter into the stardard circuit where any site can put
-            the sessionToken into their HTML code and from there the Browser app will log the user in.
-            */
-
-            let queryString = requestParameters[1].split('?')
-
-            requestParameters[1] = ''
-            requestParameters[2] = queryString[1]
-            homePage()
-
-            return
-        }
-
         requestParameters = request.url.split('?') // Remove version information
         requestParameters = requestParameters[0].split('/')
 
@@ -185,58 +169,19 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'Webhook':
                 {
-                switch (requestParameters[2]) { // switch by command
-                    case 'Fetch-Messages': {
-                        let exchange = requestParameters[3]
-                        let market = requestParameters[4]
-
-                        /* Some validations */
-                        if (exchange === undefined) {
-                            console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                            return
-                        }
-                        if (market === undefined) {
-                            console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                            return
-                        }
-
-                        let key = exchange + '-' + market
-
-                        let webhookMessages = webhook.get(key)
-                        if (webhookMessages === undefined) {
-                            webhookMessages = []
-                        }
-
-                        respondWithContent(JSON.stringify(webhookMessages), response)
-                        webhookMessages = []
-
-                        webhook.set(key, webhookMessages)
-                        break
-                    }
-                    case 'New-Message': {
-                        getBody(processRequest)
-
-                        function processRequest(messageReceived) {
-                            let timestamp = (new Date()).valueOf()
-                            let source = requestParameters[3]
-                            let exchange = requestParameters[4]
-                            let market = requestParameters[5]
+                    switch (requestParameters[2]) { // switch by command
+                        case 'Fetch-Messages': {
+                            let exchange = requestParameters[3]
+                            let market = requestParameters[4]
 
                             /* Some validations */
-                            if (source === undefined) {
-                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
-                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
-                                return
-                            }
                             if (exchange === undefined) {
-                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                                console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no Exchange received -> messageReceived = ' + messageReceived)
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                 return
                             }
                             if (market === undefined) {
-                                console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
+                                console.log('[WARN] webServer -> Webhook -> Fetch-Messages -> Message with no market received -> messageReceived = ' + messageReceived)
                                 respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                                 return
                             }
@@ -248,16 +193,55 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                                 webhookMessages = []
                             }
 
-                            webhookMessages.push([timestamp, source, messageReceived])
-                            webhook.set(key, webhookMessages)
+                            respondWithContent(JSON.stringify(webhookMessages), response)
+                            webhookMessages = []
 
-                            respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+                            webhook.set(key, webhookMessages)
+                            break
                         }
-                        break
+                        case 'New-Message': {
+                            getBody(processRequest)
+
+                            function processRequest(messageReceived) {
+                                let timestamp = (new Date()).valueOf()
+                                let source = requestParameters[3]
+                                let exchange = requestParameters[4]
+                                let market = requestParameters[5]
+
+                                /* Some validations */
+                                if (source === undefined) {
+                                    console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Source received -> messageReceived = ' + messageReceived)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                }
+                                if (exchange === undefined) {
+                                    console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no Exchange received -> messageReceived = ' + messageReceived)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                }
+                                if (market === undefined) {
+                                    console.log('[WARN] webServer -> Webhook -> New-Message -> Message with no market received -> messageReceived = ' + messageReceived)
+                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
+                                    return
+                                }
+
+                                let key = exchange + '-' + market
+
+                                let webhookMessages = webhook.get(key)
+                                if (webhookMessages === undefined) {
+                                    webhookMessages = []
+                                }
+
+                                webhookMessages.push([timestamp, source, messageReceived])
+                                webhook.set(key, webhookMessages)
+
+                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), response)
+                            }
+                            break
+                        }
                     }
+                    break
                 }
-                break
-            }
                 break
 
             case 'ResetLogsAndData':
@@ -429,6 +413,12 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'Fonts':
+                {
+                    respondWithFont(process.env.PATH_TO_FONTS + '/' + requestParameters[2], response)
+                }
+                break
+
             case 'FloatingSpace':
                 {
                     respondWithFile(process.env.PATH_TO_CANVAS_APP + '/' + requestParameters[1] + '/' + requestParameters[2], response)
@@ -493,7 +483,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
 
             case 'ListWorkspaces':
                 {
-                    let dirPath = process.env.MY_WORKSPACES_PATH  
+                    let dirPath = process.env.MY_WORKSPACES_PATH
 
                     try {
                         let fs = require('fs')
@@ -516,7 +506,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), response)
                         return
                     }
-                   
+
                 }
                 break
 
@@ -590,10 +580,39 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                 }
                 break
 
+            case 'main.css':
+                {
+                    mainCSS()
+                }
+                break
+
             default:
                 {
                     homePage()
                 }
+        }
+
+        function mainCSS() {
+            let fs = require('fs')
+            try {
+                let fileName = process.env.PATH_TO_WEB_SERVER + 'WebServer/main.css'
+                fs.readFile(fileName, onFileRead)
+
+                function onFileRead(err, file) {
+                    try {
+                        let fileContent = file.toString()
+
+                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
+                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
+                        fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
+                        respondWithContent(fileContent, response)
+                    } catch (err) {
+                        console.log('[ERROR] webServer -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+                    }
+                }
+            } catch (err) {
+                console.log(err)
+            }
         }
 
         function homePage() {
@@ -604,15 +623,13 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                     fs.readFile(fileName, onFileRead)
 
                     function onFileRead(err, file) {
-                        if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> onBrowserRequest -> onFileRead -> Entering function.') }
-
                         try {
                             let fileContent = file.toString()
 
                             fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
                             respondWithContent(fileContent, response)
                         } catch (err) {
-                            console.log('[ERROR] webServer -> onBrowserRequest -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+                            console.log('[ERROR] webServer -> homePage -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
                         }
                     }
                 } catch (err) {
@@ -679,8 +696,10 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             fs.readFile(fileName, onFileRead)
 
             function onFileRead(err, file) {
-                if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithImage -> onFileRead -> Entering function.') }
-
+                if (err) {
+                    console.log('[ERROR] webServer -> respondWithImage -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+                    return
+                }
                 try {
                     response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
                     response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
@@ -695,6 +714,41 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             }
         } catch (err) {
             console.log('[ERROR] webServer -> respondWithImage -> err = ' + err.stack)
+        }
+    }
+
+    function respondWithFont(fileName, response) {
+        if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithBinary -> Entering function.') }
+
+        let fs = require('fs')
+        try {
+            fs.readFile(fileName, onFileRead)
+
+            function onFileRead(err, file) {
+                if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithBinary -> onFileRead -> Entering function.') }
+
+                try {
+                    if (err) {
+                        console.log('[ERROR] webServer -> respondWithBinary -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+                        return
+                    }
+                    response.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1.
+                    response.setHeader('Pragma', 'no-cache') // HTTP 1.0.
+                    response.setHeader('Expires', '0') // Proxies.
+                    response.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
+
+                    if (fileName.indexOf('2') < 0) {
+                        response.writeHead(200, { 'Content-Type': 'font/woff' })
+                    } else {
+                        response.writeHead(200, { 'Content-Type': 'font/woff2' })
+                    }
+                    response.end(file, 'binary')
+                } catch (err) {
+                    console.log('[ERROR] webServer -> respondWithBinary -> onFileRead -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
+                }
+            }
+        } catch (err) {
+            console.log('[ERROR] webServer -> respondWithBinary -> err = ' + err.stack)
         }
     }
 

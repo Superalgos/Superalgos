@@ -25,19 +25,36 @@ global.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 };
 
-const ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000;
+global.ROOT_DIR = './';
+
+global.ONE_YEAR_IN_MILISECONDS = 365 * 24 * 60 * 60 * 1000
+global.ONE_DAY_IN_MILISECONDS = 24 * 60 * 60 * 1000
+global.ONE_MIN_IN_MILISECONDS = 60 * 1000
 global.LOGGER_MAP = new Map()
 global.SESSION_MAP = new Map()
+
+global.UNIQUE_ID = function () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
+        return v.toString(16)
+    })
+}
+
+global.PRECISE = function (floatNumber, precision) {
+    return parseFloat(Number.parseFloat(floatNumber).toPrecision(precision))
+}
 
 process.on('uncaughtException', function (err) {
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.message = ' + err.message)
     console.log('[ERROR] Task Server -> server -> uncaughtException -> err.stack = ' + err.stack)
+    console.log(err.stack)
     global.EXIT_NODE_PROCESS()
 })
 
 process.on('unhandledRejection', (reason, p) => {
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> reason = ' + JSON.stringify(reason))
     console.log('[ERROR] Task Server -> server -> unhandledRejection -> p = ' + JSON.stringify(p))
+    console.log(reason.stack)
     global.EXIT_NODE_PROCESS()
 })
 
@@ -90,6 +107,10 @@ process.on('message', message => {
 
 let shuttingDownProcess = false
 global.EXIT_NODE_PROCESS = function exitProcess() {
+
+    if (global.unexpectedError !== undefined) {
+        global.taskError(undefined, "An unexpected error caused the Task to stop.")
+    }
 
     if (shuttingDownProcess === true) { return }
     shuttingDownProcess = true
@@ -197,6 +218,24 @@ function bootLoader() {
         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Heartbeat', event)
     }
 
+    global.taskError = function taskError(node, errorMessage) {
+        let event
+        if (node !== undefined) {
+            event = {
+                nodeName: node.name,
+                nodeType: node.type,
+                nodeId: node.id,
+                errorMessage: errorMessage
+            }
+        } else {
+            event = {
+                errorMessage: errorMessage
+            }
+        }
+
+        global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Error', event)
+    }
+
     for (let processIndex = 0; processIndex < global.TASK_NODE.bot.processes.length; processIndex++) {
         let config = global.TASK_NODE.bot.processes[processIndex].config
 
@@ -292,9 +331,9 @@ function startRoot(processIndex) {
 }
 
 global.getPercentage = function (fromDate, currentDate, lastDate) {
-    let fromDays = Math.trunc(fromDate.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let currentDays = Math.trunc(currentDate.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let lastDays = Math.trunc(lastDate.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let fromDays = Math.trunc(fromDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let currentDays = Math.trunc(currentDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let lastDays = Math.trunc(lastDate.valueOf() / global.ONE_DAY_IN_MILISECONDS)
     let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
     if ((lastDays - fromDays) === 0) {
         percentage = 100
@@ -303,8 +342,8 @@ global.getPercentage = function (fromDate, currentDate, lastDate) {
 }
 
 global.areEqualDates = function (date1, date2) {
-    let day1Days = Math.trunc(date1.valueOf() / ONE_DAY_IN_MILISECONDS)
-    let day2Days = Math.trunc(date2.valueOf() / ONE_DAY_IN_MILISECONDS)
+    let day1Days = Math.trunc(date1.valueOf() / global.ONE_DAY_IN_MILISECONDS)
+    let day2Days = Math.trunc(date2.valueOf() / global.ONE_DAY_IN_MILISECONDS)
 
     if (day1Days === day2Days) {
         return true

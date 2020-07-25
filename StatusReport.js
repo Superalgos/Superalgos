@@ -48,45 +48,45 @@
 
             /* Some very basic validations that we have all the information needed. */
             if (statusDependencyNode.referenceParent === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Dependency without Reference Parent. Status Dependency = " + JSON.stringify(statusDependencyNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode, "Status Dependency without Reference Parent.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Status Report not attached to a Process Definition. Status Report = " + JSON.stringify(statusDependencyNode.referenceParent));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent, "Status Report not attached to a Process Definition.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition witn no codeName defined. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition witn no codeName defined.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Process Definition not attached to a Bot. Process Definition = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition not attached to a Bot.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode, "Bot with no codeName defined.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine. Bot = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode, "Bot not attached to a Data Mine.")
                 return
             }
 
             if (statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                logger.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode));
-                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
+                validationFailed(statusDependencyNode.referenceParent.parentNode.parentNode.parentNode, "Data Mine witn no codeName defined.")
                 return
+            }
+
+            function validationFailed(errorInNode, errorMessage) {
+                let nodeString = JSON.stringify(errorInNode)
+                logger.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
+                bot.processError(errorInNode, errorMessage)
+                callBackFunction(global.DEFAULT_FAIL_RESPONSE);
             }
 
             /* Simplifying the access to basic info */
@@ -101,13 +101,6 @@
                     thisObject.mainUtility = statusDependencyNode.config.mainUtility
                 }
             }
-
-            /* This stuff is still hardcoded and unresolved. */
-            statusDependencyNode.botVersion = {
-                "major": 1,
-                "minor": 0
-            }
-            statusDependencyNode.dataSetVersion = "dataSet.V1"
 
             if (bot.SESSION !== undefined && statusDependencyNode.bottype === "Trading Bot") {
                 sessionPath = bot.SESSION.folderName + "/"
@@ -204,8 +197,8 @@
             let fileName = "Status.Report.json";
             let filePath;
 
-            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.process
 
             if (ownerId !== botId) {
 
@@ -301,8 +294,8 @@
 
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] save -> Entering function."); }
 
-            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.botVersion.major + "-" + statusDependencyNode.botVersion.minor + "-" + statusDependencyNode.process + "-" + statusDependencyNode.dataSetVersion;
-            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.version.major + "-" + bot.version.minor + "-" + bot.process + "-" + bot.dataSetVersion;
+            let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
+            let botId = bot.dataMine + "-" + bot.codeName + "-" + bot.process
 
             if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
@@ -341,7 +334,7 @@
 
                 let processOutput = PROCESS_OUTPUT.newProcessOutput(bot, logger)
 
-                processOutput.raiseEvents(thisObject.file.lastFile, callBackFunction);
+                processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
 
                 return;
             }

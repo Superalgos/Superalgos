@@ -52,6 +52,7 @@ function newDailyFiles () {
       let exchange = pExchange
       let beginDateRange
       let endDateRange
+      let timeFrames
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot, pHost, pPort)
@@ -102,6 +103,42 @@ function newDailyFiles () {
               return
             }
           }
+          getTimeFramesFile()
+        }
+      }
+
+      function getTimeFramesFile () {
+        /* First we will get the Data Range */
+        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
+
+        function onTimeFramesReceived (err, pFile) {
+          switch (err.result) {
+            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+              timeFrames = pFile
+              break
+            }
+            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+              return
+            }
+            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+              if (err.message === 'File does not exist.') {
+                /* It is ok, we will deal with this later */
+                break
+              }
+              if (err.message === 'Missing Configuration.') {
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration to locate the timeFrames is missing at the dataSet.') }
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> Time Frames Filters will be ignored -> Product =  ' + pProduct.config.codeName) }
+                break
+              }
+              callBackFunction(err)
+              return
+            }
+            default: {
+              callBackFunction(err)
+              return
+            }
+          }
           createFileCursors()
         }
       }
@@ -112,31 +149,34 @@ function newDailyFiles () {
           let periodTime = dailyFilePeriods[i][0]
           let periodName = dailyFilePeriods[i][1]
 
-          if (pDataset.config.validTimeFrames.includes(periodName) === true) {
-            let fileCursor = newFileCursor()
-            fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-            fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
-            function onInitialized (err) {
-              try {
-                switch (err.result) {
-                  case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                    break
-                  }
-                  case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                    callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                    return
-                  }
-                  default: {
-                    callBackWhenFileReceived(err)
-                    return
-                  }
+          if (pDataset.config.validTimeFrames.includes(periodName) === false) { continue }
+          if (timeFrames !== undefined) {
+            if (timeFrames.includes(periodName) === false) { continue }
+          }
+
+          let fileCursor = newFileCursor()
+          fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
+          fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
+          function onInitialized (err) {
+            try {
+              switch (err.result) {
+                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                  break
                 }
-                fileCursors.set(periodTime, fileCursor)
-                expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
-              } catch (err) {
-                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                  callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                  return
+                }
+                default: {
+                  callBackWhenFileReceived(err)
+                  return
+                }
               }
+              fileCursors.set(periodTime, fileCursor)
+              expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
+            } catch (err) {
+              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
+              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
           }
         }
@@ -144,14 +184,21 @@ function newDailyFiles () {
       }
 
       function loadThemAll () {
-        for (i = 0; i < dailyFilePeriods.length; i++) {
-          let periodTime = dailyFilePeriods[i][0]
-          let periodName = dailyFilePeriods[i][1]
+        try {
+          for (i = 0; i < dailyFilePeriods.length; i++) {
+            let periodTime = dailyFilePeriods[i][0]
+            let periodName = dailyFilePeriods[i][1]
 
-          if (pDataset.config.validTimeFrames.includes(periodName) === true) {
-            let fileCursor = fileCursors.get(periodTime)
-            fileCursor.reload(onFileReceived)
+            if (pDataset.config.validTimeFrames.includes(periodName) === true) {
+              let fileCursor = fileCursors.get(periodTime)
+              if (fileCursor !== undefined) {
+                fileCursor.reload(onFileReceived)
+              }
+            }
           }
+        } catch (err) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> loadThemAll -> err = ' + err.stack) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {

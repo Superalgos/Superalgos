@@ -51,9 +51,9 @@ function newFileCloud () {
               }
             }
             if (pTimeFrames !== undefined) {
-              if (pTimeFrames.config.timeFrames !== undefined) {
-                fileName = pTimeFrames.config.timeFrames.fileName
-                filePath = pTimeFrames.config.timeFrames.filePath
+              if (pDataset.config.timeFrames !== undefined) {
+                fileName = pDataset.config.timeFrames.fileName
+                filePath = pDataset.config.timeFrames.filePath
               } else {
                 let customErr = {
                   result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,

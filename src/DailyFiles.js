@@ -155,12 +155,10 @@ function newDailyFiles () {
             let periodName = dailyFilePeriods[i][1]
 
             if (pDataset.config.validTimeFrames.includes(periodName) === false) {
-              filesLoaded++
               continue
             }
             if (timeFrames !== undefined) {
               if (timeFrames.includes(periodName) === false) {
-                filesLoaded++
                 continue
               }
             }

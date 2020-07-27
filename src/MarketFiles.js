@@ -17,6 +17,7 @@ function newMarketFiles () {
 
   let filesLoaded = 0
   let filesNotLoaded = 0
+  let filesExpected = 0
 
   let fileCloud
 
@@ -163,6 +164,7 @@ function newMarketFiles () {
             }
           }
 
+          filesExpected++
           fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
@@ -223,7 +225,7 @@ function newMarketFiles () {
             files.set(periodTime, file)
             updatedFiles++
 
-            if (updatedFiles === marketFilesPeriods.length) {
+            if (updatedFiles === filesExpected) {
               thisObject.eventHandler.raiseEvent('Files Updated')
             }
           } catch (err) {

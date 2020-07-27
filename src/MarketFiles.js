@@ -82,6 +82,8 @@ function newMarketFiles () {
     pEventsServerClient,
     callBackFunction) {
     try {
+      let timeFrames
+
       exchange = pExchange
       market = pMarket
       dataMine = pDataMine
@@ -102,13 +104,61 @@ function newMarketFiles () {
         return
       }
 
-            /* Now we will get the market files */
+      getTimeFramesFile()
 
-      for (let i = 0; i < marketFilesPeriods.length; i++) {
-        let periodTime = marketFilesPeriods[i][0]
-        let periodName = marketFilesPeriods[i][1]
+      function getTimeFramesFile () {
+        /* First we will get the Data Range */
+        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
 
-        if (dataset.config.validTimeFrames.includes(periodName) === true) {
+        function onTimeFramesReceived (err, pFile) {
+          switch (err.result) {
+            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+              timeFrames = pFile
+              break
+            }
+            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+              return
+            }
+            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+              if (err.message === 'File does not exist.') {
+                /* It is ok, we will deal with this later */
+                break
+              }
+              if (err.message === 'Missing Configuration.') {
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration to locate the timeFrames is missing at the dataSet.') }
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> Time Frames Filters will be ignored -> Product =  ' + pProduct.config.codeName) }
+                break
+              }
+              callBackFunction(err)
+              return
+            }
+            default: {
+              callBackFunction(err)
+              return
+            }
+          }
+          getMarketFiles()
+        }
+      }
+
+      function getMarketFiles () {
+        /* Now we will get the market files */
+        for (let i = 0; i < marketFilesPeriods.length; i++) {
+          let periodTime = marketFilesPeriods[i][0]
+          let periodName = marketFilesPeriods[i][1]
+
+          if (dataset.config.validTimeFrames.includes(periodName) === false) {
+            filesNotLoaded++
+            continue
+          }
+          if (timeFrames !== undefined) {
+            if (timeFrames.includes(periodName) === false) {
+              filesNotLoaded++
+              continue
+            }
+          }
+
           fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {

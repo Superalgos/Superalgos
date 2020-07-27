@@ -144,43 +144,54 @@ function newDailyFiles () {
       }
 
       function createFileCursors () {
+        try {
         /* Now we will get the daily files */
-        for (i = 0; i < dailyFilePeriods.length; i++) {
-          let periodTime = dailyFilePeriods[i][0]
-          let periodName = dailyFilePeriods[i][1]
+          for (i = 0; i < dailyFilePeriods.length; i++) {
+            let periodTime = dailyFilePeriods[i][0]
+            let periodName = dailyFilePeriods[i][1]
 
-          if (pDataset.config.validTimeFrames.includes(periodName) === false) { continue }
-          if (timeFrames !== undefined) {
-            if (timeFrames.includes(periodName) === false) { continue }
-          }
-
-          let fileCursor = newFileCursor()
-          fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-          fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
-          function onInitialized (err) {
-            try {
-              switch (err.result) {
-                case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                  break
-                }
-                case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                  callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                  return
-                }
-                default: {
-                  callBackWhenFileReceived(err)
-                  return
-                }
+            if (pDataset.config.validTimeFrames.includes(periodName) === false) {
+              filesLoaded++
+              continue
+            }
+            if (timeFrames !== undefined) {
+              if (timeFrames.includes(periodName) === false) {
+                filesLoaded++
+                continue
               }
-              fileCursors.set(periodTime, fileCursor)
-              expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            }
+
+            let fileCursor = newFileCursor()
+            fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
+            fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
+            function onInitialized (err) {
+              try {
+                switch (err.result) {
+                  case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                    break
+                  }
+                  case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                    callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    return
+                  }
+                  default: {
+                    callBackWhenFileReceived(err)
+                    return
+                  }
+                }
+                fileCursors.set(periodTime, fileCursor)
+                expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
+              } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+              }
             }
           }
+          loadThemAll()
+        } catch (err) {
+          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> createFileCursors -> err = ' + err.stack) }
+          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
-        loadThemAll()
       }
 
       function loadThemAll () {

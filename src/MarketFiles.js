@@ -109,7 +109,7 @@ function newMarketFiles () {
         let periodName = marketFilesPeriods[i][1]
 
         if (dataset.config.validTimeFrames.includes(periodName) === true) {
-          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived (err, file) {
             try {
@@ -161,7 +161,7 @@ function newMarketFiles () {
         if (message.event.timeFrames !== undefined) {
           if (message.event.timeFrames.includes(periodName) !== true) { continue }
         }
-        fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+        fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
 
         function onFileReceived (err, file) {
           try {

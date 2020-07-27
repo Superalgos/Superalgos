@@ -39,7 +39,7 @@ function newSingleFile () {
 
             /* Now we will get the file */
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, pFile) {
         try {

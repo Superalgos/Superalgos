@@ -50,40 +50,37 @@ function newDailyFiles () {
       callBackWhenFileReceived = callBackFunction
 
       let exchange = pExchange
+      let beginDateRange
+      let endDateRange
 
       fileCloud = newFileCloud()
       fileCloud.initialize(pBot, pHost, pPort)
 
-      /* Some Validations */
+      /* Config Validations */
       if (pDataset.config.validTimeFrames === undefined) {
-        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Market Files for bot ' + pBot.name) }
+        if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = Can not initialize Daily Files for bot ' + pBot.name) }
         if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = You need to define validTimeFrames at the Dataset config. ') }
         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         return
       }
 
-            /* First we will get the Data Range */
+      getDataRangeFile()
 
-      fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, onDataRangeReceived)
+      function getDataRangeFile () {
+        /* First we will get the Data Range */
+        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, undefined, onDataRangeReceived)
 
-      function onDataRangeReceived (err, pFile) {
-        try {
-          let beginDateRange
-          let endDateRange
-
+        function onDataRangeReceived (err, pFile) {
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
               beginDateRange = pFile.begin
               endDateRange = pFile.end
-
               break
             }
-
             case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
               callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
               return
             }
-
             case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
               if (err.message === 'File does not exist.') {
                 beginDateRange = new Date()
@@ -97,7 +94,6 @@ function newDailyFiles () {
                 endDateRange = new Date()
                 break
               }
-                           /* If none of the previous conditions are met, the we return the err to the caller. */
               callBackFunction(err)
               return
             }
@@ -106,60 +102,56 @@ function newDailyFiles () {
               return
             }
           }
-                    /* Now we will get the daily files */
-          for (i = 0; i < dailyFilePeriods.length; i++) {
-            let periodTime = dailyFilePeriods[i][0]
-            let periodName = dailyFilePeriods[i][1]
+          createFileCursors()
+        }
+      }
 
-            if (pDataset.config.validTimeFrames.includes(periodName) === true) {
-              let fileCursor = newFileCursor()
-              fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-              fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
-              function onInitialized (err) {
-                try {
-                  switch (err.result) {
-                    case GLOBAL.DEFAULT_OK_RESPONSE.result: {
-                      break
-                    }
-                    case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
-                      callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                      return
-                    }
-                    default: {
-                      callBackWhenFileReceived(err)
-                      return
-                    }
+      function createFileCursors () {
+        /* Now we will get the daily files */
+        for (i = 0; i < dailyFilePeriods.length; i++) {
+          let periodTime = dailyFilePeriods[i][0]
+          let periodName = dailyFilePeriods[i][1]
+
+          if (pDataset.config.validTimeFrames.includes(periodName) === true) {
+            let fileCursor = newFileCursor()
+            fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
+            fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
+            function onInitialized (err) {
+              try {
+                switch (err.result) {
+                  case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+                    break
                   }
-                  fileCursors.set(periodTime, fileCursor)
-                  expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
-                } catch (err) {
-                  if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
-                  callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                  case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+                    callBackWhenFileReceived(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                    return
+                  }
+                  default: {
+                    callBackWhenFileReceived(err)
+                    return
+                  }
                 }
+                fileCursors.set(periodTime, fileCursor)
+                expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
+              } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> onInitialized -> err = ' + err.stack) }
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
               }
             }
           }
-          loadThemAll()
+        }
+        loadThemAll()
+      }
 
-          function loadThemAll () {
-            try {
-              for (i = 0; i < dailyFilePeriods.length; i++) {
-                let periodTime = dailyFilePeriods[i][0]
-                let periodName = dailyFilePeriods[i][1]
+      function loadThemAll () {
+        for (i = 0; i < dailyFilePeriods.length; i++) {
+          let periodTime = dailyFilePeriods[i][0]
+          let periodName = dailyFilePeriods[i][1]
 
-                if (pDataset.config.validTimeFrames.includes(periodName) === true) {
-                  let fileCursor = fileCursors.get(periodTime)
-                  fileCursor.reload(onFileReceived)
-                }
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> loadThemAll -> err = ' + err.stack) }
-              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
+          if (pDataset.config.validTimeFrames.includes(periodName) === true) {
+            let fileCursor = fileCursors.get(periodTime)
+            fileCursor.reload(onFileReceived)
           }
-        } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> onFileReceived -> err = ' + err.stack) }
-          callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
         }
       }
     } catch (err) {

@@ -1,5 +1,5 @@
- ﻿
-function newDailyFiles () {
+
+function newDailyFiles() {
   const MODULE_NAME = 'Daily Files'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -26,7 +26,7 @@ function newDailyFiles () {
 
   return thisObject
 
-  function finalize () {
+  function finalize() {
     try {
       thisObject.eventHandler.finalize()
       thisObject.eventHandler = undefined
@@ -37,7 +37,7 @@ function newDailyFiles () {
 
       fileCursors.forEach(finalizeEach)
 
-      function finalizeEach (item, key, mapObj) {
+      function finalizeEach(item, key, mapObj) {
         item.finalize()
       }
     } catch (err) {
@@ -45,7 +45,7 @@ function newDailyFiles () {
     }
   }
 
-  function initialize (pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
+  function initialize(pDataMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
     try {
       callBackWhenFileReceived = callBackFunction
 
@@ -67,11 +67,11 @@ function newDailyFiles () {
 
       getDataRangeFile()
 
-      function getDataRangeFile () {
+      function getDataRangeFile() {
         /* First we will get the Data Range */
         fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, true, undefined, onDataRangeReceived)
 
-        function onDataRangeReceived (err, pFile) {
+        function onDataRangeReceived(err, pFile) {
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
               beginDateRange = pFile.begin
@@ -107,11 +107,11 @@ function newDailyFiles () {
         }
       }
 
-      function getTimeFramesFile () {
+      function getTimeFramesFile() {
         /* First we will get the Data Range */
         fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
 
-        function onTimeFramesReceived (err, pFile) {
+        function onTimeFramesReceived(err, pFile) {
           switch (err.result) {
             case GLOBAL.DEFAULT_OK_RESPONSE.result: {
               timeFrames = pFile
@@ -147,9 +147,9 @@ function newDailyFiles () {
         }
       }
 
-      function createFileCursors () {
+      function createFileCursors() {
         try {
-        /* Now we will get the daily files */
+          /* Now we will get the daily files */
           for (i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
             let periodName = dailyFilePeriods[i][1]
@@ -166,7 +166,7 @@ function newDailyFiles () {
             let fileCursor = newFileCursor()
             fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
             fileCursor.initialize(fileCloud, pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
-            function onInitialized (err) {
+            function onInitialized(err) {
               try {
                 switch (err.result) {
                   case GLOBAL.DEFAULT_OK_RESPONSE.result: {
@@ -196,7 +196,7 @@ function newDailyFiles () {
         }
       }
 
-      function loadThemAll () {
+      function loadThemAll() {
         try {
           for (i = 0; i < dailyFilePeriods.length; i++) {
             let periodTime = dailyFilePeriods[i][0]
@@ -220,7 +220,7 @@ function newDailyFiles () {
     }
   }
 
-  function onFileReceived (err) {
+  function onFileReceived(err) {
     try {
       switch (err.result) {
         case GLOBAL.DEFAULT_OK_RESPONSE.result: {
@@ -247,7 +247,7 @@ function newDailyFiles () {
     }
   }
 
-  function getFileCursor (pPeriod) {
+  function getFileCursor(pPeriod) {
     try {
       return fileCursors.get(pPeriod)
     } catch (err) {
@@ -255,13 +255,13 @@ function newDailyFiles () {
     }
   }
 
-  function setDatetime (pDatetime) {
+  function setDatetime(pDatetime) {
     try {
       filesLoaded = 0
       expectedFiles = 0
       fileCursors.forEach(setDatetimeToEach)
 
-      function setDatetimeToEach (fileCursor, key, map) {
+      function setDatetimeToEach(fileCursor, key, map) {
         fileCursor.setDatetime(pDatetime)
         expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
         fileCursor.reload(onFileReceived)
@@ -271,13 +271,13 @@ function newDailyFiles () {
     }
   }
 
-  function setTimeFrame (pTimeFrame, pDatetime) {
+  function setTimeFrame(pTimeFrame, pDatetime) {
     try {
       filesLoaded = 0
       expectedFiles = 0
       fileCursors.forEach(setTimeFrameToEach)
 
-      function setTimeFrameToEach (fileCursor, key, map) {
+      function setTimeFrameToEach(fileCursor, key, map) {
         fileCursor.setTimeFrame(pTimeFrame, pDatetime)
         expectedFiles = expectedFiles + fileCursor.getExpectedFiles()
         fileCursor.reload(onFileReceived)
@@ -287,11 +287,11 @@ function newDailyFiles () {
     }
   }
 
-  function getExpectedFiles () {
+  function getExpectedFiles() {
     return expectedFiles
   }
 
-  function getFilesLoaded () {
+  function getFilesLoaded() {
     return filesLoaded
   }
 }

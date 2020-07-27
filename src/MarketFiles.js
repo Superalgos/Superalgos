@@ -125,6 +125,10 @@ function newMarketFiles () {
                 /* It is ok, we will deal with this later */
                 break
               }
+              if (err.message === 'Configured to not Support This.') {
+                /* It is ok, we will deal with this later */
+                break
+              }
               if (err.message === 'Missing Configuration.') {
                 if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration to locate the timeFrames is missing at the dataSet.') }
                 if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> Time Frames Filters will be ignored -> Product =  ' + pProduct.config.codeName) }

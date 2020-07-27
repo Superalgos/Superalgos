@@ -52,8 +52,17 @@ function newFileCloud () {
             }
             if (pTimeFrames !== undefined) {
               if (pDataset.config.timeFrames !== undefined) {
-                fileName = pDataset.config.timeFrames.fileName
-                filePath = pDataset.config.timeFrames.filePath
+                if (pDataset.config.timeFrames.fileName !== '') {
+                  fileName = pDataset.config.timeFrames.fileName
+                  filePath = pDataset.config.timeFrames.filePath
+                } else {
+                  let customErr = {
+                    result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,
+                    message: 'Configured to not Support This.'
+                  }
+                  callBackFunction(customErr)
+                  return
+                }
               } else {
                 let customErr = {
                   result: GLOBAL.CUSTOM_FAIL_RESPONSE.result,

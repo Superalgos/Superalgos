@@ -605,7 +605,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
                         fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
                         fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
                         fileContent = fileContent.replace('WEB_SERVER_PORT', process.env.WEB_SERVER_PORT)
-                        respondWithContent(fileContent, response)
+                        respondWithContent(fileContent, response, 'text/css')
                     } catch (err) {
                         console.log('[ERROR] webServer -> mainCSS -> File Not Found: ' + fileName + ' or Error = ' + err.stack)
                     }
@@ -666,7 +666,7 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
         }
     }
 
-    function respondWithContent(content, response) {
+    function respondWithContent(content, response, contentType) {
         if (CONSOLE_LOG === true) { console.log('[INFO] webServer -> respondWithContent -> Entering function.') }
 
         try {
@@ -676,7 +676,11 @@ exports.newWebServer = function newWebServer(EVENTS_SERVER) {
             response.setHeader('Access-Control-Allow-Origin', '*') // Allows to access data from other domains.
 
             if (content !== undefined) {
-                response.writeHead(200, { 'Content-Type': 'text/html' })
+                if (contentType !== undefined) {
+                    response.writeHead(200, { 'Content-Type': contentType })
+                } else {
+                    response.writeHead(200, { 'Content-Type': 'text/html' })
+                }
                 response.write(content)
             } else {
                 response.writeHead(404, { 'Content-Type': 'text/html' })

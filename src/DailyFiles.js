@@ -209,6 +209,7 @@ function newDailyFiles() {
               }
             }
           }
+          callBackWhenFileReceived(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
         } catch (err) {
           if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> loadThemAll -> err = ' + err.stack) }
           callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

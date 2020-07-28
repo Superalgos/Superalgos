@@ -1,5 +1,5 @@
- ﻿
-function newMarketFiles () {
+
+function newMarketFiles() {
   const MODULE_NAME = 'Market Files'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -17,6 +17,7 @@ function newMarketFiles () {
 
   let filesLoaded = 0
   let filesNotLoaded = 0
+  let filesExpected = 0
 
   let fileCloud
 
@@ -41,7 +42,7 @@ function newMarketFiles () {
 
   return thisObject
 
-  function finalize () {
+  function finalize() {
     try {
       for (let i = 0; i < eventSubscriptionIdDatasetUpdated.length; i++) {
         eventsServerClient.stopListening('Dataset Updated', eventSubscriptionIdDatasetUpdated[i])
@@ -69,7 +70,7 @@ function newMarketFiles () {
     }
   }
 
-  function initialize (
+  function initialize(
     pDataMine,
     pBot,
     pSession,
@@ -82,6 +83,8 @@ function newMarketFiles () {
     pEventsServerClient,
     callBackFunction) {
     try {
+      let timeFrames
+
       exchange = pExchange
       market = pMarket
       dataMine = pDataMine
@@ -102,16 +105,69 @@ function newMarketFiles () {
         return
       }
 
-            /* Now we will get the market files */
+      getTimeFramesFile()
 
-      for (let i = 0; i < marketFilesPeriods.length; i++) {
-        let periodTime = marketFilesPeriods[i][0]
-        let periodName = marketFilesPeriods[i][1]
+      function getTimeFramesFile() {
+        /* First we will get the Data Range */
+        fileCloud.getFile(pDataMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, undefined, undefined, undefined, undefined, true, onTimeFramesReceived)
 
-        if (dataset.config.validTimeFrames.includes(periodName) === true) {
-          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+        function onTimeFramesReceived(err, pFile) {
+          switch (err.result) {
+            case GLOBAL.DEFAULT_OK_RESPONSE.result: {
+              timeFrames = pFile
+              break
+            }
+            case GLOBAL.DEFAULT_FAIL_RESPONSE.result: {
+              callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+              return
+            }
+            case GLOBAL.CUSTOM_FAIL_RESPONSE.result: {
+              if (err.message === 'File does not exist.') {
+                /* It is ok, we will deal with this later */
+                break
+              }
+              if (err.message === 'Configured to not Support This.') {
+                /* It is ok, we will deal with this later */
+                break
+              }
+              if (err.message === 'Missing Configuration.') {
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> The needed configuration to locate the timeFrames is missing at the dataSet.') }
+                if (ERROR_LOG === true) { logger.write('[WARN] initialize -> onFileReceived -> Time Frames Filters will be ignored -> Product =  ' + pProduct.config.codeName) }
+                break
+              }
+              callBackFunction(err)
+              return
+            }
+            default: {
+              callBackFunction(err)
+              return
+            }
+          }
+          getMarketFiles()
+        }
+      }
 
-          function onFileReceived (err, file) {
+      function getMarketFiles() {
+        /* Now we will get the market files */
+        for (let i = 0; i < marketFilesPeriods.length; i++) {
+          let periodTime = marketFilesPeriods[i][0]
+          let periodName = marketFilesPeriods[i][1]
+
+          if (dataset.config.validTimeFrames.includes(periodName) === false) {
+            filesNotLoaded++
+            continue
+          }
+          if (timeFrames !== undefined) {
+            if (timeFrames.includes(periodName) === false) {
+              filesNotLoaded++
+              continue
+            }
+          }
+
+          filesExpected++
+          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
+
+          function onFileReceived(err, file) {
             try {
               if (finalized === true) { return }
               if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -128,7 +184,7 @@ function newMarketFiles () {
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
 
-                function onResponse (message) {
+                function onResponse(message) {
                   eventSubscriptionIdDatasetUpdated.push(message.eventSubscriptionId)
                 }
               }
@@ -138,6 +194,8 @@ function newMarketFiles () {
             }
           }
         }
+
+        callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
       }
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
@@ -145,32 +203,35 @@ function newMarketFiles () {
     }
   }
 
-  function updateFiles () {
+  function updateFiles(message) {
     try {
       if (finalized === true) { return }
       let updatedFiles = 0
+      if (message.event === undefined) { return }
 
-            /* Now we will get the market files */
+      /* Now we will get the market files */
 
       for (let i = 0; i < marketFilesPeriods.length; i++) {
         let periodTime = marketFilesPeriods[i][0]
         let periodName = marketFilesPeriods[i][1]
 
-        if (dataset.config.validTimeFrames.includes(periodName) === true) {
-          fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, onFileReceived)
+        if (dataset.config.validTimeFrames.includes(periodName) !== true) { continue }
+        if (message.event.timeFrames !== undefined) {
+          if (message.event.timeFrames.includes(periodName) !== true) { continue }
+        }
+        fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
 
-          function onFileReceived (err, file) {
-            try {
-              if (finalized === true) { return }
-              files.set(periodTime, file)
-              updatedFiles++
+        function onFileReceived(err, file) {
+          try {
+            if (finalized === true) { return }
+            files.set(periodTime, file)
+            updatedFiles++
 
-              if (updatedFiles === marketFilesPeriods.length) {
-                thisObject.eventHandler.raiseEvent('Files Updated')
-              }
-            } catch (err) {
-              if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
+            if (updatedFiles === filesExpected) {
+              thisObject.eventHandler.raiseEvent('Files Updated')
             }
+          } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] updateFiles -> onFileReceived -> err = ' + err.stack) }
           }
         }
       }
@@ -179,19 +240,19 @@ function newMarketFiles () {
     }
   }
 
-  function getFile (pPeriod) {
+  function getFile(pPeriod) {
     return files.get(pPeriod)
   }
 
-  function getExpectedFiles () {
+  function getExpectedFiles() {
     return marketFilesPeriods.length
   }
 
-  function getFilesLoaded () {
+  function getFilesLoaded() {
     return filesLoaded
   }
 
-  function getFilesNotLoaded () {
+  function getFilesNotLoaded() {
     return filesNotLoaded
   }
 }

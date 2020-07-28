@@ -168,7 +168,7 @@ function newFileCursor () {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+      fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived (err, file) {
         try {
@@ -468,7 +468,7 @@ function newFileCursor () {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, onFileReceived)
+              fileCloud.getFile(dataMine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }

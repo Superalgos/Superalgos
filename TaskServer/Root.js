@@ -225,6 +225,12 @@
                     /* Bot Type */
                     botConfig.type = global.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.type
 
+                    /* Time Frame Filter */
+                    if (global.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                        botConfig.dailyTimeFrames = global.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames
+                        botConfig.marketTimeFrames = global.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames
+                    }
+
                     if (botConfig.processNode) {
                         if (botConfig.processNode.marketReference) {
                             if (botConfig.processNode.marketReference.keyReference !== undefined) {

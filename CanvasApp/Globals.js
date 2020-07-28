@@ -178,7 +178,8 @@ let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port
 let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the canvas.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000000
 
-let CURRENT_TOP_MARGIN = window.canvasApp.topMargin
+const TOP_MARGIN = 0
+let CURRENT_TOP_MARGIN = TOP_MARGIN
 let AT_FULL_SCREEN_MODE = false
 
 let maxDate = new Date();

@@ -6981,6 +6981,40 @@
         "propertyNameAtParent": "userDefinedParameters"
     },
     {
+        "type": "Time Frames Filter",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "initialValues": {
+            "config": "{ \n\"dailyTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],\n\"marketTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\"]\n}"
+        },
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Indicator Bot Instance->"
+        },
+        "icon": "time-period",
+        "propertyNameAtParent": "timeFramesFilter"
+    },
+    {
         "type": "Paper Trading Session",
         "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#paper-trading-session",
         "menuItems": [
@@ -7381,6 +7415,14 @@
             },
             {
                 "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "timeFramesFilter",
+                "label": "Add Time Frames Filter",
+                "relatedUiObject": "Time Frames Filter",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Process Instance",
                 "relatedUiObject": "Indicator Process Instance",
                 "actionFunction": "payload.onMenuItemClick"
@@ -7414,6 +7456,11 @@
                 "type": "array",
                 "childType": "Indicator Process Instance",
                 "autoAdd": true
+            },
+            {
+                "name": "timeFramesFilter",
+                "type": "node",
+                "childType": "Time Frames Filter"
             }
         ],
         "propertyNameAtParent": "bot"

@@ -14,7 +14,7 @@
 
     return thisObject;
 
-    function raiseEvents(lastFile, callBackFunction) {
+    function raiseEvents(lastFile, timeFrames, callBackFunction) {
 
         try {
             if (global.LOG_CONTROL[MODULE_NAME].logInfo === true) { logger.write(MODULE_NAME, "[INFO] raiseEvents -> Entering function."); }
@@ -83,7 +83,8 @@
 
                         key = dataMine + "-" + botName + "-" + product + "-" + dataset + "-" + bot.exchange + "-" + bot.market.baseAsset + '/' + bot.market.quotedAsset
                         let event = {
-                            lastFile: lastFile
+                            lastFile: lastFile,
+                            timeFrames: timeFrames
                         }
                         global.EVENT_SERVER_CLIENT.createEventHandler(key, 'Dataset Updated')
                         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Dataset Updated', event)

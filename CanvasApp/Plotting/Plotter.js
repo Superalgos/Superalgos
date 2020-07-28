@@ -1,4 +1,4 @@
-function newPlotter () {
+function newPlotter() {
   const MODULE_NAME = 'Plotter'
   const ERROR_LOG = true
   const INTENSIVE_LOG = false
@@ -58,7 +58,7 @@ function newPlotter () {
   let logged = false
   return thisObject
 
-  function finalize () {
+  function finalize() {
     try {
       /* Stop listening to the necesary events. */
       thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
@@ -92,7 +92,7 @@ function newPlotter () {
     }
   }
 
-  function initialize (pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
+  function initialize(pStorage, pDatetime, pTimeFrame, pCoordinateSystem, callBackFunction, pProductDefinition) {
     try {
       /* Store the information received. */
       marketFiles = pStorage.marketFiles[0]
@@ -134,20 +134,20 @@ function newPlotter () {
     }
   }
 
-  function initializeCoordinateSystem () {
+  function initializeCoordinateSystem() {
     scaleChangedEventSubscriptionId = coordinateSystem.eventHandler.listenToEvent('Scale Changed', onScaleChanged)
   }
 
-  function finalizeCoordinateSystem () {
+  function finalizeCoordinateSystem() {
     coordinateSystem.eventHandler.stopListening(scaleChangedEventSubscriptionId)
   }
 
-  function onScaleChanged () {
+  function onScaleChanged() {
     mustRecalculateDataPoints = true
     recalculate()
   }
 
-  function onMouseOver (event) {
+  function onMouseOver(event) {
     let userPosition = getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
     userPositionDate = userPosition.valueOf()
 
@@ -164,7 +164,7 @@ function newPlotter () {
     maxUserPositionRate = getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
   }
 
-  function onMarketFilesUpdated () {
+  function onMarketFilesUpdated() {
     try {
       let newMarketFile = marketFiles.getFile(timeFrame)
       if (newMarketFile !== undefined) {
@@ -177,7 +177,7 @@ function newPlotter () {
     }
   }
 
-  function onDailyFilesUpdated () {
+  function onDailyFilesUpdated() {
     try {
       let newFileCursor = dailyFiles.getFileCursor(timeFrame)
       if (newFileCursor !== undefined) {
@@ -190,14 +190,14 @@ function newPlotter () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer(point) {
     try {
       let container
       /* First we check if this point is inside this space. */
       if (thisObject.container.frame.isThisPointHere(point) === true) {
         return thisObject.container
       } else {
-      /* This point does not belong to this space. */
+        /* This point does not belong to this space. */
         return undefined
       }
     } catch (err) {
@@ -205,29 +205,15 @@ function newPlotter () {
     }
   }
 
-  function setTimeFrame (pTimeFrame) {
+  function setTimeFrame(pTimeFrame) {
     try {
       if (timeFrame !== pTimeFrame) {
         timeFrame = pTimeFrame
         mustRecalculateDataPoints = true
         if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
-          let newMarketFile = marketFiles.getFile(pTimeFrame)
-
-          if (newMarketFile !== undefined) {
-            marketFile = newMarketFile
-            recalculate()
-          } else {
-            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
-          }
+          marketFile = marketFiles.getFile(pTimeFrame)
         } else {
-          let newFileCursor = dailyFiles.getFileCursor(pTimeFrame)
-
-          if (newFileCursor !== undefined) {
-            fileCursor = newFileCursor
-            recalculate()
-          } else {
-            logger.write('[WARN] setTimeFrame -> Could not change to market file for timeFrame = ' + pTimeFrame)
-          }
+          fileCursor = dailyFiles.getFileCursor(pTimeFrame)
         }
       }
     } catch (err) {
@@ -235,17 +221,17 @@ function newPlotter () {
     }
   }
 
-  function setDatetime (pDatetime) {
+  function setDatetime(pDatetime) {
     datetime = pDatetime
   }
 
-  function setCoordinateSystem (pCoordinateSystem) {
+  function setCoordinateSystem(pCoordinateSystem) {
     finalizeCoordinateSystem()
     coordinateSystem = pCoordinateSystem
     initializeCoordinateSystem()
   }
 
-  function onDailyFileLoaded (event) {
+  function onDailyFileLoaded(event) {
     try {
       if (event.currentValue === event.totalValue) {
         /* This happens only when all of the files in the cursor have been loaded. */
@@ -256,7 +242,7 @@ function newPlotter () {
     }
   }
 
-  function draw () {
+  function draw() {
     try {
       thisObject.container.frame.draw()
       plot()
@@ -265,7 +251,7 @@ function newPlotter () {
     }
   }
 
-  function recalculate () {
+  function recalculate() {
     if (canvas.chartingSpace.visible !== true) { return }
     try {
       if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
@@ -279,11 +265,11 @@ function newPlotter () {
     }
   }
 
-  function jsonifyDataFile (dataFile, recordDefinition, farLeftDate, farRightDate) {
-      /*
-          This function has as an input the raw data on files and creates with it an array of JSON objects
-          with not calculated properties for later being consumed by Formulas
-      */
+  function jsonifyDataFile(dataFile, recordDefinition, farLeftDate, farRightDate) {
+    /*
+        This function has as an input the raw data on files and creates with it an array of JSON objects
+        with not calculated properties for later being consumed by Formulas
+    */
 
     let jsonifiedArray = []
     let previous
@@ -298,9 +284,9 @@ function newPlotter () {
       }
 
       if (
-          (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
-          (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
-          ) {
+        (record.begin >= farLeftDate.valueOf() && record.end <= farRightDate.valueOf()) &&
+        (record.end >= coordinateSystem.min.x && record.begin <= coordinateSystem.max.x)
+      ) {
         record.previous = previous
         jsonifiedArray.push(record)
         previous = record
@@ -316,11 +302,11 @@ function newPlotter () {
     return jsonifiedArray
   }
 
-  function calculationsProcedure (jsonArray, recordDefinition, calculationsProcedure, timeFrame) {
-      /*
-          This function has as an input an array of JSON objects, and it adds calculated properties to
-          complete the set of properties that will be available.
-      */
+  function calculationsProcedure(jsonArray, recordDefinition, calculationsProcedure, timeFrame) {
+    /*
+        This function has as an input an array of JSON objects, and it adds calculated properties to
+        complete the set of properties that will be available.
+    */
 
     let system = { // These are the available system variables to be used in User Code and Formulas
       timeFrame: timeFrame,
@@ -387,9 +373,12 @@ function newPlotter () {
     return results
   }
 
-  function recalculateUsingDailyFiles () {
+  function recalculateUsingDailyFiles() {
     try {
-      if (fileCursor === undefined) { return }    // We need to wait until there is a fileCursor
+      if (fileCursor === undefined) {
+        records = []
+        return
+      }    // We need to wait until there is a fileCursor available or maybe this indicator does not produce data for the current Time Frame
       if (fileCursor.files.size === 0) { return } // We need to wait until there are files in the cursor
 
       let daysOnSides = getSideDays(timeFrame)
@@ -441,9 +430,12 @@ function newPlotter () {
     }
   }
 
-  function recalculateUsingMarketFiles () {
+  function recalculateUsingMarketFiles() {
     try {
-      if (marketFile === undefined) { return }    // Initialization not complete yet.
+      if (marketFile === undefined) {
+        records = []
+        return
+      }    // Initialization not complete yet or this indicator does not produce data for the current time frame
 
       let daysOnSides = getSideDays(timeFrame)
 
@@ -480,7 +472,7 @@ function newPlotter () {
     }
   }
 
-  function recalculateScale () {
+  function recalculateScale() {
     try {
       if (coordinateSystem.maxValue > 0) { return } // Already calculated.
       /* First we calculate the default scale */
@@ -495,17 +487,17 @@ function newPlotter () {
       }
 
       coordinateSystem.initialize(
-                minValue,
-                maxValue,
-                thisObject.container.frame.width,
-                thisObject.container.frame.height
-            )
+        minValue,
+        maxValue,
+        thisObject.container.frame.width,
+        thisObject.container.frame.height
+      )
     } catch (err) {
       if (ERROR_LOG === true) { logger.write('[ERROR] recalculateScale -> err = ' + err.stack) }
     }
   }
 
-  function plot () {
+  function plot() {
     try {
       /* Clean the pannel at places where there is no record. */
       thisObject.container.eventHandler.raiseEvent('Current Record Changed', undefined)
@@ -593,17 +585,17 @@ function newPlotter () {
                   y: y
                 }
 
-              /*
-              The information we store in files is independent from the charing system and its coordinate systems.
-              That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
-              */
+                /*
+                The information we store in files is independent from the charing system and its coordinate systems.
+                That means that the first thing we allways need to do is to trasform these points to the coordinate system of the timeline.
+                */
                 let dataPoint
                 dataPoint = coordinateSystem.transformThisPoint(rawPoint)
                 dataPoint = transformThisPoint(dataPoint, thisObject.container)
                 dataPoint = canvas.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
                 dataPoint = thisObject.fitFunction(dataPoint)
 
-              /* Store the data point at the local map */
+                /* Store the data point at the local map */
                 dataPoint.rawPoint = rawPoint
                 dataPoints.set(point.id, dataPoint)
               }
@@ -636,7 +628,7 @@ function newPlotter () {
             }
             calculatedStyle = record.fillStyle.get(polygon.id)
             if (calculatedStyle !== undefined) {
-            /* We use the already calculated style */
+              /* We use the already calculated style */
               fillStyle = calculatedStyle
             } else {
               /* Get the default style if exists */
@@ -691,7 +683,7 @@ function newPlotter () {
             }
             calculatedStyle = record.strokeStyle.get(polygon.id)
             if (calculatedStyle !== undefined) {
-            /* We use the already calculated style */
+              /* We use the already calculated style */
               strokeStyle = calculatedStyle
             } else {
               /* Get the default style if exists */
@@ -771,7 +763,7 @@ function newPlotter () {
           }
           browserCanvasContext.closePath()
 
-        /* Apply the fill style to the canvas object */
+          /* Apply the fill style to the canvas object */
           if (polygon.polygonBody !== undefined) {
             /* Replace the fill style if we are at mouse position */
             if (atMousePosition === true) {
@@ -785,7 +777,7 @@ function newPlotter () {
             browserCanvasContext.fill()
           }
 
-        /* Apply the stroke style to the canvas object */
+          /* Apply the stroke style to the canvas object */
           if (polygon.polygonBorder !== undefined) {
             /* Replace the stroke style if we are at mouse position */
             if (atMousePosition === true) {
@@ -815,7 +807,7 @@ function newPlotter () {
           let imageSize = 0
           let offsetX = 0
           let offsetY = 0
-          let imagePosition = {x: 0, y: 0}
+          let imagePosition = { x: 0, y: 0 }
           if (image.config.codeName !== undefined) { imageName = image.config.codeName }
           if (image.config.size !== undefined) { imageSize = image.config.size }
           if (image.imagePosition.config.offsetX !== undefined) { offsetX = image.imagePosition.config.offsetX }
@@ -853,7 +845,7 @@ function newPlotter () {
           let paletteColor = UI_COLOR.GREY
           let offsetX = 0
           let offsetY = 0
-          let textPosition = {x: 0, y: 0}
+          let textPosition = { x: 0, y: 0 }
           if (text.textStyle.config.fontSize !== undefined) { fontSize = text.textStyle.config.fontSize }
           if (text.textStyle.config.opacity !== undefined) { opacity = text.textStyle.config.opacity }
           if (text.textStyle.config.paletteColor !== undefined) { paletteColor = eval(text.textStyle.config.paletteColor) }
@@ -888,7 +880,7 @@ function newPlotter () {
     }
   }
 
-  function onViewportZoomChanged (event) {
+  function onViewportZoomChanged(event) {
     try {
       mustRecalculateDataPoints = true
       recalculate()
@@ -897,19 +889,19 @@ function newPlotter () {
     }
   }
 
-  function onDragFinished () {
+  function onDragFinished() {
     recalculate()
   }
 
-  function onDisplace (event) {
+  function onDisplace(event) {
     recalculateAll(event)
   }
 
-  function onViewportPositionChanged (event) {
+  function onViewportPositionChanged(event) {
     recalculateAll(event)
   }
 
-  function recalculateAll (event) {
+  function recalculateAll(event) {
     mustRecalculateDataPoints = true
     if (event !== undefined) {
       if (event.recalculate === true) {

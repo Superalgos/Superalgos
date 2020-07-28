@@ -255,11 +255,11 @@
                 }
             }
 
-            /* 
-            We do market files first since if the simulation is run on daily files, there will be a loop to getch each daus files and we do not need
-            that loop to reload market files. 
-            */
             function processMarketFiles() {
+                /* 
+                We do market files first since if the simulation is run on daily files, there will be a loop to getch each daus files and we do not need
+                that loop to reload market files. 
+                */
                 let n;
                 timeFramesLoop();
 
@@ -603,22 +603,25 @@
 
                         bot.FIRST_EXECUTION = false // From here on, all other loops executions wont be the first execution.
 
-                        if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
-                            writeMarketStatusReport(onMarketStatusReport)
-                        } else {
-                            writeDataRanges(currentTimeFrameLabel, onWritten);
+                        writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel, onTimeFrameFilesWritten)
+                        function onTimeFrameFilesWritten() {
+                            writeDataRanges(currentTimeFrameLabel, onDataRangesWritten);
                         }
 
-                        function onWritten(err) {
+                        function onDataRangesWritten(err) {
                             try {
-
                                 if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
                                     logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onWritten -> err = " + err.stack);
                                     callBackFunction(err);
                                     return;
                                 }
 
-                                writeDailyStatusReport(bot.tradingProcessDate, onDailyStatusReport);
+                                if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
+                                    writeMarketStatusReport(onMarketStatusReport)
+                                } else {
+                                    writeDailyStatusReport(bot.tradingProcessDate, onDailyStatusReport);
+                                }
+
                             } catch (err) {
                                 logger.write(MODULE_NAME, "[ERROR] start -> processDailyFiles -> buildCharts -> onOutputGenerated -> onWritten -> err = " + err.stack);
                                 callBackFunction(global.DEFAULT_FAIL_RESPONSE);
@@ -725,6 +728,51 @@
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);
                 thisReport.save(callBack);
+            }
+
+            function writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel, callBack) {
+                let outputDatasetIndex = -1;
+                controlLoop()
+
+                function productLoopBody() {
+                    let productCodeName = bot.processNode.referenceParent.processOutput.outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                    writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily', dailyFileWritten)
+
+                    function dailyFileWritten() {
+                        writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, 'Multi-Period-Market', controlLoop)
+                    }
+                }
+
+                function controlLoop() {
+                    outputDatasetIndex++
+                    if (outputDatasetIndex < bot.processNode.referenceParent.processOutput.outputDatasets.length) {
+                        productLoopBody()
+                    } else {
+                        callBack()
+                    }
+                }
+            }
+
+            function writeTimeFramesFile(currentTimeFrame, currentTimeFrameLabel, productCodeName, processType, callBack) {
+
+                let timeFramesArray = []
+                timeFramesArray.push(currentTimeFrameLabel)
+
+                let fileContent = JSON.stringify(timeFramesArray)
+                let fileName = '/Time.Frames.json';
+
+                let filePath = bot.filePathRoot + "/Output/" + bot.SESSION.folderName + "/" + productCodeName + "/" + processType + fileName;
+
+                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                function onFileCreated(err) {
+                    if (err.result !== global.DEFAULT_OK_RESPONSE.result) {
+                        logger.write(MODULE_NAME, "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
+                        callBack(err)
+                        return
+                    }
+                    callBack()
+                }
             }
 
             function trimDataFile(dataFile, recordDefinition) {

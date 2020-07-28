@@ -88,7 +88,6 @@
                         }
                         global.EVENT_SERVER_CLIENT.createEventHandler(key, 'Dataset Updated')
                         global.EVENT_SERVER_CLIENT.raiseEvent(key, 'Dataset Updated', event)
-
                     }
                 }
             }

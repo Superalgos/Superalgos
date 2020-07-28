@@ -272,8 +272,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             */
             value = false
 
-            if (code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 ||
-                code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
+            if (code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1
             ) {
                 /*
                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.
@@ -313,8 +312,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             */
             value = 0
 
-            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1 ||
-                node.code.indexOf('chart') > -1 && err.message.indexOf('of undefined') > -1
+            if (node.code.indexOf('previous') > -1 && err.message.indexOf('of undefined') > -1
             ) {
                 /*
                     We are not going to set an error for the casess we are using previous and the error is that the indicator is undefined.

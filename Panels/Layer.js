@@ -1,4 +1,4 @@
-function newLayer () {
+function newLayer() {
   const MODULE_NAME = 'Layer'
   const ERROR_LOG = true
   const logger = newWebDebugLog()
@@ -80,7 +80,7 @@ function newLayer () {
   let timeFrame = INITIAL_TIME_PERIOD
   let datetime = NEW_SESSION_INITIAL_DATE
 
-   /* Add an Event Handler */
+  /* Add an Event Handler */
 
   thisObject.eventHandler = newEventHandler()
   let imagesLoaded = 0
@@ -89,7 +89,7 @@ function newLayer () {
 
   return thisObject
 
-  function finalize () {
+  function finalize() {
     thisObject.container.eventHandler.stopListening(onMouseClickEventSuscriptionId)
 
     thisObject.container.finalize()
@@ -132,15 +132,15 @@ function newLayer () {
     thisObject.networkNode = undefined
   }
 
-  function initialize (callBackFunction) {
-       /* Create this objects continer */
+  function initialize(callBackFunction) {
+    /* Create this objects continer */
     try {
       thisObject.container = newContainer()
       thisObject.container.initialize(MODULE_NAME + ' ' + thisObject.payload.node.id)
       thisObject.container.isDraggeable = false
       thisObject.container.isClickeable = true
 
-       /* Lets set the basic dimensions of this thisObject. */
+      /* Lets set the basic dimensions of this thisObject. */
       let position = {
         x: 0,
         y: 0
@@ -152,32 +152,32 @@ function newLayer () {
 
       let functionLibraryProtocolNode = newProtocolNode()
       let lightingPath =
-                        '->Layer->' +
-                        'Data Product->Single Market Data->Exchange Data Products->' +
-                        'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
-                        'Data Storage->Network Node->' +
-                        'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
-                        'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
-                        'Market->Market Base Asset->Asset->' +
-                        'Market Quoted Asset->Asset->' +
-                        'Exchange Markets->Crypto Exchange->' +
-                        'Product Definition->' +
-                        'Sensor Bot->Indicator Bot->Trading Bot->' +
-                        'Data Mine->' +
-                        'Dataset Definition->' +
-                        'Record Definition->Record Property->Formula->' +
-                        'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                        'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
-                        'Plotter Module->Plotter->' +
-                        'Shapes->' +
-                        'Chart Points->Point->Point Formula->' +
-                        'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
-                        'Polygon Border->Style->Style Condition->Style->' +
-                        'Polygon Vertex->Point->' +
-                        'Image->Image Condition->Image Position->Point->' +
-                        'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
-                        'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
-                        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
+        '->Layer->' +
+        'Data Product->Single Market Data->Exchange Data Products->' +
+        'Session Reference->Session Independent Data->Session Based Data->Exchange Sessions->Session Based Data->Data Storage->Network Node->' +
+        'Data Storage->Network Node->' +
+        'Backtesting Session->Paper Trading Session->Fordward Testing Session->Live Trading Session->' +
+        'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
+        'Market->Market Base Asset->Asset->' +
+        'Market Quoted Asset->Asset->' +
+        'Exchange Markets->Crypto Exchange->' +
+        'Product Definition->' +
+        'Sensor Bot->Indicator Bot->Trading Bot->' +
+        'Data Mine->' +
+        'Dataset Definition->' +
+        'Record Definition->Record Property->Formula->' +
+        'Data Building Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
+        'Calculations Procedure->Procedure Loop->Javascript Code->Procedure Initialization->Javascript Code->' +
+        'Plotter Module->Plotter->' +
+        'Shapes->' +
+        'Chart Points->Point->Point Formula->' +
+        'Polygon->Polygon Condition->Polygon Body->Style->Style Condition->Style->' +
+        'Polygon Border->Style->Style Condition->Style->' +
+        'Polygon Vertex->Point->' +
+        'Image->Image Condition->Image Position->Point->' +
+        'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
+        'Plotter Panel->Javascript Code->Panel Data->Data Formula->' +
+        'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
       thisObject.definition = functionLibraryProtocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
       /* Here we validate that we have all the needed information */
@@ -198,7 +198,7 @@ function newLayer () {
       if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode === undefined) { return }
       if (thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode === undefined) { return }
 
-       /* Lets listen to our own events to react when we have a Mouse Click */
+      /* Lets listen to our own events to react when we have a Mouse Click */
       onMouseClickEventSuscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
 
       /* Get ready to draw this layer */
@@ -242,7 +242,7 @@ function newLayer () {
         thisObject.networkNode = thisObject.definition.referenceParent.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
       }
 
-      function getIcon (node) {
+      function getIcon(node) {
         let nodeDefinition = getNodeDefinition(node)
         let iconName
         if (nodeDefinition.alternativeIcons !== undefined) {
@@ -267,7 +267,7 @@ function newLayer () {
     }
   }
 
-  function checkStatusAtShutDown () {
+  function checkStatusAtShutDown() {
     /* Mechanism to recover a layer that was left loading the last time the browser was shut dowm. */
     let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
     if (storedValue !== undefined) {
@@ -278,7 +278,7 @@ function newLayer () {
     }
   }
 
-  function getContainer (point) {
+  function getContainer(point) {
     if (panelsVisibleButton !== undefined) {
       let container = panelsVisibleButton.getContainer(point)
       if (container !== undefined) {
@@ -290,11 +290,11 @@ function newLayer () {
     }
   }
 
-  function setDatetime (pDatetime) {
-     /*
-     When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
-     get ready to receive events on files loaded.
-     */
+  function setDatetime(pDatetime) {
+    /*
+    When the datetime changes from one day to another, this forces cursors to potentially load more files, thus we reset this counter and
+    get ready to receive events on files loaded.
+    */
     let currentDate = Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS)
     let newDate = Math.trunc(pDatetime.valueOf() / ONE_DAY_IN_MILISECONDS)
 
@@ -307,11 +307,11 @@ function newLayer () {
     }
   }
 
-  function setTimeFrame (pTimeFrame) {
-     /*
-     When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
-     get ready to receive events on files loaded.
-     */
+  function setTimeFrame(pTimeFrame) {
+    /*
+    When the time period below or equal to 1 hour changes, this forces cursors to potentially load more files, thus we reset this counter and
+    get ready to receive events on files loaded.
+    */
     if (timeFrame !== pTimeFrame) {
       timeFrame = pTimeFrame
 
@@ -321,15 +321,23 @@ function newLayer () {
     }
   }
 
-  function onMarketFileLoaded (event) {
-    marketFileProgressBar.value = Math.trunc(event.totalValue * 100 / event.totalValue)
+  function onMarketFileLoaded(event) {
+    if (event.totalValue === 0) {
+      marketFileProgressBar.value = 100
+      return
+    }
+    marketFileProgressBar.value = Math.trunc((event.currentValue + event.filesNotLoaded) * 100 / event.totalValue)
     marketFileProgressBar.fillStyle = LOADING_FILL_STYLE
     marketFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
 
     if (marketFileProgressBar.value > 100) { marketFileProgressBar.value = 100 }
   }
 
-  function onDailyFileLoaded (event) {
+  function onDailyFileLoaded(event) {
+    if (event.totalValue === 0) {
+      dailyFileProgressBar.value = 100
+      return
+    }
     dailyFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
     dailyFileProgressBar.fillStyle = LOADING_FILL_STYLE
     dailyFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
@@ -337,7 +345,11 @@ function newLayer () {
     if (dailyFileProgressBar.value > 100) { dailyFileProgressBar.value = 100 }
   }
 
-  function onSingleFileLoaded (event) {
+  function onSingleFileLoaded(event) {
+    if (event.totalValue === 0) {
+      singleFileProgressBar.value = 100
+      return
+    }
     singleFileProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
     singleFileProgressBar.fillStyle = LOADING_FILL_STYLE
     singleFileProgressBar.strokeStyle = LOADING_STROKE_STYLE
@@ -345,7 +357,11 @@ function newLayer () {
     if (singleFileProgressBar.value > 100) { singleFileProgressBar.value = 100 }
   }
 
-  function onFileSequenceLoaded (event) {
+  function onFileSequenceLoaded(event) {
+    if (event.totalValue === 0) {
+      fileSequenceProgressBar.value = 100
+      return
+    }
     fileSequenceProgressBar.value = Math.trunc(event.currentValue * 100 / event.totalValue)
     fileSequenceProgressBar.fillStyle = LOADING_FILL_STYLE
     fileSequenceProgressBar.strokeStyle = LOADING_STROKE_STYLE
@@ -353,21 +369,21 @@ function newLayer () {
     if (fileSequenceProgressBar.value > 100) { fileSequenceProgressBar.value = 100 }
   }
 
-  function turnOff () {
+  function turnOff() {
     if (thisObject.status !== LAYER_STATUS.OFF) {
       resetProgressBars()
       changeStatusTo(LAYER_STATUS.OFF)
     }
   }
 
-  function turnOn () {
+  function turnOn() {
     if (thisObject.status === LAYER_STATUS.OFF) {
       resetProgressBars()
       changeStatusTo(LAYER_STATUS.LOADING)
     }
   }
 
-  function onMouseClick (event) {
+  function onMouseClick(event) {
     switch (thisObject.status) {
       case LAYER_STATUS.ON:
         resetProgressBars()
@@ -383,7 +399,7 @@ function newLayer () {
     }
   }
 
-  function resetProgressBars () {
+  function resetProgressBars() {
     marketFileProgressBar.animatedValue = 0
     marketFileProgressBar.value = 0
     marketFileProgressBar.fillStyle = UNLOADED_FILL_STYLE
@@ -405,12 +421,12 @@ function newLayer () {
     fileSequenceProgressBar.strokeStyle = UNLOADED_STROKE_STYLE
   }
 
-  function physics () {
+  function physics() {
     statusPhysics()
     childrenPhysics()
   }
 
-  function childrenPhysics () {
+  function childrenPhysics() {
     /* Panels Visible Button Setup */
     if (thisObject.status === LAYER_STATUS.ON) {
       if (panelsVisibleButton === undefined) {
@@ -435,8 +451,8 @@ function newLayer () {
     }
   }
 
-  function statusPhysics () {
-  /* We retrieve the stored status at the config. */
+  function statusPhysics() {
+    /* We retrieve the stored status at the config. */
     try {
       let storedValue = loadPropertyFromNodeConfig(thisObject.payload, 'status')
 
@@ -456,7 +472,7 @@ function newLayer () {
         changeStatusTo(LAYER_STATUS.OFF)
       }
     } catch (err) {
-   // we ignore errors here since most likely they will be parsing errors.
+      // we ignore errors here since most likely they will be parsing errors.
     }
 
     /* Check when the loading finishes */
@@ -469,7 +485,7 @@ function newLayer () {
     }
   }
 
-  function changeStatusTo (newStatus) {
+  function changeStatusTo(newStatus) {
     if (thisObject.status !== newStatus) {
       thisObject.status = newStatus
 
@@ -486,18 +502,18 @@ function newLayer () {
     }
   }
 
-  function draw () {
+  function draw() {
     drawLayer()
     if (panelsVisibleButton !== undefined) {
       panelsVisibleButton.draw()
     }
   }
 
-  function drawLayer () {
+  function drawLayer() {
     drawLayerDisplay()
   }
 
-  function drawProgressBar (progressBar, lineWidth, offsetY) {
+  function drawProgressBar(progressBar, lineWidth, offsetY) {
     const ANIMATED_INCREMENT = 5
     const OPACITY_INCREMENT = 0.01
     const OPACITY_MIN = 1
@@ -510,7 +526,7 @@ function newLayer () {
       return
     }
 
-     /* Animate */
+    /* Animate */
     if (progressBar.animatedValue < progressBar.value) {
       progressBar.animatedValue = progressBar.animatedValue + ANIMATED_INCREMENT
       progressBar.opacity = progressBar.opacity + OPACITY_INCREMENT
@@ -535,7 +551,7 @@ function newLayer () {
       y: thisObject.container.frame.height + offsetY
     }
 
-     /* Now the transformations. */
+    /* Now the transformations. */
     point1 = thisObject.container.frame.frameThisPoint(point1)
     point2 = thisObject.container.frame.frameThisPoint(point2)
 
@@ -555,7 +571,7 @@ function newLayer () {
     browserCanvasContext.stroke()
   }
 
-  function drawLayerDisplay () {
+  function drawLayerDisplay() {
     let label1 = thisObject.payload.node.name
     let label2 = thisObject.exchange.name.substring(0, 15) + ' - ' + thisObject.market
     let label3 = thisObject.status.toUpperCase()

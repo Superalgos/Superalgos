@@ -617,9 +617,9 @@
                                 }
 
                                 if (currentTimeFrame > global.dailyFilePeriods[0][0]) {
-                                    writeMarketStatusReport(onMarketStatusReport)
+                                    writeMarketStatusReport(currentTimeFrameLabel, onMarketStatusReport)
                                 } else {
-                                    writeDailyStatusReport(bot.tradingProcessDate, onDailyStatusReport);
+                                    writeDailyStatusReport(bot.tradingProcessDate, currentTimeFrameLabel, onDailyStatusReport);
                                 }
 
                             } catch (err) {
@@ -709,22 +709,24 @@
                 }
             }
 
-            function writeDailyStatusReport(lastFileDate, callBack) {
+            function writeDailyStatusReport(lastFileDate, currentTimeFrameLabel, callBack) {
                 let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.currentDaytime;
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.simulationState = bot.simulationState;
+                thisReport.file.timeFrames = currentTimeFrameLabel
                 thisReport.save(callBack);
             }
 
-            function writeMarketStatusReport(callBack) {
+            function writeMarketStatusReport(currentTimeFrameLabel, callBack) {
                 let reportKey = bot.dataMine + "-" + bot.codeName + "-" + bot.processNode.referenceParent.config.codeName
                 let thisReport = statusDependencies.statusReports.get(reportKey);
 
                 thisReport.file.lastExecution = bot.processDatetime;
                 thisReport.file.simulationState = bot.simulationState;
+                thisReport.file.timeFrames = currentTimeFrameLabel
 
                 logger.newInternalLoop(bot.codeName, bot.process, bot.tradingProcessDate);
                 thisReport.save(callBack);

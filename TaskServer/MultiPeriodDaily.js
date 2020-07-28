@@ -521,7 +521,7 @@
                     let timeFrameLabel = global.dailyFilePeriods[n][1]
 
                     /* Check Time Frames Filter */
-                    if (bot.marketTimeFrames !== undefined) {
+                    if (bot.dailyTimeFrames !== undefined) {
                         if (bot.dailyTimeFrames.includes(timeFrameLabel) === true) {
                             timeFramesArray.push(timeFrameLabel)
                         }
@@ -554,6 +554,9 @@
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;
                 thisReport.file.beginingOfMarket = beginingOfMarket.toUTCString()
+                if (bot.dailyTimeFrames !== undefined) {
+                    thisReport.file.timeFrames = bot.dailyTimeFrames
+                }
                 thisReport.save(callBack)
 
                 bot.hasTheBotJustStarted = false;

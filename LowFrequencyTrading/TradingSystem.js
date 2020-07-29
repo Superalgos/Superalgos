@@ -656,6 +656,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(manageStage, 'Manage Stage')
             evalFormulas(manageStage, 'Manage Stage')
 
+            if (
+                tradingEngine.current.position.stopLoss.stopLossStage.value === 'Open Stage' ||
+                tradingEngine.current.position.takeProfit.takeProfitStage.value === 'Open Stage') {
+                let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
+                evalConditions(stageNode, 'Initial Definition')
+                evalFormulas(stageNode, 'Initial Definition')
+            }
+
             /* Stop Loss Management */
             checkStopPhasesEvents()
             calculateStopLoss()

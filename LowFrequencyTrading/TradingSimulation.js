@@ -240,8 +240,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                             if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                            let currentElement = getElement(thisChart[pluralVariableName], 'Daily' + '-' + mapKey + '-' + pluralVariableName)
-                            thisChart[singularVariableName] = currentElement
+                            if (thisChart[pluralVariableName] !== undefined) {
+                                let currentElement = getElement(thisChart[pluralVariableName], 'Daily' + '-' + mapKey + '-' + pluralVariableName)
+                                if (currentElement !== undefined) {
+                                    thisChart[singularVariableName] = currentElement
+                                }
+                            }
                         }
                     }
                 }
@@ -257,8 +261,12 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                         if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                        let currentElement = getElement(thisChart[pluralVariableName], 'Market' + '-' + mapKey + '-' + pluralVariableName)
-                        thisChart[singularVariableName] = currentElement
+                        if (thisChart[pluralVariableName] !== undefined) {
+                            let currentElement = getElement(thisChart[pluralVariableName], 'Market' + '-' + mapKey + '-' + pluralVariableName)
+                            if (currentElement !== undefined) {
+                                thisChart[singularVariableName] = currentElement
+                            }
+                        }
                     }
                 }
 

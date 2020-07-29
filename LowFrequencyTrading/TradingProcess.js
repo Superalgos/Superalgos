@@ -797,7 +797,7 @@
                     let dataRecord = dataFile[i]
                     let begin = dataRecord[beginIndex]
                     let end = dataRecord[endIndex]
-                    if (end < bot.SESSION.parameters.timeRange.config.initialDatetime) { continue }
+                    if (end < bot.SESSION.parameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
                     if (begin > bot.SESSION.parameters.timeRange.config.finalDatetime) { continue }
                     result.push(dataRecord)
                 }

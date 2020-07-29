@@ -13,22 +13,22 @@
     3. UI Objects: These are small balls that represent parts of an strategy.
     */
 
-function newFloatingLayer () {
-  const MODULE_NAME = 'Floating Layer'
-  const ERROR_LOG = true
-  const logger = newWebDebugLog()
-  logger.fileName = MODULE_NAME
+function newFloatingLayer() {
+    const MODULE_NAME = 'Floating Layer'
+    const ERROR_LOG = true
+    const logger = newWebDebugLog()
+    logger.fileName = MODULE_NAME
 
-  let thisObject = {
-    addFloatingObject: addFloatingObject,
-    removeFloatingObject: removeFloatingObject,
-    getFloatingObject: getFloatingObject,
-    physics: physics,
-    draw: draw,
-    getContainer: getContainer,
-    initialize: initialize,
-    finalize: finalize
-  }
+    let thisObject = {
+        addFloatingObject: addFloatingObject,
+        removeFloatingObject: removeFloatingObject,
+        getFloatingObject: getFloatingObject,
+        physics: physics,
+        draw: draw,
+        getContainer: getContainer,
+        initialize: initialize,
+        finalize: finalize
+    }
 
     /*
     When objects are added to this layer they are added to the invisibleFloatingObjects array and they stay there because they are invisible.
@@ -38,7 +38,7 @@ function newFloatingLayer () {
     To save resources, the physics engine only apply its calculations to visible floating objects.
     */
 
-  let invisibleFloatingObjects = []
+    let invisibleFloatingObjects = []
 
     /*
     Floating objects are accesible to plotters because they carry a "payload" object that was creted by them. This object includes the position
@@ -48,198 +48,198 @@ function newFloatingLayer () {
     array.
     */
 
-  let visibleFloatingObjects = []
+    let visibleFloatingObjects = []
 
-  let maxTargetRepulsionForce = 0.001
-  let currentHandle = 0
+    let maxTargetRepulsionForce = 0.001
+    let currentHandle = 0
 
-  return thisObject
+    return thisObject
 
-  function finalize () {
-    invisibleFloatingObjects = []
-    visibleFloatingObjects = []
-  }
+    function finalize() {
+        invisibleFloatingObjects = []
+        visibleFloatingObjects = []
+    }
 
-  function initialize () {
+    function initialize() {
 
         /* We dont need to initialize anything right now. */
-  }
-
-  function getContainer (point) {
-    let container
-
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
-      container = floatingObject.getContainer(point)
-      if (container !== undefined) { return container }
     }
 
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      container = floatingObject.getContainer(point)
-      if (container !== undefined) { return container }
+    function getContainer(point) {
+        let container
+
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i]
+            container = floatingObject.getContainer(point)
+            if (container !== undefined) { return container }
+        }
+
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            container = floatingObject.getContainer(point)
+            if (container !== undefined) { return container }
+        }
+
+        return container
     }
 
-    return container
-  }
-
-  function addFloatingObject (pFloatingObject) {
-    currentHandle++
-    pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
-    visibleFloatingObjects.push(pFloatingObject)
-  }
-
-  function removeFloatingObject (pFloatingObjectHandle) {
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-
-      if (floatingObject.handle === pFloatingObjectHandle) {
-        invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-        return
-      }
+    function addFloatingObject(pFloatingObject) {
+        currentHandle++
+        pFloatingObject.handle = currentHandle // Math.floor((Math.random() * 10000000) + 1);
+        visibleFloatingObjects.push(pFloatingObject)
     }
 
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
+    function removeFloatingObject(pFloatingObjectHandle) {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
 
-      if (floatingObject.handle === pFloatingObjectHandle) {
-        visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-        return
-      }
+            if (floatingObject.handle === pFloatingObjectHandle) {
+                invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+                return
+            }
+        }
+
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i]
+
+            if (floatingObject.handle === pFloatingObjectHandle) {
+                visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+                return
+            }
+        }
     }
-  }
 
-  function getFloatingObject (pFloatingObjectHandle, pFloatingObjectIndex) {
+    function getFloatingObject(pFloatingObjectHandle, pFloatingObjectIndex) {
         /*
         There are two ways to look for a floating object: by handle or by index. The search by handle is done on the visible and invisible array.
         The search by index is done only on the visible ones. The search by index is usually needed when mouse events occurs. In those cases
         only objects visible to the end usser matters.
         */
 
-    try {
-      if (pFloatingObjectHandle !== undefined) {
+        try {
+            if (pFloatingObjectHandle !== undefined) {
+                for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+                    let floatingObject = invisibleFloatingObjects[i]
+
+                    if (floatingObject.handle === pFloatingObjectHandle) {
+                        return floatingObject
+                    }
+                }
+
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                    let floatingObject = visibleFloatingObjects[i]
+
+                    if (floatingObject.handle === pFloatingObjectHandle) {
+                        return floatingObject
+                    }
+                }
+            }
+
+            if (pFloatingObjectIndex !== undefined) {
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                    let floatingObject = visibleFloatingObjects[i]
+
+                    if (i === pFloatingObjectIndex) {
+                        return floatingObject
+                    }
+                }
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] getFloatingObject -> err= ' + err.stack) }
+        }
+    }
+
+    function draw() {
+        drawInvisibleObjects()
+        drawVisibleObjects()
+    }
+
+    function drawInvisibleObjects() {
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-          let floatingObject = invisibleFloatingObjects[i]
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.drawBackground()
+        }
 
-          if (floatingObject.handle === pFloatingObjectHandle) {
-            return floatingObject
-          }
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.drawMiddleground()
+        }
+
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
+            floatingObject.drawForeground()
+        }
+    }
+
+    function drawVisibleObjects() {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i]
+            floatingObject.drawBackground()
         }
 
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[i]
-
-          if (floatingObject.handle === pFloatingObjectHandle) {
-            return floatingObject
-          }
+            let floatingObject = visibleFloatingObjects[i]
+            floatingObject.drawMiddleground()
         }
-      }
 
-      if (pFloatingObjectIndex !== undefined) {
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[i]
-
-          if (i === pFloatingObjectIndex) {
-            return floatingObject
-          }
+            let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
+            floatingObject.drawForeground()
         }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] getFloatingObject -> err= ' + err.stack) }
-    }
-  }
 
-  function draw () {
-    drawInvisibleObjects()
-    drawVisibleObjects()
-  }
+        /* Invisible objects on focus (freezed) should still have some priority */
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.drawOnFocus()
+        }
 
-  function drawInvisibleObjects () {
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      floatingObject.drawBackground()
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i]
+            floatingObject.drawOnFocus()
+        }
     }
 
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      floatingObject.drawMiddleground()
+    function collapsePhysics(thisObject) {
+        let parent = thisObject.payload.chainParent
+        if (parent === undefined) { return }
+        if (parent.payload === undefined) { return }
+        if (parent.payload.floatingObject === undefined) { return }
+
+        thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
+        if (thisObject.collapsedManually === false) {
+            thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
+        }
     }
 
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
-      floatingObject.drawForeground()
-    }
-  }
+    function makeVisible() {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
 
-  function drawVisibleObjects () {
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
-      floatingObject.drawBackground()
-    }
+            collapsePhysics(floatingObject)
 
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
-      floatingObject.drawMiddleground()
+            if (floatingObject.isParentCollapsed === false) {
+                visibleFloatingObjects.push(floatingObject)
+                invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
+                makeVisible()
+                return                     // Only one at the time.
+            }
+        }
     }
 
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[visibleFloatingObjects.length - i - 1]
-      floatingObject.drawForeground()
+    function makeInvisible() {
+        for (let i = 0; i < visibleFloatingObjects.length; i++) {
+            let floatingObject = visibleFloatingObjects[i]
+
+            collapsePhysics(floatingObject)
+
+            if (floatingObject.isParentCollapsed === true) {
+                invisibleFloatingObjects.push(floatingObject)
+                visibleFloatingObjects.splice(i, 1)  // Delete item from array.
+                makeInvisible()
+                return                     // Only one at the time.
+            }
+        }
     }
-
-    /* Invisible objects on focus (freezed) should still have some priority */
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-      floatingObject.drawOnFocus()
-    }
-
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
-      floatingObject.drawOnFocus()
-    }
-  }
-
-  function collapsePhysics (thisObject) {
-    let parent = thisObject.payload.chainParent
-    if (parent === undefined) { return }
-    if (parent.payload === undefined) { return }
-    if (parent.payload.floatingObject === undefined) { return }
-
-    thisObject.isParentCollapsed = parent.payload.floatingObject.isCollapsed
-    if (thisObject.collapsedManually === false) {
-      thisObject.isCollapsed = parent.payload.floatingObject.isCollapsed
-    }
-  }
-
-  function makeVisible () {
-    for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-      let floatingObject = invisibleFloatingObjects[i]
-
-      collapsePhysics(floatingObject)
-
-      if (floatingObject.isParentCollapsed === false) {
-        visibleFloatingObjects.push(floatingObject)
-        invisibleFloatingObjects.splice(i, 1)  // Delete item from array.
-        makeVisible()
-        return                     // Only one at the time.
-      }
-    }
-  }
-
-  function makeInvisible () {
-    for (let i = 0; i < visibleFloatingObjects.length; i++) {
-      let floatingObject = visibleFloatingObjects[i]
-
-      collapsePhysics(floatingObject)
-
-      if (floatingObject.isParentCollapsed === true) {
-        invisibleFloatingObjects.push(floatingObject)
-        visibleFloatingObjects.splice(i, 1)  // Delete item from array.
-        makeInvisible()
-        return                     // Only one at the time.
-      }
-    }
-  }
 
     /******************************************/
     /*                                        */
@@ -247,7 +247,7 @@ function newFloatingLayer () {
     /*                                        */
     /******************************************/
 
-  function physics () {
+    function physics() {
         /*
         The Physics engine is hooked at the animation loop, so it executes very very often. According to this Physics engine, each
         floating object has a position and a speed. In fact, each floating object has two positions at the same time:
@@ -262,483 +262,483 @@ function newFloatingLayer () {
 
         */
 
-    try {
-      makeVisible()
-      makeInvisible()
-      invisiblePhysics()
-      visiblePhysics()
-      applyPhysics()
+        try {
+            makeVisible()
+            makeInvisible()
+            invisiblePhysics()
+            visiblePhysics()
+            applyPhysics()
 
-      function invisiblePhysics () {
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-          let floatingObject = invisibleFloatingObjects[i]
-          floatingObject.invisiblePhysics()
-        }
-      }
+            function invisiblePhysics() {
+                for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+                    let floatingObject = invisibleFloatingObjects[i]
+                    floatingObject.invisiblePhysics()
+                }
+            }
 
-      function visiblePhysics () {
-        for (let i = 0; i < visibleFloatingObjects.length; i++) {
-          let floatingObject = visibleFloatingObjects[i]
-          floatingObject.physics()
-        }
-      }
+            function visiblePhysics() {
+                for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                    let floatingObject = visibleFloatingObjects[i]
+                    floatingObject.physics()
+                }
+            }
 
-      function applyPhysics () {
+            function applyPhysics() {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
-        try {
-          DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
-          DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
+                try {
+                    DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
+                    DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
 
-          for (let i = 0; i < visibleFloatingObjects.length; i++) {
-            let floatingObject = visibleFloatingObjects[i]
-            if (floatingObject.isFrozen === true) { continue }
+                    for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                        let floatingObject = visibleFloatingObjects[i]
+                        if (floatingObject.isFrozen === true) { continue }
 
-            /* From here on, only if they are not too far. */
-            if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
+                        /* From here on, only if they are not too far. */
+                        if (canvas.floatingSpace.isItFar(floatingObject.payload)) { continue }
 
-            if (floatingObject.positionLocked === false) {
-              floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
-              floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
-            }
+                        if (floatingObject.positionLocked === false) {
+                            floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
+                            floatingObject.container.frame.position.y = floatingObject.container.frame.position.y + floatingObject.currentSpeed.y
+                        }
 
-            if (floatingObject.friction < floatingObject.targetFriction) {
-              floatingObject.friction = floatingObject.friction + 0.00001
-            } else {
-              floatingObject.friction = floatingObject.friction - 0.00001
-            }
+                        if (floatingObject.friction < floatingObject.targetFriction) {
+                            floatingObject.friction = floatingObject.friction + 0.00001
+                        } else {
+                            floatingObject.friction = floatingObject.friction - 0.00001
+                        }
 
-            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
-            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
+                        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
+                        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
 
-            let payload = {
-              position: undefined,
-              visible: false
-            }
+                        let payload = {
+                            position: undefined,
+                            visible: false
+                        }
 
-            switch (floatingObject.type) {
-              case 'UI Object': {
-                payload.targetPosition = floatingObject.payload.targetPosition
-                payload.visible = floatingObject.payload.visible
-                break
-              }
-              default: {
-                break
-              }
-            }
+                        switch (floatingObject.type) {
+                            case 'UI Object': {
+                                payload.targetPosition = floatingObject.payload.targetPosition
+                                payload.visible = floatingObject.payload.visible
+                                break
+                            }
+                            default: {
+                                break
+                            }
+                        }
 
-            if (floatingObject.container.frame.position.x < payload.targetPosition.x) {
-              floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + 0.005
-            } else {
-              floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - 0.005
-            }
+                        if (floatingObject.container.frame.position.x < payload.targetPosition.x) {
+                            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + 0.005
+                        } else {
+                            floatingObject.currentSpeed.x = floatingObject.currentSpeed.x - 0.005
+                        }
 
-            if (floatingObject.container.frame.position.y < payload.targetPosition.y) {
-              floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + 0.005
-            } else {
-              floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
-            }
+                        if (floatingObject.container.frame.position.y < payload.targetPosition.y) {
+                            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + 0.005
+                        } else {
+                            floatingObject.currentSpeed.y = floatingObject.currentSpeed.y - 0.005
+                        }
 
-            const MAX_SPEED = 10
+                        const MAX_SPEED = 10
 
-            if (floatingObject.currentSpeed.x > MAX_SPEED) {
-              floatingObject.currentSpeed.x = MAX_SPEED
-            }
+                        if (floatingObject.currentSpeed.x > MAX_SPEED) {
+                            floatingObject.currentSpeed.x = MAX_SPEED
+                        }
 
-            if (floatingObject.currentSpeed.y > MAX_SPEED) {
-              floatingObject.currentSpeed.y = MAX_SPEED
-            }
+                        if (floatingObject.currentSpeed.y > MAX_SPEED) {
+                            floatingObject.currentSpeed.y = MAX_SPEED
+                        }
 
-            if (floatingObject.currentSpeed.x < -MAX_SPEED) {
-              floatingObject.currentSpeed.x = -MAX_SPEED
-            }
+                        if (floatingObject.currentSpeed.x < -MAX_SPEED) {
+                            floatingObject.currentSpeed.x = -MAX_SPEED
+                        }
 
-            if (floatingObject.currentSpeed.y < -MAX_SPEED) {
-              floatingObject.currentSpeed.y = -MAX_SPEED
-            }
+                        if (floatingObject.currentSpeed.y < -MAX_SPEED) {
+                            floatingObject.currentSpeed.y = -MAX_SPEED
+                        }
 
                         // We let the Floating Object animate the physics loops by itself.
-            checkBoundaries(floatingObject)
+                        checkBoundaries(floatingObject)
 
                         /* Collision Control */
 
-            for (let k = i + 1; k < visibleFloatingObjects.length; k++) {
-              if (colliding(visibleFloatingObjects[i], visibleFloatingObjects[k])) {
-                resolveCollision(visibleFloatingObjects[k], visibleFloatingObjects[i])
-              }
-            }
+                        for (let k = i + 1; k < visibleFloatingObjects.length; k++) {
+                            if (colliding(visibleFloatingObjects[i], visibleFloatingObjects[k])) {
+                                resolveCollision(visibleFloatingObjects[k], visibleFloatingObjects[i])
+                            }
+                        }
 
                         /* Calculate repulsion force produced by all other floatingObjects */
 
-            repulsionForceBetweenFloatingObjects(i)
+                        repulsionForceBetweenFloatingObjects(i)
 
-            targetRepulsionForce(i)
+                        targetRepulsionForce(i)
 
-            gravityForce(floatingObject, payload)
+                        gravityForce(floatingObject, payload)
 
-            proximityBetweenFloatingObjects(i)
-          }
+                        proximityBetweenFloatingObjects(i)
+                    }
+                } catch (err) {
+                    if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }
+                }
+            }
         } catch (err) {
-          if (ERROR_LOG === true) { logger.write('[ERROR] physics -> applyPhysics -> err= ' + err.stack) }
+            if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
         }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] physics -> err= ' + err.stack) }
-    }
-  }
-
-  function checkBoundaries (floatingObject) {
-    if (floatingObject.container.frame.position.x - floatingObject.container.frame.radius < 0) {
-      floatingObject.container.frame.position.x = floatingObject.container.frame.radius
-      floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
     }
 
-    if (floatingObject.container.frame.position.x + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.width) {
-      floatingObject.container.frame.position.x = canvas.floatingSpace.container.frame.width - floatingObject.container.frame.radius
-      floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
+    function checkBoundaries(floatingObject) {
+        if (floatingObject.container.frame.position.x - floatingObject.container.frame.radius < 0) {
+            floatingObject.container.frame.position.x = floatingObject.container.frame.radius
+            floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
+        }
+
+        if (floatingObject.container.frame.position.x + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.width) {
+            floatingObject.container.frame.position.x = canvas.floatingSpace.container.frame.width - floatingObject.container.frame.radius
+            floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
+        }
+
+        if (floatingObject.container.frame.position.y - floatingObject.container.frame.radius < 0) {
+            floatingObject.container.frame.position.y = floatingObject.container.frame.radius
+            floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
+        }
+
+        if (floatingObject.container.frame.position.y + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.height) {
+            floatingObject.container.frame.position.y = canvas.floatingSpace.container.frame.height - floatingObject.container.frame.radius
+            floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
+        }
     }
 
-    if (floatingObject.container.frame.position.y - floatingObject.container.frame.radius < 0) {
-      floatingObject.container.frame.position.y = floatingObject.container.frame.radius
-      floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
-    }
-
-    if (floatingObject.container.frame.position.y + floatingObject.container.frame.radius > canvas.floatingSpace.container.frame.height) {
-      floatingObject.container.frame.position.y = canvas.floatingSpace.container.frame.height - floatingObject.container.frame.radius
-      floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
-    }
-  }
-
-  function gravityForce (floatingObject, payload) {
-    try {
+    function gravityForce(floatingObject, payload) {
+        try {
             /* We simulate a kind of gravity towards the target point of each floatingObject. This force will make the floatingObject to keep pushing to reach that point. */
 
-      const coulomb = 0.00001
-      const minForce = 0.01
+            const coulomb = 0.00001
+            const minForce = 0.01
 
-      let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
+            let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-      let force = coulomb * d * d / floatingObject.currentMass  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects.
+            let force = coulomb * d * d / floatingObject.currentMass  // In this case the mass of the floatingObject affects the gravity force that it receives, that gives priority to target position to bigger floatingObjects.
 
-      if (force < minForce) { // We need this attraction force to overcome the friction we imposed to the system.
-        force = minForce
-      }
+            if (force < minForce) { // We need this attraction force to overcome the friction we imposed to the system.
+                force = minForce
+            }
 
-      let pos1 = {
-        x: floatingObject.container.frame.position.x,
-        y: floatingObject.container.frame.position.y
-      }
+            let pos1 = {
+                x: floatingObject.container.frame.position.x,
+                y: floatingObject.container.frame.position.y
+            }
 
-      let pos2 = {
-        x: payload.targetPosition.x,
-        y: payload.targetPosition.y
-      }
+            let pos2 = {
+                x: payload.targetPosition.x,
+                y: payload.targetPosition.y
+            }
 
-      let posDiff = {             // Next we need the vector resulting from the 2 positions.
-        x: pos2.x - pos1.x,
-        y: pos2.y - pos1.y
-      }
+            let posDiff = {             // Next we need the vector resulting from the 2 positions.
+                x: pos2.x - pos1.x,
+                y: pos2.y - pos1.y
+            }
 
-      if (d !== 0) {
-        let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-          x: posDiff.x / d,
-          y: posDiff.y / d
+            if (d !== 0) {
+                let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+                    x: posDiff.x / d,
+                    y: posDiff.y / d
+                }
+
+                let forceVector = {
+                    x: unitVector.x * force,
+                    y: unitVector.y * force
+                }
+
+                /* We add the force vector to the speed vector */
+                if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+                    floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
+                    floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
+                }
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
         }
-
-        let forceVector = {
-          x: unitVector.x * force,
-          y: unitVector.y * force
-        }
-
-              /* We add the force vector to the speed vector */
-        if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
-          floatingObject.currentSpeed.x = floatingObject.currentSpeed.x + forceVector.x
-          floatingObject.currentSpeed.y = floatingObject.currentSpeed.y + forceVector.y
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] gravityForce -> err= ' + err.stack) }
     }
-  }
 
-  function repulsionForceBetweenFloatingObjects (currentFloatingObject) {
-    try {
+    function repulsionForceBetweenFloatingObjects(currentFloatingObject) {
+        try {
             /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
-      const coulomb = 2
+            const coulomb = 2
 
-      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+            let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
 
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-  // The force to be applied is considering all other floatingObjects...
+            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                // The force to be applied is considering all other floatingObjects...
 
-        if (i !== currentFloatingObject) {
-  // ... except for the current one.
+                if (i !== currentFloatingObject) {
+                    // ... except for the current one.
 
-          let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+                    let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
 
-          let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+                    let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-          let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
+                    let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
 
                     /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
-          if (force > 1) {
-            force = 1
-          }
+                    if (force > 1) {
+                        force = 1
+                    }
 
-          let pos1 = {
-            x: floatingObject1.container.frame.position.x,
-            y: floatingObject1.container.frame.position.y
-          }
+                    let pos1 = {
+                        x: floatingObject1.container.frame.position.x,
+                        y: floatingObject1.container.frame.position.y
+                    }
 
-          let pos2 = {
-            x: floatingObject2.container.frame.position.x,
-            y: floatingObject2.container.frame.position.y
-          }
+                    let pos2 = {
+                        x: floatingObject2.container.frame.position.x,
+                        y: floatingObject2.container.frame.position.y
+                    }
 
-          let posDiff = {             // Next we need the vector resulting from the 2 positions.
-            x: pos2.x - pos1.x,
-            y: pos2.y - pos1.y
-          }
+                    let posDiff = {             // Next we need the vector resulting from the 2 positions.
+                        x: pos2.x - pos1.x,
+                        y: pos2.y - pos1.y
+                    }
 
-          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-            x: posDiff.x / d,
-            y: posDiff.y / d
-          }
+                    let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+                        x: posDiff.x / d,
+                        y: posDiff.y / d
+                    }
 
-          let forceVector = {
-            x: unitVector.x * force,
-            y: unitVector.y * force
-          }
+                    let forceVector = {
+                        x: unitVector.x * force,
+                        y: unitVector.y * force
+                    }
 
                     /* We substract the force vector to the speed vector of the current floatingObject */
-          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
-            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
-          }
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] repulsionForceBetweenFloatingObjects -> err= ' + err.stack) }
-    }
-  }
-
-  function proximityBetweenFloatingObjects (currentFloatingObject) {
-    try {
-      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
-      floatingObject1.nearbyFloatingObjects = []
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-        if (i !== currentFloatingObject) {
-          let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
-
-          let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
-
-          if (floatingObject1.nearbyFloatingObjects.length === 0) {
-            floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
-          } else {
-            let recordAdded = false
-            for (let j = 0; j < floatingObject1.nearbyFloatingObjects.length; j++) {
-              let recordedDistance = floatingObject1.nearbyFloatingObjects[j][0]
-              if (d < recordedDistance) {
-                floatingObject1.nearbyFloatingObjects.splice(j, 0, [d, floatingObject2])
-                recordAdded = true
-                break
-              }
+                    if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+                        floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+                        floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+                    }
+                }
             }
-            if (recordAdded === false) {
-              floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
-            }
-          }
-          floatingObject1.nearbyFloatingObjects.splice(10, floatingObject1.nearbyFloatingObjects.length)
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] repulsionForceBetweenFloatingObjects -> err= ' + err.stack) }
         }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] proximityBetweenFloatingObjects -> err= ' + err.stack) }
     }
-  }
 
-  function targetRepulsionForce (currentFloatingObject) {
-    try {
+    function proximityBetweenFloatingObjects(currentFloatingObject) {
+        try {
+            let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+            floatingObject1.nearbyFloatingObjects = []
+            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                if (i !== currentFloatingObject) {
+                    let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+
+                    let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+
+                    if (floatingObject1.nearbyFloatingObjects.length === 0) {
+                        floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
+                    } else {
+                        let recordAdded = false
+                        for (let j = 0; j < floatingObject1.nearbyFloatingObjects.length; j++) {
+                            let recordedDistance = floatingObject1.nearbyFloatingObjects[j][0]
+                            if (d < recordedDistance) {
+                                floatingObject1.nearbyFloatingObjects.splice(j, 0, [d, floatingObject2])
+                                recordAdded = true
+                                break
+                            }
+                        }
+                        if (recordAdded === false) {
+                            floatingObject1.nearbyFloatingObjects.push([d, floatingObject2])
+                        }
+                    }
+                    floatingObject1.nearbyFloatingObjects.splice(10, floatingObject1.nearbyFloatingObjects.length)
+                }
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] proximityBetweenFloatingObjects -> err= ' + err.stack) }
+        }
+    }
+
+    function targetRepulsionForce(currentFloatingObject) {
+        try {
             /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
 
-      const coulomb = 2
+            const coulomb = 2
 
-      let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
+            let floatingObject1 = visibleFloatingObjects[currentFloatingObject]
 
-      for (let i = 0; i < visibleFloatingObjects.length; i++) {
-  // The force to be applied is considering all other floatingObjects...
+            for (let i = 0; i < visibleFloatingObjects.length; i++) {
+                // The force to be applied is considering all other floatingObjects...
 
-        let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
+                let floatingObject2 = visibleFloatingObjects[i]   // So, for each floatingObject...
 
-        let payload = {
-          position: undefined
-        }
+                let payload = {
+                    position: undefined
+                }
 
-        switch (floatingObject2.type) {
-          case 'UI Object': {
-            payload.targetPosition = floatingObject2.payload.targetPosition
-            break
-          }
-          default: {
-            break
-          }
-        }
+                switch (floatingObject2.type) {
+                    case 'UI Object': {
+                        payload.targetPosition = floatingObject2.payload.targetPosition
+                        break
+                    }
+                    default: {
+                        break
+                    }
+                }
 
-        let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
+                let d = Math.sqrt(Math.pow(payload.targetPosition.x - floatingObject1.container.frame.position.x, 2) + Math.pow(payload.targetPosition.y - floatingObject1.container.frame.position.y, 2))  // ... we calculate the distance ...
 
-        let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
+                let force = coulomb * floatingObject2.currentMass / (d * d)  // ... and with it the repulsion force.
 
                 /* We need to put a hard limit to this force, in order to to eject very little floatingObjects to the infinite and beyond. */
 
-        if (force > maxTargetRepulsionForce) {
-          force = maxTargetRepulsionForce
+                if (force > maxTargetRepulsionForce) {
+                    force = maxTargetRepulsionForce
+                }
+
+                let pos1 = {
+                    x: floatingObject1.container.frame.position.x,
+                    y: floatingObject1.container.frame.position.y
+                }
+
+                let pos2 = {
+                    x: payload.targetPosition.x,
+                    y: payload.targetPosition.y
+                }
+
+                let posDiff = {             // Next we need the vector resulting from the 2 positions.
+                    x: pos2.x - pos1.x,
+                    y: pos2.y - pos1.y
+                }
+
+                if (d !== 0) {
+                    let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
+                        x: posDiff.x / d,
+                        y: posDiff.y / d
+                    }
+
+                    let forceVector = {
+                        x: unitVector.x * force,
+                        y: unitVector.y * force
+                    }
+
+                    /* We substract the force vector to the speed vector of the current floatingObject */
+
+                    if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
+                        floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
+                        floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
+                    }
+                }
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
         }
-
-        let pos1 = {
-          x: floatingObject1.container.frame.position.x,
-          y: floatingObject1.container.frame.position.y
-        }
-
-        let pos2 = {
-          x: payload.targetPosition.x,
-          y: payload.targetPosition.y
-        }
-
-        let posDiff = {             // Next we need the vector resulting from the 2 positions.
-          x: pos2.x - pos1.x,
-          y: pos2.y - pos1.y
-        }
-
-        if (d !== 0) {
-          let unitVector = {          // To find the unit vector, we divide each component by the magnitude of the vector.
-            x: posDiff.x / d,
-            y: posDiff.y / d
-          }
-
-          let forceVector = {
-            x: unitVector.x * force,
-            y: unitVector.y * force
-          }
-
-                  /* We substract the force vector to the speed vector of the current floatingObject */
-
-          if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
-            floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
-            floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
-          }
-        }
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] targetRepulsionForce -> err= ' + err.stack) }
     }
-  }
 
-  function colliding (floatingObject1, floatingObject2) {
-    try {
+    function colliding(floatingObject1, floatingObject2) {
+        try {
             /* This function detects weather 2 floatingObjects collide with each other. */
 
-      let r1 = floatingObject1.container.frame.radius
-      let r2 = floatingObject2.container.frame.radius
+            let r1 = floatingObject1.container.frame.radius
+            let r2 = floatingObject2.container.frame.radius
 
-      let distance = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
+            let distance = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
-      if (distance > (r1 + r2)) {
+            if (distance > (r1 + r2)) {
                 // No solutions, the circles are too far apart.
-        return false
-      } else if (distance <= r1 + r2) {
+                return false
+            } else if (distance <= r1 + r2) {
                 // One circle contains the other.
-        return true
-      } else if ((distance === 0) && (r1 === r2)) {
+                return true
+            } else if ((distance === 0) && (r1 === r2)) {
                 // the circles coincide.
-        return true
-      } else return true
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] colliding -> err= ' + err.stack) }
+                return true
+            } else return true
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] colliding -> err= ' + err.stack) }
+        }
     }
-  }
 
-  function distance (x1, y1, x2, y2) {
-    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
-  }
+    function distance(x1, y1, x2, y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+    }
 
-  function resolveCollision (floatingObject1, floatingObject2) {
-    try {
+    function resolveCollision(floatingObject1, floatingObject2) {
+        try {
             /* This function changes speed and position of floatingObjects that are in collision */
 
-      let collisionision_angle = Math.atan2((floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y), (floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x))
+            let collisionision_angle = Math.atan2((floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y), (floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x))
 
-      let speed1 = Math.sqrt(floatingObject1.currentSpeed.x * floatingObject1.currentSpeed.x + floatingObject1.currentSpeed.y * floatingObject1.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 1
-      let speed2 = Math.sqrt(floatingObject2.currentSpeed.x * floatingObject2.currentSpeed.x + floatingObject2.currentSpeed.y * floatingObject2.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 2
+            let speed1 = Math.sqrt(floatingObject1.currentSpeed.x * floatingObject1.currentSpeed.x + floatingObject1.currentSpeed.y * floatingObject1.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 1
+            let speed2 = Math.sqrt(floatingObject2.currentSpeed.x * floatingObject2.currentSpeed.x + floatingObject2.currentSpeed.y * floatingObject2.currentSpeed.y)  // Magnitude of Speed Vector for floatingObject 2
 
-      let direction_1 = Math.atan2(floatingObject1.currentSpeed.y, floatingObject1.currentSpeed.x)
-      let direction_2 = Math.atan2(floatingObject2.currentSpeed.y, floatingObject2.currentSpeed.x)
+            let direction_1 = Math.atan2(floatingObject1.currentSpeed.y, floatingObject1.currentSpeed.x)
+            let direction_2 = Math.atan2(floatingObject2.currentSpeed.y, floatingObject2.currentSpeed.x)
 
-      let new_xspeed_1 = speed1 * Math.cos(direction_1 - collisionision_angle)
-      let new_yspeed_1 = speed1 * Math.sin(direction_1 - collisionision_angle)
-      let new_xspeed_2 = speed2 * Math.cos(direction_2 - collisionision_angle)
-      let new_yspeed_2 = speed2 * Math.sin(direction_2 - collisionision_angle)
+            let new_xspeed_1 = speed1 * Math.cos(direction_1 - collisionision_angle)
+            let new_yspeed_1 = speed1 * Math.sin(direction_1 - collisionision_angle)
+            let new_xspeed_2 = speed2 * Math.cos(direction_2 - collisionision_angle)
+            let new_yspeed_2 = speed2 * Math.sin(direction_2 - collisionision_angle)
 
-      let final_xspeed_1 = ((floatingObject1.currentMass - floatingObject2.currentMass) * new_xspeed_1 + (floatingObject2.currentMass + floatingObject2.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
-      let final_xspeed_2 = ((floatingObject1.currentMass + floatingObject1.currentMass) * new_xspeed_1 + (floatingObject2.currentMass - floatingObject1.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
-      let final_yspeed_1 = new_yspeed_1
-      let final_yspeed_2 = new_yspeed_2
+            let final_xspeed_1 = ((floatingObject1.currentMass - floatingObject2.currentMass) * new_xspeed_1 + (floatingObject2.currentMass + floatingObject2.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
+            let final_xspeed_2 = ((floatingObject1.currentMass + floatingObject1.currentMass) * new_xspeed_1 + (floatingObject2.currentMass - floatingObject1.currentMass) * new_xspeed_2) / (floatingObject1.currentMass + floatingObject2.currentMass)
+            let final_yspeed_1 = new_yspeed_1
+            let final_yspeed_2 = new_yspeed_2
 
-      let cosAngle = Math.cos(collisionision_angle)
-      let sinAngle = Math.sin(collisionision_angle)
+            let cosAngle = Math.cos(collisionision_angle)
+            let sinAngle = Math.sin(collisionision_angle)
 
-      floatingObject1.currentSpeed.x = cosAngle * final_xspeed_1 - sinAngle * final_yspeed_1
-      floatingObject1.currentSpeed.y = sinAngle * final_xspeed_1 + cosAngle * final_yspeed_1
+            floatingObject1.currentSpeed.x = cosAngle * final_xspeed_1 - sinAngle * final_yspeed_1
+            floatingObject1.currentSpeed.y = sinAngle * final_xspeed_1 + cosAngle * final_yspeed_1
 
-      floatingObject2.currentSpeed.x = cosAngle * final_xspeed_2 - sinAngle * final_yspeed_2
-      floatingObject2.currentSpeed.y = sinAngle * final_xspeed_2 + cosAngle * final_yspeed_2
+            floatingObject2.currentSpeed.x = cosAngle * final_xspeed_2 - sinAngle * final_yspeed_2
+            floatingObject2.currentSpeed.y = sinAngle * final_xspeed_2 + cosAngle * final_yspeed_2
 
-      let pos1 = {
-        x: floatingObject1.container.frame.position.x,
-        y: floatingObject1.container.frame.position.y
-      }
+            let pos1 = {
+                x: floatingObject1.container.frame.position.x,
+                y: floatingObject1.container.frame.position.y
+            }
 
-      let pos2 = {
-        x: floatingObject2.container.frame.position.x,
-        y: floatingObject2.container.frame.position.y
-      }
+            let pos2 = {
+                x: floatingObject2.container.frame.position.x,
+                y: floatingObject2.container.frame.position.y
+            }
 
             // get the mtd
-      let posDiff = {
-        x: pos1.x - pos2.x,
-        y: pos1.y - pos2.y
-      }
+            let posDiff = {
+                x: pos1.x - pos2.x,
+                y: pos1.y - pos2.y
+            }
 
-      let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
+            let d = Math.sqrt(Math.pow(floatingObject2.container.frame.position.x - floatingObject1.container.frame.position.x, 2) + Math.pow(floatingObject2.container.frame.position.y - floatingObject1.container.frame.position.y, 2))
 
             // minimum translation distance to push floatingObjects apart after intersecting
-      let scalar = (((floatingObject1.container.frame.radius + floatingObject2.container.frame.radius) - d) / d)
+            let scalar = (((floatingObject1.container.frame.radius + floatingObject2.container.frame.radius) - d) / d)
 
-      let minTD = {
-        x: posDiff.x * scalar,
-        y: posDiff.y * scalar
-      }
+            let minTD = {
+                x: posDiff.x * scalar,
+                y: posDiff.y * scalar
+            }
 
             // resolve intersection --
             // computing inverse mass quantities
-      let im1 = 1 / floatingObject1.currentMass
-      let im2 = 1 / floatingObject2.currentMass
+            let im1 = 1 / floatingObject1.currentMass
+            let im2 = 1 / floatingObject2.currentMass
 
             // push-pull them apart based off their mass
 
-      pos1.x = pos1.x + minTD.x * (im1 / (im1 + im2))
-      pos1.y = pos1.y + minTD.y * (im1 / (im1 + im2))
-      pos2.x = pos2.x - minTD.x * (im2 / (im1 + im2))
-      pos2.y = pos2.y - minTD.y * (im2 / (im1 + im2))
+            pos1.x = pos1.x + minTD.x * (im1 / (im1 + im2))
+            pos1.y = pos1.y + minTD.y * (im1 / (im1 + im2))
+            pos2.x = pos2.x - minTD.x * (im2 / (im1 + im2))
+            pos2.y = pos2.y - minTD.y * (im2 / (im1 + im2))
 
-      if (floatingObject1.positionLocked === false && isNaN(pos1.x) === false && isNaN(pos1.y) === false) {
-        floatingObject1.container.frame.position = pos1
-      }
-      if (floatingObject2.positionLocked === false && isNaN(pos2.x) === false && isNaN(pos2.y) === false) {
-        floatingObject2.container.frame.position = pos2
-      }
-    } catch (err) {
-      if (ERROR_LOG === true) { logger.write('[ERROR] resolveCollision -> err= ' + err.stack) }
+            if (floatingObject1.positionLocked === false && isNaN(pos1.x) === false && isNaN(pos1.y) === false) {
+                floatingObject1.container.frame.position = pos1
+            }
+            if (floatingObject2.positionLocked === false && isNaN(pos2.x) === false && isNaN(pos2.y) === false) {
+                floatingObject2.container.frame.position = pos2
+            }
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] resolveCollision -> err= ' + err.stack) }
+        }
     }
-  }
 }

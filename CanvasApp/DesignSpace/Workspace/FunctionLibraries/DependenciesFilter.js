@@ -1,74 +1,74 @@
-function newDependenciesFilter () {
-  thisObject = {
-    createFilter: createFilter
-  }
+function newDependenciesFilter() {
+    thisObject = {
+        createFilter: createFilter
+    }
 
-  return thisObject
+    return thisObject
 
-  function createFilter (node) {
-    let filters = new Map()
-    recursiveFilter(node)
+    function createFilter(node) {
+        let filters = new Map()
+        recursiveFilter(node)
 
-    return Array.from(filters.keys())
+        return Array.from(filters.keys())
 
-    function recursiveFilter (node) {
-      filter(node.code)
+        function recursiveFilter(node) {
+            filter(node.code)
 
-      let nodeDefinition = getNodeDefinition (node)
-      if (nodeDefinition !== undefined) {
-        if (nodeDefinition.properties !== undefined) {
-          let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-          for (let i = 0; i < nodeDefinition.properties.length; i++) {
-            let property = nodeDefinition.properties[i]
+            let nodeDefinition = getNodeDefinition(node)
+            if (nodeDefinition !== undefined) {
+                if (nodeDefinition.properties !== undefined) {
+                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                    for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                        let property = nodeDefinition.properties[i]
 
-            switch (property.type) {
-              case 'node': {
-                if (property.name !== previousPropertyName) {
-                  if (node[property.name] !== undefined) {
-                    recursiveFilter(node[property.name])
-                  }
-                  previousPropertyName = property.name
+                        switch (property.type) {
+                            case 'node': {
+                                if (property.name !== previousPropertyName) {
+                                    if (node[property.name] !== undefined) {
+                                        recursiveFilter(node[property.name])
+                                    }
+                                    previousPropertyName = property.name
+                                }
+                            }
+                                break
+                            case 'array': {
+                                let nodePropertyArray = node[property.name]
+                                if (nodePropertyArray !== undefined) {
+                                    for (let j = 0; j < nodePropertyArray.length; j++) {
+                                        let nodeProperty = nodePropertyArray[j]
+                                        recursiveFilter(nodeProperty)
+                                    }
+                                }
+                            }
+                                break
+                        }
+                    }
                 }
-              }
-                break
-              case 'array': {
-                let nodePropertyArray = node[property.name]
-                if (nodePropertyArray !== undefined) {
-                  for (let j = 0; j < nodePropertyArray.length; j++) {
-                    let nodeProperty = nodePropertyArray[j]
-                    recursiveFilter(nodeProperty)
-                  }
-                }
-              }
-                break
             }
-          }
         }
-      }
-    }
 
-    function filter (code) {
-      if (code === undefined) { return }
+        function filter(code) {
+            if (code === undefined) { return }
 
-      let instructionsArray = code.split(' ')
-      for (let i = 0; i < instructionsArray.length; i++) {
-        let instruction = instructionsArray[i]
-        if (instruction.indexOf('chart') >= 0) {
-          let parts = instruction.split('.')
-          let timeFrame = parts[1]
-          let product = parts[2]
-          let productParts = product.split(',')
-          product = productParts[0]
-          productParts = product.split(')')
-          product = productParts[0]
+            let instructionsArray = code.split(' ')
+            for (let i = 0; i < instructionsArray.length; i++) {
+                let instruction = instructionsArray[i]
+                if (instruction.indexOf('chart') >= 0) {
+                    let parts = instruction.split('.')
+                    let timeFrame = parts[1]
+                    let product = parts[2]
+                    let productParts = product.split(',')
+                    product = productParts[0]
+                    productParts = product.split(')')
+                    product = productParts[0]
 
-          // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
-          if (timeFrame !== 'atAnyTimeFrame') {
-            timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
-          }
-          filters.set(timeFrame + '-' + product, true)
+                    // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                    if (timeFrame !== 'atAnyTimeFrame') {
+                        timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                    }
+                    filters.set(timeFrame + '-' + product, true)
+                }
+            }
         }
-      }
     }
-  }
 }

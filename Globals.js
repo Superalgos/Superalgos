@@ -1,5 +1,5 @@
 
- ﻿/* User Interface Colors */
+/* User Interface Colors */
 
 const CANVAS_APP_NAME = 'Canvas App'
 
@@ -49,36 +49,36 @@ let FONT_ASPECT_RATIO = 0.32;
 let ANIMATION_FRAME_PER_SECONDS
 
 const GET_CONTAINER_PURPOSE = {
-  MOUSE_OVER: 1,
-  MOUSE_WHEEL: 2,
-  MOUSE_CLICK: 3,
-  DRAGGING: 4
+    MOUSE_OVER: 1,
+    MOUSE_WHEEL: 2,
+    MOUSE_CLICK: 3,
+    DRAGGING: 4
 }
 
 const ANGLE_TO_PARENT = {
-  NOT_FIXED: 0,
-  RANGE_360: 1,
-  RANGE_180: 2,
-  RANGE_90: 3,
-  RANGE_45: 4
+    NOT_FIXED: 0,
+    RANGE_360: 1,
+    RANGE_180: 2,
+    RANGE_90: 3,
+    RANGE_45: 4
 }
 
 const DISTANCE_TO_PARENT = {
-  NOT_FIXED: 0,
-  PARENT_025X: 1,
-  PARENT_050X: 2,
-  PARENT_100X: 3,
-  PARENT_150X: 4,
-  PARENT_200X: 5
+    NOT_FIXED: 0,
+    PARENT_025X: 1,
+    PARENT_050X: 2,
+    PARENT_100X: 3,
+    PARENT_150X: 4,
+    PARENT_200X: 5
 }
 
 const ARRANGEMENT_STYLE = {
-  CONCAVE: 0,
-  CONVEX: 1,
-  VERTICAL_RIGHT: 2,
-  VERTICAL_LEFT: 3,
-  HORIZONTAL_BOTTOM: 4,
-  HORIZONTAL_TOP: 5
+    CONCAVE: 0,
+    CONVEX: 1,
+    VERTICAL_RIGHT: 2,
+    VERTICAL_LEFT: 3,
+    HORIZONTAL_BOTTOM: 4,
+    HORIZONTAL_TOP: 5
 }
 
 /* User Interface Panels */
@@ -138,11 +138,11 @@ let LOGGED_IN_USER_LOCAL_STORAGE_KEY
 let LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY
 
 if (testUser !== null) {
-   LOGGED_IN_USER_LOCAL_STORAGE_KEY = "test_user"
-   LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY =  "test_access_token"
+    LOGGED_IN_USER_LOCAL_STORAGE_KEY = "test_user"
+    LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "test_access_token"
 } else {
-  LOGGED_IN_USER_LOCAL_STORAGE_KEY =  "user"
-  LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
+    LOGGED_IN_USER_LOCAL_STORAGE_KEY = "user"
+    LOGGED_IN_ACCESS_TOKEN_LOCAL_STORAGE_KEY = "access_token"
 }
 
 const MAX_DEFAULT_RATE_SCALE_VALUE = 35000; // This is needed to know the scale of the market time line.
@@ -222,7 +222,7 @@ const TIME_MACHINE_WIDTH = 8;
 const TIME_MACHINE_HEIGHT = 8;
 
 let mediaRecorder // to downloadText canvas animation as a mediaRecorder
-let marketPanoramaCanvas 
+let marketPanoramaCanvas
 let ARE_WE_RECORDING_A_VIDEO = false
 let ARE_WE_RECORDING_A_MARKET_PANORAMA = false
 let PANORAMA_WAS_PANNED = false

@@ -1,55 +1,55 @@
-function newShortcutKeys () {
-  thisObject = {
-    getNodeByShortcutKey: getNodeByShortcutKey
-  }
-  return thisObject
-
-  function getNodeByShortcutKey (node, searchingKey) {
-    if (node === undefined) { return }
-    let nodeDefinition = getNodeDefinition (node)
-    if (nodeDefinition !== undefined) {
-      /* Check Self first */
-      if (node.payload.uiObject.shortcutKey === searchingKey) {
-        return node
-      }
-
-      /* Check all of its own children nodes. */
-      if (node.payload.floatingObject.isCollapsed !== true) {
-        if (nodeDefinition.properties !== undefined) {
-          let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
-          for (let i = 0; i < nodeDefinition.properties.length; i++) {
-            let property = nodeDefinition.properties[i]
-
-            switch (property.type) {
-              case 'node': {
-                if (property.name !== previousPropertyName) {
-                  if (node[property.name] !== undefined) {
-                    let child
-                    child = getNodeByShortcutKey(node[property.name], searchingKey)
-                    if (child !== undefined) {
-                      return child
-                    }
-                  }
-                  previousPropertyName = property.name
-                }
-              }
-                break
-              case 'array': {
-                let nodePropertyArray = node[property.name]
-                if (nodePropertyArray !== undefined) {
-                  for (let m = 0; m < nodePropertyArray.length; m++) {
-                    child = getNodeByShortcutKey(nodePropertyArray[m], searchingKey)
-                    if (child !== undefined) {
-                      return child
-                    }
-                  }
-                }
-              }
-                break
-            }
-          }
-        }
-      }
+function newShortcutKeys() {
+    thisObject = {
+        getNodeByShortcutKey: getNodeByShortcutKey
     }
-  }
+    return thisObject
+
+    function getNodeByShortcutKey(node, searchingKey) {
+        if (node === undefined) { return }
+        let nodeDefinition = getNodeDefinition(node)
+        if (nodeDefinition !== undefined) {
+            /* Check Self first */
+            if (node.payload.uiObject.shortcutKey === searchingKey) {
+                return node
+            }
+
+            /* Check all of its own children nodes. */
+            if (node.payload.floatingObject.isCollapsed !== true) {
+                if (nodeDefinition.properties !== undefined) {
+                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                    for (let i = 0; i < nodeDefinition.properties.length; i++) {
+                        let property = nodeDefinition.properties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                if (property.name !== previousPropertyName) {
+                                    if (node[property.name] !== undefined) {
+                                        let child
+                                        child = getNodeByShortcutKey(node[property.name], searchingKey)
+                                        if (child !== undefined) {
+                                            return child
+                                        }
+                                    }
+                                    previousPropertyName = property.name
+                                }
+                            }
+                                break
+                            case 'array': {
+                                let nodePropertyArray = node[property.name]
+                                if (nodePropertyArray !== undefined) {
+                                    for (let m = 0; m < nodePropertyArray.length; m++) {
+                                        child = getNodeByShortcutKey(nodePropertyArray[m], searchingKey)
+                                        if (child !== undefined) {
+                                            return child
+                                        }
+                                    }
+                                }
+                            }
+                                break
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

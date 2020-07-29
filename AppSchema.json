@@ -1429,6 +1429,14 @@
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1450,6 +1458,11 @@
                 "type": "array",
                 "childType": "Condition",
                 "autoAdd": true
+            },
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula"
             }
         ],
         "propertyNameAtParent": "situations"
@@ -8247,7 +8260,7 @@
         },
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position Size->Position Rate->Phase->Announcement->Record Property->Simulated Actual Rate->"
+            "compatibleTypes": "->Position Size->Position Rate->Phase->Announcement->Record Property->Simulated Actual Rate->Situation->"
         },
         "icon": "pipette",
         "propertyNameAtParent": "formula"

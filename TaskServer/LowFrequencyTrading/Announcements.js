@@ -41,11 +41,7 @@ exports.newAnnouncements = function newAnnouncements(bot, logger) {
                 if (canAnnounce === true) {
                     let text = announcement.config.text
                     if (announcement.formula !== undefined) {
-                        try {
-                            text = eval(announcement.formula.code)
-                        } catch (err) {
-                            tradingSystem.errors.push([announcement.formula.id, err.message])
-                        }
+                        text = tradingSystem.formulas.get(announcement.formula.id)
                     }
 
                     if (bot.SESSION.socialBots !== undefined) {

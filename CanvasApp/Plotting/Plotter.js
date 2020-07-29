@@ -252,7 +252,6 @@ function newPlotter() {
   }
 
   function recalculate() {
-    if (canvas.chartingSpace.visible !== true) { return }
     try {
       if (timeFrame >= _1_HOUR_IN_MILISECONDS) {
         recalculateUsingMarketFiles()

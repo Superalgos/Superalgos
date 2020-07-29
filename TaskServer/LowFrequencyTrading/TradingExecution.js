@@ -242,14 +242,23 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
             function actualRateSimulation() {
                 /* Actual Rate Simulation */
+                let calculatedBasedOnTradingSystem = false
+
+                /* Based on the Trading System Definition */
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
                     if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
                         /* Calculate this only once for this order */
                         if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.orderStatistics.actualRate.config.initialValue) {
                             tradingEngineOrder.orderStatistics.actualRate.value = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                            if (tradingEngineOrder.orderStatistics.actualRate.value !== undefined) {
+                                calculatedBasedOnTradingSystem = true
+                            }
                         }
                     }
-                } else {
+                }
+
+                /* Based on the Session Parameters Definition */
+                if (calculatedBasedOnTradingSystem === false) {
                     switch (tradingEngineOrder.type) {
                         case 'Market Order': {
                             /* Actual Rate is simulated based on the Session Paremeters */
@@ -278,13 +287,20 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
             function feesPaidSimulation() {
                 /* Fees Paid Simulation */
+                let calculatedBasedOnTradingSystem = false
+
+                /* Based on the Trading System Definition */
                 if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid !== undefined) {
                     if (tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage !== undefined) {
                         if (tradingEngineOrder.orderStatistics.feesPaid.value === tradingEngineOrder.orderStatistics.feesPaid.config.initialValue) {
                             tradingEngineOrder.orderStatistics.feesPaid.value = tradingEngineOrder.size.value * tradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100
+                            calculatedBasedOnTradingSystem = true
                         }
                     }
-                } else {
+                }
+
+                /* Based on the Session Parameters Definition */
+                if (calculatedBasedOnTradingSystem === false) {
                     /* Fees are simulated based on the Session Paremeters */
                     switch (tradingEngineOrder.type) {
                         case 'Market Order': {
@@ -335,8 +351,28 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
             function amountReceivedSimulation() {
                 /* Amount Received */
-                tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate
-                tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+                let calculatedBasedOnOrderDefinition = false
+
+                /* Based on the Order Definition */
+                if (tradingSystemOrder.simulatedExchangeEvents !== undefined) {
+                    if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate !== undefined) {
+                        if (tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula !== undefined) {
+                            let simulatedActualRate = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
+                            if (simulatedActualRate !== undefined) {
+                                tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * simulatedActualRate
+                                tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+                                calculatedBasedOnOrderDefinition = true
+                            }
+                        }
+                    }
+                }
+
+                /* Based on Candle Close Value */
+                if (calculatedBasedOnOrderDefinition === false) {
+                    let simulatedActualRate = tradingEngine.current.candle.close.value
+                    tradingEngineOrder.orderStatistics.amountReceived.value = tradingEngineOrder.orderStatistics.sizeFilled.value * simulatedActualRate
+                    tradingEngineOrder.orderStatistics.amountReceived.value = global.PRECISE(tradingEngineOrder.orderStatistics.amountReceived.value, 10)
+                }
             }
         }
 
@@ -454,9 +490,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngineOrder.orderStatistics.sizeFilled.value + tradingEngineOrder.orderStatistics.feesPaid.value
 
                     /* Undo the previous accounting */
-                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value + previousAmountReceived
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + previousAmountReceived
                     /* Account the current filling and fees */
-                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngineOrder.orderStatistics.amountReceived.value
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - tradingEngineOrder.orderStatistics.amountReceived.value
 
                     break
                 }
@@ -468,9 +504,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     tradingEngine.current.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value - tradingEngineOrder.orderStatistics.sizeFilled.value - tradingEngineOrder.orderStatistics.feesPaid.value
 
                     /* Undo the previous accounting */
-                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value - previousAmountReceived
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value - previousAmountReceived
                     /* Account the current filling and fees */
-                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.baseAsset.value + tradingEngineOrder.orderStatistics.amountReceived.value
+                    tradingEngine.current.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value + tradingEngineOrder.orderStatistics.amountReceived.value
 
                     break
                 }

@@ -153,13 +153,13 @@ function newPlotter() {
 
         let minPositionPoint = {
             x: event.x,
-            y: event.y + 2
+            y: event.y + 4
         }
         minUserPositionRate = getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
 
         let maxPositionPoint = {
             x: event.x,
-            y: event.y - 2
+            y: event.y - 4
         }
         maxUserPositionRate = getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
     }

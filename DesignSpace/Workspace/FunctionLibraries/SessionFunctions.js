@@ -26,7 +26,7 @@ function newSessionFunctions() {
             'Exchange Account Asset->Asset->' +
             'Trading Strategy->' +
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-            'Announcement->Formula->' +
+            'Announcement->Announcement Formula->' +
             'Open Stage->Initial Definition->Open Execution->' +
             'Position Size->Position Rate->Formula->' +
             'Initial Stop->Initial Take Profit->' +
@@ -35,7 +35,7 @@ function newSessionFunctions() {
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
             'Close Stage->Close Execution->' +
-            'Announcement->Formula->' +
+            'Announcement->Announcement Formula->' +
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Create Order Event->Cancel Order Event->' +
             'Position Size->Position Rate->Formula->' +

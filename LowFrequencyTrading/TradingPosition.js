@@ -182,14 +182,42 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     }
 
     function updateStatistics() {
+
         if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            tradingEngine.current.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - tradingEngine.previous.balance.baseAsset.value
-            tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.current.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            /* Profit Loss Calculation */
+            tradingEngine.current.position.positionStatistics.profitLoss.value =
+                tradingEngine.current.balance.baseAsset.value -
+                tradingEngine.previous.balance.baseAsset.value +
+                tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value -
+                tradingEngine.previous.balance.quotedAsset.value / tradingEngine.current.position.beginRate.value
+
+            /* ROI Calculation */
+            tradingEngine.current.position.positionStatistics.ROI.value =
+                tradingEngine.current.position.positionStatistics.profitLoss.value * 100 /
+                tradingEngine.current.position.size.value
         } else {
-            tradingEngine.current.position.positionStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - tradingEngine.previous.balance.quotedAsset.value
-            tradingEngine.current.position.positionStatistics.ROI.value = tradingEngine.current.position.positionStatistics.profitLoss.value * 100 / tradingEngine.current.position.size.value
+            /* Profit Loss Calculation */
+            tradingEngine.current.position.positionStatistics.profitLoss.value =
+                tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value -
+                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
+                tradingEngine.current.balance.quotedAsset.value -
+                tradingEngine.previous.balance.quotedAsset.value
+
+            /* ROI Calculation */
+            tradingEngine.current.position.positionStatistics.ROI.value =
+                tradingEngine.current.position.positionStatistics.profitLoss.value * 100 /
+                (tradingEngine.current.position.size.value * tradingEngine.current.position.beginRate.value)
         }
-        tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+
+        /* Days Calculation */
+        tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value *
+            sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+
+        tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
+        tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
+        tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
+
+        /* Hit Fail Calculation */
         if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
             tradingEngine.current.position.positionStatistics.hitFail.value = 'HIT'
         } else {

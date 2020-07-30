@@ -143,27 +143,27 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
         executionNode = stageNode.openExecution
-        resetExecution(executionNode)
+        resetExecution(executionNode, tradingEngine.current.strategy.openStageStatus.value)
 
         stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
         executionNode = stageNode.closeExecution
-        resetExecution(executionNode)
+        resetExecution(executionNode, tradingEngine.current.strategy.closeStageStatus.value)
 
-        function resetExecution(executionNode) {
+        function resetExecution(executionNode, stageStatus) {
 
             resetExecutionAlgorithms(executionNode)
 
             function resetExecutionAlgorithms(executionNode) {
                 for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
                     let executionAlgorithm = executionNode.executionAlgorithms[i]
-                    resetOrders(executionAlgorithm.marketBuyOrders, executionAlgorithm, executionNode)
-                    resetOrders(executionAlgorithm.marketSellOrders, executionAlgorithm, executionNode)
-                    resetOrders(executionAlgorithm.limitBuyOrders, executionAlgorithm, executionNode)
-                    resetOrders(executionAlgorithm.limitSellOrders, executionAlgorithm, executionNode)
+                    resetOrders(executionAlgorithm.marketBuyOrders)
+                    resetOrders(executionAlgorithm.marketSellOrders)
+                    resetOrders(executionAlgorithm.limitBuyOrders)
+                    resetOrders(executionAlgorithm.limitSellOrders)
                 }
             }
 
-            function resetOrders(orders, executionAlgorithm, executionNode) {
+            function resetOrders(orders) {
                 for (let i = 0; i < orders.length; i++) {
                     let tradingSystemOrder = orders[i]
                     if (tradingSystemOrder.referenceParent === undefined) { continue }
@@ -172,6 +172,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     if (tradingEngineOrder.status.value === 'Closed') {
                         /* We reset the order data structure inside the Trading Engine to its initial value */
                         tradingEngineOrder.initialize(tradingEngineOrder)
+                        if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
+                            /* 
+                            We close the lock so as to prevent this data structure to be used again during this same stage execution.
+                             */
+                            if (stageStatus === 'Open') {
+                                tradingEngineOrder.lock.value = 'Closed'
+                            }
+                        }
                     }
                 }
             }
@@ -205,7 +213,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
         }
 
         /* Here we check if there is a formula to be evaluated */
-        if (node.type === 'Formula' && evaluating === 'Formulas') {
+        if ((node.type === 'Formula' || node.type === 'Announcement Formula') && evaluating === 'Formulas') {
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
@@ -322,13 +330,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             }
         }
 
-        tradingSystem.formulas.set(node.id, value)
-
         if (error !== undefined) {
             tradingSystem.errors.push([node.id, error])
+            return
         }
         if (value !== undefined) {
+            if (node.type === 'Formula' && isNaN(value)) {
+                tradingSystem.errors.push([node.id, 'Formula needs to return a number.'])
+                return
+            }
+
             tradingSystem.values.push([node.id, value])
+            tradingSystem.formulas.set(node.id, value)
         }
 
         logger.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
@@ -567,6 +580,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             */
             if (tradingEngine.current.position.openStageFilledSize.value === tradingEngine.current.position.size.value) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
+            } else {
+                /* Check the Close Stage Event */
+                evalConditions(stageNode, 'Close Stage Event')
+                if (checkStopStageEvent(stageNode) === true) {
+                    tradingStrategyModule.updateStageStatus('Open Stage', 'Closing')
+                }
             }
         }
 
@@ -597,6 +616,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             */
             if (tradingEngine.current.position.openStageFilledSize.value === tradingEngine.current.position.openStageOrdersSize.value) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
+            } else {
+                /* Check the Close Stage Event */
+                evalConditions(stageNode, 'Close Stage Event')
+                if (checkStopStageEvent(stageNode) === true) {
+                    tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
+                }
             }
         }
 
@@ -958,13 +983,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Close Execution')
             evalFormulas(stageNode, 'Close Execution')
 
-            await tradingExecutionModule.checkExecution(executionNode, false, false, tradingEngine.current.position.openStageFilledSize, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
+            let stageLimitSize = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.candle.close.value
+            await tradingExecutionModule.checkExecution(executionNode, false, false, stageLimitSize, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
 
-            /* Close the Stage Validation */
-            if (tradingEngine.current.position.closeStageFilledSize.value === tradingEngine.current.position.openStageFilledSize.value) {
-                /*
-                The Close Stage is closed when the fillSize reaches the filledSize of the Open Stage.
-                */
+            /* Check the Close Stage Event */
+            evalConditions(stageNode, 'Close Stage Event')
+            if (checkStopStageEvent(stageNode) === true) {
                 tradingStrategyModule.updateStageStatus('Close Stage', 'Closed')
             }
         }
@@ -1095,6 +1119,33 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                 if (tradingEngine.current.position.takeProfit.value !== previousValue) {
                     announcementsModule.makeAnnoucements(phase)
+                }
+            }
+        }
+    }
+
+    function checkStopStageEvent(stage) {
+
+        /* Check the Close Stage Event. */
+        let stopStageEvent = stage.stopStageEvent
+        if (stopStageEvent !== undefined) {
+            for (let k = 0; k < stopStageEvent.situations.length; k++) {
+                let situation = stopStageEvent.situations[k]
+                let passed
+                if (situation.conditions.length > 0) {
+                    passed = true
+                }
+
+                passed = tradingSystem.checkConditions(situation, passed)
+
+                tradingSystem.values.push([situation.id, passed])
+                if (passed) {
+                    tradingSystem.highlights.push(situation.id)
+                    tradingSystem.highlights.push(stopStageEvent.id)
+                    tradingSystem.highlights.push(stage.id)
+
+                    announcementsModule.makeAnnoucements(stopStageEvent)
+                    return true
                 }
             }
         }

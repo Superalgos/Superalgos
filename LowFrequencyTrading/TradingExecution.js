@@ -92,6 +92,16 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 switch (tradingEngineOrder.status.value) {
                     case 'Not Open': {
                         {
+                            /* 
+                            Check if we can create an order based on the config value for spawnMultipleOrders.
+                            Trading System Orders that cannot spawn more than one Trading Engine Order needs to check if
+                            at the Trading Engine Order the lock is Open or Closed. 
+                            */
+                            if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
+                                if (tradingEngineOrder.identifier.value === 'Closed') {
+                                    continue
+                                }
+                            }
                             /* Check if we need to Create this Order */
                             if (stageIsClosing === true) { continue }
                             let situationName = checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
@@ -131,7 +141,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
 
         async function openOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
             /* Order Size Calculation */
-            tradingEngineOrder.size.value = tradingSystem.formulas.get(executionAlgorithm.positionSize.formula.id) * tradingSystemOrder.config.positionSizePercentage / 100
+            let positionSize = tradingSystem.formulas.get(executionAlgorithm.positionSize.formula.id)
+            if (positionSize === undefined) { return }
+            tradingEngineOrder.size.value = positionSize * tradingSystemOrder.config.positionSizePercentage / 100
             if (stageOrdersSize.value + tradingEngineOrder.size.value > stageSizeLimit.value) {
                 /* We reduce the size to the remaining size of the position. */
                 tradingEngineOrder.size.value = stageSizeLimit.value - stageOrdersSize.value

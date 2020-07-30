@@ -70,7 +70,7 @@ function newSessionFunctions() {
             'Formula->' +
             'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
             'Market Order->Limit Order->' +
-            'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->' +
+            'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Size->Exit Type->Status->Order Name->Algorithm Name->Situation Name->Lock->' +
             'Order Counters->Periods->' +
             'Order Statistics->Size Filled->Percentage Filled->Amount Received->Actual Rate->Fees Paid->Days->User Defined Statistic->'
 

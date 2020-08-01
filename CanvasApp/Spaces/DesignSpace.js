@@ -291,7 +291,12 @@ function newDesignSpace() {
             'market-order',
             'limit-order',
             'execution-algorithm',
-            'cancel-order'
+            'cancel-order',
+            'limit-sell-order',
+            'close-execution',
+            'market-sell-order',
+            'limit-buy-order',
+            'market-buy-order'
         ]
 
         for (let i = 0; i < iconsNames.length; i++) {

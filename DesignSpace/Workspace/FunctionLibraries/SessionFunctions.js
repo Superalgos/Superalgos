@@ -74,7 +74,7 @@ function newSessionFunctions() {
             'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Exit Type->Status->Order Name->Algorithm Name->Situation Name->Lock->' +
             'Order Counters->Periods->' +
             'Order Base Asset->Order Quoted Asset->' +
-            'Size->Size Filled->Amount Received->Fees Paid->' +
+            'Size->Size Filled->Fees Paid->' +
             'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->'
 
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)

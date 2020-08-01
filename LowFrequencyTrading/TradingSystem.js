@@ -551,7 +551,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
-            await tradingExecutionModule.checkExecution(executionNode, true, false, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+            await tradingExecutionModule.checkExecution(
+                executionNode,
+                true,
+                false,
+                tradingEngine.current.position.size,
+                tradingEngine.current.position.openStageOrdersSize,
+                tradingEngine.current.position.openStageFilledSize
+            )
 
             /* From here on, the state is officially Open */
             tradingStrategyModule.updateStageStatus('Open Stage', 'Open')
@@ -571,8 +578,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalConditions(stageNode, 'Open Execution')
             evalFormulas(stageNode, 'Open Execution')
 
-            await tradingExecutionModule.checkExecution(executionNode, false, false, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
-
+            await tradingExecutionModule.checkExecution(
+                executionNode,
+                false,
+                false,
+                tradingEngine.current.position.size,
+                tradingEngine.current.position.openStageOrdersSize,
+                tradingEngine.current.position.openStageFilledSize
+            )
             /*
             The Open is finished when the fillSize reaches the Position Size.
             This can happens at any time when we update the filledSize value when we see 
@@ -605,7 +618,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 evalConditions(stageNode, 'Open Execution')
                 evalFormulas(stageNode, 'Open Execution')
 
-                await tradingExecutionModule.checkExecution(executionNode, false, true, tradingEngine.current.position.size, tradingEngine.current.position.openStageOrdersSize, tradingEngine.current.position.openStageFilledSize)
+                await tradingExecutionModule.checkExecution(
+                    executionNode,
+                    false,
+                    true,
+                    tradingEngine.current.position.size,
+                    tradingEngine.current.position.openStageOrdersSize,
+                    tradingEngine.current.position.openStageFilledSize
+                )
             }
 
             /*
@@ -984,7 +1004,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             evalFormulas(stageNode, 'Close Execution')
 
             let stageLimitSize = tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.candle.close.value
-            await tradingExecutionModule.checkExecution(executionNode, false, false, stageLimitSize, tradingEngine.current.position.closeStageOrdersSize, tradingEngine.current.position.closeStageFilledSize)
+            await tradingExecutionModule.checkExecution(
+                executionNode,
+                false,
+                false,
+                stageLimitSize,
+                tradingEngine.current.position.closeStageOrdersSize,
+                tradingEngine.current.position.closeStageFilledSize
+            )
 
             /* Check the Close Stage Event */
             evalConditions(stageNode, 'Close Stage Event')

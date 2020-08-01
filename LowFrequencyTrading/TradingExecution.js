@@ -43,11 +43,22 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         announcementsModule = undefined
     }
 
-    async function checkExecution(executionNode, stageIsOpening, stageIsClosing, stageSizeLimit, stageOrdersSize, stageFilledSize) {
+    async function checkExecution(
+        executionNode,
+        stageIsOpening,
+        stageIsClosing,
+        stageSizeLimit,
+        stageOrdersSizeInBaseAsset,
+        stageFilledSizeInBaseAsset,
+        stageOrdersSizeInQuotedAsset,
+        stageFilledSizeInQuotedAsset
+    ) {
 
         /* Enforcing Precision Limit */
-        stageSizeLimit.value = global.PRECISE(stageSizeLimit.value, 10)
-        stageOrdersSize.value = global.PRECISE(stageOrdersSize.value, 10)
+        stageOrdersSizeInBaseAsset.value = global.PRECISE(stageOrdersSizeInBaseAsset.value, 10)
+        stageOrdersSizeInBaseAsset.value = global.PRECISE(stageOrdersSizeInBaseAsset.value, 10)
+        stageOrdersSizeInQuotedAsset.value = global.PRECISE(stageOrdersSizeInQuotedAsset.value, 10)
+        stageFilledSizeInQuotedAsset.value = global.PRECISE(stageFilledSizeInQuotedAsset.value, 10)
 
         await checkExecutionAlgorithms(executionNode)
 

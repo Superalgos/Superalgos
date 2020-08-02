@@ -63,8 +63,8 @@ function newSessionFunctions() {
             'Strategy Counters->Periods->' +
             'Position->' +
             'Serial Number->Identifier->Begin->End->Rate->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
-            'Stop Loss->Stop Loss Stage->Stop Loss Phase->' +
-            'Take Profit->Take Profit Stage->Take Profit Phase->' +
+            'Stop Loss->Stop Loss Stage->Stop Loss Phase->Stop Loss Position->' +
+            'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
             'Position Counters->Periods->' +
             'Position Statistics->Days->User Defined Statistic->' +
             'Position Base Asset->Position Quoted Asset->Size->Profit Loss->ROI->Hit Fail->' +
@@ -75,7 +75,9 @@ function newSessionFunctions() {
             'Order Counters->Periods->' +
             'Order Base Asset->Order Quoted Asset->' +
             'Size->Size Filled->Fees Paid->' +
-            'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->'
+            'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
+            'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
+            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size->Size Filled->Fees Paid->'
 
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

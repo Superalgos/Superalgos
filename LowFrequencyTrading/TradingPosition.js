@@ -9,10 +9,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         closePosition: closePosition,
         applyStopLossFormula: applyStopLossFormula,
         applyTakeProfitFormula: applyTakeProfitFormula,
-        preventStopLossDistortion: preventStopLossDistortion,
-        applySlippageToStopLoss: applySlippageToStopLoss,
-        preventTakeProfitDistortion: preventTakeProfitDistortion,
-        applySlippageToTakeProfit: applySlippageToTakeProfit,
         updateStopLoss: updateStopLoss,
         updateTakeProfit: updateTakeProfit,
         initializeSizeAndRate: initializeSizeAndRate,
@@ -20,6 +16,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateStatus: updateStatus,
         updateCounters: updateCounters,
         updateStatistics: updateStatistics,
+        updateResults: updateResults,
         resetPosition: resetPosition,
         initialize: initialize,
         finalize: finalize
@@ -179,71 +176,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
     }
 
-    function preventStopLossDistortion() {
-        /*
-        Hit Point Validation
- 
-        This prevents misscalculations when a formula places the stop loss in this case way beyond the market price.
-        If we take the stop loss value at those situation would be a huge distortion of facts.
-        */
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            if (tradingEngine.current.position.stopLoss.value < tradingEngine.current.candle.min.value) {
-                tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.min.value
-            }
-        } else {
-            if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.candle.max.value) {
-                tradingEngine.current.position.stopLoss.value = tradingEngine.current.candle.max.value
-            }
-        }
-    }
-
-    function applySlippageToStopLoss() {
-        let slippedStopLoss = tradingEngine.current.position.stopLoss.value
-
-        /* Apply the Slippage */
-        let slippageAmount = slippedStopLoss * bot.SESSION.parameters.slippage.config.stopLoss / 100
-
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            slippedStopLoss = slippedStopLoss + slippageAmount
-        } else {
-            slippedStopLoss = slippedStopLoss - slippageAmount
-        }
-
-        tradingEngine.current.position.endRate.value = slippedStopLoss
-    }
-
-    function preventTakeProfitDistortion() {
-        /*
-        Hit Point Validation:
- 
-        This prevents misscalculations when a formula places the take profit in this case way beyond the market price.
-        If we take the stop loss value at those situation would be a huge distortion of facts.
-        */
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.candle.max.value) {
-                tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.max.value
-            }
-        } else {
-            if (tradingEngine.current.position.takeProfit.value < tradingEngine.current.candle.min.value) {
-                tradingEngine.current.position.takeProfit.value = tradingEngine.current.candle.min.value
-            }
-        }
-    }
-
-    function applySlippageToTakeProfit() {
-        let slippedTakeProfit = tradingEngine.current.position.takeProfit.value
-        /* Apply the Slippage */
-        let slippageAmount = slippedTakeProfit * bot.SESSION.parameters.slippage.config.takeProfit / 100
-
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            slippedTakeProfit = slippedTakeProfit + slippageAmount
-        } else {
-            slippedTakeProfit = slippedTakeProfit - slippageAmount
-        }
-
-        tradingEngine.current.position.endRate.value = slippedTakeProfit
-    }
-
     function updateEnds() {
         if (tradingEngine.current.position.status.value === 'Open') {
             tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
@@ -264,45 +196,47 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function updateStatistics() {
 
-        if (bot.sessionAndMarketBaseAssetsAreEqual) {
-            /* Profit Loss Calculation */
-            tradingEngine.current.position.positionStatistics.profitLoss.value =
-                tradingEngine.current.balance.baseAsset.value -
-                tradingEngine.previous.balance.baseAsset.value +
-                tradingEngine.current.balance.quotedAsset.value / tradingEngine.current.position.endRate.value -
-                tradingEngine.previous.balance.quotedAsset.value / tradingEngine.current.position.beginRate.value
-
-            /* ROI Calculation */
-            tradingEngine.current.position.positionStatistics.ROI.value =
-                tradingEngine.current.position.positionStatistics.profitLoss.value * 100 /
-                tradingEngine.current.position.size.value
-        } else {
-            /* Profit Loss Calculation */
-            tradingEngine.current.position.positionStatistics.profitLoss.value =
-                tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value -
-                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
-                tradingEngine.current.balance.quotedAsset.value -
-                tradingEngine.previous.balance.quotedAsset.value
-
-            /* ROI Calculation */
-            tradingEngine.current.position.positionStatistics.ROI.value =
-                tradingEngine.current.position.positionStatistics.profitLoss.value * 100 /
-                (tradingEngine.current.position.size.value * tradingEngine.current.position.beginRate.value)
-        }
-
         /* Days Calculation */
-        tradingEngine.current.position.positionStatistics.days.value = tradingEngine.current.position.positionCounters.periods.value *
+        tradingEngine.current.position.positionStatistics.days.value =
+            tradingEngine.current.position.positionCounters.periods.value *
             sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
 
-        tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
-        tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
         tradingEngine.current.position.positionStatistics.days.value = global.PRECISE(tradingEngine.current.position.positionStatistics.days.value, 10)
+    }
+
+    function updateResults() {
+        /* Profit Loss Calculation */
+        tradingEngine.current.position.positionBaseAsset.profitLoss.value =
+            tradingEngine.current.balance.baseAsset.value -
+            tradingEngine.previous.balance.baseAsset.value
+
+        tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
+            tradingEngine.current.balance.quotedAsset.value -
+            tradingEngine.previous.balance.quotedAsset.value
+
+        tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
+
+        /* ROI Calculation */
+        tradingEngine.current.position.positionBaseAsset.ROI.value =
+            tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
+            tradingEngine.current.position.positionBaseAsset.size.value
+
+        tradingEngine.current.position.positionQuotedAsset.ROI.value =
+            tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
+            tradingEngine.current.position.positionQuotedAsset.size.value
+
+        tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
 
         /* Hit Fail Calculation */
-        if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'HIT'
+        if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
+            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'HIT'
         } else {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'FAIL'
+            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'FAIL'
+        }
+        if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'HIT'
+        } else {
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'FAIL'
         }
     }
 }

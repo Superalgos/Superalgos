@@ -3120,7 +3120,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3203,19 +3203,9 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "stopLossStage",
-                "label": "Add Stop Loss Stage",
-                "relatedUiObject": "Stop Loss Stage",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "stopLossPhase",
-                "label": "Add Stop Loss Phase",
-                "relatedUiObject": "Stop Loss Phase",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3253,6 +3243,12 @@
                 "type": "node",
                 "childType": "Stop Loss Phase",
                 "autoAdd": true
+            },
+            {
+                "name": "stopLossPosition",
+                "type": "node",
+                "childType": "Stop Loss Position",
+                "autoAdd": true
             }
         ]
     },
@@ -3267,19 +3263,9 @@
                 "actionFunction": "uiObject.configEditor.activate"
             },
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "takeProfitStage",
-                "label": "Add Take Profit Stage",
-                "relatedUiObject": "Take Profit Stage",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "takeProfitPhase",
-                "label": "Add Take Profit Phase",
-                "relatedUiObject": "Take Profit Phase",
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -3316,6 +3302,12 @@
                 "name": "takeProfitPhase",
                 "type": "node",
                 "childType": "Take Profit Phase",
+                "autoAdd": true
+            },
+            {
+                "name": "takeProfitPosition",
+                "type": "node",
+                "childType": "Take Profit Position",
                 "autoAdd": true
             }
         ]
@@ -3457,6 +3449,74 @@
         "propertyNameAtParent": "takeProfitPhase"
     },
     {
+        "type": "Take Profit Position",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Take Profit->"
+        },
+        "icon": "bitcoin-cash",
+        "propertyNameAtParent": "takeProfitPosition"
+    },
+    {
+        "type": "Stop Loss Position",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stop Loss->"
+        },
+        "icon": "bitcoin-cash",
+        "propertyNameAtParent": "stopLossPosition"
+    },
+    {
         "type": "Position Statistics",
         "menuItems": [
             {
@@ -3467,7 +3527,7 @@
             },
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3508,7 +3568,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3555,7 +3615,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3602,7 +3662,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3673,7 +3733,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3744,7 +3804,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -3797,7 +3857,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -6193,7 +6253,7 @@
         "menuItems": [
             {
                 "action": "Add Missing Children",
-                "label": "Add Missing Params",
+                "label": "Add Missing Children",
                 "relatedUiObject": "Parameters",
                 "actionFunction": "payload.onMenuItemClick"
             },
@@ -6913,7 +6973,6 @@
     },
     {
         "type": "Session Base Asset",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-network.html#base-asset",
         "menuItems": [
             {
                 "action": "Configure This",

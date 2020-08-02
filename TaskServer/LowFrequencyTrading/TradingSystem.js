@@ -549,7 +549,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                 tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                tradingEngine.current.position.strategyOpenStage
+                tradingEngine.current.strategyOpenStage
             )
 
             /* From here on, the state is officialy Open */
@@ -576,15 +576,15 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                 tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                tradingEngine.current.position.strategyOpenStage
+                tradingEngine.current.strategyOpenStage
             )
             /*
             The Open is finished when the fillSize + feesPaid reaches the Position Size.
-            This can happens at any time when we update the filledSize value when we see 
+            This can happens at any time when we update the sizeFilled value when we see 
             at the exchange that orders were filled.
             */
             if (
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed', 'Position Size Filled')
@@ -607,7 +607,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             let executionNode = stageNode.openExecution
 
             /* Check if there are unfilled orders */
-            if (tradingEngine.current.position.openStageOrdersSize.value !== tradingEngine.current.position.openStageFilledSize.value) {
+            if (
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value <
+                tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 /* There are unfilled orders, we will check if they were executed, and cancel the ones that were not. */
 
                 evalConditions(stageNode, 'Open Execution')
@@ -619,18 +622,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     true,
                     tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                     tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                    tradingEngine.current.position.strategyOpenStage
+                    tradingEngine.current.strategyOpenStage
                 )
             }
 
             /*
             The Closing is finished when the fillSize + feesPaid reaches the ordersSize.
-            This can happens either because we update the filledSize value when we see 
+            This can happens either because we update the sizeFilled value when we see 
             at the exchange that orders were filled, or we reduce the ordersSize when
             we cancel not yet filled orders.
             */
             if (
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
@@ -664,13 +667,47 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Stop Loss Management */
             checkStopPhasesEvents()
             calculateStopLoss()
+            calculateStopLossPosition()
 
             /* Take Profit Management */
             checkTakeProfitPhaseEvents()
             calculateTakeProfit()
+            calculateTakeProfitPosition()
 
             /* Checking if Stop or Take Profit were hit */
             checkStopLossOrTakeProfitWasHit()
+        }
+
+        function calculateStopLossPosition() {
+            /*
+            The position of the Stop Loss (above or below the price) is needed in order to know
+            later if the price hit the Stop Loss or not at every Simulation cycle. When we get 
+            the first values of the simulation of the Stop Loss we check if it is above or below
+            the Position Rate, and we assign the values Above or Below to it. 
+            */
+            if (tradingEngine.current.position.stopLoss.stopLossPosition.value === tradingEngine.current.position.stopLoss.stopLossPosition.config.initialValue) {
+                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.rate) {
+                    tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Above'
+                } else {
+                    tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Below'
+                }
+            }
+        }
+
+        function calculateTakeProfitPosition() {
+            /*
+            The position of the Take Profit (above or below the price) is needed in order to know
+            later if the price hit the Take Profit or not at every Simulation cycle. When we get 
+            the first values of the simulation of the Take Profits we check if it is above or below
+            the Position Rates, and we assign the values Above or Below to it. 
+            */
+            if (tradingEngine.current.position.takeProfit.takeProfitPosition.value === tradingEngine.current.position.takeProfit.takeProfitPosition.config.initialValue) {
+                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.rate) {
+                    tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Above'
+                } else {
+                    tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Below'
+                }
+            }
         }
 
         function checkStopPhasesEvents() {
@@ -897,13 +934,17 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                 /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                 if (
-                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
-                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
+                    (
+                        tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Above' &&
+                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value
+                    ) ||
+                    (
+                        tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Below' &&
+                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value
+                    )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
 
-                    tradingPositionModule.preventStopLossDistortion()
-                    tradingPositionModule.applySlippageToStopLoss()
                     tradingPositionModule.closingPosition('Stop Loss')
                     tradingStrategyModule.updateStageStatus('Close Stage', 'Opening')
                     tradingStrategyModule.updateStageStatus('Manage Stage', 'Closed')
@@ -913,13 +954,17 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                 if (
-                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
-                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
+                    (
+                        tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Below' &&
+                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value
+                    ) ||
+                    (
+                        tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Above' &&
+                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value
+                    )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
 
-                    tradingPositionModule.preventTakeProfitDistortion()
-                    tradingPositionModule.applySlippageToTakeProfit()
                     tradingPositionModule.closingPosition('Take Profit')
                     tradingStrategyModule.updateStageStatus('Close Stage', 'Opening')
                     tradingStrategyModule.updateStageStatus('Manage Stage', 'Closed')
@@ -938,7 +983,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             This will happen only once, as soon as the Take Profit or Stop was hit.
             We wil not be placing orders at this time because we do not know
             the total filled size of the Open Stage. By skiping execution now
-            we allow the open stage to get a final value for filledSize that we can use.
+            we allow the open stage to get a final value for sizeFilled that we can use.
             */
             tradingStrategyModule.updateStageStatus('Close Stage', 'Open')
             return
@@ -961,18 +1006,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled,      // Stage Size Limit
                 tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled,    // Stage Size Limit
-                tradingEngine.current.position.strategyCloseStage
+                tradingEngine.current.strategyCloseStage
             )
 
             /*
             The Close Stage is finished when the fillSize + feesPaid reaches the Open Fill Size.
-            This can happens at any time when we update the filledSize value when we see 
+            This can happens at any time when we update the sizeFilled value when we see 
             at the exchange that orders were filled.
             */
             if (
-                tradingEngine.current.strategyCloseStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyCloseStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyCloseStage.stageBaseAsset.feesPaid.value >=
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value * 0.999) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Close Stage', 'Closed', 'Open Stage fillSize Filled')
             } else {
                 /* Check the Close Stage Event */
@@ -997,28 +1042,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
         function exitPositionAndStrategy() {
 
-            /* Needed for Episode Statistics */
+            /* Position Statistics & Results */
             tradingPositionModule.updateStatistics()
+            tradingPositionModule.updateResults()
 
-            /* Recalculating Episode Counters */
-            if (tradingEngine.current.position.positionStatistics.profitLoss.value > 0) {
-                tradingEngine.episode.episodeCounters.hits.value++
-            } else {
-                tradingEngine.episode.episodeCounters.fails.value++
-            }
-
-            /* Recalculating Episode Statistics */
-            if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.baseAsset.value - sessionParameters.sessionBaseAsset.config.initialBalance
-                tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionBaseAsset.config.initialBalance - 1
-                tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
-                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
-            } else {
-                tradingEngine.episode.episodeStatistics.profitLoss.value = tradingEngine.current.balance.quotedAsset.value - sessionParameters.sessionQuotedAsset.config.initialBalance
-                tradingEngine.episode.episodeStatistics.ROI.value = (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeStatistics.profitLoss.value) / sessionParameters.sessionQuotedAsset.config.initialBalance - 1
-                tradingEngine.episode.episodeStatistics.hitRatio.value = tradingEngine.episode.episodeCounters.hits.value / tradingEngine.episode.episodeCounters.positions.value
-                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = tradingEngine.episode.episodeStatistics.ROI.value / tradingEngine.episode.episodeStatistics.days.value * 365
-            }
+            updatingEpisodeAssets()
+            updatingEpisodeStatistics()
 
             /* Taking Position Snapshot */
             if (bot.SESSION.type === 'Backtesting Session') {
@@ -1047,6 +1076,119 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Distance to Events Updates */
             tradingEngine.current.distanceToEvent.closePosition.value = 1
             tradingEngine.current.distanceToEvent.triggerOff.value = 1
+
+            function updatingEpisodeAssets() {
+
+                /* Updating Hits & Fails */
+                if (tradingEngine.current.position.positionBaseAsset.profitLoss.value > 0) {
+                    tradingEngine.episode.episodeBaseAsset.hits.value++
+                } else {
+                    tradingEngine.episode.episodeBaseAsset.fails.value++
+                }
+                if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value > 0) {
+                    tradingEngine.episode.episodeQuotedAsset.hits.value++
+                } else {
+                    tradingEngine.episode.episodeQuotedAsset.fails.value++
+                }
+
+                /* Updating Profit Loss */
+                tradingEngine.episode.episodeBaseAsset.profitLoss.value =
+                    tradingEngine.current.balance.baseAsset.value -
+                    sessionParameters.sessionBaseAsset.config.initialBalance
+
+                tradingEngine.episode.episodeQuotedAsset.profitLoss.value =
+                    tradingEngine.current.balance.quotedAsset.value -
+                    sessionParameters.sessionQuotedAsset.config.initialBalance
+
+                tradingEngine.episode.episodeBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.profitLoss.value, 10)
+                tradingEngine.episode.episodeQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.profitLoss.value, 10)
+
+                /* Updating ROI */
+                tradingEngine.episode.episodeBaseAsset.ROI.value =
+                    (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeBaseAsset.profitLoss.value) /
+                    sessionParameters.sessionBaseAsset.config.initialBalance - 1
+
+                tradingEngine.episode.episodeQuotedAsset.ROI.value =
+                    (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeQuotedAsset.profitLoss.value) /
+                    sessionParameters.sessionQuotedAsset.config.initialBalance - 1
+
+                tradingEngine.episode.episodeBaseAsset.ROI.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.ROI.value, 10)
+                tradingEngine.episode.episodeQuotedAsset.ROI.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.ROI.value, 10)
+
+                /* Updating Hit Ratio */
+                tradingEngine.episode.episodeBaseAsset.hitRatio.value =
+                    tradingEngine.episode.episodeBaseAsset.hits.value /
+                    tradingEngine.episode.episodeCounters.positions.value
+
+                tradingEngine.episode.episodeQuotedAsset.hitRatio.value =
+                    tradingEngine.episode.episodeQuotedAsset.hits.value /
+                    tradingEngine.episode.episodeCounters.positions.value
+
+                tradingEngine.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.hitRatio.value, 10)
+                tradingEngine.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.hitRatio.value, 10)
+
+                /* Updating Anualized Rate Of Return */
+                tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value =
+                    tradingEngine.episode.episodeBaseAsset.ROI.value /
+                    tradingEngine.episode.episodeStatistics.days.value * 365
+
+                tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value =
+                    tradingEngine.episode.episodeQuotedAsset.ROI.value /
+                    tradingEngine.episode.episodeStatistics.days.value * 365
+
+                tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value, 10)
+                tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value, 10)
+
+                /* Updating Hit or Fail */
+                if (tradingEngine.episode.episodeBaseAsset.profitLoss.value > 0) {
+                    tradingEngine.episode.episodeBaseAsset.hitFail.value = 'Hit'
+                } else {
+                    tradingEngine.episode.episodeBaseAsset.hitFail.value = 'Fail'
+                }
+                if (tradingEngine.episode.episodeQuotedAsset.profitLoss.value > 0) {
+                    tradingEngine.episode.episodeQuotedAsset.hitFail.value = 'Hit'
+                } else {
+                    tradingEngine.episode.episodeQuotedAsset.hitFail.value = 'Fail'
+                }
+            }
+
+            function updatingEpisodeStatistics() {
+
+                /* Updating Profit Loss */
+                tradingEngine.episode.episodeStatistics.profitLoss.value =
+                    tradingEngine.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+                    tradingEngine.episode.episodeQuotedAsset.profitLoss.value
+
+                tradingEngine.episode.episodeStatistics.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeStatistics.profitLoss.value, 10)
+
+                /* Updating ROI */
+                tradingEngine.episode.episodeStatistics.ROI.value =
+                    (
+                        sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
+                        tradingEngine.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+                        sessionParameters.sessionQuotedAsset.config.initialBalance +
+                        tradingEngine.episode.episodeQuotedAsset.profitLoss.value
+                    ) / (
+                        sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
+                        sessionParameters.sessionQuotedAsset.config.initialBalance
+                    ) - 1
+
+                tradingEngine.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.episode.episodeStatistics.ROI.value, 10)
+
+                /* Updating Anualized Rate Of Return */
+                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value =
+                    tradingEngine.episode.episodeStatistics.ROI.value /
+                    tradingEngine.episode.episodeStatistics.days.value * 365
+
+                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value, 10)
+
+                /* Updating Hit or Fail */
+                if (tradingEngine.episode.episodeStatistics.profitLoss.value > 0) {
+                    tradingEngine.episode.episodeStatistics.hitFail.value = 'Hit'
+                } else {
+                    tradingEngine.episode.episodeStatistics.hitFail.value = 'Fail'
+                }
+            }
         }
     }
 

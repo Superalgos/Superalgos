@@ -133,7 +133,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 We will use the codeName of the Record Property to match it with 
                 the any of the properties of the Root Node to get the Target Node.  
                 */
-                let targetNode = propertyRootNode[recordProperty.config.codeName]
+                let targetNode
+                try {
+                    targetNode = propertyRootNode[recordProperty.config.codeName]
+                } catch (err) {
+                    console.log(err.stack)
+                }
                 /*
                 If the codeName of the Record Property can not match the name of the property at
                 the target node, the user can explicitly specify the property name at the configuration,
@@ -167,7 +172,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                         value = targetNode.value
 
                         if (recordProperty.config.decimals !== undefined) {
-                            value = Number(value.toFixed(recordProperty.config.decimals))
+                            try {
+                                value = Number(value.toFixed(recordProperty.config.decimals))
+                            } catch (err) {
+                                console.log(err.stack)
+                            }
                         }
                     } else {
                         /*

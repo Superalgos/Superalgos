@@ -664,13 +664,47 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             /* Stop Loss Management */
             checkStopPhasesEvents()
             calculateStopLoss()
+            calculateStopLossPosition()
 
             /* Take Profit Management */
             checkTakeProfitPhaseEvents()
             calculateTakeProfit()
+            calculateTakeProfitPosition()
 
             /* Checking if Stop or Take Profit were hit */
             checkStopLossOrTakeProfitWasHit()
+        }
+
+        function calculateTakeProfitPosition() {
+            /*
+            The position of the Stop Loss (above or below the price) is needed in order to know
+            later if the price hit the Stop Loss or not at every Simulation cycle. When we get 
+            the first values of the simulation of the Stop Loss we check if it is above or below
+            the Position Rate, and we assign the values Above or Below to it. 
+            */
+            if (tradingEngine.current.position.stopLoss.stopLossPosition.value === tradingEngine.current.position.stopLoss.stopLossPosition.config.initialValue) {
+                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.rate) {
+                    tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Above'
+                } else {
+                    tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Below'
+                }
+            }
+        }
+
+        function calculateTakeProfitPosition() {
+            /*
+            The position of the Take Profit (above or below the price) is needed in order to know
+            later if the price hit the Take Profit or not at every Simulation cycle. When we get 
+            the first values of the simulation of the Take Profits we check if it is above or below
+            the Position Rates, and we assign the values Above or Below to it. 
+            */
+            if (tradingEngine.current.position.takeProfit.takeProfitPosition.value === tradingEngine.current.position.takeProfit.takeProfitPosition.config.initialValue) {
+                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.rate) {
+                    tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Above'
+                } else {
+                    tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Below'
+                }
+            }
         }
 
         function checkStopPhasesEvents() {
@@ -897,8 +931,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                 /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                 if (
-                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value) ||
-                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value)
+                    (
+                        tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Above' &&
+                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value
+                    ) ||
+                    (
+                        tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Below' &&
+                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value
+                    )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
 
@@ -911,8 +951,14 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
 
                 /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                 if (
-                    (bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value) ||
-                    (!bot.sessionAndMarketBaseAssetsAreEqual && tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value)
+                    (
+                        tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Below' &&
+                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value
+                    ) ||
+                    (
+                        tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Above' &&
+                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value
+                    )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
 

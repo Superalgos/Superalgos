@@ -62,9 +62,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             let heartBeatDate
             let previousHeartBeatDate
 
-            /* This determines where we are standing */
-            bot.sessionAndMarketBaseAssetsAreEqual = (sessionParameters.sessionBaseAsset.referenceParent.referenceParent.config.codeName === bot.market.baseAsset)
-
             initializeLoop()
 
             function initializeLoop() {
@@ -363,36 +360,49 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (
                     tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
                 ) {
-                    /* 
-                    First thing to do is to check if we are below the minimum balance, or above the maximun balance.
-                    If we are, we are not gooing to trigger on again. 
+                    /*
+                    We will perform this check only when we are not inside a position,
+                    because there the balances have shifted from their resting position.
                     */
-                    let minimumBalance
-                    let maximumBalance
-                    let balance
 
-                    if (bot.sessionAndMarketBaseAssetsAreEqual) {
-                        balance = tradingEngine.current.balance.baseAsset.value
-                        minimumBalance = sessionParameters.sessionBaseAsset.config.minimumBalance
-                        maximumBalance = sessionParameters.sessionBaseAsset.config.maximumBalance
-                    } else {
-                        balance = tradingEngine.current.balance.quotedAsset.value
-                        minimumBalance = sessionParameters.sessionQuotedAsset.config.minimumBalance
-                        maximumBalance = sessionParameters.sessionQuotedAsset.config.maximumBalance
+                    let stopRunningDate = (new Date(tradingEngine.current.candle.begin.value)).toLocaleString()
+
+                    if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
+                        if (tradingEngine.current.balance.baseAsset.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                            const errorMessage = 'Min Balance reached @ ' + stopRunningDate
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            return false
+                        }
                     }
 
-                    let stopRunningDate = new Date(tradingEngine.current.candle.begin.value)
-                    if (balance <= minimumBalance) {
-                        tradingSystem.error = 'Min Balance @ ' + stopRunningDate.toLocaleString()
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkMinimunAndMaximunBalance -> ' + tradingSystem.error) }
-                        return false
+                    if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
+                        if (tradingEngine.current.balance.baseAsset.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
+                            const errorMessage = 'Max Balance reached @ ' + stopRunningDate
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            return false
+                        }
                     }
 
-                    if (balance >= maximumBalance) {
-                        tradingSystem.error = 'Max Balance @ ' + stopRunningDate.toLocaleString()
-                        if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> checkMinimunAndMaximunBalance -> ' + tradingSystem.error) }
-                        return false
+                    if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
+                        if (tradingEngine.current.balance.quotedAsset.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
+                            const errorMessage = 'Min Balance reached @ ' + stopRunningDate
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            return false
+                        }
                     }
+
+                    if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
+                        if (tradingEngine.current.balance.quotedAsset.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
+                            const errorMessage = 'Max Balance reached @ ' + stopRunningDate
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+                            if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
+                            return false
+                        }
+                    }
+
                 }
                 return true
             }

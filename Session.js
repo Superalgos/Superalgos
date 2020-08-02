@@ -229,12 +229,6 @@
                     bot.sessionError(bot.SESSION.parameters.sessionBaseAsset, errorMessage)
                     return false
                 }
-                if (bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance === undefined) {
-                    bot.SESSION.parameters.sessionBaseAsset.config.minimumBalance = 0
-                }
-                if (bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance === undefined) {
-                    bot.SESSION.parameters.sessionBaseAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
-                }
 
                 /* Session Quoted Asset */
                 if (bot.SESSION.parameters.sessionQuotedAsset === undefined) {
@@ -248,12 +242,6 @@
                     parentLogger.write(MODULE_NAME, "[ERROR] initialize -> checkParemeters -> " + errorMessage)
                     bot.sessionError(bot.SESSION.parameters.sessionQuotedAsset, errorMessage)
                     return false
-                }
-                if (bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance === undefined) {
-                    bot.SESSION.parameters.sessionQuotedAsset.config.minimumBalance = 0
-                }
-                if (bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance === undefined) {
-                    bot.SESSION.parameters.sessionQuotedAsset.config.maximumBalance = Number.MAX_SAFE_INTEGER
                 }
 
                 /* Slippage */

@@ -53,16 +53,16 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
     ) {
 
         /* Trading Stage Validations */
-        if (tradingEngineStage.stageBaseAsset === undefined) { continue }
-        if (tradingEngineStage.stageBaseAsset.size === undefined) { continue }
-        if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { continue }
-        if (tradingEngineStage.stageBaseAsset.amountReceived === undefined) { continue }
-        if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { continue }
-        if (tradingEngineStage.stageQuotedAsset === undefined) { continue }
-        if (tradingEngineStage.stageQuotedAsset.size === undefined) { continue }
-        if (tradingEngineStage.stageQuotedAsset.sizeFilled === undefined) { continue }
-        if (tradingEngineStage.stageQuotedAsset.amountReceived === undefined) { continue }
-        if (tradingEngineStage.stageQuotedAsset.feesPaid === undefined) { continue }
+        if (tradingEngineStage.stageBaseAsset === undefined) { return }
+        if (tradingEngineStage.stageBaseAsset.size === undefined) { return }
+        if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { return }
+        if (tradingEngineStage.stageBaseAsset.amountReceived === undefined) { return }
+        if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { return }
+        if (tradingEngineStage.stageQuotedAsset === undefined) { return }
+        if (tradingEngineStage.stageQuotedAsset.size === undefined) { return }
+        if (tradingEngineStage.stageQuotedAsset.sizeFilled === undefined) { return }
+        if (tradingEngineStage.stageQuotedAsset.amountReceived === undefined) { return }
+        if (tradingEngineStage.stageQuotedAsset.feesPaid === undefined) { return }
 
         /* 
         The user choice of asset to define the size of the position,

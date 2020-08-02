@@ -549,7 +549,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                 tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                tradingEngine.current.position.strategyOpenStage
+                tradingEngine.current.strategyOpenStage
             )
 
             /* From here on, the state is officialy Open */
@@ -576,15 +576,15 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                 tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                tradingEngine.current.position.strategyOpenStage
+                tradingEngine.current.strategyOpenStage
             )
             /*
             The Open is finished when the fillSize + feesPaid reaches the Position Size.
-            This can happens at any time when we update the filledSize value when we see 
+            This can happens at any time when we update the sizeFilled value when we see 
             at the exchange that orders were filled.
             */
             if (
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed', 'Position Size Filled')
@@ -607,7 +607,10 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             let executionNode = stageNode.openExecution
 
             /* Check if there are unfilled orders */
-            if (tradingEngine.current.position.openStageOrdersSize.value !== tradingEngine.current.position.openStageFilledSize.value) {
+            if (
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value <
+                tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 /* There are unfilled orders, we will check if they were executed, and cancel the ones that were not. */
 
                 evalConditions(stageNode, 'Open Execution')
@@ -619,18 +622,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                     true,
                     tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
                     tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
-                    tradingEngine.current.position.strategyOpenStage
+                    tradingEngine.current.strategyOpenStage
                 )
             }
 
             /*
             The Closing is finished when the fillSize + feesPaid reaches the ordersSize.
-            This can happens either because we update the filledSize value when we see 
+            This can happens either because we update the sizeFilled value when we see 
             at the exchange that orders were filled, or we reduce the ordersSize when
             we cancel not yet filled orders.
             */
             if (
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Open Stage', 'Closed')
@@ -675,7 +678,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             checkStopLossOrTakeProfitWasHit()
         }
 
-        function calculateTakeProfitPosition() {
+        function calculateStopLossPosition() {
             /*
             The position of the Stop Loss (above or below the price) is needed in order to know
             later if the price hit the Stop Loss or not at every Simulation cycle. When we get 
@@ -980,7 +983,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             This will happen only once, as soon as the Take Profit or Stop was hit.
             We wil not be placing orders at this time because we do not know
             the total filled size of the Open Stage. By skiping execution now
-            we allow the open stage to get a final value for filledSize that we can use.
+            we allow the open stage to get a final value for sizeFilled that we can use.
             */
             tradingStrategyModule.updateStageStatus('Close Stage', 'Open')
             return
@@ -1003,18 +1006,18 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
                 false,
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled,      // Stage Size Limit
                 tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled,    // Stage Size Limit
-                tradingEngine.current.position.strategyCloseStage
+                tradingEngine.current.strategyCloseStage
             )
 
             /*
             The Close Stage is finished when the fillSize + feesPaid reaches the Open Fill Size.
-            This can happens at any time when we update the filledSize value when we see 
+            This can happens at any time when we update the sizeFilled value when we see 
             at the exchange that orders were filled.
             */
             if (
-                tradingEngine.current.strategyCloseStage.stageBaseAsset.filledSize.value +
+                tradingEngine.current.strategyCloseStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyCloseStage.stageBaseAsset.feesPaid.value >=
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.filledSize.value * 0.999) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value * 0.999) {
                 tradingStrategyModule.updateStageStatus('Close Stage', 'Closed', 'Open Stage fillSize Filled')
             } else {
                 /* Check the Close Stage Event */

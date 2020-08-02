@@ -23,17 +23,20 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     }
 
     let tradingEngine
+    let tradingSystem
     let sessionParameters
 
     return thisObject
 
     function initialize() {
+        tradingSystem = bot.simulationState.tradingSystem
         tradingEngine = bot.simulationState.tradingEngine
         sessionParameters = bot.SESSION.parameters
     }
 
     function finalize() {
         tradingEngine = undefined
+        tradingSystem = undefined
         sessionParameters = undefined
     }
 

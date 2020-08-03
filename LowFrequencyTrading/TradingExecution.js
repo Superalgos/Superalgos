@@ -294,12 +294,12 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     /* We are going to ESTIMATE the size in the oposite asset type, because we will need it later */
                     switch (traingEngineOrderAsset.type) {
                         case 'Order Base Asset': {
-                            tradingEngineOrder.orderQuotedAsset.size = tradingEngineOrder.orderBaseAsset.size * tradingEngineOrder.rate
-                            tradingEngineOrder.size.value = global.PRECISE(tradingEngineOrder.size.value, 10)
+                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
                         }
                         case 'Order Quoted Asset': {
-                            tradingEngineOrder.orderBaseAsset.size = tradingEngineOrder.orderQuotedAsset.size / tradingEngineOrder.rate
-                            tradingEngineOrder.size.value = global.PRECISE(tradingEngineOrder.size.value, 10)
+                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+                            tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
                         }
                     }
                 }
@@ -655,38 +655,38 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 function updateStageAssets() {
                     /* Stage Base Asset: Undo the previous accounting */
                     tradingEngineStage.stageBaseAsset.sizeFilled.value =
-                        tradingEngineStage.stageBaseAsset.value -
+                        tradingEngineStage.stageBaseAsset.sizeFilled.value -
                         previousBaseAssetSizeFilled
 
                     tradingEngineStage.stageBaseAsset.feesPaid.value =
-                        tradingEngineStage.feesPaid.value -
+                        tradingEngineStage.stageBaseAsset.feesPaid.value -
                         previousBaseAssetFeesPaid
 
                     /* Stage Base Asset: Account the current filling and fees */
                     tradingEngineStage.stageBaseAsset.sizeFilled.value =
-                        tradingEngineStage.stageBaseAsset.value +
+                        tradingEngineStage.stageBaseAsset.sizeFilled.value +
                         tradingEngineOrder.orderBaseAsset.sizeFilled.value
 
                     tradingEngineStage.stageBaseAsset.feesPaid.value =
-                        tradingEngineStage.feesPaid.value +
+                        tradingEngineStage.stageBaseAsset.feesPaid.value +
                         tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                     /* Stage Quote Asset: Undo the previous accounting */
                     tradingEngineStage.stageQuotedAsset.sizeFilled.value =
-                        tradingEngineStage.stageQuotedAsset.value -
+                        tradingEngineStage.stageQuotedAsset.sizeFilled.value -
                         previousQuotedAssetSizeFilled
 
                     tradingEngineStage.stageQuotedAsset.feesPaid.value =
-                        tradingEngineStage.feesPaid.value -
+                        tradingEngineStage.stageQuotedAsset.feesPaid.value -
                         previousQuotedAssetFeesPaid
 
                     /* Stage Quote Asset: Account the current filling and fees */
                     tradingEngineStage.stageQuotedAsset.sizeFilled.value =
-                        tradingEngineStage.stageQuotedAsset.value +
+                        tradingEngineStage.stageQuotedAsset.sizeFilled.value +
                         tradingEngineOrder.orderQuotedAsset.sizeFilled.value
 
                     tradingEngineStage.stageQuotedAsset.feesPaid.value =
-                        tradingEngineStage.feesPaid.value +
+                        tradingEngineStage.stageQuotedAsset.feesPaid.value +
                         tradingEngineOrder.orderQuotedAsset.feesPaid.value
 
                     tradingEngineStage.stageBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizeFilled.value, 10)

@@ -165,17 +165,27 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         }
 
         function setPositionRate() {
-            const DEFAULT_VALUE = tradingEngine.current.candle.close.value
             let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
 
-            if (strategy.openStage === undefined) return DEFAULT_VALUE
-            if (strategy.openStage.initialDefinition === undefined) return DEFAULT_VALUE
-            if (strategy.openStage.initialDefinition.positionRate === undefined) return DEFAULT_VALUE
-            if (strategy.openStage.initialDefinition.positionRate.formula === undefined) return DEFAULT_VALUE
+            if (strategy.openStage.initialDefinition.positionRate === undefined) {
+                const errorText = 'Position Rate Node not Found. Fix this please.'
+                tradingSystem.errors.push([strategy.openStage.initialDefinition.id, errorText])
+                throw (errorText)
+            }
+            if (strategy.openStage.initialDefinition.positionRate.formula === undefined) {
+                const errorText = 'Formula of Position Rate Node not Found. Fix this please.'
+                tradingSystem.errors.push([strategy.openStage.initialDefinition.positionRate.id, errorText])
+                throw (errorText)
+            }
 
             let value = tradingSystem.formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
-            if (value === undefined) return DEFAULT_VALUE
-            return value
+            if (value === undefined) {
+                const errorText = 'Position Rate can not be undefined. Fix this please.'
+                tradingSystem.errors.push([strategy.openStage.initialDefinition.positionRate.formula.id, errorText])
+                throw (errorText)
+            }
+
+            tradingEngine.current.position.rate.value = value
         }
     }
 

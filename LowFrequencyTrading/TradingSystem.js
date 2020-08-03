@@ -686,7 +686,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             the Position Rate, and we assign the values Above or Below to it. 
             */
             if (tradingEngine.current.position.stopLoss.stopLossPosition.value === tradingEngine.current.position.stopLoss.stopLossPosition.config.initialValue) {
-                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.rate) {
+                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.rate.value) {
                     tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Above'
                 } else {
                     tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Below'
@@ -702,7 +702,7 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             the Position Rates, and we assign the values Above or Below to it. 
             */
             if (tradingEngine.current.position.takeProfit.takeProfitPosition.value === tradingEngine.current.position.takeProfit.takeProfitPosition.config.initialValue) {
-                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.rate) {
+                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.rate.value) {
                     tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Above'
                 } else {
                     tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Below'

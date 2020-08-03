@@ -164,7 +164,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                                 if (situationName !== undefined) {
 
                                     /* Open a new order */
-                                    await tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName)
+                                    await tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, traingEngineOrderAsset, situationName)
                                 }
                             }
                             break
@@ -205,7 +205,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
             }
 
-            async function tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
+            async function tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, traingEngineOrderAsset, situationName) {
 
                 calculateOrderRate()
                 calculateOrderSize()
@@ -246,17 +246,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         if (tradingSystemOrder.positionRate.formula !== undefined) {
                             tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.positionRate.formula.id)
 
-                            if (tradingEngineOrder.rate.value === undefined) {
-                                const errorText = 'Rate cannot be undefined. Fix this please.'
-                                tradingSystem.errors.push([tradingSystemOrder.positionRate.formula.id, errorText])
-                                throw (errorText)
-                            }
+                            if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingEngineOrder) }
+                            if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingEngineOrder) }
 
-                            if (tradingEngineOrder.rate.value <= 0) {
-                                const errorText = 'Rate cannot be less or equal to zero. Fix this please.'
-                                tradingSystem.errors.push([tradingSystemOrder.positionRate.formula.id, errorText])
-                                throw (errorText)
-                            }
                             tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
                         }
                     }
@@ -271,50 +263,22 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     let sizeFormula
                     if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
                         /* Position was defined in Base Asset */
-                        if (executionAlgorithm.sizeInBaseAsset !== undefined) {
-                            if (executionAlgorithm.sizeInBaseAsset.formula !== undefined) {
-                                sizeFormula = executionAlgorithm.sizeInBaseAsset.formula
-                            } else {
-                                const errorText = 'Size In Base Asset needs a child Formula. Fix this please.'
-                                tradingSystem.errors.push([executionAlgorithm.sizeInBaseAsset.id, errorText])
-                                throw (errorText)
-                            }
-                        } else {
-                            const errorText = 'Execution Algorithm needs a child Size In Base Asset. Fix this please.'
-                            tradingSystem.errors.push([executionAlgorithm.id, errorText])
-                            throw (errorText)
-                        }
+                        if (executionAlgorithm.sizeInBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInBaseAsset === undefined', executionAlgorithm) }
+                        if (executionAlgorithm.sizeInBaseAsset.formula === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInBaseAsset.formula === undefined', executionAlgorithm.sizeInBaseAsset) }
+                        sizeFormula = executionAlgorithm.sizeInBaseAsset.formula
                     } else {
                         /* Position was defined in Quoted Asset */
-                        if (executionAlgorithm.sizeInQuotedAsset !== undefined) {
-                            if (executionAlgorithm.sizeInQuotedAsset.formula !== undefined) {
-                                sizeFormula = executionAlgorithm.sizeInQuotedAsset.formula
-                            } else {
-                                const errorText = 'Size In Quoted Asset needs a child Formula. Fix this please.'
-                                tradingSystem.errors.push([executionAlgorithm.sizeInQuotedAsset.id, errorText])
-                                throw (errorText)
-                            }
-                        } else {
-                            const errorText = 'Execution Algorithm needs a child Size In Quoted Asset. Fix this please.'
-                            tradingSystem.errors.push([executionAlgorithm.id, errorText])
-                            throw (errorText)
-                        }
+                        if (executionAlgorithm.sizeInQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInQuotedAsset === undefined', executionAlgorithm) }
+                        if (executionAlgorithm.sizeInQuotedAsset.formula === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInQuotedAsset.formula === undefined', executionAlgorithm.sizeInBaseAsset) }
+                        sizeFormula = executionAlgorithm.sizeInQuotedAsset.formula
                     }
 
                     /* Order Size Calculation */
                     let algorithmSize = tradingSystem.formulas.get(sizeFormula.id)
-                    if (algorithmSize === undefined) {
-                        const errorText = 'Execution Algorithm Size cannot be undefined. Fix this please.'
-                        tradingSystem.errors.push([sizeFormula.id, errorText])
-                        throw (errorText)
-                    }
+                    if (algorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'algorithmSize === undefined', sizeFormula) }
 
                     /* Validate that this config exists */
-                    if (tradingSystemOrder.config.positionSizePercentage === undefined) {
-                        const errorText = 'Config positionSizePercentage does not exist. Fix this please.'
-                        tradingSystem.errors.push([tradingSystemOrder.id, errorText])
-                        throw (errorText)
-                    }
+                    if (tradingSystemOrder.config.positionSizePercentage === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.positionSizePercentage === undefined', executionAlgorithm) }
 
                     traingEngineOrderAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
                     traingEngineOrderAsset.size.value = global.PRECISE(traingEngineOrderAsset.size.value, 10)

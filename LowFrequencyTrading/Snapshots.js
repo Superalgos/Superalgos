@@ -252,7 +252,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
     function getResults(openDatetime, closeDatetime) {
 
-        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result', 'ROI', 'Exit Type']
+        let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
         closeValues = [
             tradingEngine.episode.episodeCounters.positions.value,                                             // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
@@ -260,8 +260,10 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
             tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name
             tradingEngine.current.strategy.situationName.value,                                                // Trigger On Situation
             tradingEngine.current.position.situationName.value,                                                // Take Position Situation
-            tradingEngine.current.position.positionStatistics.hitFail.value,                                   // Result
-            tradingEngine.current.position.positionStatistics.ROI.value,                                       // ROI
+            tradingEngine.current.position.positionBaseAsset.hitFail.value,                                    // Result in Base Asset
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value,                                  // Result in Base Asset
+            tradingEngine.current.position.positionBaseAsset.ROI.value,                                        // ROI in Base Asseet
+            tradingEngine.current.position.positionQuotedAsset.ROI.value,                                      // ROI in Quoted Asset
             tradingEngine.current.position.exitType.value                                                      // Exit Type
         ]
 

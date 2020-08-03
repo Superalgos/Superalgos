@@ -247,6 +247,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                             tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.positionRate.formula.id)
 
                             if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingEngineOrder) }
+                            if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingEngineOrder) }
                             if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingEngineOrder) }
 
                             tradingEngineOrder.rate.value = global.PRECISE(tradingEngineOrder.rate.value, 10)
@@ -276,6 +277,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     /* Order Size Calculation */
                     let algorithmSize = tradingSystem.formulas.get(sizeFormula.id)
                     if (algorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'algorithmSize === undefined', sizeFormula) }
+                    if (isNaN(algorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(algorithmSize) === true', sizeFormula) }
 
                     /* Validate that this config exists */
                     if (tradingSystemOrder.config.positionSizePercentage === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.positionSizePercentage === undefined', executionAlgorithm) }
@@ -287,7 +289,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     if (
                         tradingEngineStageAsset.size.value + traingEngineOrderAsset.size.value > stageSizeLimit.value) {
                         /* We reduce the size to the remaining size of the position. */
-                        traingEngineOrderAsset.size.value = stageSizeLimit.value - tradingEngineStageAsset.value
+                        traingEngineOrderAsset.size.value = stageSizeLimit.value - tradingEngineStageAsset.size.value
                         traingEngineOrderAsset.size.value = global.PRECISE(traingEngineOrderAsset.size.value, 10)
                     }
 

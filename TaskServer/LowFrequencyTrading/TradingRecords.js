@@ -122,10 +122,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.name = " + recordProperty.name);
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.config.nodePath = " + recordProperty.config.nodePath);
-                        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> err.stack = " + err.stack);
-                        throw 'Can not continue with a Definition Error like this.'
+                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath.', product, recordProperty)
                     }
                 }
                 /* 
@@ -137,7 +134,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 try {
                     targetNode = propertyRootNode[recordProperty.config.codeName]
                 } catch (err) {
-                    console.log(err.stack)
+                    badDefinitionUnhandledException(err, 'Error setting Target Node.', product, recordProperty)
                 }
                 /*
                 If the codeName of the Record Property can not match the name of the property at
@@ -175,7 +172,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                             try {
                                 value = Number(value.toFixed(recordProperty.config.decimals))
                             } catch (err) {
-                                console.log(err.stack)
+                                badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
                             }
                         }
                     } else {
@@ -326,5 +323,14 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 }
             }
         }
+    }
+
+    function badDefinitionUnhandledException(err, message, product, recordProperty) {
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> " + message);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> product.name = " + product.name);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.name = " + recordProperty.name);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.config.codeName = " + recordProperty.config.codeName);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> err.stack = " + err.stack);
+        throw 'Can not continue with a Definition Error like this.'
     }
 }

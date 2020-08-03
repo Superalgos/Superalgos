@@ -75,7 +75,17 @@ function newRecordValues() {
             let property = productDefinition.record.properties[i]
             let value = currentRecord[property.config.codeName]
             let targetNode = propertyTargetNodeMap.get(property.id)
-            applyValue(targetNode[property.config.codeName], value)
+            /*
+            If the codeName of the Record Property can not match the name of the property at
+            the target node, the user can explicitly specify the property name at the configuration,
+            and in those cases we need to use that. This happens when there are many Record Properties
+            pointing to the same property at the Target Node.
+            */
+            if (property.config.childProperty !== undefined) {
+                applyValue(targetNode[property.config.childProperty], value)
+            } else {
+                applyValue(targetNode[property.config.codeName], value)
+            }
         }
     }
 

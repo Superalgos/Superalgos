@@ -11,7 +11,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         applyTakeProfitFormula: applyTakeProfitFormula,
         updateStopLoss: updateStopLoss,
         updateTakeProfit: updateTakeProfit,
-        initializeSizeAndRate: initializeSizeAndRate,
+        initializePositionSizeAndRate: initializePositionSizeAndRate,
         updateEnds: updateEnds,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
@@ -100,7 +100,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.takeProfitStage.value = stage
     }
 
-    function initializeSizeAndRate() {
+    function initializePositionSizeAndRate() {
 
         setPositionSize()
         setPositionRate()

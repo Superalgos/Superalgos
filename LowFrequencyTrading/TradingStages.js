@@ -344,7 +344,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
 
             /* Position size and rate */
-            tradingPositionModule.initializeSizeAndRate()
+            tradingPositionModule.initializePositionSizeAndRate()
+            initializeOpenStageSizeTarget()
 
             /* Check Execution at open stage node */
             tradingSystem.evalConditions(stageNode, 'Open Execution')
@@ -352,10 +353,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             await tradingExecutionModule.runExecution(
                 executionNode,
-                true,
                 false,
-                tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
-                tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
                 tradingEngine.current.strategyOpenStage
             )
 
@@ -380,9 +378,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             await tradingExecutionModule.runExecution(
                 executionNode,
                 false,
-                false,
-                tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
-                tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
                 tradingEngine.current.strategyOpenStage
             )
             /*
@@ -395,6 +390,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 changeStageStatus('Open Stage', 'Closed', 'Position Size Filled')
+                initializeCloseStageSizeTarget()
             } else {
                 /* Check the Close Stage Event */
                 tradingSystem.evalConditions(stageNode, 'Close Stage Event')
@@ -425,10 +421,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
                 await tradingExecutionModule.runExecution(
                     executionNode,
-                    false,
                     true,
-                    tradingEngine.current.position.positionBaseAsset.size,      // Stage Size Limit
-                    tradingEngine.current.position.positionQuotedAsset.size,    // Stage Size Limit
                     tradingEngine.current.strategyOpenStage
                 )
             }
@@ -444,7 +437,34 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
                 tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
                 changeStageStatus('Open Stage', 'Closed')
+                initializeCloseStageSizeTarget()
             }
+        }
+
+        function initializeOpenStageSizeTarget() {
+            /*
+            Here we will transform the position size into targets for each asset of the stage.
+            */
+            if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.size.value
+                tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value =
+                    tradingEngine.current.position.positionBaseAsset.size.value * tradingEngine.current.position.rate.value
+            } else {
+                tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.size.value
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value =
+                    tradingEngine.current.position.positionQuotedAsset.size.value / tradingEngine.current.position.rate.value
+            }
+
+            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
+        }
+
+        function initializeCloseStageSizeTarget() {
+            /*
+            Here we will move the size filled of the open stage to the size target of the close stage.
+            */
+            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value
+            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value
         }
     }
 
@@ -874,9 +894,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             await tradingExecutionModule.runExecution(
                 executionNode,
                 false,
-                false,
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled,      // Stage Size Limit
-                tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled,    // Stage Size Limit
                 tradingEngine.current.strategyCloseStage
             )
 
@@ -901,10 +918,24 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         /* Exit Position Validation */
         if (
-            tradingEngine.current.strategyTriggerStage.status.value === 'Closed' &&
-            tradingEngine.current.strategyOpenStage.status.value === 'Closed' &&
-            tradingEngine.current.strategyManageStage.status.value === 'Closed' &&
-            tradingEngine.current.strategyCloseStage.status.value === 'Closed'
+            (
+                tradingEngine.current.strategyTriggerStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyTriggerStage.status.value === tradingEngine.current.strategyTriggerStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyManageStage.status.value === 'Closed' ||
+                tradingEngine.current.strategyManageStage.status.value === tradingEngine.current.strategyManageStage.status.config.initialValue
+            )
+            &&
+            (
+                tradingEngine.current.strategyCloseStage.status.value === 'Closed'
+            )
         ) {
 
             /* Exiting Everything now. */
@@ -1117,7 +1148,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         if (stage.status.value === 'Open') {
             openStage(stage)
         }
-        if (stage.status.value === 'Close') {
+        if (stage.status.value === 'Closed') {
             closeStage(stage)
         }
 

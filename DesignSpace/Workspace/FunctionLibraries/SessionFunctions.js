@@ -77,7 +77,7 @@ function newSessionFunctions() {
             'Size->Size Filled->Fees Paid->' +
             'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
             'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
-            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size->Size Filled->Fees Paid->'
+            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->'
 
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

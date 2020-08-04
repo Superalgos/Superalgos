@@ -151,7 +151,11 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 we use the Index value we find at the configuration of the Record Property.
                 */
                 if (recordProperty.config.index !== undefined) {
-                    targetNode = targetNode[recordProperty.config.index]
+                    try {
+                        targetNode = targetNode[recordProperty.config.index]
+                    } catch (err) {
+                        badDefinitionUnhandledException(err, 'Error setting Target Node.', product, recordProperty)
+                    }
                 }
                 /* 
                 By Default the value is extracted from the value property of the Target Node.

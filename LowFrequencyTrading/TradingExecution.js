@@ -5,7 +5,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
     const MODULE_NAME = 'Trading Execution'
 
     let thisObject = {
-        checkExecution: checkExecution,
+        runExecution: runExecution,
         initialize: initialize,
         finalize: finalize
     }
@@ -43,7 +43,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         announcementsModule = undefined
     }
 
-    async function checkExecution(
+    async function runExecution(
         executionNode,
         stageIsOpening,
         stageIsClosing,
@@ -884,10 +884,10 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
         } catch (err) {
             if (typeof err === 'string' || err instanceof String) {
-                logger.write(MODULE_NAME, '[ERROR] checkExecution -> err = ' + err)
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
             if (err.stack !== undefined) {
-                logger.write(MODULE_NAME, '[ERROR] checkExecution -> err = ' + err.stack)
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }

@@ -33,14 +33,6 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime) }
             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime) }
 
-            /* Stop Loss Management TODO */
-            const MIN_STOP_LOSS_VALUE = 0.0000000001 // We can not let the stop be zero to avoid division by 0 error or infinity numbers as a result.
-            const MAX_STOP_LOSS_VALUE = Number.MAX_SAFE_INTEGER
-
-            /* Take Profit Management TODO */
-            const MIN_TAKE_PROFIT_VALUE = 0.0000000001 // We can not let the buy order be zero to avoid division by 0 error or infinity numbers as a result.
-            const MAX_TAKE_PROFIT_VALUE = Number.MAX_SAFE_INTEGER
-
             /* These are the Modules we will need to run the Simulation */
             const TRADING_ENGINE_MODULE = require('./TradingEngine.js')
             let tradingEngineModule = TRADING_ENGINE_MODULE.newTradingEngine(bot, logger)
@@ -131,25 +123,18 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
 
                 heartBeat()
                 positionChartAtCurrentCandle()
-                tradingSystemModule.reset(chart)
-                tradingSystemModule.mantainPositions()
-                tradingSystemModule.mantainStrategies()
-                tradingSystemModule.mantainOrders()
+
+                /* The chart was recalculated based on the current candle. */
+                tradingSystemModule.updateChart(chart)
+
+                /* Do the stuff needed previous to the run */
+                tradingSystemModule.mantain()
 
                 tradingEngineModule.updateEpisodeCountersAndStatistics()
                 tradingEngineModule.updateDistanceToEventsCounters()
 
-                /* Run the Trigger Stage */
-                tradingSystemModule.triggerStage()
-
-                /* Run the Open Stage */
-                await tradingSystemModule.openStage()
-
-                /* Run the Manage Stage */
-                tradingSystemModule.manageStage()
-
-                /* Run the Close Stage */
-                await tradingSystemModule.closeStage()
+                /* Run one cycle of the Trading System*/
+                await tradingSystemModule.run()
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()

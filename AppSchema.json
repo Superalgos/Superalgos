@@ -3591,9 +3591,15 @@
         "propertyNameAtParent": "stageBaseAsset",
         "properties": [
             {
-                "name": "size",
+                "name": "targetSize",
                 "type": "node",
-                "childType": "Size",
+                "childType": "Target Size",
+                "autoAdd": true
+            },
+            {
+                "name": "sizePlaced",
+                "type": "node",
+                "childType": "Size Placed",
                 "autoAdd": true
             },
             {
@@ -3638,9 +3644,15 @@
         "propertyNameAtParent": "stageQuotedAsset",
         "properties": [
             {
-                "name": "size",
+                "name": "targetSize",
                 "type": "node",
-                "childType": "Size",
+                "childType": "Target Size",
+                "autoAdd": true
+            },
+            {
+                "name": "sizePlaced",
+                "type": "node",
+                "childType": "Size Placed",
                 "autoAdd": true
             },
             {
@@ -6166,10 +6178,78 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position->Order Base Asset->Order Quoted Asset->Position Base Asset->Position Quoted Asset->Stage Base Asset->Stage Quoted Asset->"
+            "compatibleTypes": "->Position->Order Base Asset->Order Quoted Asset->Position Base Asset->Position Quoted Asset->"
         },
         "icon": "upload",
         "propertyNameAtParent": "size"
+    },
+    {
+        "type": "Size Placed",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stage Base Asset->Stage Quoted Asset->"
+        },
+        "icon": "menu-tree-plus",
+        "propertyNameAtParent": "sizePlaced"
+    },
+    {
+        "type": "Target Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Stage Base Asset->Stage Quoted Asset->"
+        },
+        "icon": "stage-close",
+        "propertyNameAtParent": "targetSize"
     },
     {
         "type": "Exit Type",

@@ -11,7 +11,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         applyTakeProfitFormula: applyTakeProfitFormula,
         updateStopLoss: updateStopLoss,
         updateTakeProfit: updateTakeProfit,
-        initializeSizeAndRate: initializeSizeAndRate,
+        initializePositionSizeAndRate: initializePositionSizeAndRate,
         updateEnds: updateEnds,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
@@ -71,6 +71,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function closePosition() {
         tradingEngine.current.position.status.value = 'Closed'
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
+        tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
@@ -99,7 +100,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.takeProfitStage.value = stage
     }
 
-    function initializeSizeAndRate() {
+    function initializePositionSizeAndRate() {
 
         setPositionSize()
         setPositionRate()

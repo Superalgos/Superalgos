@@ -5,7 +5,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
     const MODULE_NAME = 'Trading Execution'
 
     let thisObject = {
-        checkExecution: checkExecution,
+        runExecution: runExecution,
         initialize: initialize,
         finalize: finalize
     }
@@ -43,48 +43,24 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
         announcementsModule = undefined
     }
 
-    async function checkExecution(
+    async function runExecution(
         executionNode,
-        stageIsOpening,
         stageIsClosing,
-        stageSizeLimitInBaseAsset,
-        stageSizeLimitInQuotedAsset,
         tradingEngineStage
     ) {
 
         try {
             /* Trading Engine Stage Validations */
-            if (tradingEngineStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineStage.stageBaseAsset === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineStage.size === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineStage.sizeFilled === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineStage.feesPaid === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.size === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.size === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.targetSize === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.sizePlaced === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.sizeFilled === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.feesPaid === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.targetSize === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.sizePlaced === undefined', tradingEngineStage) }
             if (tradingEngineStage.stageQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.sizeFilled === undefined', tradingEngineStage) }
             if (tradingEngineStage.stageQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.feesPaid === undefined', tradingEngineStage) }
-
-            /* 
-            The user choice of asset to define the size of the position,
-            defines the asset that will track the information kept about the 
-            stage at the trading engine data structure. We set this asset
-            to be used here in this way:
-            */
-            let tradingEngineStageAsset
-            if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
-                tradingEngineStageAsset = tradingEngineStage.stageBaseAsset
-            } else {
-                tradingEngineStageAsset = tradingEngineStage.stageQuotedAsset
-            }
-            /*
-            The asset type of the position size chosen by the user, also defines 
-            the stage limit to be on the same asset type.
-            */
-            let stageSizeLimit
-            if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
-                stageSizeLimit = stageSizeLimitInBaseAsset
-            } else {
-                stageSizeLimit = stageSizeLimitInQuotedAsset
-            }
 
             await checkExecutionAlgorithms(executionNode)
 
@@ -132,18 +108,6 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined', tradingEngineOrder) }
                     if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesPaid === undefined', tradingEngineOrder) }
 
-                    /*
-                    The asset type of the position size chosen by the user, defines 
-                    the asset at the order data strutcture where information is going to 
-                    be stored.
-                    */
-                    let traingEngineOrderAsset
-                    if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
-                        traingEngineOrderAsset = tradingEngineOrder.orderBaseAsset
-                    } else {
-                        traingEngineOrderAsset = tradingEngineOrder.orderQuotedAsset
-                    }
-
                     switch (tradingEngineOrder.status.value) {
                         case 'Not Open': {
                             {
@@ -164,7 +128,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                                 if (situationName !== undefined) {
 
                                     /* Open a new order */
-                                    await tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, traingEngineOrderAsset, situationName)
+                                    await tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName)
                                 }
                             }
                             break
@@ -205,23 +169,23 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
             }
 
-            async function tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, traingEngineOrderAsset, situationName) {
+            async function tryToOpenOrder(executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
 
                 calculateOrderRate()
                 calculateOrderSize()
 
                 /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-                if (traingEngineOrderAsset.size.value <= 0) { return }
+                if (tradingEngineOrder.orderBaseAsset.size.value <= 0 || tradingEngineOrder.orderQuotedAsset.size.value <= 0) { return }
 
                 /* Place Order at the Exchange, if needed. */
                 let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
                 if (result !== true) { return }
 
-                /* Update Stage Size */
-                tradingEngineStage.stageBaseAsset.size.value = tradingEngineStage.stageBaseAsset.size.value + tradingEngineOrder.orderBaseAsset.size.value
-                tradingEngineStage.stageBaseAsset.size.value = global.PRECISE(tradingEngineStage.stageBaseAsset.size.value, 10)
-                tradingEngineStage.stageQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.size.value + tradingEngineOrder.orderQuotedAsset.size.value
-                tradingEngineStage.stageQuotedAsset.size.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.size.value, 10)
+                /* Update Stage Placed Size */
+                tradingEngineStage.stageBaseAsset.sizePlaced.value = tradingEngineStage.stageBaseAsset.sizePlaced.value + tradingEngineOrder.orderBaseAsset.size.value
+                tradingEngineStage.stageBaseAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageBaseAsset.sizePlaced.value, 10)
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value = tradingEngineStage.stageQuotedAsset.sizePlaced.value + tradingEngineOrder.orderQuotedAsset.size.value
+                tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
                 /* Updating Episode Counters */
                 tradingEngine.episode.episodeCounters.orders.value++
@@ -282,27 +246,30 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     /* Validate that this config exists */
                     if (tradingSystemOrder.config.positionSizePercentage === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.positionSizePercentage === undefined', executionAlgorithm) }
 
-                    traingEngineOrderAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
-                    traingEngineOrderAsset.size.value = global.PRECISE(traingEngineOrderAsset.size.value, 10)
+                    if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
+                        /* Position was defined in Base Asset */
+                        tradingEngineOrder.orderBaseAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
+                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
+                    } else {
+                        /* Position was defined in Quoted Asset */
+                        tradingEngineOrder.orderQuotedAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
+                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
+                    }
+                    tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
+                    tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
 
                     /* Check against the Stage Size Limit */
                     if (
-                        tradingEngineStageAsset.size.value + traingEngineOrderAsset.size.value > stageSizeLimit.value) {
-                        /* We reduce the size to the remaining size of the position. */
-                        traingEngineOrderAsset.size.value = stageSizeLimit.value - tradingEngineStageAsset.size.value
-                        traingEngineOrderAsset.size.value = global.PRECISE(traingEngineOrderAsset.size.value, 10)
+                        tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
+                        tradingEngineStage.stageBaseAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineStage.stageBaseAsset.targetSize.value - tradingEngineStage.stageBaseAsset.sizePlaced.value
                     }
-
-                    /* We are going to ESTIMATE the size in the oposite asset type, because we will need it later */
-                    switch (traingEngineOrderAsset.type) {
-                        case 'Order Base Asset': {
-                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
-                            tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
-                        }
-                        case 'Order Quoted Asset': {
-                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
-                            tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
-                        }
+                    if (
+                        tradingEngineOrder.orderQuotedAsset.size.value + tradingEngineStage.stageQuotedAsset.sizePlaced.value >
+                        tradingEngineStage.stageQuotedAsset.targetSize.value
+                    ) {
+                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
                     }
                 }
 
@@ -884,10 +851,10 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
             }
         } catch (err) {
             if (typeof err === 'string' || err instanceof String) {
-                logger.write(MODULE_NAME, '[ERROR] checkExecution -> err = ' + err)
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
             if (err.stack !== undefined) {
-                logger.write(MODULE_NAME, '[ERROR] checkExecution -> err = ' + err.stack)
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }

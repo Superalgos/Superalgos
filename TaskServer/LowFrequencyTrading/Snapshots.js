@@ -5,7 +5,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
     const MODULE_NAME = 'Snapshots'
 
     let thisObject = {
-        reset: reset,
+        updateChart: updateChart,
         strategyEntry: strategyEntry,
         strategyExit: strategyExit,
         positionEntry: positionEntry,
@@ -60,9 +60,8 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
         chart = undefined
     }
 
-    function reset(pChart) {
-        /* This function helps reset data structures at every cycle of the simulation loop/=. */
-        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
+    function updateChart(pChart) {
+        chart = pChart
     }
 
     function strategyEntry() {

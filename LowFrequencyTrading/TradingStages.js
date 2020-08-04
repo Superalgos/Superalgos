@@ -388,7 +388,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             if (
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
-                tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value * 0.999) {
                 changeStageStatus('Open Stage', 'Closed', 'Position Size Filled')
                 initializeCloseStageSizeTarget()
             } else {
@@ -413,7 +413,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             if (
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value <
-                tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value * 0.999) {
                 /* There are unfilled orders, we will check if they were executed, and cancel the ones that were not. */
 
                 tradingSystem.evalConditions(stageNode, 'Open Execution')
@@ -435,7 +435,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             if (
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
-                tradingEngine.current.position.positionBaseAsset.size.value * 0.999) {
+                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value * 0.999) {
                 changeStageStatus('Open Stage', 'Closed')
                 initializeCloseStageSizeTarget()
             }
@@ -905,8 +905,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             if (
                 tradingEngine.current.strategyCloseStage.stageBaseAsset.sizeFilled.value +
                 tradingEngine.current.strategyCloseStage.stageBaseAsset.feesPaid.value >=
-                tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value * 0.999) {
-                changeStageStatus('Close Stage', 'Closed', 'Open Stage fillSize Filled')
+                tradingEngine.current.strategyCloseStage.stageBaseAsset.sizePlaced.value * 0.999) {
+                changeStageStatus('Close Stage', 'Closed', 'Size Placed Filled')
             } else {
                 /* Check the Close Stage Event */
                 tradingSystem.evalConditions(stageNode, 'Close Stage Event')

@@ -41,7 +41,7 @@ global.UNIQUE_ID = function () {
 }
 
 global.PRECISE = function (floatNumber, precision) {
-    return parseFloat(Number.parseFloat(floatNumber).toPrecision(precision))
+    return this.parseFloat(floatNumber.toFixed(precision))
 }
 
 process.on('uncaughtException', function (err) {

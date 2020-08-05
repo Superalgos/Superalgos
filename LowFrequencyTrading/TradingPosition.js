@@ -11,7 +11,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         applyTakeProfitFormula: applyTakeProfitFormula,
         updateStopLoss: updateStopLoss,
         updateTakeProfit: updateTakeProfit,
-        initializePositionSizeAndRate: initializePositionSizeAndRate,
+        initialTargets: initialTargets,
         updateEnds: updateEnds,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
@@ -100,93 +100,122 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.takeProfitStage.value = stage
     }
 
-    function initializePositionSizeAndRate() {
+    function initialTargets(stageNode) {
 
-        setPositionSize()
-        setPositionRate()
+        if (stageNode.initialTargets === undefined) {
+            const message = 'Stage without Initial Targets node. Add one please.'
+            badDefinitionUnhandledException(undefined, message, stageNode)
+        }
 
-        tradingEngine.current.position.beginRate.value = tradingEngine.current.position.rate.value
+        setTargetRate()
+        setTargetSize()
 
-        function setPositionSize() {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-
-            /* Basic Validation */
-            if (
-                strategy.openStage.initialDefinition.positionSizeInBaseAsset !== undefined &&
-                strategy.openStage.initialDefinition.positionSizeInQuotedAsset !== undefined
-            ) {
-                const errorText = 'Only Position Size In Base Asset or Position Size In Quoted Asset is allowed. Remove one of them please.'
-                tradingSystem.errors.push([strategy.openStage.initialDefinition.id, errorText])
-                throw (errorText)
+        function setTargetRate() {
+            if (stageNode.initialTargets.targetRate === undefined) {
+                const message = 'Target Rate Node not Found. Fix this please.'
+                badDefinitionUnhandledException(undefined, message, stageNode.initialTargets)
+            }
+            if (stageNode.initialTargets.targetRate.formula === undefined) {
+                const message = 'Formula of Target Rate Node not Found. Fix this please.'
+                badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetRate)
             }
 
-            /* Position In Base Asset */
-            if (strategy.openStage.initialDefinition.positionSizeInBaseAsset !== undefined) {
-                if (strategy.openStage.initialDefinition.positionSizeInBaseAsset.formula !== undefined) {
-                    let value = tradingSystem.formulas.get(strategy.openStage.initialDefinition.positionSizeInBaseAsset.formula.id)
-                    if (value === undefined) {
-                        const errorText = 'Position Size In Base Asset cannot be undefined. Fix this please.'
-                        tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInBaseAsset.formula.id, errorText])
-                        throw (errorText)
-                    }
-                    if (value === undefined) {
-                        const errorText = 'Position Size In Base Asset cannot be zero. Fix this please.'
-                        tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInBaseAsset.formula.id, errorText])
-                        throw (errorText)
-                    }
-                    tradingEngine.current.position.positionBaseAsset.size.value = global.PRECISE(value, 10)
-                } else {
-                    const errorText = 'You need to specify a Formula for this.'
-                    tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInBaseAsset.id, errorText])
-                    throw (errorText)
+            let value = tradingSystem.formulas.get(stageNode.initialTargets.targetRate.formula.id)
+            if (value === undefined) {
+                const message = 'Target Rate can not be undefined. Fix this please.'
+                badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetRate.formula)
+            }
+            if (isNaN(value)) {
+                const message = 'Target Rate must be a number. Fix this please.'
+                badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetRate.formula)
+            }
+
+            switch (stageNode.type) {
+                case 'Open Stage': {
+                    tradingEngine.current.position.entryTargetRate.value = global.PRECISE(value, 10)
+                    break
                 }
-            }
-
-            /* Position In Quoted Asset */
-            if (strategy.openStage.initialDefinition.positionSizeInQuotedAsset !== undefined) {
-                if (strategy.openStage.initialDefinition.positionSizeInQuotedAsset.formula !== undefined) {
-                    let value = tradingSystem.formulas.get(strategy.openStage.initialDefinition.positionSizeInQuotedAsset.formula.id)
-                    if (value === undefined) {
-                        const errorText = 'Position Size In Quoted Asset cannot be undefined. Fix this please.'
-                        tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInQuotedAsset.formula.id, errorText])
-                        throw (errorText)
-                    }
-                    if (value === undefined) {
-                        const errorText = 'Position Size In Quoted Asset cannot be zero. Fix this please.'
-                        tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInQuotedAsset.formula.id, errorText])
-                        throw (errorText)
-                    }
-                    tradingEngine.current.position.positionQuotedAsset.size.value = global.PRECISE(value, 10)
-                } else {
-                    const errorText = 'You need to specify a Formula for this.'
-                    tradingSystem.errors.push([strategy.openStage.initialDefinition.positionSizeInQuotedAsset.id, errorText])
-                    throw (errorText)
+                case 'Close Stage': {
+                    tradingEngine.current.position.exitTargetRate.value = global.PRECISE(value, 10)
+                    break
                 }
             }
         }
 
-        function setPositionRate() {
-            let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
-
-            if (strategy.openStage.initialDefinition.positionRate === undefined) {
-                const errorText = 'Position Rate Node not Found. Fix this please.'
-                tradingSystem.errors.push([strategy.openStage.initialDefinition.id, errorText])
-                throw (errorText)
-            }
-            if (strategy.openStage.initialDefinition.positionRate.formula === undefined) {
-                const errorText = 'Formula of Position Rate Node not Found. Fix this please.'
-                tradingSystem.errors.push([strategy.openStage.initialDefinition.positionRate.id, errorText])
-                throw (errorText)
+        function setTargetSize() {
+            /* Basic Validation */
+            if (
+                stageNode.initialTargets.targetSizeInBaseAsset !== undefined &&
+                stageNode.initialTargets.targetSizeInQuotedAsset !== undefined
+            ) {
+                const message = 'Only Target Size In Base Asset or Target Size In Quoted Asset is allowed. Remove one of them please.'
+                badDefinitionUnhandledException(undefined, message, stageNode)
             }
 
-            let value = tradingSystem.formulas.get(strategy.openStage.initialDefinition.positionRate.formula.id)
-            if (value === undefined) {
-                const errorText = 'Position Rate can not be undefined. Fix this please.'
-                tradingSystem.errors.push([strategy.openStage.initialDefinition.positionRate.formula.id, errorText])
-                throw (errorText)
+            /* Position In Base Asset */
+            if (stageNode.initialTargets.targetSizeInBaseAsset !== undefined) {
+                if (stageNode.initialTargets.targetSizeInBaseAsset.formula !== undefined) {
+                    let value = tradingSystem.formulas.get(stageNode.initialTargets.targetSizeInBaseAsset.formula.id)
+                    if (value === undefined) {
+                        const message = 'Target Size In Base Asset cannot be undefined. Fix this please.'
+                        badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInBaseAsset.formula)
+                    }
+                    if (value === undefined) {
+                        const message = 'Target Size In Base Asset cannot be zero. Fix this please.'
+                        badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInBaseAsset.formula)
+                    }
+
+                    switch (stageNode.type) {
+                        case 'Open Stage': {
+                            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value =
+                                global.PRECISE(value * tradingEngine.current.position.entryTargetRate.value, 10)
+                            break
+                        }
+                        case 'Close Stage': {
+                            tradingEngine.current.position.positionBaseAsset.exitTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value =
+                                global.PRECISE(value * tradingEngine.current.position.exitTargetRate.value, 10)
+                            break
+                        }
+                    }
+                } else {
+                    const message = 'You need to specify a Formula for this.'
+                    badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInBaseAsset)
+                }
             }
 
-            tradingEngine.current.position.rate.value = value
+            /* Position In Quoted Asset */
+            if (stageNode.initialTargets.targetSizeInQuotedAsset !== undefined) {
+                if (stageNode.initialTargets.targetSizeInQuotedAsset.formula !== undefined) {
+                    let value = tradingSystem.formulas.get(stageNode.initialTargets.targetSizeInQuotedAsset.formula.id)
+                    if (value === undefined) {
+                        const message = 'Target Size In Quoted Asset cannot be undefined. Fix this please.'
+                        badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                    }
+                    if (value === undefined) {
+                        const message = 'Target Size In Quoted Asset cannot be zero. Fix this please.'
+                        badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                    }
+                    switch (stageNode.type) {
+                        case 'Open Stage': {
+                            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value =
+                                global.PRECISE(value / tradingEngine.current.position.entryTargetRate.value, 10)
+                            break
+                        }
+                        case 'Close Stage': {
+                            tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value = global.PRECISE(value, 10)
+                            tradingEngine.current.position.positionBaseAsset.exitTargetSize.value =
+                                global.PRECISE(value / tradingEngine.current.position.exitTargetRate.value, 10)
+                            break
+                        }
+                    }
+                } else {
+                    const errorText = 'You need to specify a Formula for this.'
+                    badDefinitionUnhandledException(undefined, message, stageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                }
+            }
         }
     }
 
@@ -233,11 +262,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         /* ROI Calculation */
         tradingEngine.current.position.positionBaseAsset.ROI.value =
             tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /
-            tradingEngine.current.position.positionBaseAsset.size.value
+            tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
 
         tradingEngine.current.position.positionQuotedAsset.ROI.value =
             tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /
-            tradingEngine.current.position.positionQuotedAsset.size.value
+            tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
 
         tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
 
@@ -252,5 +281,18 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         } else {
             tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'FAIL'
         }
+    }
+
+    function badDefinitionUnhandledException(err, message, node) {
+        tradingSystem.errors.push([node.id, message])
+
+        logger.write(MODULE_NAME, "[ERROR] -> " + message);
+        logger.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
+        logger.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
+        logger.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
+        if (err !== undefined) {
+            logger.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
+        }
+        throw 'It is not safe to continue with a Definition Error like this. Please fix the problem and try again.'
     }
 }

@@ -27,15 +27,16 @@ function newSessionFunctions() {
             'Trading Strategy->' +
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
             'Announcement->Announcement Formula->' +
-            'Open Stage->Initial Definition->Open Execution->' +
-            'Position Size In Base Asset->Position Size In Quoted Asset->Position Rate->Formula->' +
-            'Initial Stop->Initial Take Profit->' +
+            'Open Stage->' +
+            'Initial Definition->Initial Stop->Initial Take Profit->' +
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
-            'Close Stage->Close Execution->' +
+            'Close Stage->' +
+            'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
             'Announcement->Announcement Formula->' +
+            'Open Execution->Close Execution->' +
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Create Order Event->Cancel Order Event->' +
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
@@ -62,12 +63,12 @@ function newSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Strategy Name->Index->Status->Begin Rate->End Rate->Situation Name->' +
             'Strategy Counters->Periods->' +
             'Position->' +
-            'Serial Number->Identifier->Begin->End->Rate->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+            'Serial Number->Identifier->Begin->End->Entry Target Rate->Exit Target Rate->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
             'Stop Loss->Stop Loss Stage->Stop Loss Phase->Stop Loss Position->' +
             'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
             'Position Counters->Periods->' +
             'Position Statistics->Days->User Defined Statistic->' +
-            'Position Base Asset->Position Quoted Asset->Size->Profit Loss->ROI->Hit Fail->' +
+            'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->Profit Loss->ROI->Hit Fail->' +
             'Formula->' +
             'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
             'Market Order->Limit Order->' +

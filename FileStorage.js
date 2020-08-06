@@ -163,7 +163,7 @@ exports.newFileStorage = function newFileStorage(logger, host, port) {
             }
 
             function retry() {
-                //console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation )
+                console.log(new Date(), ' Retry #: ' + currentRetryGetTextFile, fileLocation)
                 if (currentRetryGetTextFile < MAX_RETRY) {
                     currentRetryGetTextFile++
                     logger.write(MODULE_NAME, '[WARN] FileStorage -> getTextFile -> retry -> Will try to read the file again -> Retry #: ' + currentRetryGetTextFile)

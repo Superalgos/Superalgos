@@ -1,5 +1,4 @@
 /* Callbacks default responses. */
-
 global.DEFAULT_OK_RESPONSE = {
     result: "Ok",
     message: "Operation Succeeded"

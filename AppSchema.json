@@ -3839,9 +3839,15 @@
         "propertyNameAtParent": "positionBaseAsset",
         "properties": [
             {
-                "name": "size",
+                "name": "entryTargetSize",
                 "type": "node",
-                "childType": "Size",
+                "childType": "Entry Target Size",
+                "autoAdd": true
+            },
+            {
+                "name": "exitTargetSize",
+                "type": "node",
+                "childType": "Exit Target Size",
                 "autoAdd": true
             },
             {
@@ -3892,9 +3898,15 @@
         "propertyNameAtParent": "positionQuotedAsset",
         "properties": [
             {
-                "name": "size",
+                "name": "entryTargetSize",
                 "type": "node",
-                "childType": "Size",
+                "childType": "Entry Target Size",
+                "autoAdd": true
+            },
+            {
+                "name": "exitTargetSize",
+                "type": "node",
+                "childType": "Exit Target Size",
                 "autoAdd": true
             },
             {
@@ -6042,9 +6054,15 @@
                 "autoAdd": true
             },
             {
-                "name": "rate",
+                "name": "entryTargetRate",
                 "type": "node",
-                "childType": "Rate",
+                "childType": "Entry Target Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "exitTargetRate",
+                "type": "node",
+                "childType": "Exit Target Rate",
                 "autoAdd": true
             },
             {
@@ -6144,10 +6162,78 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Market Order->Limit Order->"
         },
         "icon": "pantone",
         "propertyNameAtParent": "rate"
+    },
+    {
+        "type": "Entry Target Rate",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "pantone",
+        "propertyNameAtParent": "entryTargetRate"
+    },
+    {
+        "type": "Exit Target Rate",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position->"
+        },
+        "icon": "pantone",
+        "propertyNameAtParent": "exitTargetRate"
     },
     {
         "type": "Size",
@@ -6178,10 +6264,78 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position->Order Base Asset->Order Quoted Asset->Position Base Asset->Position Quoted Asset->"
+            "compatibleTypes": "->Order Base Asset->Order Quoted Asset->"
         },
         "icon": "upload",
         "propertyNameAtParent": "size"
+    },
+    {
+        "type": "Entry Target Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position Base Asset->Position Quoted Asset->"
+        },
+        "icon": "upload",
+        "propertyNameAtParent": "entryTargetSize"
+    },
+    {
+        "type": "Exit Target Size",
+        "menuItems": [
+            {
+                "action": "Configure This",
+                "label": "Configure This",
+                "iconPathOn": "settings",
+                "iconPathOff": "settings",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Position Base Asset->Position Quoted Asset->"
+        },
+        "icon": "upload",
+        "propertyNameAtParent": "exitTargetSize"
     },
     {
         "type": "Size Placed",
@@ -8715,7 +8869,7 @@
         },
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Position Size->Position Rate->Phase->Record Property->Simulated Actual Rate->Situation->"
+            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Record Property->Simulated Actual Rate->Situation->"
         },
         "icon": "pipette",
         "propertyNameAtParent": "formula"
@@ -9356,27 +9510,9 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#open-stage",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "initialDefinition",
-                "label": "Add Initial Definition",
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
                 "relatedUiObject": "Initial Definition",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "openExecution",
-                "label": "Add Open Execution",
-                "relatedUiObject": "Open Execution",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "closeStageEvent",
-                "label": "Add Close Stage Event",
-                "relatedUiObject": "Close Stage Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -9402,6 +9538,12 @@
         },
         "icon": "stage-open",
         "properties": [
+            {
+                "name": "initialTargets",
+                "type": "node",
+                "childType": "Initial Targets",
+                "autoAdd": true
+            },
             {
                 "name": "initialDefinition",
                 "type": "node",
@@ -9512,27 +9654,56 @@
                 "type": "node",
                 "childType": "Initial Take Profit",
                 "autoAdd": true
-            },
-            {
-                "name": "positionSizeInBaseAsset",
-                "type": "node",
-                "childType": "Position Size In Base Asset",
-                "autoAdd": true
-            },
-            {
-                "name": "positionSizeInQuotedAsset",
-                "type": "node",
-                "childType": "Position Size In Quoted Asset",
-                "autoAdd": true
-            },
-            {
-                "name": "positionRate",
-                "type": "node",
-                "childType": "Position Rate",
-                "autoAdd": true
             }
         ],
         "propertyNameAtParent": "initialDefinition"
+    },
+    {
+        "type": "Initial Targets",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Initial Definition",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Open Stage->Close Stage->"
+        },
+        "icon": "targeting",
+        "properties": [
+            {
+                "name": "targetRate",
+                "type": "node",
+                "childType": "Target Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "targetSizeInBaseAsset",
+                "type": "node",
+                "childType": "Target Size In Base Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "targetSizeInQuotedAsset",
+                "type": "node",
+                "childType": "Target Size In Quoted Asset",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "initialTargets"
     },
     {
         "type": "Managed Stop Loss",
@@ -9852,7 +10023,7 @@
         "propertyNameAtParent": "initialTakeProfit"
     },
     {
-        "type": "Position Size In Base Asset",
+        "type": "Target Size In Base Asset",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9875,7 +10046,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Initial Definition->"
+            "compatibleTypes": "->Initial Targets->"
         },
         "icon": "stage-open-position-size",
         "properties": [
@@ -9886,10 +10057,10 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "positionSizeInBaseAsset"
+        "propertyNameAtParent": "targetSizeInBaseAsset"
     },
     {
-        "type": "Position Size In Quoted Asset",
+        "type": "Target Size In Quoted Asset",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -9912,7 +10083,7 @@
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
-            "compatibleTypes": "->Initial Definition->"
+            "compatibleTypes": "->Initial Targets->"
         },
         "icon": "stage-open-position-size",
         "properties": [
@@ -9923,85 +10094,10 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "positionSizeInQuotedAsset"
+        "propertyNameAtParent": "targetSizeInQuotedAsset"
     },
     {
-        "type": "Size In Base Asset",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "formula",
-                "label": "Add Formula",
-                "relatedUiObject": "Formula",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 4,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Execution Algorithm->"
-        },
-        "icon": "eos",
-        "properties": [
-            {
-                "name": "formula",
-                "type": "node",
-                "childType": "Formula",
-                "autoAdd": true
-            }
-        ],
-        "propertyNameAtParent": "sizeInBaseAsset"
-    },
-    {
-        "type": "Size In Quoted Asset",
-        "menuItems": [
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "formula",
-                "label": "Add Formula",
-                "relatedUiObject": "Formula",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Delete UI Object",
-                "askConfirmation": true,
-                "confirmationLabel": "Confirm to Delete",
-                "label": "Delete This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
-                "actionFunction": "payload.onMenuItemClick"
-            }
-        ],
-        "addLeftIcons": true,
-        "level": 4,
-        "chainAttachesTo": {
-            "compatibleTypes": "->Execution Algorithm->"
-        },
-        "icon": "eos",
-        "properties": [
-            {
-                "name": "formula",
-                "type": "node",
-                "childType": "Formula",
-                "autoAdd": true
-            }
-        ],
-        "propertyNameAtParent": "sizeInQuotedAsset"
-    },
-    {
-        "type": "Position Rate",
-        "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#position-rate",
+        "type": "Target Rate",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -10024,7 +10120,7 @@
         "addLeftIcons": true,
         "level": 5,
         "chainAttachesTo": {
-            "compatibleTypes": "->Initial Definition->Limit Buy Order->Limit Sell Order->"
+            "compatibleTypes": "->Initial Targets->"
         },
         "icon": "stage-open-postion-rate",
         "properties": [
@@ -10035,7 +10131,44 @@
                 "autoAdd": true
             }
         ],
-        "propertyNameAtParent": "positionRate"
+        "propertyNameAtParent": "targetRate"
+    },
+    {
+        "type": "Order Rate",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "formula",
+                "label": "Add Formula",
+                "relatedUiObject": "Formula",
+                "actionFunction": "payload.onMenuItemClick"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete This",
+                "iconPathOn": "delete",
+                "iconPathOff": "delete",
+                "actionFunction": "payload.onMenuItemClick"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 5,
+        "chainAttachesTo": {
+            "compatibleTypes": "->Limit Buy Order->Limit Sell Order->"
+        },
+        "icon": "stage-open-postion-rate",
+        "properties": [
+            {
+                "name": "formula",
+                "type": "node",
+                "childType": "Formula",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "orderRate"
     },
     {
         "type": "Open Execution",
@@ -10076,20 +10209,11 @@
         "type": "Execution Algorithm",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "sizeInBaseAsset",
-                "label": "Add Size In Base Asset",
-                "relatedUiObject": "Size In Base Asset",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "sizeInQuotedAsset",
-                "label": "Add Size In Quoted Asset",
-                "relatedUiObject": "Size In Quoted Asset",
-                "actionFunction": "payload.onMenuItemClick"
+                "action": "Configure This",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure This",
+                "iconPathOn": "html",
+                "iconPathOff": "html"
             },
             {
                 "action": "Add UI Object",
@@ -10125,6 +10249,12 @@
                 "actionFunction": "payload.onMenuItemClick"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"percentageOfStageTargetSize\": 100 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 4,
         "chainAttachesTo": {
@@ -10133,18 +10263,6 @@
         "icon": "execution-algorithm",
         "propertyNameAtParent": "executionAlgorithms",
         "properties": [
-            {
-                "name": "sizeInBaseAsset",
-                "type": "node",
-                "childType": "Size In Base Asset",
-                "autoAdd": true
-            },
-            {
-                "name": "sizeInQuotedAsset",
-                "type": "node",
-                "childType": "Size In Quoted Asset",
-                "autoAdd": true
-            },
             {
                 "name": "marketBuyOrders",
                 "type": "array",
@@ -10204,7 +10322,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"positionSizePercentage\": 100, \n\"spawnMultipleOrders\": false \n}"
+            "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}"
         },
         "editors": {
             "config": true
@@ -10314,9 +10432,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionRate",
-                "label": "Add Position Rate",
-                "relatedUiObject": "Position Rate",
+                "propertyToCheckFor": "orderRate",
+                "label": "Add Order Rate",
+                "relatedUiObject": "Order Rate",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -10371,9 +10489,9 @@
         "propertyNameAtParent": "limitBuyOrders",
         "properties": [
             {
-                "name": "positionRate",
+                "name": "orderRate",
                 "type": "node",
-                "childType": "Position Rate",
+                "childType": "Order Rate",
                 "autoAdd": true
             },
             {
@@ -10407,9 +10525,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "positionRate",
-                "label": "Add Position Rate",
-                "relatedUiObject": "Position Rate",
+                "propertyToCheckFor": "orderRate",
+                "label": "Add Order Rate",
+                "relatedUiObject": "Order Rate",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -10464,9 +10582,9 @@
         "propertyNameAtParent": "limitSellOrders",
         "properties": [
             {
-                "name": "positionRate",
+                "name": "orderRate",
                 "type": "node",
-                "childType": "Position Rate",
+                "childType": "Order Rate",
                 "autoAdd": true
             },
             {
@@ -10807,25 +10925,15 @@
         "docURL": "https://docs.superalgos.org/suite-hierarchy-trading-system.html#close-stage",
         "menuItems": [
             {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "closeExecution",
-                "label": "Add Close Execution",
-                "relatedUiObject": "Close Execution",
+                "action": "Add Missing Children",
+                "label": "Add Missing Items",
+                "relatedUiObject": "Initial Definition",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
                 "action": "Add UI Object",
                 "label": "Add Announcement",
                 "relatedUiObject": "Announcement",
-                "actionFunction": "payload.onMenuItemClick"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "closeStageEvent",
-                "label": "Add Close Stage Event",
-                "relatedUiObject": "Close Stage Event",
                 "actionFunction": "payload.onMenuItemClick"
             },
             {
@@ -10845,6 +10953,12 @@
         },
         "icon": "stage-close",
         "properties": [
+            {
+                "name": "initialTargets",
+                "type": "node",
+                "childType": "Initial Targets",
+                "autoAdd": true
+            },
             {
                 "name": "closeExecution",
                 "type": "node",

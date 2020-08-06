@@ -80,7 +80,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     let tradingSystemOrder = orders[i]
 
                     /* Trading System Validations */
-                    if (tradingSystemOrder.config.positionSizePercentage === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.positionSizePercentage === undefined', tradingSystemOrder) }
+                    if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
                     if (tradingSystemOrder.referenceParent === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder) }
 
                     let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
@@ -204,11 +204,13 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 tradingEngineOrder.situationName.value = situationName
 
                 function calculateOrderRate() {
-                    /* Order Rate Calculation */
-                    tradingEngineOrder.rate.value = tradingEngine.current.position.rate.value // By default this is the order rate.
-                    if (tradingSystemOrder.positionRate !== undefined) {
-                        if (tradingSystemOrder.positionRate.formula !== undefined) {
-                            tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.positionRate.formula.id)
+                    /* By default this is the order rate and it is the rate that applies to Market Orders */
+                    tradingEngineOrder.rate.value = tradingEngine.current.candle.close.value
+
+                    /* Optional Rate Definition */
+                    if (tradingSystemOrder.orderRate !== undefined) {
+                        if (tradingSystemOrder.orderRate.formula !== undefined) {
+                            tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
                             if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingEngineOrder) }
                             if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingEngineOrder) }
@@ -220,45 +222,24 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
 
                 function calculateOrderSize() {
-                    /* 
-                     If the position size was defined in Base Asset, then 
-                     the algorithm needs to define its size also in Base Asset. 
-                     The same if it was deined in Quoted Asset.
-                     */
-                    let sizeFormula
-                    if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
-                        /* Position was defined in Base Asset */
-                        if (executionAlgorithm.sizeInBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInBaseAsset === undefined', executionAlgorithm) }
-                        if (executionAlgorithm.sizeInBaseAsset.formula === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInBaseAsset.formula === undefined', executionAlgorithm.sizeInBaseAsset) }
-                        sizeFormula = executionAlgorithm.sizeInBaseAsset.formula
-                    } else {
-                        /* Position was defined in Quoted Asset */
-                        if (executionAlgorithm.sizeInQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInQuotedAsset === undefined', executionAlgorithm) }
-                        if (executionAlgorithm.sizeInQuotedAsset.formula === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.sizeInQuotedAsset.formula === undefined', executionAlgorithm.sizeInBaseAsset) }
-                        sizeFormula = executionAlgorithm.sizeInQuotedAsset.formula
-                    }
+                    /* Validate that this config exists */
+                    if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) { badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm) }
+                    if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm) }
 
-                    /* Order Size Calculation */
-                    let algorithmSize = tradingSystem.formulas.get(sizeFormula.id)
-                    if (algorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'algorithmSize === undefined', sizeFormula) }
-                    if (isNaN(algorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(algorithmSize) === true', sizeFormula) }
+                    let algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
+                    let algorithmSizeInQuotedAsset = tradingEngineStage.stageQuotedAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
 
                     /* Validate that this config exists */
-                    if (tradingSystemOrder.config.positionSizePercentage === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.positionSizePercentage === undefined', executionAlgorithm) }
+                    if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
+                    if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder) }
 
-                    if (tradingEngine.current.position.positionBaseAsset.size.value > 0) {
-                        /* Position was defined in Base Asset */
-                        tradingEngineOrder.orderBaseAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
-                        tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
-                    } else {
-                        /* Position was defined in Quoted Asset */
-                        tradingEngineOrder.orderQuotedAsset.size.value = algorithmSize * tradingSystemOrder.config.positionSizePercentage / 100
-                        tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
-                    }
-                    tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
-                    tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
+                    /* Size in Base Asset */
+                    tradingEngineOrder.orderBaseAsset.size.value = algorithmSizeInBaseAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
 
-                    /* Check against the Stage Size Limit */
+                    /* Size in Quoted Asset */
+                    tradingEngineOrder.orderQuotedAsset.size.value = algorithmSizeInQuotedAsset * tradingSystemOrder.config.percentageOfAlgorithmSize / 100
+
+                    /* Check that the Size calculated would not surpass Stage Target Size */
                     if (
                         tradingEngineOrder.orderBaseAsset.size.value + tradingEngineStage.stageBaseAsset.sizePlaced.value >
                         tradingEngineStage.stageBaseAsset.targetSize.value
@@ -271,6 +252,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                     ) {
                         tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineStage.stageQuotedAsset.targetSize.value - tradingEngineStage.stageQuotedAsset.sizePlaced.value
                     }
+
+                    tradingEngineOrder.orderBaseAsset.size.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.size.value, 10)
+                    tradingEngineOrder.orderQuotedAsset.size.value = global.PRECISE(tradingEngineOrder.orderQuotedAsset.size.value, 10)
                 }
 
                 async function createOrderAtExchange(tradingSystemOrder, tradingEngineOrder) {
@@ -319,7 +303,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
 
                 /* Filter by what is defined at the Strategy */
-                if (tradingSystemOrder.simulatedExchangeEvents === undefined) { return }
+                if (tradingSystemOrder.simulatedExchangeEvents === undefined) {
+                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.simulatedExchangeEvents === undefined', tradingSystemOrder)
+                }
 
                 let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
                 let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value
@@ -481,11 +467,11 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 function sizeFilledSimulation() {
                     /* Size Filled */
                     tradingEngineOrder.orderBaseAsset.sizeFilled.value =
-                        tradingEngineOrder.orderBaseAsset.size.value *
+                        (tradingEngineOrder.orderBaseAsset.size.value - tradingEngineOrder.orderBaseAsset.feesPaid.value) *
                         tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
                     tradingEngineOrder.orderQuotedAsset.sizeFilled.value =
-                        tradingEngineOrder.orderQuotedAsset.size.value *
+                        (tradingEngineOrder.orderQuotedAsset.size.value - tradingEngineOrder.orderQuotedAsset.feesPaid.value) *
                         tradingEngineOrder.orderStatistics.percentageFilled.value / 100
 
                     tradingEngineOrder.orderBaseAsset.sizeFilled.value = global.PRECISE(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)

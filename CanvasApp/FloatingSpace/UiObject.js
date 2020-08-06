@@ -1323,7 +1323,7 @@ function newUiObject() {
             position = canvas.floatingSpace.transformPointToMap(position)
         }
 
-        let radius = thisObject.container.frame.radius
+        let radius = thisObject.payload.floatingObject.container.frame.radius
         /* Label Text */
         let labelPoint
         let fontSize = thisObject.payload.floatingObject.currentFontSize

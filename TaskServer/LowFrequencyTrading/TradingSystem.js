@@ -118,17 +118,31 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
     }
 
     async function run() {
-        /* Run the Trigger Stage */
-        tradingStagesModule.runTriggerStage()
+        try {
+            /* Run the Trigger Stage */
+            tradingStagesModule.runTriggerStage()
 
-        /* Run the Open Stage */
-        await tradingStagesModule.runOpenStage()
+            /* Run the Open Stage */
+            await tradingStagesModule.runOpenStage()
 
-        /* Run the Manage Stage */
-        tradingStagesModule.runManageStage()
+            /* Run the Manage Stage */
+            tradingStagesModule.runManageStage()
 
-        /* Run the Close Stage */
-        await tradingStagesModule.runCloseStage()
+            /* Run the Close Stage */
+            await tradingStagesModule.runCloseStage()
+        } catch (err) {
+            /* 
+            If an error ocurred during execution, it was alreeady logged and
+            included at the errors array. That means we need to do nothing here,
+            just prevent the execution to be halted for not handling exceptions.
+            */
+            if (typeof err === 'string' || err instanceof String) {
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
+            }
+            if (err.stack !== undefined) {
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
+            }
+        }
     }
 
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {

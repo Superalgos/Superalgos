@@ -459,9 +459,9 @@ function newFloatingObject() {
 
     function thisObjectPhysics() {
         // The radius also have a target.
-        let ANIMATION_STEP = Math.abs(thisObject.targetRadius - thisObject.rawRadius) / 5
+        let ANIMATION_STEP = Math.abs(thisObject.targetRadius - thisObject.rawRadius) / 2
 
-        if (ANIMATION_STEP === 0) { ANIMATION_STEP = 10 }
+        if (ANIMATION_STEP === 0) { ANIMATION_STEP = thisObject.rawRadius }
 
         if (Math.abs(thisObject.container.frame.radius - thisObject.targetRadius) >= ANIMATION_STEP) {
             if (thisObject.container.frame.radius < thisObject.targetRadius) {
@@ -471,26 +471,30 @@ function newFloatingObject() {
             }
 
             thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
+        } else {
+            thisObject.container.frame.radius = thisObject.targetRadius
         }
 
         // The imageSize also have a target.
-
         if (Math.abs(thisObject.currentImageSize - thisObject.targetImageSize) >= ANIMATION_STEP) {
             if (thisObject.currentImageSize < thisObject.targetImageSize) {
                 thisObject.currentImageSize = thisObject.currentImageSize + ANIMATION_STEP
             } else {
                 thisObject.currentImageSize = thisObject.currentImageSize - ANIMATION_STEP
             }
+        } else {
+            thisObject.currentImageSize = thisObject.targetImageSize
         }
 
         // The fontSize also have a target.
-
         if (Math.abs(thisObject.currentFontSize - thisObject.targetFontSize) >= ANIMATION_STEP / 10) {
             if (thisObject.currentFontSize < thisObject.targetFontSize) {
                 thisObject.currentFontSize = thisObject.currentFontSize + ANIMATION_STEP / 10
             } else {
                 thisObject.currentFontSize = thisObject.currentFontSize - ANIMATION_STEP / 10
             }
+        } else {
+            thisObject.currentFontSize = thisObject.targetFontSize
         }
 
         if (Math.abs(thisObject.currentHierarchyRing - thisObject.targetHierarchyRing) >= ANIMATION_STEP) {
@@ -499,10 +503,11 @@ function newFloatingObject() {
             } else {
                 thisObject.currentHierarchyRing = thisObject.currentHierarchyRing - ANIMATION_STEP
             }
+        } else {
+            thisObject.currentHierarchyRing = thisObject.targetHierarchyRing
         }
 
         /* Floating object position in screen coordinates */
-
         thisObject.payload.position.x = thisObject.container.frame.position.x
         thisObject.payload.position.y = thisObject.container.frame.position.y
     }
@@ -616,7 +621,7 @@ function newFloatingObject() {
 
         thisObject.rawRadius = radius
         thisObject.targetRadius = radius
-        thisObject.container.frame.radius = radius / 5
+        thisObject.container.frame.radius = radius
 
         thisObject.container.eventHandler.raiseEvent('Dimmensions Changed', event)
     }

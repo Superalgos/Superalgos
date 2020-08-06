@@ -15,8 +15,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateEnds: updateEnds,
         updateStatus: updateStatus,
         updateCounters: updateCounters,
-        updateStatistics: updateStatistics,
-        updateResults: updateResults,
         resetPosition: resetPosition,
         initialize: initialize,
         finalize: finalize
@@ -47,6 +45,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.serialNumber.value = tradingEngine.episode.episodeCounters.positions.value
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
+        tradingEngine.current.position.beginRate.value = tradingEngine.current.candle.close.value
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.situationName.value = situationName
 
@@ -72,6 +71,10 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.status.value = 'Closed'
         tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
+
+        /* Position Statistics & Results */
+        updateStatistics()
+        updateResults()
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
@@ -239,6 +242,37 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function updateStatistics() {
 
+        /* Profit Loss Calculation */
+        tradingEngine.current.position.positionStatistics.profitLoss.value =
+            (
+                tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value +
+                tradingEngine.current.balance.quotedAsset.value
+            ) -
+            (
+                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
+                tradingEngine.previous.balance.quotedAsset.value
+            )
+        tradingEngine.current.position.positionStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionStatistics.profitLoss.value, 10)
+
+        /* ROI Calculation */
+        tradingEngine.current.position.positionStatistics.ROI.value =
+            (
+                tradingEngine.current.position.positionStatistics.profitLoss.value
+            )
+            * 100 /
+            (
+                tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
+                tradingEngine.previous.balance.quotedAsset.value
+            )
+        tradingEngine.current.position.positionStatistics.ROI.value = global.PRECISE(tradingEngine.current.position.positionStatistics.ROI.value, 10)
+
+        /* Hit Fail Calculation */
+        if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'HIT'
+        } else {
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'FAIL'
+        }
+
         /* Days Calculation */
         tradingEngine.current.position.positionStatistics.days.value =
             tradingEngine.current.position.positionCounters.periods.value *
@@ -258,6 +292,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             tradingEngine.previous.balance.quotedAsset.value
 
         tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)
+        tradingEngine.current.position.positionQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.profitLoss.value, 10)
 
         /* ROI Calculation */
         tradingEngine.current.position.positionBaseAsset.ROI.value =
@@ -269,6 +304,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
             tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
 
         tradingEngine.current.position.positionBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.ROI.value, 10)
+        tradingEngine.current.position.positionQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.position.positionQuotedAsset.ROI.value, 10)
 
         /* Hit Fail Calculation */
         if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {

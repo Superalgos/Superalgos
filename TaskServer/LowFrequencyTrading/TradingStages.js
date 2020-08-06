@@ -992,13 +992,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function exitPositionAndStrategy() {
 
-            /* Position Statistics & Results */
-            tradingPositionModule.updateStatistics()
-            tradingPositionModule.updateResults()
-
-            updatingEpisodeAssets()
-            updatingEpisodeStatistics()
-
             /* Taking Position Snapshot */
             if (bot.SESSION.type === 'Backtesting Session') {
                 if (sessionParameters.snapshots !== undefined) {
@@ -1019,6 +1012,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             /* Close the Position */
             tradingPositionModule.closePosition()
+
+            updatingEpisodeAssets()
+            updatingEpisodeStatistics()
 
             /* Close the Strategy */
             tradingStrategyModule.closeStrategy('Position Closed')

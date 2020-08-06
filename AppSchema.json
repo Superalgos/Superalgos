@@ -3550,6 +3550,24 @@
         "propertyNameAtParent": "positionStatistics",
         "properties": [
             {
+                "name": "profitLoss",
+                "type": "node",
+                "childType": "Profit Loss",
+                "autoAdd": true
+            },
+            {
+                "name": "ROI",
+                "type": "node",
+                "childType": "ROI",
+                "autoAdd": true
+            },
+            {
+                "name": "hitFail",
+                "type": "node",
+                "childType": "Hit Fail",
+                "autoAdd": true
+            },
+            {
                 "name": "days",
                 "type": "node",
                 "childType": "Days",
@@ -4161,7 +4179,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "band",
         "propertyNameAtParent": "profitLoss"
@@ -4399,7 +4417,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "volume",
         "propertyNameAtParent": "ROI"
@@ -4467,7 +4485,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Episode Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "icon": "super-scripts",
         "propertyNameAtParent": "hitFail"

@@ -586,7 +586,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             the Position Rate, and we assign the values Above or Below to it. 
             */
             if (tradingEngine.current.position.stopLoss.stopLossPosition.value === tradingEngine.current.position.stopLoss.stopLossPosition.config.initialValue) {
-                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.rate.value) {
+                if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.entryTargetRate.value) {
                     tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Above'
                 } else {
                     tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Below'
@@ -602,7 +602,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             the Position Rates, and we assign the values Above or Below to it. 
             */
             if (tradingEngine.current.position.takeProfit.takeProfitPosition.value === tradingEngine.current.position.takeProfit.takeProfitPosition.config.initialValue) {
-                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.rate.value) {
+                if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.entryTargetRate.value) {
                     tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Above'
                 } else {
                     tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Below'
@@ -885,6 +885,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             the total filled size of the Open Stage. By skiping execution now
             we allow the open stage to get a final value for sizeFilled that we can use.
             */
+            let stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
 
             /* Exit Position size and rate */
             tradingSystem.evalFormulas(stageNode, 'Initial Targets')

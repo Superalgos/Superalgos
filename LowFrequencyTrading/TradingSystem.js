@@ -136,6 +136,12 @@ exports.newTradingSystem = function newTradingSystem(bot, logger, tradingEngineM
             included at the errors array. That means we need to do nothing here,
             just prevent the execution to be halted for not handling exceptions.
             */
+            if (typeof err === 'string' || err instanceof String) {
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
+            }
+            if (err.stack !== undefined) {
+                logger.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
+            }
         }
     }
 

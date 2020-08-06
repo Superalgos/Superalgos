@@ -68,7 +68,8 @@ function newSessionFunctions() {
             'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
             'Position Counters->Periods->' +
             'Position Statistics->Days->User Defined Statistic->' +
-            'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->Profit Loss->ROI->Hit Fail->' +
+            'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +
+            'Profit Loss->ROI->Hit Fail->' +
             'Formula->' +
             'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
             'Market Order->Limit Order->' +

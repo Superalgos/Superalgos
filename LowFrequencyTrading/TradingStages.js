@@ -922,25 +922,25 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             */
             if (
                 (
-                    tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced >=
-                    tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize
+                    tradingEngine.current.strategyCloseStage.stageBaseAsset.sizePlaced >=
+                    tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize
 
                     ||
 
-                    tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizePlaced >=
-                    tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize
+                    tradingEngine.current.strategyCloseStage.stageQuotedAsset.sizePlaced >=
+                    tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize
                 )
                 &&
                 (
-                    tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value +
-                    tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value >=
-                    tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value
+                    tradingEngine.current.strategyCloseStage.stageBaseAsset.sizeFilled.value +
+                    tradingEngine.current.strategyCloseStage.stageBaseAsset.feesPaid.value >=
+                    tradingEngine.current.strategyCloseStage.stageBaseAsset.sizePlaced.value
 
                     ||
 
-                    tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value +
-                    tradingEngine.current.strategyOpenStage.stageQuotedAsset.feesPaid.value >=
-                    tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizePlaced.value
+                    tradingEngine.current.strategyCloseStage.stageQuotedAsset.sizeFilled.value +
+                    tradingEngine.current.strategyCloseStage.stageQuotedAsset.feesPaid.value >=
+                    tradingEngine.current.strategyCloseStage.stageQuotedAsset.sizePlaced.value
                 )
             ) {
                 changeStageStatus('Close Stage', 'Closed', 'Size Placed Filled')
@@ -983,11 +983,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             /*
             Here we will transform the position size into targets for each asset of the stage.
             */
-            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.exitTargetSize.value
-            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value
+            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.exitTargetSize.value
+            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value
 
-            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
-            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
+            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = global.PRECISE(tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
         }
 
         function exitPositionAndStrategy() {

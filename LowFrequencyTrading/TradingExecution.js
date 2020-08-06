@@ -303,7 +303,9 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 }
 
                 /* Filter by what is defined at the Strategy */
-                if (tradingSystemOrder.simulatedExchangeEvents === undefined) { return }
+                if (tradingSystemOrder.simulatedExchangeEvents === undefined) {
+                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.simulatedExchangeEvents === undefined', tradingSystemOrder)
+                }
 
                 let previousBaseAssetSizeFilled = tradingEngineOrder.orderBaseAsset.sizeFilled.value
                 let previousQuotedAssetSizeFilled = tradingEngineOrder.orderQuotedAsset.sizeFilled.value

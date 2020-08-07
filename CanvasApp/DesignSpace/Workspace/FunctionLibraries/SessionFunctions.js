@@ -48,38 +48,38 @@ function newSessionFunctions() {
 
         lightingPath = '' +
             'Trading Engine->' +
-            'Dynamic Indicators->Indicator Function->Formula->' +
-            'Episode->Current->Last->Previous->' +
+            'Dynamic Indicators->Indicator Function->' +
+            'Current->Last->Previous->' +
+            'Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
-            'Periods->Strategies->Positions->Orders->Hits->Fails->' +
+            'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Anualized Rate Of Return->User Defined Statistic->' +
-            'Formula->' +
             'Candle->' +
             'Begin->End->Open->Close->Min->Max->Index->' +
             'Balance->Base Asset->Quoted Asset->' +
             'Distance To Event->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
             'Strategy->' +
-            'Serial Number->Identifier->Begin->End->Strategy Name->Index->Status->Begin Rate->End Rate->Situation Name->' +
-            'Strategy Counters->Periods->' +
+            'Strategy Counters->' +
             'Position->' +
-            'Serial Number->Identifier->Begin->End->Entry Target Rate->Exit Target Rate->Exit Type->Status->Begin Rate->End Rate->Situation Name->' +
+            'Entry Target Rate->Exit Target Rate->' +
             'Stop Loss->Stop Loss Stage->Stop Loss Phase->Stop Loss Position->' +
             'Take Profit->Take Profit Stage->Take Profit Phase->Take Profit Position->' +
-            'Position Counters->Periods->' +
+            'Position Counters->' +
             'Position Statistics->Days->User Defined Statistic->' +
             'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +
             'Profit Loss->ROI->Hit Fail->' +
-            'Formula->' +
             'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
             'Market Order->Limit Order->' +
-            'Serial Number->Identifier->Exchange Id->Begin->End->Rate->Exit Type->Status->Order Name->Algorithm Name->Situation Name->Lock->' +
-            'Order Counters->Periods->' +
+            'Exchange Id->Rate->Order Name->Algorithm Name->Lock->' +
+            'Order Counters->' +
             'Order Base Asset->Order Quoted Asset->' +
             'Size->Size Filled->Fees Paid->' +
             'Order Statistics->Percentage Filled->Actual Rate->Days->User Defined Statistic->' +
             'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
-            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->'
+            'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->' +
+            'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
+            'Index->Situation Name->Formula->Periods->'
 
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

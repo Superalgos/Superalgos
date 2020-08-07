@@ -142,8 +142,8 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function updateEpisodeCountersAndStatistics() {
-        tradingEngine.episode.episodeCounters.periods.value++
-        tradingEngine.episode.episodeStatistics.days.value = tradingEngine.episode.episodeCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
+        tradingEngine.current.episode.episodeCounters.periods.value++
+        tradingEngine.current.episode.episodeStatistics.days.value = tradingEngine.current.episode.episodeCounters.periods.value * sessionParameters.timeFrame.config.value / global.ONE_DAY_IN_MILISECONDS
     }
 
     function updateDistanceToEventsCounters() {

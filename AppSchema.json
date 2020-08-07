@@ -2478,18 +2478,6 @@
         "icon": "ethereum",
         "properties": [
             {
-                "name": "dynamicIndicators",
-                "type": "node",
-                "childType": "Dynamic Indicators",
-                "autoAdd": true
-            },
-            {
-                "name": "episode",
-                "type": "node",
-                "childType": "Episode",
-                "autoAdd": true
-            },
-            {
                 "name": "current",
                 "type": "node",
                 "childType": "Current",
@@ -2511,6 +2499,12 @@
                 "name": "exchangeOrders",
                 "type": "node",
                 "childType": "Exchange Orders",
+                "autoAdd": true
+            },
+            {
+                "name": "dynamicIndicators",
+                "type": "node",
+                "childType": "Dynamic Indicators",
                 "autoAdd": true
             }
         ]
@@ -2622,11 +2616,59 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Trading Engine->"
+            "compatibleTypes": "->Current->"
         },
         "icon": "ethereum-classic",
         "propertyNameAtParent": "episode",
         "properties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
+            {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "beginRate",
+                "type": "node",
+                "childType": "Begin Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "endRate",
+                "type": "node",
+                "childType": "End Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
             {
                 "name": "episodeBaseAsset",
                 "type": "node",
@@ -4518,33 +4560,21 @@
         "propertyNameAtParent": "current",
         "properties": [
             {
-                "name": "candle",
+                "name": "episode",
                 "type": "node",
-                "childType": "Candle",
-                "autoAdd": true
-            },
-            {
-                "name": "balance",
-                "type": "node",
-                "childType": "Balance",
-                "autoAdd": true
-            },
-            {
-                "name": "distanceToEvent",
-                "type": "node",
-                "childType": "Distance To Event",
-                "autoAdd": true
-            },
-            {
-                "name": "position",
-                "type": "node",
-                "childType": "Position",
+                "childType": "Episode",
                 "autoAdd": true
             },
             {
                 "name": "strategy",
                 "type": "node",
                 "childType": "Strategy",
+                "autoAdd": true
+            },
+            {
+                "name": "position",
+                "type": "node",
+                "childType": "Position",
                 "autoAdd": true
             },
             {
@@ -4569,6 +4599,24 @@
                 "name": "strategyCloseStage",
                 "type": "node",
                 "childType": "Strategy Close Stage",
+                "autoAdd": true
+            },
+            {
+                "name": "candle",
+                "type": "node",
+                "childType": "Candle",
+                "autoAdd": true
+            },
+            {
+                "name": "balance",
+                "type": "node",
+                "childType": "Balance",
+                "autoAdd": true
+            },
+            {
+                "name": "distanceToEvent",
+                "type": "node",
+                "childType": "Distance To Event",
                 "autoAdd": true
             }
         ]
@@ -5411,30 +5459,6 @@
                 "autoAdd": true
             },
             {
-                "name": "strategyName",
-                "type": "node",
-                "childType": "Strategy Name",
-                "autoAdd": true
-            },
-            {
-                "name": "index",
-                "type": "node",
-                "childType": "Index",
-                "autoAdd": true
-            },
-            {
-                "name": "exitType",
-                "type": "node",
-                "childType": "Exit Type",
-                "autoAdd": true
-            },
-            {
-                "name": "status",
-                "type": "node",
-                "childType": "Status",
-                "autoAdd": true
-            },
-            {
                 "name": "beginRate",
                 "type": "node",
                 "childType": "Begin Rate",
@@ -5447,9 +5471,33 @@
                 "autoAdd": true
             },
             {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
                 "name": "situationName",
                 "type": "node",
                 "childType": "Situation Name",
+                "autoAdd": true
+            },
+            {
+                "name": "index",
+                "type": "node",
+                "childType": "Index",
+                "autoAdd": true
+            },
+            {
+                "name": "strategyName",
+                "type": "node",
+                "childType": "Strategy Name",
                 "autoAdd": true
             },
             {
@@ -5557,7 +5605,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "tron",
         "propertyNameAtParent": "status"
@@ -5693,7 +5741,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "icon": "arrangement-horizontal-top",
         "propertyNameAtParent": "serialNumber"
@@ -5727,7 +5775,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "icon": "support",
         "propertyNameAtParent": "identifier"
@@ -5829,7 +5877,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "monero",
         "propertyNameAtParent": "begin"
@@ -5863,7 +5911,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Candle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "upbit",
         "propertyNameAtParent": "end"
@@ -5981,7 +6029,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "poloniex",
         "propertyNameAtParent": "beginRate"
@@ -6015,7 +6063,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "kraken",
         "propertyNameAtParent": "endRate"
@@ -6072,30 +6120,6 @@
                 "autoAdd": true
             },
             {
-                "name": "entryTargetRate",
-                "type": "node",
-                "childType": "Entry Target Rate",
-                "autoAdd": true
-            },
-            {
-                "name": "exitTargetRate",
-                "type": "node",
-                "childType": "Exit Target Rate",
-                "autoAdd": true
-            },
-            {
-                "name": "exitType",
-                "type": "node",
-                "childType": "Exit Type",
-                "autoAdd": true
-            },
-            {
-                "name": "status",
-                "type": "node",
-                "childType": "Status",
-                "autoAdd": true
-            },
-            {
                 "name": "beginRate",
                 "type": "node",
                 "childType": "Begin Rate",
@@ -6108,9 +6132,33 @@
                 "autoAdd": true
             },
             {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
                 "name": "situationName",
                 "type": "node",
                 "childType": "Situation Name",
+                "autoAdd": true
+            },
+            {
+                "name": "entryTargetRate",
+                "type": "node",
+                "childType": "Entry Target Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "exitTargetRate",
+                "type": "node",
+                "childType": "Exit Target Rate",
                 "autoAdd": true
             },
             {
@@ -6452,7 +6500,7 @@
         "addLeftIcons": true,
         "level": 3,
         "chainAttachesTo": {
-            "compatibleTypes": "->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "icon": "quality",
         "propertyNameAtParent": "exitType"

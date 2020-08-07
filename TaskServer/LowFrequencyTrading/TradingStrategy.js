@@ -28,7 +28,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
 
     function openStrategy(index, situationName, strategyName) {
         tradingEngine.current.strategy.status.value = 'Open'
-        tradingEngine.current.strategy.serialNumber.value = tradingEngine.episode.episodeCounters.strategies.value
+        tradingEngine.current.strategy.serialNumber.value = tradingEngine.current.episode.episodeCounters.strategies.value
         tradingEngine.current.strategy.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.strategy.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value

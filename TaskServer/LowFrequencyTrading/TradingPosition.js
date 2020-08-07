@@ -42,7 +42,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.current.position.status.value = 'Open'
-        tradingEngine.current.position.serialNumber.value = tradingEngine.episode.episodeCounters.positions.value
+        tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.position.beginRate.value = tradingEngine.current.candle.close.value
@@ -56,7 +56,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.takeProfit.takeProfitPhase.value = 0
 
         /* Updating Episode Counters */
-        tradingEngine.episode.episodeCounters.positions.value++
+        tradingEngine.current.episode.episodeCounters.positions.value++
 
         /* Inicializing this counter */
         tradingEngine.current.distanceToEvent.takePosition.value = 1
@@ -268,9 +268,9 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
         /* Hit Fail Calculation */
         if (tradingEngine.current.position.positionStatistics.ROI.value > 0) {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'HIT'
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'Hit'
         } else {
-            tradingEngine.current.position.positionStatistics.hitFail.value = 'FAIL'
+            tradingEngine.current.position.positionStatistics.hitFail.value = 'Fail'
         }
 
         /* Days Calculation */
@@ -308,14 +308,14 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
         /* Hit Fail Calculation */
         if (tradingEngine.current.position.positionBaseAsset.ROI.value > 0) {
-            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'HIT'
+            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Hit'
         } else {
-            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'FAIL'
+            tradingEngine.current.position.positionBaseAsset.hitFail.value = 'Fail'
         }
         if (tradingEngine.current.position.positionQuotedAsset.ROI.value > 0) {
-            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'HIT'
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Hit'
         } else {
-            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'FAIL'
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value = 'Fail'
         }
     }
 

@@ -253,7 +253,7 @@ exports.newSnapshots = function newSnapshots(bot, logger) {
 
         let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
         closeValues = [
-            tradingEngine.episode.episodeCounters.positions.value,                                             // Position Number
+            tradingEngine.current.episode.episodeCounters.positions.value,                                             // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
             (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
             tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name

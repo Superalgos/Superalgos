@@ -13,7 +13,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateTakeProfit: updateTakeProfit,
         initialTargets: initialTargets,
         updateEnds: updateEnds,
-        updateStatus: updateStatus,
+        resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
         resetPosition: resetPosition,
         initialize: initialize,
@@ -46,7 +46,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
         tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
         tradingEngine.current.position.beginRate.value = tradingEngine.current.candle.close.value
-        tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
         tradingEngine.current.position.situationName.value = situationName
 
         /* Initializing Stop and Take Profit Stage / Phase */
@@ -225,10 +224,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function updateEnds() {
         if (tradingEngine.current.position.status.value === 'Open') {
             tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
         }
     }
 
-    function updateStatus() {
+    function resetTradingEngineDataStructure() {
         if (tradingEngine.current.position.status.value === 'Closed') {
             resetPosition()
         }

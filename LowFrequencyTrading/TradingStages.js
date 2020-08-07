@@ -1103,15 +1103,19 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     function updateEnds() {
         if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
             tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.candle.close.value
         }
         if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
             tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.candle.close.value
         }
         if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
             tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.candle.close.value
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Open') {
             tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.candle.end.value
+            tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.candle.close.value
         }
     }
 

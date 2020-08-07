@@ -203,7 +203,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                     tradingStrategyModule.openStrategy(j, situation.name, strategy.name)
 
                                     /* Updating Episode Counters */
-                                    tradingEngine.episode.episodeCounters.strategies.value++
+                                    tradingEngine.current.episode.episodeCounters.strategies.value++
 
                                     /* Initialize this */
                                     tradingEngine.current.distanceToEvent.triggerOn.value = 1
@@ -1027,112 +1027,112 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
                 /* Updating Hits & Fails */
                 if (tradingEngine.current.position.positionBaseAsset.profitLoss.value > 0) {
-                    tradingEngine.episode.episodeBaseAsset.hits.value++
+                    tradingEngine.current.episode.episodeBaseAsset.hits.value++
                 } else {
-                    tradingEngine.episode.episodeBaseAsset.fails.value++
+                    tradingEngine.current.episode.episodeBaseAsset.fails.value++
                 }
                 if (tradingEngine.current.position.positionQuotedAsset.profitLoss.value > 0) {
-                    tradingEngine.episode.episodeQuotedAsset.hits.value++
+                    tradingEngine.current.episode.episodeQuotedAsset.hits.value++
                 } else {
-                    tradingEngine.episode.episodeQuotedAsset.fails.value++
+                    tradingEngine.current.episode.episodeQuotedAsset.fails.value++
                 }
 
                 /* Updating Profit Loss */
-                tradingEngine.episode.episodeBaseAsset.profitLoss.value =
+                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value =
                     tradingEngine.current.balance.baseAsset.value -
                     sessionParameters.sessionBaseAsset.config.initialBalance
 
-                tradingEngine.episode.episodeQuotedAsset.profitLoss.value =
+                tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value =
                     tradingEngine.current.balance.quotedAsset.value -
                     sessionParameters.sessionQuotedAsset.config.initialBalance
 
-                tradingEngine.episode.episodeBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.profitLoss.value, 10)
-                tradingEngine.episode.episodeQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.profitLoss.value, 10)
+                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.profitLoss.value, 10)
+                tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value, 10)
 
                 /* Updating ROI */
-                tradingEngine.episode.episodeBaseAsset.ROI.value =
-                    (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.episode.episodeBaseAsset.profitLoss.value) /
+                tradingEngine.current.episode.episodeBaseAsset.ROI.value =
+                    (sessionParameters.sessionBaseAsset.config.initialBalance + tradingEngine.current.episode.episodeBaseAsset.profitLoss.value) /
                     sessionParameters.sessionBaseAsset.config.initialBalance - 1
 
-                tradingEngine.episode.episodeQuotedAsset.ROI.value =
-                    (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.episode.episodeQuotedAsset.profitLoss.value) /
+                tradingEngine.current.episode.episodeQuotedAsset.ROI.value =
+                    (sessionParameters.sessionQuotedAsset.config.initialBalance + tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value) /
                     sessionParameters.sessionQuotedAsset.config.initialBalance - 1
 
-                tradingEngine.episode.episodeBaseAsset.ROI.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.ROI.value, 10)
-                tradingEngine.episode.episodeQuotedAsset.ROI.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.ROI.value, 10)
+                tradingEngine.current.episode.episodeBaseAsset.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.ROI.value, 10)
+                tradingEngine.current.episode.episodeQuotedAsset.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.ROI.value, 10)
 
                 /* Updating Hit Ratio */
-                tradingEngine.episode.episodeBaseAsset.hitRatio.value =
-                    tradingEngine.episode.episodeBaseAsset.hits.value /
-                    tradingEngine.episode.episodeCounters.positions.value
+                tradingEngine.current.episode.episodeBaseAsset.hitRatio.value =
+                    tradingEngine.current.episode.episodeBaseAsset.hits.value /
+                    tradingEngine.current.episode.episodeCounters.positions.value
 
-                tradingEngine.episode.episodeQuotedAsset.hitRatio.value =
-                    tradingEngine.episode.episodeQuotedAsset.hits.value /
-                    tradingEngine.episode.episodeCounters.positions.value
+                tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value =
+                    tradingEngine.current.episode.episodeQuotedAsset.hits.value /
+                    tradingEngine.current.episode.episodeCounters.positions.value
 
-                tradingEngine.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.hitRatio.value, 10)
-                tradingEngine.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.hitRatio.value, 10)
+                tradingEngine.current.episode.episodeBaseAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.hitRatio.value, 10)
+                tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.hitRatio.value, 10)
 
                 /* Updating Anualized Rate Of Return */
-                tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value =
-                    tradingEngine.episode.episodeBaseAsset.ROI.value /
-                    tradingEngine.episode.episodeStatistics.days.value * 365
+                tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value =
+                    tradingEngine.current.episode.episodeBaseAsset.ROI.value /
+                    tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-                tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value =
-                    tradingEngine.episode.episodeQuotedAsset.ROI.value /
-                    tradingEngine.episode.episodeStatistics.days.value * 365
+                tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value =
+                    tradingEngine.current.episode.episodeQuotedAsset.ROI.value /
+                    tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-                tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeBaseAsset.anualizedRateOfReturn.value, 10)
-                tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeQuotedAsset.anualizedRateOfReturn.value, 10)
+                tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.anualizedRateOfReturn.value, 10)
+                tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.anualizedRateOfReturn.value, 10)
 
                 /* Updating Hit or Fail */
-                if (tradingEngine.episode.episodeBaseAsset.profitLoss.value > 0) {
-                    tradingEngine.episode.episodeBaseAsset.hitFail.value = 'Hit'
+                if (tradingEngine.current.episode.episodeBaseAsset.profitLoss.value > 0) {
+                    tradingEngine.current.episode.episodeBaseAsset.hitFail.value = 'Hit'
                 } else {
-                    tradingEngine.episode.episodeBaseAsset.hitFail.value = 'Fail'
+                    tradingEngine.current.episode.episodeBaseAsset.hitFail.value = 'Fail'
                 }
-                if (tradingEngine.episode.episodeQuotedAsset.profitLoss.value > 0) {
-                    tradingEngine.episode.episodeQuotedAsset.hitFail.value = 'Hit'
+                if (tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value > 0) {
+                    tradingEngine.current.episode.episodeQuotedAsset.hitFail.value = 'Hit'
                 } else {
-                    tradingEngine.episode.episodeQuotedAsset.hitFail.value = 'Fail'
+                    tradingEngine.current.episode.episodeQuotedAsset.hitFail.value = 'Fail'
                 }
             }
 
             function updatingEpisodeStatistics() {
 
                 /* Updating Profit Loss */
-                tradingEngine.episode.episodeStatistics.profitLoss.value =
-                    tradingEngine.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
-                    tradingEngine.episode.episodeQuotedAsset.profitLoss.value
+                tradingEngine.current.episode.episodeStatistics.profitLoss.value =
+                    tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+                    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
 
-                tradingEngine.episode.episodeStatistics.profitLoss.value = global.PRECISE(tradingEngine.episode.episodeStatistics.profitLoss.value, 10)
+                tradingEngine.current.episode.episodeStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.profitLoss.value, 10)
 
                 /* Updating ROI */
-                tradingEngine.episode.episodeStatistics.ROI.value =
+                tradingEngine.current.episode.episodeStatistics.ROI.value =
                     (
                         sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
-                        tradingEngine.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+                        tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
                         sessionParameters.sessionQuotedAsset.config.initialBalance +
-                        tradingEngine.episode.episodeQuotedAsset.profitLoss.value
+                        tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
                     ) / (
                         sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
                         sessionParameters.sessionQuotedAsset.config.initialBalance
                     ) - 1
 
-                tradingEngine.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.episode.episodeStatistics.ROI.value, 10)
+                tradingEngine.current.episode.episodeStatistics.ROI.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.ROI.value, 10)
 
                 /* Updating Anualized Rate Of Return */
-                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value =
-                    tradingEngine.episode.episodeStatistics.ROI.value /
-                    tradingEngine.episode.episodeStatistics.days.value * 365
+                tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value =
+                    tradingEngine.current.episode.episodeStatistics.ROI.value /
+                    tradingEngine.current.episode.episodeStatistics.days.value * 365
 
-                tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.episode.episodeStatistics.anualizedRateOfReturn.value, 10)
+                tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.anualizedRateOfReturn.value, 10)
 
                 /* Updating Hit or Fail */
-                if (tradingEngine.episode.episodeStatistics.profitLoss.value > 0) {
-                    tradingEngine.episode.episodeStatistics.hitFail.value = 'Hit'
+                if (tradingEngine.current.episode.episodeStatistics.profitLoss.value > 0) {
+                    tradingEngine.current.episode.episodeStatistics.hitFail.value = 'Hit'
                 } else {
-                    tradingEngine.episode.episodeStatistics.hitFail.value = 'Fail'
+                    tradingEngine.current.episode.episodeStatistics.hitFail.value = 'Fail'
                 }
             }
         }

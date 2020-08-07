@@ -188,7 +188,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 tradingEngineStage.stageQuotedAsset.sizePlaced.value = global.PRECISE(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
                 /* Updating Episode Counters */
-                tradingEngine.episode.episodeCounters.orders.value++
+                tradingEngine.current.episode.episodeCounters.orders.value++
 
                 /* Initialize this */
                 tradingEngine.current.distanceToEvent.createOrder.value = 1
@@ -198,7 +198,7 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                 tradingEngineOrder.identifier.value = global.UNIQUE_ID()
                 tradingEngineOrder.begin.value = tradingEngine.current.candle.begin.value
                 tradingEngineOrder.end.value = tradingEngine.current.candle.end.value
-                tradingEngineOrder.serialNumber.value = tradingEngine.episode.episodeCounters.orders.value
+                tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
                 tradingEngineOrder.orderName.value = tradingSystemOrder.name
                 tradingEngineOrder.algorithmName.value = executionAlgorithm.name
                 tradingEngineOrder.situationName.value = situationName

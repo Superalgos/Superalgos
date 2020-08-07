@@ -71,7 +71,12 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                 /*
                 The product root can be a node or a node property of type array.
                 */
-                let productRoot = eval(product.config.nodePath)
+                let productRoot
+                try {
+                    productRoot = eval(product.config.nodePath)
+                } catch (err) {
+                    badDefinitionUnhandledException(err, 'Cannot get productRoot -> nodePath = ' + product.config.nodePath, product, undefined)
+                }
 
                 if (product.config.nodePathType === 'array') {
                     /* 
@@ -122,7 +127,7 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
-                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath.', product, recordProperty)
+                        badDefinitionUnhandledException(err, 'Error Evaluation Record Property nodePath -> nodePath = ' + recordProperty.config.nodePath, product, recordProperty)
                     }
                 }
                 /* 
@@ -330,11 +335,19 @@ exports.newTradingRecords = function newTradingRecords(bot, logger) {
     }
 
     function badDefinitionUnhandledException(err, message, product, recordProperty) {
-        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> " + message);
-        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> product.name = " + product.name);
-        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.name = " + recordProperty.name);
-        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> recordProperty.config.codeName = " + recordProperty.config.codeName);
-        logger.write(MODULE_NAME, "[ERROR] appendRecords -> scanRecordDefinition -> Error at Record Property Definition -> err.stack = " + err.stack);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> " + message);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> product.name = " + product.name);
+        logger.write(MODULE_NAME, "[ERROR] appendRecords -> product.config = " + JSON.stringify(product.config));
+
+        if (recordProperty) {
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.name = " + recordProperty.name);
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.config.codeName = " + recordProperty.config.codeName);
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> recordProperty.config = " + JSON.stringify(recordProperty.config));
+        }
+
+        if (err) {
+            logger.write(MODULE_NAME, "[ERROR] appendRecords -> err.stack = " + err.stack);
+        }
         throw 'Can not continue with a Definition Error like this.'
     }
 }

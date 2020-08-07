@@ -157,14 +157,14 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 if (bot.STOP_SESSION === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.') }
                     console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
-                    closeEpisode('Session Stopped')
+                    updateEpisode('Session Stopped')
                     return
                 }
 
                 if (global.STOP_TASK_GRACEFULLY === true) {
                     if (FULL_LOG === true) { logger.write(MODULE_NAME, '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.') }
                     console.log('[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
-                    closeEpisode('Task Stopped')
+                    updateEpisode('Task Stopped')
                     return
                 }
 
@@ -182,8 +182,17 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
             }
 
             function closeEpisode(exitType) {
-                tradingEpisodeModule.closingEpisode(exitType)
+                tradingEpisodeModule.updateExitType(exitType)
                 tradingEpisodeModule.closeEpisode()
+
+                /* Add new records to the process output */
+                tradingRecordsModule.appendRecords()
+
+                afterLoop()
+            }
+
+            function updateEpisode(exitType) {
+                tradingEpisodeModule.updateExitType(exitType)
 
                 /* Add new records to the process output */
                 tradingRecordsModule.appendRecords()

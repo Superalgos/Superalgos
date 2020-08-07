@@ -14,7 +14,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
         updateStatistics: updateStatistics,
-        resetStage: resetStage,
         initialize: initialize,
         finalize: finalize
     }
@@ -1101,10 +1100,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
         }
     }
 
-    function resetStage(stage) {
-        stage.initialize(stage)
-    }
-
     function updateEnds() {
         if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
             tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.candle.end.value
@@ -1135,6 +1130,10 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             resetStage(tradingEngine.current.strategyOpenStage)
             resetStage(tradingEngine.current.strategyManageStage)
             resetStage(tradingEngine.current.strategyCloseStage)
+        }
+
+        function resetStage(stage) {
+            stage.initialize(stage)
         }
     }
 

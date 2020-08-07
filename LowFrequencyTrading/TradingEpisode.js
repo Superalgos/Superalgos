@@ -5,7 +5,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
     const MODULE_NAME = 'Trading Episode'
     let thisObject = {
         openEpisode: openEpisode,
-        closingEpisode: closingEpisode,
+        updateExitType: updateExitType,
         closeEpisode: closeEpisode,
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
@@ -45,8 +45,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
         tradingEngine.current.episode.beginRate.value = tradingEngine.current.candle.close.value
     }
 
-    function closingEpisode(exitType) {
-        tradingEngine.current.episode.status.value = 'Closing'
+    function updateExitType(exitType) {
         tradingEngine.current.episode.exitType.value = exitType
     }
 

@@ -9,7 +9,6 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
-        resetStrategy: resetStrategy,
         initialize: initialize,
         finalize: finalize
     }
@@ -53,10 +52,6 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
         tradingEngineModule.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 
-    function resetStrategy() {
-        tradingEngine.current.strategy.initialize(tradingEngine.current.strategy)
-    }
-
     function updateEnds() {
         if (tradingEngine.current.strategy.status.value === 'Open') {
             tradingEngine.current.strategy.end.value = tradingEngine.current.candle.end.value
@@ -66,7 +61,7 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.strategy.status.value === 'Closed') {
-            resetStrategy()
+            tradingEngine.current.strategy.initialize(tradingEngine.current.strategy)
         }
     }
 

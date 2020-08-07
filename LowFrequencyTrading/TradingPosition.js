@@ -15,7 +15,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         updateEnds: updateEnds,
         resetTradingEngineDataStructure: resetTradingEngineDataStructure,
         updateCounters: updateCounters,
-        resetPosition: resetPosition,
         initialize: initialize,
         finalize: finalize
     }
@@ -78,10 +77,6 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
         tradingEngineModule.cloneValues(tradingEngine.current.position, tradingEngine.last.position)
-    }
-
-    function resetPosition() {
-        tradingEngine.current.position.initialize(tradingEngine.current.position)
     }
 
     function applyStopLossFormula(formulas, formulaId) {
@@ -230,7 +225,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.current.position.status.value === 'Closed') {
-            resetPosition()
+            tradingEngine.current.position.initialize(tradingEngine.current.position)
         }
     }
 

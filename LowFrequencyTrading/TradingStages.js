@@ -86,66 +86,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     function mantain() {
         tradingPositionModule.mantain()
         tradingStrategyModule.mantain()
-        mantainStages()
-        mantainOrders()
+        tradingExecutionModule.mantain()
 
-        function mantainStages() {
-            resetTradingEngineDataStructure()
-            updateCounters()
-            updateEnds()
-        }
-
-        function mantainOrders() {
-            /* Reset All Exchange Orders that are on Closed status, to their initial value */
-            if (tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue) { return }
-
-            let stageNode
-            let executionNode
-
-            stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
-            executionNode = stageNode.openExecution
-            resetExecution(executionNode, tradingEngine.current.strategyOpenStage.status.value)
-
-            stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
-            executionNode = stageNode.closeExecution
-            resetExecution(executionNode, tradingEngine.current.strategyCloseStage.status.value)
-
-            function resetExecution(executionNode, stageStatus) {
-
-                resetExecutionAlgorithms(executionNode)
-
-                function resetExecutionAlgorithms(executionNode) {
-                    for (let i = 0; i < executionNode.executionAlgorithms.length; i++) {
-                        let executionAlgorithm = executionNode.executionAlgorithms[i]
-                        resetOrders(executionAlgorithm.marketBuyOrders)
-                        resetOrders(executionAlgorithm.marketSellOrders)
-                        resetOrders(executionAlgorithm.limitBuyOrders)
-                        resetOrders(executionAlgorithm.limitSellOrders)
-                    }
-                }
-
-                function resetOrders(orders) {
-                    for (let i = 0; i < orders.length; i++) {
-                        let tradingSystemOrder = orders[i]
-                        if (tradingSystemOrder.referenceParent === undefined) { continue }
-                        let tradingEngineOrder = tradingEngineModule.getNodeById(tradingSystemOrder.referenceParent.id)
-                        if (tradingEngineOrder.status === undefined) { continue }
-                        if (tradingEngineOrder.status.value === 'Closed') {
-                            /* We reset the order data structure inside the Trading Engine to its initial value */
-                            tradingEngineOrder.initialize(tradingEngineOrder)
-                            if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
-                                /* 
-                                We close the lock so as to prevent this data structure to be used again during this same stage execution.
-                                 */
-                                if (stageStatus === 'Open') {
-                                    tradingEngineOrder.lock.value = 'Closed'
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        resetTradingEngineDataStructure()
+        updateCounters()
+        updateEnds()
     }
 
     function runTriggerStage() {
@@ -344,7 +289,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             await tradingExecutionModule.runExecution(
                 executionNode,
-                false,
                 tradingEngine.current.strategyOpenStage
             )
 
@@ -368,7 +312,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             await tradingExecutionModule.runExecution(
                 executionNode,
-                false,
                 tradingEngine.current.strategyOpenStage
             )
             /*
@@ -429,7 +372,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             await tradingExecutionModule.runExecution(
                 executionNode,
-                true,
                 tradingEngine.current.strategyOpenStage
             )
 
@@ -899,7 +841,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
             await tradingExecutionModule.runExecution(
                 executionNode,
-                false,
                 tradingEngine.current.strategyCloseStage
             )
 

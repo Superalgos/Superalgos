@@ -85,15 +85,9 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
     function mantain() {
         mantainPositions()
-        mantainStrategies()
+        tradingStrategyModule.mantain()
         mantainStages()
         mantainOrders()
-
-        function mantainStrategies() {
-            tradingStrategyModule.resetTradingEngineDataStructure()
-            tradingStrategyModule.updateCounters()
-            tradingStrategyModule.updateEnds()
-        }
 
         function mantainStages() {
             resetTradingEngineDataStructure()
@@ -342,8 +336,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingSystem.evalFormulas(stageNode, 'Initial Definition')
 
             /* Remember the balance we had before taking the position to later calculate profit or loss */
-            tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.balance.baseAsset.value
-            tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.balance.quotedAsset.value
+            tradingEngine.previous.balance.baseAsset.value = tradingEngine.current.episode.balance.baseAsset.value
+            tradingEngine.previous.balance.quotedAsset.value = tradingEngine.current.episode.balance.quotedAsset.value
 
             /* Entry Position size and rate */
             tradingSystem.evalFormulas(stageNode, 'Initial Targets')

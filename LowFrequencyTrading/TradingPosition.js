@@ -240,8 +240,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         /* Profit Loss Calculation */
         tradingEngine.current.position.positionStatistics.profitLoss.value =
             (
-                tradingEngine.current.balance.baseAsset.value * tradingEngine.current.position.endRate.value +
-                tradingEngine.current.balance.quotedAsset.value
+                tradingEngine.current.episode.balance.baseAsset.value * tradingEngine.current.position.endRate.value +
+                tradingEngine.current.episode.balance.quotedAsset.value
             ) -
             (
                 tradingEngine.previous.balance.baseAsset.value * tradingEngine.current.position.beginRate.value +
@@ -279,11 +279,11 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     function updateResults() {
         /* Profit Loss Calculation */
         tradingEngine.current.position.positionBaseAsset.profitLoss.value =
-            tradingEngine.current.balance.baseAsset.value -
+            tradingEngine.current.episode.balance.baseAsset.value -
             tradingEngine.previous.balance.baseAsset.value
 
         tradingEngine.current.position.positionQuotedAsset.profitLoss.value =
-            tradingEngine.current.balance.quotedAsset.value -
+            tradingEngine.current.episode.balance.quotedAsset.value -
             tradingEngine.previous.balance.quotedAsset.value
 
         tradingEngine.current.position.positionBaseAsset.profitLoss.value = global.PRECISE(tradingEngine.current.position.positionBaseAsset.profitLoss.value, 10)

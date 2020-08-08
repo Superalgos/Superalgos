@@ -4,11 +4,9 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
     */
     const MODULE_NAME = 'Trading Strategy'
     let thisObject = {
+        mantain: mantain,
         openStrategy: openStrategy,
         closeStrategy: closeStrategy,
-        updateEnds: updateEnds,
-        resetTradingEngineDataStructure: resetTradingEngineDataStructure,
-        updateCounters: updateCounters,
         initialize: initialize,
         finalize: finalize
     }
@@ -23,6 +21,12 @@ exports.newTradingStrategy = function newTradingStrategy(bot, logger, tradingEng
 
     function finalize() {
         tradingEngine = undefined
+    }
+
+    function mantain() {
+        resetTradingEngineDataStructure()
+        updateCounters()
+        updateEnds()
     }
 
     function openStrategy(index, situationName, strategyName) {

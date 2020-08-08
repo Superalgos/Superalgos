@@ -390,7 +390,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     let stopRunningDate = (new Date(tradingEngine.current.candle.begin.value)).toLocaleString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.current.balance.baseAsset.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                        if (tradingEngine.current.episode.balance.baseAsset.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -399,7 +399,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
-                        if (tradingEngine.current.balance.baseAsset.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
+                        if (tradingEngine.current.episode.balance.baseAsset.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -408,7 +408,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.current.balance.quotedAsset.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
+                        if (tradingEngine.current.episode.balance.quotedAsset.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }
@@ -417,7 +417,7 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
-                        if (tradingEngine.current.balance.quotedAsset.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
+                        if (tradingEngine.current.episode.balance.quotedAsset.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
                             tradingSystem.errors.push([tradingSystem.id, errorMessage])
                             if (FULL_LOG === true) { logger.write(MODULE_NAME, '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage) }

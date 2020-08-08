@@ -20,15 +20,16 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     return thisObject
 
     function initialize() {
-        /* Here we will go through all the nodes in the Trading Engine hiriarchy and apply the initial value to the value property when needed */
 
         tradingEngine = bot.simulationState.tradingEngine
         sessionParameters = bot.SESSION.parameters
 
         if (bot.FIRST_EXECUTION === true) {
+            /* 
+            Here we will go through all the nodes in the Trading Engine hiriarchy and
+            apply the initial value to the value property when needed 
+             */
             initializeNode(tradingEngine)
-            tradingEngine.current.balance.baseAsset.value = sessionParameters.sessionBaseAsset.config.initialBalance
-            tradingEngine.current.balance.quotedAsset.value = sessionParameters.sessionQuotedAsset.config.initialBalance
         }
     }
 

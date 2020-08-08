@@ -196,7 +196,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                     tradingStrategyModule.openStrategy(j, situation.name, strategy.name)
 
                                     /* Initialize this */
-                                    tradingEngine.current.distanceToEvent.triggerOn.value = 1
+                                    tradingEngine.current.episode.distanceToEvent.triggerOn.value = 1
 
                                     announcementsModule.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModule.makeAnnoucements(triggerStage)
@@ -243,7 +243,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                                 tradingSystem.highlights.push(triggerStage.triggerOff.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingEngine.current.distanceToEvent.triggerOff.value = 1
+                                tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
                                 announcementsModule.makeAnnoucements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed')
                                 tradingStrategyModule.closeStrategy('Trigger Off')
@@ -826,11 +826,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 if (
                     (
                         tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Above' &&
-                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.stopLoss.value
+                        tradingEngine.current.episode.candle.max.value >= tradingEngine.current.position.stopLoss.value
                     ) ||
                     (
                         tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Below' &&
-                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.stopLoss.value
+                        tradingEngine.current.episode.candle.min.value <= tradingEngine.current.position.stopLoss.value
                     )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
@@ -846,11 +846,11 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
                 if (
                     (
                         tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Below' &&
-                        tradingEngine.current.candle.min.value <= tradingEngine.current.position.takeProfit.value
+                        tradingEngine.current.episode.candle.min.value <= tradingEngine.current.position.takeProfit.value
                     ) ||
                     (
                         tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Above' &&
-                        tradingEngine.current.candle.max.value >= tradingEngine.current.position.takeProfit.value
+                        tradingEngine.current.episode.candle.max.value >= tradingEngine.current.position.takeProfit.value
                     )
                 ) {
                     logger.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
@@ -1010,8 +1010,8 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             tradingStrategyModule.closeStrategy('Position Closed')
 
             /* Distance to Events Updates */
-            tradingEngine.current.distanceToEvent.closePosition.value = 1
-            tradingEngine.current.distanceToEvent.triggerOff.value = 1
+            tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
+            tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
 
         }
     }
@@ -1076,34 +1076,34 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
 
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.candle.begin.value
-            stage.beginRate.value = tradingEngine.current.candle.close.value
-            stage.end.value = tradingEngine.current.candle.end.value
+            stage.begin.value = tradingEngine.current.episode.candle.begin.value
+            stage.beginRate.value = tradingEngine.current.episode.candle.close.value
+            stage.end.value = tradingEngine.current.episode.candle.end.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.current.candle.end.value
-            stage.endRate.value = tradingEngine.current.candle.close.value
+            stage.end.value = tradingEngine.current.episode.candle.end.value
+            stage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
     function updateEnds() {
         if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
-            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
-            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
-            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
         if (tradingEngine.current.strategyCloseStage.status.value === 'Open') {
-            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 

@@ -58,8 +58,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
             tradingEngine.current.episode.status.value = 'Open'
             tradingEngine.current.episode.serialNumber.value = 1
             tradingEngine.current.episode.identifier.value = global.UNIQUE_ID()
-            tradingEngine.current.episode.begin.value = tradingEngine.current.candle.begin.value
-            tradingEngine.current.episode.beginRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.episode.begin.value = tradingEngine.current.episode.candle.begin.value
+            tradingEngine.current.episode.beginRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
@@ -69,8 +69,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
 
     function closeEpisode() {
         tradingEngine.current.episode.status.value = 'Closed'
-        tradingEngine.current.episode.end.value = tradingEngine.current.candle.end.value
-        tradingEngine.current.episode.endRate.value = tradingEngine.current.candle.close.value
+        tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.episode.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.episode.episodeBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.episode.episodeQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
     }
@@ -81,8 +81,8 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
 
     function updateEnds() {
         if (tradingEngine.current.episode.status.value === 'Open') {
-            tradingEngine.current.episode.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.episode.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.episode.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.episode.endRate.value = tradingEngine.current.episode.candle.close.value
             tradingEngine.current.episode.episodeBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
             tradingEngine.current.episode.episodeQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         }
@@ -113,7 +113,7 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
 
         /* Updating Profit Loss */
         tradingEngine.current.episode.episodeStatistics.profitLoss.value =
-            tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+            tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.episode.candle.close.value +
             tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
 
         tradingEngine.current.episode.episodeStatistics.profitLoss.value = global.PRECISE(tradingEngine.current.episode.episodeStatistics.profitLoss.value, 10)
@@ -121,12 +121,12 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
         /* Updating ROI */
         tradingEngine.current.episode.episodeStatistics.ROI.value =
             (
-                sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
-                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.candle.close.value +
+                sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.episode.candle.close.value +
+                tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * tradingEngine.current.episode.candle.close.value +
                 sessionParameters.sessionQuotedAsset.config.initialBalance +
                 tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value
             ) / (
-                sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.candle.close.value +
+                sessionParameters.sessionBaseAsset.config.initialBalance * tradingEngine.current.episode.candle.close.value +
                 sessionParameters.sessionQuotedAsset.config.initialBalance
             ) - 1
 

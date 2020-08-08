@@ -50,8 +50,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.position.status.value = 'Open'
         tradingEngine.current.position.serialNumber.value = tradingEngine.current.episode.episodeCounters.positions.value
         tradingEngine.current.position.identifier.value = global.UNIQUE_ID()
-        tradingEngine.current.position.begin.value = tradingEngine.current.candle.begin.value
-        tradingEngine.current.position.beginRate.value = tradingEngine.current.candle.close.value
+        tradingEngine.current.position.begin.value = tradingEngine.current.episode.candle.begin.value
+        tradingEngine.current.position.beginRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.beginBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.beginBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         tradingEngine.current.position.situationName.value = situationName
@@ -66,7 +66,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine.current.episode.episodeCounters.positions.value++
 
         /* Inicializing this counter */
-        tradingEngine.current.distanceToEvent.takePosition.value = 1
+        tradingEngine.current.episode.distanceToEvent.takePosition.value = 1
     }
 
     function closingPosition(exitType) {
@@ -76,8 +76,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function closePosition() {
         tradingEngine.current.position.status.value = 'Closed'
-        tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-        tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
+        tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+        tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
         tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
         tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
 
@@ -229,8 +229,8 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
 
     function updateEnds() {
         if (tradingEngine.current.position.status.value === 'Open') {
-            tradingEngine.current.position.end.value = tradingEngine.current.candle.end.value
-            tradingEngine.current.position.endRate.value = tradingEngine.current.candle.close.value
+            tradingEngine.current.position.end.value = tradingEngine.current.episode.candle.end.value
+            tradingEngine.current.position.endRate.value = tradingEngine.current.episode.candle.close.value
             tradingEngine.current.position.positionBaseAsset.endBalance.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
             tradingEngine.current.position.positionQuotedAsset.endBalance.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
         }

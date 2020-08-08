@@ -4,6 +4,7 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
     */
     const MODULE_NAME = 'Trading Position'
     let thisObject = {
+        mantain: mantain,
         openPosition: openPosition,
         closingPosition: closingPosition,
         closePosition: closePosition,
@@ -35,6 +36,12 @@ exports.newTradingPosition = function newTradingPosition(bot, logger, tradingEng
         tradingEngine = undefined
         tradingSystem = undefined
         sessionParameters = undefined
+    }
+
+    function mantain() {
+        resetTradingEngineDataStructure()
+        updateCounters()
+        updateEnds()
     }
 
     function openPosition(situationName) {

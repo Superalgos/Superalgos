@@ -4,13 +4,10 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
     */
     const MODULE_NAME = 'Trading Episode'
     let thisObject = {
+        mantain: mantain,
         openEpisode: openEpisode,
         updateExitType: updateExitType,
         closeEpisode: closeEpisode,
-        updateEnds: updateEnds,
-        resetTradingEngineDataStructure: resetTradingEngineDataStructure,
-        updateCounters: updateCounters,
-        updateStatistics: updateStatistics,
         calculateResults: calculateResults,
         calculateStatistics: calculateStatistics,
         initialize: initialize,
@@ -33,6 +30,13 @@ exports.newTradingEpisode = function newTradingEpisode(bot, logger) {
         tradingEngine = undefined
         tradingSystem = undefined
         sessionParameters = undefined
+    }
+
+    function mantain() {
+        resetTradingEngineDataStructure()
+        updateCounters()
+        updateStatistics()
+        updateEnds()
     }
 
     function openEpisode() {

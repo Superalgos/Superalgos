@@ -84,7 +84,7 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
     }
 
     function mantain() {
-        mantainPositions()
+        tradingPositionModule.mantain()
         tradingStrategyModule.mantain()
         mantainStages()
         mantainOrders()
@@ -93,12 +93,6 @@ exports.newTradingStages = function newTradingStages(bot, logger, tradingEngineM
             resetTradingEngineDataStructure()
             updateCounters()
             updateEnds()
-        }
-
-        function mantainPositions() {
-            tradingPositionModule.resetTradingEngineDataStructure()
-            tradingPositionModule.updateCounters()
-            tradingPositionModule.updateEnds()
         }
 
         function mantainOrders() {

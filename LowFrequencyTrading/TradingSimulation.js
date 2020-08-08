@@ -140,11 +140,11 @@ exports.newTradingSimulation = function newTradingSimulation(bot, logger, UTILIT
                 /* Do the stuff needed previous to the run */
                 tradingSystemModule.mantain()
 
-                /* Episode Counters and Statistics */
-                tradingEpisodeModule.updateCounters()
-                tradingEpisodeModule.updateStatistics()
+                /* Episode Counters and Statistics update */
+                tradingEpisodeModule.mantain()
 
-                tradingEngineModule.updateDistanceToEventsCounters()
+                /* Run your maintaince procedure */
+                tradingEngineModule.mantain()
 
                 /* Run one cycle of the Trading System*/
                 await tradingSystemModule.run()

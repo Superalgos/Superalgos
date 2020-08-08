@@ -78,7 +78,7 @@ function newSessionFunctions() {
             'Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->' +
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
-            'Balance->Begin Balance->End Balance->Base Asset->Quoted Asset->' +
+            'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->'
 
         let tradingEngine = functionLibraryProtocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)

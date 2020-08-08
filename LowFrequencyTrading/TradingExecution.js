@@ -657,24 +657,24 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
 
                             /* Balance Base Asset: Undo the previous accounting */
-                            tradingEngine.current.episode.balance.baseAsset.value =
-                                tradingEngine.current.episode.balance.baseAsset.value -
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value -
                                 previousBaseAssetSizeFilled
 
                             /* Balance Base Asset: Account the current filling and fees */
-                            tradingEngine.current.episode.balance.baseAsset.value =
-                                tradingEngine.current.episode.balance.baseAsset.value +
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value +
                                 tradingEngineOrder.orderBaseAsset.sizeFilled.value
 
                             /* Balance Quoted Asset: Undo the previous accounting */
-                            tradingEngine.current.episode.balance.quotedAsset.value =
-                                tradingEngine.current.episode.balance.quotedAsset.value +
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                                 previousQuotedAssetSizeFilled +
                                 previousQuotedAssetFeesPaid
 
                             /* Balance Quoted Asset: Account the current filling and fees */
-                            tradingEngine.current.episode.balance.quotedAsset.value =
-                                tradingEngine.current.episode.balance.quotedAsset.value -
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                                 tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                                 tradingEngineOrder.orderQuotedAsset.feesPaid.value
                             break
@@ -682,31 +682,31 @@ exports.newTradingExecution = function newTradingExecution(bot, logger, tradingE
                         case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                             /* Balance Base Asset: Undo the previous accounting */
-                            tradingEngine.current.episode.balance.baseAsset.value =
-                                tradingEngine.current.episode.balance.baseAsset.value +
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value +
                                 previousBaseAssetSizeFilled +
                                 previousBaseAssetFeesPaid
 
                             /* Balance Base Asset: Account the current filling and fees */
-                            tradingEngine.current.episode.balance.baseAsset.value =
-                                tradingEngine.current.episode.balance.baseAsset.value -
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                                tradingEngine.current.episode.episodeBaseAsset.balance.value -
                                 tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                                 tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                             /* Balance Quoted Asset: Undo the previous accounting */
-                            tradingEngine.current.episode.balance.quotedAsset.value =
-                                tradingEngine.current.episode.balance.quotedAsset.value -
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                                 previousQuotedAssetSizeFilled
 
                             /* Balance Quoted Asset: Account the current filling and fees */
-                            tradingEngine.current.episode.balance.quotedAsset.value =
-                                tradingEngine.current.episode.balance.quotedAsset.value +
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                                tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                                 tradingEngineOrder.orderQuotedAsset.sizeFilled.value
                             break
                         }
                     }
-                    tradingEngine.current.episode.balance.baseAsset.value = global.PRECISE(tradingEngine.current.episode.balance.baseAsset.value, 10)
-                    tradingEngine.current.episode.balance.quotedAsset.value = global.PRECISE(tradingEngine.current.episode.balance.quotedAsset.value, 10)
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeBaseAsset.balance.value, 10)
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value = global.PRECISE(tradingEngine.current.episode.episodeQuotedAsset.balance.value, 10)
                 }
 
             }

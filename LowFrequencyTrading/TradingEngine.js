@@ -48,8 +48,6 @@ exports.newTradingEngine = function newTradingEngine(bot, logger) {
     }
 
     function setCurrentCandle(candle) {
-        cloneValues(tradingEngine.current.candle, tradingEngine.previous.candle)
-
         tradingEngine.current.candle.begin.value = candle.begin
         tradingEngine.current.candle.end.value = candle.end
         tradingEngine.current.candle.open.value = candle.open
